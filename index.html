@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multiplicópolis · Tablas de multiplicar</title>
+  <meta name="description" content="App gamificada para aprender, practicar y evaluar las tablas de multiplicar en Primaria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='78' font-size='78'>✖️</text></svg>" />
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="sky" aria-hidden="true"><span>➕</span><span>✖️</span><span>⭐</span><span>🧮</span><span>🚀</span></div>
+    <article class="login-card">
+      <div class="brand">
+        <div class="logo">✖️</div>
+        <h1>Multiplicópolis</h1>
+        <p>La ciudad donde las tablas se convierten en superpoderes</p>
+      </div>
+      <div class="sync-banner" id="loginSyncState">☁️ Preparado</div>
+      <div class="login-toolbar">
+        <label>Grupo <select id="loginGroupFilter"><option value="all">Todos</option></select></label>
+        <button id="teacherLoginBtn" class="ghost">🔒 Zona maestro/a</button>
+      </div>
+      <h2>¿Quién va a entrenar hoy?</h2>
+      <div id="studentGrid" class="student-grid"></div>
+      <div class="login-actions">
+        <input id="newStudentName" placeholder="Nombre o alias" maxlength="32" />
+        <select id="newStudentGroup"></select>
+        <input id="newStudentPw" placeholder="Contraseña" maxlength="24" autocomplete="off" />
+        <button id="addStudentBtn" class="secondary">Crear perfil</button>
+      </div>
+      <p class="tiny">La contraseña evita que otros entren por error en tu perfil. El maestro/a puede verla desde su panel.</p>
+    </article>
+  </section>
+
+  <div id="appShell" class="app-shell hidden">
+    <header class="topbar">
+      <div class="brand-mini">✖️ <strong>Multiplicópolis</strong> <small id="groupLabel"></small></div>
+      <div class="player-panel">
+        <span id="dailyStreak" class="pill">🔥 1 día</span>
+        <span id="playerAvatar" class="avatar">🦊</span>
+        <div><strong id="playerName">Alumno/a</strong><br><small id="rankName">Aprendiz de Producto</small></div>
+        <div class="xp-wrap"><div class="xp-bar"><span id="xpBar"></span></div><small id="xpText">0 XP</small></div>
+        <button id="switchStudentBtn" class="ghost small">Salir</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-view="adventure">🗺️ Aventura</button>
+      <button class="tab" data-view="train">⚡ Entrenar</button>
+      <button class="tab" data-view="study">📚 Estudiar</button>
+      <button class="tab" data-view="review">🔁 Repasar</button>
+      <button class="tab" data-view="progress">🏅 Mi progreso</button>
+      <button class="tab exam-tab hidden" id="examTab" data-view="exam">📝 Examen</button>
+      <button class="tab teacher-tab" data-view="teacher">🔒 Maestro/a</button>
+    </nav>
+
+    <main>
+      <section id="view-adventure" class="view active">
+        <div id="missionBanner" class="mission-banner hidden"></div>
+        <div class="section-head"><h2>Mapa de las Tablas</h2><span id="starCount" class="pill">⭐ 0/36</span></div>
+        <div id="worldMap" class="world-map"></div>
+      </section>
+
+      <section id="view-train" class="view">
+        <article class="card">
+          <p class="badge">Práctica libre</p><h2>Gimnasio del cálculo</h2>
+          <div class="filters">
+            <label>Tablas<select id="trainTables" multiple size="8"></select></label>
+            <label>Tipo de reto<select id="trainMode"></select></label>
+            <label>Dificultad<select id="difficulty"><option value="easy">🐣 Suave</option><option value="normal" selected>🦊 Normal</option><option value="hard">🐉 Reto</option></select></label>
+            <label>Preguntas<input id="rounds" type="number" min="5" max="40" value="10"></label>
+          </div>
+          <button id="startTrainBtn" class="primary big">Empezar entrenamiento</button>
+        </article>
+      </section>
+
+      <section id="view-study" class="view">
+        <div class="grid two">
+          <article class="card">
+            <p class="badge">Modo estudio</p><h2>Laboratorio de tablas</h2>
+            <div class="filters"><label>Tabla<select id="studyTable"></select></label><label>Vista<select id="studyView"><option value="normal">Tabla completa</option><option value="groups">Agrupaciones</option><option value="hide">Tapar resultados</option></select></label></div>
+            <div id="tableStudy" class="table-study"></div>
+          </article>
+          <aside class="card">
+            <p class="badge">Estrategia</p><h2>Estudia sin memorizar a ciegas</h2>
+            <ol class="list"><li>Di la tabla en voz alta.</li><li>Busca dobles: 4×6 es el doble de 2×6.</li><li>Usa conmutativa: 7×8 es igual que 8×7.</li><li>Tapa resultados y comprueba.</li></ol>
+            <div class="callout">🧠 Saber que 6×7 = 42 ayuda también a recordar 7×6 = 42.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-review" class="view">
+        <div class="grid two">
+          <article class="card"><p class="badge">Repaso inteligente</p><h2>Errores pendientes: <span id="reviewCount">0</span></h2><div id="mistakeList"></div><button id="practiceMistakes" class="primary big">Practicar mis errores</button></article>
+          <aside class="card"><p class="badge">Mentalidad</p><h2>El error es una pista</h2><p>Cada fallo señala una tabla que tu cerebro está a punto de dominar. Aquí no se castiga el error: se entrena.</p></aside>
+        </div>
+      </section>
+
+      <section id="view-progress" class="view">
+        <div class="grid four stats-grid"><article class="stat card"><span id="statXp">0</span><p>XP</p></article><article class="stat card"><span id="statAcc">0%</span><p>Acierto</p></article><article class="stat card"><span id="statBest">0</span><p>Mejor racha</p></article><article class="stat card"><span id="statSolved">0</span><p>Resueltas</p></article></div>
+        <div class="grid two"><article class="card"><p class="badge">Dominio</p><h2>Tablas</h2><div id="masteryBars"></div></article><article class="card"><p class="badge">Liga semanal</p><h2>Podio del grupo</h2><div id="podium"></div></article></div>
+        <article class="card"><p class="badge">Actividad</p><h2>Últimos retos</h2><div id="activityLog"></div><button id="forceSyncBtn" class="secondary small">📡 Enviar pendientes</button></article>
+      </section>
+
+      <section id="view-exam" class="view"><article class="card"><p class="badge">Evaluación</p><h2>Exámenes disponibles</h2><div id="examList"></div></article></section>
+
+      <section id="view-teacher" class="view teacher-view">
+        <div class="teacher-layout">
+          <aside class="card teacher-menu"><p class="badge">Zona maestro/a</p><h2>Panel docente</h2><button class="teacher-nav active" data-panel="overview">📊 Resumen</button><button class="teacher-nav" data-panel="missions">🎯 Misiones</button><button class="teacher-nav" data-panel="exams">📝 Evaluaciones</button><button class="teacher-nav" data-panel="groups">👥 Alumnado</button><button class="teacher-nav" data-panel="settings">⚙️ Ajustes</button><button class="teacher-nav" data-panel="print">🖨️ Fichas</button><button id="lockTeacherBtn" class="ghost danger full">Cerrar zona maestro/a</button></aside>
+          <section class="teacher-panels">
+            <article id="panel-overview" class="card teacher-panel active"><p class="badge">Seguimiento</p><h2>Resumen del aula</h2><div id="classSummary"></div><h3>Radar docente</h3><div id="teacherRadar"></div><button id="exportCsvBtn" class="secondary">Exportar CSV</button><button id="syncAllBtn" class="primary">Sincronizar pendientes</button></article>
+            <article id="panel-missions" class="card teacher-panel"><p class="badge">Misión del día</p><h2>Configurar misión</h2><div class="grid two compact"><label>Grupo<select id="missionGroup"></select></label><label>Título<input id="missionTitle" placeholder="Operación tabla del 7"></label><label>Preguntas<input id="missionRounds" type="number" min="5" max="30" value="10"></label><label>Tablas<select id="missionTables" multiple size="8"></select></label></div><button id="saveMissionBtn" class="primary">Guardar misión</button><button id="clearMissionBtn" class="ghost danger">Quitar misión</button><div id="missionList"></div></article>
+            <article id="panel-exams" class="card teacher-panel"><p class="badge">Evaluación</p><h2>Crear examen</h2><div class="grid two compact"><label>Título<input id="examTitle" placeholder="Control tablas 6, 7, 8 y 9"></label><label>Grupo<select id="examGroup"></select></label><label>Tablas<select id="examTables" multiple size="8"></select></label><label>Preguntas<input id="examN" type="number" min="5" max="50" value="20"></label></div><label class="check"><input type="checkbox" id="examTimer"> Activar tiempo límite</label><button id="createExamBtn" class="primary">Crear evaluación</button><button id="exportGradesBtn" class="secondary">Exportar notas</button><div id="examManageList"></div></article>
+            <article id="panel-groups" class="card teacher-panel"><p class="badge">Alumnado</p><h2>Grupos y contraseñas</h2><div class="grid two compact"><label>Nuevo grupo<input id="newGroupName" placeholder="4.ºA"></label><button id="addGroupBtn" class="secondary align-end">Añadir grupo</button></div><div id="groupStudentList"></div></article>
+            <article id="panel-settings" class="card teacher-panel"><p class="badge">Conexión</p><h2>Ajustes</h2><label>URL Apps Script<input id="backendUrlInput" placeholder="https://script.google.com/macros/s/.../exec"></label><label>Código de aula<input id="classCodeInput" placeholder="Multiplicópolis Aula"></label><div class="row-wrap"><button id="saveBackendBtn" class="primary">Guardar</button><button id="testBackendBtn" class="secondary">Probar conexión</button><button id="publishConfigBtn" class="ghost">📡 Publicar al aula</button><button id="pullConfigBtn" class="ghost">☁️ Descargar configuración</button></div><label class="check"><input type="checkbox" id="accessibleToggle"> Modo accesible</label><label class="check"><input type="checkbox" id="quietToggle"> Modo tranquilo</label></article>
+            <article id="panel-print" class="card teacher-panel"><p class="badge">Papel</p><h2>Ficha imprimible</h2><label>Tabla<select id="printTable"></select></label><button id="makeWorksheetBtn" class="secondary">Crear ficha</button><button onclick="window.print()" class="ghost">Imprimir</button><div id="worksheet" class="worksheet"></div></article>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="gameOverlay" class="game-overlay hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
