@@ -62,7 +62,7 @@
     <main>
       <section id="view-adventure" class="view active">
         <div id="missionBanner" class="mission-banner hidden"></div>
-        <div class="section-head"><h2>Mapa de las Tablas</h2><span id="starCount" class="pill">⭐ 0/36</span></div>
+        <div class="section-head"><h2>Mapa de Multiplicópolis · 1º a 6º</h2><span id="starCount" class="pill">⭐ 0/105</span></div>
         <div id="worldMap" class="world-map"></div>
       </section>
 
@@ -70,10 +70,19 @@
         <article class="card">
           <p class="badge">Práctica libre</p><h2>Gimnasio del cálculo</h2>
           <div class="filters">
-            <label>Tablas<select id="trainTables" multiple size="8"></select></label>
+            <label>Ejercicio<select id="trainKind"><option value="tables">✖️ Tablas de multiplicar</option><option value="column">🧱 Multiplicación en columna</option></select></label>
+            <label>Preguntas<input id="rounds" type="number" min="5" max="40" value="10"></label>
+          </div>
+          <div id="tablesOptions" class="filters">
+            <label>Tablas<select id="trainTables" multiple size="6"></select></label>
             <label>Tipo de reto<select id="trainMode"></select></label>
             <label>Dificultad<select id="difficulty"><option value="easy">🐣 Suave</option><option value="normal" selected>🦊 Normal</option><option value="hard">🐉 Reto</option></select></label>
-            <label>Preguntas<input id="rounds" type="number" min="5" max="40" value="10"></label>
+          </div>
+          <div id="columnOptions" class="filters hidden">
+            <label>Cifras de arriba<select id="colA"><option value="2">2 cifras</option><option value="3">3 cifras</option><option value="4">4 cifras</option></select></label>
+            <label>Cifras de abajo<select id="colB"><option value="1">1 cifra</option><option value="2">2 cifras</option><option value="3">3 cifras</option></select></label>
+            <label>Resolución<select id="colRender"><option value="step">✍️ Paso a paso</option><option value="result">⚡ Solo resultado</option></select></label>
+            <label class="check"><input type="checkbox" id="colCarry" checked> Forzar llevadas</label>
           </div>
           <button id="startTrainBtn" class="primary big">Empezar entrenamiento</button>
         </article>
@@ -92,6 +101,16 @@
             <div class="callout">🧠 Saber que 6×7 = 42 ayuda también a recordar 7×6 = 42.</div>
           </aside>
         </div>
+        <article class="card">
+          <p class="badge">Operaciones</p><h2>Laboratorio de la columna</h2>
+          <p class="tiny">Mira cómo se resuelve cualquier multiplicación paso a paso, con las llevadas y los productos parciales.</p>
+          <div class="filters">
+            <label>Número grande<input id="labA" type="number" min="0" value="234"></label>
+            <label>Por<input id="labB" type="number" min="0" value="6"></label>
+            <button id="labGoBtn" class="secondary align-end">Ver resuelta</button>
+          </div>
+          <div id="labResult"></div>
+        </article>
       </section>
 
       <section id="view-review" class="view">
@@ -103,6 +122,7 @@
 
       <section id="view-progress" class="view">
         <div class="grid four stats-grid"><article class="stat card"><span id="statXp">0</span><p>XP</p></article><article class="stat card"><span id="statAcc">0%</span><p>Acierto</p></article><article class="stat card"><span id="statBest">0</span><p>Mejor racha</p></article><article class="stat card"><span id="statSolved">0</span><p>Resueltas</p></article></div>
+        <div class="grid two"><article class="card"><p class="badge">Logros</p><h2>Insignias</h2><div id="badgeGrid" class="badge-grid"></div></article><article class="card"><p class="badge">Personaliza</p><h2>Tu avatar</h2><div id="avatarPicker" class="avatar-picker"></div><p class="tiny">Desbloquea nuevos avatares ganando XP.</p></article></div>
         <div class="grid two"><article class="card"><p class="badge">Dominio</p><h2>Tablas</h2><div id="masteryBars"></div></article><article class="card"><p class="badge">Liga semanal</p><h2>Podio del grupo</h2><div id="podium"></div></article></div>
         <article class="card"><p class="badge">Actividad</p><h2>Últimos retos</h2><div id="activityLog"></div><button id="forceSyncBtn" class="secondary small">📡 Enviar pendientes</button></article>
       </section>
@@ -113,10 +133,10 @@
         <div class="teacher-layout">
           <aside class="card teacher-menu"><p class="badge">Zona maestro/a</p><h2>Panel docente</h2><button class="teacher-nav active" data-panel="overview">📊 Resumen</button><button class="teacher-nav" data-panel="missions">🎯 Misiones</button><button class="teacher-nav" data-panel="exams">📝 Evaluaciones</button><button class="teacher-nav" data-panel="groups">👥 Alumnado</button><button class="teacher-nav" data-panel="settings">⚙️ Ajustes</button><button class="teacher-nav" data-panel="print">🖨️ Fichas</button><button id="lockTeacherBtn" class="ghost danger full">Cerrar zona maestro/a</button></aside>
           <section class="teacher-panels">
-            <article id="panel-overview" class="card teacher-panel active"><p class="badge">Seguimiento</p><h2>Resumen del aula</h2><div id="classSummary"></div><h3>Radar docente</h3><div id="teacherRadar"></div><button id="exportCsvBtn" class="secondary">Exportar CSV</button><button id="syncAllBtn" class="primary">Sincronizar pendientes</button></article>
-            <article id="panel-missions" class="card teacher-panel"><p class="badge">Misión del día</p><h2>Configurar misión</h2><div class="grid two compact"><label>Grupo<select id="missionGroup"></select></label><label>Título<input id="missionTitle" placeholder="Operación tabla del 7"></label><label>Preguntas<input id="missionRounds" type="number" min="5" max="30" value="10"></label><label>Tablas<select id="missionTables" multiple size="8"></select></label></div><button id="saveMissionBtn" class="primary">Guardar misión</button><button id="clearMissionBtn" class="ghost danger">Quitar misión</button><div id="missionList"></div></article>
-            <article id="panel-exams" class="card teacher-panel"><p class="badge">Evaluación</p><h2>Crear examen</h2><div class="grid two compact"><label>Título<input id="examTitle" placeholder="Control tablas 6, 7, 8 y 9"></label><label>Grupo<select id="examGroup"></select></label><label>Tablas<select id="examTables" multiple size="8"></select></label><label>Preguntas<input id="examN" type="number" min="5" max="50" value="20"></label></div><label class="check"><input type="checkbox" id="examTimer"> Activar tiempo límite</label><button id="createExamBtn" class="primary">Crear evaluación</button><button id="exportGradesBtn" class="secondary">Exportar notas</button><div id="examManageList"></div></article>
-            <article id="panel-groups" class="card teacher-panel"><p class="badge">Alumnado</p><h2>Grupos y contraseñas</h2><div class="grid two compact"><label>Nuevo grupo<input id="newGroupName" placeholder="4.ºA"></label><button id="addGroupBtn" class="secondary align-end">Añadir grupo</button></div><div id="groupStudentList"></div></article>
+            <article id="panel-overview" class="card teacher-panel active"><p class="badge">Seguimiento</p><h2>Resumen del aula</h2><div id="classSummary"></div><h3>Mapa de dominio por curso</h3><div id="masteryHeat"></div><h3>Radar docente</h3><div id="teacherRadar"></div><div class="row-wrap"><button id="exportCsvBtn" class="secondary">Exportar CSV</button><button id="syncAllBtn" class="primary">Sincronizar pendientes</button><button id="pullProgressBtn" class="ghost">☁️ Traer progreso de la nube</button></div></article>
+            <article id="panel-missions" class="card teacher-panel"><p class="badge">Misión del día</p><h2>Configurar misión</h2><div class="grid two compact"><label>Grupo<select id="missionGroup"></select></label><label>Título<input id="missionTitle" placeholder="Operación tabla del 7"></label><label>Preguntas<input id="missionRounds" type="number" min="5" max="30" value="10"></label><label>Contenido<select id="missionContent"><option value="tables">✖️ Tablas (elige abajo)</option><option value="col-2x1">🧱 Columna · 2 cifras × 1</option><option value="col-3x1">🧱 Columna · 3 cifras × 1</option><option value="col-2x2">🏢 Columna · 2 cifras × 2</option><option value="col-3x2">🏢 Columna · 3 cifras × 2</option><option value="col-3x3">🚢 Columna · 3 cifras × 3</option></select></label><label>Tablas<select id="missionTables" multiple size="8"></select></label></div><button id="saveMissionBtn" class="primary">Guardar misión</button><button id="clearMissionBtn" class="ghost danger">Quitar misión</button><div id="missionList"></div></article>
+            <article id="panel-exams" class="card teacher-panel"><p class="badge">Evaluación</p><h2>Crear examen</h2><div class="grid two compact"><label>Título<input id="examTitle" placeholder="Control tablas 6, 7, 8 y 9"></label><label>Grupo<select id="examGroup"></select></label><label>Contenido<select id="examContent"><option value="tables">✖️ Tablas (elige abajo)</option><option value="col-2x1">🧱 Columna · 2 cifras × 1</option><option value="col-3x1">🧱 Columna · 3 cifras × 1</option><option value="col-2x2">🏢 Columna · 2 cifras × 2</option><option value="col-3x2">🏢 Columna · 3 cifras × 2</option><option value="col-3x3">🚢 Columna · 3 cifras × 3</option></select></label><label>Tablas<select id="examTables" multiple size="8"></select></label><label>Preguntas<input id="examN" type="number" min="5" max="50" value="20"></label></div><label class="check"><input type="checkbox" id="examTimer"> Activar tiempo límite</label><button id="createExamBtn" class="primary">Crear evaluación</button><button id="exportGradesBtn" class="secondary">Exportar notas</button><div id="examManageList"></div></article>
+            <article id="panel-groups" class="card teacher-panel"><p class="badge">Alumnado</p><h2>Grupos y contraseñas</h2><div class="grid two compact"><label>Nuevo grupo<input id="newGroupName" placeholder="4.ºA"></label><button id="addGroupBtn" class="secondary align-end">Añadir grupo</button></div><h3>Límite de curso en la aventura</h3><p class="tiny">Bloquea los cursos que aún no habéis dado: aparecerán con 🚧 hasta que los abras.</p><div id="limitList"></div><div id="groupStudentList"></div></article>
             <article id="panel-settings" class="card teacher-panel"><p class="badge">Conexión</p><h2>Ajustes</h2><label>URL Apps Script<input id="backendUrlInput" placeholder="https://script.google.com/macros/s/.../exec"></label><label>Código de aula<input id="classCodeInput" placeholder="Multiplicópolis Aula"></label><div class="row-wrap"><button id="saveBackendBtn" class="primary">Guardar</button><button id="testBackendBtn" class="secondary">Probar conexión</button><button id="publishConfigBtn" class="ghost">📡 Publicar al aula</button><button id="pullConfigBtn" class="ghost">☁️ Descargar configuración</button></div><label class="check"><input type="checkbox" id="accessibleToggle"> Modo accesible</label><label class="check"><input type="checkbox" id="quietToggle"> Modo tranquilo</label></article>
             <article id="panel-print" class="card teacher-panel"><p class="badge">Papel</p><h2>Ficha imprimible</h2><label>Tabla<select id="printTable"></select></label><button id="makeWorksheetBtn" class="secondary">Crear ficha</button><button onclick="window.print()" class="ghost">Imprimir</button><div id="worksheet" class="worksheet"></div></article>
           </section>
