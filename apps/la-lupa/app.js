@@ -179,7 +179,7 @@ function renderPaso() {
       <main id="escena" class="escena"></main>
       <aside id="cuaderno" class="cuaderno"></aside>
     </div>`);
-  $("#abandonar").onclick = () => { if (confirm("¿Volver al tablón? Se perderá el avance de este caso.")) vistaTablon(); };
+  $("#abandonar").onclick = () => confirmar("¿Volver al tablón? Se perderá el avance de este caso.", vistaTablon, "Volver al tablón");
   renderCuaderno();
   (PASOS[paso.tipo] || pasoDesconocido)(paso, $("#escena"));
 }
@@ -244,12 +244,11 @@ function vistaMaestro() {
     </section>`);
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());
   $("#csv").onclick = exportarCSV;
-  $("#borrar").onclick = () => {
-    if (!confirm("Se borrarán todos los detectives y resultados de este dispositivo. ¿Seguro?")) return;
+  $("#borrar").onclick = () => confirmar("Se borrarán todos los detectives y resultados de este dispositivo.", () => {
     perfiles = []; resultados = []; perfil = null;
     guardar("perfiles", perfiles); guardar("resultados", resultados);
     vistaInicio();
-  };
+  }, "Borrar todo");
 }
 
 function exportarCSV() {
@@ -282,6 +281,12 @@ function abrirModal(html) {
   m.classList.add("visible");
   $(".cerrar", m).onclick = cerrarModal;
   m.onclick = e => { if (e.target === m) cerrarModal(); };
+}
+/* Confirmación dentro de la página (confirm() no funciona en todos los visores) */
+function confirmar(mensaje, siAcepta, textoSi = "Sí") {
+  abrirModal(`<h3>${esc(mensaje)}</h3><div class="acciones"><button class="fantasma" id="cNo">Cancelar</button><button class="primario" id="cSi">${esc(textoSi)}</button></div>`);
+  $("#cNo").onclick = cerrarModal;
+  $("#cSi").onclick = () => { cerrarModal(); siAcepta(); };
 }
 function cerrarModal() { $("#modal").classList.remove("visible"); $("#modal").innerHTML = ""; }
 document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarModal(); });
@@ -594,12 +599,15 @@ const PASOS = {
     contador();
     $("#entregar").onclick = () => {
       const sinResolver = errores.filter(t => !t.resuelta);
-      if (sinResolver.length && !confirm("Todavía quedan faltas en el expediente. ¿Entregarlo de todas formas?")) return;
-      sinResolver.forEach(t => {
-        if (!t.detectada) registrar("9.2", false, t.bien, "no encontrada");
-        if (!t.intentada) registrar("5.1", false, t.bien, "sin corregir");
-      });
-      siguiente();
+      const entregar = () => {
+        sinResolver.forEach(t => {
+          if (!t.detectada) registrar("9.2", false, t.bien, "no encontrada");
+          if (!t.intentada) registrar("5.1", false, t.bien, "sin corregir");
+        });
+        siguiente();
+      };
+      if (sinResolver.length) confirmar("Todavía quedan faltas en el expediente. ¿Entregarlo de todas formas?", entregar, "Entregar así");
+      else entregar();
     };
   },
 };
