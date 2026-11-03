@@ -5,7 +5,9 @@ Cada documento empieza con un **resumen de 3-5 líneas con la conclusión**; el 
 
 | Archivo | Tema | Estado |
 |---|---|---|
-| _(vacío)_ | | |
+| [investigacion/sherlock-ort.md](investigacion/sherlock-ort.md) | Sherlock Ort: 29 Geniallys, mecánica, contenidos y qué no copiar | Hecho |
+| [investigacion/referentes-juegos-detective-lengua.md](investigacion/referentes-juegos-detective-lengua.md) | Juegos de detectives y aventura gráfica, didáctica de la ortografía y técnica web | Hecho |
+| [investigacion/curriculo-lengua-tercer-ciclo-andalucia.md](investigacion/curriculo-lengua-tercer-ciclo-andalucia.md) | Currículo andaluz de Lengua del 3.er ciclo: criterios con código, saberes y reglas | Hecho |
 
 Carpetas:
 - `investigacion/`: preguntas abiertas que se investigan (Séneca, RGPD y datos de menores, motores de juego…).
