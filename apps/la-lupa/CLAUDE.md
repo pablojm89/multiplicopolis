@@ -1,52 +1,62 @@
 # Agencia La Lupa
 
-Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alumnado forma parte del equipo de la agencia (con Lola y Mateo; la directora es Robles), en el barrio ficticio de La Alameda. Cada caso trabaja una o varias reglas: detectar y corregir faltas hace avanzar la investigación. Modo individual. En la fase 3 se convertirá en aventura gráfica.
+Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alumno es detective del equipo de la agencia, junto a Lola y Mateo, con la directora Robles al frente, en el barrio ficticio de La Alameda. Cada caso trabaja una o varias reglas: encontrar y corregir faltas hace avanzar la investigación. Modo individual.
 
 - **Lee primero `PLAN.md`**: fases, estado y decisiones.
-- `DISEÑO.md` resume las investigaciones de `docs/investigacion/`. Normalmente basta con él; no hace falta leer los documentos completos.
-- Identidad propia: no se copia nada de "Sherlock Ort" (nombre, personajes, textos, imágenes ni listas de palabras). Solo se usa la idea de la mecánica.
+- **Referencia de experiencia:** `docs/investigacion/sherlock-ort-experiencia.md`. Describe cómo se vive Sherlock Ort al jugarlo: escenas a pantalla completa, ritmo lento, retos dentro de la imagen. La v1 de este juego fracasó por no tenerlo en cuenta.
+- `DISEÑO.md` resume la investigación didáctica y curricular.
+- Identidad propia: no se copia nada de Sherlock Ort (nombre, personajes, textos, imágenes ni listas de palabras). Solo se toma la idea de la mecánica.
 
 ## Ficheros
 
 | Fichero | Qué es |
 |---|---|
-| `app.js` | Motor genérico, sin textos de casos. Secciones: Utilidades → Estado → Marcado de faltas → Registro y notas → Pantallas → Componentes → Pasos (`PASOS.<tipo>`) → Arranque |
-| `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a otra programación |
-| `datos/reglas.json` | Catálogo de reglas: nombre, saberes, criterios, ficha del "Archivo de Mateo" y cartas para los careos |
-| `datos/casos/<id>.json` | Un caso: título, reglas y lista de `pasos` |
-| `index.html`, `styles.css` | Estructura y estilo (paleta albero/azulejo; arte provisional con emojis) |
+| `motor.js` | Escenario 16:9 de 1280×720 escalado a la pantalla, arte (o hueco marcado), texto que se escribe solo, HUD (libreta, archivo, lupa de pistas), ventanas, pantallas de «¡Pista conseguida!» / «¡Pista falsa!», registro y notas, palabras pulsables |
+| `escenas.js` | `ESCENAS.<tipo>`: una función por tipo de escena |
+| `app.js` | Entrada, tablón de corcho, partida, informe, zona maestro/a (página normal) y arranque |
+| `styles.css` | Todo en px del escenario de 1280×720. Mundo visual único: papel envejecido, tinta, albero y azulejo |
+| `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a una programación |
+| `datos/reglas.json` | Reglas: nombre, saberes, criterios, ficha del Archivo de Mateo y cartas de los careos |
+| `datos/arte.json` | Catálogo de arte con su prompt. `_estilo` es el estilo común. `listo` (o `listas`, para las expresiones) cuando la imagen existe |
+| `datos/casos/<id>.json` | Un caso: `numero`, `titulo`, `resumen`, `reglas` y `escenas[]` |
+| `arte/` | Imágenes `.webp` (aún no existe). Fondos y objetos: `<id>.webp`; personajes: `<id>-<expresion>.webp` |
 
-## Cómo escribir un caso
+## Tipos de escena
 
-Marcado de faltas dentro de los textos: `{mal|bien}`, y en los careos `{mal|bien|carta}`. Las faltas que aparecen en los campos `texto` e `intro` se repasan después en el paso `expediente`.
+Campos comunes: `fondo`, `personaje {id, expresion, lado: izq|der}`, `objeto`, `titulo`, `instruccion`, `quien`, `pistas[]`.
+Marcado de faltas: `{mal|bien}`; en los careos, `{mal|bien|carta}`. Las faltas de `texto` e `intro` se repasan después en `expediente`.
 
-Tipos de paso (`tipo`) y lo que evalúa cada uno:
-
-| Tipo | Campos | Criterio |
+| Tipo | Campos propios | Evalúa |
 |---|---|---|
-| `narracion` | quien, emoji, texto, boton | — |
-| `descubre` | preguntas[{grupos, pregunta, opciones, correcta, explicacion}], desbloquea:"cartas" | 9.1 |
-| `caza` | declaracion con faltas, recompensa{texto, digito} | 9.2 (detectar) + 5.1 (escribir) |
-| `clasifica` | categorias[], palabras[{p, cat, silabas}], recompensa | 9.1 |
-| `manchas` | palabras[{p, pos (índice de la vocal tapada), silabas}], recompensa | 5.1 |
-| `careo` | declaracion con `{mal|bien|carta}` | 9.1 (carta) + 9.2 + 5.1 |
-| `candado` | codigo (cifras de las recompensas, en orden), exito | — |
-| `expediente` | intro | 9.2 + 5.1 |
+| `portada` | (usa número, título y resumen del caso) Precinto que hay que romper | — |
+| `relato` | `texto` (se escribe solo; la flecha aparece al terminar) | — |
+| `descubre` | `preguntas[{grupos, pregunta, opciones, correcta, explicacion}]`, `desbloquea:"cartas"` | 9.1 |
+| `papeles` | `palabras[]` correctas, `faltas[{mal,bien}]`, `frase` con `{0}…`: las correcciones rellenan la pista | 9.2 + 5.1 |
+| `hipotesis` | `opciones[]`, `correcta`, `acierto`, `fallo` | — |
+| `clasifica` | `categorias[]`, `palabras[{p, cat, silabas}]` | 9.1 |
+| `manchas` | `palabras[{p, pos (índice de la vocal tapada), silabas}]` | 5.1 |
+| `careo` | `declaracion` con `{mal|bien|carta}` | 9.2 + 9.1 + 5.1 |
+| `candado` | `codigo` (cifras de las `recompensa.digito`, en orden), `exito` | — |
+| `expediente` | — (recoge las faltas sembradas antes) | 9.2 + 5.1 |
+| `final` | `texto` → informe | — |
 
-Todos los pasos admiten `intro`, `lugar` y `pistas[]` (de vaga a concreta).
-Solo cuenta el primer intento de cada elemento. La nota de cada criterio es aciertos / intentos × 10 (mínimo 1), con la escala IN/SU/BI/NT/SB. El código del criterio lleva `.a` en 5.º y `.b` en 6.º.
+Los retos con `recompensa {texto, digito}` muestran «¡Pista conseguida!» y guardan la cifra en la libreta.
+Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 1), escala IN/SU/BI/NT/SB, código del criterio con `.a` (5.º) o `.b` (6.º).
 
-## Adaptar a la programación de un libro de texto
+## Cómo crear un caso nuevo (borrador; se consolida cuando Pablo dé por bueno el caso 1)
 
-1. Reescribe `datos/programacion.json`: unidades por curso con su `trimestre`, `titulo`, `reglas` y, si existe, `caso`.
-2. Las reglas nuevas se añaden a `reglas.json`. Las unidades sin caso aparecen como "Próximamente".
-3. Haz una lista de las reglas que se han quedado sin caso: es el trabajo pendiente.
+1. **Regla y unidad**: elige la unidad de `programacion.json` y sus reglas. Si la regla no tiene `ficha` ni `cartas` en `reglas.json`, escríbelas.
+2. **Historia**: un misterio pequeño en un lugar del barrio, con 3 o 4 sospechosos o testigos y un objeto protagonista. La solución sale de las palabras corregidas.
+3. **Escenas**: copia la estructura del caso 1: portada → aviso → descubre → 2-3 lugares (relato + reto con cifra) → hipótesis → careo → candado → expediente → final. Pon 2-4 faltas por texto y siembra 3-5 en los relatos para el expediente.
+4. **Arte**: añade a `arte.json` los fondos, personajes (con expresiones) y objetos nuevos, con su `prompt`. Reutiliza siempre Lola, Mateo, Robles y la oficina.
+5. **Prueba**: juega el caso entero en el navegador (Playwright) con aciertos y fallos. Revisa capturas de cada escena y comprueba las notas del informe.
+6. **Revisión de Pablo** antes de darlo por cerrado.
 
 ## Probar
 
-`node .claude/serve.js` → `http://localhost:4321/apps/la-lupa/`. Con Playwright se puede jugar un caso entero (en las sesiones en la nube ya está instalado).
+`node .claude/serve.js` → `http://localhost:4321/apps/la-lupa/`.
 
 ## Pendiente / conocido
 
-- Los datos se guardan solo en `localStorage` del dispositivo. La zona del maestro/a no tiene PIN y no hay sincronización con el backend.
-- El arte es provisional: emojis y CSS (fase 3).
+- Todo el arte son huecos marcados: faltan las imágenes, que se generarán con Gemini o ChatGPT a partir de `arte.json`.
+- Los datos se guardan solo en `localStorage`. La zona del maestro/a no tiene PIN. No hay sincronización con el backend.
