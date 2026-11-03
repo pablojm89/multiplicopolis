@@ -10,7 +10,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 **Estado:** en curso
 
 - [ ] Todo lo publicado sobre Sherlock Ort → `docs/investigacion/sherlock-ort.md`
-- [ ] Referentes de juegos de detectives y aventura gráfica, didáctica de la ortografía y herramientas técnicas → `docs/investigacion/referentes-juegos-detective-lengua.md`
+- [x] Referentes de juegos de detectives y aventura gráfica, didáctica de la ortografía y herramientas técnicas → `docs/investigacion/referentes-juegos-detective-lengua.md`
 - [ ] Currículo de Lengua del 3.er ciclo en Andalucía (criterios con código para Séneca) → `docs/investigacion/curriculo-lengua-tercer-ciclo-andalucia.md`
 - [ ] Síntesis: diseño de la v1 (casos de ortografía) → `apps/detective/DISEÑO.md`
 - [ ] Prototipo jugable de la v1 (un caso completo)
