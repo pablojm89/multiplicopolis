@@ -9,7 +9,7 @@ Los alumnos forman parte de una pequeña agencia de detectives del barrio fictic
 
 ### Estilo (igual en TODAS las imágenes)
 
-Ilustración de álbum infantil con estética de cómic europeo de detectives: línea de tinta suelta, colores planos con textura de papel envejecido, sombras suaves. Paleta: albero (amarillo arena), azul azulejo, blanco cal, terracota, verde oliva. Barrio andaluz ficticio llamado La Alameda: casas encaladas, rejas, macetas, azulejos, farolillos de feria. Tono cálido y con humor, para niños de 10-12 años. Sin texto escrito en la imagen.
+Ilustración estilo anime/manga moderno de misterio, con el tono de una serie juvenil de suspense (no infantil): línea limpia y segura, sombreado cel-shading, luces dramáticas, contraluces y sombras profundas, encuadres cinematográficos. Atmósfera noir de detectives: noche o atardecer, niebla ligera, faroles, a veces lluvia; luz cálida de lámpara contra azules fríos. Ambientación: barrio andaluz ficticio llamado La Alameda (callejones encalados, rejas de forja, azulejos, patios, naranjos, farolillos de feria), visto con aire misterioso. Paleta: azul noche y pizarra como base, ámbar para la luz, rojo intenso como acento y toques de azul azulejo. Personajes con rasgos anime (ojos expresivos, siluetas reconocibles, actitud segura). Para niños de 10-12 años: tensión y misterio sí; sangre, violencia y terror explícito no. Sin texto escrito en la imagen. Nada de personajes, logotipos ni marcas de series, juegos o películas existentes.
 
 ### Reglas
 
@@ -35,7 +35,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Lola
 
-**Descripción:** Lola, detective de 11 años, piel morena clara, pelo castaño con coleta alta, gabardina corta color albero, zapatillas, lupa grande en la mano, mirada lista y decidida.
+**Descripción:** Lola, detective de 11 años, estilo anime: piel morena clara, pelo castaño oscuro con coleta alta, gabardina larga color ámbar con el cuello subido, bufanda roja, botas, lupa de latón en la mano; mirada intensa y segura.
 
 | Archivo | Expresión |
 |---|---|
@@ -46,7 +46,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Mateo
 
-**Descripción:** Mateo, detective archivero de 11 años, piel clara, pelo rizado, gafas redondas, chaleco azul con muchos bolsillos, carga un archivador lleno de fichas de colores.
+**Descripción:** Mateo, detective de 11 años, estilo anime: piel clara, pelo rizado oscuro, gafas redondas que reflejan la luz, chaqueta azul marino con muchos bolsillos, auriculares al cuello, archivador lleno de fichas bajo el brazo; aire de genio despistado.
 
 | Archivo | Expresión |
 |---|---|
@@ -57,7 +57,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Directora Robles
 
-**Descripción:** La directora Robles, mujer de unos 55 años, pelo canoso recogido en moño, gafas colgadas al cuello, chaqueta azul marino, gesto serio pero amable, taza de café en la mano.
+**Descripción:** La directora Robles, unos 55 años, estilo anime: abrigo largo oscuro, pelo canoso recogido en moño, gafas finas, taza de café humeante; jefa de detectives veterana, seria pero con media sonrisa.
 
 | Archivo | Expresión |
 |---|---|
@@ -68,7 +68,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Julián, el panadero
 
-**Descripción:** Julián, panadero de unos 45 años, corpulento, bigote, delantal blanco con harina, gorro de panadero, brazos cruzados o con una barra de pan.
+**Descripción:** Julián, panadero de unos 45 años, estilo anime: corpulento, bigote, delantal manchado de harina, brazos cruzados, mirada desconfiada iluminada por el horno.
 
 | Archivo | Expresión |
 |---|---|
@@ -78,7 +78,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Inés, la florista
 
-**Descripción:** Inés, florista de unos 30 años, pelo rubio recogido con un clavel, delantal verde con tijeras en el bolsillo, brazos llenos de flores.
+**Descripción:** Inés, florista de unos 30 años, estilo anime: pelo rubio recogido con un clavel rojo, delantal verde, tijeras de podar en el bolsillo, brazos llenos de flores.
 
 | Archivo | Expresión |
 |---|---|
@@ -88,7 +88,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Ramón, el músico
 
-**Descripción:** Ramón, músico joven de unos 22 años, piel oscura, pelo rizado corto, camisa de flores, guitarra española colgada a la espalda, gesto despistado y simpático.
+**Descripción:** Ramón, músico de unos 22 años, estilo anime: piel oscura, pelo rizado corto, chaqueta vaquera sobre camisa de flores, guitarra española a la espalda; aire de artista despistado, sospechoso simpático.
 
 | Archivo | Expresión |
 |---|---|
@@ -99,7 +99,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ### Doña Pilar
 
-**Descripción:** Doña Pilar, pregonera del barrio, abuela de unos 75 años, pelo blanco con peineta, mantón de flores sobre los hombros, gafas, sonrisa enorme.
+**Descripción:** Doña Pilar, pregonera del barrio, unos 75 años, estilo anime: pelo blanco con peineta, mantón de flores sobre los hombros, gafas, sonrisa enorme y mirada pícara.
 
 | Archivo | Expresión |
 |---|---|
@@ -111,22 +111,22 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 | Archivo | Qué se ve |
 |---|---|
-| `fachada-agencia.png` | Fachada de una pequeña agencia de detectives en una calle encalada del barrio de La Alameda, puerta de madera azul, gran cartel con una lupa dibujada, macetas de geranios, farol, luz de media tarde. |
-| `agencia.png` | Interior de la oficina de la Agencia La Lupa: tablón de corcho grande con fichas e hilos rojos, archivadores de madera, ventana con reja andaluza, lámpara de mesa verde, mesa con lupa y libretas, azulejos en el zócalo. |
-| `casa-feria.png` | Sala de la Casa de la Feria de un barrio andaluz la víspera de la fiesta: mesa larga con mantel, farolillos de papel guardados en cajas, carteles de feria antiguos, ventana abierta a una plaza, ambiente de misterio suave. |
-| `panaderia.png` | Panadería tradicional de barrio: mostrador de madera con papeles y pedidos desordenados, estanterías con pan, magdalenas y bizcochos, horno de leña al fondo, harina en el aire, luz de mañana. |
-| `floristeria.png` | Floristería pequeña y abarrotada de ramos para la feria: claveles, jazmines, girasoles, cubos de zinc en el suelo, macetas colgando, patio andaluz con azulejos al fondo. |
-| `kiosco.png` | Templete o kiosco de música de hierro forjado en el centro de una plaza andaluza con naranjos, atril con partituras, sillas plegables, guirnaldas de feria sin encender. |
-| `plaza-feria.png` | La misma plaza del barrio de La Alameda de noche y en fiesta: farolillos encendidos, guirnaldas, escenario con un atril para el pregón, vecinos al fondo, ambiente alegre. |
+| `fachada-agencia.png` | Fachada de una pequeña agencia de detectives en un callejón encalado de La Alameda al anochecer: puerta de madera azul oscuro, farol de forja encendido, cartel con una lupa (sin letras), macetas en sombra, niebla baja. |
+| `agencia.png` | Oficina de la Agencia La Lupa en penumbra: lámpara verde de mesa como única luz, lluvia en la ventana con reja andaluza, tablón de corcho con fotos, notas e hilo rojo, archivadores, azulejos en el zócalo, humo de una taza de café. |
+| `casa-feria.png` | Sala de la Casa de la Feria de noche, iluminada solo por la luz de luna que entra por una ventana: mesa larga vacía, farolillos de papel apagados en cajas, carteles antiguos en la pared, sombras alargadas. |
+| `panaderia.png` | Panadería de barrio antes del amanecer: el horno encendido da un brillo naranja, el resto en azul oscuro; mostrador de madera con papeles y pedidos revueltos, harina flotando en el haz de luz. |
+| `floristeria.png` | Floristería abarrotada al atardecer: luz dorada entrando de lado, sombras de hojas, cubos de zinc con claveles, jazmines y girasoles, patio andaluz con azulejos al fondo. |
+| `kiosco.png` | Templete de música de hierro forjado en una plaza andaluza de noche, con niebla y farolas encendidas; atril con partituras, sillas plegables, naranjos en sombra, guirnaldas sin encender. |
+| `plaza-feria.png` | La misma plaza de La Alameda de noche y en fiesta: cientos de farolillos encendidos en ámbar y rojo, escenario con atril para el pregón, vecinos a contraluz, ambiente vibrante. |
 
 ## Objetos (fondo transparente, 1024×1024)
 
 | Archivo | Qué se ve |
 |---|---|
-| `carpeta-vacia.png` | Sobre una mesa con mantel, la marca rectangular donde estaba una carpeta y unas migas de pan esparcidas. |
-| `partitura.png` | Partitura de papel antiguo en un atril, con varias manchas redondas de café. |
-| `caja-musica.png` | Caja de música de madera taraceada con un candado de latón de tres ruedas numeradas. |
-| `pregon.png` | Pergamino enrollado atado con una cinta roja y verde, dentro de una carpeta azul. |
+| `carpeta-vacia.png` | Mesa con mantel iluminada por un haz de luna: la marca rectangular donde estaba una carpeta y unas migas de pan esparcidas. |
+| `partitura.png` | Partitura de papel antiguo en un atril de hierro, con varias manchas redondas de café, iluminada por una farola. |
+| `caja-musica.png` | Caja de música de madera taraceada con un candado de latón de tres ruedas numeradas, con un brillo misterioso. |
+| `pregon.png` | Pergamino enrollado atado con una cinta roja y verde, asomando de una carpeta azul. |
 
 ## Notas del ilustrador
 

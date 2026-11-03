@@ -48,3 +48,13 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-03 | La v1 (formulario) se descarta. La v2 se hace con escenas a pantalla completa al estilo de un episodio, y el arte se adelanta. |
 | 2026-11-03 | Estilo visual: ilustración de álbum o cómic de detectives, papel envejecido y paleta andaluza (albero, azulejo, cal). |
 | 2026-11-03 | Lo que funcione y guste a Pablo se convierte en un procedimiento para crear más casos. |
+| 2026-11-03 | **Cambio de estilo:** anime moderno con tono de misterio (noir de detectives, serie juvenil de suspense), sin aire infantil, ambientado en el barrio andaluz de La Alameda. Tensión sí; sangre, violencia y terror no. La interfaz del juego se oscurecerá para encajar cuando llegue el arte. |
+
+## Ideas para más adelante
+
+### Guiños a la cultura actual de los chavales
+Pablo quiere meter referencias a su mundo: farmear aura, el «six seven», Fortnite, Among Us y sus memes.
+- Siempre en los **textos de los casos** (datos), nunca en el código ni en las imágenes, para poder cambiarlos rápido cuando pasen de moda.
+- **Parodia genérica**, sin logotipos, personajes ni nombres comerciales en el arte (Fortnite, Among Us o Stranger Things son marcas).
+- Ideas: «+1000 de aura» al resolver un reto sin pistas; un candado con la clave 6-7; «hay un impostor entre los testigos» (el que miente es el que tiene las faltas); el baile de victoria de un sospechoso; frases meme en los bocadillos.
+- Revisarlos con Pablo caso a caso: que sumen y no distraigan de la ortografía.
