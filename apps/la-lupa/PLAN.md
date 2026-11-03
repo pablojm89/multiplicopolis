@@ -17,7 +17,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Prototipo jugable: motor por datos + caso 1 «El pregón desaparecido» (tildes generales), informe por criterio y CSV
 - [x] ~~Probar el prototipo v1~~ → Pablo lo descarta: no transmite la experiencia de Sherlock Ort. Se juega Sherlock Ort en directo (`docs/investigacion/sherlock-ort-experiencia.md`)
 - [x] **v2**: motor de escenas 16:9 (pantalla completa, texto que se escribe solo, retos dentro de la escena, pantallas de pista conseguida / pista falsa, HUD de objetos) y caso 1 rehecho
-- [ ] Arte del caso 1 (se adelanta de la fase 3): pendiente de las claves de Gemini/ChatGPT. Catálogo y prompts en `datos/arte.json`
+- [x] Arte del caso 1: 36 ilustraciones de GPT integradas (issue #1). Retocado el candado de `caja-musica`, que traía números dibujados
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`
 
