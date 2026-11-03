@@ -58,3 +58,6 @@ Pablo quiere meter referencias a su mundo: farmear aura, el «six seven», Fortn
 - **Parodia genérica**, sin logotipos, personajes ni nombres comerciales en el arte (Fortnite, Among Us o Stranger Things son marcas).
 - Ideas: «+1000 de aura» al resolver un reto sin pistas; un candado con la clave 6-7; «hay un impostor entre los testigos» (el que miente es el que tiene las faltas); el baile de victoria de un sospechoso; frases meme en los bocadillos.
 - Revisarlos con Pablo caso a caso: que sumen y no distraigan de la ortografía.
+
+### Villano recurrente (idea de Pablo)
+Un malo que aparece caso tras caso, dibujado como parodia del rollo «sigma»: mandíbula cuadrada exagerada, pose de mewing, gafas de sol de noche, gabardina negra y flequillo perfecto. Va dejando por el barrio notas con faltas a propósito. Nombre provisional: **El Tachón**. Se diseña cuando escribamos el caso 2; se añade entonces a `datos/arte.json`.
