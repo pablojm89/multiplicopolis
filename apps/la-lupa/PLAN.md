@@ -15,7 +15,10 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Síntesis: diseño de la v1 (casos de ortografía) → `apps/la-lupa/DISEÑO.md`
 - [x] Decisiones de Pablo sobre `DISEÑO.md` §9
 - [x] Prototipo jugable: motor por datos + caso 1 «El pregón desaparecido» (tildes generales), informe por criterio y CSV
-- [ ] Probar el prototipo en clase y ajustar
+- [x] ~~Probar el prototipo v1~~ → Pablo lo descarta: no transmite la experiencia de Sherlock Ort. Se juega Sherlock Ort en directo (`docs/investigacion/sherlock-ort-experiencia.md`)
+- [x] **v2**: motor de escenas 16:9 (pantalla completa, texto que se escribe solo, retos dentro de la escena, pantallas de pista conseguida / pista falsa, HUD de objetos) y caso 1 rehecho
+- [ ] Arte del caso 1 (se adelanta de la fase 3): pendiente de las claves de Gemini/ChatGPT. Catálogo y prompts en `datos/arte.json`
+- [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`
 
 ## Fase 2: Completar con los contenidos de Lengua del 3.er ciclo
@@ -42,3 +45,6 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-03 | Identidad: **Agencia La Lupa** (opción C). El alumno es detective del equipo, en el barrio ficticio de La Alameda. Carpeta `apps/la-lupa/`. |
 | 2026-11-03 | Reparto de 5.º y 6.º: la propuesta de `DISEÑO.md` §5, guardada en `datos/programacion.json`. Se sustituirá por la programación del libro de texto cuando Pablo la pase. |
 | 2026-11-03 | Modo de juego: individual (el de parejas queda para más adelante). |
+| 2026-11-03 | La v1 (formulario) se descarta. La v2 se hace con escenas a pantalla completa al estilo de un episodio, y el arte se adelanta. |
+| 2026-11-03 | Estilo visual: ilustración de álbum o cómic de detectives, papel envejecido y paleta andaluza (albero, azulejo, cal). |
+| 2026-11-03 | Lo que funcione y guste a Pablo se convierte en un procedimiento para crear más casos. |
