@@ -5,6 +5,8 @@
 
 ## Resumen
 
+> **Corrección (3/11/2026):** los Geniallys muestran la insignia **CC BY-NC**, así que sí tienen licencia. La experiencia de juego real está descrita en [sherlock-ort-experiencia.md](sherlock-ort-experiencia.md).
+
 «Las aventuras de Sherlock Ort» es un proyecto gamificado de ortografía en castellano creado por Fernando Martí, maestro del Real Colegio Escuelas Pías de Gandía. Se empezó a construir en noviembre de 2018 y se completó en mayo de 2021. Hay mucho más material público del que sugiere el artículo de partida: **4 temporadas con 29 Geniallys jugables** (24 episodios, 4 especiales y un episodio con dos versiones), todos accesibles en abierto. Cada uno es un *escape room* digital lineal sobre una regla ortográfica concreta. En cambio, apenas hay documentación pedagógica pública: no hay rúbricas, plantilla del cuaderno de investigación, tabla de puntos, guía docente ni datos de resultados. La mecánica (encontrar la palabra mal escrita para avanzar y convertir los aciertos en claves) es genérica y reutilizable. El nombre, los personajes (derivados además de la serie *Sherlock* de la BBC), los textos y las imágenes son del autor o de terceros y no deben copiarse.
 
 ---
