@@ -1,0 +1,37 @@
+{
+  "fuente": "Propuesta por defecto (DISEÑO.md §5). Sustituir por la programación del libro de texto o del centro cuando se tenga.",
+  "nota": "Cada unidad agrupa reglas (ids de reglas.json) y, si existe, el caso que las trabaja (datos/casos/<caso>.json). Un caso puede repetirse en varios cursos o unidades. Las unidades sin caso aparecen como 'Próximamente'.",
+  "cursos": {
+    "5": {
+      "nombre": "5.º de Primaria",
+      "unidades": [
+        { "id": "5-01", "trimestre": 1, "titulo": "La sílaba tónica y las tildes", "reglas": ["tildes-generales"], "caso": "caso-01" },
+        { "id": "5-02", "trimestre": 1, "titulo": "b y v (I)", "reglas": ["b-v-1"] },
+        { "id": "5-03", "trimestre": 1, "titulo": "La h (I)", "reglas": ["h-1"] },
+        { "id": "5-04", "trimestre": 2, "titulo": "c, z y s", "reglas": ["c-z-s"] },
+        { "id": "5-05", "trimestre": 2, "titulo": "ll e y", "reglas": ["ll-y"] },
+        { "id": "5-06", "trimestre": 2, "titulo": "g, j y diéresis", "reglas": ["g-j-dieresis"] },
+        { "id": "5-07", "trimestre": 2, "titulo": "Diptongos y monosílabos", "reglas": ["diptongo-monosilabos"] },
+        { "id": "5-08", "trimestre": 3, "titulo": "-d y -z al final de palabra", "reglas": ["d-z-finales"] },
+        { "id": "5-09", "trimestre": 3, "titulo": "Mayúsculas y puntuación básica", "reglas": ["mayusculas-puntuacion-1"] },
+        { "id": "5-10", "trimestre": 3, "titulo": "Caso especial de repaso", "reglas": ["tildes-generales", "b-v-1", "h-1", "c-z-s", "ll-y", "g-j-dieresis", "diptongo-monosilabos", "d-z-finales", "mayusculas-puntuacion-1"] }
+      ]
+    },
+    "6": {
+      "nombre": "6.º de Primaria",
+      "unidades": [
+        { "id": "6-00", "trimestre": 1, "titulo": "Repaso: la sílaba tónica y las tildes", "reglas": ["tildes-generales"], "caso": "caso-01" },
+        { "id": "6-01", "trimestre": 1, "titulo": "El hiato", "reglas": ["hiato"] },
+        { "id": "6-02", "trimestre": 1, "titulo": "La tilde diacrítica", "reglas": ["tilde-diacritica"] },
+        { "id": "6-03", "trimestre": 1, "titulo": "Interrogativos y exclamativos", "reglas": ["interrogativos-exclamativos"] },
+        { "id": "6-04", "trimestre": 2, "titulo": "b y v (II)", "reglas": ["b-v-2"] },
+        { "id": "6-05", "trimestre": 2, "titulo": "La h (II)", "reglas": ["h-2"] },
+        { "id": "6-06", "trimestre": 2, "titulo": "-cc- y -c-", "reglas": ["cc-c"] },
+        { "id": "6-07", "trimestre": 2, "titulo": "x y s", "reglas": ["x-s"] },
+        { "id": "6-08", "trimestre": 3, "titulo": "Puntuación: coma, punto y coma, diálogo", "reglas": ["puntuacion-2"] },
+        { "id": "6-09", "trimestre": 3, "titulo": "«solo» y adverbios en -mente", "reglas": ["solo-mente"] },
+        { "id": "6-10", "trimestre": 3, "titulo": "Caso especial de repaso", "reglas": ["hiato", "tilde-diacritica", "interrogativos-exclamativos", "b-v-2", "h-2", "cc-c", "x-s", "puntuacion-2", "solo-mente"] }
+      ]
+    }
+  }
+}

@@ -10,7 +10,7 @@
 
 Juego web de detectives para 5.º y 6.º. Cada **caso** trabaja una regla ortográfica: los textos del caso (declaraciones, notas, pistas) tienen errores sembrados, y **detectarlos y escribir la forma correcta** es lo que hace avanzar la investigación. De Sherlock Ort se toma la mecánica (el error como pista, un episodio por regla, espiral entre temporadas y catálogo de retos). De la investigación didáctica se corrigen dos cosas: el alumno **escribe** siempre la corrección y recibe feedback inmediato, y nunca elige entre varias formas mal escritas. Todo el contenido son **datos** (casos y bancos de palabras en JSON) y el juego registra aciertos **por regla y por criterio de evaluación** (5.1, 9.1 y 9.2) para el cuaderno del maestro y para Séneca.
 
-## 1. Identidad (pendiente de decisión)
+## 1. Identidad. **Decidido: opción C, Agencia La Lupa**
 
 Nombre, personajes y mundo **propios**. Nada del original: ni "Sherlock", ni "Ort", ni Grafson, Malorty ni los Tilde (ver `sherlock-ort.md` §8.2).
 Recomendación: ambientación **andaluza ficticia**, que da identidad propia y conecta con el criterio 1.3 (modalidad andaluza).

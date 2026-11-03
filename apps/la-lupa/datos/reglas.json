@@ -1,0 +1,38 @@
+{
+  "tildes-generales": {
+    "nombre": "La sílaba tónica: agudas, llanas y esdrújulas",
+    "saberes": ["LCL.3.D.6"],
+    "criterios": ["5.1", "9.1", "9.2"],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Las tildes",
+      "puntos": [
+        "La sílaba tónica es la que suena más fuerte: ca-MIÓN, ÁR-bol, MÚ-si-ca.",
+        "Agudas (fuerza en la última sílaba): llevan tilde si terminan en vocal, -n o -s. Ejemplos: sofá, camión, compás. Sin tilde: reloj, papel, ciudad.",
+        "Llanas (fuerza en la penúltima): llevan tilde si NO terminan en vocal, -n ni -s. Ejemplos: árbol, lápiz, fácil. Sin tilde: mesa, joven, lunes.",
+        "Esdrújulas (fuerza en la antepenúltima): llevan tilde siempre. Ejemplos: música, pájaro, teléfono."
+      ]
+    },
+    "cartas": [
+      { "id": "aguda", "titulo": "Carta de las agudas", "texto": "Fuerza en la última sílaba. Tilde si terminan en vocal, -n o -s." },
+      { "id": "llana", "titulo": "Carta de las llanas", "texto": "Fuerza en la penúltima sílaba. Tilde si NO terminan en vocal, -n ni -s." },
+      { "id": "esdrujula", "titulo": "Carta de las esdrújulas", "texto": "Fuerza en la antepenúltima sílaba. Llevan tilde siempre." }
+    ]
+  },
+  "b-v-1": { "nombre": "b y v (I)", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "h-1": { "nombre": "La h (I)", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "c-z-s": { "nombre": "c, z y s", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "ll-y": { "nombre": "ll e y", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "g-j-dieresis": { "nombre": "g, j y diéresis", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "diptongo-monosilabos": { "nombre": "Diptongos y monosílabos", "saberes": ["LCL.3.D.6"], "criterios": ["5.1", "9.1", "9.2"] },
+  "d-z-finales": { "nombre": "-d y -z finales", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "mayusculas-puntuacion-1": { "nombre": "Mayúsculas y puntuación básica", "saberes": ["LCL.3.B.3.5", "LCL.3.D.7"], "criterios": ["5.1", "9.1", "9.2"] },
+  "hiato": { "nombre": "El hiato", "saberes": ["LCL.3.D.6"], "criterios": ["5.1", "9.1", "9.2"] },
+  "tilde-diacritica": { "nombre": "La tilde diacrítica", "saberes": ["LCL.3.D.6"], "criterios": ["5.1", "9.1", "9.2"] },
+  "interrogativos-exclamativos": { "nombre": "Interrogativos y exclamativos", "saberes": ["LCL.3.D.6"], "criterios": ["5.1", "9.1", "9.2"] },
+  "b-v-2": { "nombre": "b y v (II)", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "h-2": { "nombre": "La h (II)", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "cc-c": { "nombre": "-cc- y -c-", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "x-s": { "nombre": "x y s", "saberes": ["LCL.3.B.3.5"], "criterios": ["5.1", "9.2"] },
+  "puntuacion-2": { "nombre": "Coma, punto y coma, diálogo", "saberes": ["LCL.3.D.7"], "criterios": ["5.1", "9.1", "9.2"] },
+  "solo-mente": { "nombre": "«solo» y adverbios en -mente", "saberes": ["LCL.3.D.6"], "criterios": ["5.1", "9.2"] }
+}

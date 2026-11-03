@@ -5,7 +5,7 @@ Cada carpeta es un juego **autocontenido**: se puede abrir y modificar sin mirar
 | Juego | Área | Estado |
 |---|---|---|
 | [multiplicopolis](multiplicopolis/) | Matemáticas · tablas y multiplicación | En uso |
-| [detective](detective/) (provisional) | Lengua · 3.er ciclo · casos de detectives | Fase 1: investigación |
+| [la-lupa](la-lupa/) | Lengua · 5.º y 6.º · Agencia La Lupa, casos de detectives | Prototipo (caso 1) |
 
 ## Crear un juego nuevo
 

@@ -1,0 +1,146 @@
+{
+  "id": "caso-01",
+  "titulo": "El pregón desaparecido",
+  "emoji": "📜",
+  "reglas": ["tildes-generales"],
+  "resumen": "El pregón de la Feria de La Alameda ha desaparecido la víspera de la fiesta.",
+  "_marcado": "En los textos, {mal|bien} es una falta sembrada (se muestra 'mal'). En los careos, {mal|bien|carta} indica además la carta de regla que la demuestra. Las faltas de los campos 'texto' e 'intro' se repasan en el paso 'expediente'.",
+  "pasos": [
+    {
+      "tipo": "narracion",
+      "quien": "Directora Robles",
+      "emoji": "👩🏽‍💼",
+      "texto": "¡Urgente! Doña Pilar, la pregonera de la Feria de La Alameda, ha perdido su {pregon|pregón}. Lo dejó ayer por la tarde en la mesa de la Casa de la Feria y esta mañana ya no estaba. La feria empieza mañana: hay que actuar {rapido|rápido}. Lola y Mateo te esperan en la puerta de la agencia. ¡Es tu primer caso!",
+      "boton": "Aceptar el caso"
+    },
+    {
+      "tipo": "descubre",
+      "quien": "Mateo",
+      "emoji": "🧑🏻‍💻",
+      "intro": "Antes de salir, Mateo te enseña su archivo. «Un buen detective descubre las reglas por sí mismo. Mira estas palabras y dime qué ves».",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            { "titulo": "Agudas CON tilde", "palabras": ["camión", "sofá", "compás", "café"] },
+            { "titulo": "Agudas SIN tilde", "palabras": ["reloj", "papel", "ciudad", "feliz"] }
+          ],
+          "pregunta": "Todas son agudas: la fuerza está en la última sílaba. ¿Cuándo llevan tilde?",
+          "opciones": ["Cuando terminan en vocal, -n o -s", "Cuando tienen más de dos sílabas", "Cuando terminan en cualquier consonante", "Nunca llevan tilde"],
+          "correcta": 0,
+          "explicacion": "Las agudas llevan tilde si terminan en vocal, -n o -s: ca-MIÓN, so-FÁ, com-PÁS. Re-LOJ termina en -j: sin tilde."
+        },
+        {
+          "grupos": [
+            { "titulo": "Llanas CON tilde", "palabras": ["árbol", "lápiz", "fácil", "azúcar"] },
+            { "titulo": "Llanas SIN tilde", "palabras": ["mesa", "joven", "lunes", "casa"] }
+          ],
+          "pregunta": "Estas son llanas: la fuerza está en la penúltima sílaba. ¿Cuándo llevan tilde?",
+          "opciones": ["Cuando terminan en vocal, -n o -s", "Cuando NO terminan en vocal, -n ni -s", "Siempre", "Nunca"],
+          "correcta": 1,
+          "explicacion": "¡Justo al revés que las agudas! Las llanas llevan tilde si NO terminan en vocal, -n ni -s: ÁR-bol, LÁ-piz. JO-ven termina en -n: sin tilde."
+        },
+        {
+          "grupos": [
+            { "titulo": "Esdrújulas", "palabras": ["música", "pájaro", "teléfono", "sábado"] }
+          ],
+          "pregunta": "Estas son esdrújulas: la fuerza está en la antepenúltima sílaba. ¿Qué pasa con su tilde?",
+          "opciones": ["Solo la llevan si terminan en -s", "La llevan siempre", "No la llevan nunca", "Solo la llevan si son largas"],
+          "correcta": 1,
+          "explicacion": "Las esdrújulas llevan tilde siempre: MÚ-si-ca, PÁ-ja-ro, te-LÉ-fo-no."
+        },
+        {
+          "grupos": [],
+          "pregunta": "Un vecino dice: «Todas las palabras que terminan en -n llevan tilde». ¿Qué palabra demuestra que se equivoca?",
+          "opciones": ["camión", "canción", "joven", "jamón"],
+          "correcta": 2,
+          "explicacion": "«Joven» termina en -n y no lleva tilde, porque es llana (JO-ven). La regla de la -n solo vale para las agudas. ¡Has encontrado un contraejemplo!"
+        }
+      ],
+      "pistas": ["Fíjate en la última letra de cada palabra.", "Compara la última letra de las palabras CON tilde y las SIN tilde.", "Mira el archivo de Mateo (botón 📘)."]
+    },
+    {
+      "tipo": "caza",
+      "lugar": "Panadería de Julián",
+      "quien": "Julián, el panadero",
+      "emoji": "👨🏻‍🍳",
+      "intro": "Julián estuvo ayer en la Casa de la Feria. Ha escrito su declaración, pero con las prisas se le han escapado tres faltas de tildes.",
+      "declaracion": "Ayer por la tarde llevé un pastel de {limon|limón} a la Casa de la Feria para Doña Pilar. {Despues|Después} volví a la panadería. Al salir vi a Ramón, el músico más {jóven|joven} del barrio, con una carpeta azul debajo del brazo.",
+      "pistas": ["Hay dos palabras a las que les falta la tilde y una a la que le sobra.", "Busca palabras agudas que terminen en -n o -s.", "Revisa «limon», «Despues» y una palabra llana que termina en -n.", "Las palabras son: limon, Despues y jóven."],
+      "recompensa": { "texto": "En el tique del pastel hay una hora apuntada: las 7. Lo anotas en tu cuaderno.", "digito": "7" }
+    },
+    {
+      "tipo": "clasifica",
+      "lugar": "Floristería de Inés",
+      "quien": "Inés, la florista",
+      "emoji": "👩🏼‍🌾",
+      "intro": "Inés tiene los ramos de la feria sin ordenar. «{Ayudala|Ayúdala} a ordenarlos y te contará lo que vio», dice Lola. Lee cada etiqueta y decide en qué cubo va.",
+      "categorias": [
+        { "id": "aguda", "nombre": "Aguda" },
+        { "id": "llana", "nombre": "Llana" },
+        { "id": "esdrujula", "nombre": "Esdrújula" }
+      ],
+      "palabras": [
+        { "p": "clavel", "cat": "aguda", "silabas": "cla-VEL" },
+        { "p": "rosa", "cat": "llana", "silabas": "RO-sa" },
+        { "p": "pétalo", "cat": "esdrujula", "silabas": "PÉ-ta-lo" },
+        { "p": "jazmín", "cat": "aguda", "silabas": "jaz-MÍN" },
+        { "p": "azucena", "cat": "llana", "silabas": "a-zu-CE-na" },
+        { "p": "orquídea", "cat": "esdrujula", "silabas": "or-QUÍ-de-a" },
+        { "p": "girasol", "cat": "aguda", "silabas": "gi-ra-SOL" },
+        { "p": "lirio", "cat": "llana", "silabas": "LI-rio" }
+      ],
+      "pistas": ["Di la palabra en voz alta y da una palmada en la sílaba que suena más fuerte.", "Cuenta las sílabas desde el final: última → aguda, penúltima → llana, antepenúltima → esdrújula."],
+      "recompensa": { "texto": "Inés recuerda: «Ramón pasó por aquí a las 3 y me pidió una caja para guardar papeles». Anotas el 3.", "digito": "3" }
+    },
+    {
+      "tipo": "manchas",
+      "lugar": "Kiosco de la música",
+      "quien": "Lola",
+      "emoji": "👧🏽",
+      "intro": "En el kiosco hay una partitura llena de manchas de {cafe|café}. Algunas manchas tapan una tilde y otras no. Decide en cada palabra si debajo de la mancha hay tilde.",
+      "palabras": [
+        { "p": "música", "pos": 1, "silabas": "MÚ-si-ca" },
+        { "p": "ritmo", "pos": 1, "silabas": "RIT-mo" },
+        { "p": "canción", "pos": 5, "silabas": "can-CIÓN" },
+        { "p": "tambor", "pos": 4, "silabas": "tam-BOR" },
+        { "p": "compás", "pos": 4, "silabas": "com-PÁS" },
+        { "p": "guitarra", "pos": 4, "silabas": "gui-TA-rra" },
+        { "p": "violín", "pos": 4, "silabas": "vio-LÍN" }
+      ],
+      "pistas": ["Primero busca la sílaba fuerte. Después mira cómo termina la palabra.", "Usa las cartas: agudas en vocal, -n o -s; llanas en lo demás; esdrújulas siempre."],
+      "recompensa": { "texto": "Las palabras con tilde son 4. Al lado de la partitura alguien ha escrito: «el número de tildes abre la caja». Anotas el 4.", "digito": "4" }
+    },
+    {
+      "tipo": "careo",
+      "lugar": "Kiosco de la música",
+      "quien": "Ramón, el músico",
+      "emoji": "🧑🏾‍🎤",
+      "intro": "Encuentras a Ramón afinando la guitarra. Declara nervioso. En su declaración hay tres faltas: señálalas, presenta la carta que lo demuestra y escribe la palabra bien.",
+      "declaracion": "¡Yo no he robado nada! Es verdad que cogí la carpeta, pero solo para leer el pregón. Me pareció tan bonito que quise convertirlo en una {cancion|canción|aguda} para la feria. Lo guardé en la caja de {musica|música|esdrujula}, que tiene un candado. ¡Era un texto tan {facil|fácil|llana} de cantar!",
+      "pistas": ["Las tres palabras con faltas tienen que ver con la música.", "Una es aguda, otra llana y otra esdrújula.", "Son: cancion, musica y facil."]
+    },
+    {
+      "tipo": "candado",
+      "lugar": "La caja de música",
+      "intro": "La caja de música tiene un candado de tres cifras. Ramón no recuerda la clave… pero tú tienes tu cuaderno. Las cifras van en el orden en que las encontraste.",
+      "codigo": "734",
+      "exito": "¡Clic! La caja se abre y suena una melodía. Dentro está el pregón de Doña Pilar, junto a la canción que Ramón estaba escribiendo como sorpresa.",
+      "pistas": ["Mira las cifras de tu cuaderno.", "La primera es la hora del tique de Julián."]
+    },
+    {
+      "tipo": "expediente",
+      "quien": "Directora Robles",
+      "emoji": "👩🏽‍💼",
+      "intro": "Antes de cerrar el caso, la directora quiere el expediente perfecto. En los textos del caso se nos colaron algunas faltas de tildes. Encuéntralas y corrígelas. Cuando creas que no queda ninguna, pulsa «Entregar expediente».",
+      "pistas": ["Hay una falta en el aviso del caso… y alguna más.", "Revisa los textos de la floristería y del kiosco."]
+    },
+    {
+      "tipo": "narracion",
+      "quien": "Doña Pilar",
+      "emoji": "👵🏻",
+      "texto": "¡Mi pregón! Muchas gracias, detective. Y tú, Ramón, la próxima vez pide permiso… aunque esa canción me ha encantado. ¡Mañana la cantamos juntos en la feria!",
+      "boton": "Cerrar el caso"
+    }
+  ]
+}
