@@ -1,5 +1,5 @@
 {
-  "_nota": "Catálogo de arte. Rutas por convención: fondos y objetos → arte/<id>.webp; personajes → arte/<id>-<expresion>.webp (fondo transparente). 'listo': true (o la expresión dentro de 'listas') cuando el archivo existe; mientras tanto el motor dibuja un hueco marcado.",
+  "_nota": "Catálogo de arte. Rutas por convención: fondos y objetos → arte/<id>.webp; personajes → arte/<id>-<expresion>.webp (fondo transparente). 'listo': true (o la expresión dentro de 'listas') cuando el archivo existe; mientras tanto el motor dibuja un hueco marcado. 'mira': hacia dónde mira el personaje en su imagen ('izq' o 'der', desde el punto de vista del espectador); el motor lo voltea para que mire al centro.",
   "_estilo": "Ilustración estilo anime/manga moderno de misterio, con el tono de una serie juvenil de suspense (no infantil): línea limpia y segura, sombreado cel-shading, luces dramáticas, contraluces y sombras profundas, encuadres cinematográficos. Atmósfera noir de detectives: noche o atardecer, niebla ligera, faroles, a veces lluvia; luz cálida de lámpara contra azules fríos. Ambientación: barrio andaluz ficticio llamado La Alameda (callejones encalados, rejas de forja, azulejos, patios, naranjos, farolillos de feria), visto con aire misterioso. Paleta: azul noche y pizarra como base, ámbar para la luz, rojo intenso como acento y toques de azul azulejo. Personajes con rasgos anime (ojos expresivos, siluetas reconocibles, actitud segura). Para niños de 10-12 años: tensión y misterio sí; sangre, violencia y terror explícito no. Sin texto escrito en la imagen. Nada de personajes, logotipos ni marcas de series, juegos o películas existentes.",
   "_formato": "Fondos: 1920x1080 (16:9), sin personajes. Personajes: cuerpo entero o de rodillas para arriba, de pie, fondo transparente, 1024x1536. Objetos: aislados, fondo transparente, 1024x1024.",
   "fachada-agencia": {
@@ -13,7 +13,7 @@
     "tipo": "fondo",
     "nombre": "Oficina de la agencia",
     "color": "#b98a55",
-    "listo": false,
+    "listo": true,
     "prompt": "Oficina de la Agencia La Lupa en penumbra: lámpara verde de mesa como única luz, lluvia en la ventana con reja andaluza, tablón de corcho con fotos, notas e hilo rojo, archivadores, azulejos en el zócalo, humo de una taza de café."
   },
   "casa-feria": {
@@ -61,8 +61,11 @@
       "pensativo",
       "sorprendido"
     ],
-    "listas": [],
-    "prompt": "Lola, detective de 11 años, estilo anime: piel morena clara, pelo castaño oscuro con coleta alta, gabardina larga color ámbar con el cuello subido, bufanda roja, botas, lupa de latón en la mano; mirada intensa y segura."
+    "listas": [
+      "neutral"
+    ],
+    "prompt": "Lola, detective de 11 años, estilo anime: piel morena clara, pelo castaño oscuro con coleta alta, gabardina larga color ámbar con el cuello subido, bufanda roja, botas, lupa de latón en la mano; mirada intensa y segura.",
+    "mira": "der"
   },
   "mateo": {
     "tipo": "personaje",

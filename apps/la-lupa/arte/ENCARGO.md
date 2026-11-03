@@ -31,6 +31,10 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 2. Fondos del caso 1.
 3. Personajes del caso 1 y objetos.
 
+## Ya aprobadas: úsalas como referencia
+
+Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo estilo, luz y acabado, y el mismo aspecto de cada personaje: `agencia.png`, `lola-neutral.png`.
+
 ## Personajes
 
 ### Lola
@@ -39,7 +43,6 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 | Archivo | Expresión |
 |---|---|
-| `lola-neutral.png` | expresión neutra, atenta |
 | `lola-contento.png` | contento/a, sonrisa amplia |
 | `lola-pensativo.png` | pensativo/a, mano en la barbilla, mirada de lado |
 | `lola-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
@@ -112,7 +115,6 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 | Archivo | Qué se ve |
 |---|---|
 | `fachada-agencia.png` | Fachada de una pequeña agencia de detectives en un callejón encalado de La Alameda al anochecer: puerta de madera azul oscuro, farol de forja encendido, cartel con una lupa (sin letras), macetas en sombra, niebla baja. |
-| `agencia.png` | Oficina de la Agencia La Lupa en penumbra: lámpara verde de mesa como única luz, lluvia en la ventana con reja andaluza, tablón de corcho con fotos, notas e hilo rojo, archivadores, azulejos en el zócalo, humo de una taza de café. |
 | `casa-feria.png` | Sala de la Casa de la Feria de noche, iluminada solo por la luz de luna que entra por una ventana: mesa larga vacía, farolillos de papel apagados en cajas, carteles antiguos en la pared, sombras alargadas. |
 | `panaderia.png` | Panadería de barrio antes del amanecer: el horno encendido da un brillo naranja, el resto en azul oscuro; mostrador de madera con papeles y pedidos revueltos, harina flotando en el haz de luz. |
 | `floristeria.png` | Floristería abarrotada al atardecer: luz dorada entrando de lado, sombras de hojas, cubos de zinc con claveles, jazmines y girasoles, patio andaluz con azulejos al fondo. |
@@ -133,4 +135,4 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **36** imágenes por entregar.
+Quedan **34** imágenes por entregar.

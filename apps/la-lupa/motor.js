@@ -65,12 +65,16 @@ function capaFondo(id) {
   return `<div class="fondo pendiente" style="--c:${esc(a.color || "#c9a46a")}"><span class="etiqueta-arte">Fondo pendiente · ${esc(a.nombre)}</span></div>`;
 }
 
+/* Personaje: usa la expresión pedida, o la neutral si aún no existe; lo voltea para que mire al centro */
 function htmlPersonaje(pj, extra = "") {
   if (!pj) return "";
   const a = arte(pj.id);
   const expr = pj.expresion || "neutral";
   const lado = pj.lado || "der";
-  if ((a.listas || []).includes(expr)) return `<img class="personaje ${lado} ${extra}" src="arte/${esc(pj.id)}-${esc(expr)}.webp" alt="${esc(a.nombre)}">`;
+  const listas = a.listas || [];
+  const usar = listas.includes(expr) ? expr : listas.includes("neutral") ? "neutral" : null;
+  const espejo = (lado === "der" && a.mira === "der") || (lado === "izq" && a.mira === "izq") ? "espejo" : "";
+  if (usar) return `<img class="personaje ${lado} ${espejo} ${extra}" src="arte/${esc(pj.id)}-${esc(usar)}.webp" alt="${esc(a.nombre)}">`;
   return `<div class="personaje pendiente ${lado} ${extra}" style="--c:${esc(a.color || "#8a6d4a")}">${SILUETA}<span class="etiqueta-arte">${esc(a.nombre)} · ${esc(expr)}</span></div>`;
 }
 

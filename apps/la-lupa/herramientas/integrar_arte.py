@@ -53,6 +53,9 @@ def preparar(img, tipo):
             img = img.crop((0, (h - nh) // 2, w, (h - nh) // 2 + nh))
         return img.resize((1920, 1080), Image.LANCZOS)
     img = img.convert("RGBA")
+    # Limpia la transparencia: algunas IA entregan el personaje al 99 % de opacidad
+    alfa = img.getchannel("A").point(lambda a: 255 if a >= 235 else (0 if a <= 8 else a))
+    img.putalpha(alfa)
     limite = (1024, 1536) if tipo == "personaje" else (1024, 1024)
     img.thumbnail(limite, Image.LANCZOS)
     return img

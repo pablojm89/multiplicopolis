@@ -68,6 +68,16 @@ lineas = [
     "",
 ]
 
+aprobadas = [f"`{i}.png`" for i, a in arte.items() if not i.startswith("_") and a.get("listo")]
+aprobadas += [f"`{i}-{e}.png`" for i, a in arte.items() if not i.startswith("_") and a.get("tipo") == "personaje" for e in a.get("listas", [])]
+if aprobadas:
+    lineas += [
+        "## Ya aprobadas: úsalas como referencia",
+        "",
+        "Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo estilo, luz y acabado, y el mismo aspecto de cada personaje: " + ", ".join(aprobadas) + ".",
+        "",
+    ]
+
 if personajes:
     lineas += ["## Personajes", ""]
     for id_, a, faltan in personajes:
