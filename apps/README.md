@@ -5,6 +5,7 @@ Cada carpeta es un juego **autocontenido**: se puede abrir y modificar sin mirar
 | Juego | Área | Estado |
 |---|---|---|
 | [multiplicopolis](multiplicopolis/) | Matemáticas · tablas y multiplicación | En uso |
+| [detective](detective/) (provisional) | Lengua · 3.er ciclo · casos de detectives | Fase 1: investigación |
 
 ## Crear un juego nuevo
 
