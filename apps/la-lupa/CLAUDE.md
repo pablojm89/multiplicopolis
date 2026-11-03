@@ -19,7 +19,8 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 | `datos/reglas.json` | Reglas: nombre, saberes, criterios, ficha del Archivo de Mateo y cartas de los careos |
 | `datos/arte.json` | Catálogo de arte con su prompt. `_estilo` es el estilo común. `listo` (o `listas`, para las expresiones) cuando la imagen existe |
 | `datos/casos/<id>.json` | Un caso: `numero`, `titulo`, `resumen`, `reglas` y `escenas[]` |
-| `arte/` | Imágenes `.webp` (aún no existe). Fondos y objetos: `<id>.webp`; personajes: `<id>-<expresion>.webp` |
+| `arte/` | Imágenes `.webp`. Fondos y objetos: `<id>.webp`; personajes: `<id>-<expresion>.webp`. `arte/ENCARGO.md` es el pedido para la IA de imágenes, generado automáticamente. `arte/entrega/` es donde llegan los PNG |
+| `herramientas/` | `encargo_arte.py` (genera `ENCARGO.md` desde `arte.json`) e `integrar_arte.py [--borrar]` (convierte lo entregado a `.webp` y lo marca como listo). Necesitan Python con Pillow |
 
 ## Tipos de escena
 
@@ -48,7 +49,7 @@ Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 
 1. **Regla y unidad**: elige la unidad de `programacion.json` y sus reglas. Si la regla no tiene `ficha` ni `cartas` en `reglas.json`, escríbelas.
 2. **Historia**: un misterio pequeño en un lugar del barrio, con 3 o 4 sospechosos o testigos y un objeto protagonista. La solución sale de las palabras corregidas.
 3. **Escenas**: copia la estructura del caso 1: portada → aviso → descubre → 2-3 lugares (relato + reto con cifra) → hipótesis → careo → candado → expediente → final. Pon 2-4 faltas por texto y siembra 3-5 en los relatos para el expediente.
-4. **Arte**: añade a `arte.json` los fondos, personajes (con expresiones) y objetos nuevos, con su `prompt`. Reutiliza siempre Lola, Mateo, Robles y la oficina.
+4. **Arte**: añade a `arte.json` los fondos, personajes (con expresiones) y objetos nuevos, con su `prompt`. Reutiliza siempre Lola, Mateo, Robles y la oficina. Ejecuta `python3 herramientas/encargo_arte.py`. La IA de imágenes (ChatGPT o Gemini) lee `arte/ENCARGO.md` y deja los PNG en `arte/entrega/`. Después ejecuta `python3 herramientas/integrar_arte.py --borrar`, revisa las capturas y sube los cambios.
 5. **Prueba**: juega el caso entero en el navegador (Playwright) con aciertos y fallos. Revisa capturas de cada escena y comprueba las notas del informe.
 6. **Revisión de Pablo** antes de darlo por cerrado.
 

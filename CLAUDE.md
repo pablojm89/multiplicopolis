@@ -25,6 +25,7 @@ Cada sesión trabaja en **una sola cosa**:
 | `backend/` | Backend Apps Script + Google Sheets (protocolo documentado) | Tareas de sincronización/datos |
 | `docs/` | Investigaciones y decisiones (Séneca, RGPD, ideas…) | Tareas de investigación |
 | `index.html` | Redirige a Multiplicópolis (mantiene la URL antigua de Pages) | Casi nunca |
+| `AGENTS.md` | Instrucciones para otros agentes (ChatGPT/Codex): hoy, el encargo de ilustraciones | Casi nunca |
 | `.claude/serve.js` | Servidor estático local en el puerto 4321 | Para probar en local |
 
 ## Convenciones
