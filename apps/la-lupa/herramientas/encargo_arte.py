@@ -31,6 +31,9 @@ EXPRESION = {
     "sorprendido": "sorprendido/a, ojos muy abiertos, cejas arriba",
     "nervioso": "nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca",
     "burlon": "sonrisa chulesca de medio lado, se baja un poco las gafas, superioridad cómica",
+    "deporte": "SOLO PARA ROBLES: con la ropa de deporte, de pie, tranquilo, silbato al cuello y cronómetro en la mano, como recién llegado de dar clase de Educación Física",
+    "deporte-contento": "SOLO PARA ROBLES: con la ropa de deporte, sonrisa amplia y pulgar arriba, toalla al hombro, lleno de energía",
+    "agotado": "SOLO PARA ROBLES: con la ropa de deporte, recién llegado corriendo, jadeando con las manos en las rodillas o secándose el sudor con la toalla, gesto cómico de «un momento, que vengo de correr»",
     "desenmascarado": "SOLO PARA BRUNO: lleva puesta la gabardina negra de El Tachón, abierta y con el cuello bajado, con su sudadera gris debajo; sin gorra, flequillo engominado medio deshecho; sostiene en la mano las gafas de sol de El Tachón; PULSERA ROJA DE TELA bien visible en la muñeca izquierda; su cara normal (sin la mandíbula exagerada); mirada baja, avergonzado pero aliviado, media sonrisa tímida",
 }
 

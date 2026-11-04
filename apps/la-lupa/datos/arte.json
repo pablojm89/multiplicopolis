@@ -91,21 +91,19 @@
   },
   "robles": {
     "tipo": "personaje",
-    "nombre": "Directora Robles",
+    "nombre": "Director Robles",
     "color": "#5b4a7a",
     "expresiones": [
       "neutral",
       "contento",
       "pensativo",
-      "sorprendido"
+      "sorprendido",
+      "deporte",
+      "deporte-contento",
+      "agotado"
     ],
-    "listas": [
-      "contento",
-      "neutral",
-      "pensativo",
-      "sorprendido"
-    ],
-    "prompt": "La directora Robles, unos 55 años, estilo anime: abrigo largo oscuro, pelo canoso recogido en moño, gafas finas, taza de café humeante; jefa de detectives veterana, seria pero con media sonrisa.",
+    "listas": [],
+    "prompt": "El director Robles, jefe de la Agencia La Lupa, unos 33 años, estilo anime (avatar del maestro de la clase, debe parecerse a esta descripción): hombre delgado y atlético, piel clara con pecas, ojos azul grisáceo claros, pelo castaño rizado y largo con reflejos dorados, recogido en un moño alto en la coronilla con algún mechón rizado suelto, barba corta y bigote pelirrojos, un pequeño dilatador negro en la oreja izquierda, media sonrisa tranquila y simpática. ROPA NORMAL (expresiones neutral, contento, pensativo y sorprendido): abrigo largo oscuro de detective abierto sobre camiseta blanca lisa y pantalón chino beige, botas; lleva en la mano un tampón de sello de la agencia (sin letras). ROPA DE DEPORTE (expresiones deporte, deporte-contento y agotado): es también profe de Educación Física: camiseta técnica blanca de correr, pantalón corto deportivo oscuro, zapatillas de running, silbato colgado al cuello, cronómetro de mano, mochila a la espalda, cinta en la frente o toalla al hombro. Mismo moño y misma barba en todas.",
     "mira": "der"
   },
   "julian": {
@@ -610,8 +608,8 @@
     "tipo": "objeto",
     "nombre": "Foto antigua de la prueba de acceso",
     "emoji": "🖼️",
-    "listo": true,
-    "prompt": "Fotografía antigua en blanco y negro, algo amarillenta, con borde blanco de papel: una sala de examen con una mesa de tribunal al fondo, con tres adultos sentados (en el centro, una mujer de unos 35 años con moño oscuro y gafas finas, seria), y delante varias filas de niños de unos 11 años en pupitres. Uno de los niños de la última fila sale movido y borroso, como si se levantara deprisa, y no se le ve la cara. Sin letras, fechas ni números."
+    "listo": false,
+    "prompt": "Fotografía antigua en blanco y negro, algo amarillenta, con borde blanco de papel: una sala de examen con una mesa de tribunal al fondo, con tres adultos sentados (en el centro, el director Robles de joven, unos 25 años: hombre delgado con el pelo rizado recogido en un moño alto y barba corta, serio), y delante varias filas de niños de unos 11 años en pupitres. Uno de los niños de la última fila sale movido y borroso, como si se levantara deprisa, y no se le ve la cara. Sin letras, fechas ni números."
   },
   "caja-negativos": {
     "tipo": "objeto",
