@@ -201,11 +201,12 @@
       ]
     },
     {
-      "id": "cruz", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 2, "raiz": "cruz", "piezas": ["cruz"], "letra": "z", "pos": 3,
+      "id": "cruz", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 3, "raiz": "cruz", "piezas": ["cruz"], "letra": "z", "pos": 3,
       "nota": "La z de cruz se queda delante de a (cruzar), pero delante de e pasa a c (cruces). ¡Las dos son de la misma familia!",
       "derivadas": [
         { "p": "cruzar", "pista": "Pasar al otro lado de una calle o de un río", "frase": "Mira a los dos lados antes de ___ la calle.", "opciones": ["z", "c"], "letra": "z", "pos": 3 },
-        { "p": "cruces", "pista": "Más de una cruz", "frase": "El pirata dibujó dos ___ en el mapa del tesoro.", "opciones": ["z", "c"], "letra": "c", "pos": 3, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+        { "p": "cruces", "pista": "Más de una cruz", "frase": "El pirata dibujó dos ___ en el mapa del tesoro.", "opciones": ["z", "c"], "letra": "c", "pos": 3, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "encrucijada", "pista": "Un lugar donde se cruzan varios caminos", "frase": "Al llegar a la ___, el detective no sabía qué camino tomar.", "opciones": ["z", "c"], "letra": "c", "pos": 5, "porque": "Delante de e o de i, la z se convierte en c: ce, ci." }
       ]
     },
     {
@@ -217,11 +218,12 @@
       ]
     },
     {
-      "id": "feliz", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 2, "raiz": "feliz", "piezas": ["feliz"], "letra": "z", "pos": 4,
+      "id": "feliz", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 3, "raiz": "feliz", "piezas": ["feliz"], "letra": "z", "pos": 4,
       "nota": "Feliz termina en z; delante de e, i pasa a c: felices, felicidad.",
       "derivadas": [
         { "p": "felices", "pista": "Plural de feliz", "frase": "Todos estábamos ___ al resolver el caso.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de e, la z se convierte en c: ce, ci." },
-        { "p": "felicidad", "pista": "Lo que se siente cuando se es feliz", "frase": "La ___ de Lola se notaba en su sonrisa.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de i, la z se convierte en c: ce, ci." }
+        { "p": "felicidad", "pista": "Lo que se siente cuando se es feliz", "frase": "La ___ de Lola se notaba en su sonrisa.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de i, la z se convierte en c: ce, ci." },
+        { "p": "felicitar", "pista": "Dar la enhorabuena a alguien", "frase": "Fuimos a ___ a Lola por su cumpleaños.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de e o de i, la z se convierte en c: ce, ci." }
       ]
     },
     {
@@ -249,11 +251,12 @@
       ]
     },
     {
-      "id": "voz", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 2, "raiz": "voz", "piezas": ["voz"], "letra": "z", "pos": 2,
+      "id": "voz", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 3, "raiz": "voz", "piezas": ["voz"], "letra": "z", "pos": 2,
       "nota": "Voz termina en z; delante de e, pasa a c: voces, vocecita.",
       "derivadas": [
         { "p": "voces", "pista": "Más de una voz", "frase": "Desde el patio se oían las ___ de los niños.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." },
-        { "p": "vocecita", "pista": "Una voz pequeña y suave", "frase": "El ratón del cuento hablaba con una ___ muy aguda.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+        { "p": "vocecita", "pista": "Una voz pequeña y suave", "frase": "El ratón del cuento hablaba con una ___ muy aguda.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "vocerío", "pista": "El ruido de muchas voces a la vez", "frase": "Desde la ventana se oía el ___ del mercado.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e o de i, la z se convierte en c: ce, ci." }
       ]
     },
     {

@@ -417,7 +417,10 @@ function labFamRonda(fams, activas, mezcla) {
     const cand = porNivel(deRegla, 3, 3);                            // nivel 2 y 3
     const fuertes = cand.filter(f => labTieneCambio(f) || labNv(f) === 3);
     elegidas = elegir(fuertes.length >= cuantas ? fuertes : cand, cuantas);
-  } else elegidas = elegir(porNivel(deRegla, cuantas, 4), cuantas);     // nivel 3 (si faltan, también 2)
+  } else {                                                           // nivel 3 (si faltan, también 2)
+    elegidas = elegir(deRegla.filter(f => labNv(f) === 3), cuantas);
+    elegidas.push(...elegir(porNivel(deRegla, cuantas, 3).filter(f => !elegidas.includes(f)), cuantas - elegidas.length));
+  }
   return elegidas.map(f => ({ f, ders: labDerivadas(f, n) }));
 }
 
