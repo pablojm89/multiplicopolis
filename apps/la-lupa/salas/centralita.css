@@ -1,1 +1,135 @@
-/* Sala «centralita» de la Academia: pendiente. */
+/* ============================================================
+   Sala «centralita» de la Academia: mesa de radioaficionado de noche.
+   Radio de baquelita con dial iluminado, piloto «en el aire» y ondas;
+   télex con cinta de papel (Special Elite). Todo en px del escenario 1280×720.
+   ============================================================ */
+
+/* Selector Radio / Relámpago */
+.cen-modo { position: absolute; top: 22px; right: 24px; z-index: 6; display: flex; padding: 4px; gap: 4px; background: rgba(9, 12, 22, .85); border: 1px solid rgba(242, 169, 59, .45); border-radius: 999px; box-shadow: 0 6px 16px rgba(0, 0, 0, .45); }
+.cen-modo button { font: 800 16px var(--f-ui); color: #c9d3e0; padding: 7px 14px; border-radius: 999px; background: transparent; }
+.cen-modo button.activo { background: var(--albero); color: var(--tinta); box-shadow: 0 0 12px rgba(242, 169, 59, .55); }
+.cen-modo button:disabled { opacity: .4; text-decoration: line-through; }
+
+/* Lola, por radio desde el kiosco */
+.cen-lola { position: absolute; left: 0; bottom: 0; width: 280px; height: 420px; pointer-events: none; }
+.cen-lola .personaje { left: 4px; height: 400px; }
+
+/* Consola: radio + télex + pie */
+.cen-consola { position: absolute; left: 290px; right: 26px; top: 100px; bottom: 14px; display: flex; flex-direction: column; gap: 10px; }
+
+/* ── La radio ── */
+.cen-radio { position: relative; height: 158px; flex: none; display: grid; grid-template-columns: 170px 1fr 196px; gap: 16px; align-items: center; padding: 14px 18px; border-radius: 22px 22px 14px 14px;
+  background: var(--ruido), linear-gradient(175deg, #7a4a26, #4a2a14 70%, #3a200e);
+  border: 3px solid #2a170a; box-shadow: inset 0 2px 0 rgba(255, 220, 170, .25), inset 0 -6px 14px rgba(0, 0, 0, .45), 0 14px 30px rgba(0, 0, 0, .6); }
+.cen-radio::before { content: ""; position: absolute; left: 14px; right: 14px; top: 6px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, transparent, rgba(255, 210, 150, .35), transparent); }
+.cen-altavoz { height: 126px; border-radius: 14px; display: grid; place-items: center; border: 3px solid #2a170a;
+  background: radial-gradient(circle, #1c120a 2.2px, transparent 2.8px) 0 0 / 9px 9px, linear-gradient(#5a3a22, #3c2412); box-shadow: inset 0 4px 10px rgba(0, 0, 0, .6); }
+.cen-ondas { display: flex; align-items: center; gap: 5px; height: 80px; }
+.cen-ondas i { width: 6px; height: 8px; border-radius: 3px; background: #f7c66b; opacity: .35; transition: opacity .3s; }
+.cen-radio.emitiendo .cen-ondas i { opacity: 1; box-shadow: 0 0 8px rgba(247, 198, 107, .8); animation: cen-onda .7s ease-in-out infinite alternate; }
+.cen-ondas i:nth-child(2n) { animation-delay: -.25s !important; } .cen-ondas i:nth-child(3n) { animation-delay: -.5s !important; animation-duration: .55s !important; }
+.cen-ondas i:nth-child(5n) { animation-delay: -.1s !important; animation-duration: .9s !important; }
+@keyframes cen-onda { from { height: 8px; } to { height: 70px; } }
+
+.cen-centro { display: grid; gap: 10px; }
+.cen-dial { position: relative; height: 70px; border-radius: 10px; overflow: hidden; border: 3px solid #c9a46a; box-shadow: inset 0 0 18px rgba(0, 0, 0, .55), 0 0 0 3px #2a170a;
+  background: radial-gradient(ellipse at 50% 120%, #ffd98a, #e9a948 55%, #a8641e); }
+.cen-radio.emitiendo .cen-dial { box-shadow: inset 0 0 18px rgba(0, 0, 0, .4), 0 0 0 3px #2a170a, 0 0 22px rgba(255, 200, 110, .55); }
+.cen-escala { position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 16px 8px; font: 18px var(--f-maquina); color: #3a200e;
+  background: repeating-linear-gradient(90deg, rgba(58, 32, 14, .7) 0 2px, transparent 2px 14px) 0 6px / 100% 16px no-repeat; }
+.cen-aguja { position: absolute; top: 4px; bottom: 4px; width: 4px; margin-left: -2px; background: var(--rojo); border-radius: 2px; box-shadow: 0 0 6px rgba(224, 68, 62, .8); transition: left 1.2s cubic-bezier(.3, 1.3, .5, 1); }
+.cen-canales { display: flex; align-items: center; gap: 8px; }
+.cen-canales i { width: 16px; height: 16px; border-radius: 50%; background: #2a170a; border: 2px solid #1a0e06; box-shadow: inset 0 2px 3px rgba(0, 0, 0, .6); }
+.cen-canales i.hecho { background: #6ee08f; box-shadow: 0 0 8px rgba(110, 224, 143, .8); }
+.cen-canales i.actual { background: var(--albero); box-shadow: 0 0 10px rgba(242, 169, 59, .9); }
+.cen-rotulo { font: 800 13px var(--f-ui); color: #f3dcb2; text-transform: uppercase; letter-spacing: .1em; }
+.cen-rotulo:last-child { margin-left: 6px; text-transform: none; letter-spacing: .02em; font-size: 15px; }
+
+.cen-mandos { display: grid; gap: 12px; justify-items: center; }
+.cen-piloto { display: flex; align-items: center; gap: 8px; font: 800 13px var(--f-ui); color: #f3dcb2; text-transform: uppercase; letter-spacing: .12em; }
+.cen-piloto i { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #7a3a36, #3a1210); border: 2px solid #1a0e06; }
+.cen-radio.emitiendo .cen-piloto i { background: radial-gradient(circle at 35% 35%, #ffb3a8, #ff3b30 60%, #b81d16); box-shadow: 0 0 14px #ff3b30, 0 0 28px rgba(255, 59, 48, .6); animation: cen-piloto 1s ease-in-out infinite; }
+.cen-radio.emitiendo .cen-piloto span { color: #ffb3a8; }
+@keyframes cen-piloto { 50% { box-shadow: 0 0 6px #ff3b30; } }
+.cen-emitir { width: 184px; padding: 10px 8px 8px; border-radius: 14px; font: 26px var(--f-cartel); letter-spacing: .04em; color: var(--tinta);
+  background: linear-gradient(#fff3dc, #e3cfa4); box-shadow: 0 5px 0 #8a6a3a, 0 8px 14px rgba(0, 0, 0, .45); display: grid; line-height: 1; }
+.cen-emitir small { font: 800 13px var(--f-ui); color: var(--gris-tinta); margin-top: 3px; }
+.cen-emitir:hover:not(:disabled) { filter: brightness(1.06); }
+.cen-emitir:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 #8a6a3a; }
+.cen-emitir:disabled { opacity: .45; filter: grayscale(.7); box-shadow: 0 2px 0 #8a6a3a; transform: translateY(3px); }
+
+/* Lo que dice Lola */
+.cen-dice { flex: none; margin: 0; min-height: 56px; display: flex; align-items: center; gap: 0; padding: 6px 18px; background: var(--cristal); border: 1px solid rgba(242, 169, 59, .4); border-radius: 12px; color: var(--crema); font: 700 18px/1.35 var(--f-ui); }
+.cen-dice b { color: var(--albero); margin-right: 8px; text-transform: uppercase; letter-spacing: .08em; font-size: 15px; }
+.cen-dice { display: block; padding-top: 9px; }
+
+/* ── El télex y su cinta de papel ── */
+.cen-telex { flex: none; position: relative; height: 168px; display: flex; align-items: center; }
+.cen-maquina { position: relative; z-index: 2; flex: none; width: 112px; height: 168px; border-radius: 14px; display: grid; align-content: start; justify-items: center; padding-top: 18px; gap: 2px;
+  background: var(--ruido), linear-gradient(160deg, #6f7f78, #3d4a45 70%); border: 3px solid #1e2624; box-shadow: inset 0 2px 0 rgba(255, 255, 255, .2), 0 10px 22px rgba(0, 0, 0, .55); }
+.cen-maquina b { font: 24px var(--f-cartel); letter-spacing: .12em; color: #e8efe9; font-weight: 400; }
+.cen-maquina small { font: 13px var(--f-maquina); color: #b9c6bf; }
+.cen-ranura { position: absolute; right: -3px; top: 22px; bottom: 22px; width: 10px; background: #0d1210; border-radius: 4px 0 0 4px; }
+.cen-cinta { position: relative; flex: 1; height: 136px; margin-left: -6px; padding: 18px 22px 18px 28px; color: #1d1a14; overflow: hidden;
+  background:
+    radial-gradient(circle, #20180f 3px, transparent 3.6px) 10px 4px / 22px 12px repeat-x,
+    radial-gradient(circle, #20180f 3px, transparent 3.6px) 10px calc(100% - 4px) / 22px 12px repeat-x,
+    linear-gradient(transparent 0 15px, rgba(120, 90, 40, .25) 15px 16px, transparent 16px calc(100% - 16px), rgba(120, 90, 40, .25) calc(100% - 16px) calc(100% - 15px), transparent 0),
+    var(--ruido), linear-gradient(#f7f0dc, #ece2c6);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .5), inset 0 0 22px rgba(160, 120, 60, .25); border-radius: 0 6px 6px 0;
+  clip-path: polygon(0 0, 100% 0, 98.6% 12%, 100% 25%, 98.6% 38%, 100% 50%, 98.6% 62%, 100% 75%, 98.6% 88%, 100% 100%, 0 100%); }
+.cen-escribe { width: 100%; height: 100%; resize: none; border: 0; outline: 0; background: transparent; color: #1d1a14; font: 29px/1.5 var(--f-maquina); padding: 0; }
+.cen-escribe::placeholder { color: rgba(29, 26, 20, .45); }
+.cen-escribe:disabled { cursor: default; }
+.cen-escribe[hidden] { display: none; }
+.cen-cinta:focus-within { box-shadow: 0 10px 22px rgba(0, 0, 0, .5), inset 0 0 0 3px rgba(242, 169, 59, .7); }
+.cen-recibido { font: 29px/1.5 var(--f-maquina); height: 100%; overflow: hidden; }
+.cen-recibido u { text-decoration: underline wavy 2px var(--rojo); text-underline-offset: 6px; }
+.cen-cursor { display: inline-block; width: 14px; height: 26px; margin-left: 2px; vertical-align: -3px; background: #1d1a14; animation: parpadeo .6s steps(2) infinite; }
+.cen-recibido.borrando { animation: cen-borrar .65s ease-in forwards; }
+@keyframes cen-borrar {
+  0% { filter: none; opacity: 1; }
+  30% { filter: blur(1px) contrast(2); transform: translateX(-3px); }
+  60% { filter: blur(4px); opacity: .5; transform: translateX(4px); letter-spacing: .1em; }
+  100% { filter: blur(10px); opacity: 0; letter-spacing: .3em; }
+}
+.cen-cuenta { position: absolute; left: 28px; right: 22px; bottom: 16px; height: 5px; border-radius: 3px; background: rgba(29, 26, 20, .15); overflow: hidden; }
+.cen-cuenta i { display: block; height: 100%; width: 100%; background: var(--rojo); }
+
+/* Corrección sobre la cinta */
+.cen-recibido.corregido { line-height: 1.55; }
+.cen-w { border-radius: 4px; padding: 0 2px; transition: background .3s, color .3s; }
+.cen-w.ok { color: #1e6b3e; }
+.cen-w.mal { color: #fff; background: var(--rojo); box-shadow: 0 2px 0 var(--rojo-osc); }
+.cen-w.arreglada { color: #1d1a14; background: #9be2ae; }
+.cen-w.foco { outline: 3px solid var(--albero); outline-offset: 2px; animation: cen-foco 1s ease-in-out infinite; }
+@keyframes cen-foco { 50% { outline-color: transparent; } }
+
+/* ── Pie: transmitir, arreglar palabras y mensaje en limpio ── */
+.cen-pie { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
+.cen-pie > .msg { margin: 0; flex: 1; color: #ffb3a8; text-align: right; }
+.cen-arreglo { flex: 1; align-self: stretch; display: grid; align-content: center; gap: 4px; padding: 10px 22px; background: var(--ruido), var(--papel-claro); color: var(--tinta); border-radius: 8px; border-left: 10px solid var(--rojo); box-shadow: 0 10px 22px rgba(0, 0, 0, .5); }
+.cen-arreglo small { font: 800 13px var(--f-ui); color: var(--gris-tinta); text-transform: uppercase; letter-spacing: .08em; }
+.cen-arreglo p { margin: 0; font: 19px/1.35 var(--f-ui); }
+.cen-arreglo b { font: 26px var(--f-maquina); color: var(--verde); }
+.cen-arreglo s { font-family: var(--f-maquina); color: var(--gris-tinta); text-decoration: line-through 2px var(--rojo); }
+.cen-fila { display: flex; gap: 12px; align-items: center; }
+.cen-fila .entrada { flex: 1; width: auto; margin: 0; font: 26px var(--f-maquina); padding: 6px 12px; }
+.cen-fila .boton-sello { font-size: 24px; padding: 6px 18px 4px; }
+.cen-fila .boton-papel { font-size: 16px; }
+.cen-arreglo .msg { margin: 0; font-size: 16px; min-height: 1.2em; }
+.cen-limpio { flex: 1; align-self: stretch; display: grid; align-content: center; gap: 4px; padding: 10px 22px; background: var(--ruido), #e8f5ea; color: var(--tinta); border-radius: 8px; border-left: 10px solid var(--verde); box-shadow: 0 10px 22px rgba(0, 0, 0, .5); }
+.cen-limpio small { font: 800 13px var(--f-ui); color: var(--verde); text-transform: uppercase; letter-spacing: .08em; }
+.cen-limpio p { margin: 0; font: 24px/1.4 var(--f-maquina); }
+.cen-pie .flecha { flex: none; }
+.cen-sala .cen-pie s { text-decoration: line-through 2px var(--rojo); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cen-radio.emitiendo .cen-ondas i, .cen-radio.emitiendo .cen-piloto i, .cen-w.foco { animation: none; }
+  .cen-radio.emitiendo .cen-ondas i { height: 40px; }
+  .cen-aguja { transition: none; }
+}
+
+/* Nombres de regla largos: una sola línea en la radio */
+.cen-centro, .cen-canales { min-width: 0; }
+.cen-canales .cen-rotulo:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }

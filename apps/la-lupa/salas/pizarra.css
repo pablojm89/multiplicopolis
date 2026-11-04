@@ -1,1 +1,167 @@
-/* Sala «pizarra» de la Academia: pendiente. */
+/* ============================================================
+   Sala «La Pizarra» (Z1 · Descubre la regla)
+   Todo va sobre la pizarra verde del fondo sala-pizarra
+   (en el escenario de 1280×720: x 337-985, y 93-358; repisa en y ≈ 360).
+   Tiza: Patrick Hand + filtro SVG #piz-tiza (grano y bordes irregulares).
+   ============================================================ */
+:root {
+  --piz-tiza: #f5f2e7;
+  --piz-amarilla: #ffe58f;
+  --piz-rosa: #ffaaa3;
+  --piz-verde: #bdf0b4;
+  --piz-pizarra: #233a2f;
+  --piz-madera: #8d5a2c;
+}
+.piz-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.piz-titulo { position: absolute; top: 16px; left: 136px; margin: 0; font-size: 50px; }
+.piz-tema { position: absolute; top: 64px; left: 138px; margin: 0; font: 22px var(--f-mano); color: var(--piz-amarilla); text-shadow: 0 2px 4px rgba(0, 0, 0, .8); }
+
+/* ── La pizarra ─────────────────────────────────────────────── */
+.piz-tablero {
+  position: absolute; left: 342px; top: 98px; width: 638px; height: 256px; overflow: hidden;
+  color: var(--piz-tiza); font-family: var(--f-mano);
+  /* restos de clases anteriores, mal borrados */
+  background:
+    radial-gradient(ellipse 22% 14% at 18% 78%, rgba(255, 255, 255, .06), transparent 70%),
+    radial-gradient(ellipse 28% 12% at 76% 24%, rgba(255, 255, 255, .05), transparent 70%),
+    radial-gradient(ellipse 40% 10% at 50% 100%, rgba(255, 255, 255, .09), transparent 75%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='638' height='256'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.035' stroke-width='16' stroke-linecap='round'%3E%3Cpath d='M40 60 Q160 40 300 70 T600 50'/%3E%3Cpath d='M70 150 Q220 130 360 160 T610 140'/%3E%3Cpath d='M30 220 Q200 200 330 230'/%3E%3C/g%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.05' stroke-width='2'%3E%3Cpath d='M480 200 l30 -20 M495 215 l30 -20'/%3E%3Ccircle cx='120' cy='110' r='26'/%3E%3C/g%3E%3C/svg%3E");
+}
+.piz-pasos { position: absolute; top: 6px; left: 14px; right: 14px; display: flex; justify-content: space-between; font-size: 19px; line-height: 1; color: rgba(245, 242, 231, .42); padding-bottom: 5px; border-bottom: 2px dashed rgba(245, 242, 231, .2); filter: url(#piz-tiza); }
+.piz-pasos .actual { color: var(--piz-amarilla); }
+.piz-pasos .hecho { color: var(--piz-verde); }
+.piz-contenido { position: absolute; top: 34px; left: 10px; right: 10px; bottom: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; filter: url(#piz-tiza); text-shadow: 0 0 1px rgba(255, 255, 255, .6), 0 0 8px rgba(255, 255, 255, .12); }
+.piz-polvo { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(ellipse 60% 45% at 50% 55%, rgba(235, 240, 230, .32), rgba(235, 240, 230, .1) 60%, transparent 80%); }
+
+/* Pruebas escritas con tiza */
+.piz-pruebas { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 16px 40px; width: 100%; }
+.piz-pruebas.frases { gap: 12px 22px; }
+.piz-pruebas.nuevas { gap: 10px 44px; margin-top: 6px; }
+.piz-p { position: relative; font: 46px/1.05 var(--f-mano); color: inherit; background: none; padding: 6px 16px; transform: rotate(var(--g, 0deg)); transition: opacity .3s, text-shadow .2s; }
+.piz-p.frase { font-size: 23px; line-height: 1; padding: 5px 10px; max-width: 290px; text-align: center; }
+.piz-pruebas.nuevas .piz-p { font-size: 44px; }
+.piz-pruebas.nuevas.frases { flex-direction: column; align-items: center; gap: 2px; margin-top: 2px; }
+.piz-pruebas.nuevas .piz-p.frase { font-size: 23px; max-width: none; padding: 4px 12px; }
+.piz-p:hover { text-shadow: 0 0 12px rgba(255, 255, 255, .45); }
+.piz-p.fuera { opacity: .45; }
+.piz-p.tachada { opacity: .6; }
+.piz-p.aviso { animation: piz-aviso .9s ease-in-out 2; }
+.piz-p.nueva::before { content: "+"; position: absolute; left: -20px; top: 2px; font-size: 26px; color: var(--piz-amarilla); opacity: .8; }
+
+/* Trazos de tiza (círculos, tachones, subrayados, visto bueno) */
+.piz-trazo { position: absolute; pointer-events: none; overflow: visible; }
+.piz-trazo path { fill: none; stroke: var(--piz-tiza); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: piz-trazo .5s ease-out forwards; }
+.piz-trazo.amarilla path { stroke: var(--piz-amarilla); }
+.piz-trazo.rosa path { stroke: var(--piz-rosa); }
+.piz-trazo.tachon path { stroke: var(--piz-rosa); stroke-width: 5; animation-duration: .45s; }
+.piz-trazo.visto path { stroke: var(--piz-verde); stroke-width: 7; }
+.piz-trazo.subrayado path { stroke-width: 3.5; }
+
+/* Hipótesis aceptada (pasos 3 y 4) */
+.piz-regla { margin: 0 0 6px; max-width: 590px; text-align: center; font-size: 25px; line-height: 1.12; color: var(--piz-amarilla); text-wrap: balance; }
+.piz-regla small { display: block; font-size: 17px; letter-spacing: .14em; text-transform: uppercase; color: rgba(245, 242, 231, .6); }
+
+/* Ejemplo propio escrito en la pizarra */
+.piz-tuyo { position: relative; display: flex; align-items: baseline; gap: 14px; margin-top: 10px; padding: 0 10px; }
+.piz-tuyo > span { font-size: 26px; color: rgba(245, 242, 231, .75); }
+.piz-entrada { font: 44px/1.1 var(--f-mano); color: var(--piz-tiza); background: transparent; border: none; border-bottom: 3px dashed rgba(245, 242, 231, .55); width: 340px; text-align: center; caret-color: var(--piz-amarilla); outline: none; padding: 0 6px 2px; }
+.piz-entrada.frase { font-size: 28px; width: 440px; }
+.piz-entrada:focus { border-bottom-color: var(--piz-amarilla); }
+.piz-escrito { position: relative; font: 46px/1.1 var(--f-mano); color: var(--piz-tiza); padding: 0 10px; }
+.piz-escrito.frase { font-size: 30px; }
+.piz-sello { position: absolute; right: -24px; top: calc(100% + 2px); font: 24px var(--f-mano); color: var(--piz-amarilla); transform: rotate(-7deg); white-space: nowrap; animation: piz-aparece .4s ease-out; }
+.piz-sello.revisar { color: #a9d8ff; }
+
+/* Portada: elegir regla */
+.piz-portada { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0 26px; }
+.piz-grande { margin: 0; font-size: 46px; line-height: 1.05; max-width: 420px; }
+.piz-lupa { width: 120px; height: 120px; grid-row: span 2; }
+.piz-lupa circle, .piz-lupa path { fill: none; stroke: var(--piz-tiza); stroke-width: 5; stroke-linecap: round; }
+.piz-lupa path:last-child { stroke-width: 3; opacity: .6; }
+.piz-nota { margin: 8px 0 0; font-size: 20px; color: var(--piz-amarilla); }
+
+/* ── Borrador y tizas en la repisa ──────────────────────────── */
+.piz-borrador { position: absolute; left: 872px; top: 334px; width: 96px; height: 30px; z-index: 4; border-radius: 6px 6px 3px 3px; box-shadow: 0 5px 6px rgba(0, 0, 0, .5);
+  background: linear-gradient(180deg, #c48a4f 0, #9c6534 50%, #5d3a1b 58%, #45484e 60%, #2f3136 100%); }
+.piz-borrador::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: 2px; height: 8px; border-radius: 2px; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .22) 0 2px, transparent 2px 5px); }
+.piz-borrador.borrando { animation: piz-borrador .95s ease-in-out; }
+.piz-tizas { position: absolute; left: 800px; top: 352px; display: flex; gap: 6px; z-index: 3; }
+.piz-tizas i { width: 30px; height: 8px; border-radius: 3px; background: linear-gradient(#fffdf4, #d9d3c0); box-shadow: 0 2px 2px rgba(0, 0, 0, .45); transform: rotate(-4deg); }
+.piz-tizas i.amarilla { width: 22px; background: linear-gradient(#fff1a6, #d6bf5b); transform: rotate(6deg); }
+
+.piz-tablero.borrando .piz-contenido { animation: piz-borrar .95s ease-in forwards; }
+.piz-tablero.polvo .piz-polvo { animation: piz-polvo 2.6s ease-out forwards; }
+.piz-tablero.escribiendo .piz-contenido { animation: piz-escribir .8s ease-out; }
+
+/* ── Don Anselmo y su bocadillo ─────────────────────────────── */
+.personaje.piz-anselmo { left: 6px; height: 420px; }
+.piz-bocadillo { position: absolute; left: 262px; top: 388px; width: 628px; min-height: 100px; max-height: 132px; overflow: auto; background: var(--papel-claro); color: var(--tinta); border-radius: 18px; padding: 8px 20px 10px; box-shadow: 0 8px 18px rgba(0, 0, 0, .45); }
+.piz-bocadillo::before { content: ""; position: absolute; left: -22px; top: 22px; border: 12px solid transparent; border-right: 22px solid var(--papel-claro); border-left: 0; }
+.piz-bocadillo .quien { display: block; font: 800 13px var(--f-ui); color: var(--gris-tinta); text-transform: uppercase; letter-spacing: .1em; }
+.piz-bocadillo p { margin: 2px 0 0; font: 22px/1.22 var(--f-mano); }
+.piz-bocadillo p.nuevo { animation: piz-aparece .35s ease-out; }
+
+.piz-acciones { position: absolute; left: 904px; top: 388px; width: 360px; height: 132px; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 10px; }
+.piz-cuenta { margin: 0; font: 26px var(--f-mano); color: var(--crema); text-shadow: 0 2px 4px rgba(0, 0, 0, .9); }
+.piz-acciones .boton-sello:disabled { filter: grayscale(.7) brightness(.8); cursor: default; }
+
+/* ── Zona baja: pizarrines (hipótesis y reglas) y ficha ─────── */
+.piz-zona { position: absolute; left: 262px; right: 16px; top: 532px; bottom: 14px; }
+.piz-pizarrin {
+  position: relative; display: flex; flex-direction: column; justify-content: center; gap: 4px; text-align: left;
+  color: var(--piz-tiza); font: 22px/1.2 var(--f-mano); padding: 8px 14px;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, .07), transparent 60%), var(--piz-pizarra);
+  border: 9px solid; border-color: #a86f3a #6f4522 #5a381a #8d5a2c; border-radius: 6px;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, .55), 0 6px 12px rgba(0, 0, 0, .5);
+  transition: transform .15s, opacity .3s;
+}
+.piz-pizarrin > span { filter: url(#piz-tiza); text-shadow: 0 0 1px rgba(255, 255, 255, .5); }
+.piz-pizarrin:hover:not(:disabled):not(.tachada) { transform: translateY(-3px) rotate(-.4deg); }
+.piz-pizarrin.tachada { cursor: default; }
+.piz-pizarrin.tachada > span { opacity: .55; }
+.piz-pizarrin > span { position: relative; }
+.piz-marca { position: absolute; right: 8px; top: 6px; width: 64px; height: 54px; pointer-events: none; }
+.piz-nw { white-space: nowrap; }
+.piz-pizarrin.buena { box-shadow: inset 0 0 18px rgba(0, 0, 0, .55), 0 0 0 3px var(--piz-verde), 0 0 24px rgba(189, 240, 180, .45); }
+.piz-pizarrin:disabled:not(.buena):not(.tachada) { opacity: .5; }
+.piz-veredicto { position: absolute; right: 10px; bottom: 4px; font: 21px var(--f-mano); color: var(--piz-rosa); transform: rotate(-4deg); filter: url(#piz-tiza); }
+.piz-hipotesis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; height: 100%; }
+.piz-zona.elegir { top: 502px; }
+.piz-reglas { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 8px 12px; height: 100%; }
+.piz-reglas .piz-pizarrin { min-height: 0; overflow: hidden; font-size: 20px; line-height: 1.02; padding: 0 12px; border-width: 7px; gap: 10px; flex-direction: row; justify-content: space-between; align-items: center; }
+.piz-reglas .piz-pizarrin small { font: 16px var(--f-mano); color: var(--piz-amarilla); white-space: nowrap; }
+
+.piz-ficha { position: relative; min-height: 120px; background: var(--papel-claro); color: var(--tinta); padding: 10px 190px 14px 22px; border-radius: 3px; transform: rotate(-.5deg); box-shadow: 0 8px 18px rgba(0, 0, 0, .5);
+  background-image: linear-gradient(transparent 29px, rgba(31, 95, 168, .14) 29px); background-size: 100% 30px; background-position: 0 6px; animation: piz-ficha .5s cubic-bezier(.2, 1.3, .4, 1); }
+.piz-ficha small { display: block; font: 800 14px var(--f-ui); color: var(--gris-tinta); text-transform: uppercase; letter-spacing: .08em; }
+.piz-ficha p { margin: 4px 0 8px; font: 24px/1.25 var(--f-mano); background: linear-gradient(transparent 55%, rgba(255, 229, 143, .7) 55%); display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.piz-ficha .boton-papel { position: absolute; right: 18px; bottom: 14px; font-size: 15px; padding: 6px 12px; }
+.piz-ficha-sello { position: absolute; right: 22px; top: 8px; font: 30px var(--f-cartel); letter-spacing: .08em; color: var(--verde); border: 3px solid var(--verde); border-radius: 6px; padding: 0 10px; transform: rotate(8deg); opacity: .85; }
+.ventana-archivo li.piz-destacado { background: linear-gradient(transparent 55%, rgba(255, 229, 143, .8) 55%); }
+.momento .piz-otra { margin-left: 14px; }
+
+/* ── Animaciones ────────────────────────────────────────────── */
+@keyframes piz-trazo { to { stroke-dashoffset: 0; } }
+@keyframes piz-aparece { from { opacity: 0; transform: translateY(4px); } }
+@keyframes piz-aviso { 50% { text-shadow: 0 0 16px rgba(255, 170, 163, .9); } }
+@keyframes piz-borrar { 0% { opacity: 1; } 60% { opacity: .25; filter: url(#piz-tiza) blur(2px); } 100% { opacity: 0; filter: url(#piz-tiza) blur(4px); } }
+@keyframes piz-escribir { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes piz-polvo { 0% { opacity: 0; } 25% { opacity: .7; } 100% { opacity: 0; } }
+@keyframes piz-ficha { from { opacity: 0; transform: translateY(30px) rotate(3deg); } }
+/* El borrador sale de la repisa, barre la pizarra en zigzag y vuelve */
+@keyframes piz-borrador {
+  0% { transform: none; }
+  10% { transform: translate(-500px, -210px) rotate(-8deg); }
+  22% { transform: translate(-40px, -190px) rotate(6deg); }
+  34% { transform: translate(-500px, -140px) rotate(-6deg); }
+  46% { transform: translate(-40px, -110px) rotate(5deg); }
+  58% { transform: translate(-500px, -60px) rotate(-5deg); }
+  70% { transform: translate(-40px, -35px) rotate(4deg); }
+  82% { transform: translate(-260px, -20px) rotate(-2deg); }
+  100% { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .piz-trazo path { animation: none; stroke-dashoffset: 0; }
+  .piz-borrador.borrando, .piz-tablero.borrando .piz-contenido, .piz-tablero.escribiendo .piz-contenido, .piz-ficha { animation: none; }
+}

@@ -1,0 +1,394 @@
+{
+  "_nota": "Dictados de la Centralita (R1 Dictado por radio y P3 relámpago). texto: la frase correcta (8-14 palabras), un mensaje por radio en La Alameda; regla: la regla principal; marcas: 2-3 palabras clave tal como aparecen en el texto, con su regla y una explicación corta (por) que se enseña si el alumno la falla. Valídalo con python3 herramientas/validar_centralita.py",
+  "frases": [
+    {
+      "regla": "tildes-generales",
+      "texto": "Mateo ha visto un camión azul aparcado junto al café de la plaza.",
+      "marcas": [
+        { "p": "camión", "regla": "tildes-generales", "por": "ca-MIÓN es aguda y termina en -n: lleva tilde." },
+        { "p": "café", "regla": "tildes-generales", "por": "ca-FÉ es aguda y termina en vocal: lleva tilde." }
+      ]
+    },
+    {
+      "regla": "tildes-generales",
+      "texto": "Atención, Lola: el sospechoso lleva un lápiz detrás de la oreja.",
+      "marcas": [
+        { "p": "Atención", "regla": "tildes-generales", "por": "a-ten-CIÓN es aguda y termina en -n: lleva tilde." },
+        { "p": "lápiz", "regla": "tildes-generales", "por": "LÁ-piz es llana y termina en -z (ni vocal, ni -n, ni -s): lleva tilde." },
+        { "p": "detrás", "regla": "tildes-generales", "por": "de-TRÁS es aguda y termina en -s: lleva tilde." }
+      ]
+    },
+    {
+      "regla": "tildes-generales",
+      "texto": "El reloj de la torre se paró a las nueve en punto.",
+      "marcas": [
+        { "p": "reloj", "regla": "tildes-generales", "por": "re-LOJ es aguda, pero termina en -j: no lleva tilde." },
+        { "p": "paró", "regla": "tildes-generales", "por": "pa-RÓ es aguda y termina en vocal: lleva tilde." }
+      ]
+    },
+    {
+      "regla": "tildes-generales",
+      "texto": "Encontramos un pájaro de papel sobre el sofá de la Academia.",
+      "marcas": [
+        { "p": "pájaro", "regla": "tildes-generales", "por": "PÁ-ja-ro es esdrújula: las esdrújulas llevan tilde siempre." },
+        { "p": "papel", "regla": "tildes-generales", "por": "pa-PEL es aguda, pero termina en -l: no lleva tilde." },
+        { "p": "sofá", "regla": "tildes-generales", "por": "so-FÁ es aguda y termina en vocal: lleva tilde." }
+      ]
+    },
+    {
+      "regla": "tildes-generales",
+      "texto": "Repito: la música del teléfono suena desde el árbol del jardín.",
+      "marcas": [
+        { "p": "música", "regla": "tildes-generales", "por": "MÚ-si-ca es esdrújula: lleva tilde siempre." },
+        { "p": "teléfono", "regla": "tildes-generales", "por": "te-LÉ-fo-no es esdrújula: lleva tilde siempre." },
+        { "p": "árbol", "regla": "tildes-generales", "por": "ÁR-bol es llana y termina en -l: lleva tilde." }
+      ]
+    },
+    {
+      "regla": "b-v-1",
+      "texto": "Bruno iba en bicicleta y llevaba el periódico bajo el brazo.",
+      "marcas": [
+        { "p": "iba", "regla": "b-v-1", "por": "Las formas del verbo ir en pasado van con b: iba, íbamos." },
+        { "p": "llevaba", "regla": "b-v-1", "por": "Es el pasado de un verbo en -ar (llevar): se escribe -aba." },
+        { "p": "brazo", "regla": "b-v-1", "por": "El grupo br se escribe siempre con b: brazo, brisa." }
+      ]
+    },
+    {
+      "regla": "b-v-1",
+      "texto": "Mensaje para Mateo: el hombre del sombrero va a subir al tejado.",
+      "marcas": [
+        { "p": "hombre", "regla": "b-v-1", "por": "Detrás de m va siempre b: hombre." },
+        { "p": "sombrero", "regla": "b-v-1", "por": "Detrás de m va siempre b, y el grupo br también: sombrero." },
+        { "p": "subir", "regla": "b-v-1", "por": "Los verbos acabados en -bir se escriben con b: subir, escribir." }
+      ]
+    },
+    {
+      "regla": "b-v-1",
+      "texto": "Estuve en el mercado toda la tarde y anduve detrás del sospechoso.",
+      "marcas": [
+        { "p": "Estuve", "regla": "b-v-1", "por": "Las formas de estar con este sonido van con v: estuve, estuvimos." },
+        { "p": "anduve", "regla": "b-v-1", "por": "Las formas de andar con este sonido van con v: anduve, anduvo." }
+      ]
+    },
+    {
+      "regla": "b-v-1",
+      "texto": "Don Anselmo nos envía un mensaje nuevo desde la antigua escuela.",
+      "marcas": [
+        { "p": "envía", "regla": "b-v-1", "por": "Después de n va siempre v: envía, invierno." },
+        { "p": "nuevo", "regla": "b-v-1", "por": "Los adjetivos en -evo se escriben con v: nuevo." }
+      ]
+    },
+    {
+      "regla": "b-v-1",
+      "texto": "Cuando el Tachón escribía sus notas, siempre usaba una tinta verde.",
+      "marcas": [
+        { "p": "escribía", "regla": "b-v-1", "por": "Viene de escribir, un verbo en -bir: todas sus formas van con b." },
+        { "p": "usaba", "regla": "b-v-1", "por": "Es el pasado de un verbo en -ar (usar): se escribe -aba." }
+      ]
+    },
+    {
+      "regla": "h-1",
+      "texto": "Había huellas de barro junto al hueco de la puerta del almacén.",
+      "marcas": [
+        { "p": "Había", "regla": "h-1", "por": "Todas las formas del verbo haber llevan h: había, hemos, hay." },
+        { "p": "huellas", "regla": "h-1", "por": "Las palabras que empiezan por ue- llevan h delante: huella." },
+        { "p": "hueco", "regla": "h-1", "por": "Empieza por ue-, así que lleva h delante: hueco." }
+      ]
+    },
+    {
+      "regla": "h-1",
+      "texto": "El hermano del panadero vio humo saliendo por la ventana del obrador.",
+      "marcas": [
+        { "p": "hermano", "regla": "h-1", "por": "Las palabras que empiezan por herm- llevan h: hermano, hermoso." },
+        { "p": "humo", "regla": "h-1", "por": "Empieza por hum- seguido de vocal: lleva h." }
+      ]
+    },
+    {
+      "regla": "h-1",
+      "texto": "Hemos hallado un huevo de chocolate en el hospital del barrio.",
+      "marcas": [
+        { "p": "hallado", "regla": "h-1", "por": "Todas las formas del verbo hallar (encontrar) llevan h." },
+        { "p": "huevo", "regla": "h-1", "por": "Empieza por ue-, así que lleva h delante: huevo." },
+        { "p": "hospital", "regla": "h-1", "por": "Las palabras que empiezan por hosp- llevan h: hospital." }
+      ]
+    },
+    {
+      "regla": "h-1",
+      "texto": "Lola habla con el testigo mientras Mateo hace fotos del hielo de la fuente.",
+      "marcas": [
+        { "p": "habla", "regla": "h-1", "por": "Todas las formas del verbo hablar llevan h." },
+        { "p": "hace", "regla": "h-1", "por": "Todas las formas del verbo hacer llevan h: hace, hizo." },
+        { "p": "hielo", "regla": "h-1", "por": "Las palabras que empiezan por ie- llevan h delante: hielo." }
+      ]
+    },
+    {
+      "regla": "h-1",
+      "texto": "¡Qué horror! Las hormigas se han comido las migas del bocadillo.",
+      "marcas": [
+        { "p": "horror", "regla": "h-1", "por": "Las palabras que empiezan por horr- llevan h: horror, horrible." },
+        { "p": "hormigas", "regla": "h-1", "por": "Las palabras que empiezan por horm- llevan h: hormiga." },
+        { "p": "han", "regla": "h-1", "por": "Es del verbo haber (han comido): todas sus formas llevan h." }
+      ]
+    },
+    {
+      "regla": "c-z-s",
+      "texto": "Lola encontró una cazuela con queso en la cocina del mercado.",
+      "marcas": [
+        { "p": "cazuela", "regla": "c-z-s", "por": "Delante de u, ese sonido se escribe con z: za, zo, zu." },
+        { "p": "queso", "regla": "c-z-s", "por": "El sonido /k/ delante de e se escribe qu: queso, quinto." },
+        { "p": "cocina", "regla": "c-z-s", "por": "Delante de i se escribe c, no z: ce, ci." }
+      ]
+    },
+    {
+      "regla": "c-z-s",
+      "texto": "Empecé a buscar las luces de la feria antes de cenar.",
+      "marcas": [
+        { "p": "Empecé", "regla": "c-z-s", "por": "Viene de empezar: los verbos en -zar cambian la z por c delante de e." },
+        { "p": "luces", "regla": "c-z-s", "por": "Es el plural de luz: la z se cambia por c delante de e." },
+        { "p": "cenar", "regla": "c-z-s", "por": "Delante de e se escribe c, no z: ce, ci." }
+      ]
+    },
+    {
+      "regla": "c-z-s",
+      "texto": "Atención, equipo: han visto dos peces rojos en la fuente del parque.",
+      "marcas": [
+        { "p": "peces", "regla": "c-z-s", "por": "Es el plural de pez: la z se cambia por c delante de e." },
+        { "p": "parque", "regla": "c-z-s", "por": "El sonido /k/ delante de e se escribe qu." }
+      ]
+    },
+    {
+      "regla": "c-z-s",
+      "texto": "La costurera cose botones mientras su vecino cuece patatas para la cena.",
+      "marcas": [
+        { "p": "cose", "regla": "c-z-s", "por": "Es de coser (con hilo y aguja), que va con s. Cocer (en la olla) va con c." },
+        { "p": "cuece", "regla": "c-z-s", "por": "Es de cocer (en la olla), que va con c. Coser (con hilo) va con s." },
+        { "p": "cena", "regla": "c-z-s", "por": "Delante de e se escribe c, no z: ce, ci." }
+      ]
+    },
+    {
+      "regla": "c-z-s",
+      "texto": "El Tachón dejó un zapato azul en la casa de Mateo.",
+      "marcas": [
+        { "p": "zapato", "regla": "c-z-s", "por": "Delante de a, ese sonido se escribe con z: za, zo, zu." },
+        { "p": "azul", "regla": "c-z-s", "por": "Delante de u, ese sonido se escribe con z: za, zo, zu." },
+        { "p": "casa", "regla": "c-z-s", "por": "Casa (donde se vive) va con s. Caza (de cazar) va con z: con seseo suenan igual." }
+      ]
+    },
+    {
+      "regla": "ll-y",
+      "texto": "Hoy Lola ha llegado al kiosco con una llave muy pequeña.",
+      "marcas": [
+        { "p": "Hoy", "regla": "ll-y", "por": "La i del final que va detrás de una vocal se escribe y: hoy, muy, rey." },
+        { "p": "llave", "regla": "ll-y", "por": "Se escribe con ll, como toda su familia: llavero, llavín." },
+        { "p": "muy", "regla": "ll-y", "por": "La i del final que va detrás de una vocal se escribe y: muy." }
+      ]
+    },
+    {
+      "regla": "ll-y",
+      "texto": "El sospechoso huyó por el pasillo y se le cayó una bombilla.",
+      "marcas": [
+        { "p": "huyó", "regla": "ll-y", "por": "Viene de huir, que no tiene ll ni y: sus formas van con y." },
+        { "p": "pasillo", "regla": "ll-y", "por": "Las palabras terminadas en -illo, -illa se escriben con ll." },
+        { "p": "cayó", "regla": "ll-y", "por": "Viene de caer, que no tiene ll ni y: va con y. Calló, con ll, es de callar." }
+      ]
+    },
+    {
+      "regla": "ll-y",
+      "texto": "Mateo estaba leyendo el periódico cuando oyó un ruido en la azotea.",
+      "marcas": [
+        { "p": "leyendo", "regla": "ll-y", "por": "Viene de leer, que no tiene ll ni y: sus formas van con y." },
+        { "p": "oyó", "regla": "ll-y", "por": "Viene de oír, que no tiene ll ni y: sus formas van con y." }
+      ]
+    },
+    {
+      "regla": "ll-y",
+      "texto": "Busca la valla del jardín: puede que haya una nota escondida.",
+      "marcas": [
+        { "p": "valla", "regla": "ll-y", "por": "Valla (la cerca) va con ll. Vaya, con y, es del verbo ir." },
+        { "p": "haya", "regla": "ll-y", "por": "Haya, con y, es del verbo haber. Halla, con ll, es de hallar." }
+      ]
+    },
+    {
+      "regla": "ll-y",
+      "texto": "El rey de la feria lleva un sombrero con farolillos amarillos.",
+      "marcas": [
+        { "p": "rey", "regla": "ll-y", "por": "La i del final que va detrás de una vocal se escribe y: rey." },
+        { "p": "farolillos", "regla": "ll-y", "por": "Las palabras terminadas en -illo, -illa se escriben con ll." },
+        { "p": "amarillos", "regla": "ll-y", "por": "Termina en -illo: se escribe con ll." }
+      ]
+    },
+    {
+      "regla": "g-j-dieresis",
+      "texto": "Urgente: la gente del mercado ha visto una imagen muy extraña.",
+      "marcas": [
+        { "p": "Urgente", "regla": "g-j-dieresis", "por": "Las palabras con -gente se escriben con g: urgente, gente." },
+        { "p": "gente", "regla": "g-j-dieresis", "por": "Gen- y -gente se escriben con g." },
+        { "p": "imagen", "regla": "g-j-dieresis", "por": "Las palabras terminadas en -gen se escriben con g: imagen, origen." }
+      ]
+    },
+    {
+      "regla": "g-j-dieresis",
+      "texto": "El pingüino de peluche apareció junto a la cigüeña del campanario.",
+      "marcas": [
+        { "p": "pingüino", "regla": "g-j-dieresis", "por": "En gui la u no suena; aquí sí suena, así que lleva diéresis: güi." },
+        { "p": "cigüeña", "regla": "g-j-dieresis", "por": "En gue la u no suena; aquí sí suena, así que lleva diéresis: güe." }
+      ]
+    },
+    {
+      "regla": "g-j-dieresis",
+      "texto": "Mateo dijo que el relojero se fue de viaje el lunes.",
+      "marcas": [
+        { "p": "dijo", "regla": "g-j-dieresis", "por": "Viene de decir, que no tiene g ni j: sus formas van con j (dije, dijo)." },
+        { "p": "relojero", "regla": "g-j-dieresis", "por": "Las palabras terminadas en -jero, -jera se escriben con j." },
+        { "p": "viaje", "regla": "g-j-dieresis", "por": "Las palabras terminadas en -aje se escriben con j: viaje, garaje." }
+      ]
+    },
+    {
+      "regla": "g-j-dieresis",
+      "texto": "Tienes que elegir una pista y proteger la caja de la guitarra.",
+      "marcas": [
+        { "p": "elegir", "regla": "g-j-dieresis", "por": "Los verbos acabados en -gir se escriben con g: elegir, dirigir." },
+        { "p": "proteger", "regla": "g-j-dieresis", "por": "Los verbos acabados en -ger se escriben con g: proteger, coger." },
+        { "p": "guitarra", "regla": "g-j-dieresis", "por": "En gui la u no suena y no lleva diéresis: guitarra." }
+      ]
+    },
+    {
+      "regla": "g-j-dieresis",
+      "texto": "La cajera trajo la mochila perdida al garaje de la agencia.",
+      "marcas": [
+        { "p": "cajera", "regla": "g-j-dieresis", "por": "Las palabras terminadas en -jero, -jera se escriben con j." },
+        { "p": "trajo", "regla": "g-j-dieresis", "por": "Viene de traer, que no tiene g ni j: sus formas van con j (traje, trajo)." },
+        { "p": "garaje", "regla": "g-j-dieresis", "por": "Las palabras terminadas en -aje se escriben con j." }
+      ]
+    },
+    {
+      "regla": "diptongo-monosilabos",
+      "texto": "Fue Mateo quien vio el guion de la radio en el suelo.",
+      "marcas": [
+        { "p": "Fue", "regla": "diptongo-monosilabos", "por": "Fue tiene una sola sílaba: los monosílabos no llevan tilde." },
+        { "p": "vio", "regla": "diptongo-monosilabos", "por": "Vio tiene una sola sílaba: no lleva tilde." },
+        { "p": "guion", "regla": "diptongo-monosilabos", "por": "Para la ortografía, guion tiene una sola sílaba: sin tilde." }
+      ]
+    },
+    {
+      "regla": "diptongo-monosilabos",
+      "texto": "Después de la canción, Lola dio la señal a todo el equipo.",
+      "marcas": [
+        { "p": "Después", "regla": "diptongo-monosilabos", "por": "des-PUÉS es aguda en -s: lleva tilde, y en el diptongo ue va en la vocal abierta, la e." },
+        { "p": "canción", "regla": "diptongo-monosilabos", "por": "can-CIÓN es aguda en -n: lleva tilde, y en el diptongo io va en la o." },
+        { "p": "dio", "regla": "diptongo-monosilabos", "por": "Dio tiene una sola sílaba: no lleva tilde." }
+      ]
+    },
+    {
+      "regla": "diptongo-monosilabos",
+      "texto": "Cuídate mucho: el Tachón te espera al pie de la escalera.",
+      "marcas": [
+        { "p": "Cuídate", "regla": "diptongo-monosilabos", "por": "CUÍ-da-te es esdrújula: lleva tilde. En el diptongo ui (dos cerradas) va en la segunda." },
+        { "p": "pie", "regla": "diptongo-monosilabos", "por": "Pie tiene una sola sílaba: no lleva tilde." }
+      ]
+    },
+    {
+      "regla": "diptongo-monosilabos",
+      "texto": "Ayer fui a la estación y vi una huella junto a la puerta.",
+      "marcas": [
+        { "p": "fui", "regla": "diptongo-monosilabos", "por": "Fui tiene una sola sílaba: no lleva tilde." },
+        { "p": "vi", "regla": "diptongo-monosilabos", "por": "Vi tiene una sola sílaba: no lleva tilde." },
+        { "p": "estación", "regla": "diptongo-monosilabos", "por": "es-ta-CIÓN es aguda en -n: lleva tilde, en la o del diptongo." }
+      ]
+    },
+    {
+      "regla": "diptongo-monosilabos",
+      "texto": "Interferencias: el ruido del viento no deja escuchar la voz de Mateo.",
+      "marcas": [
+        { "p": "ruido", "regla": "diptongo-monosilabos", "por": "RUI-do es llana y termina en vocal: no lleva tilde." },
+        { "p": "viento", "regla": "diptongo-monosilabos", "por": "VIEN-to es llana y termina en vocal: no lleva tilde." },
+        { "p": "voz", "regla": "diptongo-monosilabos", "por": "Voz tiene una sola sílaba: no lleva tilde." }
+      ]
+    },
+    {
+      "regla": "d-z-finales",
+      "texto": "La pared del mercado tiene una luz roja que se enciende sola.",
+      "marcas": [
+        { "p": "pared", "regla": "d-z-finales", "por": "Su plural es paredes, con -des: termina en d." },
+        { "p": "luz", "regla": "d-z-finales", "por": "Su plural es luces, con -ces: termina en z." }
+      ]
+    },
+    {
+      "regla": "d-z-finales",
+      "texto": "Es verdad: la amistad del equipo vale más que cualquier pista.",
+      "marcas": [
+        { "p": "verdad", "regla": "d-z-finales", "por": "Termina en -dad, que se escribe con d. Plural: verdades." },
+        { "p": "amistad", "regla": "d-z-finales", "por": "Termina en -tad, que se escribe con d. Plural: amistades." }
+      ]
+    },
+    {
+      "regla": "d-z-finales",
+      "texto": "Mateo vio un pez de juguete atrapado en la red de la fuente.",
+      "marcas": [
+        { "p": "pez", "regla": "d-z-finales", "por": "Su plural es peces, con -ces: termina en z." },
+        { "p": "red", "regla": "d-z-finales", "por": "Su plural es redes, con -des: termina en d." }
+      ]
+    },
+    {
+      "regla": "d-z-finales",
+      "texto": "El Tachón dibujó una cruz con lápiz en el mapa de la ciudad.",
+      "marcas": [
+        { "p": "cruz", "regla": "d-z-finales", "por": "Su plural es cruces, con -ces: termina en z." },
+        { "p": "lápiz", "regla": "d-z-finales", "por": "Su plural es lápices, con -ces: termina en z." },
+        { "p": "ciudad", "regla": "d-z-finales", "por": "Termina en -dad, que se escribe con d. Plural: ciudades." }
+      ]
+    },
+    {
+      "regla": "d-z-finales",
+      "texto": "Por seguridad, habla en voz baja: los vecinos ya están durmiendo.",
+      "marcas": [
+        { "p": "seguridad", "regla": "d-z-finales", "por": "Termina en -dad, que se escribe con d." },
+        { "p": "voz", "regla": "d-z-finales", "por": "Su plural es voces, con -ces: termina en z." }
+      ]
+    },
+    {
+      "regla": "mayusculas-puntuacion-1",
+      "texto": "El martes saldrá un número especial de El Eco de La Alameda.",
+      "marcas": [
+        { "p": "martes", "regla": "mayusculas-puntuacion-1", "por": "Los días de la semana van en minúscula." },
+        { "p": "Eco", "regla": "mayusculas-puntuacion-1", "por": "El nombre de un periódico va con mayúscula: El Eco de La Alameda." },
+        { "p": "Alameda", "regla": "mayusculas-puntuacion-1", "por": "Es el nombre propio de un lugar: con mayúscula." }
+      ]
+    },
+    {
+      "regla": "mayusculas-puntuacion-1",
+      "texto": "En junio, el director Robles viajará a Sevilla con todo el equipo.",
+      "marcas": [
+        { "p": "junio", "regla": "mayusculas-puntuacion-1", "por": "Los meses van en minúscula." },
+        { "p": "director", "regla": "mayusculas-puntuacion-1", "por": "Los cargos van en minúscula; el nombre, Robles, con mayúscula." },
+        { "p": "Sevilla", "regla": "mayusculas-puntuacion-1", "por": "Es el nombre propio de una ciudad: con mayúscula." }
+      ]
+    },
+    {
+      "regla": "mayusculas-puntuacion-1",
+      "texto": "Un turista francés pregunta en inglés por la calle de don Anselmo.",
+      "marcas": [
+        { "p": "francés", "regla": "mayusculas-puntuacion-1", "por": "Los gentilicios (de dónde es alguien) van en minúscula." },
+        { "p": "inglés", "regla": "mayusculas-puntuacion-1", "por": "Los idiomas van en minúscula." },
+        { "p": "don", "regla": "mayusculas-puntuacion-1", "por": "Don va en minúscula en mitad de la frase; el nombre, Anselmo, con mayúscula." }
+      ]
+    },
+    {
+      "regla": "mayusculas-puntuacion-1",
+      "texto": "¿Quién ha dejado esta nota en otoño? Mateo no reconoce la letra.",
+      "marcas": [
+        { "p": "otoño", "regla": "mayusculas-puntuacion-1", "por": "Las estaciones del año van en minúscula." },
+        { "p": "Mateo", "regla": "mayusculas-puntuacion-1", "por": "Después de ? empieza otra oración, y además es un nombre propio: mayúscula." }
+      ]
+    },
+    {
+      "regla": "mayusculas-puntuacion-1",
+      "texto": "Los andaluces de La Alameda celebran la feria en primavera.",
+      "marcas": [
+        { "p": "andaluces", "regla": "mayusculas-puntuacion-1", "por": "Los gentilicios van en minúscula: andaluz, andaluces." },
+        { "p": "Alameda", "regla": "mayusculas-puntuacion-1", "por": "Es el nombre propio de un lugar: La Alameda, con mayúscula." },
+        { "p": "primavera", "regla": "mayusculas-puntuacion-1", "por": "Las estaciones del año van en minúscula." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,566 @@
+{
+  "_nota": "Sala de la Pizarra (Z1 · Descubre la regla). Por regla de 5.º, varias «subreglas»: ejemplos (cumplen), relleno (correctas que no cumplen), contraejemplos (excepciones reales), hipótesis (una buena, una demasiado amplia, una demasiado estrecha). «porque» puede llevar {p}: se cambia por la palabra de «prueba» que esté en la pizarra (la de la amplia sale del relleno; la de la estrecha, de los ejemplos). «punto» es el índice del punto de la ficha de Mateo que confirma la regla. «patron» (expresión regular, válida en JS y en Python) lo cumplen todos los ejemplos y ningún relleno; en «si» y «excepcion», {plural} se cambia por el plural de la palabra. Valídalo con python3 herramientas/validar_pizarra.py",
+  "reglas": {
+    "tildes-generales": [
+      {
+        "id": "agudas",
+        "nombre": "Las agudas con tilde",
+        "punto": 1,
+        "patron": "[áéíóú][iu]?[ns]?$",
+        "pista": "Di cada palabra en voz alta: ¿dónde cae la fuerza? Y fíjate en la tilde.",
+        "ejemplos": ["sofá", "camión", "compás", "café", "jabón", "ratón", "autobús", "francés", "menú", "colibrí", "sillón", "anís", "balcón", "champú", "bebé", "inglés"],
+        "relleno": ["reloj", "papel", "ciudad", "mesa", "lunes", "árbol", "ventana", "feliz"],
+        "contraejemplos": ["tren", "pan", "mes", "pie", "dos", "flan"],
+        "si": "es aguda (la fuerza va en la última sílaba) y termina en vocal, -n o -s.",
+        "excepcion": "tiene una sola sílaba, y los monosílabos no llevan tilde, aunque terminen en vocal, -n o -s.",
+        "hipotesis": [
+          { "texto": "Las palabras agudas llevan tilde cuando terminan en vocal, en -n o en -s.", "valor": "buena" },
+          { "texto": "Todas las palabras agudas llevan tilde.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es aguda y no lleva tilde, porque no termina en vocal, -n ni -s.", "prueba": ["reloj", "papel", "ciudad", "feliz"] },
+          { "texto": "Las palabras agudas llevan tilde cuando terminan en -n.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» también lleva tilde y no termina en -n.", "prueba": ["sofá", "compás", "café", "autobús", "francés", "menú", "colibrí", "anís", "champú", "bebé", "inglés"] }
+        ]
+      },
+      {
+        "id": "llanas",
+        "nombre": "Las llanas con tilde",
+        "punto": 2,
+        "patron": "[áéíóú][^aeiouáéíóú]*[aeiou][^aeiouáéíóúns]$",
+        "pista": "Busca la sílaba fuerte de cada una y mira con qué letra terminan.",
+        "ejemplos": ["árbol", "lápiz", "fácil", "césped", "cárcel", "azúcar", "móvil", "difícil", "útil", "débil", "ángel", "dólar", "mármol", "néctar", "carácter", "huésped"],
+        "relleno": ["mesa", "joven", "lunes", "camión", "reloj", "casa", "examen", "libro"],
+        "contraejemplos": ["bíceps", "cómics", "récords", "tríceps"],
+        "si": "es llana (la fuerza va en la penúltima sílaba) y no termina en vocal, -n ni -s.",
+        "excepcion": "es llana y termina en -s, pero lleva tilde: cuando esa -s va detrás de otra consonante, la llana se acentúa (bíceps, cómics, récords).",
+        "hipotesis": [
+          { "texto": "Las palabras llanas llevan tilde cuando no terminan en vocal, en -n ni en -s.", "valor": "buena" },
+          { "texto": "Todas las palabras llanas llevan tilde.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es llana y no lleva tilde, porque termina en vocal, -n o -s.", "prueba": ["mesa", "joven", "lunes", "casa", "examen", "libro"] },
+          { "texto": "Las palabras llanas llevan tilde cuando terminan en -l.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» también lleva tilde y no termina en -l.", "prueba": ["lápiz", "césped", "azúcar", "dólar", "néctar", "carácter", "huésped"] }
+        ]
+      },
+      {
+        "id": "esdrujulas",
+        "nombre": "Las esdrújulas",
+        "punto": 3,
+        "patron": "[áéíóú][^aeiouáéíóú]*[aeiou]+[^aeiouáéíóú]+[aeiou]+[^aeiouáéíóú]*$",
+        "pista": "Cuenta las sílabas desde el final y busca dónde cae la fuerza.",
+        "ejemplos": ["música", "pájaro", "teléfono", "médico", "sábado", "miércoles", "plátano", "brújula", "lámpara", "murciélago", "matemáticas", "rápido", "número", "página", "jóvenes", "exámenes", "árboles", "cáscara"],
+        "relleno": ["camión", "árbol", "ventana", "reloj", "lápiz", "cuaderno", "pizarra", "chocolate"],
+        "contraejemplos": [],
+        "si": "es esdrújula: la fuerza va en la antepenúltima sílaba, y las esdrújulas llevan tilde siempre.",
+        "hipotesis": [
+          { "texto": "Las palabras esdrújulas llevan tilde siempre.", "valor": "buena" },
+          { "texto": "Las palabras llanas y las esdrújulas llevan tilde siempre.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es llana y no lleva tilde.", "prueba": ["ventana", "cuaderno", "pizarra", "chocolate"] },
+          { "texto": "Las palabras esdrújulas llevan tilde cuando terminan en vocal.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» es esdrújula, no termina en vocal y también lleva tilde.", "prueba": ["miércoles", "matemáticas", "jóvenes", "exámenes", "árboles"] }
+        ]
+      }
+    ],
+    "b-v-1": [
+      {
+        "id": "aba",
+        "nombre": "El pretérito imperfecto en -aba",
+        "punto": 0,
+        "patron": "(aba|abas|ábamos|abais|aban)$",
+        "pista": "Son verbos en pasado. Fíjate en cómo terminan.",
+        "ejemplos": ["cantaba", "jugaba", "saltaba", "miraba", "jugaban", "saltábamos", "bailabas", "nadaban", "pintábamos", "estudiabas", "buscaba", "llegaban", "mirabais", "soñaba", "pensábamos", "cocinaban"],
+        "relleno": ["comía", "vivía", "salía", "corría", "tenía", "leía", "dormía", "quería"],
+        "contraejemplos": ["iba", "ibas", "íbamos", "iban"],
+        "si": "es pretérito imperfecto de un verbo terminado en -ar: lleva -aba.",
+        "excepcion": "es del verbo ir, que no termina en -ar, y aun así lleva b: iba, ibas, íbamos, iban.",
+        "hipotesis": [
+          { "texto": "El pretérito imperfecto de los verbos terminados en -ar se escribe con b: -aba.", "valor": "buena" },
+          { "texto": "El pretérito imperfecto de todos los verbos se escribe con b.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» también es pretérito imperfecto y no lleva b, porque su verbo no termina en -ar.", "prueba": ["comía", "vivía", "salía", "corría", "tenía", "leía", "dormía", "quería"] },
+          { "texto": "Con el sujeto yo, el pretérito imperfecto de los verbos en -ar se escribe con b.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no va con yo y también lleva b.", "prueba": ["jugaban", "saltábamos", "bailabas", "nadaban", "pintábamos", "estudiabas", "llegaban", "mirabais", "pensábamos", "cocinaban"] }
+        ]
+      },
+      {
+        "id": "mb",
+        "nombre": "mb: delante de b, m",
+        "punto": 1,
+        "patron": "mb",
+        "pista": "Mira qué letra va justo delante de la b.",
+        "ejemplos": ["hombre", "tambor", "también", "cambio", "nombre", "hambre", "sombra", "bombilla", "tumba", "alambre", "embudo", "sombrero", "ambulancia", "timbre"],
+        "relleno": ["invierno", "enviar", "banco", "mundo", "ventana", "cabeza", "lobo", "sabor"],
+        "contraejemplos": [],
+        "si": "lleva m justo delante de la b.",
+        "hipotesis": [
+          { "texto": "Delante de b se escribe m, nunca n.", "valor": "buena" },
+          { "texto": "Delante de cualquier consonante se escribe m, nunca n.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» lleva n delante de otra consonante.", "prueba": ["invierno", "enviar", "banco", "mundo", "ventana"] },
+          { "texto": "Delante de b se escribe m en las palabras que terminan en -bre.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no termina en -bre y también lleva m delante de b.", "prueba": ["tambor", "también", "cambio", "sombra", "bombilla", "tumba", "embudo", "sombrero", "ambulancia"] }
+        ]
+      },
+      {
+        "id": "nv",
+        "nombre": "nv: después de n, v",
+        "punto": 3,
+        "patron": "nv",
+        "pista": "Mira qué letra va justo antes de la v.",
+        "ejemplos": ["invierno", "enviar", "invitar", "convertir", "envase", "invento", "conversación", "envidia", "convocar", "invisible", "convencer", "envolver"],
+        "relleno": ["hombre", "tambor", "también", "sombra", "vaso", "uva", "nuevo", "cantar"],
+        "contraejemplos": [],
+        "si": "lleva v justo después de la n.",
+        "hipotesis": [
+          { "texto": "Después de n se escribe siempre v, nunca b.", "valor": "buena" },
+          { "texto": "Después de n o de m se escribe siempre v.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» va una m, y después de m se escribe b.", "prueba": ["hombre", "tambor", "también", "sombra"] },
+          { "texto": "Después de n se escribe v en las palabras que empiezan por in-.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no empieza por in- y también lleva v después de n.", "prueba": ["enviar", "convertir", "envase", "conversación", "envidia", "convocar", "convencer", "envolver"] }
+        ]
+      },
+      {
+        "id": "bir",
+        "nombre": "Los verbos en -bir",
+        "punto": 2,
+        "patron": "bir$",
+        "pista": "Son verbos en infinitivo. Fíjate en cómo suenan al final.",
+        "ejemplos": ["escribir", "recibir", "subir", "describir", "prohibir", "percibir", "inscribir", "exhibir", "concebir", "transcribir"],
+        "relleno": ["partir", "salir", "dormir", "decidir", "pedir", "sufrir", "repetir", "morir"],
+        "contraejemplos": ["hervir", "servir", "vivir", "convivir", "sobrevivir"],
+        "si": "es un verbo que termina sonando «bir», y se escribe con b.",
+        "excepcion": "suena «bir» al final, pero se escribe con v. Las excepciones son hervir, servir y vivir (y su familia, como convivir).",
+        "hipotesis": [
+          { "texto": "Los verbos que terminan con el sonido «bir» se escriben con b.", "valor": "buena" },
+          { "texto": "Todos los verbos terminados en -ir llevan b.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» termina en -ir y no lleva b.", "prueba": ["partir", "salir", "dormir", "decidir", "pedir", "sufrir", "repetir", "morir"] },
+          { "texto": "Los verbos terminados en -cribir se escriben con b.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no termina en -cribir y también lleva b.", "prueba": ["recibir", "subir", "prohibir", "percibir", "exhibir", "concebir"] }
+        ]
+      },
+      {
+        "id": "ivo",
+        "nombre": "Los adjetivos en -avo, -ave, -evo, -eve, -ivo",
+        "punto": 4,
+        "patron": "(avo|ava|ave|evo|eva|eve|ivo|iva)s?$",
+        "pista": "Todas describen cómo es algo. Fíjate en cómo terminan.",
+        "ejemplos": ["octavo", "suave", "nuevo", "breve", "activo", "grave", "leve", "decisivo", "deportiva", "creativo", "positivo", "nueva", "atractiva", "octava"],
+        "relleno": ["rápido", "alegre", "cansado", "tranquilo", "feliz", "amable", "sabroso", "simpático"],
+        "contraejemplos": ["monosílabo", "bisílaba", "trisílabo", "polisílaba"],
+        "si": "es un adjetivo terminado en -avo, -ave, -evo, -eve, -ivo o en sus femeninos.",
+        "excepcion": "es un adjetivo que termina en «-abo» o «-aba» y se escribe con b, porque viene de sílaba (monosílabo, bisílaba, trisílabo).",
+        "hipotesis": [
+          { "texto": "Los adjetivos que terminan en -avo, -ave, -evo, -eve o -ivo (y sus femeninos) se escriben con v.", "valor": "buena" },
+          { "texto": "Todos los adjetivos se escriben con v.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es un adjetivo y no lleva v.", "prueba": ["rápido", "alegre", "cansado", "tranquilo", "feliz", "amable", "sabroso", "simpático"] },
+          { "texto": "Los adjetivos que terminan en -ivo se escriben con v.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no termina en -ivo y también lleva v.", "prueba": ["octavo", "suave", "nuevo", "breve", "grave", "leve", "nueva", "octava"] }
+        ]
+      },
+      {
+        "id": "uv",
+        "nombre": "estuve, anduve, tuve",
+        "punto": 5,
+        "patron": "uv",
+        "pista": "Todas son de tres verbos. Busca qué letras se repiten en las cuatro.",
+        "ejemplos": ["estuve", "estuviste", "estuvo", "estuvimos", "estuvieron", "anduve", "anduviste", "anduvo", "anduvimos", "anduvieron", "tuve", "tuviste", "tuvo", "tuvimos", "tuvieron"],
+        "relleno": ["estaba", "andaba", "tenía", "tengo", "estoy", "ando", "tienes", "andamos"],
+        "contraejemplos": [],
+        "si": "es pretérito perfecto simple de estar, andar o tener: lleva -uv-.",
+        "hipotesis": [
+          { "texto": "El pretérito perfecto simple de estar, andar y tener se escribe con v.", "valor": "buena" },
+          { "texto": "Todas las formas de estar, andar y tener se escriben con v.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es de uno de esos verbos y no lleva v.", "prueba": ["estaba", "andaba", "tenía", "tengo", "estoy", "ando", "tienes", "andamos"] },
+          { "texto": "El pretérito perfecto simple de tener se escribe con v.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es de tener y también lleva v.", "prueba": ["estuve", "estuviste", "estuvo", "estuvimos", "estuvieron", "anduve", "anduviste", "anduvo", "anduvimos", "anduvieron"] }
+        ]
+      }
+    ],
+    "h-1": [
+      {
+        "id": "hue",
+        "nombre": "hie-, hue-, hui-",
+        "punto": 0,
+        "patron": "^h(i[eé]|u[eé]|u[ií])",
+        "pista": "Fíjate en cómo empiezan y en cómo suenan al principio.",
+        "ejemplos": ["hielo", "huevo", "hueso", "huida", "hierba", "hueco", "huerto", "huella", "hiena", "huelga", "huésped", "hierro", "huerta"],
+        "relleno": ["oso", "árbol", "isla", "uva", "espejo", "ola", "invierno", "agua"],
+        "contraejemplos": [],
+        "si": "empieza por el sonido ie, ue o ui, y por eso lleva una h delante.",
+        "hipotesis": [
+          { "texto": "Las palabras que empiezan por los sonidos ie, ue y ui llevan una h delante.", "valor": "buena" },
+          { "texto": "Todas las palabras que empiezan por vocal llevan una h delante.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» empieza por vocal y no lleva h.", "prueba": ["oso", "árbol", "isla", "uva", "espejo", "ola", "invierno", "agua"] },
+          { "texto": "Las palabras que empiezan por el sonido ue llevan una h delante.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no empieza por ue y también lleva h.", "prueba": ["hielo", "huida", "hierba", "hiena", "hierro"] }
+        ]
+      },
+      {
+        "id": "herm",
+        "nombre": "herm-, horm-, horr-, hosp-, hum-",
+        "punto": 1,
+        "patron": "^(herm|horm|horr|hosp|h[uú]m[aeiouáéíóú])",
+        "pista": "Fíjate en las tres o cuatro primeras letras de cada palabra.",
+        "ejemplos": ["hermano", "hormiga", "horrible", "hospital", "humo", "húmedo", "humano", "humilde", "humor", "hermoso", "hormigón", "horror", "hospedaje", "humedad"],
+        "relleno": ["oso", "orden", "umbral", "ocho", "uña", "orilla", "enorme", "olor"],
+        "contraejemplos": ["ermita", "ermitaño"],
+        "si": "empieza por herm-, horm-, horr-, hosp- o hum- seguido de vocal: lleva h.",
+        "excepcion": "empieza por el sonido erm y no lleva h: es la excepción de esta regla (ermita, ermitaño).",
+        "hipotesis": [
+          { "texto": "Las palabras que empiezan por los sonidos erm, orm, orr, osp y um seguido de vocal llevan una h delante.", "valor": "buena" },
+          { "texto": "Todas las palabras que empiezan por e-, por o- o por u- llevan una h delante.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» empieza así y no lleva h.", "prueba": ["oso", "orden", "umbral", "ocho", "uña", "orilla", "enorme", "olor"] },
+          { "texto": "Las palabras que empiezan por el sonido um seguido de vocal llevan una h delante.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no empieza por hum- y también lleva h.", "prueba": ["hermano", "hormiga", "horrible", "hospital", "hermoso", "hormigón", "horror", "hospedaje"] }
+        ]
+      },
+      {
+        "id": "haber",
+        "nombre": "haber, hacer, hablar, hallar y habitar",
+        "punto": 2,
+        "patron": "^h",
+        "pista": "Todas son formas de verbos. ¿Qué letra tienen todas al principio?",
+        "ejemplos": ["había", "hizo", "hablábamos", "hallé", "habitan", "hecho", "hacemos", "hablaron", "hallaste", "habrá", "hice", "habita", "hubo", "hagamos", "hallamos", "habitaba"],
+        "relleno": ["echar", "echo", "abrir", "alto", "ojo", "oír", "iba", "ama"],
+        "contraejemplos": [],
+        "si": "es una forma de haber, hacer, hablar, hallar o habitar: lleva h.",
+        "hipotesis": [
+          { "texto": "Todas las formas de los verbos haber, hacer, hablar, hallar y habitar llevan h.", "valor": "buena" },
+          { "texto": "Todas las formas verbales que empiezan por vocal llevan una h delante.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es una forma verbal que empieza por vocal y no lleva h.", "prueba": ["echar", "echo", "abrir", "oír", "iba", "ama"] },
+          { "texto": "Todas las formas del verbo hablar llevan h.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es del verbo hablar y también lleva h.", "prueba": ["había", "hizo", "hallé", "habitan", "hecho", "hacemos", "hallaste", "habrá", "hice", "habita", "hubo", "hagamos", "hallamos", "habitaba"] }
+        ]
+      }
+    ],
+    "c-z-s": [
+      {
+        "id": "ce-ci",
+        "nombre": "ce, ci (y za, zo, zu)",
+        "punto": 1,
+        "patron": "c[eiéí]",
+        "pista": "Busca la letra que suena como la z y mira qué vocal lleva detrás.",
+        "ejemplos": ["cebolla", "cine", "cielo", "cerdo", "cepillo", "cocina", "ciudad", "cenar", "cesta", "cifra", "cierto", "cemento", "circo", "vecino"],
+        "relleno": ["zapato", "zorro", "zumo", "pozo", "taza", "azul", "buzón", "lazo"],
+        "contraejemplos": ["zigzag", "zeta", "zepelín"],
+        "si": "lleva c delante de e o de i, donde no se escribe z.",
+        "excepcion": "lleva z delante de e o de i. Son muy pocas palabras: zigzag, zeta, zepelín.",
+        "hipotesis": [
+          { "texto": "Delante de e y de i se escribe c, no z: ce, ci.", "valor": "buena" },
+          { "texto": "En lugar de z, se escribe siempre c.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» se escribe con z, porque ese sonido va delante de a, o, u o al final.", "prueba": ["zapato", "zorro", "zumo", "pozo", "taza", "azul", "buzón", "lazo"] },
+          { "texto": "Delante de e se escribe c, no z.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» también lleva c delante de i.", "prueba": ["cine", "cielo", "cocina", "ciudad", "cifra", "cierto", "circo", "vecino"] }
+        ]
+      },
+      {
+        "id": "que-qui",
+        "nombre": "que, qui (y ca, co, cu)",
+        "punto": 0,
+        "patron": "qu[eiéí]",
+        "pista": "Busca el sonido de la k y mira qué vocal lleva detrás.",
+        "ejemplos": ["queso", "quinto", "quemar", "quieto", "máquina", "pequeño", "parque", "raqueta", "mosquito", "esquina", "quince", "bosque", "etiqueta", "chaqueta"],
+        "relleno": ["casa", "cola", "cuna", "cubo", "cama", "foca", "cosa", "barco"],
+        "contraejemplos": ["kilo", "kiwi", "kilómetro"],
+        "si": "tiene el sonido de la k delante de e o de i, y por eso se escribe con qu.",
+        "excepcion": "suena «ki», pero se escribe con k. Pasa en unas pocas palabras: kilo, kilómetro, kiwi.",
+        "hipotesis": [
+          { "texto": "Delante de e y de i, el sonido de la k se escribe con qu: que, qui.", "valor": "buena" },
+          { "texto": "El sonido de la k se escribe siempre con qu.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» suena igual y se escribe con c, porque va delante de a, o o u.", "prueba": ["casa", "cola", "cuna", "cubo", "cama", "foca", "cosa", "barco"] },
+          { "texto": "Delante de e, el sonido de la k se escribe con qu.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» también lleva qu delante de i.", "prueba": ["quinto", "quieto", "máquina", "mosquito", "esquina", "quince"] }
+        ]
+      },
+      {
+        "id": "ces",
+        "nombre": "Los plurales en -ces",
+        "punto": 2,
+        "patron": "ces$",
+        "pista": "Todas son plurales. Fíjate en cómo terminan.",
+        "ejemplos": ["luces", "peces", "lápices", "voces", "nueces", "raíces", "cruces", "veces", "narices", "perdices", "actrices", "felices", "capaces", "disfraces"],
+        "relleno": ["mesas", "casas", "árboles", "paredes", "flores", "relojes", "botones", "leones"],
+        "contraejemplos": [],
+        "si": "es el plural de una palabra terminada en -z, que cambia la z por c: -ces.",
+        "hipotesis": [
+          { "texto": "Las palabras que terminan en -z hacen el plural en -ces.", "valor": "buena" },
+          { "texto": "Todos los plurales terminan en -ces.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es un plural y no termina en -ces.", "prueba": ["mesas", "casas", "árboles", "paredes", "flores", "relojes", "botones", "leones"] },
+          { "texto": "Las palabras de una sola sílaba que terminan en -z hacen el plural en -ces.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» viene de una palabra de más de una sílaba y también termina en -ces.", "prueba": ["lápices", "raíces", "narices", "perdices", "actrices", "felices", "capaces", "disfraces"] }
+        ]
+      },
+      {
+        "id": "zar",
+        "nombre": "Los verbos en -zar: empecé, cacé",
+        "punto": 3,
+        "patron": "c(é|e|es|emos|éis|en)$",
+        "pista": "Son formas de verbos que terminan en -zar. ¿Qué pasa con la z?",
+        "ejemplos": ["empecé", "cacé", "gocé", "almorcé", "lancé", "recé", "crucé", "alcancé", "avancé", "abracé", "empiece", "almuerce"],
+        "relleno": ["empezó", "cazamos", "gozaba", "almorzar", "lanzo", "rezas", "cruzaron", "abrazo"],
+        "contraejemplos": [],
+        "si": "es de un verbo terminado en -zar, y la z cambia a c porque va delante de e.",
+        "hipotesis": [
+          { "texto": "En los verbos terminados en -zar, la z cambia a c delante de e.", "valor": "buena" },
+          { "texto": "Los verbos terminados en -zar cambian siempre la z por c.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es de un verbo en -zar y mantiene la z, porque detrás no va una e.", "prueba": ["empezó", "cazamos", "gozaba", "almorzar", "lanzo", "rezas", "cruzaron", "abrazo"] },
+          { "texto": "El verbo empezar cambia la z por c delante de e.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es de empezar y también cambia la z por c.", "prueba": ["cacé", "gocé", "almorcé", "lancé", "recé", "crucé", "alcancé", "avancé", "abracé", "almuerce"] }
+        ]
+      }
+    ],
+    "ll-y": [
+      {
+        "id": "illo",
+        "nombre": "-illo, -illa",
+        "punto": 0,
+        "patron": "ill[oa]s?$",
+        "pista": "Fíjate en cómo terminan.",
+        "ejemplos": ["farolillo", "bombilla", "pasillo", "ardilla", "tortilla", "cuchillo", "mantequilla", "martillo", "rodilla", "ventanilla", "pastilla", "bolsillo", "zapatilla", "pajarillo", "semilla", "camilla"],
+        "relleno": ["playa", "rayo", "joya", "payaso", "raya", "ensayo", "mayo", "desayuno"],
+        "contraejemplos": [],
+        "si": "termina en -illo o en -illa: se escribe con ll.",
+        "hipotesis": [
+          { "texto": "Las palabras que terminan en -illo o en -illa se escriben con ll.", "valor": "buena" },
+          { "texto": "Si suena como la ll de silla, se escribe siempre con ll.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» tiene ese mismo sonido y se escribe con y.", "prueba": ["playa", "rayo", "joya", "payaso", "raya", "ensayo", "mayo", "desayuno"] },
+          { "texto": "Las palabras que terminan en -illo se escriben con ll.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» termina en -illa y también lleva ll.", "prueba": ["bombilla", "ardilla", "tortilla", "mantequilla", "rodilla", "ventanilla", "pastilla", "zapatilla", "semilla", "camilla"] }
+        ]
+      },
+      {
+        "id": "y-final",
+        "nombre": "La y al final: rey, hoy, muy",
+        "punto": 1,
+        "patron": "[aeiou]y$",
+        "pista": "Fíjate en la última letra y en la que va justo antes.",
+        "ejemplos": ["rey", "hoy", "muy", "ley", "buey", "estoy", "voy", "soy", "doy", "hay", "jersey", "convoy", "virrey", "caray"],
+        "relleno": ["caí", "leí", "oí", "reí", "taxi", "jabalí", "rubí", "casi"],
+        "contraejemplos": ["bonsái", "saharaui"],
+        "si": "termina en una i que va detrás de vocal y no suena fuerte: se escribe y.",
+        "excepcion": "termina en una i detrás de vocal que no suena fuerte, y aun así se escribe con i. Pasa en muy pocas palabras: bonsái, saharaui.",
+        "hipotesis": [
+          { "texto": "Al final de palabra, la i que va detrás de una vocal y no suena fuerte se escribe y.", "valor": "buena" },
+          { "texto": "Al final de palabra, el sonido de la i se escribe siempre y.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» termina con el sonido de la i y se escribe con i: o suena fuerte, o no va detrás de vocal.", "prueba": ["caí", "leí", "oí", "reí", "taxi", "jabalí", "rubí", "casi"] },
+          { "texto": "En las palabras de una sola sílaba, la i final que va detrás de vocal y no suena fuerte se escribe y.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» tiene más de una sílaba y también termina en y.", "prueba": ["estoy", "jersey", "convoy", "virrey", "caray"] }
+        ]
+      },
+      {
+        "id": "cayo",
+        "nombre": "cayó, oyendo, huyó",
+        "punto": 2,
+        "patron": "y",
+        "pista": "Todas son formas de verbos. Piensa en su infinitivo.",
+        "ejemplos": ["cayó", "oyendo", "huyó", "leyendo", "creyó", "construyó", "oyeron", "cayeron", "huyendo", "leyó", "incluyó", "destruyó", "creyendo", "distribuyó"],
+        "relleno": ["calló", "halló", "llevó", "lloró", "brilló", "chilló", "falló", "llegó"],
+        "contraejemplos": [],
+        "si": "su infinitivo no tiene ll ni y, así que ese sonido se escribe con y.",
+        "hipotesis": [
+          { "texto": "Si el infinitivo de un verbo no tiene ll ni y, sus formas con ese sonido se escriben con y.", "valor": "buena" },
+          { "texto": "Todas las formas verbales con el sonido de la y se escriben con y.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» se escribe con ll, porque su infinitivo ya la lleva.", "prueba": ["calló", "halló", "llevó", "lloró", "brilló", "chilló", "falló", "llegó"] },
+          { "texto": "Las formas del verbo caer con ese sonido se escriben con y.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es del verbo caer y también se escribe con y.", "prueba": ["oyendo", "huyó", "leyendo", "creyó", "construyó", "oyeron", "huyendo", "leyó", "incluyó", "destruyó", "creyendo", "distribuyó"] }
+        ]
+      }
+    ],
+    "g-j-dieresis": [
+      {
+        "id": "ger-gir",
+        "nombre": "Los verbos en -ger y -gir",
+        "punto": 2,
+        "patron": "g(er|ir)$",
+        "pista": "Son verbos en infinitivo. Escucha cómo suenan al final.",
+        "ejemplos": ["coger", "proteger", "elegir", "dirigir", "recoger", "escoger", "exigir", "corregir", "fingir", "sumergir", "surgir", "encoger"],
+        "relleno": ["bajar", "mojar", "dibujar", "empujar", "trabajar", "jugar", "cocinar", "pagar"],
+        "contraejemplos": ["tejer", "crujir"],
+        "si": "es un verbo que termina sonando «jer» o «jir»: se escribe -ger o -gir.",
+        "excepcion": "termina sonando «jer» o «jir» y se escribe con j. Es una de las dos excepciones: tejer y crujir.",
+        "hipotesis": [
+          { "texto": "Los infinitivos que terminan con el sonido «jer» o «jir» se escriben con g.", "valor": "buena" },
+          { "texto": "Los verbos que tienen el sonido de la j se escriben siempre con g.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» tiene el sonido de la j y se escribe con j.", "prueba": ["bajar", "mojar", "dibujar", "empujar", "trabajar", "jugar"] },
+          { "texto": "Los infinitivos que terminan con el sonido «jir» se escriben con g.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» termina sonando «jer» y también se escribe con g.", "prueba": ["coger", "proteger", "recoger", "escoger", "encoger"] }
+        ]
+      },
+      {
+        "id": "aje",
+        "nombre": "-aje y -eje",
+        "punto": 3,
+        "patron": "(aje|eje)s?$",
+        "pista": "Escucha cómo suenan al final.",
+        "ejemplos": ["viaje", "garaje", "hereje", "paisaje", "equipaje", "mensaje", "personaje", "aterrizaje", "oleaje", "homenaje", "lenguaje", "maquillaje", "eje", "esqueje"],
+        "relleno": ["imagen", "gente", "ángel", "general", "origen", "agente", "urgente", "girasol"],
+        "contraejemplos": [],
+        "si": "termina con el sonido «aje» o «eje»: se escribe con j.",
+        "hipotesis": [
+          { "texto": "Las palabras que terminan con el sonido «aje» o «eje» se escriben con j.", "valor": "buena" },
+          { "texto": "El sonido de la j delante de e se escribe siempre con j.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» ese sonido va delante de e y se escribe con g.", "prueba": ["imagen", "gente", "ángel", "general", "origen", "agente", "urgente"] },
+          { "texto": "Las palabras que terminan con el sonido «aje» se escriben con j.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» termina sonando «eje» y también se escribe con j.", "prueba": ["hereje", "eje", "esqueje"] }
+        ]
+      },
+      {
+        "id": "dieresis",
+        "nombre": "La diéresis: güe, güi",
+        "punto": 5,
+        "patron": "gü[eiéí]",
+        "pista": "Busca la g y mira la letra que va detrás.",
+        "ejemplos": ["pingüino", "cigüeña", "vergüenza", "agüita", "desagüe", "bilingüe", "antigüedad", "paragüero", "lengüeta", "piragüista"],
+        "relleno": ["guerra", "guitarra", "guiso", "juguete", "hoguera", "águila", "guepardo", "manguera"],
+        "contraejemplos": [],
+        "si": "en esa sílaba la u se pronuncia, y por eso lleva diéresis.",
+        "hipotesis": [
+          { "texto": "Cuando la u de gue o de gui se pronuncia, lleva diéresis: güe, güi.", "valor": "buena" },
+          { "texto": "La u de gue y de gui lleva siempre diéresis.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» la u no se pronuncia, y por eso no lleva diéresis.", "prueba": ["guerra", "guitarra", "guiso", "juguete", "hoguera", "águila", "guepardo", "manguera"] },
+          { "texto": "Cuando la u de gue se pronuncia, lleva diéresis.", "valor": "estrecha", "porque": "Demasiado estrecha: en «{p}» la u de gui también suena y lleva diéresis.", "prueba": ["pingüino", "agüita", "piragüista"] }
+        ]
+      },
+      {
+        "id": "dije",
+        "nombre": "dije, traje, conduje",
+        "punto": 4,
+        "patron": "j",
+        "pista": "Todas son formas de verbos. Piensa en su infinitivo.",
+        "ejemplos": ["dije", "traje", "conduje", "dijeron", "trajimos", "condujo", "produje", "dijiste", "trajeron", "tradujo", "redujo", "introdujo"],
+        "relleno": ["cogió", "elegí", "protegemos", "recogiste", "dirigió", "corrigió", "escogí", "exigimos"],
+        "contraejemplos": [],
+        "si": "su infinitivo no tiene g ni j, así que el sonido «je» o «ji» se escribe con j.",
+        "hipotesis": [
+          { "texto": "Si un verbo no tiene g ni j en el infinitivo, sus formas con el sonido «je» o «ji» se escriben con j.", "valor": "buena" },
+          { "texto": "Las formas verbales con el sonido «je» o «ji» se escriben siempre con j.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» se escribe con g, porque su infinitivo ya la lleva.", "prueba": ["cogió", "elegí", "protegemos", "recogiste", "dirigió", "corrigió", "escogí", "exigimos"] },
+          { "texto": "Las formas del verbo decir con el sonido «je» o «ji» se escriben con j.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es del verbo decir y también se escribe con j.", "prueba": ["traje", "conduje", "trajimos", "condujo", "produje", "trajeron", "tradujo", "redujo", "introdujo"] }
+        ]
+      }
+    ],
+    "diptongo-monosilabos": [
+      {
+        "id": "monosilabos",
+        "nombre": "Los monosílabos no llevan tilde",
+        "punto": 4,
+        "patron": "^[^áéíóú]+$",
+        "pista": "Cuenta las sílabas de cada palabra.",
+        "ejemplos": ["fue", "fui", "dio", "vio", "pie", "sol", "mar", "pan", "tren", "luz", "gris", "mes", "dos", "tres", "flor", "pez"],
+        "relleno": ["café", "sofá", "camión", "ratón", "compás", "también", "francés", "jamás"],
+        "contraejemplos": ["él", "tú", "mí", "sí", "té", "más"],
+        "si": "tiene una sola sílaba, y los monosílabos no llevan tilde.",
+        "excepcion": "es un monosílabo con tilde diacrítica, la que lo distingue de su pareja: él/el, tú/tu, mí/mi, sí/si, té/te, más/mas. La estudiarás a fondo en 6.º.",
+        "hipotesis": [
+          { "texto": "Por regla general, las palabras de una sola sílaba no llevan tilde.", "valor": "buena" },
+          { "texto": "Las palabras de una o de dos sílabas no llevan tilde.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» tiene dos sílabas y lleva tilde.", "prueba": ["café", "sofá", "camión", "ratón", "compás", "también", "francés", "jamás"] },
+          { "texto": "Las formas verbales de una sola sílaba no llevan tilde.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es un verbo, tiene una sola sílaba y tampoco lleva tilde.", "prueba": ["pie", "sol", "mar", "pan", "tren", "luz", "gris", "mes", "dos", "tres", "flor", "pez"] }
+        ]
+      },
+      {
+        "id": "diptongo",
+        "nombre": "El diptongo",
+        "punto": 0,
+        "patron": "[aeiou][iu]|[iu][aeiou]",
+        "pista": "Busca dos vocales seguidas y sepáralas en sílabas: ¿van juntas o separadas?",
+        "ejemplos": ["cielo", "puerta", "aire", "ciudad", "ruido", "peine", "causa", "nieve", "suelo", "auto", "piano", "agua", "cuidado", "viaje"],
+        "relleno": ["teatro", "poeta", "león", "río", "baúl", "maíz", "oeste", "héroe"],
+        "contraejemplos": [],
+        "si": "tiene dos vocales seguidas que se pronuncian en la misma sílaba: es un diptongo.",
+        "hipotesis": [
+          { "texto": "Hay diptongo cuando dos vocales seguidas se pronuncian en la misma sílaba.", "valor": "buena" },
+          { "texto": "Dos vocales seguidas forman siempre un diptongo.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» las dos vocales van en sílabas distintas: es un hiato.", "prueba": ["teatro", "poeta", "león", "río", "baúl", "maíz", "oeste", "héroe"] },
+          { "texto": "Hay diptongo cuando una i y una e van juntas en la misma sílaba.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» también tiene diptongo, y no es de i con e.", "prueba": ["puerta", "aire", "ciudad", "ruido", "causa", "suelo", "auto", "piano", "agua", "cuidado", "viaje"] }
+        ]
+      },
+      {
+        "id": "tilde-diptongo",
+        "nombre": "La tilde en el diptongo",
+        "punto": 3,
+        "patron": "[iu][áéó]|[áéó][iu]",
+        "pista": "Mira dónde está la tilde y qué vocal tiene al lado.",
+        "ejemplos": ["canción", "después", "avión", "también", "murciélago", "huésped", "náutico", "camión", "estación", "adiós", "ciempiés", "acuático", "béisbol"],
+        "relleno": ["cuídate", "construí", "cielo", "puerta", "aire", "ruido", "ciudad", "cuento"],
+        "contraejemplos": [],
+        "si": "tiene un diptongo de vocal abierta y cerrada, y la tilde va en la abierta.",
+        "hipotesis": [
+          { "texto": "Si la sílaba de un diptongo de vocal abierta y cerrada lleva tilde, la tilde va en la abierta (a, e, o).", "valor": "buena" },
+          { "texto": "Todas las palabras con diptongo llevan tilde en la vocal abierta.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» tiene diptongo y no lleva tilde, porque sigue las reglas de siempre.", "prueba": ["cielo", "puerta", "aire", "cuento"] },
+          { "texto": "Si la sílaba de un diptongo lleva tilde, la tilde va en la o.", "valor": "estrecha", "porque": "Demasiado estrecha: en «{p}» la tilde va en otra vocal abierta.", "prueba": ["después", "también", "murciélago", "huésped", "náutico", "ciempiés", "acuático", "béisbol"] }
+        ]
+      }
+    ],
+    "d-z-finales": [
+      {
+        "id": "dad",
+        "nombre": "-dad, -tad, -tud",
+        "punto": 2,
+        "patron": "(dad|tad|tud)$",
+        "pista": "Fíjate en las tres últimas letras.",
+        "ejemplos": ["ciudad", "amistad", "libertad", "juventud", "virtud", "verdad", "bondad", "mitad", "actitud", "felicidad", "voluntad", "lealtad", "gratitud", "multitud", "edad"],
+        "relleno": ["luz", "paz", "nariz", "voz", "cruz", "disfraz", "capaz", "feliz"],
+        "contraejemplos": [],
+        "si": "termina en -dad, -tad o -tud: lleva d final.",
+        "hipotesis": [
+          { "texto": "Las terminaciones -dad, -tad y -tud se escriben siempre con d final, aunque al hablar no suene.", "valor": "buena" },
+          { "texto": "Si una palabra aguda termina en consonante, esa consonante es una d.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» es aguda y termina en z; lo sabemos por su plural en -ces.", "prueba": ["nariz", "disfraz", "capaz", "feliz"] },
+          { "texto": "La terminación -dad se escribe con d final.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» termina en -tad o en -tud y también lleva d final.", "prueba": ["amistad", "libertad", "juventud", "virtud", "mitad", "actitud", "voluntad", "lealtad", "gratitud", "multitud"] }
+        ]
+      },
+      {
+        "id": "plural-d",
+        "nombre": "El truco del plural: -des",
+        "punto": 0,
+        "patron": "d$",
+        "pista": "Piensa en el plural de cada palabra.",
+        "ejemplos": ["pared", "red", "césped", "ataúd", "huésped", "usted", "alud", "laúd", "abad", "ciudad", "verdad", "amistad", "juventud", "virtud"],
+        "relleno": ["luz", "pez", "lápiz", "voz", "nariz", "cruz", "raíz", "actriz"],
+        "contraejemplos": [],
+        "si": "su plural es «{plural}»: termina en -des, así que acaba en d.",
+        "hipotesis": [
+          { "texto": "Si el plural de una palabra termina en -des, la palabra acaba en d.", "valor": "buena" },
+          { "texto": "Si el plural de una palabra termina en -es, la palabra acaba en d.", "valor": "amplia", "porque": "Demasiado amplia: el plural de «{p}» termina en -ces, no en -des: acaba en z.", "prueba": ["luz", "pez", "lápiz", "voz", "nariz", "cruz", "raíz", "actriz"] },
+          { "texto": "Si el plural de una palabra termina en -dades, la palabra acaba en d.", "valor": "estrecha", "porque": "Demasiado estrecha: el plural de «{p}» no termina en -dades, y también acaba en d.", "prueba": ["pared", "red", "césped", "ataúd", "huésped", "usted", "alud", "laúd", "abad", "amistad", "juventud", "virtud"] }
+        ]
+      },
+      {
+        "id": "plural-z",
+        "nombre": "El truco del plural: -ces",
+        "punto": 1,
+        "patron": "z$",
+        "pista": "Piensa en el plural de cada palabra.",
+        "ejemplos": ["luz", "pez", "lápiz", "voz", "nariz", "cruz", "raíz", "actriz", "disfraz", "nuez", "perdiz", "capaz", "feliz", "arroz", "maíz", "tapiz"],
+        "relleno": ["pared", "red", "césped", "ataúd", "usted", "ciudad", "verdad", "amistad"],
+        "contraejemplos": [],
+        "si": "su plural es «{plural}»: termina en -ces, así que acaba en z.",
+        "hipotesis": [
+          { "texto": "Si el plural de una palabra termina en -ces, la palabra acaba en z.", "valor": "buena" },
+          { "texto": "Si el plural de una palabra termina en -es, la palabra acaba en z.", "valor": "amplia", "porque": "Demasiado amplia: el plural de «{p}» termina en -des, no en -ces: acaba en d.", "prueba": ["pared", "red", "césped", "ataúd", "usted", "ciudad", "verdad", "amistad"] },
+          { "texto": "Si una palabra de una sola sílaba hace el plural en -ces, acaba en z.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» tiene más de una sílaba y también acaba en z.", "prueba": ["lápiz", "nariz", "raíz", "actriz", "disfraz", "perdiz", "capaz", "feliz", "arroz", "maíz", "tapiz"] }
+        ]
+      }
+    ],
+    "mayusculas-puntuacion-1": [
+      {
+        "id": "nombres-propios",
+        "nombre": "Los nombres propios",
+        "punto": 1,
+        "frases": true,
+        "patron": "\\S\\s+[A-ZÁÉÍÓÚÑ]",
+        "pista": "Busca las mayúsculas que no están al principio de la frase.",
+        "ejemplos": ["Mañana viajamos a Sevilla.", "El gato de Lucía se llama Bigotes.", "Vivo cerca del río Guadalquivir.", "Mi primo Javier vive en Cádiz.", "Visitamos la Alhambra.", "El cartero se llama Ramón.", "Esta tarde viene la tía Carmen.", "Compramos pan en Écija.", "Nos bañamos en Matalascañas.", "Ayer llamó la abuela Rosario.", "El barco salió de Huelva."],
+        "relleno": ["La panadería abre muy temprano.", "El perro duerme en la terraza.", "Mañana lloverá por la tarde.", "Mi hermana toca la guitarra.", "El autobús llega a las nueve.", "La directora ha cerrado el patio.", "Hemos plantado un naranjo."],
+        "contraejemplos": [],
+        "si": "tiene un nombre propio, y los nombres propios van con mayúscula inicial.",
+        "hipotesis": [
+          { "texto": "Los nombres propios, como los de personas y de lugares, se escriben con mayúscula inicial.", "valor": "buena" },
+          { "texto": "Todas las palabras que nombran personas o lugares se escriben con mayúscula inicial.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» se nombra a una persona o un lugar que no tiene nombre propio, y va en minúscula.", "prueba": ["La panadería abre muy temprano.", "El perro duerme en la terraza.", "Mi hermana toca la guitarra.", "La directora ha cerrado el patio."] },
+          { "texto": "Los nombres propios de personas se escriben con mayúscula inicial.", "valor": "estrecha", "porque": "Demasiado estrecha: en «{p}» también va con mayúscula el nombre de un lugar.", "prueba": ["Mañana viajamos a Sevilla.", "Vivo cerca del río Guadalquivir.", "Mi primo Javier vive en Cádiz.", "Visitamos la Alhambra.", "Compramos pan en Écija.", "Nos bañamos en Matalascañas.", "El barco salió de Huelva."] }
+        ]
+      },
+      {
+        "id": "dias-meses",
+        "nombre": "Días, meses y estaciones en minúscula",
+        "punto": 3,
+        "frases": true,
+        "patron": "(^|\\s)(lunes|martes|miércoles|jueves|viernes|sábado|domingo|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre|primavera|verano|otoño|invierno)([\\s.,;:!?]|$)",
+        "pista": "Busca en cada frase una palabra que tenga que ver con el calendario.",
+        "ejemplos": ["El mercado abre los lunes.", "Mi cumpleaños es en marzo.", "En verano hace mucho calor.", "Nos vemos el viernes.", "Las clases empiezan en septiembre.", "El sábado vamos a la playa.", "En otoño caen las hojas.", "La feria es en abril.", "Llegó el invierno.", "El jueves hay ensayo.", "En primavera huele a azahar.", "Las vacaciones empiezan en julio."],
+        "relleno": ["Mañana viajamos a Sevilla.", "El gato de Lucía duerme.", "Mi primo Javier vive en Cádiz.", "El cartero se llama Ramón.", "Visitamos la Alhambra.", "La tía Carmen hace churros."],
+        "contraejemplos": [],
+        "si": "tiene un día de la semana, un mes o una estación, y van con minúscula.",
+        "hipotesis": [
+          { "texto": "Los días de la semana, los meses y las estaciones del año se escriben con minúscula.", "valor": "buena" },
+          { "texto": "Dentro de una oración, todas las palabras van con minúscula, menos la primera.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» hay un nombre propio, y los nombres propios llevan mayúscula.", "prueba": ["Mañana viajamos a Sevilla.", "El gato de Lucía duerme.", "Mi primo Javier vive en Cádiz.", "El cartero se llama Ramón.", "Visitamos la Alhambra.", "La tía Carmen hace churros."] },
+          { "texto": "Los días de la semana se escriben con minúscula.", "valor": "estrecha", "porque": "Demasiado estrecha: en «{p}» va en minúscula un mes o una estación, que no son días de la semana.", "prueba": ["Mi cumpleaños es en marzo.", "En verano hace mucho calor.", "Las clases empiezan en septiembre.", "En otoño caen las hojas.", "La feria es en abril.", "Llegó el invierno.", "En primavera huele a azahar.", "Las vacaciones empiezan en julio."] }
+        ]
+      },
+      {
+        "id": "signos-dobles",
+        "nombre": "Los signos de pregunta y de exclamación",
+        "punto": 5,
+        "frases": true,
+        "patron": "^(¿[^¿?]+\\?|¡[^¡!]+!)$",
+        "pista": "Mira cómo empiezan y cómo terminan.",
+        "ejemplos": ["¿Quién ha sido?", "¡Qué susto!", "¿Dónde está la llave?", "¡Socorro!", "¿Has visto al gato?", "¡Qué bien huele!", "¿A qué hora llega?", "¡Cuidado con el escalón!", "¿Por qué no contestas?", "¡Lo hemos resuelto!", "¿Quién tiene la lupa?", "¡Menudo lío!"],
+        "relleno": ["Nadie lo sabe.", "La puerta estaba abierta.", "Lola lo apunta todo.", "El ladrón huyó por la ventana.", "Mateo lee el periódico.", "Hace frío en el sótano."],
+        "contraejemplos": [],
+        "si": "es una pregunta o una exclamación: abre y cierra con su signo.",
+        "hipotesis": [
+          { "texto": "Las preguntas y las exclamaciones llevan dos signos: uno al principio y otro al final.", "valor": "buena" },
+          { "texto": "Todas las oraciones llevan un signo al principio y otro al final.", "valor": "amplia", "porque": "Demasiado amplia: «{p}» no es una pregunta ni una exclamación, y solo lleva punto al final.", "prueba": ["Nadie lo sabe.", "La puerta estaba abierta.", "Lola lo apunta todo.", "El ladrón huyó por la ventana.", "Mateo lee el periódico.", "Hace frío en el sótano."] },
+          { "texto": "Las preguntas llevan dos signos: uno al principio y otro al final.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» es una exclamación y también lleva dos signos.", "prueba": ["¡Qué susto!", "¡Socorro!", "¡Qué bien huele!", "¡Cuidado con el escalón!", "¡Lo hemos resuelto!", "¡Menudo lío!"] }
+        ]
+      },
+      {
+        "id": "enumeracion",
+        "nombre": "La coma en las enumeraciones",
+        "punto": 4,
+        "frases": true,
+        "patron": "^[^,]+(,[^,]+)+ y [^,]+$",
+        "pista": "Fíjate en las comas y en la palabra y.",
+        "ejemplos": ["Compré pan, leche y huevos.", "Trae tinta, papel y cola.", "Vimos patos, ocas y cisnes.", "Lola, Mateo y Robles investigan.", "Hay naranjas, limones y fresas.", "Necesito lápiz, goma y regla.", "Corrimos, saltamos y nadamos.", "Tengo un gato, un perro y un loro.", "Pinta el sol, la luna y el mar.", "Llegaron Ana, Pedro, Inés y Luis."],
+        "relleno": ["Compré pan.", "La lupa estaba en el cajón.", "Mateo y Lola llegaron tarde.", "Hoy no hay clase.", "El gato y el perro juegan.", "Me gusta leer."],
+        "contraejemplos": [],
+        "si": "es una enumeración, con comas entre los elementos y una y sin coma antes del último.",
+        "hipotesis": [
+          { "texto": "En una enumeración, los elementos se separan con comas, y el último se une con y, sin coma.", "valor": "buena" },
+          { "texto": "Cuando se nombran dos cosas o más seguidas, se separan siempre con comas.", "valor": "amplia", "porque": "Demasiado amplia: en «{p}» se nombran dos y se unen con y, sin ninguna coma.", "prueba": ["Mateo y Lola llegaron tarde.", "El gato y el perro juegan."] },
+          { "texto": "En las listas de comida, los elementos se separan con comas, y el último va con y.", "valor": "estrecha", "porque": "Demasiado estrecha: «{p}» no es una lista de comida y también lleva comas.", "prueba": ["Trae tinta, papel y cola.", "Vimos patos, ocas y cisnes.", "Lola, Mateo y Robles investigan.", "Necesito lápiz, goma y regla.", "Corrimos, saltamos y nadamos.", "Tengo un gato, un perro y un loro.", "Pinta el sol, la luna y el mar.", "Llegaron Ana, Pedro, Inés y Luis."] }
+        ]
+      }
+    ]
+  }
+}
