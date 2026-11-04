@@ -150,3 +150,12 @@ Además, **otra sesión hizo la música y los efectos** (rama `claude/sonido`: m
 Arreglados al revisar:
 - La falta de mayúscula desaparecía en el documento y en la Imprenta («sevilla» pasaba a «Sevilla»).
 - Las fichas de mayúsculas no se comparaban respetando la mayúscula.
+
+**Arte de Robles (lote 6) y del lote 7, integrados** (zips de GPT, firmas SHA-256 correctas).
+- **Robles**: ocho imágenes (ropa normal, de deporte y la foto del tribunal). Cinco traían la transparencia rota: un halo gris o naranja alrededor del personaje, que venía ya en los PNG originales. Se rehicieron con recorte automático (`rembg`, modelo para anime). Pablo vio fallos en el pelo y le ha pedido a GPT, que ya puede escribir en GitHub, que las vuelva a subir. Cuando lleguen, se sustituyen.
+- **Lote 7**:
+  - cada encargo enseña su objeto cuando el cliente cuenta el problema (en el 4 no hay objeto);
+  - el buzón de encargos va de fondo;
+  - el menú de cada sala muestra el aparato de cada ejercicio, y la máquina sin tilde del Pupitre es ya el dibujo;
+  - el carné de la Academia es la tarjeta dibujada, con la foto del detective y un sello de oro en cada uno de sus 8 círculos (uno por sala).
+- **Arreglado**: en 21 relatos con objeto, el bocadillo tapaba parte del objeto. Ahora el objeto se ajusta al hueco libre y, si queda pequeño, sale el botón «🔍 Ver en grande».

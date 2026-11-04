@@ -87,5 +87,6 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 
 ## Pendiente / conocido
 
-- Arte de la temporada 1 completo, salvo el director Robles y la foto del tribunal (issue #6).
+- Arte de la temporada 1 completo (lotes 1-7). Robles: GPT va a volver a subir sus imágenes por GitHub (rama `gpt/…`); cinco venían con la transparencia rota y se rehicieron con recorte automático.
+- Si una entrega trae la transparencia rota (halo o fondo a medias), se puede rehacer con `rembg` (modelo `isnet-anime`), instalado aparte en el scratchpad (no es dependencia del repo). Lo mejor es pedirle a GPT que la repita con el fondo totalmente transparente.
 - Los datos se guardan solo en `localStorage` (hay PIN opcional para la zona del maestro y un **modo revisión** que lo abre todo para probar). La nube es opcional (`NUBE.md`): falta probarla con un Apps Script de verdad.
