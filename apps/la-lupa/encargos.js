@@ -19,7 +19,7 @@ async function cargarEncargos() {
   } catch { /* sin encargos */ }
 }
 
-const nivelRango = puntos => RANGOS.indexOf(rangoDe(puntos));
+const nivelRango = puntos => (ajustes.revision === true ? RANGOS.length - 1 : RANGOS.indexOf(rangoDe(puntos)));
 const listaEncargos = () => Object.values(D.encargos).sort((a, b) => (a.encargo.rango - b.encargo.rango) || a.numero.localeCompare(b.numero));
 function encargosAbiertos(puntos) {
   const n = nivelRango(puntos);

@@ -63,7 +63,7 @@ function pasosPreparacion(u) {
     { id: "dictado", sala: "centralita", act: "dictado", regla: r, ...pasoDictado() },
   ];
 }
-const modoPreparacion = () => ajustes.preparacion || "obligatoria";
+const modoPreparacion = () => (ajustes.revision === true && ajustes.preparacion !== "no" ? "opcional" : ajustes.preparacion || "obligatoria");
 const pasosHechos = u => (estadoAca().prep || {})[u.id] || [];
 function preparacionLista(u) {
   const pasos = pasosPreparacion(u);
@@ -123,6 +123,7 @@ function lanzarPaso(u, paso) {
   const sl = sala(paso.sala);
   if (sl.actividades) usarActividad(sl, paso.act);
   else sl.actividad = paso.act;
+  ACA.nivel = nivelMaximo(paso.act);   // la ruta usa la lupa más alta que tenga el alumno en ese ejercicio
   ACA.alTerminar = { boton: "Volver a la preparación", ir: () => vistaPreparacion(u), marcar: () => marcarPaso(u, paso.id) };
   ACTIVIDADES[paso.act](sl, paso.regla, `prep:${u.id}:${paso.id}`);
 }

@@ -531,3 +531,20 @@ button.silaba:hover { transform: translateY(-3px); }
 .apunte-tabla td.hueco-apunte { color: #a8322d; font-style: italic; }
 .apunte-pasos, .apunte-lista { font: 18px/1.5 var(--f-ui); margin: 0; padding-left: 26px; }
 .apunte-completar { font: 800 17px var(--f-ui); color: #a8322d; margin-top: 12px; }
+
+/* Modo revisión del maestro: aviso fijo para que no se quede puesto en clase */
+body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; top: 8px; left: 50%; transform: translateX(-50%); z-index: 50; background: #a8322d; color: #fff; font: 800 13px var(--f-ui); letter-spacing: .12em; padding: 4px 12px; border-radius: 0 0 8px 8px; pointer-events: none; }
+
+/* Niveles de la Academia (lupas) */
+.aca-niveles { display: flex; gap: 8px; margin: 4px 0 2px; }
+.aca-nivel { display: grid; justify-items: center; gap: 2px; min-width: 92px; padding: 8px 10px; border-radius: 10px; border: 2px solid rgba(242, 169, 59, .35); background: rgba(255, 255, 255, .06); color: var(--crema); font: 800 14px var(--f-ui); }
+.aca-nivel span { font-size: 26px; line-height: 1; }
+.aca-nivel.activo { border-color: var(--albero); background: rgba(242, 169, 59, .22); box-shadow: 0 0 14px rgba(242, 169, 59, .35); }
+.aca-nivel[disabled] { opacity: .45; }
+.aca-nivel-ayuda { margin: 4px 0 0; font: 14px var(--f-ui); color: #c9d3e0; }
+.aca-lupa { font-size: 18px; margin-left: 4px; }
+
+/* La lección: el texto se desplaza si no cabe; las lupas y el botón quedan siempre a la vista */
+.aca-panel.leccion { top: 100px; max-height: none; bottom: 24px; overflow: hidden; display: flex; flex-direction: column; }
+.aca-panel.leccion > .maquina-fija, .aca-panel.leccion > .ficha { overflow: auto; min-height: 0; flex: 0 1 auto; font-size: 21px; }
+.aca-panel.leccion > .acciones { margin-top: auto; padding-top: 8px; }

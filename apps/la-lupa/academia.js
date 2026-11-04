@@ -10,7 +10,42 @@
    ============================================================ */
 "use strict";
 
-const ACA = { palabras: [], textos: [], testigos: [], alTerminar: null };   // bancos de datos (datos/academia/)
+const ACA = { palabras: [], textos: [], testigos: [], alTerminar: null, nivel: 1 };
+
+/* ── Niveles de cada ejercicio (Pablo, 4/11): lupas de bronce, plata, oro y diamante ──
+   Cada actividad tiene su propio nivel por alumno. Se sube con 2 rondas seguidas con ≥ 80 % de aciertos.
+   Las actividades leen el nivel con nivelAca() y adaptan su dificultad con porNivel() y segunNivel(). */
+const NIVELES_ACA = [
+  { n: 1, nombre: "Lupa de bronce", corto: "Bronce", icono: "🥉", puntos: 1 },
+  { n: 2, nombre: "Lupa de plata", corto: "Plata", icono: "🥈", puntos: 1.25 },
+  { n: 3, nombre: "Lupa de oro", corto: "Oro", icono: "🥇", puntos: 1.5 },
+  { n: 4, nombre: "Lupa de diamante · Maestro detective", corto: "Diamante", icono: "💎", puntos: 2 },
+];
+const UMBRAL_NIVEL = 0.8, RONDAS_NIVEL = 2;
+const nivelAca = () => Math.min(4, Math.max(1, ACA.nivel || 1));
+/* Valor según el nivel: segunNivel([3, 4, 5, 6]) → 3 en bronce… 6 en diamante */
+const segunNivel = valores => valores[Math.min(nivelAca(), valores.length) - 1];
+/* Filtra una lista de palabras o textos con campo «nivel» (1-3) según la lupa; si quedan pocas, amplía */
+function porNivel(lista, minimo = 4, n = nivelAca()) {
+  const nv = x => x.nivel || 1;
+  const filtros = { 1: x => nv(x) === 1, 2: x => nv(x) <= 2, 3: x => nv(x) >= 2, 4: x => nv(x) === 3 };
+  const res = lista.filter(filtros[n] || (() => true));
+  if (res.length >= minimo) return res;
+  const amplio = lista.filter(n >= 3 ? x => nv(x) >= 2 : x => nv(x) <= 2);
+  return amplio.length >= minimo ? amplio : lista;
+}
+function progresoNivel(actId, s = estadoAca()) {
+  s.niveles ??= {};
+  return (s.niveles[actId] ??= { max: 1, racha: 0 });
+}
+const nivelMaximo = actId => (modoRevisionAca() ? 4 : progresoNivel(actId).max);
+const modoRevisionAca = () => ajustes.revision === true;
+function htmlElegirNivel(actId, elegido) {
+  const max = nivelMaximo(actId);
+  return `<div class="aca-niveles" role="radiogroup" aria-label="Nivel">${NIVELES_ACA.map(l => `
+    <button class="aca-nivel ${l.n === elegido ? "activo" : ""}" data-nivel="${l.n}" ${l.n > max ? "disabled" : ""} role="radio" aria-checked="${l.n === elegido}">
+      <span>${l.n > max ? "🔒" : l.icono}</span><b>${esc(l.corto)}</b></button>`).join("")}</div>`;
+}   // bancos de datos (datos/academia/)
 const INTERVALOS = [1, 3, 7, 15, 30];              // sesiones hasta el siguiente repaso
 const TOPE_DIARIO = 150;                           // puntos de entrenamiento por día
 let registrosAca = cargar("academia-registros", []);
@@ -128,7 +163,7 @@ function menuActividades(sl, opts) {
     ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
     <div class="aca-panel der">
       <p class="apuntalo">¿Qué ejercicio hacemos hoy?</p>
-      <div class="opciones">${sl.actividades.map(a => `<button class="opcion aca-act" data-act="${esc(a.id)}"><b>${esc(a.nombre)}</b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
+      <div class="opciones">${sl.actividades.map(a => `<button class="opcion aca-act" data-act="${esc(a.id)}"><b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
   $("#acaVolver").onclick = vistaPatio;
@@ -176,11 +211,19 @@ function leccion(sl, regla, turno, texto) {
       <span class="quien">${esc(nombreInstructor(sl))}</span>
       <p class="maquina-fija">${esc(intro)}</p>
       ${ficha && !yaVista ? `<p class="etiqueta">Lección rápida</p><ul class="ficha">${ficha.puntos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      <p class="etiqueta">Nivel del ejercicio</p>
+      ${htmlElegirNivel(sl.actividad, ACA.nivel = Math.min(nivelMaximo(sl.actividad), cargar(`nivel-${perfil.id}-${sl.actividad}`, nivelMaximo(sl.actividad))))}
+      <p class="aca-nivel-ayuda">${nivelMaximo(sl.actividad) < 4 ? `Consigue ${RONDAS_NIVEL} rondas seguidas con un ${UMBRAL_NIVEL * 100} % de aciertos para ganar la siguiente lupa.` : "¡Tienes todas las lupas de este ejercicio!"}</p>
       <div class="acciones izquierda"><button class="boton-sello" id="empezar">Empezar entrenamiento ▸</button>${ficha && yaVista ? `<button class="boton-papel" id="repasar">Ver la lección</button>` : ""}</div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
   $("#acaVolver").onclick = vistaPatio;
   $("#repasar")?.addEventListener("click", () => abrirModal(`<h3>${esc(ficha.titulo)}</h3><ul class="ficha">${ficha.puntos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`, "ventana-archivo"));
+  $$(".aca-nivel:not([disabled])").forEach(b => b.onclick = () => {
+    ACA.nivel = Number(b.dataset.nivel);
+    guardar(`nivel-${perfil.id}-${sl.actividad}`, ACA.nivel);
+    $$(".aca-nivel").forEach(x => { x.classList.toggle("activo", x === b); x.setAttribute("aria-checked", x === b); });
+  });
   $("#empezar").onclick = () => {
     if (regla) { s.leccionVista[regla] = s.sesion; guardarAca(s); }
     ACTIVIDADES[sl.actividad](sl, regla, turno);
@@ -200,14 +243,23 @@ function terminarActividad(sl, turno) {
   actualizarCola(ev, "academia");
   const s = estadoAca();
   const dia = hoy();
-  const posibles = aciertos * 5 + (aciertos === ev.length && ev.length ? 20 : 0);
+  const nivel = nivelAca();
+  const lupa = NIVELES_ACA[nivel - 1];
+  const posibles = Math.round((aciertos * 5 + (aciertos === ev.length && ev.length ? 20 : 0)) * lupa.puntos);
   const ganados = Math.max(0, Math.min(posibles, TOPE_DIARIO - (s.puntosDia[dia] || 0)));
   s.puntosDia[dia] = (s.puntosDia[dia] || 0) + ganados;
   s.puntos = (s.puntos || 0) + ganados;
   if (turno && !s.turno.hechas.includes(turno)) s.turno.hechas.push(turno);
+  // Progreso de nivel: solo cuenta jugar en la lupa más alta que se tiene
+  let nuevaLupa = null;
+  const pg = progresoNivel(sl.actividad, s);
+  if (nivel === pg.max && ev.length) {
+    pg.racha = aciertos / ev.length >= UMBRAL_NIVEL ? pg.racha + 1 : 0;
+    if (pg.racha >= RONDAS_NIVEL && pg.max < 4) { pg.max++; pg.racha = 0; nuevaLupa = NIVELES_ACA[pg.max - 1]; guardar(`nivel-${perfil.id}-${sl.actividad}`, pg.max); }
+  }
   guardarAca(s);
   registrosAca.push({ id: uid(), contexto: "academia", perfilId: perfil.id, nombre: perfil.nombre, curso: perfil.curso, sala: sl.id,
-    reglas: P.caso.reglas, fecha: new Date().toISOString(), aciertos, intentos: ev.length, notas: calcularNotas(ev), repasar: [...P.repasar], eventos: ev });
+    reglas: P.caso.reglas, actividad: sl.actividad, nivel, fecha: new Date().toISOString(), aciertos, intentos: ev.length, notas: calcularNotas(ev), repasar: [...P.repasar], eventos: ev });
   guardar("academia-registros", registrosAca);
   P = null;
   const aura = aciertos === ev.length && ev.length ? " ¡Ronda perfecta: +aura!" : "";
@@ -216,7 +268,7 @@ function terminarActividad(sl, turno) {
   ACA.alTerminar = null;
   volver?.marcar?.(aciertos, ev.length);
   momento({ titulo: "¡Entrenamiento completado!", personaje: { id: sl.instructor, expresion: "contento", lado: "izq" }, boton: volver ? volver.boton : "Volver al patio",
-    texto: `${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}`, alSeguir: volver ? volver.ir : vistaPatio });
+    texto: `${lupa.icono} ${lupa.corto} · ${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}${nuevaLupa ? ` ¡NUEVA LUPA: ${nuevaLupa.icono} ${nuevaLupa.nombre}!` : nivel === pg.max && pg.max < 4 && pg.racha ? ` Una ronda más así y ganas la ${NIVELES_ACA[pg.max].nombre.toLowerCase()}.` : ""}`, alSeguir: volver ? volver.ir : vistaPatio });
 }
 
 /* Leer en voz alta (si el navegador tiene voz en español; si no, no pasa nada) */

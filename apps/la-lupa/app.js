@@ -41,7 +41,7 @@ function vistaInicio() {
     if (!nombre) return;
     crear(nombre, null);
   };
-  $("#irMaestro").onclick = vistaMaestro;
+  $("#irMaestro").onclick = pedirPin;
 }
 
 /* ── Tablón de corcho con los casos del curso ───────────────── */
@@ -186,6 +186,29 @@ function sellar(res, despues) {
 }
 
 /* ── Zona maestro/a: página normal fuera del escenario ──────── */
+/* ── PIN de la zona del maestro (ajustes.pin). Sin PIN, se entra directo y se avisa de que conviene ponerlo ── */
+function pedirPin() {
+  if (!ajustes.pin) return vistaMaestro();
+  abrirModal(`
+    <h3>Zona del maestro</h3>
+    <p>Escribe el PIN para entrar.</p>
+    <input id="pinIn" class="entrada" type="password" inputmode="numeric" autocomplete="off" aria-label="PIN">
+    <p id="pinMsg" class="msg"></p>
+    <div class="acciones"><button class="boton-sello" id="pinOk">Entrar</button></div>`, "ventana-libreta");
+  const inp = $("#pinIn");
+  inp.focus();
+  const probar = () => {
+    if (inp.value.trim() === ajustes.pin) { cerrarModal(); return vistaMaestro(); }
+    $("#pinMsg").textContent = "PIN incorrecto.";
+    inp.select();
+  };
+  $("#pinOk").onclick = probar;
+  inp.onkeydown = ev => { if (ev.key === "Enter") probar(); };
+}
+/* ── Modo revisión: lo abre todo para que el maestro lo pruebe (encargos sin rango, preparación opcional, todas las lupas) ── */
+const modoRevision = () => ajustes.revision === true;
+const marcarRevision = () => document.body.classList.toggle("modo-revision", modoRevision());
+
 function vistaMaestro() {
   $("#marco").hidden = true;
   const pag = $("#pagina");
@@ -200,10 +223,13 @@ function vistaMaestro() {
     <header class="pag-cabecera"><strong>Agencia La Lupa · Zona maestro/a</strong><button class="boton-papel" id="volver">◂ Volver al juego</button></header>
     <main class="pag-cuerpo">
       <p class="aviso-maestro">Prototipo: aquí se ven solo los datos guardados <strong>en este dispositivo</strong>. La sincronización con la hoja de cálculo llegará más adelante.</p>
+      ${ajustes.pin ? "" : `<p class="aviso-maestro"><b>Sin PIN:</b> cualquier alumno puede entrar aquí. Pon uno en «PIN de esta zona» y guarda los ajustes.</p>`}
       <h2>Ajustes del aula</h2>
       <div class="fila">
         <label>Libreta: <select id="ajLibreta"><option value="papel">De papel (el juego no guarda las pistas)</option><option value="digital">Digital (el juego guarda las pistas y deja escribir)</option></select></label>
         <label>Código de sello: <input id="ajCodigo" value="${esc(ajustes.codigoSello)}" maxlength="20"></label>
+        <label>PIN de esta zona: <input id="ajPin" type="password" inputmode="numeric" maxlength="8" value="${esc(ajustes.pin || "")}" placeholder="sin PIN"></label>
+        <label><input type="checkbox" id="ajRevision" ${modoRevision() ? "checked" : ""}> <b>Modo revisión</b> (para probarlo tú: abre todos los encargos y las lupas, y la preparación se puede saltar)</label>
         <label><input type="checkbox" id="ajSonido" ${ajustes.sonido === true ? "checked" : ""}> Actividades con sonido (extra: necesitan cascos o altavoz)</label>
         <label>Preparación en la Academia antes de cada caso: <select id="ajPrep"><option value="obligatoria">Obligatoria (el caso se abre al terminarla)</option><option value="opcional">Recomendada (se puede saltar)</option><option value="no">Sin preparación</option></select></label>
         <button class="boton-sello" id="ajGuardar">Guardar ajustes</button>
@@ -252,7 +278,8 @@ function vistaMaestro() {
     vistaMaestro();
   });
   $("#ajGuardar").onclick = () => {
-    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value, sonido: $("#ajSonido").checked };
+    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value, sonido: $("#ajSonido").checked, revision: $("#ajRevision").checked, pin: $("#ajPin").value.trim() };
+    marcarRevision();
     guardar("ajustes", ajustes);
     $("#ajGuardar").textContent = "Guardado ✔";
   };
@@ -337,6 +364,7 @@ async function init() {
     pintarEscena(`<div class="bocadillo izq"><p>No se pudieron cargar los datos del juego. Ábrelo desde un servidor web (GitHub Pages, o <code>node .claude/serve.js</code> en local), no como archivo suelto.</p></div>`);
     return;
   }
+  marcarRevision();
   await cargarEncargos();
   await cargarPaquete();
   vistaInicio();
