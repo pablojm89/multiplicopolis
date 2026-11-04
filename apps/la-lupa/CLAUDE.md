@@ -76,6 +76,8 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 
 **Avatares del alumnado = datos de menores:** las fichas, los PNG y los `*.lalupa-clase.json` nunca van al repo (los bloquea `.gitignore`), ni a issues, ni a Artifacts. Se trabajan en el scratchpad, se le entrega el paquete a Pablo y después se borran las copias.
 
+**Sonido = extra opcional** (Pablo, 4/11: «requiere que el niño venga con cascos»). Por defecto está desactivado (`ajustes.sonido`, en la zona del maestro). `hayVoz()` y `hablar()` lo respetan: sin sonido, la Centralita usa el dictado relámpago, el deletreo va en pantalla y no hay botones de escuchar. No hay actividades de hablar (micrófono). Toda actividad nueva tiene que funcionar sin sonido.
+
 ## Probar
 
 `node .claude/serve.js` → `http://localhost:4321/apps/la-lupa/`.

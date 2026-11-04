@@ -39,13 +39,18 @@ const PRACTICAS = {
   "mayusculas-puntuacion-1": ["coma", "parte"],
 };
 
+/* Sin sonido (por defecto), el dictado es «relámpago»: el mensaje se ve unos segundos y se escribe de memoria */
+const pasoDictado = () => (ajustes.sonido === true
+  ? { icono: "📻", nombre: "Dictado por radio", desc: "Escribe los mensajes de Lola sin perder una letra." }
+  : { icono: "⚡", nombre: "Dictado relámpago", desc: "El télex enseña el mensaje unos segundos: memorízalo y escríbelo sin perder una letra." });
+
 /* Los pasos de la ruta según las reglas del caso */
 function pasosPreparacion(u) {
   const caso = u.caso && D.casos[u.caso];
   if (!caso || caso.diagnostico || !u.reglas?.length) return [];   // el piloto es la evaluación inicial: sin preparación
   if (u.reglas.length > 3) return [
     { id: "imprenta", sala: "imprenta", act: "pruebas", regla: "mezcla", icono: "🗞️", nombre: "Pruebas de imprenta", desc: "Galeradas con todas las reglas de la temporada mezcladas." },
-    { id: "dictado", sala: "centralita", act: "dictado", regla: "mezcla", icono: "📻", nombre: "Dictado por radio", desc: "Mensajes con palabras de todas las reglas." },
+    { id: "dictado", sala: "centralita", act: "dictado", regla: "mezcla", ...pasoDictado(), desc: "Mensajes con palabras de todas las reglas." },
     { id: "archivo", sala: "archivo", act: "fichas", regla: null, icono: "🗂️", nombre: "Tus fichas pendientes", desc: "Las palabras que más te han costado en la temporada." },
   ];
   const r = u.reglas[0];
@@ -55,7 +60,7 @@ function pasosPreparacion(u) {
     { id: "apuntes", tipo: "apuntes", regla: r, icono: "📓", nombre: "Apuntes en tu libreta", desc: "Copia y completa el esquema de la regla. Te servirá para estudiar y para el caso." },
     { id: "practica", regla: r, ...EJERCICIO[a] },
     { id: "practica2", regla: r, ...EJERCICIO[b] },
-    { id: "dictado", sala: "centralita", act: "dictado", regla: r, icono: "📻", nombre: "Dictado por radio", desc: "Escribe los mensajes de Lola sin perder una letra." },
+    { id: "dictado", sala: "centralita", act: "dictado", regla: r, ...pasoDictado() },
   ];
 }
 const modoPreparacion = () => ajustes.preparacion || "obligatoria";

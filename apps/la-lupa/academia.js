@@ -220,10 +220,13 @@ function terminarActividad(sl, turno) {
 }
 
 /* Leer en voz alta (si el navegador tiene voz en español; si no, no pasa nada) */
+/* El sonido es un extra opcional (Pablo, 4/11): necesita cascos o altavoz. Se activa en la zona del maestro (ajustes.sonido) */
+const sonidoActivo = () => ajustes.sonido === true;
 function hablar(texto) {
+  if (!sonidoActivo()) return;
   try { const u = new SpeechSynthesisUtterance(texto); u.lang = "es-ES"; u.rate = .9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch { /* sin voz */ }
 }
-const hayVoz = () => typeof speechSynthesis !== "undefined";
+const hayVoz = () => sonidoActivo() && typeof speechSynthesis !== "undefined";
 
 /* ── Actividades ─────────────────────────────────────────────── */
 const ACTIVIDADES = {

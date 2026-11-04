@@ -23,7 +23,7 @@ Object.assign(sala("centralita"), {
 });
 
 /* ── Voz: solo si hay una voz en español ─────────────────────── */
-const cenHaySintesis = () => typeof speechSynthesis !== "undefined" && typeof SpeechSynthesisUtterance !== "undefined";
+const cenHaySintesis = () => sonidoActivo() && typeof speechSynthesis !== "undefined" && typeof SpeechSynthesisUtterance !== "undefined";
 function cenBuscarVoz() {
   if (!cenHaySintesis()) return null;
   try {
@@ -137,7 +137,7 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
     pintarEscena(`
       <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
       <div class="cen-modo" role="group" aria-label="Modo de recepción">
-        <button data-modo="radio" ${CEN.voz ? "" : `disabled title="Este equipo no tiene voz en español"`}>📻 Radio</button>
+        <button data-modo="radio" ${CEN.voz ? "" : `disabled title="${sonidoActivo() ? "Este equipo no tiene voz en español" : "El sonido está desactivado (zona del maestro)"}"`}>📻 Radio</button>
         <button data-modo="relampago">⚡ Relámpago</button>
       </div>
       <div class="cen-lola">${htmlPersonaje({ id: "lola", expresion: "neutral", lado: "izq" }, "pequeno")}</div>

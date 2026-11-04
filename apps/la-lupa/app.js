@@ -204,6 +204,7 @@ function vistaMaestro() {
       <div class="fila">
         <label>Libreta: <select id="ajLibreta"><option value="papel">De papel (el juego no guarda las pistas)</option><option value="digital">Digital (el juego guarda las pistas y deja escribir)</option></select></label>
         <label>Código de sello: <input id="ajCodigo" value="${esc(ajustes.codigoSello)}" maxlength="20"></label>
+        <label><input type="checkbox" id="ajSonido" ${ajustes.sonido === true ? "checked" : ""}> Actividades con sonido (extra: necesitan cascos o altavoz)</label>
         <label>Preparación en la Academia antes de cada caso: <select id="ajPrep"><option value="obligatoria">Obligatoria (el caso se abre al terminarla)</option><option value="opcional">Recomendada (se puede saltar)</option><option value="no">Sin preparación</option></select></label>
         <button class="boton-sello" id="ajGuardar">Guardar ajustes</button>
       </div>
@@ -251,7 +252,7 @@ function vistaMaestro() {
     vistaMaestro();
   });
   $("#ajGuardar").onclick = () => {
-    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value };
+    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value, sonido: $("#ajSonido").checked };
     guardar("ajustes", ajustes);
     $("#ajGuardar").textContent = "Guardado ✔";
   };

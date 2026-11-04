@@ -115,3 +115,5 @@ Además, la **libreta imprimible** (`imprimibles/libreta.html`).
 - **Arreglo:** «Corrige el documento» se rompía con g/j, diptongos y mayúsculas por falta de textos; afectaba también al «turno de hoy».
 
 **Pablo: «no tengas reparo en pedir más imágenes a GPT».** Lote 7 pedido en la issue #7: 15 imágenes (el buzón de encargos, los objetos de los encargos y los aparatos de los ejercicios nuevos).
+
+**Pablo: «actividades de escuchar o hablar, de momento no; o, si están, que sean extras opcionales, porque el niño tiene que venir con cascos o tener un dispositivo con micrófono».** El sonido queda desactivado por defecto y se activa en la zona del maestro («Actividades con sonido»). Sin él, todo funciona en modo visual: dictado relámpago, deletreo en pantalla y sin botones de escuchar. No hay ninguna actividad con micrófono.
