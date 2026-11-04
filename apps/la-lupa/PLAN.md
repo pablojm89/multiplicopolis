@@ -51,6 +51,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-03 | La v1 (formulario) se descarta. La v2 se hace con escenas a pantalla completa al estilo de un episodio, y el arte se adelanta. |
 | 2026-11-03 | Estilo visual: ilustración de álbum o cómic de detectives, papel envejecido y paleta andaluza (albero, azulejo, cal). |
 | 2026-11-03 | Lo que funcione y guste a Pablo se convierte en un procedimiento para crear más casos. |
+| 2026-11-04 | Trama de temporada: El Tachón es **Bruno, el repartidor del periódico**, un antiguo aspirante a la agencia del que se rieron por sus faltas. Al final se une al equipo (opción C de `TEMPORADA-1.md`). |
 | 2026-11-03 | **Cambio de estilo:** anime moderno con tono de misterio (noir de detectives, serie juvenil de suspense), sin aire infantil, ambientado en el barrio andaluz de La Alameda. Tensión sí; sangre, violencia y terror no. La interfaz del juego se oscurecerá para encajar cuando llegue el arte. |
 
 ## Ideas para más adelante

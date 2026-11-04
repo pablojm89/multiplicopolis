@@ -48,12 +48,12 @@ La programación puede cambiar (libro de texto, centro…), así que **el orden 
 - **Para el alumno**: termina con su placa de detective en prácticas y su libreta estrenada.
 - Al final de la temporada se puede repetir una versión del piloto («la prueba de ascenso») para comparar antes y después.
 
-## La revelación (decisión de Pablo)
+## La revelación: **decidida la opción C** (4/11/2026)
 
 Opciones para la identidad de El Tachón:
 - **A. Un vecino que aparece de fondo en varios casos**, por ejemplo Bruno, el repartidor del periódico. Se puede descubrir antes de tiempo atando cabos, lo que premia la atención.
 - **B. Un antiguo aspirante a la agencia** al que suspendieron la prueba de acceso y del que se rieron por sus faltas. Final con mensaje: los errores se corrigen y nadie debería burlarse. Acaba uniéndose al equipo.
-- **C. Combinación**: es Bruno, y su motivo es el de la B. *(Recomendada.)*
+- **C. Combinación**: es Bruno, y su motivo es el de la B. **← Elegida por Pablo.** Bruno tiene que aparecer de fondo, sin llamar la atención, desde el piloto: reparte el periódico, se cruza con el equipo y deja alguna pista sutil.
 
 ## Guiños actuales
 

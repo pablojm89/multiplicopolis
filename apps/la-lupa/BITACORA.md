@@ -40,4 +40,5 @@ Claude actualiza este archivo al terminar cada tarea importante.
 - **Recuperar la libreta del alumno**, que era la gracia de Sherlock Ort: investigar apuntando en su propia libreta. Se había perdido al pasarlo todo a digital → propuesta en `LIBRETA.md`.
 - **Una trama de temporada**: hilo conductor entre casos, un primer caso de **evaluación inicial** que enganche con la historia y los personajes, y un **final cerrado**, como la primera temporada de una serie → borrador en `TEMPORADA-1.md`.
 
-**Pendiente de Pablo:** decisiones de `LIBRETA.md` y de `TEMPORADA-1.md` (identidad de El Tachón y su motivo), y probar el caso 1 en clase.
+**Decidido:** El Tachón es la opción C, Bruno el repartidor: un antiguo aspirante del que se rieron por sus faltas, que acaba uniéndose al equipo.
+**Pablo pregunta qué es el «código de sello»** de la libreta: se le explican las opciones (bloquear el avance, que el sello sume puntos sin bloquear, o solo rúbrica). Pendiente de su elección.
