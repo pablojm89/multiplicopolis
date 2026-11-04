@@ -43,6 +43,7 @@
   .mios h2 { margin: 0; }
   .mios .lineas { flex: 1; overflow: hidden; }
   .mios .lineas i { display: block; height: 7.6mm; border-bottom: 1px solid var(--linea); }
+  .nw { white-space: nowrap; }
   .pie { display: flex; justify-content: space-between; font: 11px "Special Elite"; color: var(--gris); }
   .aviso { max-width: 210mm; margin: 10mm auto; background: #fff7d6; border: 1px solid #c9b26a; border-radius: 8px; padding: 10px 14px; font-size: 14px; }
   .controles { position: fixed; left: 12px; bottom: 12px; max-width: 380px; background: #fff7d6; border: 1px solid #c9b26a; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
@@ -61,6 +62,8 @@
 <script>
 "use strict";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// Texto de los esquemas: las palabras con guion (-n, ca-MIÓN, MÚ-si-ca) no se parten al final de la línea.
+const txt = s => esc(s).replace(/\S*-\S*/g, m => `<span class="nw">${m}</span>`);
 const leer = async ruta => { const r = await fetch(ruta); if (!r.ok) throw new Error(ruta); return r.json(); };
 const MIO = /^mis? (ejemplos?|frase)/i;
 
@@ -68,14 +71,14 @@ function tabla(e) {
   const mias = e.columnas.map(c => MIO.test(c));
   const ancha = e.columnas.length >= 6 ? " ancha" : "";
   const cab = e.columnas.map((c, i) => `<th${mias[i] ? ' class="mio"' : ""}>${esc(c)}</th>`).join("");
-  const filas = e.filas.map(f => `<tr>${f.map(c => c === "" ? '<td class="hueco"></td>' : `<td>${esc(c)}</td>`).join("")}</tr>`).join("");
+  const filas = e.filas.map(f => `<tr>${f.map(c => c === "" ? '<td class="hueco"></td>' : `<td>${txt(c)}</td>`).join("")}</tr>`).join("");
   return `<table class="tabla${ancha}"><thead><tr>${cab}</tr></thead><tbody>${filas}</tbody></table>`;
 }
-const lista = e => `<ul class="trucos">${e.puntos.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`;
+const lista = e => `<ul class="trucos">${e.puntos.map(p => `<li>${txt(p)}</li>`).join("")}</ul>`;
 function pasos(e) {
   return `<ol class="pasos">${e.pasos.map(p => {
     const m = p.match(/^(\d+\.º)\s+(.*)$/);
-    return m ? `<li><b>${esc(m[1])}</b><span>${esc(m[2])}</span></li>` : `<li><b></b><span>${esc(p)}</span></li>`;
+    return m ? `<li><b>${esc(m[1])}</b><span>${txt(m[2])}</span></li>` : `<li><b></b><span>${txt(p)}</span></li>`;
   }).join("")}</ol>`;
 }
 const PINTAR = { tabla, lista, pasos };
@@ -86,7 +89,7 @@ function hoja(id, a, regla, n, total) {
     <header class="cab"><div><div class="agencia">AGENCIA LA LUPA · APUNTES DE DETECTIVE</div><h1>${esc(regla?.nombre || a.titulo)}</h1></div><div class="exp">Regla ${n}/${total}</div></header>
     <p class="intro"><b>MATEO</b>${esc(a.intro)}</p>
     ${esquemas}
-    <div class="completar"><b>Para completar</b>${esc(a.completar)}</div>
+    <div class="completar"><b>Para completar</b>${txt(a.completar)}</div>
     <div class="mios"><h2>Mis ejemplos</h2><div class="lineas">${"<i></i>".repeat(24)}</div></div>
     <footer class="pie"><span>Cópialo en tu libreta y repásalo antes del caso.</span><span>Nombre: ______________________</span></footer>
   </section>`;

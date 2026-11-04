@@ -43,7 +43,7 @@
         "fé"
       ],
       "tonica": 1,
-      "frase": "La directora siempre tiene una taza de ___ en la mesa."
+      "frase": "El director siempre tiene una taza de ___ en la mesa."
     },
     {
       "p": "reloj",
@@ -523,7 +523,7 @@
       "p": "enviar",
       "regla": "b-v-1",
       "mal": "enbiar",
-      "frase": "Voy a ___ un mensaje a la directora."
+      "frase": "Voy a ___ un mensaje al director."
     },
     {
       "p": "nuevo",

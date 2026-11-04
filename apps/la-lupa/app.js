@@ -220,6 +220,7 @@ function vistaMaestro() {
         <a class="boton-papel" id="impLibreta" target="_blank" rel="noopener" href="imprimibles/libreta.html?casos=todos">Abrir libreta para imprimir</a>
       </div>
       <div class="fila">
+        <a class="boton-papel" target="_blank" rel="noopener" href="imprimibles/apuntes.html?reglas=todas">Apuntes de las 9 reglas (para la libreta)</a>
         <a class="boton-papel" target="_blank" rel="noopener" href="imprimibles/ficha-aspirante.html">Ficha de aspirante (avatares)</a>
         <a class="boton-papel" target="_blank" rel="noopener" href="imprimibles/autorizacion-familias.html">Autorización para las familias (borrador)</a>
       </div>

@@ -327,7 +327,7 @@
         "Mayúscula al empezar un texto y después de punto. También después de ? y ! cuando cierran la oración: ¿Quién ha sido? Nadie lo sabe.",
         "Llevan mayúscula los nombres propios de personas (Aurora), de lugares (Sevilla, La Alameda) y de periódicos (El Eco de La Alameda).",
         "En los títulos de libros solo va con mayúscula la primera palabra y los nombres propios: El principito, Platero y yo.",
-        "En minúscula: los días (lunes), los meses (junio), las estaciones (verano), los gentilicios (andaluz), los idiomas (inglés) y los cargos (la directora Robles, el alcalde).",
+        "En minúscula: los días (lunes), los meses (junio), las estaciones (verano), los gentilicios (andaluz), los idiomas (inglés) y los cargos (el director Robles, el alcalde).",
         "El punto cierra una oración. La coma separa los elementos de una enumeración, y el último se une con y, sin coma: tinta, papel y cola.",
         "Las preguntas y las exclamaciones llevan dos signos, uno al principio y otro al final: ¿Qué hora es? ¡Qué susto! Los puntos suspensivos son siempre tres y dejan la frase en suspense: Y entonces…"
       ]
@@ -346,7 +346,7 @@
       {
         "id": "minuscula",
         "titulo": "Carta de la minúscula",
-        "texto": "Días, meses, estaciones, gentilicios, idiomas y cargos van en minúscula: lunes, junio, verano, andaluz, inglés, la directora."
+        "texto": "Días, meses, estaciones, gentilicios, idiomas y cargos van en minúscula: lunes, junio, verano, andaluz, inglés, el director."
       }
     ]
   },
