@@ -137,3 +137,28 @@
 @media (prefers-reduced-motion: reduce) {
   .imp-rodillo, .imp-impreso, .imp-pie, .imp-marca, .imp-galerada.aprobada .imp-sello { animation: none; }
 }
+
+/* ── Niveles (lupas) ── */
+.imp-tira .imp-lupa { color: var(--imp-tinta); font-weight: 700; }
+/* La letra del cuerpo la ajusta el JS para que la galerada quepa entera */
+.imp-cuerpo .texto-pistas { font-size: var(--imp-letra, 23px); }
+.imp-galerada.apretada .imp-cuerpo .texto-pistas { line-height: 1.5; }
+.imp-galerada.apretada .imp-titular { font-size: 38px; }
+.imp-galerada.apretada .imp-entradilla { font-size: 16px; margin-bottom: 6px; padding-bottom: 6px; }
+/* Bronce: galerada corta, a una columna y con letra grande */
+.imp-galerada.imp-corta .imp-cuerpo { column-count: 1; }
+.imp-galerada.imp-corta .imp-cuerpo .texto-pistas { line-height: 1.7; }
+/* «?» a lápiz del aprendiz encima de las palabras que le sonaban raras (no todas están mal) */
+.imp-galerada .w.imp-duda { position: relative; }
+.imp-galerada .w.imp-duda::before { content: "?"; position: absolute; left: 50%; top: -.78em; transform: translateX(-50%) rotate(8deg); font: .7em/1 var(--f-mano); color: #5a6f8c; pointer-events: none; }
+.imp-galerada .w.imp-duda.resuelta::before { content: none; }
+/* Diamante: la hoja de correcciones, boca abajo hasta aprobar la galerada */
+.imp-boca-abajo { margin: 6px 0 4px; font: 19px/1.25 var(--f-mano); color: var(--gris-tinta); }
+.imp-hoja.imp-tapada { background: var(--ruido), repeating-linear-gradient(45deg, rgba(120, 95, 50, .08) 0 8px, transparent 8px 16px), #e9dfc6; }
+.imp-hoja.imp-tapada .imp-lista, .imp-hoja.imp-tapada .imp-falsas { display: none; }
+.imp-hoja:not(.imp-tapada) .imp-boca-abajo { display: none; }
+.imp-galerada.n4 ~ .imp-hoja .imp-lista { gap: 2px; }
+.imp-galerada.n4 ~ .imp-hoja .imp-lista li b { font-size: 20px; }
+.imp-galerada.n4 ~ .imp-hoja .imp-lista li small { font-size: 12px; }
+.imp-galerada.n4 ~ .imp-hoja:not(.imp-tapada) { animation: imp-destapar .5s ease-out; }
+@keyframes imp-destapar { from { transform: rotate(1.2deg) rotateY(90deg); } to { transform: rotate(1.2deg); } }
