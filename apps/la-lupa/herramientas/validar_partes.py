@@ -5,7 +5,9 @@ Uso (desde apps/la-lupa/):  python3 herramientas/validar_partes.py
 Comprueba:
 - al menos 10 plantillas de parte, con id único, título, negociado, código, «otros» y apartados
   con campos conocidos (cosa, lugar, ser, animal, tiempo, accion, verbo, como; uno o una lista);
-- al menos 40 pistas, de las 9 reglas de 5.º, y al menos 8 por regla (una ronda son 2 partes de 4 casillas);
+- al menos 40 pistas, de las 9 reglas de 5.º, y al menos 20 por regla;
+- que cada pista tiene nivel 1, 2 o 3 (1 fácil para el bronce; 3 difícil para el diamante) y que en cada
+  regla hay al menos 7 de cada nivel (en diamante, una ronda son 2 partes de 6 casillas);
 - que la pista nunca contiene la palabra que se busca (ni sin tildes) y cabe en la hoja (≤ 80 letras);
 - que la explicación (porque) nombra la palabra;
 - que la palabra no está en palabras.json con otra regla (tildes y diptongos cuentan como la misma);
@@ -59,6 +61,7 @@ if len(partes) < 10:
 pistas = datos.get("pistas", [])
 vistas = set()
 por_regla = {r: 0 for r in REGLAS_5}
+por_nivel = {(r, n): 0 for r in REGLAS_5 for n in (1, 2, 3)}
 for x in pistas:
     p, r = x.get("p", ""), x.get("regla")
     clave = f"{p} ({r})"
@@ -69,6 +72,10 @@ for x in pistas:
         errores.append(f"{clave}: regla desconocida")
         continue
     por_regla[r] += 1
+    if x.get("nivel") not in (1, 2, 3):
+        errores.append(f"{clave}: nivel {x.get('nivel')!r} (debe ser 1, 2 o 3)")
+    else:
+        por_nivel[(r, x["nivel"])] += 1
     if x.get("campo") not in CAMPOS | {"dato"}:
         errores.append(f"{clave}: campo desconocido «{x.get('campo')}»")
     pista, porque = x.get("pista", ""), x.get("porque", "")
@@ -100,12 +107,16 @@ for x in pistas:
         if not mayus and "minúscula" not in porque:
             errores.append(f"{clave}: va con minúscula y la explicación no lo dice")
 for r, n in por_regla.items():
-    if n < 8:
-        errores.append(f"la regla {r} tiene {n} pistas; hacen falta al menos 8")
+    if n < 20:
+        errores.append(f"la regla {r} tiene {n} pistas; hacen falta al menos 20")
+    for nv in (1, 2, 3):
+        if por_nivel[(r, nv)] < 7:
+            errores.append(f"la regla {r} tiene {por_nivel[(r, nv)]} pistas de nivel {nv}; hacen falta al menos 7")
 if len(pistas) < 40:
     errores.append(f"hay {len(pistas)} pistas; hacen falta al menos 40")
 
 print(f"{len(partes)} partes, {len(pistas)} pistas: " + ", ".join(f"{r} {n}" for r, n in por_regla.items()))
+print("Por nivel (1/2/3): " + ", ".join(f"{r} {'/'.join(str(por_nivel[(r, nv)]) for nv in (1, 2, 3))}" for r in REGLAS_5))
 if errores:
     print("\n".join("ERROR " + e for e in errores))
     sys.exit(1)

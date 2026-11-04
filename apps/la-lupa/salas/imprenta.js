@@ -5,7 +5,11 @@
    de un artículo: 4-5 faltas de reglas distintas de las 9 de 5.º. El alumno toca
    cada falta y la corrige (como en el Pupitre: pulsarPalabra + pedirCorreccion);
    en el margen se estampa la marca del corrector y se nombra la regla.
-   Al terminar, la galerada se aprueba y sale limpia de la rotativa. 2 galeradas por ronda.
+   Al terminar, la galerada se aprueba y sale limpia de la rotativa.
+   Niveles (lupas del motor, nivelAca()): 🥉 galeradas cortas (nivel 1), 3 faltas muy visibles ·
+   🥈 nivel 2, 4-5 faltas · 🥇 galeradas largas (nivel 2-3), 6 faltas y palabras «sospechosas» bien
+   escritas que el aprendiz ha marcado con «?» (falsa alarma posible) · 💎 una galerada de las más
+   largas (nivel 3), 7-8 faltas de reglas distintas y la hoja de correcciones boca abajo hasta el final.
    Datos: datos/academia/galeradas.json (validador: herramientas/validar_imprenta.py)
    ============================================================ */
 "use strict";
@@ -15,7 +19,7 @@ Object.assign(sala("imprenta"), {
   instructor: "aurora",
   actividad: "pruebas",
   gancho: "Corrige la galerada antes de que ruede la rotativa.",
-  leccionFija: "Antes de que ruede la rotativa, el corrector revisa la galerada. Hoy, el corrector eres tú. En cada artículo se han colado cuatro o cinco faltas, y cada una es de una regla distinta: tildes, b y v, h, mayúsculas… todo mezclado, como en la calle. Toca cada falta, escríbela bien y te diré qué regla has aplicado. Y cuidado con el lápiz rojo: si tachas una palabra que está bien escrita, mañana me escribe medio barrio.",
+  leccionFija: "Antes de que ruede la rotativa, el corrector revisa la galerada. Hoy, el corrector eres tú. En cada artículo se han colado unas cuantas faltas, y cada una es de una regla distinta: tildes, b y v, h, mayúsculas… todo mezclado, como en la calle. Con la lupa de bronce son tres y bien gordas; con la de diamante, ocho, y la hoja de correcciones se queda boca abajo hasta el final. Toca cada falta, escríbela bien y te diré qué regla has aplicado. Y cuidado con el lápiz rojo: si tachas una palabra que está bien escrita, mañana me escribe medio barrio.",
 });
 
 let GALERADAS = null;   // caché de datos/academia/galeradas.json
@@ -35,6 +39,16 @@ const IMP_ANUNCIOS = [
 const IMP_BIEN = ["¡Cazada!", "¡Así me gusta!", "Una menos.", "¡Ojo de corrector!", "¡Limpia como una patena!"];
 const IMP_FALSA = ["¡Quieto ese lápiz! Esa palabra está bien escrita.", "Esa no: si la tachas, la estropeamos nosotros.", "Falsa alarma. Respira y vuelve a leer."];
 const IMP_MARGEN = 84;   // px de margen a cada lado de la galerada para las marcas
+/* Qué trae cada lupa: galeradas por ronda, faltas por galerada, palabras «sospechosas» y si la hoja se ve */
+const IMP_NIVELES = {
+  1: { galeradas: 2, faltas: () => 3, sospechosas: 0, hoja: true, articulos: a => (a.nivel || 2) === 1, letra: 27 },
+  2: { galeradas: 2, faltas: () => (Math.random() < .5 ? 4 : 5), sospechosas: 0, hoja: true, articulos: a => (a.nivel || 2) === 2, letra: 23 },
+  3: { galeradas: 2, faltas: () => 6, sospechosas: 2, hoja: true, articulos: a => (a.nivel || 2) >= 2, letra: 22 },
+  4: { galeradas: 1, faltas: () => (Math.random() < .5 ? 7 : 8), sospechosas: 2, hoja: false, articulos: a => (a.nivel || 2) === 3, letra: 21 },
+};
+/* Reglas cuyas faltas «se ven» de lejos (bronce): las tildes y los monosílabos, mejor para más adelante */
+const IMP_VISIBLES = ["mayusculas-puntuacion-1", "h-1", "b-v-1", "ll-y", "g-j-dieresis", "c-z-s", "d-z-finales"];
+const IMP_DUDA = ["Mi aprendiz ha marcado con «?» lo que le sonaba raro. Ojo: no todo lo marcado está mal.", "Las interrogaciones son del aprendiz. Unas son faltas; otras, falsas alarmas."];
 const limpiarMarcas = t => t.replace(IMP_MARCA, (_, p) => p);
 const mayusculaInicial = (modelo, x) => (modelo[0] !== modelo[0].toLowerCase() ? x[0].toUpperCase() + x.slice(1) : x);
 
@@ -49,19 +63,23 @@ function candidatasImprenta(art) {
   art.parrafos.forEach((par, ip) => {
     for (const m of par.matchAll(IMP_MARCA)) {
       const w = enBanco(m[1]);
-      const mal = m[3] || (w?.mal && w.regla === m[2] ? mayusculaInicial(m[1], w.mal) : null);
-      if (mal && D.reglas[m[2]]) out.push({ clave: `${ip}:${m.index}`, p: m[1], regla: m[2], mal });
+      // En las faltas de mayúscula, la forma errónea va tal cual (si no, «sevilla» volvería a ser «Sevilla»)
+      const delBanco = w?.mal && w.regla === m[2] ? (m[2] === "mayusculas-puntuacion-1" ? w.mal : mayusculaInicial(m[1], w.mal)) : null;
+      const mal = m[3] || delBanco;
+      if (mal && mal !== m[1] && D.reglas[m[2]]) out.push({ clave: `${ip}:${m.index}`, p: m[1], regla: m[2], mal });
     }
   });
   return out;
 }
 
-/* Elige 4-5 faltas de reglas distintas: primero las de la cola de repaso; después, reglas aún no vistas en la ronda */
-function elegirFaltas(art, enCola, yaUsadas) {
+/* Elige las faltas (de reglas distintas): primero las de la cola de repaso; después, reglas aún no vistas en la ronda.
+   En bronce, las reglas que más se ven. Devuelve también las «sospechosas»: candidatas que se quedan bien escritas. */
+function elegirFaltas(art, enCola, yaUsadas, cfg = IMP_NIVELES[nivelAca()]) {
   const cands = candidatasImprenta(art);
-  const deCola = barajar(cands.filter(c => enCola.has(norm(c.p))));
-  const resto = barajar(cands.filter(c => !enCola.has(norm(c.p)))).sort((a, b) => yaUsadas.has(a.regla) - yaUsadas.has(b.regla));
-  const n = Math.random() < .5 ? 4 : 5;
+  const visible = c => (cfg === IMP_NIVELES[1] ? !IMP_VISIBLES.includes(c.regla) : 0);
+  const deCola = barajar(cands.filter(c => enCola.has(norm(c.p)))).sort((a, b) => visible(a) - visible(b));
+  const resto = barajar(cands.filter(c => !enCola.has(norm(c.p)))).sort((a, b) => visible(a) - visible(b) || yaUsadas.has(a.regla) - yaUsadas.has(b.regla));
+  const n = cfg.faltas();
   const reglas = new Set(), elegidas = new Map();
   for (const c of [...deCola, ...resto]) {
     if (elegidas.size >= n) break;
@@ -69,16 +87,29 @@ function elegirFaltas(art, enCola, yaUsadas) {
     reglas.add(c.regla);
     elegidas.set(c.clave, c);
   }
-  return elegidas;
+  const sospechosas = barajar(cands.filter(c => !elegidas.has(c.clave))).slice(0, cfg.sospechosas);
+  return { elegidas, sospechosas: new Set(sospechosas.map(c => c.clave)) };
 }
 
-/* Prepara una galerada: párrafos con {mal|bien|regla} para tokenizar() */
-function prepararGalerada(art, elegidas) {
-  const parrafos = art.parrafos.map((par, ip) => par.replace(IMP_MARCA, (todo, p, _r, _m, idx) => {
-    const c = elegidas.get(`${ip}:${idx}`);
-    return c ? `{${c.mal}|${c.p}|${c.regla}}` : p;
-  }));
-  return { art, parrafos, faltas: [...elegidas.values()] };
+/* Prepara una galerada: párrafos con {mal|bien|regla} para tokenizar(), y en qué palabra (nº de orden en su párrafo)
+   cae cada «?» del aprendiz: en las sospechosas y en alguna falta de verdad, para que el «?» no lo resuelva todo */
+function prepararGalerada(art, { elegidas, sospechosas }) {
+  const conDuda = new Set([...sospechosas, ...barajar([...elegidas.keys()]).slice(0, sospechosas.size ? Math.min(2, Math.ceil(sospechosas.size / 2) + (Math.random() < .5 ? 1 : 0)) : 0)]);
+  const dudas = [];
+  const parrafos = art.parrafos.map((par, ip) => {
+    let out = "", visto = "", ultimo = 0;
+    for (const m of par.matchAll(IMP_MARCA)) {
+      const clave = `${ip}:${m.index}`, c = elegidas.get(clave);
+      const antes = par.slice(ultimo, m.index);
+      out += antes; visto += antes;
+      if (conDuda.has(clave)) dudas.push({ ip, orden: (visto.match(/\p{L}+/gu) || []).length });
+      out += c ? `{${c.mal}|${c.p}|${c.regla}}` : m[1];
+      visto += c ? c.mal : m[1];
+      ultimo = m.index + m[0].length;
+    }
+    return out + par.slice(ultimo);
+  });
+  return { art, parrafos, faltas: [...elegidas.values()], dudas };
 }
 
 /* Marca de corrector para el margen, según el tipo de cambio entre la forma mal escrita y la buena */
@@ -113,12 +144,16 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
   const enCola = new Set(Object.keys(s.cola).map(norm));
   const claveVistas = `imprenta-vistas-${perfil.id}`;
   const vistas = cargar(claveVistas, []);
-  // Dos artículos: los que tienen palabras de la cola primero, y los de la ronda anterior al final
-  const puntuar = a => candidatasImprenta(a).filter(c => enCola.has(norm(c.p))).length * 10 - (vistas.includes(a.id) ? 5 : 0);
-  const arts = barajar(banco).sort((a, b) => puntuar(b) - puntuar(a)).slice(0, 2);
-  guardar(claveVistas, arts.map(a => a.id));
+  const nivel = nivelAca(), cfg = IMP_NIVELES[nivel], lupa = NIVELES_ACA[nivel - 1];
+  // Artículos de la lupa: los que tienen palabras de la cola primero, y los de las últimas rondas al final.
+  // En diamante, de los más largos.
+  const largo = a => a.parrafos.join(" ").length;
+  const pool = banco.filter(cfg.articulos);
+  const puntuar = a => candidatasImprenta(a).filter(c => enCola.has(norm(c.p))).length * 10 - (vistas.includes(a.id) ? 25 : 0) + (nivel === 4 ? largo(a) / 100 : 0) + Math.random() * 4;
+  const arts = (pool.length >= cfg.galeradas ? pool : banco).slice().sort((a, b) => puntuar(b) - puntuar(a)).slice(0, cfg.galeradas);
+  guardar(claveVistas, [...arts.map(a => a.id), ...vistas].slice(0, 8));
   const usadas = new Set();
-  const galeradas = arts.map(a => { const g = prepararGalerada(a, elegirFaltas(a, enCola, usadas)); g.faltas.forEach(f => usadas.add(f.regla)); return g; });
+  const galeradas = arts.map(a => { const g = prepararGalerada(a, elegirFaltas(a, enCola, usadas, cfg)); g.faltas.forEach(f => usadas.add(f.regla)); return g; });
   partidaAca(sl, [...usadas]);
   let r = 0;
 
@@ -128,9 +163,9 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
     const total = g.faltas.length;
     pintarEscena(`
       <div class="imp-vade" aria-hidden="true"></div>
-      <article class="imp-galerada" id="impGal">
+      <article class="imp-galerada n${nivel} ${nivel === 1 ? "imp-corta" : ""}" id="impGal">
         <span class="imp-reg tl"></span><span class="imp-reg tr"></span><span class="imp-reg bl"></span><span class="imp-reg br"></span>
-        <header class="imp-tira"><span>Prueba de imprenta · Galerada ${r + 1} de ${galeradas.length}</span><span>Sección: ${esc(art.seccion)}</span><span>Corrector: ${esc(perfil.nombre)}</span></header>
+        <header class="imp-tira"><span>Prueba de imprenta · Galerada ${r + 1} de ${galeradas.length}</span><span class="imp-lupa">${lupa.icono} ${esc(lupa.corto)}</span><span>Sección: ${esc(art.seccion)}</span><span>Corrector: ${esc(perfil.nombre)}</span></header>
         <div class="imp-cabecera"><small>Año XXIV · N.º ${1250 + r}</small><b>El Eco de La Alameda</b><small>Edición de la mañana</small></div>
         <p class="imp-seccion">${esc(art.seccion)}</p>
         <h2 class="imp-titular">${esc(art.titular)}</h2>
@@ -145,8 +180,9 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
         <rect x="180" y="4" width="92" height="26" fill="#2f5fa8"/><rect x="180" y="4" width="92" height="8" fill="#4d7cc4"/><rect x="180" y="22" width="92" height="8" fill="#22467e"/>
         <polygon points="272,4 298,10 298,24 272,30" fill="#e9c79a"/><polygon points="298,10 318,17 298,24" fill="#22467e"/>
       </svg>
-      <aside class="imp-hoja">
+      <aside class="imp-hoja ${cfg.hoja ? "" : "imp-tapada"}" id="impHoja">
         <h3>Hoja de correcciones</h3>
+        ${cfg.hoja ? "" : `<p class="imp-boca-abajo">Boca abajo hasta que apruebes la galerada. Hoy, sin chuleta: cada regla, de memoria.</p>`}
         <p class="imp-cuenta" id="impCuenta"></p>
         <ol class="imp-lista" id="impLista"><li class="imp-vacio">Toca cada palabra mal escrita de la galerada y escríbela bien.</li></ol>
         <p class="imp-falsas" id="impFalsas"></p>
@@ -160,14 +196,22 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
     const btnDe = new Map();
     const tokensTodos = [];
     const ctx = { pendientes: total, conCarta: false, onCambio: tk => corregida(tk), onCompleto: () => setTimeout(aprobar, 700) };
-    g.parrafos.forEach(par => {
+    g.parrafos.forEach((par, ip) => {
       const tokens = tokenizar(par);
       const p = textoInteractivo(tokens, ctx);
       const botones = $$("button.w", p);
       tokens.filter(t => t.palabra).forEach((t, i) => btnDe.set(t, botones[i]));
+      g.dudas.filter(d => d.ip === ip).forEach(d => botones[d.orden]?.classList.add("imp-duda"));
       tokensTodos.push(...tokens);
       $("#impCuerpo").append(p);
     });
+    // La galerada tiene que caber entera: se baja la letra (y, si hace falta, el titular) hasta que quepa
+    const cuerpo = $("#impCuerpo");
+    for (let letra = cfg.letra; letra >= 15; letra--) {
+      cuerpo.style.setProperty("--imp-letra", `${letra}px`);
+      if (letra <= 19) gal.classList.add("apretada");
+      if (gal.scrollHeight <= gal.clientHeight + 1) break;
+    }
 
     const falsasAntes = P.eventos.filter(e => e.detalle === "falsa alarma").length;
     const falsas = () => P.eventos.filter(e => e.detalle === "falsa alarma").length - falsasAntes;
@@ -181,7 +225,7 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
       $("#impFalsas").textContent = falsas() ? `Falsas alarmas: ${falsas()}` : "";
     };
     contar();
-    nota(`${total} faltas, ${total} reglas distintas. La rotativa espera.`);
+    nota(g.dudas.length ? azarElem(IMP_DUDA) : `${total} faltas, ${total} reglas distintas. La rotativa espera.`);
 
     // Falsas alarmas: Aurora reacciona (el registro lo hace pulsarPalabra)
     let previas = 0;
@@ -215,7 +259,8 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
       ocupados[fila] = cabe ? usado + ancho : usado;
       $(".imp-vacio")?.remove();
       $("#impLista").insertAdjacentHTML("beforeend", `<li><i>${hechas}</i><b>${esc(tk.bien)}</b><small>${esc(nombre)}</small></li>`);
-      aviso(`¡Bien! «${tk.bien}» · Regla: ${nombre}`, "bien");
+      // Sin hoja (diamante), la regla no se dice hasta el final
+      aviso(cfg.hoja ? `¡Bien! «${tk.bien}» · Regla: ${nombre}` : `¡Bien! «${tk.bien}»`, "bien");
       nota(`${azarElem(IMP_BIEN)} ${hechas < total ? `Quedan ${total - hechas}.` : "Galerada limpia."}`, "contento");
       contar();
     }
@@ -224,8 +269,9 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
     function aprobar() {
       if (!gal.isConnected) return;   // el alumno se ha ido al patio
       gal.classList.add("aprobada");
+      $("#impHoja").classList.remove("imp-tapada");   // en diamante, la hoja se destapa ahora
       nota(hechas === total && !falsas() ? "¡Ni una falsa alarma! Esto sale tal cual." : "Aprobada. ¡A la rotativa!", "contento");
-      const espera = movimientoReducido() ? 300 : 1300;
+      const espera = movimientoReducido() ? 300 : cfg.hoja ? 1300 : 3200;
       setTimeout(imprimir, espera);
     }
     function imprimir() {
@@ -246,7 +292,7 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
         </article></div>
         <div class="imp-pie">
           <p class="cartel">¡Impreso!</p>
-          <p class="imp-pie-txt">${hechas} faltas corregidas${falsas() ? ` · ${falsas()} falsa${falsas() > 1 ? "s" : ""} alarma${falsas() > 1 ? "s" : ""}` : " · sin falsas alarmas"}</p>
+          <p class="imp-pie-txt">${lupa.icono} ${esc(lupa.corto)} · ${hechas} faltas corregidas${falsas() ? ` · ${falsas()} falsa${falsas() > 1 ? "s" : ""} alarma${falsas() > 1 ? "s" : ""}` : " · sin falsas alarmas"}</p>
           <button class="flecha" id="impSig">${ultima ? "Cerrar la edición" : "Siguiente galerada"} ▸</button>
         </div>`;
       $("#escenario .capa").append(capa);
