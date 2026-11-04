@@ -1,53 +1,290 @@
 {
-  "_nota": "Documentos de la Academia para «La corrección del documento». Las palabras entre [corchetes] están en palabras.json y pueden sembrarse con su forma errónea. El generador elige 2-4 de las reglas activas, así cada ronda es distinta.",
+  "_nota": "Documentos de la Academia para «La corrección del documento». Las palabras entre [corchetes] están en palabras.json y pueden sembrarse con su forma errónea. El generador elige 2-4 de las reglas activas, así cada ronda es distinta. nivel: 1 (2-3 oraciones), 2 (3-6) o 3 (6-8 oraciones, más palabras difíciles). En mayúsculas solo se marcan las palabras que van en minúscula (días, meses, gentilicios, idiomas, cargos): el Pupitre pone en mayúscula la forma errónea de las palabras que empiezan por mayúscula.",
   "textos": [
     {
       "tipo": "Parte de la agencia",
+      "nivel": 1,
       "texto": "Esta mañana un [camión] de reparto [estaba] aparcado junto a la plaza. El conductor [hablaba] por [teléfono] y no vio que un [hombre] con gafas de sol se llevaba un [melón] de la caja."
     },
     {
       "tipo": "Nota de un vecino",
+      "nivel": 1,
       "texto": "Queridos detectives: el [sábado] por la noche [había] [humo] saliendo del almacén. Mi [hermano] dice que vio a alguien [subir] por la [ventana] con una [guitarra]."
     },
     {
       "tipo": "Cartel del mercado",
+      "nivel": 1,
       "texto": "Hoy en el puesto de Manolo: [limón], [plátano] y [melón] a buen precio. Si quieres [recibir] tu pedido en casa, deja tu nombre en el [papel] del mostrador. Abrimos también en [invierno]."
     },
     {
       "tipo": "Informe de Mateo",
+      "nivel": 1,
       "texto": "El sospechoso [iba] en bicicleta. Llevaba un [lápiz] detrás de la oreja y un [reloj] dorado. En el [árbol] de la plaza encontramos un [hueso] de aceituna y una [hormiga] gigante."
     },
     {
       "tipo": "Diario de Lola",
+      "nivel": 1,
       "texto": "[Estuve] toda la tarde en la biblioteca. Herminia me contó que de pequeña [cantaba] en el coro y que su [música] favorita era la del [violín]. Fue un día muy [feliz]."
     },
     {
       "tipo": "Aviso del director",
+      "nivel": 1,
       "texto": "Detectives: [hemos] recibido un aviso [nuevo]. No es [fácil] de leer: tiene manchas de [café] y le faltan letras. Quiero el informe el [miércoles] en mi [mesa]."
     },
     {
       "tipo": "Noticia del periódico",
+      "nivel": 1,
       "texto": "Un [pájaro] se coló en el [hospital] de la [ciudad] y [hizo] un nido en la sala de espera. El [médico] de guardia lo sacó con un [balón] de playa."
     },
     {
       "tipo": "Receta de la panadería",
+      "nivel": 1,
       "texto": "Para el bizcocho de Julián hace falta un [huevo], [azúcar], ralladura de [limón] y mucha paciencia. El horno ya [estaba] caliente a las siete, y el bizcocho salió oliendo a gloria."
     },
     {
       "tipo": "Mensaje de radio",
+      "nivel": 1,
       "texto": "Atención: el [joven] del [brazo] vendado [jugaba] en la plaza a las ocho. Hay que [enviar] a un detective [activo] antes de que caiga el [hielo] de la noche."
     },
     {
       "tipo": "Receta de Doña Pilar",
+      "nivel": 1,
       "texto": "Pon la [cazuela] al fuego con aceite. Echa la [cebolla] picada, después el [arroz] y, al final, [diez] [cerezas] para decorar. ¡Y no te olvides del [queso]!"
     },
     {
       "tipo": "Parte del tiempo",
+      "nivel": 1,
       "texto": "[Ayer] cayó tanta [lluvia] que la [calle] de la agencia parecía un río. Un [caballo] de la feria se refugió junto a la [pared] del mercado."
     },
     {
       "tipo": "Carta de una vecina",
+      "nivel": 1,
       "texto": "Queridos detectives: os escribo con toda [verdad]. Mi [amistad] con Azucena viene de la [juventud], y sé que ella no tocó los [azulejos] de la [plaza]."
+    },
+    {
+      "tipo": "Nota de Lola",
+      "nivel": 1,
+      "texto": "Mateo: me he dejado el [móvil] en el [cajón] de tu mesa. Está [detrás] de la [lámpara], junto al [bolígrafo] azul."
+    },
+    {
+      "tipo": "Lista de la compra",
+      "nivel": 1,
+      "texto": "Para la feria hay que comprar [jabón], [champú] y un [pantalón] para Mateo. ¡Y que no se nos olvide el [algodón] de azúcar!"
+    },
+    {
+      "tipo": "Parte del director",
+      "nivel": 2,
+      "texto": "Detectives: anoche alguien entró en el [almacén] del mercado. El [capitán] del equipo de [fútbol] vio a un hombre muy [ágil] saltar la tapia. Llevaba un [maletín] de cuero y una [cámara] colgada del cuello. Quiero un [resumen] del caso mañana en mi mesa."
+    },
+    {
+      "tipo": "Diario de Mateo",
+      "nivel": 2,
+      "texto": "Hoy hemos ido de excursión al zoo. El [hipopótamo] estaba metido en el agua y el [jabalí] dormía a la sombra. Me hice una foto con un [dragón] de cartón muy [frágil]. Al volver, el [túnel] de la carretera estaba oscurísimo."
+    },
+    {
+      "tipo": "Noticia de «El Eco de La Alameda»",
+      "nivel": 3,
+      "texto": "Un [helicóptero] sobrevoló ayer el barrio de La Alameda durante más de una hora. Los vecinos salieron a la plaza con mucho [interés]. Desde el aire buscaban un [álbum] de fotos muy antiguo que había desaparecido del museo. Según el [termómetro] de la farmacia, hacía treinta grados. Al final, el álbum apareció detrás de una estatua de [mármol]. El director del museo dijo que era un caso [fantástico]. Los [jóvenes] del barrio lo celebraron con una merienda."
+    },
+    {
+      "tipo": "Nota de la abuela",
+      "nivel": 1,
+      "texto": "Cuando era pequeña, [bailaba] en la plaza y mi hermana [pintaba] los farolillos. ¡Qué [hambre] teníamos al volver al [pueblo]!"
+    },
+    {
+      "tipo": "Aviso del kiosco",
+      "nivel": 1,
+      "texto": "Bruno [ayudaba] a su padre cuando llegó la [ambulancia]. Nadie sabe el [nombre] del [hombre] del [sombrero]."
+    },
+    {
+      "tipo": "Informe de Lola",
+      "nivel": 2,
+      "texto": "El testigo intentó [describir] al ladrón. Dijo que llevaba una gorra [deportiva] y un [libro] debajo del brazo. [Estuvo] un rato mirando el reloj y después [buscaba] algo entre la [niebla]. Al final se fue sin [abrir] la boca."
+    },
+    {
+      "tipo": "Invitación de los vecinos",
+      "nivel": 2,
+      "texto": "Queridos detectives: os queremos [invitar] a la fiesta del día [festivo]. Habrá una [broma] para el director y un [bombón] para cada uno. Será una fiesta [breve]: solo dos horas."
+    },
+    {
+      "tipo": "Diario de Mateo",
+      "nivel": 3,
+      "texto": "De pequeños, mi hermano y yo [jugábamos] al escondite en la [biblioteca]. Herminia nos [detuvo] una vez y nos dio un buen consejo. Nos dijo que había que [vivir] con calma y ser [positivo]. Mi hermano se quedó muy [pensativo]. Ahora tiene la [costumbre] de leer antes de dormir. Yo, en cambio, todavía no paro quieto."
+    },
+    {
+      "tipo": "Nota del huerto",
+      "nivel": 1,
+      "texto": "Alguien ha pisado el [huerto] del colegio. Hay una [huella] de bota junto a la [hierba] y un [hueco] en la valla."
+    },
+    {
+      "tipo": "Mensaje de Lola",
+      "nivel": 1,
+      "texto": "Mateo, [ahora] no puedo [hablar]: estoy con mi [hermana] en la heladería. Luego te cuento lo que [hicimos] esta mañana."
+    },
+    {
+      "tipo": "Parte de la agencia",
+      "nivel": 2,
+      "texto": "Ayer [hubo] un robo en la panadería de Julián. Los ladrones [habían] dejado una [hucha] rota en el mostrador. [Hacía] frío y el suelo estaba [húmedo]. Un [habitante] del barrio vio a dos personas [huir] por la calle."
+    },
+    {
+      "tipo": "Receta de Julián",
+      "nivel": 2,
+      "texto": "Para el bizcocho de [zanahoria] hace falta un [huevo] y mucha paciencia. Primero, ralla la zanahoria con cuidado. Después, mézclala con harina y azúcar. Si no sabes [hacer] la masa, pregunta: yo te la [hago] encantado."
+    },
+    {
+      "tipo": "Cuento de Herminia",
+      "nivel": 3,
+      "texto": "Había una vez un niño [huérfano] que vivía en un [orfanato] junto al río. Cada noche, debajo de su [almohada], guardaba una [historia] escrita en un papel. Un [búho] lo visitaba desde la [hiedra] de la ventana. Una mañana de [deshielo], el búho le trajo una carta. ¡Su abuela lo estaba buscando! El niño se marchó con ella, pero nunca olvidó a su amigo. Desde entonces, cuando oye un búho, sonríe."
+    },
+    {
+      "tipo": "Cartel del circo",
+      "nivel": 1,
+      "texto": "Esta tarde llega el [circo] a la plaza: ¡payasos, una [cebra] y malabaristas! La función empieza a las [cinco] y está muy [cerca] del mercado."
+    },
+    {
+      "tipo": "Nota de mamá",
+      "nivel": 1,
+      "texto": "En la [cesta] tienes una [manzana] y un bocadillo de [queso]. No te olvides de lavarte los dientes con el [cepillo] nuevo."
+    },
+    {
+      "tipo": "Parte del recreo",
+      "nivel": 2,
+      "texto": "Esta mañana [crucé] la plaza con Mateo y vimos algo raro. Un [zorro] dormía junto al [buzón] de la [esquina]. Le [lancé] una galleta y salió corriendo hacia el [cine]. El [corazón] me iba a mil."
+    },
+    {
+      "tipo": "Receta de doña Pilar",
+      "nivel": 2,
+      "texto": "Para la crema de [calabaza] necesitas un buen chorro de [aceite] y una [cebolla]. Pon todo en la [cazuela] y deja que se haga despacio. Añade [doce] trozos de pan frito al final. Es una [receta] [dulce] y suave."
+    },
+    {
+      "tipo": "Noticia de «El Eco de La Alameda»",
+      "nivel": 3,
+      "texto": "La [ocasión] lo merecía: ayer el barrio celebró los cien años de la panadería de Julián. Hubo música, globos y un enorme pastel de [mazapán]. A las nueve se oyó una [explosión] y todos se asustaron. ¡Eran los fuegos artificiales! Los niños llevaban [narices] rojas y [disfraces] de colores. Julián dijo que abrir la panadería fue la [decisión] más bonita de su vida. Los vecinos se marcharon a casa muy [felices]."
+    },
+    {
+      "tipo": "Postal de Mateo",
+      "nivel": 1,
+      "texto": "[Hoy] [estoy] en la [playa] con mis primos. Me he comido una [tortilla] y una [galleta] de chocolate."
+    },
+    {
+      "tipo": "Aviso de objetos perdidos",
+      "nivel": 1,
+      "texto": "Se ha encontrado un [anillo] [amarillo] en el [pasillo] del colegio. Su dueño puede [llamar] a la puerta de conserjería."
+    },
+    {
+      "tipo": "Diario de Lola",
+      "nivel": 2,
+      "texto": "Esta tarde he estado [leyendo] una [leyenda] muy antigua. Cuenta que un [rey] escondió un [collar] en un [castillo]. Nadie lo encontró nunca, pero yo creo que sigue allí. Mañana iré a buscarlo con la [ayuda] de Mateo."
+    },
+    {
+      "tipo": "Parte del ayuntamiento",
+      "nivel": 2,
+      "texto": "Por culpa del viento, los [farolillos] de la feria [cayeron] al suelo. Una [bombilla] se rompió y dejó la caseta a oscuras. El alcalde dice que el [ayuntamiento] lo arreglará [muy] pronto."
+    },
+    {
+      "tipo": "Informe de Mateo",
+      "nivel": 3,
+      "texto": "Anoche alguien se coló en el [muelle] del puerto. El vigilante estaba [oyendo] la radio y no notó nada. Por la mañana encontró una [botella] vacía y un [billete] de tren roto. Ese fue el primer [hallazgo]. Después vimos que el ladrón [huyó] por la [orilla] del río. Una [estrella] dibujada en la arena nos dio la última pista."
+    },
+    {
+      "tipo": "Mensaje de la agencia",
+      "nivel": 1,
+      "texto": "Hay mucha [gente] esperando en la puerta de la [agencia]. Lola ha dejado un [mensaje]: llega tarde porque tiene que [recoger] a su hermano."
+    },
+    {
+      "tipo": "Postal de verano",
+      "nivel": 1,
+      "texto": "¡Qué [viaje] tan bonito! He visto un [pingüino] en el acuario y un [paisaje] precioso desde el barco. Mañana me toca [elegir] la excursión."
+    },
+    {
+      "tipo": "Parte del director",
+      "nivel": 2,
+      "texto": "Detectives, el aviso es [urgente]. Un [extranjero] ha perdido su [equipaje] en la estación. Dentro llevaba un [juguete] antiguo y un libro de [magia]. Hay que [proteger] la maleta en cuanto aparezca."
+    },
+    {
+      "tipo": "Diario de Mateo",
+      "nivel": 2,
+      "texto": "Ayer [jugué] al fútbol con mis primos. Por la noche fuimos a ver la [hoguera] de San Juan en la playa. Los mayores [trajeron] un [guiso] de garbanzos y comimos muchísimo. Me dio [vergüenza] bailar delante de todos."
+    },
+    {
+      "tipo": "Noticia de «El Eco de La Alameda»",
+      "nivel": 3,
+      "texto": "Una [cigüeña] ha vuelto este año al campanario de la iglesia. El [relojero] de la plaza fue el primero en verla. Dicen que es la misma de siempre, con su [plumaje] blanco y negro. Los niños del colegio [bilingüe] le han hecho un [homenaje] con dibujos. Un policía tuvo que [dirigir] el tráfico para que nadie molestara al nido. Nadie sabe el [origen] de esta cigüeña tan fiel. Lo que sí sabemos es que el barrio entero la quiere."
+    },
+    {
+      "tipo": "Nota de Lola",
+      "nivel": 1,
+      "texto": "Ayer [fui] a la [estación] a esperar a mi abuela. Llegó en el [tren] de las seis y [después] fuimos a merendar."
+    },
+    {
+      "tipo": "Aviso del director",
+      "nivel": 1,
+      "texto": "¡[Atención], detectives! Mañana [también] hay [lección] de huellas en la [habitación] del fondo."
+    },
+    {
+      "tipo": "Informe de Mateo",
+      "nivel": 2,
+      "texto": "El sospechoso se [fue] corriendo por la calle. Nadie lo [vio] entrar, pero dejó la huella de un [pie] en el barro. En el [periódico] de hoy sale su foto. Todos tenemos la misma [opinión]: es el ladrón de la [colección] de lupas."
+    },
+    {
+      "tipo": "Carta de un vecino",
+      "nivel": 2,
+      "texto": "Queridos detectives: os escribo porque oigo un [ruido] extraño cada noche. Viene de las [ruinas] del castillo viejo. Mi perro, que es muy [fiel], no se separa de mí. Me haría mucha [ilusión] que vinierais a investigar."
+    },
+    {
+      "tipo": "Noticia de «El Eco de La Alameda»",
+      "nivel": 3,
+      "texto": "El barrio de La Alameda tiene desde ayer un parque [acuático]. Lo han [construido] en un antiguo solar, junto al [circuito] de bicis. El agua de los toboganes va y viene sin parar. La entrada es gratis, y el bocadillo va [incluido]. Un [farmacéutico] del barrio reparte crema para el sol. Los niños más pequeños se tiran por el tobogán [dieciséis] veces seguidas. [Después] de la merienda, todos vuelven a casa agotados."
+    },
+    {
+      "tipo": "Nota del recreo",
+      "nivel": 1,
+      "texto": "Se ha perdido una [red] de cazar mariposas en el patio. Si la encuentras, déjala en la [mitad] del pasillo, junto a la [luz] de la entrada. Gracias por tu [bondad]."
+    },
+    {
+      "tipo": "Cartel de la feria",
+      "nivel": 1,
+      "texto": "¡Este año hay concurso de [disfraz], torneo de [ajedrez] y carrera de [velocidad]! Para apuntarte, solo tienes que decir tu nombre y tu [edad]."
+    },
+    {
+      "tipo": "Informe de Lola",
+      "nivel": 2,
+      "texto": "Anoche se fue la [electricidad] en todo el barrio. En la [oscuridad] se oyó una [voz] muy rara. Con mucha [dificultad] encontramos una linterna. La [verdad] es que pasamos mucho miedo, pero la [curiosidad] pudo más."
+    },
+    {
+      "tipo": "Diario de Mateo",
+      "nivel": 2,
+      "texto": "Hoy he visto a una [actriz] famosa en la plaza. Llevaba un [antifaz] negro para que nadie la reconociera. Una [multitud] de vecinos la siguió hasta la fuente. Tiene una [cicatriz] pequeña en la [nariz], como yo."
+    },
+    {
+      "tipo": "Noticia de «El Eco de La Alameda»",
+      "nivel": 3,
+      "texto": "El barrio de La Alameda celebró ayer el día de la [amistad]. Por la mañana, una gran [cantidad] de vecinos llenó la plaza. Los niños hicieron una carrera de [velocidad] y un [avestruz] de cartón fue la mascota. El alcalde habló de [igualdad] y de [libertad]. Después, todos merendaron con [tranquilidad] bajo los árboles. Fue un día lleno de [felicidad]."
+    },
+    {
+      "tipo": "Nota del colegio",
+      "nivel": 1,
+      "texto": "El [martes] hay excursión a Doñana con el [director] Robles. Volveremos el [jueves], antes de la clase de [inglés]."
+    },
+    {
+      "tipo": "Calendario de la agencia",
+      "nivel": 1,
+      "texto": "La feria de La Alameda es en [abril] y las vacaciones de [verano] empiezan en [junio]. En [diciembre] celebramos la Navidad en la agencia."
+    },
+    {
+      "tipo": "Carta de una amiga",
+      "nivel": 2,
+      "texto": "Hola, Lola: te escribo desde Málaga. Mi abuelo es [malagueño] y mi abuela habla [francés] porque vivió en París. En [agosto] hace mucho calor aquí. Volveré a Sevilla el [domingo]. Te echo de menos."
+    },
+    {
+      "tipo": "Acta de la asociación de vecinos",
+      "nivel": 2,
+      "texto": "El [presidente] de la asociación abrió la reunión del [jueves]. El [alcalde] prometió arreglar la fuente antes de [septiembre]. Un vecino [italiano] propuso hacer una fiesta de pizzas en [julio]. Todos votaron que sí."
+    },
+    {
+      "tipo": "Diario de Mateo",
+      "nivel": 3,
+      "texto": "Este [otoño] ha llegado a clase un niño [portugués] que se llama Tiago. Habla [español] muy bien porque su padre es [gaditano]. El [maestro] le pidió que nos enseñara palabras de su idioma. En [noviembre] hicimos un mural con las banderas de Portugal y de España. Tiago dice que en [mayo] irá con su familia a Lisboa. ¡Qué suerte tener un amigo [andaluz] y portugués a la vez!"
     }
   ]
 }

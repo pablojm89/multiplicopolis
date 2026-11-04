@@ -317,16 +317,17 @@ const ACTIVIDADES = {
   /* A1 · Fichas pendientes: escribir de memoria a partir de una pista (5.1) */
   fichas(sl, _regla, turno) {
     const s = estadoAca();
-    let fichas = barajar(fichasVencidas(s)).slice(0, 6);
+    let fichas = barajar(fichasVencidas(s)).slice(0, segunNivel([6, 6, 8, 10]));
     const riesgo = !fichas.length;
-    if (riesgo) fichas = barajar(ACA.palabras.filter(w => w.mal)).slice(0, 5).map(w => ({ p: w.p, regla: w.regla }));
+    if (riesgo) fichas = barajar(porNivel(ACA.palabras.filter(w => w.mal), 8)).slice(0, segunNivel([5, 6, 8, 10])).map(w => ({ p: w.p, regla: w.regla }));
     partidaAca(sl, [...new Set(fichas.map(f => f.regla).filter(Boolean))]);
     let k = 0;
     const pintar = () => {
       const f = fichas[k];
       if (!f) return terminarActividad(sl, turno);
       const w = enBanco(f.p);
-      const pista = w?.frase ? `«${w.frase}»` : `Empieza por «${f.p[0]}» y tiene ${[...f.p].length} letras.`;
+      // En diamante no hay frase de pista: solo la primera letra y la longitud
+      const pista = w?.frase && nivelAca() < 4 ? `«${w.frase}»` : `Empieza por «${f.p[0]}» y tiene ${[...f.p].length} letras.`;
       pintarEscena(`
         <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
         <p class="instruccion">${riesgo ? "Sin fichas vencidas: entrena estas palabras de riesgo." : "Escribe la palabra de la ficha. Si aciertas, pasa al cajón siguiente."}</p>
@@ -345,7 +346,8 @@ const ACTIVIDADES = {
       let intentada = false, copiando = false;
       const comprobar = () => {
         if (!inp.value.trim()) return;
-        const ok = norm(inp.value) === norm(f.p);
+        // Las fichas de mayúsculas se comparan respetando la mayúscula
+        const ok = f.regla === "mayusculas-puntuacion-1" ? inp.value.normalize("NFC").trim() === f.p : norm(inp.value) === norm(f.p);
         if (!intentada) { intentada = true; registrar("5.1", ok, f.p, "ficha", f.regla); }
         if (ok) {
           $(".aca-ficha").classList.add(copiando ? "copiada" : "sellada");
@@ -367,23 +369,26 @@ const ACTIVIDADES = {
     const activas = regla && regla !== "mezcla" ? [regla] : reglasBanco();
     const s = estadoAca();
     const enCola = new Set(Object.keys(s.cola));
-    const rondas = 2;
+    const rondas = segunNivel([2, 2, 3, 3]);
     let r = 0;
     partidaAca(sl, activas);
     const generar = () => {
       // Textos con al menos 2 palabras de la regla; si no los hay, con 1; y si tampoco, con cualquier regla
-      const conReglas = rs => ACA.textos.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => { const w = enBanco(m); return w?.mal && rs.includes(w.regla); }) }));
+      const textosNivel = porNivel(ACA.textos, 6);
+      const conReglas = rs => textosNivel.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => { const w = enBanco(m); return w?.mal && rs.includes(w.regla); }) }));
       let candidatos = conReglas(activas).filter(c => c.marcas.length >= 2);
       if (!candidatos.length) candidatos = conReglas(activas).filter(c => c.marcas.length >= 1);
       if (!candidatos.length) candidatos = conReglas(reglasBanco()).filter(c => c.marcas.length >= 2);
+      if (!candidatos.length) candidatos = ACA.textos.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => enBanco(m)?.mal && activas.includes(enBanco(m).regla)) })).filter(c => c.marcas.length);
       const { t, marcas } = azarElem(candidatos);
-      const n = Math.min(marcas.length, regla === "mezcla" ? 4 : 3);
+      const n = Math.min(marcas.length, segunNivel([2, 3, 4, 5]) + (regla === "mezcla" ? 1 : 0));
       const elegidas = new Set([...marcas.filter(m => enCola.has(norm(m))), ...barajar(marcas)].slice(0, n));
       const decl = t.texto.replace(/\[([^\]]+)\]/g, (_, m) => {
         if (!elegidas.has(m)) return m;
         const w = enBanco(m);
         const may = m[0] !== m[0].toLowerCase();
-        const cap = x => (may ? x[0].toUpperCase() + x.slice(1) : x);
+        // En las faltas de mayúsculas, la forma va tal cual (si no, «sevilla» pasaría a «Sevilla» y desaparecería la falta)
+        const cap = x => (may && w.regla !== "mayusculas-puntuacion-1" ? x[0].toUpperCase() + x.slice(1) : x);
         return `{${cap(w.mal)}|${cap(w.p)}|${w.regla}}`;
       });
       return { tipo: t.tipo, decl, n: elegidas.size };
@@ -410,7 +415,7 @@ const ACTIVIDADES = {
 
   /* I5 · El testigo seseante: así se dice, así se escribe (5.1 y 1.3, sin tratar el habla como error) */
   testigo(sl, _regla, turno) {
-    const lista = barajar(ACA.testigos).slice(0, 4);
+    const lista = barajar(ACA.testigos).slice(0, segunNivel([3, 4, 5, 6]));
     partidaAca(sl, ["c-z-s", "ll-y", "d-z-finales"]);
     let k = 0;
     const pintar = () => {
@@ -461,11 +466,13 @@ const ACTIVIDADES = {
   /* L1 · El sismógrafo de sílabas: sílaba fuerte (9.1) → tipo (9.1) → escribir con o sin tilde (5.1) */
   sismografo(sl, _regla, turno) {
     const s = estadoAca();
-    const banco = ACA.palabras.filter(w => w.regla === "tildes-generales" && w.silabas);
+    // Desde la lupa de oro entran también las palabras de diptongos
+    const banco = porNivel(ACA.palabras.filter(w => (w.regla === "tildes-generales" || (nivelAca() >= 3 && w.regla === "diptongo-monosilabos")) && w.silabas), 8);
     const conT = barajar(banco.filter(w => w.p !== quitarTildes(w.p)));
     const sinT = barajar(banco.filter(w => w.p === quitarTildes(w.p)));
     const cola = banco.filter(w => s.cola[w.p]);
-    const lista = barajar([...new Set([...cola, ...conT.slice(0, 3), ...sinT.slice(0, 3)])]).slice(0, 6);
+    const mitad = Math.ceil(segunNivel([5, 6, 8, 10]) / 2);
+    const lista = barajar([...new Set([...cola, ...conT.slice(0, mitad), ...sinT.slice(0, mitad)])]).slice(0, segunNivel([5, 6, 8, 10]));
     partidaAca(sl, ["tildes-generales"]);
     let k = 0;
     const TIPOS = { 1: "aguda", 2: "llana", 3: "esdrujula" };

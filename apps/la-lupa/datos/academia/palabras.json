@@ -1,10 +1,11 @@
 {
-  "_nota": "Banco de palabras de la Academia. p: forma correcta; regla: id de reglas.json; mal: forma errónea típica (solo para sembrarla en documentos; nunca se enseña sola); silabas y tonica (índice de la sílaba fuerte, desde 0) para el sismógrafo; frase: pista de recuperación con ___ en lugar de la palabra.",
+  "_nota": "Banco de palabras de la Academia. p: forma correcta; regla: id de reglas.json; mal: forma errónea típica (solo para sembrarla en documentos; nunca se enseña sola); nivel: 1 (frecuentes y cortas), 2 (menos frecuentes o más largas) o 3 (excepciones, largas, cultas o derivadas); silabas y tonica (índice de la sílaba fuerte, desde 0) para el sismógrafo; frase: pista de recuperación con ___ en lugar de la palabra. En mayusculas-puntuacion-1, p lleva la mayúscula o minúscula correcta y mal la contraria.",
   "palabras": [
     {
       "p": "camión",
       "regla": "tildes-generales",
       "mal": "camion",
+      "nivel": 1,
       "silabas": [
         "ca",
         "mión"
@@ -16,6 +17,7 @@
       "p": "sofá",
       "regla": "tildes-generales",
       "mal": "sofa",
+      "nivel": 1,
       "silabas": [
         "so",
         "fá"
@@ -27,6 +29,7 @@
       "p": "compás",
       "regla": "tildes-generales",
       "mal": "compas",
+      "nivel": 2,
       "silabas": [
         "com",
         "pás"
@@ -38,6 +41,7 @@
       "p": "café",
       "regla": "tildes-generales",
       "mal": "cafe",
+      "nivel": 1,
       "silabas": [
         "ca",
         "fé"
@@ -48,6 +52,7 @@
     {
       "p": "reloj",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "re",
         "loj"
@@ -58,6 +63,7 @@
     {
       "p": "papel",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "pa",
         "pel"
@@ -68,6 +74,7 @@
     {
       "p": "ciudad",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "ciu",
         "dad"
@@ -78,6 +85,7 @@
     {
       "p": "feliz",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "fe",
         "liz"
@@ -89,6 +97,7 @@
       "p": "jamón",
       "regla": "tildes-generales",
       "mal": "jamon",
+      "nivel": 1,
       "silabas": [
         "ja",
         "món"
@@ -100,6 +109,7 @@
       "p": "limón",
       "regla": "tildes-generales",
       "mal": "limon",
+      "nivel": 1,
       "silabas": [
         "li",
         "món"
@@ -111,6 +121,7 @@
       "p": "canción",
       "regla": "tildes-generales",
       "mal": "cancion",
+      "nivel": 1,
       "silabas": [
         "can",
         "ción"
@@ -122,6 +133,7 @@
       "p": "violín",
       "regla": "tildes-generales",
       "mal": "violin",
+      "nivel": 2,
       "silabas": [
         "vio",
         "lín"
@@ -132,6 +144,7 @@
     {
       "p": "tambor",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "tam",
         "bor"
@@ -143,6 +156,7 @@
       "p": "melón",
       "regla": "tildes-generales",
       "mal": "melon",
+      "nivel": 1,
       "silabas": [
         "me",
         "lón"
@@ -154,6 +168,7 @@
       "p": "balón",
       "regla": "tildes-generales",
       "mal": "balon",
+      "nivel": 1,
       "silabas": [
         "ba",
         "lón"
@@ -165,6 +180,7 @@
       "p": "ratón",
       "regla": "tildes-generales",
       "mal": "raton",
+      "nivel": 1,
       "silabas": [
         "ra",
         "tón"
@@ -176,6 +192,7 @@
       "p": "árbol",
       "regla": "tildes-generales",
       "mal": "arbol",
+      "nivel": 1,
       "silabas": [
         "ár",
         "bol"
@@ -187,6 +204,7 @@
       "p": "lápiz",
       "regla": "tildes-generales",
       "mal": "lapiz",
+      "nivel": 1,
       "silabas": [
         "lá",
         "piz"
@@ -198,6 +216,7 @@
       "p": "fácil",
       "regla": "tildes-generales",
       "mal": "facil",
+      "nivel": 1,
       "silabas": [
         "fá",
         "cil"
@@ -209,6 +228,7 @@
       "p": "azúcar",
       "regla": "tildes-generales",
       "mal": "azucar",
+      "nivel": 2,
       "silabas": [
         "a",
         "zú",
@@ -221,6 +241,7 @@
       "p": "césped",
       "regla": "tildes-generales",
       "mal": "cesped",
+      "nivel": 2,
       "silabas": [
         "cés",
         "ped"
@@ -232,6 +253,7 @@
       "p": "cárcel",
       "regla": "tildes-generales",
       "mal": "carcel",
+      "nivel": 2,
       "silabas": [
         "cár",
         "cel"
@@ -243,6 +265,7 @@
       "p": "difícil",
       "regla": "tildes-generales",
       "mal": "dificil",
+      "nivel": 2,
       "silabas": [
         "di",
         "fí",
@@ -254,6 +277,7 @@
     {
       "p": "mesa",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "me",
         "sa"
@@ -265,6 +289,7 @@
       "p": "joven",
       "regla": "tildes-generales",
       "mal": "jóven",
+      "nivel": 2,
       "silabas": [
         "jo",
         "ven"
@@ -275,6 +300,7 @@
     {
       "p": "lunes",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "lu",
         "nes"
@@ -286,6 +312,7 @@
       "p": "examen",
       "regla": "tildes-generales",
       "mal": "exámen",
+      "nivel": 2,
       "silabas": [
         "e",
         "xa",
@@ -297,6 +324,7 @@
     {
       "p": "ventana",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "ven",
         "ta",
@@ -309,6 +337,7 @@
       "p": "música",
       "regla": "tildes-generales",
       "mal": "musica",
+      "nivel": 1,
       "silabas": [
         "mú",
         "si",
@@ -321,6 +350,7 @@
       "p": "pájaro",
       "regla": "tildes-generales",
       "mal": "pajaro",
+      "nivel": 1,
       "silabas": [
         "pá",
         "ja",
@@ -333,6 +363,7 @@
       "p": "teléfono",
       "regla": "tildes-generales",
       "mal": "telefono",
+      "nivel": 2,
       "silabas": [
         "te",
         "lé",
@@ -346,6 +377,7 @@
       "p": "sábado",
       "regla": "tildes-generales",
       "mal": "sabado",
+      "nivel": 1,
       "silabas": [
         "sá",
         "ba",
@@ -358,6 +390,7 @@
       "p": "miércoles",
       "regla": "tildes-generales",
       "mal": "miercoles",
+      "nivel": 2,
       "silabas": [
         "miér",
         "co",
@@ -370,6 +403,7 @@
       "p": "pétalo",
       "regla": "tildes-generales",
       "mal": "petalo",
+      "nivel": 2,
       "silabas": [
         "pé",
         "ta",
@@ -382,6 +416,7 @@
       "p": "médico",
       "regla": "tildes-generales",
       "mal": "medico",
+      "nivel": 1,
       "silabas": [
         "mé",
         "di",
@@ -394,6 +429,7 @@
       "p": "brújula",
       "regla": "tildes-generales",
       "mal": "brujula",
+      "nivel": 2,
       "silabas": [
         "brú",
         "ju",
@@ -406,6 +442,7 @@
       "p": "plátano",
       "regla": "tildes-generales",
       "mal": "platano",
+      "nivel": 1,
       "silabas": [
         "plá",
         "ta",
@@ -417,6 +454,7 @@
     {
       "p": "ritmo",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "rit",
         "mo"
@@ -427,6 +465,7 @@
     {
       "p": "guitarra",
       "regla": "tildes-generales",
+      "nivel": 1,
       "silabas": [
         "gui",
         "ta",
@@ -439,433 +478,8070 @@
       "p": "cantaba",
       "regla": "b-v-1",
       "mal": "cantava",
+      "nivel": 1,
+      "silabas": [
+        "can",
+        "ta",
+        "ba"
+      ],
+      "tonica": 1,
       "frase": "Mi abuela ___ coplas mientras cocinaba."
     },
     {
       "p": "jugaba",
       "regla": "b-v-1",
       "mal": "jugava",
+      "nivel": 1,
+      "silabas": [
+        "ju",
+        "ga",
+        "ba"
+      ],
+      "tonica": 1,
       "frase": "De pequeño, mi padre ___ en esta plaza."
     },
     {
       "p": "saltaba",
       "regla": "b-v-1",
       "mal": "saltava",
+      "nivel": 1,
+      "silabas": [
+        "sal",
+        "ta",
+        "ba"
+      ],
+      "tonica": 1,
       "frase": "El perro ___ de alegría al verme."
     },
     {
       "p": "estaba",
       "regla": "b-v-1",
       "mal": "estava",
+      "nivel": 1,
+      "silabas": [
+        "es",
+        "ta",
+        "ba"
+      ],
+      "tonica": 1,
       "frase": "La carpeta ___ vacía."
     },
     {
       "p": "iba",
       "regla": "b-v-1",
       "mal": "iva",
+      "nivel": 1,
+      "silabas": [
+        "i",
+        "ba"
+      ],
+      "tonica": 0,
       "frase": "Bruno ___ en bicicleta a repartir el periódico."
     },
     {
       "p": "trabajaba",
       "regla": "b-v-1",
       "mal": "trabajava",
+      "nivel": 2,
+      "silabas": [
+        "tra",
+        "ba",
+        "ja",
+        "ba"
+      ],
+      "tonica": 2,
       "frase": "Remedios ___ en el mercado desde muy temprano."
     },
     {
       "p": "cambio",
       "regla": "b-v-1",
       "mal": "canbio",
+      "nivel": 1,
+      "silabas": [
+        "cam",
+        "bio"
+      ],
+      "tonica": 0,
       "frase": "Ha habido un ___ de planes: nos vamos al mercado."
     },
     {
       "p": "hombre",
       "regla": "b-v-1",
       "mal": "honbre",
+      "nivel": 1,
+      "silabas": [
+        "hom",
+        "bre"
+      ],
+      "tonica": 0,
       "frase": "Un ___ con gafas de sol salió del almacén."
     },
     {
       "p": "blanco",
       "regla": "b-v-1",
       "mal": "vlanco",
+      "nivel": 1,
+      "silabas": [
+        "blan",
+        "co"
+      ],
+      "tonica": 0,
       "frase": "Las casas del barrio son de color ___."
     },
     {
       "p": "brazo",
       "regla": "b-v-1",
       "mal": "vrazo",
+      "nivel": 1,
+      "silabas": [
+        "bra",
+        "zo"
+      ],
+      "tonica": 0,
       "frase": "Lleva una pulsera roja en el ___."
     },
     {
       "p": "escribir",
       "regla": "b-v-1",
       "mal": "escrivir",
+      "nivel": 1,
+      "silabas": [
+        "es",
+        "cri",
+        "bir"
+      ],
+      "tonica": 2,
       "frase": "Voy a ___ el informe en mi libreta."
     },
     {
       "p": "recibir",
       "regla": "b-v-1",
       "mal": "recivir",
+      "nivel": 2,
+      "silabas": [
+        "re",
+        "ci",
+        "bir"
+      ],
+      "tonica": 2,
       "frase": "Me encanta ___ cartas por correo."
     },
     {
       "p": "subir",
       "regla": "b-v-1",
       "mal": "suvir",
+      "nivel": 1,
+      "silabas": [
+        "su",
+        "bir"
+      ],
+      "tonica": 1,
       "frase": "Hay que ___ la escalera hasta la azotea."
     },
     {
       "p": "invierno",
       "regla": "b-v-1",
       "mal": "inbierno",
+      "nivel": 1,
+      "silabas": [
+        "in",
+        "vier",
+        "no"
+      ],
+      "tonica": 1,
       "frase": "En ___ hace frío y anochece pronto."
     },
     {
       "p": "enviar",
       "regla": "b-v-1",
       "mal": "enbiar",
+      "nivel": 2,
+      "silabas": [
+        "en",
+        "viar"
+      ],
+      "tonica": 1,
       "frase": "Voy a ___ un mensaje al director."
     },
     {
       "p": "nuevo",
       "regla": "b-v-1",
       "mal": "nuebo",
+      "nivel": 1,
+      "silabas": [
+        "nue",
+        "vo"
+      ],
+      "tonica": 0,
       "frase": "Tenemos un caso ___ en el tablón."
     },
     {
       "p": "octavo",
       "regla": "b-v-1",
       "mal": "octabo",
+      "nivel": 2,
+      "silabas": [
+        "oc",
+        "ta",
+        "vo"
+      ],
+      "tonica": 1,
       "frase": "Llegó el ___ de la carrera, justo detrás del séptimo."
     },
     {
       "p": "activo",
       "regla": "b-v-1",
       "mal": "actibo",
+      "nivel": 2,
+      "silabas": [
+        "ac",
+        "ti",
+        "vo"
+      ],
+      "tonica": 1,
       "frase": "Mateo es un chico muy ___: nunca para quieto."
     },
     {
       "p": "estuve",
       "regla": "b-v-1",
       "mal": "estube",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "tu",
+        "ve"
+      ],
+      "tonica": 1,
       "frase": "Ayer ___ toda la tarde en la biblioteca."
     },
     {
       "p": "tuvimos",
       "regla": "b-v-1",
       "mal": "tubimos",
+      "nivel": 2,
+      "silabas": [
+        "tu",
+        "vi",
+        "mos"
+      ],
+      "tonica": 1,
       "frase": "___ que correr para llegar a tiempo."
     },
     {
       "p": "hielo",
       "regla": "h-1",
       "mal": "ielo",
+      "nivel": 1,
+      "silabas": [
+        "hie",
+        "lo"
+      ],
+      "tonica": 0,
       "frase": "En invierno el charco se convirtió en ___."
     },
     {
       "p": "huevo",
       "regla": "h-1",
       "mal": "uevo",
+      "nivel": 1,
+      "silabas": [
+        "hue",
+        "vo"
+      ],
+      "tonica": 0,
       "frase": "Para la tortilla hace falta más de un ___."
     },
     {
       "p": "hueso",
       "regla": "h-1",
       "mal": "ueso",
+      "nivel": 1,
+      "silabas": [
+        "hue",
+        "so"
+      ],
+      "tonica": 0,
       "frase": "El perro enterró un ___ en el jardín."
     },
     {
       "p": "huida",
       "regla": "h-1",
       "mal": "uida",
+      "nivel": 2,
+      "silabas": [
+        "hui",
+        "da"
+      ],
+      "tonica": 0,
       "frase": "La ___ del ladrón duró muy poco."
     },
     {
       "p": "hermano",
       "regla": "h-1",
       "mal": "ermano",
+      "nivel": 1,
+      "silabas": [
+        "her",
+        "ma",
+        "no"
+      ],
+      "tonica": 1,
       "frase": "Mi ___ pequeño quiere ser detective."
     },
     {
       "p": "hormiga",
       "regla": "h-1",
       "mal": "ormiga",
+      "nivel": 1,
+      "silabas": [
+        "hor",
+        "mi",
+        "ga"
+      ],
+      "tonica": 1,
       "frase": "Una ___ llevaba una miga de pan."
     },
     {
       "p": "horrible",
       "regla": "h-1",
       "mal": "orrible",
+      "nivel": 2,
+      "silabas": [
+        "ho",
+        "rri",
+        "ble"
+      ],
+      "tonica": 1,
       "frase": "¡Qué ruido tan ___ hace esa moto!"
     },
     {
       "p": "hospital",
       "regla": "h-1",
       "mal": "ospital",
+      "nivel": 1,
+      "silabas": [
+        "hos",
+        "pi",
+        "tal"
+      ],
+      "tonica": 2,
       "frase": "La ambulancia llegó rápido al ___."
     },
     {
       "p": "humo",
       "regla": "h-1",
       "mal": "umo",
+      "nivel": 1,
+      "silabas": [
+        "hu",
+        "mo"
+      ],
+      "tonica": 0,
       "frase": "Sale ___ de la chimenea de la panadería."
     },
     {
       "p": "humano",
       "regla": "h-1",
       "mal": "umano",
+      "nivel": 2,
+      "silabas": [
+        "hu",
+        "ma",
+        "no"
+      ],
+      "tonica": 1,
       "frase": "El cuerpo ___ tiene más de doscientos huesos."
     },
     {
       "p": "había",
       "regla": "h-1",
       "mal": "abía",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "bí",
+        "a"
+      ],
+      "tonica": 1,
       "frase": "En la caja ___ un pergamino."
     },
     {
       "p": "hizo",
       "regla": "h-1",
       "mal": "izo",
+      "nivel": 1,
+      "silabas": [
+        "hi",
+        "zo"
+      ],
+      "tonica": 0,
       "frase": "Ramón ___ una canción con el pregón."
     },
     {
       "p": "hablaba",
       "regla": "h-1",
       "mal": "ablaba",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "bla",
+        "ba"
+      ],
+      "tonica": 1,
       "frase": "El testigo ___ muy deprisa."
     },
     {
       "p": "hallé",
       "regla": "h-1",
       "mal": "allé",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "llé"
+      ],
+      "tonica": 1,
       "frase": "Por fin ___ la pista que buscaba."
     },
     {
       "p": "hemos",
       "regla": "h-1",
       "mal": "emos",
+      "nivel": 1,
+      "silabas": [
+        "he",
+        "mos"
+      ],
+      "tonica": 0,
       "frase": "Ya ___ resuelto tres casos."
     },
     {
       "p": "hacemos",
       "regla": "h-1",
       "mal": "acemos",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "ce",
+        "mos"
+      ],
+      "tonica": 1,
       "frase": "Los detectives ___ los deberes antes de investigar."
     },
     {
       "p": "habitan",
       "regla": "h-1",
       "mal": "abitan",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "bi",
+        "tan"
+      ],
+      "tonica": 1,
       "frase": "En el barrio ___ más de mil vecinos."
     },
     {
       "p": "óseo",
       "regla": "h-1",
       "mal": "hóseo",
+      "nivel": 3,
+      "silabas": [
+        "ó",
+        "se",
+        "o"
+      ],
+      "tonica": 0,
       "frase": "El esqueleto es el sistema ___ del cuerpo."
     },
     {
       "p": "óvalo",
       "regla": "h-1",
       "mal": "hóvalo",
+      "nivel": 3,
+      "silabas": [
+        "ó",
+        "va",
+        "lo"
+      ],
+      "tonica": 0,
       "frase": "El espejo tiene forma de ___."
     },
     {
       "p": "oquedad",
       "regla": "h-1",
       "mal": "hoquedad",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "que",
+        "dad"
+      ],
+      "tonica": 2,
       "frase": "En la pared de piedra había una ___ llena de musgo."
     },
     {
       "p": "zapato",
       "regla": "c-z-s",
       "mal": "sapato",
+      "nivel": 1,
+      "silabas": [
+        "za",
+        "pa",
+        "to"
+      ],
+      "tonica": 1,
       "frase": "Se me ha roto el cordón del ___."
     },
     {
       "p": "cazuela",
       "regla": "c-z-s",
       "mal": "casuela",
+      "nivel": 2,
+      "silabas": [
+        "ca",
+        "zue",
+        "la"
+      ],
+      "tonica": 1,
       "frase": "Mi abuela cocina el guiso en una ___ de barro."
     },
     {
       "p": "cebolla",
       "regla": "c-z-s",
       "mal": "sebolla",
+      "nivel": 1,
+      "silabas": [
+        "ce",
+        "bo",
+        "lla"
+      ],
+      "tonica": 1,
       "frase": "Al cortar la ___ siempre lloro."
     },
     {
       "p": "cereza",
       "regla": "c-z-s",
       "mal": "sereza",
+      "nivel": 1,
+      "silabas": [
+        "ce",
+        "re",
+        "za"
+      ],
+      "tonica": 1,
       "frase": "La ___ es una fruta pequeña y roja."
     },
     {
       "p": "plaza",
       "regla": "c-z-s",
       "mal": "plasa",
+      "nivel": 1,
+      "silabas": [
+        "pla",
+        "za"
+      ],
+      "tonica": 0,
       "frase": "La fuente está en el centro de la ___."
     },
     {
       "p": "arroz",
       "regla": "c-z-s",
       "mal": "arros",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "rroz"
+      ],
+      "tonica": 1,
       "frase": "Los domingos comemos ___ con pollo."
     },
     {
       "p": "diez",
       "regla": "c-z-s",
       "mal": "dies",
+      "nivel": 1,
+      "silabas": [
+        "diez"
+      ],
+      "tonica": 0,
       "frase": "Tengo ___ dedos en las manos."
     },
     {
       "p": "cocina",
       "regla": "c-z-s",
       "mal": "cosina",
+      "nivel": 1,
+      "silabas": [
+        "co",
+        "ci",
+        "na"
+      ],
+      "tonica": 1,
       "frase": "Huele a bizcocho en la ___."
     },
     {
       "p": "luces",
       "regla": "c-z-s",
       "mal": "luses",
+      "nivel": 2,
+      "silabas": [
+        "lu",
+        "ces"
+      ],
+      "tonica": 0,
       "frase": "En la feria se encienden miles de ___."
     },
     {
       "p": "peces",
       "regla": "c-z-s",
       "mal": "peses",
+      "nivel": 2,
+      "silabas": [
+        "pe",
+        "ces"
+      ],
+      "tonica": 0,
       "frase": "En la fuente nadan unos ___ de colores."
     },
     {
       "p": "empecé",
       "regla": "c-z-s",
       "mal": "empesé",
+      "nivel": 2,
+      "silabas": [
+        "em",
+        "pe",
+        "cé"
+      ],
+      "tonica": 2,
       "frase": "Ayer ___ a leer un libro de misterio."
     },
     {
       "p": "queso",
       "regla": "c-z-s",
       "mal": "qeso",
+      "nivel": 1,
+      "silabas": [
+        "que",
+        "so"
+      ],
+      "tonica": 0,
       "frase": "El ratón se comió el ___."
     },
     {
       "p": "quince",
       "regla": "c-z-s",
       "mal": "kince",
+      "nivel": 1,
+      "silabas": [
+        "quin",
+        "ce"
+      ],
+      "tonica": 0,
       "frase": "Mi hermana mayor tiene ___ años."
     },
     {
       "p": "cielo",
       "regla": "c-z-s",
       "mal": "sielo",
+      "nivel": 1,
+      "silabas": [
+        "cie",
+        "lo"
+      ],
+      "tonica": 0,
       "frase": "Esta noche el ___ está lleno de estrellas."
     },
     {
       "p": "azulejo",
       "regla": "c-z-s",
       "mal": "asulejo",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "zu",
+        "le",
+        "jo"
+      ],
+      "tonica": 2,
       "frase": "Se ha caído un ___ del panel de la fuente."
     },
     {
       "p": "lluvia",
       "regla": "ll-y",
       "mal": "yuvia",
+      "nivel": 1,
+      "silabas": [
+        "llu",
+        "via"
+      ],
+      "tonica": 0,
       "frase": "Con la ___ el suelo del mercado está mojado."
     },
     {
       "p": "calle",
       "regla": "ll-y",
       "mal": "caye",
+      "nivel": 1,
+      "silabas": [
+        "ca",
+        "lle"
+      ],
+      "tonica": 0,
       "frase": "La agencia está en una ___ estrecha y blanca."
     },
     {
       "p": "caballo",
       "regla": "ll-y",
       "mal": "cabayo",
+      "nivel": 1,
+      "silabas": [
+        "ca",
+        "ba",
+        "llo"
+      ],
+      "tonica": 1,
       "frase": "En la feria hay un ___ de cartón."
     },
     {
       "p": "llave",
       "regla": "ll-y",
       "mal": "yave",
+      "nivel": 1,
+      "silabas": [
+        "lla",
+        "ve"
+      ],
+      "tonica": 0,
       "frase": "Mateo guarda la ___ del archivo azul."
     },
     {
       "p": "silla",
       "regla": "ll-y",
       "mal": "siya",
+      "nivel": 1,
+      "silabas": [
+        "si",
+        "lla"
+      ],
+      "tonica": 0,
       "frase": "Siéntate en esa ___ mientras te interrogo."
     },
     {
       "p": "toalla",
       "regla": "ll-y",
       "mal": "toaya",
+      "nivel": 2,
+      "silabas": [
+        "to",
+        "a",
+        "lla"
+      ],
+      "tonica": 1,
       "frase": "Llévate la ___ a la playa."
     },
     {
       "p": "yema",
       "regla": "ll-y",
       "mal": "llema",
+      "nivel": 2,
+      "silabas": [
+        "ye",
+        "ma"
+      ],
+      "tonica": 0,
       "frase": "La ___ del huevo es amarilla."
     },
     {
       "p": "ayer",
       "regla": "ll-y",
       "mal": "aller",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "yer"
+      ],
+      "tonica": 1,
       "frase": "___ estuvimos en la biblioteca."
     },
     {
       "p": "verdad",
       "regla": "d-z-finales",
       "mal": "verdaz",
+      "nivel": 1,
+      "silabas": [
+        "ver",
+        "dad"
+      ],
+      "tonica": 1,
       "frase": "Siempre hay que decir la ___."
     },
     {
       "p": "pared",
       "regla": "d-z-finales",
       "mal": "parez",
+      "nivel": 1,
+      "silabas": [
+        "pa",
+        "red"
+      ],
+      "tonica": 1,
       "frase": "Hay una foto colgada en la ___."
     },
     {
       "p": "salud",
       "regla": "d-z-finales",
       "mal": "saluz",
+      "nivel": 1,
+      "silabas": [
+        "sa",
+        "lud"
+      ],
+      "tonica": 1,
       "frase": "Comer fruta es bueno para la ___."
     },
     {
       "p": "amistad",
       "regla": "d-z-finales",
       "mal": "amistaz",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "mis",
+        "tad"
+      ],
+      "tonica": 2,
       "frase": "La ___ de Lola y Mateo es muy fuerte."
     },
     {
       "p": "juventud",
       "regla": "d-z-finales",
       "mal": "juventuz",
+      "nivel": 2,
+      "silabas": [
+        "ju",
+        "ven",
+        "tud"
+      ],
+      "tonica": 2,
       "frase": "Herminia cantaba en el coro en su ___."
     },
     {
       "p": "libertad",
       "regla": "d-z-finales",
       "mal": "libertaz",
+      "nivel": 2,
+      "silabas": [
+        "li",
+        "ber",
+        "tad"
+      ],
+      "tonica": 2,
       "frase": "Los pájaros vuelan en ___."
     },
     {
       "p": "cerezas",
       "regla": "c-z-s",
       "mal": "serezas",
+      "nivel": 1,
+      "silabas": [
+        "ce",
+        "re",
+        "zas"
+      ],
+      "tonica": 1,
       "frase": "Las ___ del cerezo ya están maduras."
     },
     {
       "p": "azulejos",
       "regla": "c-z-s",
       "mal": "asulejos",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "zu",
+        "le",
+        "jos"
+      ],
+      "tonica": 2,
       "frase": "La fuente tiene un panel de ___ antiguos."
     },
     {
       "p": "zapatos",
       "regla": "c-z-s",
       "mal": "sapatos",
+      "nivel": 1,
+      "silabas": [
+        "za",
+        "pa",
+        "tos"
+      ],
+      "tonica": 1,
       "frase": "Me he comprado unos ___ nuevos para la feria."
+    },
+    {
+      "p": "botón",
+      "regla": "tildes-generales",
+      "mal": "boton",
+      "nivel": 1,
+      "silabas": [
+        "bo",
+        "tón"
+      ],
+      "tonica": 1,
+      "frase": "Se me ha caído un ___ de la camisa."
+    },
+    {
+      "p": "detrás",
+      "regla": "tildes-generales",
+      "mal": "detras",
+      "nivel": 1,
+      "silabas": [
+        "de",
+        "trás"
+      ],
+      "tonica": 1,
+      "frase": "El gato se esconde ___ de la puerta."
+    },
+    {
+      "p": "jabón",
+      "regla": "tildes-generales",
+      "mal": "jabon",
+      "nivel": 1,
+      "silabas": [
+        "ja",
+        "bón"
+      ],
+      "tonica": 1,
+      "frase": "Lávate las manos con agua y ___."
+    },
+    {
+      "p": "cajón",
+      "regla": "tildes-generales",
+      "mal": "cajon",
+      "nivel": 1,
+      "silabas": [
+        "ca",
+        "jón"
+      ],
+      "tonica": 1,
+      "frase": "Los lápices de colores están en el ___ de la mesa."
+    },
+    {
+      "p": "pantalón",
+      "regla": "tildes-generales",
+      "mal": "pantalon",
+      "nivel": 1,
+      "silabas": [
+        "pan",
+        "ta",
+        "lón"
+      ],
+      "tonica": 2,
+      "frase": "Me he manchado el ___ de barro en el recreo."
+    },
+    {
+      "p": "dragón",
+      "regla": "tildes-generales",
+      "mal": "dragon",
+      "nivel": 1,
+      "silabas": [
+        "dra",
+        "gón"
+      ],
+      "tonica": 1,
+      "frase": "En el cuento, el ___ echaba fuego por la boca."
+    },
+    {
+      "p": "atrás",
+      "regla": "tildes-generales",
+      "mal": "atras",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "trás"
+      ],
+      "tonica": 1,
+      "frase": "Da un paso ___ para ver el cuadro entero."
+    },
+    {
+      "p": "móvil",
+      "regla": "tildes-generales",
+      "mal": "movil",
+      "nivel": 1,
+      "silabas": [
+        "mó",
+        "vil"
+      ],
+      "tonica": 0,
+      "frase": "Mi padre se dejó el ___ en el puesto de Manolo."
+    },
+    {
+      "p": "fútbol",
+      "regla": "tildes-generales",
+      "mal": "futbol",
+      "nivel": 1,
+      "silabas": [
+        "fút",
+        "bol"
+      ],
+      "tonica": 0,
+      "frase": "En el recreo jugamos al ___ con un balón viejo."
+    },
+    {
+      "p": "sílaba",
+      "regla": "tildes-generales",
+      "mal": "silaba",
+      "nivel": 1,
+      "silabas": [
+        "sí",
+        "la",
+        "ba"
+      ],
+      "tonica": 0,
+      "frase": "«Sol» es una palabra de una sola ___."
+    },
+    {
+      "p": "página",
+      "regla": "tildes-generales",
+      "mal": "pagina",
+      "nivel": 1,
+      "silabas": [
+        "pá",
+        "gi",
+        "na"
+      ],
+      "tonica": 0,
+      "frase": "Abrid el libro por la ___ diez."
+    },
+    {
+      "p": "rápido",
+      "regla": "tildes-generales",
+      "mal": "rapido",
+      "nivel": 1,
+      "silabas": [
+        "rá",
+        "pi",
+        "do"
+      ],
+      "tonica": 0,
+      "frase": "El tren de alta velocidad es muy ___."
+    },
+    {
+      "p": "lámpara",
+      "regla": "tildes-generales",
+      "mal": "lampara",
+      "nivel": 1,
+      "silabas": [
+        "lám",
+        "pa",
+        "ra"
+      ],
+      "tonica": 0,
+      "frase": "Enciende la ___ de la mesa, que no se ve nada."
+    },
+    {
+      "p": "cámara",
+      "regla": "tildes-generales",
+      "mal": "camara",
+      "nivel": 1,
+      "silabas": [
+        "cá",
+        "ma",
+        "ra"
+      ],
+      "tonica": 0,
+      "frase": "Lola hace fotos de las pistas con su ___."
+    },
+    {
+      "p": "algodón",
+      "regla": "tildes-generales",
+      "mal": "algodon",
+      "nivel": 2,
+      "silabas": [
+        "al",
+        "go",
+        "dón"
+      ],
+      "tonica": 2,
+      "frase": "En la feria compramos ___ de azúcar rosa."
+    },
+    {
+      "p": "sartén",
+      "regla": "tildes-generales",
+      "mal": "sarten",
+      "nivel": 2,
+      "silabas": [
+        "sar",
+        "tén"
+      ],
+      "tonica": 1,
+      "frase": "Doña Pilar fríe los huevos en la ___."
+    },
+    {
+      "p": "almacén",
+      "regla": "tildes-generales",
+      "mal": "almacen",
+      "nivel": 2,
+      "silabas": [
+        "al",
+        "ma",
+        "cén"
+      ],
+      "tonica": 2,
+      "frase": "Las cajas de fruta se guardan en el ___ del mercado."
+    },
+    {
+      "p": "maletín",
+      "regla": "tildes-generales",
+      "mal": "maletin",
+      "nivel": 2,
+      "silabas": [
+        "ma",
+        "le",
+        "tín"
+      ],
+      "tonica": 2,
+      "frase": "El director guarda los informes en su ___ de cuero."
+    },
+    {
+      "p": "menú",
+      "regla": "tildes-generales",
+      "mal": "menu",
+      "nivel": 2,
+      "silabas": [
+        "me",
+        "nú"
+      ],
+      "tonica": 1,
+      "frase": "Hoy el ___ del comedor es lentejas con chorizo."
+    },
+    {
+      "p": "champú",
+      "regla": "tildes-generales",
+      "mal": "champu",
+      "nivel": 2,
+      "silabas": [
+        "cham",
+        "pú"
+      ],
+      "tonica": 1,
+      "frase": "Me lavo el pelo con ___ de manzana."
+    },
+    {
+      "p": "dominó",
+      "regla": "tildes-generales",
+      "mal": "domino",
+      "nivel": 2,
+      "silabas": [
+        "do",
+        "mi",
+        "nó"
+      ],
+      "tonica": 2,
+      "frase": "Los abuelos juegan al ___ en el bar de la plaza."
+    },
+    {
+      "p": "capitán",
+      "regla": "tildes-generales",
+      "mal": "capitan",
+      "nivel": 2,
+      "silabas": [
+        "ca",
+        "pi",
+        "tán"
+      ],
+      "tonica": 2,
+      "frase": "El ___ del equipo levantó la copa."
+    },
+    {
+      "p": "huracán",
+      "regla": "tildes-generales",
+      "mal": "huracan",
+      "nivel": 2,
+      "silabas": [
+        "hu",
+        "ra",
+        "cán"
+      ],
+      "tonica": 2,
+      "frase": "El ___ arrancó los árboles de la costa."
+    },
+    {
+      "p": "débil",
+      "regla": "tildes-generales",
+      "mal": "debil",
+      "nivel": 2,
+      "silabas": [
+        "dé",
+        "bil"
+      ],
+      "tonica": 0,
+      "frase": "Después de la gripe me sentía muy ___."
+    },
+    {
+      "p": "útil",
+      "regla": "tildes-generales",
+      "mal": "util",
+      "nivel": 2,
+      "silabas": [
+        "ú",
+        "til"
+      ],
+      "tonica": 0,
+      "frase": "La lupa es la herramienta más ___ de un detective."
+    },
+    {
+      "p": "ágil",
+      "regla": "tildes-generales",
+      "mal": "agil",
+      "nivel": 2,
+      "silabas": [
+        "á",
+        "gil"
+      ],
+      "tonica": 0,
+      "frase": "El gato es muy ___ y salta a la tapia de un brinco."
+    },
+    {
+      "p": "frágil",
+      "regla": "tildes-generales",
+      "mal": "fragil",
+      "nivel": 2,
+      "silabas": [
+        "frá",
+        "gil"
+      ],
+      "tonica": 0,
+      "frase": "Cuidado con esa caja de cristales: es muy ___."
+    },
+    {
+      "p": "túnel",
+      "regla": "tildes-generales",
+      "mal": "tunel",
+      "nivel": 2,
+      "silabas": [
+        "tú",
+        "nel"
+      ],
+      "tonica": 0,
+      "frase": "El tren entra en un ___ oscuro."
+    },
+    {
+      "p": "ángel",
+      "regla": "tildes-generales",
+      "mal": "angel",
+      "nivel": 2,
+      "silabas": [
+        "án",
+        "gel"
+      ],
+      "tonica": 0,
+      "frase": "En la iglesia hay un ___ de piedra con alas."
+    },
+    {
+      "p": "lágrima",
+      "regla": "tildes-generales",
+      "mal": "lagrima",
+      "nivel": 2,
+      "silabas": [
+        "lá",
+        "gri",
+        "ma"
+      ],
+      "tonica": 0,
+      "frase": "Al despedirse de su abuela, se le escapó una ___."
+    },
+    {
+      "p": "bolígrafo",
+      "regla": "tildes-generales",
+      "mal": "boligrafo",
+      "nivel": 2,
+      "silabas": [
+        "bo",
+        "lí",
+        "gra",
+        "fo"
+      ],
+      "tonica": 1,
+      "frase": "Firma el informe con un ___ azul."
+    },
+    {
+      "p": "matemáticas",
+      "regla": "tildes-generales",
+      "mal": "matematicas",
+      "nivel": 2,
+      "silabas": [
+        "ma",
+        "te",
+        "má",
+        "ti",
+        "cas"
+      ],
+      "tonica": 2,
+      "frase": "En clase de ___ estamos aprendiendo las fracciones."
+    },
+    {
+      "p": "kilómetro",
+      "regla": "tildes-generales",
+      "mal": "kilometro",
+      "nivel": 2,
+      "silabas": [
+        "ki",
+        "ló",
+        "me",
+        "tro"
+      ],
+      "tonica": 1,
+      "frase": "El colegio está a un ___ de mi casa."
+    },
+    {
+      "p": "micrófono",
+      "regla": "tildes-generales",
+      "mal": "microfono",
+      "nivel": 2,
+      "silabas": [
+        "mi",
+        "cró",
+        "fo",
+        "no"
+      ],
+      "tonica": 1,
+      "frase": "Ramón canta en la feria con un ___."
+    },
+    {
+      "p": "fantástico",
+      "regla": "tildes-generales",
+      "mal": "fantastico",
+      "nivel": 2,
+      "silabas": [
+        "fan",
+        "tás",
+        "ti",
+        "co"
+      ],
+      "tonica": 1,
+      "frase": "¡El final del cuento fue ___!"
+    },
+    {
+      "p": "pirámide",
+      "regla": "tildes-generales",
+      "mal": "piramide",
+      "nivel": 2,
+      "silabas": [
+        "pi",
+        "rá",
+        "mi",
+        "de"
+      ],
+      "tonica": 1,
+      "frase": "En Egipto hay una ___ enorme de piedra."
+    },
+    {
+      "p": "océano",
+      "regla": "tildes-generales",
+      "mal": "oceano",
+      "nivel": 2,
+      "silabas": [
+        "o",
+        "cé",
+        "a",
+        "no"
+      ],
+      "tonica": 1,
+      "frase": "Las ballenas viven en el ___."
+    },
+    {
+      "p": "último",
+      "regla": "tildes-generales",
+      "mal": "ultimo",
+      "nivel": 2,
+      "silabas": [
+        "úl",
+        "ti",
+        "mo"
+      ],
+      "tonica": 0,
+      "frase": "Mateo llegó el ___ a la reunión, como siempre."
+    },
+    {
+      "p": "árboles",
+      "regla": "tildes-generales",
+      "mal": "arboles",
+      "nivel": 2,
+      "silabas": [
+        "ár",
+        "bo",
+        "les"
+      ],
+      "tonica": 0,
+      "frase": "En la plaza han plantado tres ___ nuevos."
+    },
+    {
+      "p": "jabalí",
+      "regla": "tildes-generales",
+      "mal": "jabali",
+      "nivel": 3,
+      "silabas": [
+        "ja",
+        "ba",
+        "lí"
+      ],
+      "tonica": 2,
+      "frase": "En el monte vimos un ___ con sus crías."
+    },
+    {
+      "p": "interés",
+      "regla": "tildes-generales",
+      "mal": "interes",
+      "nivel": 3,
+      "silabas": [
+        "in",
+        "te",
+        "rés"
+      ],
+      "tonica": 2,
+      "frase": "Lola lee el expediente con mucho ___."
+    },
+    {
+      "p": "cráter",
+      "regla": "tildes-generales",
+      "mal": "crater",
+      "nivel": 3,
+      "silabas": [
+        "crá",
+        "ter"
+      ],
+      "tonica": 0,
+      "frase": "En la Luna hay un ___ enorme."
+    },
+    {
+      "p": "carácter",
+      "regla": "tildes-generales",
+      "mal": "caracter",
+      "nivel": 3,
+      "silabas": [
+        "ca",
+        "rác",
+        "ter"
+      ],
+      "tonica": 1,
+      "frase": "Doña Pilar tiene mucho ___, pero es muy buena."
+    },
+    {
+      "p": "mármol",
+      "regla": "tildes-generales",
+      "mal": "marmol",
+      "nivel": 3,
+      "silabas": [
+        "már",
+        "mol"
+      ],
+      "tonica": 0,
+      "frase": "La fuente de la plaza es de ___ blanco."
+    },
+    {
+      "p": "termómetro",
+      "regla": "tildes-generales",
+      "mal": "termometro",
+      "nivel": 3,
+      "silabas": [
+        "ter",
+        "mó",
+        "me",
+        "tro"
+      ],
+      "tonica": 1,
+      "frase": "El ___ de la farmacia marca cuarenta grados."
+    },
+    {
+      "p": "helicóptero",
+      "regla": "tildes-generales",
+      "mal": "helicoptero",
+      "nivel": 3,
+      "silabas": [
+        "he",
+        "li",
+        "cóp",
+        "te",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "Un ___ sobrevoló el barrio haciendo mucho ruido."
+    },
+    {
+      "p": "esdrújula",
+      "regla": "tildes-generales",
+      "mal": "esdrujula",
+      "nivel": 3,
+      "silabas": [
+        "es",
+        "drú",
+        "ju",
+        "la"
+      ],
+      "tonica": 1,
+      "frase": "«Pájaro» es una palabra ___."
+    },
+    {
+      "p": "hipopótamo",
+      "regla": "tildes-generales",
+      "mal": "hipopotamo",
+      "nivel": 3,
+      "silabas": [
+        "hi",
+        "po",
+        "pó",
+        "ta",
+        "mo"
+      ],
+      "tonica": 2,
+      "frase": "En el zoo, el ___ se pasa el día metido en el agua."
+    },
+    {
+      "p": "jóvenes",
+      "regla": "tildes-generales",
+      "mal": "jovenes",
+      "nivel": 3,
+      "silabas": [
+        "jó",
+        "ve",
+        "nes"
+      ],
+      "tonica": 0,
+      "frase": "Los ___ del barrio organizan una carrera solidaria."
+    },
+    {
+      "p": "exámenes",
+      "regla": "tildes-generales",
+      "mal": "examenes",
+      "nivel": 3,
+      "silabas": [
+        "e",
+        "xá",
+        "me",
+        "nes"
+      ],
+      "tonica": 1,
+      "frase": "En junio tenemos ___ de todas las asignaturas."
+    },
+    {
+      "p": "volumen",
+      "regla": "tildes-generales",
+      "mal": "volúmen",
+      "nivel": 3,
+      "silabas": [
+        "vo",
+        "lu",
+        "men"
+      ],
+      "tonica": 1,
+      "frase": "Baja el ___ de la radio, por favor."
+    },
+    {
+      "p": "resumen",
+      "regla": "tildes-generales",
+      "mal": "resúmen",
+      "nivel": 3,
+      "silabas": [
+        "re",
+        "su",
+        "men"
+      ],
+      "tonica": 1,
+      "frase": "Escribe un ___ del cuento en cinco líneas."
+    },
+    {
+      "p": "álbum",
+      "regla": "tildes-generales",
+      "mal": "album",
+      "nivel": 3,
+      "silabas": [
+        "ál",
+        "bum"
+      ],
+      "tonica": 0,
+      "frase": "Pego los cromos repetidos en el ___."
+    },
+    {
+      "p": "árbitro",
+      "regla": "tildes-generales",
+      "mal": "arbitro",
+      "nivel": 3,
+      "silabas": [
+        "ár",
+        "bi",
+        "tro"
+      ],
+      "tonica": 0,
+      "frase": "El ___ pitó el final del partido."
+    },
+    {
+      "p": "fue",
+      "regla": "diptongo-monosilabos",
+      "mal": "fué",
+      "nivel": 1,
+      "silabas": [
+        "fue"
+      ],
+      "tonica": 0,
+      "frase": "Ayer ___ el cumpleaños de Mateo."
+    },
+    {
+      "p": "fui",
+      "regla": "diptongo-monosilabos",
+      "mal": "fuí",
+      "nivel": 1,
+      "silabas": [
+        "fui"
+      ],
+      "tonica": 0,
+      "frase": "El sábado ___ al mercado con mi abuela."
+    },
+    {
+      "p": "dio",
+      "regla": "diptongo-monosilabos",
+      "mal": "dió",
+      "nivel": 1,
+      "silabas": [
+        "dio"
+      ],
+      "tonica": 0,
+      "frase": "Julián me ___ una magdalena recién hecha."
+    },
+    {
+      "p": "vio",
+      "regla": "diptongo-monosilabos",
+      "mal": "vió",
+      "nivel": 1,
+      "silabas": [
+        "vio"
+      ],
+      "tonica": 0,
+      "frase": "Nadie ___ al ladrón salir del almacén."
+    },
+    {
+      "p": "pie",
+      "regla": "diptongo-monosilabos",
+      "mal": "pié",
+      "nivel": 1,
+      "silabas": [
+        "pie"
+      ],
+      "tonica": 0,
+      "frase": "Me he hecho daño en el dedo gordo del ___."
+    },
+    {
+      "p": "pies",
+      "regla": "diptongo-monosilabos",
+      "mal": "piés",
+      "nivel": 1,
+      "silabas": [
+        "pies"
+      ],
+      "tonica": 0,
+      "frase": "En la playa me quité las sandalias y metí los ___ en el agua."
+    },
+    {
+      "p": "bien",
+      "regla": "diptongo-monosilabos",
+      "mal": "bién",
+      "nivel": 1,
+      "silabas": [
+        "bien"
+      ],
+      "tonica": 0,
+      "frase": "Lola ha hecho muy ___ el examen y está contenta."
+    },
+    {
+      "p": "seis",
+      "regla": "diptongo-monosilabos",
+      "mal": "séis",
+      "nivel": 1,
+      "silabas": [
+        "seis"
+      ],
+      "tonica": 0,
+      "frase": "Tres más tres son ___."
+    },
+    {
+      "p": "miel",
+      "regla": "diptongo-monosilabos",
+      "mal": "miél",
+      "nivel": 1,
+      "silabas": [
+        "miel"
+      ],
+      "tonica": 0,
+      "frase": "Las abejas fabrican la ___."
+    },
+    {
+      "p": "tren",
+      "regla": "diptongo-monosilabos",
+      "mal": "trén",
+      "nivel": 1,
+      "silabas": [
+        "tren"
+      ],
+      "tonica": 0,
+      "frase": "El ___ sale de la vía dos a las cinco."
+    },
+    {
+      "p": "mes",
+      "regla": "diptongo-monosilabos",
+      "mal": "més",
+      "nivel": 1,
+      "silabas": [
+        "mes"
+      ],
+      "tonica": 0,
+      "frase": "Diciembre es el último ___ del año."
+    },
+    {
+      "p": "gris",
+      "regla": "diptongo-monosilabos",
+      "mal": "grís",
+      "nivel": 1,
+      "silabas": [
+        "gris"
+      ],
+      "tonica": 0,
+      "frase": "El cielo está ___ y va a llover."
+    },
+    {
+      "p": "después",
+      "regla": "diptongo-monosilabos",
+      "mal": "despues",
+      "nivel": 1,
+      "silabas": [
+        "des",
+        "pués"
+      ],
+      "tonica": 1,
+      "frase": "Primero hacemos los deberes y ___ salimos a jugar."
+    },
+    {
+      "p": "también",
+      "regla": "diptongo-monosilabos",
+      "mal": "tambien",
+      "nivel": 1,
+      "silabas": [
+        "tam",
+        "bién"
+      ],
+      "tonica": 1,
+      "frase": "Lola quiere ir a la feria y Mateo ___."
+    },
+    {
+      "p": "avión",
+      "regla": "diptongo-monosilabos",
+      "mal": "avion",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "vión"
+      ],
+      "tonica": 1,
+      "frase": "El ___ despegó con un ruido enorme."
+    },
+    {
+      "p": "estación",
+      "regla": "diptongo-monosilabos",
+      "mal": "estacion",
+      "nivel": 1,
+      "silabas": [
+        "es",
+        "ta",
+        "ción"
+      ],
+      "tonica": 2,
+      "frase": "Esperamos el tren en la ___."
+    },
+    {
+      "p": "autobús",
+      "regla": "diptongo-monosilabos",
+      "mal": "autobus",
+      "nivel": 1,
+      "silabas": [
+        "au",
+        "to",
+        "bús"
+      ],
+      "tonica": 2,
+      "frase": "Vamos de excursión en ___."
+    },
+    {
+      "p": "adiós",
+      "regla": "diptongo-monosilabos",
+      "mal": "adios",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "diós"
+      ],
+      "tonica": 1,
+      "frase": "Lola dijo ___ con la mano desde la ventanilla."
+    },
+    {
+      "p": "atención",
+      "regla": "diptongo-monosilabos",
+      "mal": "atencion",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "ten",
+        "ción"
+      ],
+      "tonica": 2,
+      "frase": "Los detectives escuchan al director con mucha ___."
+    },
+    {
+      "p": "lección",
+      "regla": "diptongo-monosilabos",
+      "mal": "leccion",
+      "nivel": 1,
+      "silabas": [
+        "lec",
+        "ción"
+      ],
+      "tonica": 1,
+      "frase": "Hoy el maestro explica una ___ nueva."
+    },
+    {
+      "p": "habitación",
+      "regla": "diptongo-monosilabos",
+      "mal": "habitacion",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "bi",
+        "ta",
+        "ción"
+      ],
+      "tonica": 3,
+      "frase": "Ordena tu ___ antes de salir a jugar."
+    },
+    {
+      "p": "televisión",
+      "regla": "diptongo-monosilabos",
+      "mal": "television",
+      "nivel": 1,
+      "silabas": [
+        "te",
+        "le",
+        "vi",
+        "sión"
+      ],
+      "tonica": 3,
+      "frase": "Por la noche vemos las noticias en la ___."
+    },
+    {
+      "p": "fuimos",
+      "regla": "diptongo-monosilabos",
+      "mal": "fuímos",
+      "nivel": 1,
+      "silabas": [
+        "fui",
+        "mos"
+      ],
+      "tonica": 0,
+      "frase": "Ayer ___ todos juntos al cine."
+    },
+    {
+      "p": "ruido",
+      "regla": "diptongo-monosilabos",
+      "mal": "ruído",
+      "nivel": 1,
+      "silabas": [
+        "rui",
+        "do"
+      ],
+      "tonica": 0,
+      "frase": "Un ___ extraño salía del sótano."
+    },
+    {
+      "p": "fiel",
+      "regla": "diptongo-monosilabos",
+      "mal": "fiél",
+      "nivel": 2,
+      "silabas": [
+        "fiel"
+      ],
+      "tonica": 0,
+      "frase": "Mi perro es mi amigo más ___: siempre está conmigo."
+    },
+    {
+      "p": "piel",
+      "regla": "diptongo-monosilabos",
+      "mal": "piél",
+      "nivel": 2,
+      "silabas": [
+        "piel"
+      ],
+      "tonica": 0,
+      "frase": "Ponte crema para proteger la ___ del sol."
+    },
+    {
+      "p": "sois",
+      "regla": "diptongo-monosilabos",
+      "mal": "sóis",
+      "nivel": 2,
+      "silabas": [
+        "sois"
+      ],
+      "tonica": 0,
+      "frase": "Chicos, ___ los mejores detectives del barrio."
+    },
+    {
+      "p": "colección",
+      "regla": "diptongo-monosilabos",
+      "mal": "coleccion",
+      "nivel": 2,
+      "silabas": [
+        "co",
+        "lec",
+        "ción"
+      ],
+      "tonica": 2,
+      "frase": "Mateo tiene una ___ de lupas antiguas."
+    },
+    {
+      "p": "excursión",
+      "regla": "diptongo-monosilabos",
+      "mal": "excursion",
+      "nivel": 2,
+      "silabas": [
+        "ex",
+        "cur",
+        "sión"
+      ],
+      "tonica": 2,
+      "frase": "El viernes vamos de ___ al parque de Doñana."
+    },
+    {
+      "p": "cuídate",
+      "regla": "diptongo-monosilabos",
+      "mal": "cuidate",
+      "nivel": 2,
+      "silabas": [
+        "cuí",
+        "da",
+        "te"
+      ],
+      "tonica": 0,
+      "frase": "Abrígate bien y ___, que hace mucho frío."
+    },
+    {
+      "p": "veintidós",
+      "regla": "diptongo-monosilabos",
+      "mal": "veintidos",
+      "nivel": 2,
+      "silabas": [
+        "vein",
+        "ti",
+        "dós"
+      ],
+      "tonica": 2,
+      "frase": "Veinte más dos son ___."
+    },
+    {
+      "p": "veintitrés",
+      "regla": "diptongo-monosilabos",
+      "mal": "veintitres",
+      "nivel": 2,
+      "silabas": [
+        "vein",
+        "ti",
+        "trés"
+      ],
+      "tonica": 2,
+      "frase": "Después del veintidós viene el ___."
+    },
+    {
+      "p": "acción",
+      "regla": "diptongo-monosilabos",
+      "mal": "accion",
+      "nivel": 2,
+      "silabas": [
+        "ac",
+        "ción"
+      ],
+      "tonica": 1,
+      "frase": "Las películas de ___ me encantan."
+    },
+    {
+      "p": "ilusión",
+      "regla": "diptongo-monosilabos",
+      "mal": "ilusion",
+      "nivel": 2,
+      "silabas": [
+        "i",
+        "lu",
+        "sión"
+      ],
+      "tonica": 2,
+      "frase": "Me hace mucha ___ ir a la feria con mis primos."
+    },
+    {
+      "p": "información",
+      "regla": "diptongo-monosilabos",
+      "mal": "informacion",
+      "nivel": 2,
+      "silabas": [
+        "in",
+        "for",
+        "ma",
+        "ción"
+      ],
+      "tonica": 3,
+      "frase": "En el kiosco hay un cartel con ___ de la feria."
+    },
+    {
+      "p": "cuéntame",
+      "regla": "diptongo-monosilabos",
+      "mal": "cuentame",
+      "nivel": 2,
+      "silabas": [
+        "cuén",
+        "ta",
+        "me"
+      ],
+      "tonica": 0,
+      "frase": "Lola, ___ qué viste anoche en la plaza."
+    },
+    {
+      "p": "fuiste",
+      "regla": "diptongo-monosilabos",
+      "mal": "fuíste",
+      "nivel": 2,
+      "silabas": [
+        "fuis",
+        "te"
+      ],
+      "tonica": 0,
+      "frase": "¿___ tú quien dejó la nota en mi pupitre?"
+    },
+    {
+      "p": "sesión",
+      "regla": "diptongo-monosilabos",
+      "mal": "sesion",
+      "nivel": 2,
+      "silabas": [
+        "se",
+        "sión"
+      ],
+      "tonica": 1,
+      "frase": "La ___ de cine empieza a las seis."
+    },
+    {
+      "p": "periódico",
+      "regla": "diptongo-monosilabos",
+      "mal": "periodico",
+      "nivel": 2,
+      "silabas": [
+        "pe",
+        "rió",
+        "di",
+        "co"
+      ],
+      "tonica": 1,
+      "frase": "Bruno reparte el ___ por las mañanas."
+    },
+    {
+      "p": "ruinas",
+      "regla": "diptongo-monosilabos",
+      "mal": "ruínas",
+      "nivel": 2,
+      "silabas": [
+        "rui",
+        "nas"
+      ],
+      "tonica": 0,
+      "frase": "Del castillo antiguo solo quedan las ___."
+    },
+    {
+      "p": "despiértate",
+      "regla": "diptongo-monosilabos",
+      "mal": "despiertate",
+      "nivel": 2,
+      "silabas": [
+        "des",
+        "piér",
+        "ta",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "___, que llegamos tarde al colegio."
+    },
+    {
+      "p": "opinión",
+      "regla": "diptongo-monosilabos",
+      "mal": "opinion",
+      "nivel": 2,
+      "silabas": [
+        "o",
+        "pi",
+        "nión"
+      ],
+      "tonica": 2,
+      "frase": "Cada detective da su ___ sobre el caso."
+    },
+    {
+      "p": "acuático",
+      "regla": "diptongo-monosilabos",
+      "mal": "acuatico",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "cuá",
+        "ti",
+        "co"
+      ],
+      "tonica": 1,
+      "frase": "En verano vamos a un parque ___ con toboganes."
+    },
+    {
+      "p": "vais",
+      "regla": "diptongo-monosilabos",
+      "mal": "váis",
+      "nivel": 3,
+      "silabas": [
+        "vais"
+      ],
+      "tonica": 0,
+      "frase": "¿Vosotros ___ a la feria esta tarde?"
+    },
+    {
+      "p": "veis",
+      "regla": "diptongo-monosilabos",
+      "mal": "véis",
+      "nivel": 3,
+      "silabas": [
+        "veis"
+      ],
+      "tonica": 0,
+      "frase": "¿___ aquella luz en lo alto de la torre?"
+    },
+    {
+      "p": "huésped",
+      "regla": "diptongo-monosilabos",
+      "mal": "huesped",
+      "nivel": 3,
+      "silabas": [
+        "hués",
+        "ped"
+      ],
+      "tonica": 0,
+      "frase": "En el hostal de la plaza hay un ___ muy misterioso."
+    },
+    {
+      "p": "náufrago",
+      "regla": "diptongo-monosilabos",
+      "mal": "naufrago",
+      "nivel": 3,
+      "silabas": [
+        "náu",
+        "fra",
+        "go"
+      ],
+      "tonica": 0,
+      "frase": "El ___ llegó nadando a una isla desierta."
+    },
+    {
+      "p": "murciélago",
+      "regla": "diptongo-monosilabos",
+      "mal": "murcielago",
+      "nivel": 3,
+      "silabas": [
+        "mur",
+        "cié",
+        "la",
+        "go"
+      ],
+      "tonica": 1,
+      "frase": "En la cueva vimos un ___ colgado del techo."
+    },
+    {
+      "p": "estiércol",
+      "regla": "diptongo-monosilabos",
+      "mal": "estiercol",
+      "nivel": 3,
+      "silabas": [
+        "es",
+        "tiér",
+        "col"
+      ],
+      "tonica": 1,
+      "frase": "El jardinero abona las rosas con ___."
+    },
+    {
+      "p": "béisbol",
+      "regla": "diptongo-monosilabos",
+      "mal": "beisbol",
+      "nivel": 3,
+      "silabas": [
+        "béis",
+        "bol"
+      ],
+      "tonica": 0,
+      "frase": "En Estados Unidos se juega mucho al ___."
+    },
+    {
+      "p": "construí",
+      "regla": "diptongo-monosilabos",
+      "mal": "construi",
+      "nivel": 3,
+      "silabas": [
+        "cons",
+        "truí"
+      ],
+      "tonica": 1,
+      "frase": "Ayer ___ una cabaña con cajas de cartón."
+    },
+    {
+      "p": "destruí",
+      "regla": "diptongo-monosilabos",
+      "mal": "destrui",
+      "nivel": 3,
+      "silabas": [
+        "des",
+        "truí"
+      ],
+      "tonica": 1,
+      "frase": "Sin querer, ___ el castillo de arena de mi hermano."
+    },
+    {
+      "p": "veintiséis",
+      "regla": "diptongo-monosilabos",
+      "mal": "veintiseis",
+      "nivel": 3,
+      "silabas": [
+        "vein",
+        "ti",
+        "séis"
+      ],
+      "tonica": 2,
+      "frase": "Veinte más seis son ___."
+    },
+    {
+      "p": "dieciséis",
+      "regla": "diptongo-monosilabos",
+      "mal": "dieciseis",
+      "nivel": 3,
+      "silabas": [
+        "die",
+        "ci",
+        "séis"
+      ],
+      "tonica": 2,
+      "frase": "Quince más uno son ___."
+    },
+    {
+      "p": "estudiáis",
+      "regla": "diptongo-monosilabos",
+      "mal": "estudiais",
+      "nivel": 3,
+      "silabas": [
+        "es",
+        "tu",
+        "diáis"
+      ],
+      "tonica": 2,
+      "frase": "¿Vosotros ___ por la tarde o por la mañana?"
+    },
+    {
+      "p": "construido",
+      "regla": "diptongo-monosilabos",
+      "mal": "construído",
+      "nivel": 3,
+      "silabas": [
+        "cons",
+        "trui",
+        "do"
+      ],
+      "tonica": 1,
+      "frase": "El puente de piedra fue ___ hace cien años."
+    },
+    {
+      "p": "incluido",
+      "regla": "diptongo-monosilabos",
+      "mal": "incluído",
+      "nivel": 3,
+      "silabas": [
+        "in",
+        "clui",
+        "do"
+      ],
+      "tonica": 1,
+      "frase": "En el menú del comedor, el postre va ___."
+    },
+    {
+      "p": "gratuito",
+      "regla": "diptongo-monosilabos",
+      "mal": "gratuíto",
+      "nivel": 3,
+      "silabas": [
+        "gra",
+        "tui",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "La entrada a la biblioteca no cuesta nada: es ___."
+    },
+    {
+      "p": "circuito",
+      "regla": "diptongo-monosilabos",
+      "mal": "circuíto",
+      "nivel": 3,
+      "silabas": [
+        "cir",
+        "cui",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "Bruno da tres vueltas al ___ de bicis del parque."
+    },
+    {
+      "p": "intuición",
+      "regla": "diptongo-monosilabos",
+      "mal": "intuicion",
+      "nivel": 3,
+      "silabas": [
+        "in",
+        "tui",
+        "ción"
+      ],
+      "tonica": 2,
+      "frase": "La ___ de Lola nunca falla: sabe quién miente."
+    },
+    {
+      "p": "farmacéutico",
+      "regla": "diptongo-monosilabos",
+      "mal": "farmaceutico",
+      "nivel": 3,
+      "silabas": [
+        "far",
+        "ma",
+        "céu",
+        "ti",
+        "co"
+      ],
+      "tonica": 2,
+      "frase": "El ___ me dio un jarabe para la tos."
+    },
+    {
+      "p": "gente",
+      "regla": "g-j-dieresis",
+      "mal": "jente",
+      "nivel": 1,
+      "silabas": [
+        "gen",
+        "te"
+      ],
+      "tonica": 0,
+      "frase": "En la feria hay mucha ___ paseando."
+    },
+    {
+      "p": "agencia",
+      "regla": "g-j-dieresis",
+      "mal": "ajencia",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "gen",
+        "cia"
+      ],
+      "tonica": 1,
+      "frase": "Lola y Mateo trabajan en la ___ La Lupa."
+    },
+    {
+      "p": "magia",
+      "regla": "g-j-dieresis",
+      "mal": "majia",
+      "nivel": 1,
+      "silabas": [
+        "ma",
+        "gia"
+      ],
+      "tonica": 0,
+      "frase": "El mago hizo ___ con un pañuelo y una moneda."
+    },
+    {
+      "p": "coger",
+      "regla": "g-j-dieresis",
+      "mal": "cojer",
+      "nivel": 1,
+      "silabas": [
+        "co",
+        "ger"
+      ],
+      "tonica": 1,
+      "frase": "Voy a ___ el autobús de las ocho."
+    },
+    {
+      "p": "recoger",
+      "regla": "g-j-dieresis",
+      "mal": "recojer",
+      "nivel": 1,
+      "silabas": [
+        "re",
+        "co",
+        "ger"
+      ],
+      "tonica": 2,
+      "frase": "Al acabar de jugar, hay que ___ los juguetes."
+    },
+    {
+      "p": "viaje",
+      "regla": "g-j-dieresis",
+      "mal": "viage",
+      "nivel": 1,
+      "silabas": [
+        "via",
+        "je"
+      ],
+      "tonica": 0,
+      "frase": "Este verano nos vamos de ___ a la playa."
+    },
+    {
+      "p": "mensaje",
+      "regla": "g-j-dieresis",
+      "mal": "mensage",
+      "nivel": 1,
+      "silabas": [
+        "men",
+        "sa",
+        "je"
+      ],
+      "tonica": 1,
+      "frase": "Lola me ha mandado un ___ al móvil."
+    },
+    {
+      "p": "dije",
+      "regla": "g-j-dieresis",
+      "mal": "dige",
+      "nivel": 1,
+      "silabas": [
+        "di",
+        "je"
+      ],
+      "tonica": 0,
+      "frase": "Ayer le ___ a Mateo que tenía razón."
+    },
+    {
+      "p": "traje",
+      "regla": "g-j-dieresis",
+      "mal": "trage",
+      "nivel": 1,
+      "silabas": [
+        "tra",
+        "je"
+      ],
+      "tonica": 0,
+      "frase": "Hoy ___ mi colección de cromos al colegio."
+    },
+    {
+      "p": "pingüino",
+      "regla": "g-j-dieresis",
+      "mal": "pinguino",
+      "nivel": 1,
+      "silabas": [
+        "pin",
+        "güi",
+        "no"
+      ],
+      "tonica": 1,
+      "frase": "El ___ vive en el hielo y no sabe volar."
+    },
+    {
+      "p": "guiso",
+      "regla": "g-j-dieresis",
+      "mal": "giso",
+      "nivel": 1,
+      "silabas": [
+        "gui",
+        "so"
+      ],
+      "tonica": 0,
+      "frase": "Doña Pilar prepara un ___ de garbanzos."
+    },
+    {
+      "p": "juguete",
+      "regla": "g-j-dieresis",
+      "mal": "jugete",
+      "nivel": 1,
+      "silabas": [
+        "ju",
+        "gue",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "El ___ preferido de mi hermano es un camión de bomberos."
+    },
+    {
+      "p": "elegir",
+      "regla": "g-j-dieresis",
+      "mal": "elejir",
+      "nivel": 1,
+      "silabas": [
+        "e",
+        "le",
+        "gir"
+      ],
+      "tonica": 2,
+      "frase": "Hoy me toca ___ el juego del recreo."
+    },
+    {
+      "p": "garaje",
+      "regla": "g-j-dieresis",
+      "mal": "garage",
+      "nivel": 1,
+      "silabas": [
+        "ga",
+        "ra",
+        "je"
+      ],
+      "tonica": 1,
+      "frase": "Papá guarda el coche en el ___."
+    },
+    {
+      "p": "salvaje",
+      "regla": "g-j-dieresis",
+      "mal": "salvage",
+      "nivel": 1,
+      "silabas": [
+        "sal",
+        "va",
+        "je"
+      ],
+      "tonica": 1,
+      "frase": "El lobo es un animal ___."
+    },
+    {
+      "p": "energía",
+      "regla": "g-j-dieresis",
+      "mal": "enerjía",
+      "nivel": 1,
+      "silabas": [
+        "e",
+        "ner",
+        "gí",
+        "a"
+      ],
+      "tonica": 2,
+      "frase": "Después de desayunar tengo mucha ___."
+    },
+    {
+      "p": "siguiente",
+      "regla": "g-j-dieresis",
+      "mal": "sigiente",
+      "nivel": 1,
+      "silabas": [
+        "si",
+        "guien",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "Que pase el ___, por favor."
+    },
+    {
+      "p": "jugué",
+      "regla": "g-j-dieresis",
+      "mal": "jugé",
+      "nivel": 1,
+      "silabas": [
+        "ju",
+        "gué"
+      ],
+      "tonica": 1,
+      "frase": "Ayer ___ al fútbol con mis primos."
+    },
+    {
+      "p": "cigüeña",
+      "regla": "g-j-dieresis",
+      "mal": "cigueña",
+      "nivel": 1,
+      "silabas": [
+        "ci",
+        "güe",
+        "ña"
+      ],
+      "tonica": 1,
+      "frase": "Una ___ ha hecho su nido en el campanario."
+    },
+    {
+      "p": "proteger",
+      "regla": "g-j-dieresis",
+      "mal": "protejer",
+      "nivel": 1,
+      "silabas": [
+        "pro",
+        "te",
+        "ger"
+      ],
+      "tonica": 2,
+      "frase": "El casco sirve para ___ la cabeza."
+    },
+    {
+      "p": "urgente",
+      "regla": "g-j-dieresis",
+      "mal": "urjente",
+      "nivel": 1,
+      "silabas": [
+        "ur",
+        "gen",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "El aviso es ___: hay que salir ahora mismo."
+    },
+    {
+      "p": "corregir",
+      "regla": "g-j-dieresis",
+      "mal": "correjir",
+      "nivel": 1,
+      "silabas": [
+        "co",
+        "rre",
+        "gir"
+      ],
+      "tonica": 2,
+      "frase": "El maestro tiene que ___ cincuenta cuadernos."
+    },
+    {
+      "p": "dijeron",
+      "regla": "g-j-dieresis",
+      "mal": "digeron",
+      "nivel": 1,
+      "silabas": [
+        "di",
+        "je",
+        "ron"
+      ],
+      "tonica": 1,
+      "frase": "Los vecinos ___ que oyeron un ruido en el almacén."
+    },
+    {
+      "p": "general",
+      "regla": "g-j-dieresis",
+      "mal": "jeneral",
+      "nivel": 2,
+      "silabas": [
+        "ge",
+        "ne",
+        "ral"
+      ],
+      "tonica": 2,
+      "frase": "Por lo ___, en verano hace mucho calor en Sevilla."
+    },
+    {
+      "p": "imagen",
+      "regla": "g-j-dieresis",
+      "mal": "imajen",
+      "nivel": 2,
+      "silabas": [
+        "i",
+        "ma",
+        "gen"
+      ],
+      "tonica": 1,
+      "frase": "En la portada del libro hay una ___ de un faro."
+    },
+    {
+      "p": "inteligente",
+      "regla": "g-j-dieresis",
+      "mal": "intelijente",
+      "nivel": 2,
+      "silabas": [
+        "in",
+        "te",
+        "li",
+        "gen",
+        "te"
+      ],
+      "tonica": 3,
+      "frase": "Mateo es el detective más ___ que conozco."
+    },
+    {
+      "p": "generoso",
+      "regla": "g-j-dieresis",
+      "mal": "jeneroso",
+      "nivel": 2,
+      "silabas": [
+        "ge",
+        "ne",
+        "ro",
+        "so"
+      ],
+      "tonica": 2,
+      "frase": "Julián es muy ___: siempre reparte magdalenas."
+    },
+    {
+      "p": "geografía",
+      "regla": "g-j-dieresis",
+      "mal": "jeografía",
+      "nivel": 2,
+      "silabas": [
+        "ge",
+        "o",
+        "gra",
+        "fí",
+        "a"
+      ],
+      "tonica": 3,
+      "frase": "En ___ hemos estudiado los ríos de Andalucía."
+    },
+    {
+      "p": "alergia",
+      "regla": "g-j-dieresis",
+      "mal": "alerjia",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "ler",
+        "gia"
+      ],
+      "tonica": 1,
+      "frase": "Tengo ___ al polen y estornudo en primavera."
+    },
+    {
+      "p": "escoger",
+      "regla": "g-j-dieresis",
+      "mal": "escojer",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "co",
+        "ger"
+      ],
+      "tonica": 2,
+      "frase": "No sé qué helado ___: hay muchísimos sabores."
+    },
+    {
+      "p": "paisaje",
+      "regla": "g-j-dieresis",
+      "mal": "paisage",
+      "nivel": 2,
+      "silabas": [
+        "pai",
+        "sa",
+        "je"
+      ],
+      "tonica": 1,
+      "frase": "Desde la azotea se ve un ___ precioso."
+    },
+    {
+      "p": "personaje",
+      "regla": "g-j-dieresis",
+      "mal": "personage",
+      "nivel": 2,
+      "silabas": [
+        "per",
+        "so",
+        "na",
+        "je"
+      ],
+      "tonica": 2,
+      "frase": "Mi ___ favorito del cuento es el dragón."
+    },
+    {
+      "p": "coraje",
+      "regla": "g-j-dieresis",
+      "mal": "corage",
+      "nivel": 2,
+      "silabas": [
+        "co",
+        "ra",
+        "je"
+      ],
+      "tonica": 1,
+      "frase": "Hace falta mucho ___ para entrar en la casa abandonada."
+    },
+    {
+      "p": "relojero",
+      "regla": "g-j-dieresis",
+      "mal": "relogero",
+      "nivel": 2,
+      "silabas": [
+        "re",
+        "lo",
+        "je",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "El ___ de la plaza arregla relojes antiguos."
+    },
+    {
+      "p": "extranjero",
+      "regla": "g-j-dieresis",
+      "mal": "extrangero",
+      "nivel": 2,
+      "silabas": [
+        "ex",
+        "tran",
+        "je",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "En verano vienen muchos turistas del ___."
+    },
+    {
+      "p": "pasajero",
+      "regla": "g-j-dieresis",
+      "mal": "pasagero",
+      "nivel": 2,
+      "silabas": [
+        "pa",
+        "sa",
+        "je",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "Cada ___ del autobús lleva su billete."
+    },
+    {
+      "p": "mensajero",
+      "regla": "g-j-dieresis",
+      "mal": "mensagero",
+      "nivel": 2,
+      "silabas": [
+        "men",
+        "sa",
+        "je",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "El ___ trajo un paquete a la agencia."
+    },
+    {
+      "p": "trajeron",
+      "regla": "g-j-dieresis",
+      "mal": "trageron",
+      "nivel": 2,
+      "silabas": [
+        "tra",
+        "je",
+        "ron"
+      ],
+      "tonica": 1,
+      "frase": "Los Reyes Magos me ___ una lupa nueva."
+    },
+    {
+      "p": "vergüenza",
+      "regla": "g-j-dieresis",
+      "mal": "verguenza",
+      "nivel": 2,
+      "silabas": [
+        "ver",
+        "güen",
+        "za"
+      ],
+      "tonica": 1,
+      "frase": "Me da ___ cantar delante de todos."
+    },
+    {
+      "p": "hoguera",
+      "regla": "g-j-dieresis",
+      "mal": "hogera",
+      "nivel": 2,
+      "silabas": [
+        "ho",
+        "gue",
+        "ra"
+      ],
+      "tonica": 1,
+      "frase": "En la noche de San Juan encienden una ___ en la playa."
+    },
+    {
+      "p": "manguera",
+      "regla": "g-j-dieresis",
+      "mal": "mangera",
+      "nivel": 2,
+      "silabas": [
+        "man",
+        "gue",
+        "ra"
+      ],
+      "tonica": 1,
+      "frase": "El jardinero riega el parque con una ___."
+    },
+    {
+      "p": "guisantes",
+      "regla": "g-j-dieresis",
+      "mal": "gisantes",
+      "nivel": 2,
+      "silabas": [
+        "gui",
+        "san",
+        "tes"
+      ],
+      "tonica": 1,
+      "frase": "No me gustan nada los ___ del arroz."
+    },
+    {
+      "p": "origen",
+      "regla": "g-j-dieresis",
+      "mal": "orijen",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "ri",
+        "gen"
+      ],
+      "tonica": 1,
+      "frase": "Los detectives buscan el ___ del ruido misterioso."
+    },
+    {
+      "p": "urgencias",
+      "regla": "g-j-dieresis",
+      "mal": "urjencias",
+      "nivel": 3,
+      "silabas": [
+        "ur",
+        "gen",
+        "cias"
+      ],
+      "tonica": 1,
+      "frase": "Mi primo se cortó con un cristal y lo llevaron a ___."
+    },
+    {
+      "p": "emergencia",
+      "regla": "g-j-dieresis",
+      "mal": "emerjencia",
+      "nivel": 3,
+      "silabas": [
+        "e",
+        "mer",
+        "gen",
+        "cia"
+      ],
+      "tonica": 2,
+      "frase": "En caso de ___, llama al 112."
+    },
+    {
+      "p": "geometría",
+      "regla": "g-j-dieresis",
+      "mal": "jeometría",
+      "nivel": 3,
+      "silabas": [
+        "ge",
+        "o",
+        "me",
+        "trí",
+        "a"
+      ],
+      "tonica": 3,
+      "frase": "En ___ aprendemos a medir triángulos."
+    },
+    {
+      "p": "biología",
+      "regla": "g-j-dieresis",
+      "mal": "biolojía",
+      "nivel": 3,
+      "silabas": [
+        "bio",
+        "lo",
+        "gí",
+        "a"
+      ],
+      "tonica": 2,
+      "frase": "Mi hermana estudia ___ porque le encantan los seres vivos."
+    },
+    {
+      "p": "tecnología",
+      "regla": "g-j-dieresis",
+      "mal": "tecnolojía",
+      "nivel": 3,
+      "silabas": [
+        "tec",
+        "no",
+        "lo",
+        "gí",
+        "a"
+      ],
+      "tonica": 3,
+      "frase": "En clase de ___ montamos un pequeño robot."
+    },
+    {
+      "p": "estrategia",
+      "regla": "g-j-dieresis",
+      "mal": "estratejia",
+      "nivel": 3,
+      "silabas": [
+        "es",
+        "tra",
+        "te",
+        "gia"
+      ],
+      "tonica": 2,
+      "frase": "Antes del partido, el entrenador explica la ___ del equipo."
+    },
+    {
+      "p": "dirigir",
+      "regla": "g-j-dieresis",
+      "mal": "dirijir",
+      "nivel": 3,
+      "silabas": [
+        "di",
+        "ri",
+        "gir"
+      ],
+      "tonica": 2,
+      "frase": "El director Robles va a ___ la investigación."
+    },
+    {
+      "p": "sumergir",
+      "regla": "g-j-dieresis",
+      "mal": "sumerjir",
+      "nivel": 3,
+      "silabas": [
+        "su",
+        "mer",
+        "gir"
+      ],
+      "tonica": 2,
+      "frase": "Para ver los peces hay que ___ la cabeza en el agua."
+    },
+    {
+      "p": "fingir",
+      "regla": "g-j-dieresis",
+      "mal": "finjir",
+      "nivel": 3,
+      "silabas": [
+        "fin",
+        "gir"
+      ],
+      "tonica": 1,
+      "frase": "El testigo intentó ___ que no sabía nada."
+    },
+    {
+      "p": "ligero",
+      "regla": "g-j-dieresis",
+      "mal": "lijero",
+      "nivel": 3,
+      "silabas": [
+        "li",
+        "ge",
+        "ro"
+      ],
+      "tonica": 1,
+      "frase": "La maleta está vacía: pesa muy poco, es muy ___."
+    },
+    {
+      "p": "equipaje",
+      "regla": "g-j-dieresis",
+      "mal": "equipage",
+      "nivel": 3,
+      "silabas": [
+        "e",
+        "qui",
+        "pa",
+        "je"
+      ],
+      "tonica": 2,
+      "frase": "En el aeropuerto revisan el ___ de los viajeros."
+    },
+    {
+      "p": "homenaje",
+      "regla": "g-j-dieresis",
+      "mal": "homenage",
+      "nivel": 3,
+      "silabas": [
+        "ho",
+        "me",
+        "na",
+        "je"
+      ],
+      "tonica": 2,
+      "frase": "El barrio hizo un ___ a Herminia por sus años en la biblioteca."
+    },
+    {
+      "p": "oleaje",
+      "regla": "g-j-dieresis",
+      "mal": "oleage",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "le",
+        "a",
+        "je"
+      ],
+      "tonica": 2,
+      "frase": "Hoy hay mucho ___ y no podemos bañarnos."
+    },
+    {
+      "p": "plumaje",
+      "regla": "g-j-dieresis",
+      "mal": "plumage",
+      "nivel": 3,
+      "silabas": [
+        "plu",
+        "ma",
+        "je"
+      ],
+      "tonica": 1,
+      "frase": "El pavo real abre su ___ de colores."
+    },
+    {
+      "p": "cerrajero",
+      "regla": "g-j-dieresis",
+      "mal": "cerragero",
+      "nivel": 3,
+      "silabas": [
+        "ce",
+        "rra",
+        "je",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "Me dejé las llaves dentro y vino el ___ a abrir la puerta."
+    },
+    {
+      "p": "conserjería",
+      "regla": "g-j-dieresis",
+      "mal": "consergería",
+      "nivel": 3,
+      "silabas": [
+        "con",
+        "ser",
+        "je",
+        "rí",
+        "a"
+      ],
+      "tonica": 3,
+      "frase": "Las llaves del gimnasio están en la ___ del colegio."
+    },
+    {
+      "p": "condujo",
+      "regla": "g-j-dieresis",
+      "mal": "condugo",
+      "nivel": 3,
+      "silabas": [
+        "con",
+        "du",
+        "jo"
+      ],
+      "tonica": 1,
+      "frase": "El taxista ___ muy despacio por las calles estrechas."
+    },
+    {
+      "p": "tradujo",
+      "regla": "g-j-dieresis",
+      "mal": "tradugo",
+      "nivel": 3,
+      "silabas": [
+        "tra",
+        "du",
+        "jo"
+      ],
+      "tonica": 1,
+      "frase": "Mateo ___ la carta, que estaba escrita en inglés."
+    },
+    {
+      "p": "tejer",
+      "regla": "g-j-dieresis",
+      "mal": "teger",
+      "nivel": 3,
+      "silabas": [
+        "te",
+        "jer"
+      ],
+      "tonica": 1,
+      "frase": "Mi abuela me enseña a ___ bufandas de lana."
+    },
+    {
+      "p": "crujir",
+      "regla": "g-j-dieresis",
+      "mal": "crugir",
+      "nivel": 3,
+      "silabas": [
+        "cru",
+        "jir"
+      ],
+      "tonica": 1,
+      "frase": "Oí ___ el suelo de madera del desván."
+    },
+    {
+      "p": "cojo",
+      "regla": "g-j-dieresis",
+      "mal": "cogo",
+      "nivel": 3,
+      "silabas": [
+        "co",
+        "jo"
+      ],
+      "tonica": 0,
+      "frase": "Todos los días ___ el autobús en la parada de la plaza."
+    },
+    {
+      "p": "elijo",
+      "regla": "g-j-dieresis",
+      "mal": "eligo",
+      "nivel": 3,
+      "silabas": [
+        "e",
+        "li",
+        "jo"
+      ],
+      "tonica": 1,
+      "frase": "Yo ___ el color azul para mi carpeta."
+    },
+    {
+      "p": "antigüedades",
+      "regla": "g-j-dieresis",
+      "mal": "antiguedades",
+      "nivel": 3,
+      "silabas": [
+        "an",
+        "ti",
+        "güe",
+        "da",
+        "des"
+      ],
+      "tonica": 3,
+      "frase": "Mi tío vende ___ en el mercadillo: relojes, lámparas y monedas viejas."
+    },
+    {
+      "p": "bilingüe",
+      "regla": "g-j-dieresis",
+      "mal": "bilingue",
+      "nivel": 3,
+      "silabas": [
+        "bi",
+        "lin",
+        "güe"
+      ],
+      "tonica": 1,
+      "frase": "Mi colegio es ___: algunas clases son en inglés."
+    },
+    {
+      "p": "paragüero",
+      "regla": "g-j-dieresis",
+      "mal": "paraguero",
+      "nivel": 3,
+      "silabas": [
+        "pa",
+        "ra",
+        "güe",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "Deja el paraguas mojado en el ___ de la entrada."
+    },
+    {
+      "p": "desagüe",
+      "regla": "g-j-dieresis",
+      "mal": "desague",
+      "nivel": 3,
+      "silabas": [
+        "de",
+        "sa",
+        "güe"
+      ],
+      "tonica": 1,
+      "frase": "El agua de la lluvia se va por el ___."
+    },
+    {
+      "p": "averigüé",
+      "regla": "g-j-dieresis",
+      "mal": "averigué",
+      "nivel": 3,
+      "silabas": [
+        "a",
+        "ve",
+        "ri",
+        "güé"
+      ],
+      "tonica": 3,
+      "frase": "Por fin ___ quién se había llevado la llave."
+    },
+    {
+      "p": "bombilla",
+      "regla": "ll-y",
+      "mal": "bombiya",
+      "nivel": 1,
+      "silabas": [
+        "bom",
+        "bi",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Se ha fundido la ___ de la cocina."
+    },
+    {
+      "p": "pasillo",
+      "regla": "ll-y",
+      "mal": "pasiyo",
+      "nivel": 1,
+      "silabas": [
+        "pa",
+        "si",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "No corras por el ___ del colegio."
+    },
+    {
+      "p": "cuchillo",
+      "regla": "ll-y",
+      "mal": "cuchiyo",
+      "nivel": 1,
+      "silabas": [
+        "cu",
+        "chi",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "Para cortar el pan se usa un ___."
+    },
+    {
+      "p": "martillo",
+      "regla": "ll-y",
+      "mal": "martiyo",
+      "nivel": 1,
+      "silabas": [
+        "mar",
+        "ti",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "Clava el clavo en la pared con el ___."
+    },
+    {
+      "p": "bolsillo",
+      "regla": "ll-y",
+      "mal": "bolsiyo",
+      "nivel": 1,
+      "silabas": [
+        "bol",
+        "si",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "Lola guarda la lupa en el ___ del abrigo."
+    },
+    {
+      "p": "anillo",
+      "regla": "ll-y",
+      "mal": "aniyo",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "ni",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "La novia lleva un ___ de oro en el dedo."
+    },
+    {
+      "p": "castillo",
+      "regla": "ll-y",
+      "mal": "castiyo",
+      "nivel": 1,
+      "silabas": [
+        "cas",
+        "ti",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "En la playa hicimos un ___ de arena."
+    },
+    {
+      "p": "amarillo",
+      "regla": "ll-y",
+      "mal": "amariyo",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "ma",
+        "ri",
+        "llo"
+      ],
+      "tonica": 2,
+      "frase": "El limón es de color ___."
+    },
+    {
+      "p": "rodilla",
+      "regla": "ll-y",
+      "mal": "rodiya",
+      "nivel": 1,
+      "silabas": [
+        "ro",
+        "di",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Me caí de la bici y me hice una herida en la ___."
+    },
+    {
+      "p": "tortilla",
+      "regla": "ll-y",
+      "mal": "tortiya",
+      "nivel": 1,
+      "silabas": [
+        "tor",
+        "ti",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Mi madre hace una ___ de patatas buenísima."
+    },
+    {
+      "p": "galleta",
+      "regla": "ll-y",
+      "mal": "gayeta",
+      "nivel": 1,
+      "silabas": [
+        "ga",
+        "lle",
+        "ta"
+      ],
+      "tonica": 1,
+      "frase": "De merienda me como una ___ de chocolate."
+    },
+    {
+      "p": "gallina",
+      "regla": "ll-y",
+      "mal": "gayina",
+      "nivel": 1,
+      "silabas": [
+        "ga",
+        "lli",
+        "na"
+      ],
+      "tonica": 1,
+      "frase": "La ___ del corral ha puesto un huevo."
+    },
+    {
+      "p": "botella",
+      "regla": "ll-y",
+      "mal": "boteya",
+      "nivel": 1,
+      "silabas": [
+        "bo",
+        "te",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Llena la ___ de agua antes de la excursión."
+    },
+    {
+      "p": "estrella",
+      "regla": "ll-y",
+      "mal": "estreya",
+      "nivel": 1,
+      "silabas": [
+        "es",
+        "tre",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Esa ___ brilla más que las demás."
+    },
+    {
+      "p": "llorar",
+      "regla": "ll-y",
+      "mal": "yorar",
+      "nivel": 1,
+      "silabas": [
+        "llo",
+        "rar"
+      ],
+      "tonica": 1,
+      "frase": "El bebé se puso a ___ cuando se fue la luz."
+    },
+    {
+      "p": "llegar",
+      "regla": "ll-y",
+      "mal": "yegar",
+      "nivel": 1,
+      "silabas": [
+        "lle",
+        "gar"
+      ],
+      "tonica": 1,
+      "frase": "Tenemos que ___ al colegio antes de las nueve."
+    },
+    {
+      "p": "llamar",
+      "regla": "ll-y",
+      "mal": "yamar",
+      "nivel": 1,
+      "silabas": [
+        "lla",
+        "mar"
+      ],
+      "tonica": 1,
+      "frase": "Voy a ___ por teléfono a mi abuela."
+    },
+    {
+      "p": "lleno",
+      "regla": "ll-y",
+      "mal": "yeno",
+      "nivel": 1,
+      "silabas": [
+        "lle",
+        "no"
+      ],
+      "tonica": 0,
+      "frase": "El vaso está ___ de zumo de naranja."
+    },
+    {
+      "p": "cuello",
+      "regla": "ll-y",
+      "mal": "cueyo",
+      "nivel": 1,
+      "silabas": [
+        "cue",
+        "llo"
+      ],
+      "tonica": 0,
+      "frase": "En invierno me pongo una bufanda en el ___."
+    },
+    {
+      "p": "rey",
+      "regla": "ll-y",
+      "mal": "rei",
+      "nivel": 1,
+      "silabas": [
+        "rey"
+      ],
+      "tonica": 0,
+      "frase": "El ___ y la reina viven en el palacio."
+    },
+    {
+      "p": "hoy",
+      "regla": "ll-y",
+      "mal": "hoi",
+      "nivel": 1,
+      "silabas": [
+        "hoy"
+      ],
+      "tonica": 0,
+      "frase": "___ es el primer día de la feria."
+    },
+    {
+      "p": "muy",
+      "regla": "ll-y",
+      "mal": "mui",
+      "nivel": 1,
+      "silabas": [
+        "muy"
+      ],
+      "tonica": 0,
+      "frase": "El café del director está ___ caliente."
+    },
+    {
+      "p": "estoy",
+      "regla": "ll-y",
+      "mal": "estoi",
+      "nivel": 1,
+      "silabas": [
+        "es",
+        "toy"
+      ],
+      "tonica": 1,
+      "frase": "Hoy ___ muy contento porque es mi cumpleaños."
+    },
+    {
+      "p": "voy",
+      "regla": "ll-y",
+      "mal": "voi",
+      "nivel": 1,
+      "silabas": [
+        "voy"
+      ],
+      "tonica": 0,
+      "frase": "Mañana ___ al cine con mis primos."
+    },
+    {
+      "p": "soy",
+      "regla": "ll-y",
+      "mal": "soi",
+      "nivel": 1,
+      "silabas": [
+        "soy"
+      ],
+      "tonica": 0,
+      "frase": "Yo ___ el detective más joven de la agencia."
+    },
+    {
+      "p": "yogur",
+      "regla": "ll-y",
+      "mal": "llogur",
+      "nivel": 1,
+      "silabas": [
+        "yo",
+        "gur"
+      ],
+      "tonica": 1,
+      "frase": "De postre quiero un ___ de fresa."
+    },
+    {
+      "p": "playa",
+      "regla": "ll-y",
+      "mal": "plalla",
+      "nivel": 1,
+      "silabas": [
+        "pla",
+        "ya"
+      ],
+      "tonica": 0,
+      "frase": "En verano vamos a la ___ a bañarnos."
+    },
+    {
+      "p": "payaso",
+      "regla": "ll-y",
+      "mal": "pallaso",
+      "nivel": 1,
+      "silabas": [
+        "pa",
+        "ya",
+        "so"
+      ],
+      "tonica": 1,
+      "frase": "El ___ del circo tiene la nariz roja."
+    },
+    {
+      "p": "ayuda",
+      "regla": "ll-y",
+      "mal": "alluda",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "yu",
+        "da"
+      ],
+      "tonica": 1,
+      "frase": "Lola, necesito tu ___ con este acertijo."
+    },
+    {
+      "p": "desayuno",
+      "regla": "ll-y",
+      "mal": "desalluno",
+      "nivel": 1,
+      "silabas": [
+        "de",
+        "sa",
+        "yu",
+        "no"
+      ],
+      "tonica": 2,
+      "frase": "Mi ___ favorito son las tostadas con aceite."
+    },
+    {
+      "p": "mayor",
+      "regla": "ll-y",
+      "mal": "mallor",
+      "nivel": 1,
+      "silabas": [
+        "ma",
+        "yor"
+      ],
+      "tonica": 1,
+      "frase": "Mi hermano ___ tiene quince años."
+    },
+    {
+      "p": "farolillos",
+      "regla": "ll-y",
+      "mal": "faroliyos",
+      "nivel": 2,
+      "silabas": [
+        "fa",
+        "ro",
+        "li",
+        "llos"
+      ],
+      "tonica": 2,
+      "frase": "La caseta de la feria está llena de ___ de colores."
+    },
+    {
+      "p": "ventanilla",
+      "regla": "ll-y",
+      "mal": "ventaniya",
+      "nivel": 2,
+      "silabas": [
+        "ven",
+        "ta",
+        "ni",
+        "lla"
+      ],
+      "tonica": 2,
+      "frase": "En el tren me gusta ir sentado junto a la ___."
+    },
+    {
+      "p": "mantequilla",
+      "regla": "ll-y",
+      "mal": "mantequiya",
+      "nivel": 2,
+      "silabas": [
+        "man",
+        "te",
+        "qui",
+        "lla"
+      ],
+      "tonica": 2,
+      "frase": "Desayuno tostadas con ___ y mermelada."
+    },
+    {
+      "p": "ladrillo",
+      "regla": "ll-y",
+      "mal": "ladriyo",
+      "nivel": 2,
+      "silabas": [
+        "la",
+        "dri",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "La pared del almacén es de ___ rojo."
+    },
+    {
+      "p": "sencillo",
+      "regla": "ll-y",
+      "mal": "senciyo",
+      "nivel": 2,
+      "silabas": [
+        "sen",
+        "ci",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "El primer acertijo era muy ___: lo resolví en un minuto."
+    },
+    {
+      "p": "semilla",
+      "regla": "ll-y",
+      "mal": "semiya",
+      "nivel": 2,
+      "silabas": [
+        "se",
+        "mi",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Plantamos una ___ de girasol en un vaso de yogur."
+    },
+    {
+      "p": "ardilla",
+      "regla": "ll-y",
+      "mal": "ardiya",
+      "nivel": 2,
+      "silabas": [
+        "ar",
+        "di",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Una ___ sube corriendo por el tronco del pino."
+    },
+    {
+      "p": "orilla",
+      "regla": "ll-y",
+      "mal": "oriya",
+      "nivel": 2,
+      "silabas": [
+        "o",
+        "ri",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Paseamos por la ___ del río."
+    },
+    {
+      "p": "cosquillas",
+      "regla": "ll-y",
+      "mal": "cosquiyas",
+      "nivel": 2,
+      "silabas": [
+        "cos",
+        "qui",
+        "llas"
+      ],
+      "tonica": 1,
+      "frase": "No me hagas ___, que me río muchísimo."
+    },
+    {
+      "p": "llover",
+      "regla": "ll-y",
+      "mal": "yover",
+      "nivel": 2,
+      "silabas": [
+        "llo",
+        "ver"
+      ],
+      "tonica": 1,
+      "frase": "Llévate el paraguas, que va a ___."
+    },
+    {
+      "p": "olla",
+      "regla": "ll-y",
+      "mal": "oya",
+      "nivel": 2,
+      "silabas": [
+        "o",
+        "lla"
+      ],
+      "tonica": 0,
+      "frase": "El cocido se hace en una ___ muy grande."
+    },
+    {
+      "p": "sello",
+      "regla": "ll-y",
+      "mal": "seyo",
+      "nivel": 2,
+      "silabas": [
+        "se",
+        "llo"
+      ],
+      "tonica": 0,
+      "frase": "Pega un ___ en el sobre antes de echarlo al buzón."
+    },
+    {
+      "p": "detalle",
+      "regla": "ll-y",
+      "mal": "detaye",
+      "nivel": 2,
+      "silabas": [
+        "de",
+        "ta",
+        "lle"
+      ],
+      "tonica": 1,
+      "frase": "Un buen detective no pierde ningún ___."
+    },
+    {
+      "p": "millón",
+      "regla": "ll-y",
+      "mal": "miyón",
+      "nivel": 2,
+      "silabas": [
+        "mi",
+        "llón"
+      ],
+      "tonica": 1,
+      "frase": "Un ___ es mil veces mil."
+    },
+    {
+      "p": "billete",
+      "regla": "ll-y",
+      "mal": "biyete",
+      "nivel": 2,
+      "silabas": [
+        "bi",
+        "lle",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "Para subir al tren necesitas un ___."
+    },
+    {
+      "p": "caballero",
+      "regla": "ll-y",
+      "mal": "cabayero",
+      "nivel": 2,
+      "silabas": [
+        "ca",
+        "ba",
+        "lle",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "En el cuento, un ___ con armadura se enfrenta al dragón."
+    },
+    {
+      "p": "apellido",
+      "regla": "ll-y",
+      "mal": "apeyido",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "pe",
+        "lli",
+        "do"
+      ],
+      "tonica": 2,
+      "frase": "Escribe tu nombre y tu ___ en la ficha."
+    },
+    {
+      "p": "collar",
+      "regla": "ll-y",
+      "mal": "coyar",
+      "nivel": 2,
+      "silabas": [
+        "co",
+        "llar"
+      ],
+      "tonica": 1,
+      "frase": "A la vecina le han robado un ___ de perlas."
+    },
+    {
+      "p": "medalla",
+      "regla": "ll-y",
+      "mal": "medaya",
+      "nivel": 2,
+      "silabas": [
+        "me",
+        "da",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Bruno ganó una ___ de oro en la carrera."
+    },
+    {
+      "p": "pantalla",
+      "regla": "ll-y",
+      "mal": "pantaya",
+      "nivel": 2,
+      "silabas": [
+        "pan",
+        "ta",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "La ___ del ordenador se ha quedado en negro."
+    },
+    {
+      "p": "paella",
+      "regla": "ll-y",
+      "mal": "paeya",
+      "nivel": 2,
+      "silabas": [
+        "pa",
+        "e",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "Los domingos mi tío hace ___ en el patio."
+    },
+    {
+      "p": "yeso",
+      "regla": "ll-y",
+      "mal": "lleso",
+      "nivel": 2,
+      "silabas": [
+        "ye",
+        "so"
+      ],
+      "tonica": 0,
+      "frase": "Me rompí el brazo y me pusieron una escayola de ___."
+    },
+    {
+      "p": "yate",
+      "regla": "ll-y",
+      "mal": "llate",
+      "nivel": 2,
+      "silabas": [
+        "ya",
+        "te"
+      ],
+      "tonica": 0,
+      "frase": "En el puerto hay un ___ blanco enorme."
+    },
+    {
+      "p": "yegua",
+      "regla": "ll-y",
+      "mal": "llegua",
+      "nivel": 2,
+      "silabas": [
+        "ye",
+        "gua"
+      ],
+      "tonica": 0,
+      "frase": "La ___ y su potrillo pastan en el campo."
+    },
+    {
+      "p": "joya",
+      "regla": "ll-y",
+      "mal": "jolla",
+      "nivel": 2,
+      "silabas": [
+        "jo",
+        "ya"
+      ],
+      "tonica": 0,
+      "frase": "La corona de la reina tiene una ___ en el centro."
+    },
+    {
+      "p": "ayuntamiento",
+      "regla": "ll-y",
+      "mal": "alluntamiento",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "yun",
+        "ta",
+        "mien",
+        "to"
+      ],
+      "tonica": 3,
+      "frase": "El alcalde trabaja en el ___."
+    },
+    {
+      "p": "leyenda",
+      "regla": "ll-y",
+      "mal": "lellenda",
+      "nivel": 2,
+      "silabas": [
+        "le",
+        "yen",
+        "da"
+      ],
+      "tonica": 1,
+      "frase": "Herminia nos contó la ___ del fantasma de la torre."
+    },
+    {
+      "p": "cayeron",
+      "regla": "ll-y",
+      "mal": "calleron",
+      "nivel": 2,
+      "silabas": [
+        "ca",
+        "ye",
+        "ron"
+      ],
+      "tonica": 1,
+      "frase": "Con el viento, las hojas ___ del árbol."
+    },
+    {
+      "p": "leyendo",
+      "regla": "ll-y",
+      "mal": "lellendo",
+      "nivel": 2,
+      "silabas": [
+        "le",
+        "yen",
+        "do"
+      ],
+      "tonica": 1,
+      "frase": "Estoy ___ un libro de misterio."
+    },
+    {
+      "p": "oyendo",
+      "regla": "ll-y",
+      "mal": "ollendo",
+      "nivel": 2,
+      "silabas": [
+        "o",
+        "yen",
+        "do"
+      ],
+      "tonica": 1,
+      "frase": "Estoy ___ la radio en la cocina."
+    },
+    {
+      "p": "leyó",
+      "regla": "ll-y",
+      "mal": "lelló",
+      "nivel": 2,
+      "silabas": [
+        "le",
+        "yó"
+      ],
+      "tonica": 1,
+      "frase": "El director ___ el informe en voz alta."
+    },
+    {
+      "p": "ley",
+      "regla": "ll-y",
+      "mal": "lei",
+      "nivel": 2,
+      "silabas": [
+        "ley"
+      ],
+      "tonica": 0,
+      "frase": "Nadie puede saltarse la ___."
+    },
+    {
+      "p": "hallazgo",
+      "regla": "ll-y",
+      "mal": "hayazgo",
+      "nivel": 3,
+      "silabas": [
+        "ha",
+        "llaz",
+        "go"
+      ],
+      "tonica": 1,
+      "frase": "Encontrar la huella del zapato fue un gran ___."
+    },
+    {
+      "p": "folleto",
+      "regla": "ll-y",
+      "mal": "foyeto",
+      "nivel": 3,
+      "silabas": [
+        "fo",
+        "lle",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "En el kiosco reparten un ___ con el programa de la feria."
+    },
+    {
+      "p": "muelle",
+      "regla": "ll-y",
+      "mal": "mueye",
+      "nivel": 3,
+      "silabas": [
+        "mue",
+        "lle"
+      ],
+      "tonica": 0,
+      "frase": "El barco está amarrado en el ___ del puerto."
+    },
+    {
+      "p": "buey",
+      "regla": "ll-y",
+      "mal": "buei",
+      "nivel": 3,
+      "silabas": [
+        "buey"
+      ],
+      "tonica": 0,
+      "frase": "El ___ tira del carro en la romería."
+    },
+    {
+      "p": "jersey",
+      "regla": "ll-y",
+      "mal": "jersei",
+      "nivel": 3,
+      "silabas": [
+        "jer",
+        "sey"
+      ],
+      "tonica": 1,
+      "frase": "Ponte el ___ de lana, que hace frío."
+    },
+    {
+      "p": "ensayo",
+      "regla": "ll-y",
+      "mal": "ensallo",
+      "nivel": 3,
+      "silabas": [
+        "en",
+        "sa",
+        "yo"
+      ],
+      "tonica": 1,
+      "frase": "Hoy es el último ___ antes de la función de teatro."
+    },
+    {
+      "p": "proyecto",
+      "regla": "ll-y",
+      "mal": "prollecto",
+      "nivel": 3,
+      "silabas": [
+        "pro",
+        "yec",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "Mi clase prepara un ___ sobre el reciclaje."
+    },
+    {
+      "p": "trayecto",
+      "regla": "ll-y",
+      "mal": "trallecto",
+      "nivel": 3,
+      "silabas": [
+        "tra",
+        "yec",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "El ___ en autobús hasta el colegio dura veinte minutos."
+    },
+    {
+      "p": "yacimiento",
+      "regla": "ll-y",
+      "mal": "llacimiento",
+      "nivel": 3,
+      "silabas": [
+        "ya",
+        "ci",
+        "mien",
+        "to"
+      ],
+      "tonica": 2,
+      "frase": "En el ___ encontraron huesos de dinosaurio."
+    },
+    {
+      "p": "huyó",
+      "regla": "ll-y",
+      "mal": "hulló",
+      "nivel": 3,
+      "silabas": [
+        "hu",
+        "yó"
+      ],
+      "tonica": 1,
+      "frase": "El ladrón ___ por la ventana del almacén."
+    },
+    {
+      "p": "construyó",
+      "regla": "ll-y",
+      "mal": "construlló",
+      "nivel": 3,
+      "silabas": [
+        "cons",
+        "tru",
+        "yó"
+      ],
+      "tonica": 2,
+      "frase": "Mi abuelo ___ esta casa con sus propias manos."
+    },
+    {
+      "p": "creyó",
+      "regla": "ll-y",
+      "mal": "crelló",
+      "nivel": 3,
+      "silabas": [
+        "cre",
+        "yó"
+      ],
+      "tonica": 1,
+      "frase": "Nadie ___ la historia del testigo."
+    },
+    {
+      "p": "destruyó",
+      "regla": "ll-y",
+      "mal": "destrulló",
+      "nivel": 3,
+      "silabas": [
+        "des",
+        "tru",
+        "yó"
+      ],
+      "tonica": 2,
+      "frase": "La tormenta ___ la caseta del perro."
+    },
+    {
+      "p": "edad",
+      "regla": "d-z-finales",
+      "mal": "edaz",
+      "nivel": 1,
+      "silabas": [
+        "e",
+        "dad"
+      ],
+      "tonica": 1,
+      "frase": "¿Qué ___ tienes? —Diez años."
+    },
+    {
+      "p": "mitad",
+      "regla": "d-z-finales",
+      "mal": "mitaz",
+      "nivel": 1,
+      "silabas": [
+        "mi",
+        "tad"
+      ],
+      "tonica": 1,
+      "frase": "Corta la tarta por la ___ y repártela."
+    },
+    {
+      "p": "red",
+      "regla": "d-z-finales",
+      "mal": "rez",
+      "nivel": 1,
+      "silabas": [
+        "red"
+      ],
+      "tonica": 0,
+      "frase": "El balón entró en la portería y tocó la ___."
+    },
+    {
+      "p": "sed",
+      "regla": "d-z-finales",
+      "mal": "sez",
+      "nivel": 1,
+      "silabas": [
+        "sed"
+      ],
+      "tonica": 0,
+      "frase": "Después de correr tengo mucha ___."
+    },
+    {
+      "p": "luz",
+      "regla": "d-z-finales",
+      "mal": "lud",
+      "nivel": 1,
+      "silabas": [
+        "luz"
+      ],
+      "tonica": 0,
+      "frase": "Apaga la ___ antes de salir del cuarto."
+    },
+    {
+      "p": "pez",
+      "regla": "d-z-finales",
+      "mal": "ped",
+      "nivel": 1,
+      "silabas": [
+        "pez"
+      ],
+      "tonica": 0,
+      "frase": "En la pecera de la agencia nada un ___ rojo."
+    },
+    {
+      "p": "voz",
+      "regla": "d-z-finales",
+      "mal": "vod",
+      "nivel": 1,
+      "silabas": [
+        "voz"
+      ],
+      "tonica": 0,
+      "frase": "Ramón canta con una ___ muy bonita."
+    },
+    {
+      "p": "nariz",
+      "regla": "d-z-finales",
+      "mal": "narid",
+      "nivel": 1,
+      "silabas": [
+        "na",
+        "riz"
+      ],
+      "tonica": 1,
+      "frase": "El payaso lleva una ___ roja."
+    },
+    {
+      "p": "paz",
+      "regla": "d-z-finales",
+      "mal": "pad",
+      "nivel": 1,
+      "silabas": [
+        "paz"
+      ],
+      "tonica": 0,
+      "frase": "La paloma blanca es el símbolo de la ___."
+    },
+    {
+      "p": "oscuridad",
+      "regla": "d-z-finales",
+      "mal": "oscuridaz",
+      "nivel": 1,
+      "silabas": [
+        "os",
+        "cu",
+        "ri",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "En la ___ del sótano no se veía nada."
+    },
+    {
+      "p": "felicidad",
+      "regla": "d-z-finales",
+      "mal": "felicidaz",
+      "nivel": 1,
+      "silabas": [
+        "fe",
+        "li",
+        "ci",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "Al ganar la copa, el equipo saltaba de ___."
+    },
+    {
+      "p": "cantidad",
+      "regla": "d-z-finales",
+      "mal": "cantidaz",
+      "nivel": 1,
+      "silabas": [
+        "can",
+        "ti",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "¡Qué ___ de gente hay hoy en la feria!"
+    },
+    {
+      "p": "unidad",
+      "regla": "d-z-finales",
+      "mal": "unidaz",
+      "nivel": 1,
+      "silabas": [
+        "u",
+        "ni",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "Hoy empezamos la ___ cinco del libro."
+    },
+    {
+      "p": "seguridad",
+      "regla": "d-z-finales",
+      "mal": "seguridaz",
+      "nivel": 1,
+      "silabas": [
+        "se",
+        "gu",
+        "ri",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "En el coche, ponte siempre el cinturón de ___."
+    },
+    {
+      "p": "actividad",
+      "regla": "d-z-finales",
+      "mal": "actividaz",
+      "nivel": 1,
+      "silabas": [
+        "ac",
+        "ti",
+        "vi",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "La ___ favorita de la clase es el teatro."
+    },
+    {
+      "p": "velocidad",
+      "regla": "d-z-finales",
+      "mal": "velocidaz",
+      "nivel": 1,
+      "silabas": [
+        "ve",
+        "lo",
+        "ci",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "El tren de alta ___ va rapidísimo."
+    },
+    {
+      "p": "curiosidad",
+      "regla": "d-z-finales",
+      "mal": "curiosidaz",
+      "nivel": 1,
+      "silabas": [
+        "cu",
+        "rio",
+        "si",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "Lola abrió la caja por ___."
+    },
+    {
+      "p": "cruz",
+      "regla": "d-z-finales",
+      "mal": "crud",
+      "nivel": 1,
+      "silabas": [
+        "cruz"
+      ],
+      "tonica": 0,
+      "frase": "En el mapa del tesoro, una ___ marca el sitio."
+    },
+    {
+      "p": "disfraz",
+      "regla": "d-z-finales",
+      "mal": "disfrad",
+      "nivel": 1,
+      "silabas": [
+        "dis",
+        "fraz"
+      ],
+      "tonica": 1,
+      "frase": "En Carnaval me pongo un ___ de pirata."
+    },
+    {
+      "p": "ajedrez",
+      "regla": "d-z-finales",
+      "mal": "ajedred",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "je",
+        "drez"
+      ],
+      "tonica": 2,
+      "frase": "Mi abuelo me enseña a jugar al ___."
+    },
+    {
+      "p": "usted",
+      "regla": "d-z-finales",
+      "mal": "ustez",
+      "nivel": 2,
+      "silabas": [
+        "us",
+        "ted"
+      ],
+      "tonica": 1,
+      "frase": "Disculpe, ¿es ___ el dueño de la panadería?"
+    },
+    {
+      "p": "bondad",
+      "regla": "d-z-finales",
+      "mal": "bondaz",
+      "nivel": 2,
+      "silabas": [
+        "bon",
+        "dad"
+      ],
+      "tonica": 1,
+      "frase": "Herminia ayuda a todo el mundo por pura ___."
+    },
+    {
+      "p": "maldad",
+      "regla": "d-z-finales",
+      "mal": "maldaz",
+      "nivel": 2,
+      "silabas": [
+        "mal",
+        "dad"
+      ],
+      "tonica": 1,
+      "frase": "El Tachón esconde las letras por pura ___."
+    },
+    {
+      "p": "soledad",
+      "regla": "d-z-finales",
+      "mal": "soledaz",
+      "nivel": 2,
+      "silabas": [
+        "so",
+        "le",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "Al abuelo no le gusta la ___: prefiere estar con gente."
+    },
+    {
+      "p": "enfermedad",
+      "regla": "d-z-finales",
+      "mal": "enfermedaz",
+      "nivel": 2,
+      "silabas": [
+        "en",
+        "fer",
+        "me",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "La gripe es una ___ muy contagiosa."
+    },
+    {
+      "p": "nuez",
+      "regla": "d-z-finales",
+      "mal": "nued",
+      "nivel": 2,
+      "silabas": [
+        "nuez"
+      ],
+      "tonica": 0,
+      "frase": "La ardilla rompe una ___ con los dientes."
+    },
+    {
+      "p": "actriz",
+      "regla": "d-z-finales",
+      "mal": "actrid",
+      "nivel": 2,
+      "silabas": [
+        "ac",
+        "triz"
+      ],
+      "tonica": 1,
+      "frase": "La ___ de la película salía en todos los carteles."
+    },
+    {
+      "p": "feroz",
+      "regla": "d-z-finales",
+      "mal": "ferod",
+      "nivel": 2,
+      "silabas": [
+        "fe",
+        "roz"
+      ],
+      "tonica": 1,
+      "frase": "En el cuento de Caperucita aparece el lobo ___."
+    },
+    {
+      "p": "regaliz",
+      "regla": "d-z-finales",
+      "mal": "regalid",
+      "nivel": 2,
+      "silabas": [
+        "re",
+        "ga",
+        "liz"
+      ],
+      "tonica": 2,
+      "frase": "En el kiosco venden ___ rojo y negro."
+    },
+    {
+      "p": "electricidad",
+      "regla": "d-z-finales",
+      "mal": "electricidaz",
+      "nivel": 2,
+      "silabas": [
+        "e",
+        "lec",
+        "tri",
+        "ci",
+        "dad"
+      ],
+      "tonica": 4,
+      "frase": "Se fue la ___ y nos quedamos a oscuras."
+    },
+    {
+      "p": "dificultad",
+      "regla": "d-z-finales",
+      "mal": "dificultaz",
+      "nivel": 2,
+      "silabas": [
+        "di",
+        "fi",
+        "cul",
+        "tad"
+      ],
+      "tonica": 3,
+      "frase": "Mateo subió la cuesta en bici con mucha ___."
+    },
+    {
+      "p": "humedad",
+      "regla": "d-z-finales",
+      "mal": "humedaz",
+      "nivel": 2,
+      "silabas": [
+        "hu",
+        "me",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "En el sótano hay tanta ___ que las paredes están mojadas."
+    },
+    {
+      "p": "habilidad",
+      "regla": "d-z-finales",
+      "mal": "habilidaz",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "bi",
+        "li",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "Bruno tiene mucha ___ con la pelota."
+    },
+    {
+      "p": "voluntad",
+      "regla": "d-z-finales",
+      "mal": "voluntaz",
+      "nivel": 3,
+      "silabas": [
+        "vo",
+        "lun",
+        "tad"
+      ],
+      "tonica": 2,
+      "frase": "Para aprender a nadar hace falta fuerza de ___."
+    },
+    {
+      "p": "virtud",
+      "regla": "d-z-finales",
+      "mal": "virtuz",
+      "nivel": 3,
+      "silabas": [
+        "vir",
+        "tud"
+      ],
+      "tonica": 1,
+      "frase": "La paciencia es una gran ___."
+    },
+    {
+      "p": "actitud",
+      "regla": "d-z-finales",
+      "mal": "actituz",
+      "nivel": 3,
+      "silabas": [
+        "ac",
+        "ti",
+        "tud"
+      ],
+      "tonica": 2,
+      "frase": "Con buena ___, todo sale mejor."
+    },
+    {
+      "p": "multitud",
+      "regla": "d-z-finales",
+      "mal": "multituz",
+      "nivel": 3,
+      "silabas": [
+        "mul",
+        "ti",
+        "tud"
+      ],
+      "tonica": 2,
+      "frase": "Una ___ de vecinos llenó la plaza para ver el pregón."
+    },
+    {
+      "p": "lentitud",
+      "regla": "d-z-finales",
+      "mal": "lentituz",
+      "nivel": 3,
+      "silabas": [
+        "len",
+        "ti",
+        "tud"
+      ],
+      "tonica": 2,
+      "frase": "El caracol avanza con mucha ___."
+    },
+    {
+      "p": "tempestad",
+      "regla": "d-z-finales",
+      "mal": "tempestaz",
+      "nivel": 3,
+      "silabas": [
+        "tem",
+        "pes",
+        "tad"
+      ],
+      "tonica": 2,
+      "frase": "Los marineros volvieron al puerto por la ___."
+    },
+    {
+      "p": "claridad",
+      "regla": "d-z-finales",
+      "mal": "claridaz",
+      "nivel": 3,
+      "silabas": [
+        "cla",
+        "ri",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "El testigo lo explicó todo con mucha ___."
+    },
+    {
+      "p": "universidad",
+      "regla": "d-z-finales",
+      "mal": "universidaz",
+      "nivel": 3,
+      "silabas": [
+        "u",
+        "ni",
+        "ver",
+        "si",
+        "dad"
+      ],
+      "tonica": 4,
+      "frase": "Mi prima estudia Medicina en la ___."
+    },
+    {
+      "p": "oportunidad",
+      "regla": "d-z-finales",
+      "mal": "oportunidaz",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "por",
+        "tu",
+        "ni",
+        "dad"
+      ],
+      "tonica": 4,
+      "frase": "Es el momento de atraparlo: no pierdas la ___."
+    },
+    {
+      "p": "tranquilidad",
+      "regla": "d-z-finales",
+      "mal": "tranquilidaz",
+      "nivel": 3,
+      "silabas": [
+        "tran",
+        "qui",
+        "li",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "Por la noche, en la plaza se respira ___."
+    },
+    {
+      "p": "igualdad",
+      "regla": "d-z-finales",
+      "mal": "igualdaz",
+      "nivel": 3,
+      "silabas": [
+        "i",
+        "gual",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "Niños y niñas tienen los mismos derechos: eso es la ___."
+    },
+    {
+      "p": "lealtad",
+      "regla": "d-z-finales",
+      "mal": "lealtaz",
+      "nivel": 3,
+      "silabas": [
+        "le",
+        "al",
+        "tad"
+      ],
+      "tonica": 2,
+      "frase": "El perro demuestra su ___ esperando a su dueño cada día."
+    },
+    {
+      "p": "comunidad",
+      "regla": "d-z-finales",
+      "mal": "comunidaz",
+      "nivel": 3,
+      "silabas": [
+        "co",
+        "mu",
+        "ni",
+        "dad"
+      ],
+      "tonica": 3,
+      "frase": "Andalucía es una ___ autónoma."
+    },
+    {
+      "p": "alud",
+      "regla": "d-z-finales",
+      "mal": "aluz",
+      "nivel": 3,
+      "silabas": [
+        "a",
+        "lud"
+      ],
+      "tonica": 1,
+      "frase": "Un ___ de nieve bajó por la ladera de la montaña."
+    },
+    {
+      "p": "lombriz",
+      "regla": "d-z-finales",
+      "mal": "lombrid",
+      "nivel": 3,
+      "silabas": [
+        "lom",
+        "briz"
+      ],
+      "tonica": 1,
+      "frase": "Al cavar en el huerto salió una ___."
+    },
+    {
+      "p": "cicatriz",
+      "regla": "d-z-finales",
+      "mal": "cicatrid",
+      "nivel": 3,
+      "silabas": [
+        "ci",
+        "ca",
+        "triz"
+      ],
+      "tonica": 2,
+      "frase": "Tiene una ___ en la rodilla desde que se cayó."
+    },
+    {
+      "p": "antifaz",
+      "regla": "d-z-finales",
+      "mal": "antifad",
+      "nivel": 3,
+      "silabas": [
+        "an",
+        "ti",
+        "faz"
+      ],
+      "tonica": 2,
+      "frase": "El ladrón llevaba un ___ negro para que no lo reconocieran."
+    },
+    {
+      "p": "veloz",
+      "regla": "d-z-finales",
+      "mal": "velod",
+      "nivel": 3,
+      "silabas": [
+        "ve",
+        "loz"
+      ],
+      "tonica": 1,
+      "frase": "El guepardo es el animal terrestre más ___."
+    },
+    {
+      "p": "avestruz",
+      "regla": "d-z-finales",
+      "mal": "avestrud",
+      "nivel": 3,
+      "silabas": [
+        "a",
+        "ves",
+        "truz"
+      ],
+      "tonica": 2,
+      "frase": "El ___ es un ave enorme que no puede volar."
+    },
+    {
+      "p": "altavoz",
+      "regla": "d-z-finales",
+      "mal": "altavod",
+      "nivel": 3,
+      "silabas": [
+        "al",
+        "ta",
+        "voz"
+      ],
+      "tonica": 2,
+      "frase": "Por el ___ anunciaron el ganador de la rifa."
+    },
+    {
+      "p": "niñez",
+      "regla": "d-z-finales",
+      "mal": "niñed",
+      "nivel": 3,
+      "silabas": [
+        "ni",
+        "ñez"
+      ],
+      "tonica": 1,
+      "frase": "Herminia recuerda con cariño su ___ en el barrio."
+    },
+    {
+      "p": "rapidez",
+      "regla": "d-z-finales",
+      "mal": "rapided",
+      "nivel": 3,
+      "silabas": [
+        "ra",
+        "pi",
+        "dez"
+      ],
+      "tonica": 2,
+      "frase": "El repartidor trajo el paquete con mucha ___."
+    },
+    {
+      "p": "timidez",
+      "regla": "d-z-finales",
+      "mal": "timided",
+      "nivel": 3,
+      "silabas": [
+        "ti",
+        "mi",
+        "dez"
+      ],
+      "tonica": 2,
+      "frase": "Por ___, Ramón no quería cantar en público."
+    },
+    {
+      "p": "tapiz",
+      "regla": "d-z-finales",
+      "mal": "tapid",
+      "nivel": 3,
+      "silabas": [
+        "ta",
+        "piz"
+      ],
+      "tonica": 1,
+      "frase": "En la pared del palacio cuelga un ___ antiguo."
+    },
+    {
+      "p": "aprendiz",
+      "regla": "d-z-finales",
+      "mal": "aprendid",
+      "nivel": 3,
+      "silabas": [
+        "a",
+        "pren",
+        "diz"
+      ],
+      "tonica": 2,
+      "frase": "Julián tiene un ___ que le ayuda en la panadería."
+    },
+    {
+      "p": "hierba",
+      "regla": "h-1",
+      "mal": "ierba",
+      "nivel": 1,
+      "silabas": [
+        "hier",
+        "ba"
+      ],
+      "tonica": 0,
+      "frase": "Las vacas comen ___ en el prado."
+    },
+    {
+      "p": "huerto",
+      "regla": "h-1",
+      "mal": "uerto",
+      "nivel": 1,
+      "silabas": [
+        "huer",
+        "to"
+      ],
+      "tonica": 0,
+      "frase": "En el ___ del colegio plantamos tomates."
+    },
+    {
+      "p": "huella",
+      "regla": "h-1",
+      "mal": "uella",
+      "nivel": 1,
+      "silabas": [
+        "hue",
+        "lla"
+      ],
+      "tonica": 0,
+      "frase": "Encontramos una ___ de zapato junto a la ventana."
+    },
+    {
+      "p": "hermana",
+      "regla": "h-1",
+      "mal": "ermana",
+      "nivel": 1,
+      "silabas": [
+        "her",
+        "ma",
+        "na"
+      ],
+      "tonica": 1,
+      "frase": "Mi ___ mayor me ayuda con los deberes."
+    },
+    {
+      "p": "hubo",
+      "regla": "h-1",
+      "mal": "ubo",
+      "nivel": 1,
+      "silabas": [
+        "hu",
+        "bo"
+      ],
+      "tonica": 0,
+      "frase": "Ayer ___ una fiesta en la plaza."
+    },
+    {
+      "p": "hicimos",
+      "regla": "h-1",
+      "mal": "icimos",
+      "nivel": 1,
+      "silabas": [
+        "hi",
+        "ci",
+        "mos"
+      ],
+      "tonica": 1,
+      "frase": "En clase ___ un mural del barrio."
+    },
+    {
+      "p": "hago",
+      "regla": "h-1",
+      "mal": "ago",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "go"
+      ],
+      "tonica": 0,
+      "frase": "Siempre ___ la cama antes de desayunar."
+    },
+    {
+      "p": "hacer",
+      "regla": "h-1",
+      "mal": "acer",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "cer"
+      ],
+      "tonica": 1,
+      "frase": "Después de clase tengo que ___ los deberes."
+    },
+    {
+      "p": "hablar",
+      "regla": "h-1",
+      "mal": "ablar",
+      "nivel": 1,
+      "silabas": [
+        "ha",
+        "blar"
+      ],
+      "tonica": 1,
+      "frase": "Me gusta ___ con mis amigos en el recreo."
+    },
+    {
+      "p": "hoja",
+      "regla": "h-1",
+      "mal": "oja",
+      "nivel": 1,
+      "silabas": [
+        "ho",
+        "ja"
+      ],
+      "tonica": 0,
+      "frase": "En otoño se cae la última ___ del árbol."
+    },
+    {
+      "p": "helado",
+      "regla": "h-1",
+      "mal": "elado",
+      "nivel": 1,
+      "silabas": [
+        "he",
+        "la",
+        "do"
+      ],
+      "tonica": 1,
+      "frase": "En verano me tomo un ___ de chocolate."
+    },
+    {
+      "p": "ahora",
+      "regla": "h-1",
+      "mal": "aora",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "ho",
+        "ra"
+      ],
+      "tonica": 1,
+      "frase": "Ven ___ mismo, que la cena se enfría."
+    },
+    {
+      "p": "hucha",
+      "regla": "h-1",
+      "mal": "ucha",
+      "nivel": 1,
+      "silabas": [
+        "hu",
+        "cha"
+      ],
+      "tonica": 0,
+      "frase": "Guardo mis ahorros en una ___ con forma de cerdito."
+    },
+    {
+      "p": "hamburguesa",
+      "regla": "h-1",
+      "mal": "amburguesa",
+      "nivel": 1,
+      "silabas": [
+        "ham",
+        "bur",
+        "gue",
+        "sa"
+      ],
+      "tonica": 2,
+      "frase": "Para cenar quiero una ___ con queso."
+    },
+    {
+      "p": "hierro",
+      "regla": "h-1",
+      "mal": "ierro",
+      "nivel": 2,
+      "silabas": [
+        "hie",
+        "rro"
+      ],
+      "tonica": 0,
+      "frase": "La reja de la ventana es de ___."
+    },
+    {
+      "p": "hiena",
+      "regla": "h-1",
+      "mal": "iena",
+      "nivel": 2,
+      "silabas": [
+        "hie",
+        "na"
+      ],
+      "tonica": 0,
+      "frase": "La ___ parece que se ríe cuando hace ruido."
+    },
+    {
+      "p": "hueco",
+      "regla": "h-1",
+      "mal": "ueco",
+      "nivel": 2,
+      "silabas": [
+        "hue",
+        "co"
+      ],
+      "tonica": 0,
+      "frase": "El gato se escondió en un ___ de la pared."
+    },
+    {
+      "p": "hermoso",
+      "regla": "h-1",
+      "mal": "ermoso",
+      "nivel": 2,
+      "silabas": [
+        "her",
+        "mo",
+        "so"
+      ],
+      "tonica": 1,
+      "frase": "Desde la azotea se ve un atardecer ___."
+    },
+    {
+      "p": "hormiguero",
+      "regla": "h-1",
+      "mal": "ormiguero",
+      "nivel": 2,
+      "silabas": [
+        "hor",
+        "mi",
+        "gue",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "Las hormigas entran y salen del ___ sin parar."
+    },
+    {
+      "p": "horror",
+      "regla": "h-1",
+      "mal": "orror",
+      "nivel": 2,
+      "silabas": [
+        "ho",
+        "rror"
+      ],
+      "tonica": 1,
+      "frase": "Al ver la habitación tan desordenada, mamá gritó: «¡Qué ___!»."
+    },
+    {
+      "p": "húmedo",
+      "regla": "h-1",
+      "mal": "úmedo",
+      "nivel": 2,
+      "silabas": [
+        "hú",
+        "me",
+        "do"
+      ],
+      "tonica": 0,
+      "frase": "La toalla todavía está ___."
+    },
+    {
+      "p": "humor",
+      "regla": "h-1",
+      "mal": "umor",
+      "nivel": 2,
+      "silabas": [
+        "hu",
+        "mor"
+      ],
+      "tonica": 1,
+      "frase": "Mi tío tiene mucho sentido del ___: siempre nos hace reír."
+    },
+    {
+      "p": "habrá",
+      "regla": "h-1",
+      "mal": "abrá",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "brá"
+      ],
+      "tonica": 1,
+      "frase": "Mañana ___ mercadillo en la plaza."
+    },
+    {
+      "p": "habían",
+      "regla": "h-1",
+      "mal": "abían",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "bí",
+        "an"
+      ],
+      "tonica": 1,
+      "frase": "Los ladrones ___ dejado la puerta abierta."
+    },
+    {
+      "p": "hacía",
+      "regla": "h-1",
+      "mal": "acía",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "cí",
+        "a"
+      ],
+      "tonica": 1,
+      "frase": "Ayer ___ mucho frío en el patio."
+    },
+    {
+      "p": "hicieron",
+      "regla": "h-1",
+      "mal": "icieron",
+      "nivel": 2,
+      "silabas": [
+        "hi",
+        "cie",
+        "ron"
+      ],
+      "tonica": 1,
+      "frase": "Los vecinos le ___ una fiesta sorpresa a Herminia."
+    },
+    {
+      "p": "hablé",
+      "regla": "h-1",
+      "mal": "ablé",
+      "nivel": 2,
+      "silabas": [
+        "ha",
+        "blé"
+      ],
+      "tonica": 1,
+      "frase": "Ayer ___ por teléfono con mi tía."
+    },
+    {
+      "p": "huir",
+      "regla": "h-1",
+      "mal": "uir",
+      "nivel": 2,
+      "silabas": [
+        "huir"
+      ],
+      "tonica": 0,
+      "frase": "El ratón intentó ___ por un agujero."
+    },
+    {
+      "p": "historia",
+      "regla": "h-1",
+      "mal": "istoria",
+      "nivel": 2,
+      "silabas": [
+        "his",
+        "to",
+        "ria"
+      ],
+      "tonica": 1,
+      "frase": "Herminia nos contó una ___ de piratas."
+    },
+    {
+      "p": "hilo",
+      "regla": "h-1",
+      "mal": "ilo",
+      "nivel": 2,
+      "silabas": [
+        "hi",
+        "lo"
+      ],
+      "tonica": 0,
+      "frase": "Mi abuela cose el botón con aguja e ___."
+    },
+    {
+      "p": "hiedra",
+      "regla": "h-1",
+      "mal": "iedra",
+      "nivel": 3,
+      "silabas": [
+        "hie",
+        "dra"
+      ],
+      "tonica": 0,
+      "frase": "La pared de la casa vieja está cubierta de ___."
+    },
+    {
+      "p": "huérfano",
+      "regla": "h-1",
+      "mal": "uérfano",
+      "nivel": 3,
+      "silabas": [
+        "huér",
+        "fa",
+        "no"
+      ],
+      "tonica": 0,
+      "frase": "El niño del cuento era ___: no tenía padres."
+    },
+    {
+      "p": "deshielo",
+      "regla": "h-1",
+      "mal": "desielo",
+      "nivel": 3,
+      "silabas": [
+        "des",
+        "hie",
+        "lo"
+      ],
+      "tonica": 1,
+      "frase": "En primavera, con el ___, los ríos bajan llenos."
+    },
+    {
+      "p": "hermandad",
+      "regla": "h-1",
+      "mal": "ermandad",
+      "nivel": 3,
+      "silabas": [
+        "her",
+        "man",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "La ___ prepara el paso para la procesión."
+    },
+    {
+      "p": "hormigón",
+      "regla": "h-1",
+      "mal": "ormigón",
+      "nivel": 3,
+      "silabas": [
+        "hor",
+        "mi",
+        "gón"
+      ],
+      "tonica": 2,
+      "frase": "El puente nuevo es de ___ y acero."
+    },
+    {
+      "p": "humilde",
+      "regla": "h-1",
+      "mal": "umilde",
+      "nivel": 3,
+      "silabas": [
+        "hu",
+        "mil",
+        "de"
+      ],
+      "tonica": 1,
+      "frase": "Aunque gana siempre, Bruno es muy ___."
+    },
+    {
+      "p": "humareda",
+      "regla": "h-1",
+      "mal": "umareda",
+      "nivel": 3,
+      "silabas": [
+        "hu",
+        "ma",
+        "re",
+        "da"
+      ],
+      "tonica": 2,
+      "frase": "Del incendio del almacén salió una enorme ___."
+    },
+    {
+      "p": "hallaron",
+      "regla": "h-1",
+      "mal": "allaron",
+      "nivel": 3,
+      "silabas": [
+        "ha",
+        "lla",
+        "ron"
+      ],
+      "tonica": 1,
+      "frase": "Los detectives ___ la llave escondida en una maceta."
+    },
+    {
+      "p": "habitante",
+      "regla": "h-1",
+      "mal": "abitante",
+      "nivel": 3,
+      "silabas": [
+        "ha",
+        "bi",
+        "tan",
+        "te"
+      ],
+      "tonica": 2,
+      "frase": "Cada ___ del barrio recibió una carta del alcalde."
+    },
+    {
+      "p": "habitual",
+      "regla": "h-1",
+      "mal": "abitual",
+      "nivel": 3,
+      "silabas": [
+        "ha",
+        "bi",
+        "tual"
+      ],
+      "tonica": 2,
+      "frase": "El café de las nueve es una costumbre ___ del director."
+    },
+    {
+      "p": "orfanato",
+      "regla": "h-1",
+      "mal": "horfanato",
+      "nivel": 3,
+      "silabas": [
+        "or",
+        "fa",
+        "na",
+        "to"
+      ],
+      "tonica": 2,
+      "frase": "El niño del cuento vivía en un ___."
+    },
+    {
+      "p": "osamenta",
+      "regla": "h-1",
+      "mal": "hosamenta",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "sa",
+        "men",
+        "ta"
+      ],
+      "tonica": 2,
+      "frase": "En el museo exponen la ___ de una ballena."
+    },
+    {
+      "p": "ovíparo",
+      "regla": "h-1",
+      "mal": "hovíparo",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "ví",
+        "pa",
+        "ro"
+      ],
+      "tonica": 1,
+      "frase": "La gallina es un animal ___: sus crías nacen de huevos."
+    },
+    {
+      "p": "ovalado",
+      "regla": "h-1",
+      "mal": "hovalado",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "va",
+        "la",
+        "do"
+      ],
+      "tonica": 2,
+      "frase": "El espejo del baño es ___."
+    },
+    {
+      "p": "almohada",
+      "regla": "h-1",
+      "mal": "almoada",
+      "nivel": 3,
+      "silabas": [
+        "al",
+        "mo",
+        "ha",
+        "da"
+      ],
+      "tonica": 2,
+      "frase": "Dejé el diente debajo de la ___ para el Ratoncito Pérez."
+    },
+    {
+      "p": "zanahoria",
+      "regla": "h-1",
+      "mal": "zanaoria",
+      "nivel": 3,
+      "silabas": [
+        "za",
+        "na",
+        "ho",
+        "ria"
+      ],
+      "tonica": 2,
+      "frase": "Al conejo le encanta comer ___."
+    },
+    {
+      "p": "búho",
+      "regla": "h-1",
+      "mal": "búo",
+      "nivel": 3,
+      "silabas": [
+        "bú",
+        "ho"
+      ],
+      "tonica": 0,
+      "frase": "El ___ caza ratones por la noche."
+    },
+    {
+      "p": "enhorabuena",
+      "regla": "h-1",
+      "mal": "enorabuena",
+      "nivel": 3,
+      "silabas": [
+        "en",
+        "ho",
+        "ra",
+        "bue",
+        "na"
+      ],
+      "tonica": 3,
+      "frase": "¡___ por ganar el concurso de dibujo!"
+    },
+    {
+      "p": "zorro",
+      "regla": "c-z-s",
+      "mal": "sorro",
+      "nivel": 1,
+      "silabas": [
+        "zo",
+        "rro"
+      ],
+      "tonica": 0,
+      "frase": "El ___ se escapó con una gallina en la boca."
+    },
+    {
+      "p": "pizarra",
+      "regla": "c-z-s",
+      "mal": "pisarra",
+      "nivel": 1,
+      "silabas": [
+        "pi",
+        "za",
+        "rra"
+      ],
+      "tonica": 1,
+      "frase": "El maestro escribe la fecha en la ___."
+    },
+    {
+      "p": "corazón",
+      "regla": "c-z-s",
+      "mal": "corasón",
+      "nivel": 1,
+      "silabas": [
+        "co",
+        "ra",
+        "zón"
+      ],
+      "tonica": 2,
+      "frase": "El ___ late más rápido cuando corres."
+    },
+    {
+      "p": "tiza",
+      "regla": "c-z-s",
+      "mal": "tisa",
+      "nivel": 1,
+      "silabas": [
+        "ti",
+        "za"
+      ],
+      "tonica": 0,
+      "frase": "Escribe en la pizarra con una ___ blanca."
+    },
+    {
+      "p": "manzana",
+      "regla": "c-z-s",
+      "mal": "mansana",
+      "nivel": 1,
+      "silabas": [
+        "man",
+        "za",
+        "na"
+      ],
+      "tonica": 1,
+      "frase": "Me como una ___ roja en el recreo."
+    },
+    {
+      "p": "cabeza",
+      "regla": "c-z-s",
+      "mal": "cabesa",
+      "nivel": 1,
+      "silabas": [
+        "ca",
+        "be",
+        "za"
+      ],
+      "tonica": 1,
+      "frase": "Ponte la gorra en la ___, que hace mucho sol."
+    },
+    {
+      "p": "azul",
+      "regla": "c-z-s",
+      "mal": "asul",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "zul"
+      ],
+      "tonica": 1,
+      "frase": "El cielo está ___ y sin nubes."
+    },
+    {
+      "p": "cine",
+      "regla": "c-z-s",
+      "mal": "sine",
+      "nivel": 1,
+      "silabas": [
+        "ci",
+        "ne"
+      ],
+      "tonica": 0,
+      "frase": "El sábado vamos al ___ a ver una película."
+    },
+    {
+      "p": "cero",
+      "regla": "c-z-s",
+      "mal": "sero",
+      "nivel": 1,
+      "silabas": [
+        "ce",
+        "ro"
+      ],
+      "tonica": 0,
+      "frase": "Diez menos diez es ___."
+    },
+    {
+      "p": "cerca",
+      "regla": "c-z-s",
+      "mal": "serca",
+      "nivel": 1,
+      "silabas": [
+        "cer",
+        "ca"
+      ],
+      "tonica": 0,
+      "frase": "La panadería está muy ___ de mi casa."
+    },
+    {
+      "p": "cesta",
+      "regla": "c-z-s",
+      "mal": "sesta",
+      "nivel": 1,
+      "silabas": [
+        "ces",
+        "ta"
+      ],
+      "tonica": 0,
+      "frase": "Remedios lleva la compra en una ___ de mimbre."
+    },
+    {
+      "p": "cinco",
+      "regla": "c-z-s",
+      "mal": "sinco",
+      "nivel": 1,
+      "silabas": [
+        "cin",
+        "co"
+      ],
+      "tonica": 0,
+      "frase": "Dos más tres son ___."
+    },
+    {
+      "p": "circo",
+      "regla": "c-z-s",
+      "mal": "sirco",
+      "nivel": 1,
+      "silabas": [
+        "cir",
+        "co"
+      ],
+      "tonica": 0,
+      "frase": "En el ___ hay payasos y malabaristas."
+    },
+    {
+      "p": "dulce",
+      "regla": "c-z-s",
+      "mal": "dulse",
+      "nivel": 1,
+      "silabas": [
+        "dul",
+        "ce"
+      ],
+      "tonica": 0,
+      "frase": "El chocolate es muy ___."
+    },
+    {
+      "p": "doce",
+      "regla": "c-z-s",
+      "mal": "dose",
+      "nivel": 1,
+      "silabas": [
+        "do",
+        "ce"
+      ],
+      "tonica": 0,
+      "frase": "Una docena son ___ huevos."
+    },
+    {
+      "p": "vecino",
+      "regla": "c-z-s",
+      "mal": "vesino",
+      "nivel": 1,
+      "silabas": [
+        "ve",
+        "ci",
+        "no"
+      ],
+      "tonica": 1,
+      "frase": "Mi ___ del quinto tiene un perro enorme."
+    },
+    {
+      "p": "buzón",
+      "regla": "c-z-s",
+      "mal": "busón",
+      "nivel": 2,
+      "silabas": [
+        "bu",
+        "zón"
+      ],
+      "tonica": 1,
+      "frase": "Echa la carta en el ___ de la esquina."
+    },
+    {
+      "p": "razón",
+      "regla": "c-z-s",
+      "mal": "rasón",
+      "nivel": 2,
+      "silabas": [
+        "ra",
+        "zón"
+      ],
+      "tonica": 1,
+      "frase": "Mateo tenía ___: el ladrón era el cartero."
+    },
+    {
+      "p": "pedazo",
+      "regla": "c-z-s",
+      "mal": "pedaso",
+      "nivel": 2,
+      "silabas": [
+        "pe",
+        "da",
+        "zo"
+      ],
+      "tonica": 1,
+      "frase": "Dame un ___ de bizcocho, por favor."
+    },
+    {
+      "p": "almuerzo",
+      "regla": "c-z-s",
+      "mal": "almuerso",
+      "nivel": 2,
+      "silabas": [
+        "al",
+        "muer",
+        "zo"
+      ],
+      "tonica": 1,
+      "frase": "A media mañana me tomo el ___ en el recreo."
+    },
+    {
+      "p": "zurdo",
+      "regla": "c-z-s",
+      "mal": "surdo",
+      "nivel": 2,
+      "silabas": [
+        "zur",
+        "do"
+      ],
+      "tonica": 0,
+      "frase": "Mateo escribe con la mano izquierda: es ___."
+    },
+    {
+      "p": "izquierda",
+      "regla": "c-z-s",
+      "mal": "isquierda",
+      "nivel": 2,
+      "silabas": [
+        "iz",
+        "quier",
+        "da"
+      ],
+      "tonica": 1,
+      "frase": "Gira a la ___ al llegar a la fuente."
+    },
+    {
+      "p": "calabaza",
+      "regla": "c-z-s",
+      "mal": "calabasa",
+      "nivel": 2,
+      "silabas": [
+        "ca",
+        "la",
+        "ba",
+        "za"
+      ],
+      "tonica": 2,
+      "frase": "En otoño hacemos crema de ___."
+    },
+    {
+      "p": "aceite",
+      "regla": "c-z-s",
+      "mal": "aseite",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "cei",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "Desayuno tostadas con ___ de oliva."
+    },
+    {
+      "p": "trece",
+      "regla": "c-z-s",
+      "mal": "trese",
+      "nivel": 2,
+      "silabas": [
+        "tre",
+        "ce"
+      ],
+      "tonica": 0,
+      "frase": "Doce más uno son ___."
+    },
+    {
+      "p": "catorce",
+      "regla": "c-z-s",
+      "mal": "catorse",
+      "nivel": 2,
+      "silabas": [
+        "ca",
+        "tor",
+        "ce"
+      ],
+      "tonica": 1,
+      "frase": "Doce más dos son ___."
+    },
+    {
+      "p": "receta",
+      "regla": "c-z-s",
+      "mal": "reseta",
+      "nivel": 2,
+      "silabas": [
+        "re",
+        "ce",
+        "ta"
+      ],
+      "tonica": 1,
+      "frase": "Julián nos dio la ___ del bizcocho."
+    },
+    {
+      "p": "cebra",
+      "regla": "c-z-s",
+      "mal": "sebra",
+      "nivel": 2,
+      "silabas": [
+        "ce",
+        "bra"
+      ],
+      "tonica": 0,
+      "frase": "La ___ tiene rayas blancas y negras."
+    },
+    {
+      "p": "cepillo",
+      "regla": "c-z-s",
+      "mal": "sepillo",
+      "nivel": 2,
+      "silabas": [
+        "ce",
+        "pi",
+        "llo"
+      ],
+      "tonica": 1,
+      "frase": "Me lavo los dientes con el ___."
+    },
+    {
+      "p": "cocinero",
+      "regla": "c-z-s",
+      "mal": "cosinero",
+      "nivel": 2,
+      "silabas": [
+        "co",
+        "ci",
+        "ne",
+        "ro"
+      ],
+      "tonica": 2,
+      "frase": "El ___ del restaurante prepara el arroz."
+    },
+    {
+      "p": "princesa",
+      "regla": "c-z-s",
+      "mal": "princeza",
+      "nivel": 2,
+      "silabas": [
+        "prin",
+        "ce",
+        "sa"
+      ],
+      "tonica": 1,
+      "frase": "La ___ del cuento vivía en una torre."
+    },
+    {
+      "p": "lápices",
+      "regla": "c-z-s",
+      "mal": "lápises",
+      "nivel": 2,
+      "silabas": [
+        "lá",
+        "pi",
+        "ces"
+      ],
+      "tonica": 0,
+      "frase": "Guarda los ___ de colores en el estuche."
+    },
+    {
+      "p": "nueces",
+      "regla": "c-z-s",
+      "mal": "nueses",
+      "nivel": 2,
+      "silabas": [
+        "nue",
+        "ces"
+      ],
+      "tonica": 0,
+      "frase": "La ardilla esconde ___ para el invierno."
+    },
+    {
+      "p": "voces",
+      "regla": "c-z-s",
+      "mal": "voses",
+      "nivel": 2,
+      "silabas": [
+        "vo",
+        "ces"
+      ],
+      "tonica": 0,
+      "frase": "Se oyen ___ dentro del almacén vacío."
+    },
+    {
+      "p": "veces",
+      "regla": "c-z-s",
+      "mal": "veses",
+      "nivel": 2,
+      "silabas": [
+        "ve",
+        "ces"
+      ],
+      "tonica": 0,
+      "frase": "Te lo he dicho tres ___."
+    },
+    {
+      "p": "felices",
+      "regla": "c-z-s",
+      "mal": "felises",
+      "nivel": 2,
+      "silabas": [
+        "fe",
+        "li",
+        "ces"
+      ],
+      "tonica": 1,
+      "frase": "Y vivieron ___ para siempre."
+    },
+    {
+      "p": "comencé",
+      "regla": "c-z-s",
+      "mal": "comensé",
+      "nivel": 2,
+      "silabas": [
+        "co",
+        "men",
+        "cé"
+      ],
+      "tonica": 2,
+      "frase": "El lunes ___ las clases de natación."
+    },
+    {
+      "p": "crucé",
+      "regla": "c-z-s",
+      "mal": "crusé",
+      "nivel": 2,
+      "silabas": [
+        "cru",
+        "cé"
+      ],
+      "tonica": 1,
+      "frase": "___ la calle por el paso de cebra."
+    },
+    {
+      "p": "lancé",
+      "regla": "c-z-s",
+      "mal": "lansé",
+      "nivel": 2,
+      "silabas": [
+        "lan",
+        "cé"
+      ],
+      "tonica": 1,
+      "frase": "Le ___ la pelota a Mateo y la paró con el pie."
+    },
+    {
+      "p": "esquina",
+      "regla": "c-z-s",
+      "mal": "eskina",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "qui",
+        "na"
+      ],
+      "tonica": 1,
+      "frase": "La panadería está en la ___ de la plaza."
+    },
+    {
+      "p": "paquete",
+      "regla": "c-z-s",
+      "mal": "pakete",
+      "nivel": 2,
+      "silabas": [
+        "pa",
+        "que",
+        "te"
+      ],
+      "tonica": 1,
+      "frase": "El cartero trajo un ___ para la agencia."
+    },
+    {
+      "p": "mosquito",
+      "regla": "c-z-s",
+      "mal": "moskito",
+      "nivel": 2,
+      "silabas": [
+        "mos",
+        "qui",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "Un ___ me picó en el brazo por la noche."
+    },
+    {
+      "p": "quieto",
+      "regla": "c-z-s",
+      "mal": "kieto",
+      "nivel": 2,
+      "silabas": [
+        "quie",
+        "to"
+      ],
+      "tonica": 0,
+      "frase": "¡Estate ___, que te hago una foto!"
+    },
+    {
+      "p": "mazapán",
+      "regla": "c-z-s",
+      "mal": "masapán",
+      "nivel": 3,
+      "silabas": [
+        "ma",
+        "za",
+        "pán"
+      ],
+      "tonica": 2,
+      "frase": "En Navidad comemos turrón y ___."
+    },
+    {
+      "p": "cigarra",
+      "regla": "c-z-s",
+      "mal": "sigarra",
+      "nivel": 3,
+      "silabas": [
+        "ci",
+        "ga",
+        "rra"
+      ],
+      "tonica": 1,
+      "frase": "En verano se oye cantar a la ___ en los árboles."
+    },
+    {
+      "p": "cerebro",
+      "regla": "c-z-s",
+      "mal": "serebro",
+      "nivel": 3,
+      "silabas": [
+        "ce",
+        "re",
+        "bro"
+      ],
+      "tonica": 1,
+      "frase": "El ___ es el órgano con el que pensamos."
+    },
+    {
+      "p": "cazador",
+      "regla": "c-z-s",
+      "mal": "casador",
+      "nivel": 3,
+      "silabas": [
+        "ca",
+        "za",
+        "dor"
+      ],
+      "tonica": 2,
+      "frase": "En el cuento, el ___ salvó a Caperucita."
+    },
+    {
+      "p": "decisión",
+      "regla": "c-z-s",
+      "mal": "decición",
+      "nivel": 3,
+      "silabas": [
+        "de",
+        "ci",
+        "sión"
+      ],
+      "tonica": 2,
+      "frase": "Mateo tomó la ___ de seguir al sospechoso."
+    },
+    {
+      "p": "ocasión",
+      "regla": "c-z-s",
+      "mal": "ocación",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "ca",
+        "sión"
+      ],
+      "tonica": 2,
+      "frase": "El cumpleaños del director es una ___ especial."
+    },
+    {
+      "p": "explosión",
+      "regla": "c-z-s",
+      "mal": "exploción",
+      "nivel": 3,
+      "silabas": [
+        "ex",
+        "plo",
+        "sión"
+      ],
+      "tonica": 2,
+      "frase": "Se oyó una ___ en la feria: ¡eran los fuegos artificiales!"
+    },
+    {
+      "p": "división",
+      "regla": "c-z-s",
+      "mal": "divición",
+      "nivel": 3,
+      "silabas": [
+        "di",
+        "vi",
+        "sión"
+      ],
+      "tonica": 2,
+      "frase": "En Matemáticas estamos aprendiendo a hacer la ___."
+    },
+    {
+      "p": "narices",
+      "regla": "c-z-s",
+      "mal": "narises",
+      "nivel": 3,
+      "silabas": [
+        "na",
+        "ri",
+        "ces"
+      ],
+      "tonica": 1,
+      "frase": "Los payasos del circo llevan ___ rojas."
+    },
+    {
+      "p": "disfraces",
+      "regla": "c-z-s",
+      "mal": "disfrases",
+      "nivel": 3,
+      "silabas": [
+        "dis",
+        "fra",
+        "ces"
+      ],
+      "tonica": 1,
+      "frase": "En la tienda venden ___ de pirata y de bruja."
+    },
+    {
+      "p": "cruces",
+      "regla": "c-z-s",
+      "mal": "cruses",
+      "nivel": 3,
+      "silabas": [
+        "cru",
+        "ces"
+      ],
+      "tonica": 0,
+      "frase": "En el mapa del tesoro hay dos ___ rojas."
+    },
+    {
+      "p": "almorcé",
+      "regla": "c-z-s",
+      "mal": "almorsé",
+      "nivel": 3,
+      "silabas": [
+        "al",
+        "mor",
+        "cé"
+      ],
+      "tonica": 2,
+      "frase": "Hoy ___ un bocadillo de tortilla en el recreo."
+    },
+    {
+      "p": "alcancé",
+      "regla": "c-z-s",
+      "mal": "alcansé",
+      "nivel": 3,
+      "silabas": [
+        "al",
+        "can",
+        "cé"
+      ],
+      "tonica": 2,
+      "frase": "Me subí a una silla y ___ el bote de galletas."
+    },
+    {
+      "p": "organicé",
+      "regla": "c-z-s",
+      "mal": "organisé",
+      "nivel": 3,
+      "silabas": [
+        "or",
+        "ga",
+        "ni",
+        "cé"
+      ],
+      "tonica": 3,
+      "frase": "Yo ___ la fiesta de cumpleaños de mi hermano."
+    },
+    {
+      "p": "tropecé",
+      "regla": "c-z-s",
+      "mal": "tropesé",
+      "nivel": 3,
+      "silabas": [
+        "tro",
+        "pe",
+        "cé"
+      ],
+      "tonica": 2,
+      "frase": "___ con una piedra y me caí."
+    },
+    {
+      "p": "bailaba",
+      "regla": "b-v-1",
+      "mal": "bailava",
+      "nivel": 1,
+      "silabas": [
+        "bai",
+        "la",
+        "ba"
+      ],
+      "tonica": 1,
+      "frase": "En la feria, mi abuela ___ sevillanas."
+    },
+    {
+      "p": "nadaba",
+      "regla": "b-v-1",
+      "mal": "nadava",
+      "nivel": 1,
+      "silabas": [
+        "na",
+        "da",
+        "ba"
+      ],
+      "tonica": 1,
+      "frase": "El pez ___ dando vueltas en la pecera."
+    },
+    {
+      "p": "miraba",
+      "regla": "b-v-1",
+      "mal": "mirava",
+      "nivel": 1,
+      "silabas": [
+        "mi",
+        "ra",
+        "ba"
+      ],
+      "tonica": 1,
+      "frase": "El sospechoso ___ el reloj cada minuto."
+    },
+    {
+      "p": "pintaba",
+      "regla": "b-v-1",
+      "mal": "pintava",
+      "nivel": 1,
+      "silabas": [
+        "pin",
+        "ta",
+        "ba"
+      ],
+      "tonica": 1,
+      "frase": "Mi hermana ___ un dibujo con ceras."
+    },
+    {
+      "p": "buscaba",
+      "regla": "b-v-1",
+      "mal": "buscava",
+      "nivel": 1,
+      "silabas": [
+        "bus",
+        "ca",
+        "ba"
+      ],
+      "tonica": 1,
+      "frase": "Lola ___ pistas debajo de la mesa."
+    },
+    {
+      "p": "hambre",
+      "regla": "b-v-1",
+      "mal": "hanbre",
+      "nivel": 1,
+      "silabas": [
+        "ham",
+        "bre"
+      ],
+      "tonica": 0,
+      "frase": "Después del partido tengo mucha ___."
+    },
+    {
+      "p": "sombra",
+      "regla": "b-v-1",
+      "mal": "sonbra",
+      "nivel": 1,
+      "silabas": [
+        "som",
+        "bra"
+      ],
+      "tonica": 0,
+      "frase": "En verano nos sentamos a la ___ de un árbol."
+    },
+    {
+      "p": "sombrero",
+      "regla": "b-v-1",
+      "mal": "sonbrero",
+      "nivel": 1,
+      "silabas": [
+        "som",
+        "bre",
+        "ro"
+      ],
+      "tonica": 1,
+      "frase": "El mago sacó un conejo del ___."
+    },
+    {
+      "p": "nombre",
+      "regla": "b-v-1",
+      "mal": "nonbre",
+      "nivel": 1,
+      "silabas": [
+        "nom",
+        "bre"
+      ],
+      "tonica": 0,
+      "frase": "Escribe tu ___ en la portada del cuaderno."
+    },
+    {
+      "p": "bombero",
+      "regla": "b-v-1",
+      "mal": "bonbero",
+      "nivel": 1,
+      "silabas": [
+        "bom",
+        "be",
+        "ro"
+      ],
+      "tonica": 1,
+      "frase": "El ___ apagó el fuego del almacén."
+    },
+    {
+      "p": "tabla",
+      "regla": "b-v-1",
+      "mal": "tavla",
+      "nivel": 1,
+      "silabas": [
+        "ta",
+        "bla"
+      ],
+      "tonica": 0,
+      "frase": "Me sé la ___ del cinco de memoria."
+    },
+    {
+      "p": "pueblo",
+      "regla": "b-v-1",
+      "mal": "puevlo",
+      "nivel": 1,
+      "silabas": [
+        "pue",
+        "blo"
+      ],
+      "tonica": 0,
+      "frase": "Mis abuelos viven en un ___ de la sierra."
+    },
+    {
+      "p": "amable",
+      "regla": "b-v-1",
+      "mal": "amavle",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "ma",
+        "ble"
+      ],
+      "tonica": 1,
+      "frase": "La panadera es muy ___ con todos los clientes."
+    },
+    {
+      "p": "broma",
+      "regla": "b-v-1",
+      "mal": "vroma",
+      "nivel": 1,
+      "silabas": [
+        "bro",
+        "ma"
+      ],
+      "tonica": 0,
+      "frase": "Le gastamos una ___ al director el día de los Inocentes."
+    },
+    {
+      "p": "libro",
+      "regla": "b-v-1",
+      "mal": "livro",
+      "nivel": 1,
+      "silabas": [
+        "li",
+        "bro"
+      ],
+      "tonica": 0,
+      "frase": "Estoy leyendo un ___ de misterio."
+    },
+    {
+      "p": "cabra",
+      "regla": "b-v-1",
+      "mal": "cavra",
+      "nivel": 1,
+      "silabas": [
+        "ca",
+        "bra"
+      ],
+      "tonica": 0,
+      "frase": "La ___ trepa por las rocas del monte."
+    },
+    {
+      "p": "abrir",
+      "regla": "b-v-1",
+      "mal": "avrir",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "brir"
+      ],
+      "tonica": 1,
+      "frase": "Usa la llave para ___ el cofre."
+    },
+    {
+      "p": "vivir",
+      "regla": "b-v-1",
+      "mal": "bivir",
+      "nivel": 1,
+      "silabas": [
+        "vi",
+        "vir"
+      ],
+      "tonica": 1,
+      "frase": "Me gustaría ___ cerca de la playa."
+    },
+    {
+      "p": "invitar",
+      "regla": "b-v-1",
+      "mal": "inbitar",
+      "nivel": 1,
+      "silabas": [
+        "in",
+        "vi",
+        "tar"
+      ],
+      "tonica": 2,
+      "frase": "Voy a ___ a toda la clase a mi cumpleaños."
+    },
+    {
+      "p": "suave",
+      "regla": "b-v-1",
+      "mal": "suabe",
+      "nivel": 1,
+      "silabas": [
+        "sua",
+        "ve"
+      ],
+      "tonica": 0,
+      "frase": "La manta del sofá es muy ___."
+    },
+    {
+      "p": "estuvo",
+      "regla": "b-v-1",
+      "mal": "estubo",
+      "nivel": 1,
+      "silabas": [
+        "es",
+        "tu",
+        "vo"
+      ],
+      "tonica": 1,
+      "frase": "Mi primo ___ en la feria hasta muy tarde."
+    },
+    {
+      "p": "tuve",
+      "regla": "b-v-1",
+      "mal": "tube",
+      "nivel": 1,
+      "silabas": [
+        "tu",
+        "ve"
+      ],
+      "tonica": 0,
+      "frase": "Ayer ___ que ir al dentista."
+    },
+    {
+      "p": "dibujaba",
+      "regla": "b-v-1",
+      "mal": "dibujava",
+      "nivel": 2,
+      "silabas": [
+        "di",
+        "bu",
+        "ja",
+        "ba"
+      ],
+      "tonica": 2,
+      "frase": "Mateo ___ un mapa del barrio en la libreta."
+    },
+    {
+      "p": "escuchaba",
+      "regla": "b-v-1",
+      "mal": "escuchava",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "cu",
+        "cha",
+        "ba"
+      ],
+      "tonica": 2,
+      "frase": "El director ___ la radio con mucha atención."
+    },
+    {
+      "p": "ayudaba",
+      "regla": "b-v-1",
+      "mal": "ayudava",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "yu",
+        "da",
+        "ba"
+      ],
+      "tonica": 2,
+      "frase": "Bruno ___ a su padre en el kiosco."
+    },
+    {
+      "p": "esperaba",
+      "regla": "b-v-1",
+      "mal": "esperava",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "pe",
+        "ra",
+        "ba"
+      ],
+      "tonica": 2,
+      "frase": "El autobús ___ en la parada con las puertas abiertas."
+    },
+    {
+      "p": "preguntaba",
+      "regla": "b-v-1",
+      "mal": "preguntava",
+      "nivel": 2,
+      "silabas": [
+        "pre",
+        "gun",
+        "ta",
+        "ba"
+      ],
+      "tonica": 2,
+      "frase": "El niño ___ por qué el cielo es azul."
+    },
+    {
+      "p": "íbamos",
+      "regla": "b-v-1",
+      "mal": "ívamos",
+      "nivel": 2,
+      "silabas": [
+        "í",
+        "ba",
+        "mos"
+      ],
+      "tonica": 0,
+      "frase": "Cuando éramos pequeños, ___ al parque cada tarde."
+    },
+    {
+      "p": "cambiar",
+      "regla": "b-v-1",
+      "mal": "canbiar",
+      "nivel": 2,
+      "silabas": [
+        "cam",
+        "biar"
+      ],
+      "tonica": 1,
+      "frase": "Hay que ___ las pilas de la linterna."
+    },
+    {
+      "p": "temblar",
+      "regla": "b-v-1",
+      "mal": "tenblar",
+      "nivel": 2,
+      "silabas": [
+        "tem",
+        "blar"
+      ],
+      "tonica": 1,
+      "frase": "El frío me hacía ___ como una hoja."
+    },
+    {
+      "p": "ambulancia",
+      "regla": "b-v-1",
+      "mal": "anbulancia",
+      "nivel": 2,
+      "silabas": [
+        "am",
+        "bu",
+        "lan",
+        "cia"
+      ],
+      "tonica": 2,
+      "frase": "La ___ llegó con la sirena encendida."
+    },
+    {
+      "p": "hombro",
+      "regla": "b-v-1",
+      "mal": "honbro",
+      "nivel": 2,
+      "silabas": [
+        "hom",
+        "bro"
+      ],
+      "tonica": 0,
+      "frase": "Lola lleva la mochila colgada del ___."
+    },
+    {
+      "p": "bombón",
+      "regla": "b-v-1",
+      "mal": "bonbón",
+      "nivel": 2,
+      "silabas": [
+        "bom",
+        "bón"
+      ],
+      "tonica": 1,
+      "frase": "Mi abuela me dio un ___ de chocolate."
+    },
+    {
+      "p": "niebla",
+      "regla": "b-v-1",
+      "mal": "nievla",
+      "nivel": 2,
+      "silabas": [
+        "nie",
+        "bla"
+      ],
+      "tonica": 0,
+      "frase": "Con tanta ___ no se ve la torre de la iglesia."
+    },
+    {
+      "p": "biblioteca",
+      "regla": "b-v-1",
+      "mal": "bivlioteca",
+      "nivel": 2,
+      "silabas": [
+        "bi",
+        "blio",
+        "te",
+        "ca"
+      ],
+      "tonica": 2,
+      "frase": "Herminia trabaja en la ___ del barrio."
+    },
+    {
+      "p": "problema",
+      "regla": "b-v-1",
+      "mal": "provlema",
+      "nivel": 2,
+      "silabas": [
+        "pro",
+        "ble",
+        "ma"
+      ],
+      "tonica": 1,
+      "frase": "Este ___ de Matemáticas es muy difícil."
+    },
+    {
+      "p": "sobre",
+      "regla": "b-v-1",
+      "mal": "sovre",
+      "nivel": 2,
+      "silabas": [
+        "so",
+        "bre"
+      ],
+      "tonica": 0,
+      "frase": "Mete la carta en el ___ y ciérralo."
+    },
+    {
+      "p": "describir",
+      "regla": "b-v-1",
+      "mal": "descrivir",
+      "nivel": 2,
+      "silabas": [
+        "des",
+        "cri",
+        "bir"
+      ],
+      "tonica": 2,
+      "frase": "El testigo intentó ___ al ladrón."
+    },
+    {
+      "p": "servir",
+      "regla": "b-v-1",
+      "mal": "serbir",
+      "nivel": 2,
+      "silabas": [
+        "ser",
+        "vir"
+      ],
+      "tonica": 1,
+      "frase": "Esta caja puede ___ para guardar los juguetes."
+    },
+    {
+      "p": "inventar",
+      "regla": "b-v-1",
+      "mal": "inbentar",
+      "nivel": 2,
+      "silabas": [
+        "in",
+        "ven",
+        "tar"
+      ],
+      "tonica": 2,
+      "frase": "Mateo quiere ___ una máquina de encontrar pistas."
+    },
+    {
+      "p": "envidia",
+      "regla": "b-v-1",
+      "mal": "enbidia",
+      "nivel": 2,
+      "silabas": [
+        "en",
+        "vi",
+        "dia"
+      ],
+      "tonica": 1,
+      "frase": "Le dio ___ el patinete nuevo de su amigo."
+    },
+    {
+      "p": "invisible",
+      "regla": "b-v-1",
+      "mal": "inbisible",
+      "nivel": 2,
+      "silabas": [
+        "in",
+        "vi",
+        "si",
+        "ble"
+      ],
+      "tonica": 2,
+      "frase": "El fantasma del cuento era ___: nadie podía verlo."
+    },
+    {
+      "p": "breve",
+      "regla": "b-v-1",
+      "mal": "brebe",
+      "nivel": 2,
+      "silabas": [
+        "bre",
+        "ve"
+      ],
+      "tonica": 0,
+      "frase": "El director dio un discurso muy ___: solo dos frases."
+    },
+    {
+      "p": "deportiva",
+      "regla": "b-v-1",
+      "mal": "deportiba",
+      "nivel": 2,
+      "silabas": [
+        "de",
+        "por",
+        "ti",
+        "va"
+      ],
+      "tonica": 2,
+      "frase": "Para Educación Física me pongo ropa ___."
+    },
+    {
+      "p": "festivo",
+      "regla": "b-v-1",
+      "mal": "festibo",
+      "nivel": 2,
+      "silabas": [
+        "fes",
+        "ti",
+        "vo"
+      ],
+      "tonica": 1,
+      "frase": "El Día de Andalucía es ___ y no hay colegio."
+    },
+    {
+      "p": "estuvieron",
+      "regla": "b-v-1",
+      "mal": "estubieron",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "tu",
+        "vie",
+        "ron"
+      ],
+      "tonica": 2,
+      "frase": "Los detectives ___ toda la noche vigilando."
+    },
+    {
+      "p": "tuvieron",
+      "regla": "b-v-1",
+      "mal": "tubieron",
+      "nivel": 2,
+      "silabas": [
+        "tu",
+        "vie",
+        "ron"
+      ],
+      "tonica": 1,
+      "frase": "Los vecinos ___ que salir de casa por el humo."
+    },
+    {
+      "p": "jugábamos",
+      "regla": "b-v-1",
+      "mal": "jugávamos",
+      "nivel": 3,
+      "silabas": [
+        "ju",
+        "gá",
+        "ba",
+        "mos"
+      ],
+      "tonica": 1,
+      "frase": "De pequeños, mi hermano y yo ___ al escondite."
+    },
+    {
+      "p": "estábamos",
+      "regla": "b-v-1",
+      "mal": "estávamos",
+      "nivel": 3,
+      "silabas": [
+        "es",
+        "tá",
+        "ba",
+        "mos"
+      ],
+      "tonica": 1,
+      "frase": "Cuando se fue la luz, ___ cenando."
+    },
+    {
+      "p": "costumbre",
+      "regla": "b-v-1",
+      "mal": "costunbre",
+      "nivel": 3,
+      "silabas": [
+        "cos",
+        "tum",
+        "bre"
+      ],
+      "tonica": 1,
+      "frase": "Tomar churros los domingos es una ___ de mi familia."
+    },
+    {
+      "p": "percibir",
+      "regla": "b-v-1",
+      "mal": "percivir",
+      "nivel": 3,
+      "silabas": [
+        "per",
+        "ci",
+        "bir"
+      ],
+      "tonica": 2,
+      "frase": "Los perros pueden ___ olores muy lejanos."
+    },
+    {
+      "p": "hervir",
+      "regla": "b-v-1",
+      "mal": "herbir",
+      "nivel": 3,
+      "silabas": [
+        "her",
+        "vir"
+      ],
+      "tonica": 1,
+      "frase": "Pon el agua a ___ para la pasta."
+    },
+    {
+      "p": "convertir",
+      "regla": "b-v-1",
+      "mal": "conbertir",
+      "nivel": 3,
+      "silabas": [
+        "con",
+        "ver",
+        "tir"
+      ],
+      "tonica": 2,
+      "frase": "El mago dijo que iba a ___ la piedra en oro."
+    },
+    {
+      "p": "envase",
+      "regla": "b-v-1",
+      "mal": "enbase",
+      "nivel": 3,
+      "silabas": [
+        "en",
+        "va",
+        "se"
+      ],
+      "tonica": 1,
+      "frase": "Tira el ___ de plástico al contenedor amarillo."
+    },
+    {
+      "p": "leve",
+      "regla": "b-v-1",
+      "mal": "lebe",
+      "nivel": 3,
+      "silabas": [
+        "le",
+        "ve"
+      ],
+      "tonica": 0,
+      "frase": "Solo fue una herida ___: un rasguño."
+    },
+    {
+      "p": "positivo",
+      "regla": "b-v-1",
+      "mal": "positibo",
+      "nivel": 3,
+      "silabas": [
+        "po",
+        "si",
+        "ti",
+        "vo"
+      ],
+      "tonica": 2,
+      "frase": "Hay que ser ___ y pensar que lo lograremos."
+    },
+    {
+      "p": "negativo",
+      "regla": "b-v-1",
+      "mal": "negatibo",
+      "nivel": 3,
+      "silabas": [
+        "ne",
+        "ga",
+        "ti",
+        "vo"
+      ],
+      "tonica": 2,
+      "frase": "Al restar cinco menos ocho sale un número ___."
+    },
+    {
+      "p": "creativo",
+      "regla": "b-v-1",
+      "mal": "creatibo",
+      "nivel": 3,
+      "silabas": [
+        "cre",
+        "a",
+        "ti",
+        "vo"
+      ],
+      "tonica": 2,
+      "frase": "Mateo es muy ___: siempre se le ocurren ideas nuevas."
+    },
+    {
+      "p": "pensativo",
+      "regla": "b-v-1",
+      "mal": "pensatibo",
+      "nivel": 3,
+      "silabas": [
+        "pen",
+        "sa",
+        "ti",
+        "vo"
+      ],
+      "tonica": 2,
+      "frase": "El director se quedó ___, mirando por la ventana."
+    },
+    {
+      "p": "anduvo",
+      "regla": "b-v-1",
+      "mal": "andubo",
+      "nivel": 3,
+      "silabas": [
+        "an",
+        "du",
+        "vo"
+      ],
+      "tonica": 1,
+      "frase": "El explorador ___ diez kilómetros por el desierto."
+    },
+    {
+      "p": "detuvo",
+      "regla": "b-v-1",
+      "mal": "detubo",
+      "nivel": 3,
+      "silabas": [
+        "de",
+        "tu",
+        "vo"
+      ],
+      "tonica": 1,
+      "frase": "La policía ___ al ladrón en la esquina."
+    },
+    {
+      "p": "obtuvo",
+      "regla": "b-v-1",
+      "mal": "obtubo",
+      "nivel": 3,
+      "silabas": [
+        "ob",
+        "tu",
+        "vo"
+      ],
+      "tonica": 1,
+      "frase": "Bruno ___ el primer premio del concurso de dibujo."
+    },
+    {
+      "p": "martes",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Martes",
+      "nivel": 1,
+      "silabas": [
+        "mar",
+        "tes"
+      ],
+      "tonica": 0,
+      "frase": "El ___ tenemos Educación Física."
+    },
+    {
+      "p": "jueves",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Jueves",
+      "nivel": 1,
+      "silabas": [
+        "jue",
+        "ves"
+      ],
+      "tonica": 0,
+      "frase": "Después del miércoles viene el ___."
+    },
+    {
+      "p": "viernes",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Viernes",
+      "nivel": 1,
+      "silabas": [
+        "vier",
+        "nes"
+      ],
+      "tonica": 0,
+      "frase": "El ___ por la tarde empieza el fin de semana."
+    },
+    {
+      "p": "domingo",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Domingo",
+      "nivel": 1,
+      "silabas": [
+        "do",
+        "min",
+        "go"
+      ],
+      "tonica": 1,
+      "frase": "El último día de la semana es el ___."
+    },
+    {
+      "p": "enero",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Enero",
+      "nivel": 1,
+      "silabas": [
+        "e",
+        "ne",
+        "ro"
+      ],
+      "tonica": 1,
+      "frase": "El primer mes del año es ___."
+    },
+    {
+      "p": "febrero",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Febrero",
+      "nivel": 1,
+      "silabas": [
+        "fe",
+        "bre",
+        "ro"
+      ],
+      "tonica": 1,
+      "frase": "El mes más corto del año es ___."
+    },
+    {
+      "p": "abril",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Abril",
+      "nivel": 1,
+      "silabas": [
+        "a",
+        "bril"
+      ],
+      "tonica": 1,
+      "frase": "Después de marzo viene ___."
+    },
+    {
+      "p": "junio",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Junio",
+      "nivel": 1,
+      "silabas": [
+        "ju",
+        "nio"
+      ],
+      "tonica": 0,
+      "frase": "El sexto mes del año es ___."
+    },
+    {
+      "p": "diciembre",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Diciembre",
+      "nivel": 1,
+      "silabas": [
+        "di",
+        "ciem",
+        "bre"
+      ],
+      "tonica": 1,
+      "frase": "La Navidad se celebra en ___."
+    },
+    {
+      "p": "primavera",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Primavera",
+      "nivel": 1,
+      "silabas": [
+        "pri",
+        "ma",
+        "ve",
+        "ra"
+      ],
+      "tonica": 2,
+      "frase": "En ___ florecen los naranjos de la plaza."
+    },
+    {
+      "p": "verano",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Verano",
+      "nivel": 1,
+      "silabas": [
+        "ve",
+        "ra",
+        "no"
+      ],
+      "tonica": 1,
+      "frase": "En ___ hace calor y vamos a la playa."
+    },
+    {
+      "p": "inglés",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Inglés",
+      "nivel": 1,
+      "silabas": [
+        "in",
+        "glés"
+      ],
+      "tonica": 1,
+      "frase": "En clase de ___ aprendemos a decir «hello»."
+    },
+    {
+      "p": "director",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Director",
+      "nivel": 1,
+      "silabas": [
+        "di",
+        "rec",
+        "tor"
+      ],
+      "tonica": 2,
+      "frase": "El ___ Robles nos ha llamado a su despacho."
+    },
+    {
+      "p": "Sevilla",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "sevilla",
+      "nivel": 1,
+      "silabas": [
+        "Se",
+        "vi",
+        "lla"
+      ],
+      "tonica": 1,
+      "frase": "La Giralda está en ___."
+    },
+    {
+      "p": "Andalucía",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "andalucía",
+      "nivel": 1,
+      "silabas": [
+        "An",
+        "da",
+        "lu",
+        "cí",
+        "a"
+      ],
+      "tonica": 3,
+      "frase": "Sevilla, Málaga y Granada están en ___."
+    },
+    {
+      "p": "España",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "españa",
+      "nivel": 1,
+      "silabas": [
+        "Es",
+        "pa",
+        "ña"
+      ],
+      "tonica": 1,
+      "frase": "Madrid es la capital de ___."
+    },
+    {
+      "p": "Madrid",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "madrid",
+      "nivel": 1,
+      "silabas": [
+        "Ma",
+        "drid"
+      ],
+      "tonica": 1,
+      "frase": "La capital de España es ___."
+    },
+    {
+      "p": "Navidad",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "navidad",
+      "nivel": 1,
+      "silabas": [
+        "Na",
+        "vi",
+        "dad"
+      ],
+      "tonica": 2,
+      "frase": "En ___ ponemos el belén y el árbol."
+    },
+    {
+      "p": "Lola",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "lola",
+      "nivel": 1,
+      "silabas": [
+        "Lo",
+        "la"
+      ],
+      "tonica": 0,
+      "frase": "Mateo trabaja en la agencia con su compañera ___."
+    },
+    {
+      "p": "Mateo",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "mateo",
+      "nivel": 1,
+      "silabas": [
+        "Ma",
+        "te",
+        "o"
+      ],
+      "tonica": 1,
+      "frase": "Lola trabaja en la agencia con su compañero ___."
+    },
+    {
+      "p": "marzo",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Marzo",
+      "nivel": 2,
+      "silabas": [
+        "mar",
+        "zo"
+      ],
+      "tonica": 0,
+      "frase": "La primavera empieza en ___."
+    },
+    {
+      "p": "mayo",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Mayo",
+      "nivel": 2,
+      "silabas": [
+        "ma",
+        "yo"
+      ],
+      "tonica": 0,
+      "frase": "El quinto mes del año es ___."
+    },
+    {
+      "p": "julio",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Julio",
+      "nivel": 2,
+      "silabas": [
+        "ju",
+        "lio"
+      ],
+      "tonica": 0,
+      "frase": "El séptimo mes del año es ___."
+    },
+    {
+      "p": "agosto",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Agosto",
+      "nivel": 2,
+      "silabas": [
+        "a",
+        "gos",
+        "to"
+      ],
+      "tonica": 1,
+      "frase": "En ___ hace muchísimo calor y casi todos están de vacaciones."
+    },
+    {
+      "p": "septiembre",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Septiembre",
+      "nivel": 2,
+      "silabas": [
+        "sep",
+        "tiem",
+        "bre"
+      ],
+      "tonica": 1,
+      "frase": "El curso empieza en ___."
+    },
+    {
+      "p": "octubre",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Octubre",
+      "nivel": 2,
+      "silabas": [
+        "oc",
+        "tu",
+        "bre"
+      ],
+      "tonica": 1,
+      "frase": "Después de septiembre viene ___."
+    },
+    {
+      "p": "noviembre",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Noviembre",
+      "nivel": 2,
+      "silabas": [
+        "no",
+        "viem",
+        "bre"
+      ],
+      "tonica": 1,
+      "frase": "El penúltimo mes del año es ___."
+    },
+    {
+      "p": "otoño",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Otoño",
+      "nivel": 2,
+      "silabas": [
+        "o",
+        "to",
+        "ño"
+      ],
+      "tonica": 1,
+      "frase": "En ___ se caen las hojas de los árboles."
+    },
+    {
+      "p": "andaluz",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Andaluz",
+      "nivel": 2,
+      "silabas": [
+        "an",
+        "da",
+        "luz"
+      ],
+      "tonica": 2,
+      "frase": "Hablo con acento ___ porque soy de Sevilla."
+    },
+    {
+      "p": "sevillano",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Sevillano",
+      "nivel": 2,
+      "silabas": [
+        "se",
+        "vi",
+        "lla",
+        "no"
+      ],
+      "tonica": 2,
+      "frase": "El que nace en Sevilla es ___."
+    },
+    {
+      "p": "español",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Español",
+      "nivel": 2,
+      "silabas": [
+        "es",
+        "pa",
+        "ñol"
+      ],
+      "tonica": 2,
+      "frase": "Lola nació en España: es ___."
+    },
+    {
+      "p": "francés",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Francés",
+      "nivel": 2,
+      "silabas": [
+        "fran",
+        "cés"
+      ],
+      "tonica": 1,
+      "frase": "En Francia se habla ___."
+    },
+    {
+      "p": "italiano",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Italiano",
+      "nivel": 2,
+      "silabas": [
+        "i",
+        "ta",
+        "lia",
+        "no"
+      ],
+      "tonica": 2,
+      "frase": "La pizza es un plato ___."
+    },
+    {
+      "p": "alcalde",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Alcalde",
+      "nivel": 2,
+      "silabas": [
+        "al",
+        "cal",
+        "de"
+      ],
+      "tonica": 1,
+      "frase": "El ___ inauguró la feria del barrio."
+    },
+    {
+      "p": "maestro",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Maestro",
+      "nivel": 2,
+      "silabas": [
+        "ma",
+        "es",
+        "tro"
+      ],
+      "tonica": 1,
+      "frase": "El ___ nos ha puesto deberes de Lengua."
+    },
+    {
+      "p": "Córdoba",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "córdoba",
+      "nivel": 2,
+      "silabas": [
+        "Cór",
+        "do",
+        "ba"
+      ],
+      "tonica": 0,
+      "frase": "La famosa Mezquita está en ___."
+    },
+    {
+      "p": "Málaga",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "málaga",
+      "nivel": 2,
+      "silabas": [
+        "Má",
+        "la",
+        "ga"
+      ],
+      "tonica": 0,
+      "frase": "Picasso nació en ___."
+    },
+    {
+      "p": "Cádiz",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "cádiz",
+      "nivel": 2,
+      "silabas": [
+        "Cá",
+        "diz"
+      ],
+      "tonica": 0,
+      "frase": "La playa de La Caleta está en ___."
+    },
+    {
+      "p": "Huelva",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "huelva",
+      "nivel": 2,
+      "silabas": [
+        "Huel",
+        "va"
+      ],
+      "tonica": 0,
+      "frase": "Doñana está entre ___ y Sevilla."
+    },
+    {
+      "p": "Jaén",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "jaén",
+      "nivel": 2,
+      "silabas": [
+        "Ja",
+        "én"
+      ],
+      "tonica": 1,
+      "frase": "La provincia andaluza con más olivos es ___."
+    },
+    {
+      "p": "Almería",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "almería",
+      "nivel": 2,
+      "silabas": [
+        "Al",
+        "me",
+        "rí",
+        "a"
+      ],
+      "tonica": 2,
+      "frase": "El desierto de Tabernas está en ___."
+    },
+    {
+      "p": "Granada",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "granada",
+      "nivel": 2,
+      "silabas": [
+        "Gra",
+        "na",
+        "da"
+      ],
+      "tonica": 1,
+      "frase": "La Alhambra está en ___."
+    },
+    {
+      "p": "Guadalquivir",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "guadalquivir",
+      "nivel": 2,
+      "silabas": [
+        "Gua",
+        "dal",
+        "qui",
+        "vir"
+      ],
+      "tonica": 3,
+      "frase": "El río que pasa por Sevilla es el ___."
+    },
+    {
+      "p": "Alhambra",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "alhambra",
+      "nivel": 2,
+      "silabas": [
+        "Al",
+        "ham",
+        "bra"
+      ],
+      "tonica": 1,
+      "frase": "En Granada visitamos el palacio de la ___."
+    },
+    {
+      "p": "Giralda",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "giralda",
+      "nivel": 2,
+      "silabas": [
+        "Gi",
+        "ral",
+        "da"
+      ],
+      "tonica": 1,
+      "frase": "La torre más famosa de Sevilla es la ___."
+    },
+    {
+      "p": "Francia",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "francia",
+      "nivel": 2,
+      "silabas": [
+        "Fran",
+        "cia"
+      ],
+      "tonica": 0,
+      "frase": "París es la capital de ___."
+    },
+    {
+      "p": "Portugal",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "portugal",
+      "nivel": 2,
+      "silabas": [
+        "Por",
+        "tu",
+        "gal"
+      ],
+      "tonica": 2,
+      "frase": "El país vecino de España por el oeste es ___."
+    },
+    {
+      "p": "Nochebuena",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "nochebuena",
+      "nivel": 2,
+      "silabas": [
+        "No",
+        "che",
+        "bue",
+        "na"
+      ],
+      "tonica": 2,
+      "frase": "La noche del 24 de diciembre es ___."
+    },
+    {
+      "p": "Nochevieja",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "nochevieja",
+      "nivel": 2,
+      "silabas": [
+        "No",
+        "che",
+        "vie",
+        "ja"
+      ],
+      "tonica": 2,
+      "frase": "La última noche del año es ___."
+    },
+    {
+      "p": "Robles",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "robles",
+      "nivel": 2,
+      "silabas": [
+        "Ro",
+        "bles"
+      ],
+      "tonica": 0,
+      "frase": "El director de la agencia se llama ___."
+    },
+    {
+      "p": "Herminia",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "herminia",
+      "nivel": 2,
+      "silabas": [
+        "Her",
+        "mi",
+        "nia"
+      ],
+      "tonica": 1,
+      "frase": "La bibliotecaria del barrio se llama ___."
+    },
+    {
+      "p": "Colón",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "colón",
+      "nivel": 2,
+      "silabas": [
+        "Co",
+        "lón"
+      ],
+      "tonica": 1,
+      "frase": "Cristóbal ___ llegó a América en 1492."
+    },
+    {
+      "p": "cordobés",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Cordobés",
+      "nivel": 3,
+      "silabas": [
+        "cor",
+        "do",
+        "bés"
+      ],
+      "tonica": 2,
+      "frase": "El que nace en Córdoba es ___."
+    },
+    {
+      "p": "malagueño",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Malagueño",
+      "nivel": 3,
+      "silabas": [
+        "ma",
+        "la",
+        "gue",
+        "ño"
+      ],
+      "tonica": 2,
+      "frase": "Mi tío nació en Málaga: es ___."
+    },
+    {
+      "p": "gaditano",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Gaditano",
+      "nivel": 3,
+      "silabas": [
+        "ga",
+        "di",
+        "ta",
+        "no"
+      ],
+      "tonica": 2,
+      "frase": "El que nace en Cádiz es ___."
+    },
+    {
+      "p": "granadino",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Granadino",
+      "nivel": 3,
+      "silabas": [
+        "gra",
+        "na",
+        "di",
+        "no"
+      ],
+      "tonica": 2,
+      "frase": "Mi prima nació en Granada, así que es ___."
+    },
+    {
+      "p": "onubense",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Onubense",
+      "nivel": 3,
+      "silabas": [
+        "o",
+        "nu",
+        "ben",
+        "se"
+      ],
+      "tonica": 2,
+      "frase": "El que nace en Huelva es ___."
+    },
+    {
+      "p": "almeriense",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Almeriense",
+      "nivel": 3,
+      "silabas": [
+        "al",
+        "me",
+        "rien",
+        "se"
+      ],
+      "tonica": 2,
+      "frase": "El que nace en Almería es ___."
+    },
+    {
+      "p": "alemán",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Alemán",
+      "nivel": 3,
+      "silabas": [
+        "a",
+        "le",
+        "mán"
+      ],
+      "tonica": 2,
+      "frase": "En Alemania se habla ___."
+    },
+    {
+      "p": "portugués",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Portugués",
+      "nivel": 3,
+      "silabas": [
+        "por",
+        "tu",
+        "gués"
+      ],
+      "tonica": 2,
+      "frase": "En Lisboa se habla ___."
+    },
+    {
+      "p": "presidente",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Presidente",
+      "nivel": 3,
+      "silabas": [
+        "pre",
+        "si",
+        "den",
+        "te"
+      ],
+      "tonica": 2,
+      "frase": "El ___ de la asociación de vecinos dio un discurso."
+    },
+    {
+      "p": "reina",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "Reina",
+      "nivel": 3,
+      "silabas": [
+        "rei",
+        "na"
+      ],
+      "tonica": 0,
+      "frase": "La ___ de España visitó Sevilla."
+    },
+    {
+      "p": "Doñana",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "doñana",
+      "nivel": 3,
+      "silabas": [
+        "Do",
+        "ña",
+        "na"
+      ],
+      "tonica": 1,
+      "frase": "En el parque de ___ viven linces y flamencos."
+    },
+    {
+      "p": "Marruecos",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "marruecos",
+      "nivel": 3,
+      "silabas": [
+        "Ma",
+        "rrue",
+        "cos"
+      ],
+      "tonica": 1,
+      "frase": "Al otro lado del estrecho de Gibraltar está ___."
+    },
+    {
+      "p": "África",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "áfrica",
+      "nivel": 3,
+      "silabas": [
+        "Á",
+        "fri",
+        "ca"
+      ],
+      "tonica": 0,
+      "frase": "Los leones viven en la sabana de ___."
+    },
+    {
+      "p": "América",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "américa",
+      "nivel": 3,
+      "silabas": [
+        "A",
+        "mé",
+        "ri",
+        "ca"
+      ],
+      "tonica": 1,
+      "frase": "Colón llegó a ___ en 1492."
+    },
+    {
+      "p": "Mediterráneo",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "mediterráneo",
+      "nivel": 3,
+      "silabas": [
+        "Me",
+        "di",
+        "te",
+        "rrá",
+        "ne",
+        "o"
+      ],
+      "tonica": 3,
+      "frase": "Málaga está a orillas del mar ___."
+    },
+    {
+      "p": "Atlántico",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "atlántico",
+      "nivel": 3,
+      "silabas": [
+        "At",
+        "lán",
+        "ti",
+        "co"
+      ],
+      "tonica": 1,
+      "frase": "Huelva y Cádiz están bañadas por el océano ___."
+    },
+    {
+      "p": "Pirineos",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "pirineos",
+      "nivel": 3,
+      "silabas": [
+        "Pi",
+        "ri",
+        "ne",
+        "os"
+      ],
+      "tonica": 2,
+      "frase": "Los ___ separan España de Francia."
+    },
+    {
+      "p": "Cervantes",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "cervantes",
+      "nivel": 3,
+      "silabas": [
+        "Cer",
+        "van",
+        "tes"
+      ],
+      "tonica": 1,
+      "frase": "El autor del «Quijote» es Miguel de ___."
+    },
+    {
+      "p": "Picasso",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "picasso",
+      "nivel": 3,
+      "silabas": [
+        "Pi",
+        "cas",
+        "so"
+      ],
+      "tonica": 1,
+      "frase": "El pintor malagueño más famoso es Pablo ___."
+    },
+    {
+      "p": "Velázquez",
+      "regla": "mayusculas-puntuacion-1",
+      "mal": "velázquez",
+      "nivel": 3,
+      "silabas": [
+        "Ve",
+        "láz",
+        "quez"
+      ],
+      "tonica": 1,
+      "frase": "«Las meninas» las pintó ___."
     }
   ]
 }
