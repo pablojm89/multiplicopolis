@@ -261,6 +261,7 @@ function terminarActividad(sl, turno) {
   registrosAca.push({ id: uid(), contexto: "academia", perfilId: perfil.id, nombre: perfil.nombre, curso: perfil.curso, sala: sl.id,
     reglas: P.caso.reglas, actividad: sl.actividad, nivel, fecha: new Date().toISOString(), aciertos, intentos: ev.length, notas: calcularNotas(ev), repasar: [...P.repasar], eventos: ev });
   guardar("academia-registros", registrosAca);
+  if (typeof nubeTrasResultado === "function") nubeTrasResultado(registrosAca.at(-1));
   P = null;
   const aura = aciertos === ev.length && ev.length ? " ¡Ronda perfecta: +aura!" : "";
   // Si la actividad se lanzó desde otra pantalla (la ruta de preparación de un caso), se vuelve allí

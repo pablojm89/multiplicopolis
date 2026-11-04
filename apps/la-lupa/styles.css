@@ -548,3 +548,5 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 .aca-panel.leccion { top: 100px; max-height: none; bottom: 24px; overflow: hidden; display: flex; flex-direction: column; }
 .aca-panel.leccion > .maquina-fija, .aca-panel.leccion > .ficha { overflow: auto; min-height: 0; flex: 0 1 auto; font-size: 21px; }
 .aca-panel.leccion > .acciones { margin-top: auto; padding-top: 8px; }
+
+.enlace-maestro.enlace-nube { right: auto; left: 26px; }

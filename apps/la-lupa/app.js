@@ -26,12 +26,14 @@ function vistaInicio() {
         <button class="boton-sello">Crear ficha</button>
       </form>
     </div>
+    ${nubeActiva() ? `<button class="enlace-maestro enlace-nube" id="irRecuperar">☁️ Recuperar mi detective</button>` : ""}
     <button class="enlace-maestro" id="irMaestro">Zona maestro/a</button>`, { fondo: "fachada-agencia", clase: "oscurecido" });
   $$(".ficha-detective").forEach(b => b.onclick = () => { perfil = perfiles.find(p => p.id === b.dataset.id); vistaTablon(); });
   const crear = (nombre, avatar) => {
     perfil = { id: uid(), nombre, curso: $("#nCurso").value, creado: new Date().toISOString(), ...(avatar ? { avatar } : {}) };
     perfiles.push(perfil);
     guardar("perfiles", perfiles);
+    nubeNuevoAlumno(perfil);
     vistaTablon();
   };
   $$(".ficha-clase").forEach(b => b.onclick = () => crear(b.dataset.alias, b.dataset.alias));
@@ -42,6 +44,7 @@ function vistaInicio() {
     crear(nombre, null);
   };
   $("#irMaestro").onclick = pedirPin;
+  $("#irRecuperar")?.addEventListener("click", pedirRecuperar);
 }
 
 /* ── Tablón de corcho con los casos del curso ───────────────── */
@@ -129,6 +132,7 @@ function vistaInforme() {
   resultados.push(res);
   guardar("resultados", resultados);
   res.aCola = actualizarCola(res.eventos, res.caso);
+  nubeTrasResultado(res);
   P = null;
   pintarInforme(res);
 }
@@ -180,6 +184,7 @@ function sellar(res, despues) {
     const checks = RUBRICA.map((_, k) => $(`#rub${k}`).checked);
     res.libreta = { checks, puntos: checks.filter(Boolean).length, fecha: new Date().toISOString() };
     guardar("resultados", resultados);
+    nubeTrasResultado(res);
     cerrarModal();
     despues();
   };
@@ -242,6 +247,7 @@ function vistaMaestro() {
       </table></div>` : ""}
       ${htmlNotasFinales()}
       ${htmlSinInternet()}
+      ${htmlNubeMaestro()}
       <h2>Imprimibles</h2>
       <div class="fila">
         <label>Libreta: <select id="impCaso"><option value="todos">Toda la temporada (con portada)</option>${Object.values(D.casos).sort((a, b) => a.numero.localeCompare(b.numero)).map(c => `<option value="${esc(c.id)}">${esc(c.numero)} · ${esc(c.titulo)}</option>`).join("")}</select></label>
@@ -290,6 +296,7 @@ function vistaMaestro() {
   };
   activarPaqueteMaestro(vistaMaestro);
   activarSinInternet();
+  activarNubeMaestro(vistaMaestro);
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());
   $("#csv").onclick = exportarCSV;
   $("#borrar").onclick = () => {

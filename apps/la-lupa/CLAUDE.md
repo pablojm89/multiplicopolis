@@ -24,6 +24,7 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 | `preparacion.js` | **Preparación de cada caso** en la Academia (decisión de Pablo): descubre la regla (Pizarra) → apuntes en la libreta (`datos/academia/apuntes.json`: esquemas y tablas por regla) → dos prácticas elegidas por regla (`PRACTICAS`) → dictado. En el caso de repaso: imprenta, dictado mezclado y fichas. `ajustes.preparacion`: obligatoria (por defecto), opcional o no. El piloto no lleva preparación |
 | `imprimibles/` | `apuntes.html?reglas=…` (los esquemas de cada regla para completar en la libreta), `libreta.html?casos=…` (libreta del alumno: portada y una doble página por caso, generada desde los datos; las cifras nunca se imprimen), `ficha-aspirante.html` (A4 a doble cara: alias, dibujo y descripción, con tira del nombre para recortar) y `autorizacion-familias.html` (borrador para el centro). Enlazados desde la zona del maestro |
 | `sw.js`, `manifest.webmanifest`, `icono-*.png` | **Sin internet**: el service worker guarda el código y los datos (primero la red) y las imágenes (primero lo guardado). En la zona del maestro, «Descargar todo para usar sin internet». Se puede instalar como app |
+| `nube.js` | **Nube (opcional)**: cola de resultados y progreso que se envía a un Apps Script con Hojas de Google (`backend/apps-script/la-lupa.gs`); «☁️ Recuperar mi detective» por alias en otro dispositivo. Se configura en la zona del maestro (URL + código de aula). Pasos y privacidad: `NUBE.md` |
 | `styles.css` | Todo en px del escenario de 1280×720. Mundo visual único: papel envejecido, tinta, albero y azulejo |
 | `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a una programación |
 | `datos/reglas.json` | Reglas: nombre, saberes, criterios, ficha del Archivo de Mateo y cartas de los careos |
@@ -87,4 +88,4 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 ## Pendiente / conocido
 
 - Arte de la temporada 1 completo, salvo el director Robles y la foto del tribunal (issue #6).
-- Los datos se guardan solo en `localStorage` (hay PIN opcional para la zona del maestro y un **modo revisión** que lo abre todo para probar). Falta la sincronización con el backend.
+- Los datos se guardan solo en `localStorage` (hay PIN opcional para la zona del maestro y un **modo revisión** que lo abre todo para probar). La nube es opcional (`NUBE.md`): falta probarla con un Apps Script de verdad.

@@ -17,3 +17,8 @@ Un único despliegue sirve a todos los juegos, que se distinguen por el campo `a
 - `type: "ping"`: prueba de conexión.
 
 Al ir en `no-cors`, el cliente no puede leer la respuesta del POST: no sabe si se guardó.
+
+
+## Agencia La Lupa
+
+Tiene su propio Apps Script en `apps-script/la-lupa.gs` (mismo protocolo, `app: "lalupa"`), con las hojas Alumnos, Notas y Progreso. Pasos en `apps/la-lupa/NUBE.md`.
