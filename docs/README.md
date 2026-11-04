@@ -7,6 +7,7 @@ Cada documento empieza con un **resumen de 3-5 líneas con la conclusión**; el 
 |---|---|---|
 | [investigacion/sherlock-ort.md](investigacion/sherlock-ort.md) | Sherlock Ort: 29 Geniallys, mecánica, contenidos y qué no copiar | Hecho |
 | [investigacion/sherlock-ort-experiencia.md](investigacion/sherlock-ort-experiencia.md) | Sherlock Ort **jugado**: puesta en escena, ritmo, qué faltaba en La Lupa v1. Licencia CC BY-NC | Hecho |
+| [investigacion/academia-actividades.md](investigacion/academia-actividades.md) | Academia de detectives: 8 salas con estética propia, 35 actividades de toda la Lengua, bancos de datos y prioridades (propuesta) | Pendiente de Pablo |
 | [investigacion/referentes-juegos-detective-lengua.md](investigacion/referentes-juegos-detective-lengua.md) | Juegos de detectives y aventura gráfica, didáctica de la ortografía y técnica web | Hecho |
 | [investigacion/curriculo-lengua-tercer-ciclo-andalucia.md](investigacion/curriculo-lengua-tercer-ciclo-andalucia.md) | Currículo andaluz de Lengua del 3.er ciclo: criterios con código, saberes y reglas | Hecho |
 
