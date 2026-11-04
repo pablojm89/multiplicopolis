@@ -21,7 +21,7 @@ Cada sesión trabaja en **una sola cosa**:
 | `apps/<juego>/` | Cada juego, autocontenido (HTML+JS+CSS) con su propio `CLAUDE.md` | Tareas de ese juego |
 | `apps/la-lupa/` | Agencia La Lupa: detectives de Lengua (5.º y 6.º) | Tareas de ese juego |
 | `apps/README.md` | Cómo crear un juego nuevo + plantilla de `CLAUDE.md` | Al crear un juego |
-| `shared/` | Código común entre juegos (aún vacío) | Solo si la tarea es extraer/usar código común |
+| `shared/` | Código común entre juegos: `sonido.js` (música, ambientes y efectos con Web Audio) | Solo si la tarea es extraer/usar código común |
 | `backend/` | Backend Apps Script + Google Sheets (protocolo documentado) | Tareas de sincronización/datos |
 | `docs/` | Investigaciones y decisiones (Séneca, RGPD, ideas…) | Tareas de investigación |
 | `index.html` | Redirige a Multiplicópolis (mantiene la URL antigua de Pages) | Casi nunca |

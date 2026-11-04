@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Laboratorio de sonido: escuchar y afinar shared/sonido.js. Abrir con node .claude/serve.js → http://localhost:4321/shared/laboratorio-sonido.html -->
+<title>Sonidos de La Lupa</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Bebas+Neue&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+/* Expediente de papel: cabecera con los volúmenes fija arriba, secciones como fichas del archivo, botones como etiquetas mecanografiadas */
+:root{
+  --papel:#efe5cf; --hoja:#f8f1e0; --tinta:#2b2219; --tinta-suave:#6b5a47; --albero:#b8862f; --azulejo:#2f5d8c; --sello:#a3382c; --raya:#d8c8a6;
+  --f-titulo:'Bebas Neue','Arial Narrow',Impact,sans-serif; --f-maquina:'Special Elite','Courier New',monospace; --f-texto:'Nunito',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--papel:#16120e;--hoja:#211b15;--tinta:#efe3c8;--tinta-suave:#b3a184;--albero:#d9a948;--azulejo:#7fa8d6;--sello:#e0705f;--raya:#3a3026;color-scheme:dark}}
+:root[data-theme="dark"]{--papel:#16120e;--hoja:#211b15;--tinta:#efe3c8;--tinta-suave:#b3a184;--albero:#d9a948;--azulejo:#7fa8d6;--sello:#e0705f;--raya:#3a3026;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);font-family:var(--f-texto);font-size:16px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--papel)}
+.ancho{max-width:960px;margin:0 auto}
+header.portada{padding-block:28px 8px}
+.pestana{font-family:var(--f-maquina);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sello);border:2px solid var(--sello);display:inline-block;padding:2px 10px;transform:rotate(-1.5deg)}
+h1{font-family:var(--f-titulo);font-weight:400;font-size:clamp(2.6rem,8vw,4.2rem);line-height:.95;letter-spacing:.02em;margin:.25em 0 .1em;text-wrap:balance}
+.entradilla{max-width:62ch;color:var(--tinta-suave);margin:0}
+.barra{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--papel);border-bottom:1px dashed var(--raya);padding-block:10px;margin-top:14px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.barra label{display:flex;align-items:center;gap:8px;font-family:var(--f-maquina);font-size:.9rem}
+.barra input[type=range]{width:110px;accent-color:var(--albero)}
+.estado{font-family:var(--f-maquina);font-size:.85rem;color:var(--tinta-suave);flex:1 1 200px;min-width:0}
+.estado b{color:var(--tinta)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--azulejo);outline-offset:2px}
+.parar{background:var(--tinta);color:var(--papel);border:0;border-radius:4px;padding:8px 14px;font-family:var(--f-maquina)}
+section{margin-top:34px}
+h2{font-family:var(--f-titulo);font-weight:400;font-size:2rem;letter-spacing:.03em;margin:0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+h2 small{font-family:var(--f-maquina);font-size:.85rem;letter-spacing:0;color:var(--tinta-suave)}
+.nota{color:var(--tinta-suave);max-width:65ch;margin:.3em 0 14px}
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ficha{background:var(--hoja);border:1px solid var(--raya);border-radius:3px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0;box-shadow:0 1px 0 var(--raya)}
+.ficha.sonando{border-color:var(--albero);box-shadow:0 0 0 2px var(--albero)}
+.ficha h3{margin:0;font-family:var(--f-maquina);font-weight:400;font-size:1.05rem}
+.ficha p{margin:0;font-size:.9rem;color:var(--tinta-suave)}
+.donde{font-size:.8rem!important}
+.fila{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:auto}
+.tocar{background:transparent;border:2px solid var(--tinta);border-radius:3px;padding:6px 12px;font-family:var(--f-maquina)}
+.ficha.sonando .tocar{background:var(--albero);border-color:var(--albero);color:#1c140b}
+.voto{display:flex;gap:4px;margin-left:auto}
+.voto button{border:1px solid var(--raya);background:transparent;border-radius:3px;padding:4px 8px;font-size:.85rem}
+.voto button[aria-pressed=true][data-v=si]{background:var(--azulejo);border-color:var(--azulejo);color:#fff}
+.voto button[aria-pressed=true][data-v=no]{background:var(--sello);border-color:var(--sello);color:#fff}
+.grupo{margin-top:18px}
+.grupo h3{font-family:var(--f-maquina);font-weight:400;font-size:.95rem;text-transform:uppercase;letter-spacing:.1em;color:var(--azulejo);margin:0 0 8px}
+.efectos{display:flex;flex-wrap:wrap;gap:8px}
+.efecto{display:inline-flex;align-items:center;gap:2px;background:var(--hoja);border:1px solid var(--raya);border-radius:3px}
+.efecto .tocar{border:0;padding:8px 10px;font-size:.9rem}
+.efecto .voto{margin:0 4px 0 0}
+.efecto .voto button{padding:2px 6px;font-size:.75rem}
+.efecto.pulsado{border-color:var(--albero)}
+.escena-demo{background:var(--hoja);border:1px solid var(--raya);border-radius:3px;padding:16px;display:grid;gap:10px}
+.demos{display:flex;flex-wrap:wrap;gap:8px}
+.pantalla{font-family:var(--f-maquina);min-height:5.5em;background:var(--papel);border:1px dashed var(--raya);padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.rotulo{font-family:var(--f-titulo);font-size:1.6rem;color:var(--sello);letter-spacing:.04em;min-height:1.2em}
+.notas{background:var(--hoja);border:1px solid var(--raya);border-radius:3px;padding:16px;display:grid;gap:10px}
+.notas textarea{width:100%;min-height:90px;font:inherit;background:var(--papel);color:var(--tinta);border:1px solid var(--raya);border-radius:3px;padding:10px}
+.notas pre{margin:0;white-space:pre-wrap;font-family:var(--f-maquina);font-size:.85rem;color:var(--tinta-suave);max-height:180px;overflow:auto}
+.copiado{font-family:var(--f-maquina);color:var(--azulejo)}
+@media (max-width:560px){.barra{gap:6px 12px;padding-block:8px}.barra label span{display:none}.barra input[type=range]{width:86px}.estado{order:5;flex-basis:100%;font-size:.78rem}.parar{padding:6px 10px;font-size:.85rem}}
+footer{margin-top:36px;color:var(--tinta-suave);font-size:.85rem;max-width:65ch}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<div class="ancho">
+  <header class="portada">
+    <span class="pestana">Expediente de sonido · pruebas</span>
+    <h1>Sonidos de La Lupa</h1>
+    <p class="entradilla">Música, ambientes y efectos para el juego. Todo está hecho por nosotros con el propio navegador: no hay archivos que descargar ni licencias que cumplir. Toca cada ficha para escucharla y marca 👍 o 👎. Al final puedes copiar tus notas y pegármelas en el chat.</p>
+  </header>
+
+  <div class="barra" role="region" aria-label="Volumen">
+    <label for="volMusica">🎵 <span>Música</span> <input id="volMusica" type="range" min="0" max="100" value="45"></label>
+    <label for="volEfectos">🔔 <span>Efectos</span> <input id="volEfectos" type="range" min="0" max="100" value="80"></label>
+    <span class="estado" id="estado">Toca cualquier botón para empezar.</span>
+    <button class="parar" id="parar" type="button">■ Parar todo</button>
+  </div>
+
+  <section aria-labelledby="t-musica">
+    <h2 id="t-musica">Hilo musical <small>cambia solo según el lugar de la escena, con fundido</small></h2>
+    <p class="nota">Cada música es un bucle que nunca suena exactamente igual: las melodías se van inventando dentro de su escala. Escúchalas al menos 20 segundos.</p>
+    <div class="rejilla" id="musicas"></div>
+  </section>
+
+  <section aria-labelledby="t-fondos">
+    <h2 id="t-fondos">Ambientes de fondo <small>suenan debajo de la música</small></h2>
+    <p class="nota">Una capa continua (lluvia, viento, murmullo…) y, de vez en cuando, sonidos sueltos: pasos que se acercan y se alejan, un búho, el campanario, una máquina de escribir lejana. Prueba a combinarlos con una música.</p>
+    <div class="rejilla" id="fondos"></div>
+  </section>
+
+  <section aria-labelledby="t-efectos">
+    <h2 id="t-efectos">Efectos <small>lo que pasa al tocar</small></h2>
+    <div id="efectos"></div>
+  </section>
+
+  <section aria-labelledby="t-escenas">
+    <h2 id="t-escenas">Así sonaría en el juego <small>tres momentos encadenados</small></h2>
+    <div class="escena-demo">
+      <div class="demos" id="demos"></div>
+      <div class="rotulo" id="rotulo" aria-live="polite"></div>
+      <div class="pantalla" id="pantalla">Elige un momento.</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-notas">
+    <h2 id="t-notas">Tus notas</h2>
+    <div class="notas">
+      <label for="comentario">Comentario libre (qué cambiarías, qué falta…)</label>
+      <textarea id="comentario" placeholder="Por ejemplo: la música de la feria me gusta; los pasos deberían sonar más a menudo…"></textarea>
+      <pre id="resumen"></pre>
+      <div class="fila"><button class="tocar" id="copiar" type="button">Copiar notas para el chat</button><span class="copiado" id="copiado" aria-live="polite"></span></div>
+    </div>
+  </section>
+
+  <footer>En el juego hay un botón 🔊 abajo a la izquierda con estos mismos dos volúmenes y «Silenciar todo». Se guarda en cada tableta. En la Centralita no suena música para no tapar el dictado, y durante la voz la música se aparta sola.</footer>
+</div>
+
+<script src="sonido.js"></script>
+<script>
+(function(){
+  Sonido.iniciar({ prefijo: 'lab-lupa' });
+  Sonido.volumen('musica', .45); Sonido.volumen('efectos', .8);
+  const $ = s => document.querySelector(s);
+  const DONDE_M = {
+    agencia: 'Oficina de la agencia, tablón, radio y redacción del Eco.',
+    noche: 'Calles y lugares de noche: fachada, kiosco, feria apagada, biblioteca, mercado de madrugada…',
+    tension: 'Careos, candados, el Tachón y la sala de Interrogatorios.',
+    academia: 'Patio y salas de la Academia de detectives.',
+    feria: 'Plaza de la feria con los farolillos.',
+    amanecer: 'Lugares de día o cálidos: calle al amanecer, panadería, floristería, taller, plaza de los azulejos.',
+    triunfo: 'Final del caso e informe.'
+  };
+  const DONDE_F = {
+    agencia: 'Oficina de la agencia (la ilustración tiene lluvia en la ventana).', calle: 'Fachada de la agencia, kiosco, azotea.', mercado: 'Mercado y plaza de la feria.',
+    feria: 'Feria apagada y casetas.', interior: 'Biblioteca, conserjería, panadería, taller, salas de la Academia.', radio: 'Radio Alameda.',
+    imprenta: 'Imprenta del Eco y sala Imprenta.', patio: 'Patio de la Academia, calle al amanecer, plaza de los azulejos.', lluvia: 'Agencia saboteada.', tension: 'Reservado para momentos de espera.', oficina: 'Redacción del Eco.'
+  };
+  const GRUPOS = [
+    ['Máquina de escribir y papeles', ['tecleo', 'espacio', 'retorno', 'papel', 'pagina', 'lapiz', 'tachar', 'expediente', 'precinto', 'sello', 'cajon']],
+    ['Cerraduras, candados y puertas', ['candado-girar', 'candado-clic', 'candado-error', 'candado-abrir', 'puerta-abrir', 'puerta-cerrar', 'pasos']],
+    ['La investigación', ['falta-encontrada', 'falsa-alarma', 'acierto', 'fallo', 'pista-conseguida', 'pista-falsa', 'lupa', 'carta', 'cartas-barajar', 'revelacion', 'subir', 'caso-resuelto']],
+    ['Salas de la Academia', ['tiza', 'borrador', 'ter-tecleo', 'ter-ok', 'ter-error', 'crt-encender', 'telex', 'radio', 'interruptor', 'imprenta', 'rotativa', 'sismo-pico', 'dados', 'entrenamiento']],
+    ['Botones y ventanas', ['boton', 'clic', 'seleccion', 'ventana', 'ventana-cerrar', 'tecla', 'pop']],
+    ['Lugares y fondo', ['reloj', 'campana', 'timbre', 'buho', 'pajaro', 'bip']]
+  ];
+  const NOMBRE_E = { tecleo: 'Tecla', espacio: 'Espaciador', retorno: 'Fin de línea (ding)', papel: 'Papel', pagina: 'Pasar página', lapiz: 'Lápiz', tachar: 'Tachar', expediente: 'Abrir carpeta', precinto: 'Romper precinto', sello: 'Sello', cajon: 'Cajón del archivo',
+    'candado-girar': 'Rueda del candado', 'candado-clic': 'Clic metálico', 'candado-error': 'Candado atascado', 'candado-abrir': 'Candado abierto', 'puerta-abrir': 'Puerta que cruje', 'puerta-cerrar': 'Portazo', pasos: 'Pasos',
+    'falta-encontrada': 'Falta encontrada', 'falsa-alarma': 'Falsa alarma', acierto: 'Acierto', fallo: 'Fallo (suave)', 'pista-conseguida': '¡Pista conseguida!', 'pista-falsa': '¡Pista falsa!', lupa: 'Lupa', carta: 'Carta sobre la mesa', 'cartas-barajar': 'Barajar cartas', revelacion: 'Revelación', subir: '¡Bien visto!', 'caso-resuelto': 'Caso resuelto',
+    tiza: 'Tiza', borrador: 'Borrador', 'ter-tecleo': 'Terminal: tecla', 'ter-ok': 'Terminal: correcto', 'ter-error': 'Terminal: error', 'crt-encender': 'Encender pantalla', telex: 'Télex', radio: 'Sintonizar radio', interruptor: 'Interruptor', imprenta: 'Golpe de imprenta', rotativa: 'Rotativa', 'sismo-pico': 'Sismógrafo', dados: 'Dados', entrenamiento: 'Entrenamiento completado',
+    boton: 'Botón', clic: 'Clic', seleccion: 'Seleccionar', ventana: 'Abrir ventana', 'ventana-cerrar': 'Cerrar ventana', tecla: 'Tecla al escribir', pop: 'Hueco lleno',
+    reloj: 'Reloj', campana: 'Campanario', timbre: 'Timbre de tienda', buho: 'Búho', pajaro: 'Pájaro', bip: 'Pitido' };
+
+  // Votos: solo en este navegador
+  let votos = {}; try { votos = JSON.parse(localStorage.getItem('lab-lupa-votos')) || {}; } catch (e) {}
+  const guardarVotos = () => { try { localStorage.setItem('lab-lupa-votos', JSON.stringify(votos)); } catch (e) {} pintarResumen(); };
+  const htmlVoto = id => `<span class="voto"><button type="button" data-voto="${id}" data-v="si" aria-pressed="${votos[id] === 'si'}" aria-label="Me gusta">👍</button><button type="button" data-voto="${id}" data-v="no" aria-pressed="${votos[id] === 'no'}" aria-label="Cambiar">👎</button></span>`;
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-voto]'); if (!b) return;
+    const id = b.dataset.voto; votos[id] = votos[id] === b.dataset.v ? undefined : b.dataset.v;
+    document.querySelectorAll(`[data-voto="${id}"]`).forEach(x => x.setAttribute('aria-pressed', String(votos[id] === x.dataset.v)));
+    guardarVotos();
+  });
+
+  let musicaActual = null, fondoActual = null;
+  const pintarEstado = () => {
+    const m = musicaActual ? Sonido.MUSICAS[musicaActual].nombre : 'ninguna', f = fondoActual ? Sonido.FONDOS[fondoActual].nombre : 'ninguno';
+    $('#estado').innerHTML = `Música: <b>${m}</b> · Fondo: <b>${f}</b>`;
+    document.querySelectorAll('[data-musica]').forEach(x => x.classList.toggle('sonando', x.dataset.musica === musicaActual));
+    document.querySelectorAll('[data-fondo]').forEach(x => x.classList.toggle('sonando', x.dataset.fondo === fondoActual));
+    document.querySelectorAll('[data-musica] .tocar').forEach(x => x.textContent = x.closest('[data-musica]').dataset.musica === musicaActual ? '■ Parar' : '▶ Escuchar');
+    document.querySelectorAll('[data-fondo] .tocar').forEach(x => x.textContent = x.closest('[data-fondo]').dataset.fondo === fondoActual ? '■ Parar' : '▶ Escuchar');
+  };
+  $('#musicas').innerHTML = Object.entries(Sonido.MUSICAS).map(([k, m]) => `<article class="ficha" data-musica="${k}"><h3>${m.nombre}</h3><p class="donde">${DONDE_M[k] || ''}</p><div class="fila"><button class="tocar" type="button">▶ Escuchar</button>${htmlVoto('música ' + k)}</div></article>`).join('');
+  $('#fondos').innerHTML = Object.entries(Sonido.FONDOS).map(([k, f]) => `<article class="ficha" data-fondo="${k}"><h3>${f.nombre}</h3><p class="donde">${DONDE_F[k] || ''}</p><div class="fila"><button class="tocar" type="button">▶ Escuchar</button>${htmlVoto('fondo ' + k)}</div></article>`).join('');
+  $('#musicas').addEventListener('click', e => { const b = e.target.closest('.tocar'); if (!b) return; const k = b.closest('[data-musica]').dataset.musica; musicaActual = musicaActual === k ? null : k; Sonido.musica(musicaActual); pintarEstado(); });
+  $('#fondos').addEventListener('click', e => { const b = e.target.closest('.tocar'); if (!b) return; const k = b.closest('[data-fondo]').dataset.fondo; fondoActual = fondoActual === k ? null : k; Sonido.fondo(fondoActual); pintarEstado(); });
+  $('#efectos').innerHTML = GRUPOS.map(([t, lista]) => `<div class="grupo"><h3>${t}</h3><div class="efectos">${lista.filter(k => Sonido.EFECTOS[k]).map(k => `<span class="efecto" data-efecto="${k}"><button class="tocar" type="button">${NOMBRE_E[k] || k}</button>${htmlVoto('efecto ' + k)}</span>`).join('')}</div></div>`).join('');
+  $('#efectos').addEventListener('click', e => { const b = e.target.closest('.tocar'); if (!b) return; const el = b.closest('[data-efecto]'); Sonido.efecto(el.dataset.efecto, { min: 0 }); el.classList.add('pulsado'); setTimeout(() => el.classList.remove('pulsado'), 400); });
+  $('#parar').onclick = () => { musicaActual = fondoActual = null; Sonido.contexto(null, null); detenerDemo(); pintarEstado(); };
+  $('#volMusica').oninput = e => Sonido.volumen('musica', e.target.value / 100);
+  $('#volEfectos').oninput = e => Sonido.volumen('efectos', e.target.value / 100);
+
+  // Momentos encadenados, como en un caso
+  let temporizadores = [];
+  const detenerDemo = () => { temporizadores.forEach(clearTimeout); temporizadores = []; };
+  const en = (ms, f) => temporizadores.push(setTimeout(f, ms));
+  const escribir = (desde, texto, alFinal) => { const p = $('#pantalla'); p.textContent = ''; let i = 0;
+    const paso = () => { if (i >= texto.length) { Sonido.efecto('retorno', { vol: .6 }); alFinal && alFinal(); return; } p.textContent += texto[i]; Sonido.efecto(/\s/.test(texto[i]) ? 'espacio' : 'tecleo', { vol: .7, min: .03 }); i++; temporizadores.push(setTimeout(paso, 55 + Math.random() * 40)); };
+    en(desde, paso); };
+  const rotulo = t => { $('#rotulo').textContent = t; };
+  const DEMOS = {
+    'Abrir un caso': () => { Sonido.contexto('agencia', 'agencia'); musicaActual = 'agencia'; fondoActual = 'agencia'; pintarEstado(); rotulo('Expediente 1');
+      $('#pantalla').textContent = 'PRECINTO · NO ABRIR SIN LUPA';
+      en(1800, () => Sonido.efecto('precinto')); en(2700, () => { rotulo('Abrir expediente ▸'); Sonido.efecto('expediente'); });
+      escribir(3600, 'Llueve sobre La Alameda. Alguien ha dejado una nota bajo la puerta de la agencia...', () => {
+        en(600, () => { rotulo(''); $('#pantalla').textContent = 'Toca las palabras mal escritas: «La reunion es a las ocho en el kiosco».'; });
+        en(1600, () => Sonido.efecto('falsa-alarma')); en(2900, () => { Sonido.efecto('falta-encontrada'); rotulo('¡Falta encontrada!'); });
+        en(4000, () => { Sonido.efecto('tecla'); }); en(4150, () => Sonido.efecto('tecla')); en(4300, () => Sonido.efecto('tecla'));
+        en(4700, () => { Sonido.efecto('acierto'); $('#pantalla').textContent = '«La reunión es a las ocho en el kiosco».'; });
+        en(5600, () => { Sonido.efecto('pista-conseguida'); rotulo('¡Pista conseguida! · 7'); });
+      }); },
+    'Careo y candado': () => { Sonido.contexto('tension', 'calle'); musicaActual = 'tension'; fondoActual = 'calle'; pintarEstado(); rotulo('El careo');
+      escribir(400, '—Yo no estuve en el kiosco —dice el testigo—. Esa noche me quedé en casa.', () => {
+        en(500, () => Sonido.efecto('falta-encontrada')); en(1300, () => { Sonido.efecto('cartas-barajar'); rotulo('¿Qué carta lo demuestra?'); });
+        en(2600, () => Sonido.efecto('carta')); en(3000, () => Sonido.efecto('acierto'));
+        en(3900, () => { Sonido.efecto('revelacion'); rotulo('¡Declaración aclarada!'); });
+        en(6200, () => { rotulo('El candado'); $('#pantalla').textContent = '[ 7 ] [ 3 ] [ _ ]'; Sonido.efecto('candado-girar'); });
+        en(6700, () => Sonido.efecto('candado-girar')); en(7400, () => { Sonido.efecto('candado-error'); rotulo('No se abre…'); });
+        en(8600, () => { Sonido.efecto('candado-girar'); $('#pantalla').textContent = '[ 7 ] [ 3 ] [ 9 ]'; });
+        en(9300, () => { Sonido.efecto('candado-abrir'); rotulo('¡Clic!'); });
+      }); },
+    'Caso resuelto': () => { Sonido.contexto('triunfo', 'mercado'); musicaActual = 'triunfo'; fondoActual = 'mercado'; pintarEstado(); rotulo('');
+      escribir(600, 'La feria vuelve a encenderse. El misterio del farolillo queda resuelto.', () => {
+        en(500, () => { Sonido.efecto('sello'); rotulo('CASO RESUELTO'); }); en(1800, () => Sonido.efecto('caso-resuelto'));
+      }); }
+  };
+  $('#demos').innerHTML = Object.keys(DEMOS).map(k => `<button class="tocar" type="button" data-demo="${k}">▶ ${k}</button>`).join('');
+  $('#demos').addEventListener('click', e => { const b = e.target.closest('[data-demo]'); if (!b) return; detenerDemo(); DEMOS[b.dataset.demo](); });
+
+  // Resumen para copiar
+  const pintarResumen = () => {
+    const si = Object.keys(votos).filter(k => votos[k] === 'si'), no = Object.keys(votos).filter(k => votos[k] === 'no');
+    const c = $('#comentario').value.trim();
+    $('#resumen').textContent = `Sonidos de La Lupa · mis notas\n👍 Me gusta: ${si.join(', ') || '—'}\n👎 Cambiar: ${no.join(', ') || '—'}${c ? '\nComentario: ' + c : ''}`;
+  };
+  try { $('#comentario').value = localStorage.getItem('lab-lupa-comentario') || ''; } catch (e) {}
+  $('#comentario').oninput = () => { try { localStorage.setItem('lab-lupa-comentario', $('#comentario').value); } catch (e) {} pintarResumen(); };
+  $('#copiar').onclick = () => {
+    const texto = $('#resumen').textContent;
+    const hecho = () => { $('#copiado').textContent = 'Copiado. Pégalo en el chat.'; };
+    try { navigator.clipboard.writeText(texto).then(hecho, () => { seleccionar(); }); } catch (e) { seleccionar(); }
+  };
+  const seleccionar = () => { const r = document.createRange(); r.selectNodeContents($('#resumen')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $('#copiado').textContent = 'Selecciona el texto de arriba y cópialo.'; };
+  pintarResumen(); pintarEstado();
+})();
+</script>
+
+</body>
+</html>
