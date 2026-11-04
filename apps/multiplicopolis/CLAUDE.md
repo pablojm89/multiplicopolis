@@ -2,7 +2,7 @@
 
 Juego para aprender las tablas y la multiplicación (de 1º a 6º de Primaria): mapa de mundos por curso, niveles con estrellas, jefes, XP, rangos, insignias, misiones y exámenes que pone el maestro/a, y sincronización con Google Sheets.
 
-Ficheros: `index.html` (todas las vistas), `app.js` (toda la lógica, ~460 líneas pero muy largas, ~58 KB), `styles.css`.
+Ficheros: `index.html` (todas las vistas), `app.js` (toda la lógica, ~460 líneas pero muy largas, ~58 KB), `styles.css`, `sonido.js` (música y efectos con el motor `shared/sonido.js`; se engancha sin tocar `app.js`, envolviendo `feedback`, `startGame`, `finishGame`, `registerOutcome`, `badgeToast`… Música `ciudad` en menús y más baja al practicar, `jefe` en los jefes y silencio en exámenes, en la zona del maestro y en el modo tranquilo).
 
 ## Cómo leer `app.js` sin gastar contexto
 

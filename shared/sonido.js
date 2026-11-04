@@ -267,6 +267,34 @@
         if (p % 4 === 2 && Math.random() < 0.28) INS.celesta(D, t, elige(esc), 0.05);
       };
     } },
+    // Multiplicópolis: ciudad alegre, marimba y pizzicato en Do mayor
+    ciudad: { nombre: 'Ciudad alegre (Multiplicópolis)', nivel: 1.2, bpm: 112, swing: 0.25, pasos: 16, crear() {
+      const _ = null, prog = [[48, 64, 67, 72], [45, 64, 69, 72], [41, 65, 69, 72], [43, 62, 67, 71]];
+      const M = [[76, _, 79, _, 84, _, 79, _, 81, _, 79, _, 76, _, _, _], [76, _, 77, _, 79, _, 81, _, 79, _, 76, _, 72, _, _, _],
+        [77, _, 81, _, 84, _, 81, _, 79, _, 77, _, 76, _, 74, _], [74, _, 76, _, 77, _, 79, _, 74, _, _, _, 71, _, _, _]];
+      return (i, t, d, D) => {
+        const compas = Math.floor(i / 16), p = i % 16, ac = prog[compas % 4], vuelta = Math.floor(compas / 4) % 2;
+        if (p % 4 === 0) INS.bajo(D, t, ac[0] + (p === 8 ? 7 : 0), 0.26, d * 2);
+        if (p === 4 || p === 12) ac.slice(1).forEach(n => INS.pizz(D, t, n, 0.06));
+        if (p === 4 || p === 12) INS.chasquido(D, t, 0.08);
+        if (p % 2 === 0) INS.charles(D, t, 0.012);
+        const n = M[compas % 4][p];
+        if (n && vuelta === 0) INS.vibrafono(D, t, n, 0.08);
+        else if (n && vuelta === 1 && p % 4 === 0) INS.celesta(D, t, n + 12, 0.06);
+      };
+    } },
+    // Jefe final de Multiplicópolis: épico y con tambores, sin dar miedo
+    jefe: { nombre: 'Jefe final (épico)', nivel: 1.2, bpm: 126, swing: 0, pasos: 16, crear() {
+      const prog = [[45, 57, 60, 64], [41, 57, 60, 65], [43, 55, 59, 62], [40, 56, 59, 64]];
+      return (i, t, d, D) => {
+        const compas = Math.floor(i / 16), p = i % 16, ac = prog[compas % 4];
+        if (p % 2 === 0) INS.pizz(D, t, ac[0] - (p % 4 === 0 ? 0 : -12), p % 4 === 0 ? 0.2 : 0.12);
+        if (p === 0 || p === 6 || p === 10) INS.timbal(D, t, 0.22);
+        if (p === 4 || p === 12) soplo(D, t, { tipo: 'bandpass', f: 1800, q: 0.7, vol: 0.1, a: 0.001, c: 0.06, dur: 0.08, rev: 0.3 });
+        if (p === 0) INS.pad(D, t, ac.slice(1), 0.1, d * 15);
+        if (p % 4 === 2 && compas % 2 === 1) INS.vibrafono(D, t, ac[1 + (p / 4 | 0) % 3] + 12, 0.07);
+      };
+    } },
     // Caso resuelto, informe: cálido y luminoso
     triunfo: { nombre: 'Caso resuelto (cálido)', bpm: 84, swing: 0.6, pasos: 16, crear() {
       const prog = [[41, 57, 60, 64, 69], [45, 55, 60, 64, 67], [46, 57, 62, 65, 69], [48, 58, 62, 65, 67]];
@@ -365,6 +393,11 @@
     'sismo-pico'(D, t, v) { tono(D, t, { f: 880, f2: 1760, glide: 0.06, vol: 0.08 * v, a: 0.003, c: 0.06, dur: 0.2 }); soplo(D, t, { tipo: 'bandpass', f: 3000, q: 4, vol: 0.06 * v, c: 0.04, dur: 0.1 }); },
     dados(D, t, v) { [0, 0.07, 0.16, 0.22, 0.31].forEach(dt => tono(D, t + dt, { f: azar(900, 1600), vol: 0.1 * v, a: 0.001, c: 0.012, dur: 0.04, rev: 0.1 })); },
     entrenamiento(D, t, v) { [69, 74, 78].forEach((n, k) => INS.vibrafono(D, t + k * 0.1, n, 0.11 * v)); INS.celesta(D, t + 0.32, 86, 0.1 * v); },
+    racha(D, t, v, o) { const n = Math.min(6, Math.max(2, Math.round((o.nivel || 3) / 2))); for (let k = 0; k < n; k++) INS.celesta(D, t + k * 0.06, 72 + [0, 4, 7, 12, 16, 19][k], 0.12 * v); },
+    estrella(D, t, v) { INS.celesta(D, t, 88, 0.15 * v); INS.vibrafono(D, t, 76, 0.1 * v); soplo(D, t, { tipo: 'highpass', f: 7000, vol: 0.04 * v, a: 0.05, c: 0.2, dur: 0.3, rev: 0.6 }); },
+    'nivel-arriba'(D, t, v) { [60, 64, 67, 72].forEach((n, k) => INS.vibrafono(D, t + k * 0.12, n + 12, 0.12 * v)); [48, 64, 67, 72, 76].forEach(n => INS.rhodes(D, t + 0.5, n, 0.07 * v, 2.5)); INS.timbal(D, t + 0.5, 0.25 * v); },
+    empezar(D, t, v) { soplo(D, t, { tipo: 'bandpass', f: 500, f2: 3000, q: 1, vol: 0.12 * v, a: 0.15, c: 0.05, dur: 0.25, rev: 0.3 }); INS.celesta(D, t + 0.22, 79, 0.1 * v); INS.celesta(D, t + 0.3, 84, 0.1 * v); },
+    animo(D, t, v) { INS.vibrafono(D, t, 67, 0.09 * v); INS.vibrafono(D, t + 0.15, 72, 0.08 * v); },
     // Objetos y lugares
     reloj(D, t, v) { INS.madera(D, t, 0.05 * v, 1900); },
     campana(D, t, v) { campana(D, t, 196, 0.25 * v, 0.6, 2.5); },

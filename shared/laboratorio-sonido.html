@@ -77,7 +77,7 @@ footer{margin-top:36px;color:var(--tinta-suave);font-size:.85rem;max-width:65ch}
   <header class="portada">
     <span class="pestana">Expediente de sonido · pruebas</span>
     <h1>Sonidos de La Lupa</h1>
-    <p class="entradilla">Música, ambientes y efectos para el juego. Todo está hecho por nosotros con el propio navegador: no hay archivos que descargar ni licencias que cumplir. Toca cada ficha para escucharla y marca 👍 o 👎. Al final puedes copiar tus notas y pegármelas en el chat.</p>
+    <p class="entradilla">Música, ambientes y efectos para Agencia La Lupa (y, al final de cada lista, los de Multiplicópolis). Todo está hecho por nosotros con el propio navegador: no hay archivos que descargar ni licencias que cumplir. Toca cada ficha para escucharla y marca 👍 o 👎. Al final puedes copiar tus notas y pegármelas en el chat.</p>
   </header>
 
   <div class="barra" role="region" aria-label="Volumen">
@@ -139,7 +139,9 @@ footer{margin-top:36px;color:var(--tinta-suave);font-size:.85rem;max-width:65ch}
     academia: 'Patio y salas de la Academia de detectives.',
     feria: 'Plaza de la feria con los farolillos.',
     amanecer: 'Lugares de día o cálidos: calle al amanecer, panadería, floristería, taller, plaza de los azulejos.',
-    triunfo: 'Final del caso e informe.'
+    triunfo: 'Final del caso e informe.',
+    ciudad: 'Multiplicópolis: mapa y menús; más bajita mientras se practica.',
+    jefe: 'Multiplicópolis: jefes finales de cada curso (en los exámenes, silencio).'
   };
   const DONDE_F = {
     agencia: 'Oficina de la agencia (la ilustración tiene lluvia en la ventana).', calle: 'Fachada de la agencia, kiosco, azotea.', mercado: 'Mercado y plaza de la feria.',
@@ -152,6 +154,7 @@ footer{margin-top:36px;color:var(--tinta-suave);font-size:.85rem;max-width:65ch}
     ['La investigación', ['falta-encontrada', 'falsa-alarma', 'acierto', 'fallo', 'pista-conseguida', 'pista-falsa', 'lupa', 'carta', 'cartas-barajar', 'revelacion', 'subir', 'caso-resuelto']],
     ['Salas de la Academia', ['tiza', 'borrador', 'ter-tecleo', 'ter-ok', 'ter-error', 'crt-encender', 'telex', 'radio', 'interruptor', 'imprenta', 'rotativa', 'sismo-pico', 'dados', 'entrenamiento']],
     ['Botones y ventanas', ['boton', 'clic', 'seleccion', 'ventana', 'ventana-cerrar', 'tecla', 'pop']],
+    ['Multiplicópolis', ['empezar', 'racha', 'estrella', 'nivel-arriba', 'animo']],
     ['Lugares y fondo', ['reloj', 'campana', 'timbre', 'buho', 'pajaro', 'bip']]
   ];
   const NOMBRE_E = { tecleo: 'Tecla', espacio: 'Espaciador', retorno: 'Fin de línea (ding)', papel: 'Papel', pagina: 'Pasar página', lapiz: 'Lápiz', tachar: 'Tachar', expediente: 'Abrir carpeta', precinto: 'Romper precinto', sello: 'Sello', cajon: 'Cajón del archivo',
@@ -159,7 +162,7 @@ footer{margin-top:36px;color:var(--tinta-suave);font-size:.85rem;max-width:65ch}
     'falta-encontrada': 'Falta encontrada', 'falsa-alarma': 'Falsa alarma', acierto: 'Acierto', fallo: 'Fallo (suave)', 'pista-conseguida': '¡Pista conseguida!', 'pista-falsa': '¡Pista falsa!', lupa: 'Lupa', carta: 'Carta sobre la mesa', 'cartas-barajar': 'Barajar cartas', revelacion: 'Revelación', subir: '¡Bien visto!', 'caso-resuelto': 'Caso resuelto',
     tiza: 'Tiza', borrador: 'Borrador', 'ter-tecleo': 'Terminal: tecla', 'ter-ok': 'Terminal: correcto', 'ter-error': 'Terminal: error', 'crt-encender': 'Encender pantalla', telex: 'Télex', radio: 'Sintonizar radio', interruptor: 'Interruptor', imprenta: 'Golpe de imprenta', rotativa: 'Rotativa', 'sismo-pico': 'Sismógrafo', dados: 'Dados', entrenamiento: 'Entrenamiento completado',
     boton: 'Botón', clic: 'Clic', seleccion: 'Seleccionar', ventana: 'Abrir ventana', 'ventana-cerrar': 'Cerrar ventana', tecla: 'Tecla al escribir', pop: 'Hueco lleno',
-    reloj: 'Reloj', campana: 'Campanario', timbre: 'Timbre de tienda', buho: 'Búho', pajaro: 'Pájaro', bip: 'Pitido' };
+    empezar: 'Empezar reto', racha: 'Racha de aciertos', estrella: 'Estrella', 'nivel-arriba': 'Subir de rango', animo: 'Ánimo (sin estrellas)', reloj: 'Reloj', campana: 'Campanario', timbre: 'Timbre de tienda', buho: 'Búho', pajaro: 'Pájaro', bip: 'Pitido' };
 
   // Votos: solo en este navegador
   let votos = {}; try { votos = JSON.parse(localStorage.getItem('lab-lupa-votos')) || {}; } catch (e) {}
