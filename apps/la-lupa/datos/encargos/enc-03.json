@@ -13,7 +13,7 @@
   "escenas": [
     { "tipo": "portada", "fondo": "biblioteca" },
     {
-      "tipo": "relato", "fondo": "biblioteca", "quien": "Herminia, la bibliotecaria",
+      "tipo": "relato", "objeto": "postal-antigua", "fondo": "biblioteca", "quien": "Herminia, la bibliotecaria",
       "personaje": { "id": "herminia", "expresion": "sorprendido", "lado": "der" },
       "texto": "Detectives, mirad lo que había dentro de un libro de viajes que alguien ha devuelto: una postal antigua, rota en tiras. Alguien la guardaba como un tesoro y me gustaría devolvérsela. El problema es que las tiras se han mezclado y no sé ni quién la escribió ni para quién era."
     },

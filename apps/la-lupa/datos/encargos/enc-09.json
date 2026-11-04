@@ -16,7 +16,7 @@
       "fondo": "redaccion-eco"
     },
     {
-      "tipo": "relato",
+      "tipo": "relato", "objeto": "movil-bulo",
       "fondo": "redaccion-eco",
       "quien": "Aurora, la directora del periódico",
       "personaje": {
@@ -212,7 +212,7 @@
       "contador": "Señal"
     },
     {
-      "tipo": "relato",
+      "tipo": "relato", "objeto": "movil-bulo",
       "fondo": "redaccion-eco",
       "quien": "Aurora, la directora del periódico",
       "personaje": {

@@ -55,7 +55,7 @@ function vistaEncargos() {
       <button class="boton-papel" id="volverTablon">◂ Tablón</button>
     </div>
     <p class="aviso-encargos">${siguiente ? `Con el rango <b>${esc(siguiente.nombre)}</b> (${siguiente.min} pts) llegarán encargos nuevos, y más difíciles.` : "Rango máximo: tienes todos los encargos de la agencia."}</p>
-    <div class="buzon">${listaEncargos().map(tarjeta).join("") || `<p class="vacio">El buzón está vacío… de momento.</p>`}</div>`, { fondo: "agencia", clase: "oscurecido" });
+    <div class="buzon">${listaEncargos().map(tarjeta).join("") || `<p class="vacio">El buzón está vacío… de momento.</p>`}</div>`, { fondo: arte("buzon-agencia").listo ? "buzon-agencia" : "agencia", clase: "oscurecido" });
   $("#volverTablon").onclick = vistaTablon;
   $$("[data-encargo]").forEach(b => b.onclick = () => iniciarEncargo(b.dataset.encargo));
 }

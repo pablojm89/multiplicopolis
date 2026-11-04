@@ -208,6 +208,7 @@ const delWalkie = () => `
 nuevaActividad("centralita", {
   id: "deletreo",
   nombre: "El deletreo",
+  objeto: "walkie",
   desc: "Lola deletrea por el walkie: hache, uve, zeta… Apúntalo sin perder ni una letra.",
   reglas: DEL_REGLAS,
 }, async function (sl, regla, turno) {

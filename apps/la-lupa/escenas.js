@@ -17,6 +17,32 @@ function azar(semilla) {
   return () => { h = Math.imul(h ^ (h >>> 15), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); return ((h ^= h >>> 16) >>> 0) / 4294967296; };
 }
 
+/* El objeto de un relato cabe entre el marcador de arriba y el bocadillo ya completo (que crece hacia arriba
+   con el texto): se mide el bocadillo con todo el texto y se ajusta la altura del objeto a ese hueco. */
+function encajarObjeto(e) {
+  const obj = $(".objeto-escena"), txt = $("#txt"), sig = $("#sig");
+  if (!obj) return;
+  const caja = $("#escenario").getBoundingClientRect();
+  const k = 1280 / caja.width;
+  txt.textContent = visible(e.texto); sig.hidden = false;
+  const tope = ($(".bocadillo").getBoundingClientRect().top - caja.top) * k;
+  txt.textContent = ""; sig.hidden = true;
+  const arriba = 76, alto = Math.round(Math.max(140, Math.min(300, tope - arriba - 14)));
+  obj.style.top = `${arriba}px`;
+  obj.style.maxHeight = `${alto}px`;
+  // Si ha quedado pequeño, se puede tocar para verlo en grande
+  if (alto < 260 && obj.tagName === "IMG") {
+    obj.classList.add("ampliable");
+    obj.setAttribute("role", "button"); obj.tabIndex = 0;
+    obj.title = "Toca para verlo en grande";
+    const ver = () => abrirModal(`<img class="objeto-grande" src="${esc(obj.getAttribute("src"))}" alt="${esc(obj.alt)}"><p class="pie-objeto">${esc(obj.alt)}</p>`, "ventana-objeto");
+    obj.onclick = ver;
+    obj.onkeydown = ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); ver(); } };
+    obj.insertAdjacentHTML("afterend", `<button class="ver-grande" style="top:${arriba + alto - 34}px;${obj.classList.contains("der") ? "right" : "left"}:150px">🔍 Ver en grande</button>`);
+    $(".ver-grande").onclick = ver;
+  }
+}
+
 const ESCENAS = {
   /* Portada del expediente con precinto que hay que romper */
   portada(e) {
@@ -59,6 +85,7 @@ const ESCENAS = {
       ${hud()}`, { fondo: e.fondo });
     activarHUD();
     $("#sig").onclick = siguiente;
+    if (e.objeto) encajarObjeto(e);
     maquina($("#txt"), visible(e.texto), () => { $("#sig").hidden = false; $("#sig").focus(); });
   },
 

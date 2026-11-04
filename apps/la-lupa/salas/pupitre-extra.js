@@ -359,7 +359,7 @@ const PUP_MAQUINA = `<svg class="pup-maquina" viewBox="0 0 270 230" aria-hidden=
 </svg>`;
 
 nuevaActividad("pupitre", {
-  id: "sintilde", nombre: "La máquina sin tilde",
+  id: "sintilde", nombre: "La máquina sin tilde", objeto: "maquina-sin-tilde",
   desc: "La vieja máquina de escribir de la agencia ha perdido la tecla de la tilde. ¡Devuélveselas!",
   reglas: PUP_TILDES,
 }, async function (sl, regla, turno) {
@@ -410,7 +410,7 @@ nuevaActividad("pupitre", {
         <div class="pup-sello" aria-hidden="true"><b>Corregido</b><span>con todas sus tildes</span></div>
       </article>
       ${pupHTMLNota()}
-      ${PUP_MAQUINA}
+      ${imgArte("maquina-sin-tilde", "pup-maquina pup-maquina-img") || PUP_MAQUINA}
       <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "sala-pup" });
     $("#acaVolver").onclick = pupSalir;
     pupNota(r === 0

@@ -193,7 +193,7 @@ function labHomEscena(sl, { k, total, frase, muestras, doble }) {
 }
 
 nuevaActividad("laboratorio", {
-  id: "homofonos", nombre: "El microscopio de homófonos",
+  id: "homofonos", nombre: "El microscopio de homófonos", objeto: "microscopio",
   desc: "Suenan igual y se escriben distinto: el significado decide.", reglas: LAB_HOM_REGLAS,
 }, async function (sl, regla, turno) {
   let grupos;
@@ -425,7 +425,7 @@ function labFamRonda(fams, activas, mezcla) {
 }
 
 nuevaActividad("laboratorio", {
-  id: "familias", nombre: "La centrifugadora de palabras",
+  id: "familias", nombre: "La centrifugadora de palabras", objeto: "centrifugadora",
   desc: "Las familias heredan la letra… casi siempre. Descubre cuándo cambia.", reglas: LAB_FAM_REGLAS,
 }, async function (sl, regla, turno) {
   let fams;

@@ -574,3 +574,23 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 
 .boton-mini { font: 14px var(--f-ui); padding: 1px 6px; border-radius: 6px; border: 1px solid #b9a27a; background: #fff; cursor: pointer; }
 .tabla-seneca input.nf-lista { width: 3.2em; text-align: center; }
+
+/* Aparato de cada ejercicio en el menú de la sala */
+.aca-act.con-img { grid-template-columns: 74px 1fr; column-gap: 12px; align-items: center; }
+.aca-act.con-img > b, .aca-act.con-img > small { grid-column: 2; }
+.aca-act-img { grid-column: 1; grid-row: 1 / span 2; width: 74px; height: 74px; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .35)); }
+/* Carné dibujado: foto en el marco y un sello por sala en los círculos */
+.carne-cab.con-tarjeta { padding-bottom: 6px; }
+.carne-tarjeta { position: relative; margin: 0; width: 330px; flex: none; transform: rotate(-2deg); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+.carne-tarjeta > img { display: block; width: 100%; }
+.carne-marco { position: absolute; left: 68.6%; top: 15.5%; width: 22.2%; height: 37.5%; display: grid; place-items: center; overflow: hidden; font-size: 34px; border-radius: 3px; }
+.carne-avatar { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.carne-hueco { position: absolute; top: 80%; width: 8.4%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center; font: 22px var(--f-cartel); color: #fff8e0; }
+.carne-hueco.sellado { background: radial-gradient(circle at 35% 30%, #f3d27a, #c99a2e 60%, #9a7016); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .45), 0 1px 2px rgba(0, 0, 0, .4); transform: translate(-50%, -50%) rotate(-12deg); }
+.pup-maquina-img { top: 430px; left: 0; width: 290px; }
+/* Objeto de un relato que ha quedado pequeño: se amplía en una ventana */
+.objeto-escena.ampliable { cursor: zoom-in; }
+.ver-grande { position: absolute; z-index: 3; font: 800 15px var(--f-ui); padding: 4px 10px; border-radius: 999px; border: 2px solid #fff4d2; background: rgba(20, 16, 12, .82); color: #fff4d2; cursor: pointer; }
+.ventana-objeto { width: auto; max-width: 1000px; padding: 20px 24px; text-align: center; background: #241c16; color: #f4e9cf; }
+.objeto-grande { display: block; max-width: 940px; max-height: 560px; margin: 0 auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .5)); }
+.ventana-objeto .pie-objeto { font: 20px var(--f-cartel); letter-spacing: .04em; margin-top: 8px; }

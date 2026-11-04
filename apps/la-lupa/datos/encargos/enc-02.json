@@ -16,7 +16,7 @@
       "fondo": "mercado"
     },
     {
-      "tipo": "relato",
+      "tipo": "relato", "objeto": "cartel-ofertas",
       "fondo": "mercado",
       "quien": "Manolo, el frutero",
       "personaje": {

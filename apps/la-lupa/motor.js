@@ -90,6 +90,9 @@ function htmlPersonaje(pj, extra = "") {
   return `<div class="personaje pendiente ${lado} ${extra}" style="--c:${esc(a.color || "#8a6d4a")}">${SILUETA}<span class="etiqueta-arte">${esc(a.nombre)} · ${esc(expr)}</span></div>`;
 }
 
+/* Imagen de un objeto solo si ya está dibujado (para tarjetas y aparatos, sin hueco de «pendiente») */
+const imgArte = (id, clase = "") => (id && arte(id).listo ? `<img class="${clase}" src="arte/${esc(id)}.webp" alt="" aria-hidden="true">` : "");
+
 function htmlObjeto(id, clase = "") {
   if (!id) return "";
   const a = arte(id);

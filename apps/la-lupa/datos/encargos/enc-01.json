@@ -13,7 +13,7 @@
   "escenas": [
     { "tipo": "portada", "fondo": "panaderia" },
     {
-      "tipo": "relato", "fondo": "panaderia", "quien": "Julián, el panadero",
+      "tipo": "relato", "objeto": "receta-mojada", "fondo": "panaderia", "quien": "Julián, el panadero",
       "personaje": { "id": "julian", "expresion": "sorprendido", "lado": "der" },
       "texto": "¡Detectives, una urgencia de harina! Mañana es el concurso de tortas de aceite y se me ha caído el café encima de la receta de mi abuela. Se lee casi todo, pero los pasos se han despegado del cuaderno y ya no sé en qué orden van. ¿Me ayudáis?"
     },

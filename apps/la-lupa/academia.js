@@ -147,6 +147,7 @@ function vistaPatio() {
 
 /* ── El carné de la Academia: las lupas de cada ejercicio y un sello por sala (oro en todos sus ejercicios) ── */
 const actividadesDe = sl => sl.actividades || [{ id: sl.actividad, nombre: sl.nombreActividad || NOMBRE_BASE[sl.actividad] || sl.nombre }];
+const CARNE_CIRCULOS = [11.9, 23.0, 33.8, 44.6, 55.4, 66.2, 77.1, 88.0];   // centro (en % del ancho) de los ocho círculos de carne-academia.webp
 const selloSala = sl => sl.activa && actividadesDe(sl).every(a => nivelMaximo(a.id) >= 3);
 function vistaCarne() {
   const salas = SALAS.filter(sl => sl.activa);
@@ -154,11 +155,17 @@ function vistaCarne() {
   const sellos = salas.filter(selloSala).length;
   pintarEscena(`
     <div class="carne">
-      <header class="carne-cab">
-        <div class="carne-escudo">🔍</div>
+      <header class="carne-cab ${arte("carne-academia").listo ? "con-tarjeta" : ""}">
+        ${arte("carne-academia").listo ? `
+        <figure class="carne-tarjeta">
+          <img src="arte/carne-academia.webp" alt="">
+          <span class="carne-marco">${htmlAvatar(perfil, "carne-avatar") || "🕵️"}</span>
+          ${CARNE_CIRCULOS.map((x, i) => { const sl = salas[i]; const ok = sl && selloSala(sl);
+            return `<span class="carne-hueco ${ok ? "sellado" : ""}" style="left:${x}%" title="${esc(sl ? sl.nombre : "")}${ok ? ": sello de oro" : ""}">${ok ? "★" : ""}</span>`; }).join("")}
+        </figure>` : `<div class="carne-escudo">🔍</div>`}
         <div><small>ACADEMIA DE DETECTIVES · LA ALAMEDA</small><h1 class="cartel">Carné de ${esc(perfil.nombre)}</h1>
           <p>${lupas} lupas ganadas · ${sellos} de ${salas.length} sellos de sala</p></div>
-        ${htmlAvatar(perfil, "carne-foto") || `<div class="carne-foto vacia">🕵️</div>`}
+        ${arte("carne-academia").listo ? "" : htmlAvatar(perfil, "carne-foto") || `<div class="carne-foto vacia">🕵️</div>`}
       </header>
       <div class="carne-salas">${salas.map(sl => `
         <section class="carne-sala ${selloSala(sl) ? "sellada" : ""}">
@@ -194,7 +201,7 @@ function menuActividades(sl, opts) {
     ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
     <div class="aca-panel der">
       <p class="apuntalo">¿Qué ejercicio hacemos hoy?</p>
-      <div class="opciones">${sl.actividades.map(a => `<button class="opcion aca-act" data-act="${esc(a.id)}"><b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
+      <div class="opciones">${sl.actividades.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
   $("#acaVolver").onclick = vistaPatio;

@@ -13,7 +13,7 @@
   "escenas": [
     { "tipo": "portada", "fondo": "sala-archivo" },
     {
-      "tipo": "relato", "fondo": "sala-archivo", "quien": "Mateo",
+      "tipo": "relato", "objeto": "fichero-empapado", "fondo": "sala-archivo", "quien": "Mateo",
       "personaje": { "id": "mateo", "expresion": "sorprendido", "lado": "der" },
       "texto": "¡Desastre en el Archivo! Anoche se rompió una tubería y cayó agua justo encima del fichero del diccionario: cientos de fichas, cada una con una palabra y sus significados. Las hemos secado con un secador de pelo, pero están todas revueltas. Sin orden alfabético, esto no es un diccionario: ¡es una sopa de letras!"
     },
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "tipo": "relato", "fondo": "sala-archivo", "quien": "Don Anselmo",
+      "tipo": "relato", "objeto": "fichero-empapado", "fondo": "sala-archivo", "quien": "Don Anselmo",
       "personaje": { "id": "anselmo", "expresion": "contento", "lado": "der" },
       "texto": "¡Buen trabajo, detectives! Cuando era maestro, siempre decía que el diccionario es como una ciudad: las palabras guía son los letreros de las calles. Pero lo mejor está dentro de cada casa. Mirad estas fichas, que el agua ha dejado medio borrosas: hay que leerlas con lupa."
     },

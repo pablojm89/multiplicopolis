@@ -13,7 +13,7 @@
   "escenas": [
     { "tipo": "portada", "fondo": "plaza-feria" },
     {
-      "tipo": "relato", "fondo": "plaza-feria", "quien": "Ramón, el músico",
+      "tipo": "relato", "objeto": "libreta-canciones", "fondo": "plaza-feria", "quien": "Ramón, el músico",
       "personaje": { "id": "ramon", "expresion": "nervioso", "lado": "der" },
       "texto": "Detectives, os necesito antes de que empiece la fiesta. Esta noche estreno «Farolillos de La Alameda», y mi abuela, que tiene un oído finísimo, la ha leído y ha torcido el gesto: «Ramón, hay versos que no concuerdan». Yo los canto y no noto nada raro… pero mi abuela nunca falla."
     },

@@ -16,7 +16,7 @@
       "fondo": "plaza-azulejos"
     },
     {
-      "tipo": "relato",
+      "tipo": "relato", "objeto": "tarjetas-pregon",
       "fondo": "plaza-azulejos",
       "quien": "Doña Pilar",
       "personaje": {

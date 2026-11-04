@@ -13,7 +13,7 @@
   "escenas": [
     { "tipo": "portada", "fondo": "radio-alameda" },
     {
-      "tipo": "relato", "fondo": "radio-alameda", "quien": "Charo, la locutora",
+      "tipo": "relato", "objeto": "sobre-oyente", "fondo": "radio-alameda", "quien": "Charo, la locutora",
       "personaje": { "id": "charo", "expresion": "sorprendido", "lado": "der" },
       "texto": "¡Detectives, salgo en antena en diez minutos! Desde hace semanas llegan al buzón de la radio poemas firmados por «Un oyente madrugador». Dice que sus versos esconden pistas sobre quién es. Medio barrio llama para preguntarlo… y yo ya no duermo. ¿Me ayudáis a leerlos como se leen los poemas?"
     },
