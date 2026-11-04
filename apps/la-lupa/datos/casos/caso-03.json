@@ -18,11 +18,11 @@
       "objeto": "sobre-tachon",
       "personaje": {
         "id": "robles",
-        "expresion": "pensativo",
+        "expresion": "deporte",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Esta mañana ha llegado un sobre a la agencia, cerrado con un tachón negro. Dentro hay una carta a la que le faltan todas las haches. Y mirad cómo nos {abla|habla}: sabe cosas de la agencia que solo conoce alguien de dentro."
+      "quien": "Director Robles",
+      "texto": "Perdonad el chándal: vengo directo de dar clase en el patio. Esta mañana ha llegado un sobre a la agencia, cerrado con un tachón negro. Dentro hay una carta a la que le faltan todas las haches. Y mirad cómo nos {abla|habla}: sabe cosas de la agencia que solo conoce alguien de dentro."
     },
     {
       "tipo": "descubre",
@@ -405,7 +405,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de h. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -421,7 +421,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Alguien que hizo nuestra prueba de acceso y no la superó… y ahora se ha llevado su ficha para que no sepamos quién es. Mateo, busca la lista de aspirantes de los últimos años. La clavaremos en el tablón."
     },
     {
@@ -432,12 +432,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué decía la carta y qué hemos descubierto del Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

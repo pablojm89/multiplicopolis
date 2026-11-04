@@ -17,11 +17,11 @@
       "fondo": "agencia",
       "personaje": {
         "id": "robles",
-        "expresion": "pensativo",
+        "expresion": "agotado",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Perdonad que os llame tan temprano. Aurora, la directora de «El Eco de La Alameda», está muy nerviosa: alguien ha cambiado de madrugada las páginas del número especial de fin de curso. Hoy, último viernes de {Junio|junio}, se reparten tres mil ejemplares por todo el barrio. Si salen llenos de faltas, nadie volverá a fiarse de nosotros. ¡Corred!"
+      "quien": "Director Robles",
+      "texto": "¡Uf, uf! Me han avisado justo cuando salía a correr. Perdonad que os llame tan temprano. Aurora, la directora de «El Eco de La Alameda», está muy nerviosa: alguien ha cambiado de madrugada las páginas del número especial de fin de curso. Hoy, último viernes de {Junio|junio}, se reparten tres mil ejemplares por todo el barrio. Si salen llenos de faltas, nadie volverá a fiarse de nosotros. ¡Corred!"
     },
     {
       "tipo": "descubre",
@@ -75,7 +75,7 @@
                 "verano",
                 "andaluz",
                 "inglés",
-                "la directora"
+                "el director"
               ]
             }
           ],
@@ -87,7 +87,7 @@
             "Son palabras poco importantes"
           ],
           "correcta": 0,
-          "explicacion": "Los nombres propios de personas, lugares y periódicos van con mayúscula. Los días, los meses, las estaciones, los gentilicios (andaluz, francés), los idiomas (inglés) y los cargos (la directora Robles, el alcalde) van en minúscula."
+          "explicacion": "Los nombres propios de personas, lugares y periódicos van con mayúscula. Los días, los meses, las estaciones, los gentilicios (andaluz, francés), los idiomas (inglés) y los cargos (el director Robles, el alcalde) van en minúscula."
         },
         {
           "grupos": [
@@ -174,11 +174,11 @@
       "quien": "Portada falsa del periódico",
       "titulo": "La portada falsa",
       "intro": "La portada falsa tiene 6 faltas de mayúsculas. Encuéntralas y corrígelas.",
-      "declaracion": "¡Número especial de fin de curso! Este {Verano|verano}, toda La Alameda debe saber la verdad: los detectives de La Lupa no saben escribir. Su jefa, la {Directora|directora} Robles, no distingue el {Lunes|lunes} del martes. {ellos|Ellos} se creen muy listos, pero no encontrarían {sevilla|Sevilla} ni con un mapa. Hasta los turistas {Franceses|franceses} escriben mejor que ellos. Firmado: un vecino con mucha aura.",
+      "declaracion": "¡Número especial de fin de curso! Este {Verano|verano}, toda La Alameda debe saber la verdad: los detectives de La Lupa no saben escribir. Su jefe, el {Director|director} Robles, no distingue el {Lunes|lunes} del martes. {ellos|Ellos} se creen muy listos, pero no encontrarían {sevilla|Sevilla} ni con un mapa. Hasta los turistas {Franceses|franceses} escriben mejor que ellos. Firmado: un vecino con mucha aura.",
       "pistas": [
         "Mira las estaciones, los días, los cargos y los gentilicios: van en minúscula.",
         "Los nombres de ciudades llevan mayúscula. Y después de punto, también.",
-        "Son: Verano, Directora, Lunes, ellos, sevilla y Franceses."
+        "Son: Verano, Director, Lunes, ellos, sevilla y Franceses."
       ],
       "recompensa": {
         "texto": "Al pie de la portada falsa, alguien ha rodeado con rotulador negro el número de la página: el 3.",
@@ -417,7 +417,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de mayúsculas. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -434,7 +434,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "La nota de la rotativa dice: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». Tenía llave del periódico, sabía a qué hora arranca la rotativa y qué paquete va a cada calle… Si es quien yo creo, aquel chico de la prueba, mañana le debo algo más que un careo: le debo una disculpa. Clavad la nota en el tablón."
     },
     {
@@ -445,12 +445,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó en el periódico y qué pistas nuevas tenemos? Cuida las mayúsculas y los signos.",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

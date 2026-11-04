@@ -28,7 +28,7 @@ La libreta de papel es la herramienta principal del detective, no un extra. El j
 | Cada reto superado | La cifra o pista conseguida | La necesitará para el candado |
 | Testigos y sospechosos | Nombre y una frase de lo que dijo | Deducción y comprensión |
 | Palabras corregidas | Cada palabra **bien escrita** y la regla que la explica | Escribir de memoria fija la forma correcta |
-| Cierre del caso | **Informe para la directora**: 3-5 líneas contando quién, qué y por qué, sin faltas | Criterio 5.1 (producción escrita real) |
+| Cierre del caso | **Informe para el director**: 3-5 líneas contando quién, qué y por qué, sin faltas | Criterio 5.1 (producción escrita real) |
 
 ### 3. Plantilla propia de la libreta (imprimible)
 Una portada y una doble página por caso, para pegar en la libreta del alumno o usar como cuadernillo:
@@ -36,8 +36,8 @@ Una portada y una doble página por caso, para pegar en la libreta del alumno o 
 - **Doble página del caso**: expediente (n.º, lugar, fecha), testigos y sospechosos, pistas y cifras, palabras corregidas + regla, «la regla con mis palabras», conclusión e informe, y un hueco para el **sello de la directora**.
 - Se generará desde los datos de cada caso, desde la zona del maestro («Imprimir libreta del caso»).
 
-### 4. El sello de la directora (puente papel ↔ juego)
-- Al terminar un caso, el juego dice: «Enseña tu libreta a la directora Robles para que selle el expediente».
+### 4. El sello del director (puente papel ↔ juego)
+- Al terminar un caso, el juego dice: «Enseña tu libreta al director Robles para que selle el expediente».
 - El maestro revisa la libreta y lo puntúa en la zona del maestro con una **rúbrica rápida de 4 puntos**: pistas apuntadas, regla formulada, palabras corregidas e informe.
 - Opcional: el maestro da un **código de sello** que desbloquea el caso siguiente. Así la libreta forma parte del avance, como en el original.
 

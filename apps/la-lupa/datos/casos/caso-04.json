@@ -6,7 +6,7 @@
   "reglas": [
     "c-z-s"
   ],
-  "_nota": "Temporada 1, episodio 4. Pieza del gran misterio: Doña Pilar oyó la voz del Tachón: habla con seseo, como la gente del barrio → vive en La Alameda. El seseo se trata siempre como forma de hablar andaluza, nunca como error: lo que se trabaja es la diferencia entre cómo se dice y cómo se escribe (criterio 1.3). Faltas sembradas para el expediente: plasa, empesó, trese.",
+  "_nota": "Temporada 1, episodio 4. Pieza del gran misterio: doña Pilar oyó la voz del Tachón: habla con seseo, como la gente del barrio → vive en La Alameda. El seseo se trata siempre como forma de hablar andaluza, nunca como error: lo que se trabaja es la diferencia entre cómo se dice y cómo se escribe (criterio 1.3). Faltas sembradas para el expediente: plasa, empesó, trese.",
   "escenas": [
     {
       "tipo": "portada",
@@ -20,7 +20,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "El panel de azulejos de la fuente de la {plasa|plaza} ha amanecido cambiado: alguien ha quitado piezas y ha puesto otras llenas de faltas. Esos azulejos tienen más de cien años. Hay que encontrar al culpable."
     },
     {
@@ -495,7 +495,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de c, z y s. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -511,7 +511,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Conoce la agencia, hizo nuestra prueba de acceso y habla con el seseo de toda la vida. El Tachón no viene de fuera: vive en La Alameda, entre nosotros. Clavad esto en el tablón."
     },
     {
@@ -522,12 +522,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó con el panel de azulejos y qué sabemos ya del Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

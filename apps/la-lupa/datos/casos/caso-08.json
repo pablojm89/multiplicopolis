@@ -6,7 +6,7 @@
   "reglas": [
     "d-z-finales"
   ],
-  "_nota": "Temporada 1, episodio 8. Pieza del gran misterio: la foto robada es la del día de la prueba de acceso; al verla, la directora Robles confiesa que formaba parte del tribunal el día en que un chico suspendió y algunos aspirantes se rieron de él, y que no lo defendió. Se arrepiente. No recuerda su nombre (la ficha desapareció en el caso 3). Bruno aparece de fondo y dice que sale «movido» en todas las fotos; en la foto, uno de los aspirantes sale movido y no se le ve la cara (pista para los atentos, sin señalarla). La -d final que se pierde al hablar en Andalucía se trata como diferencia entre hablar y escribir, nunca como error al hablar. Faltas sembradas para el expediente: parez, barbaridá, verdá.",
+  "_nota": "Temporada 1, episodio 8. Pieza del gran misterio: la foto robada es la del día de la prueba de acceso; al verla, el director Robles confiesa que formaba parte del tribunal el día en que un chico suspendió y algunos aspirantes se rieron de él, y que no lo defendió. Se arrepiente. No recuerda su nombre (la ficha desapareció en el caso 3). Bruno aparece de fondo y dice que sale «movido» en todas las fotos; en la foto, uno de los aspirantes sale movido y no se le ve la cara (pista para los atentos, sin señalarla). La -d final que se pierde al hablar en Andalucía se trata como diferencia entre hablar y escribir, nunca como error al hablar. Faltas sembradas para el expediente: parez, barbaridá, verdá.",
   "escenas": [
     {
       "tipo": "portada",
@@ -20,8 +20,8 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Mañana se inaugura en el centro vecinal «La Alameda, ayer y hoy»: cincuenta años de fotos del barrio colgadas en una sola {parez|pared}. Esta noche alguien ha cambiado todos los carteles y Doña Pilar dice que falta una foto antigua de nuestra agencia… Id ahora mismo."
+      "quien": "Director Robles",
+      "texto": "Mañana se inaugura en el centro vecinal «La Alameda, ayer y hoy»: cincuenta años de fotos del barrio colgadas en una sola {parez|pared}. Esta noche alguien ha cambiado todos los carteles y doña Pilar dice que falta una foto antigua de nuestra agencia… Id ahora mismo."
     },
     {
       "tipo": "descubre",
@@ -429,12 +429,12 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de -d y -z finales. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
         "Hay una en el aviso del caso.",
-        "Revisa lo que dijeron Doña Pilar y Paco."
+        "Revisa lo que dijeron doña Pilar y Paco."
       ]
     },
     {
@@ -446,8 +446,8 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Dejadme ver esa foto… La mujer de la mesa soy yo, hace muchos años. Formaba parte del tribunal de la prueba de acceso. Recuerdo aquel día: un chico suspendió por sus faltas y algunos aspirantes se rieron de él delante de todos."
+      "quien": "Director Robles",
+      "texto": "Dejadme ver esa foto… El del centro de la mesa soy yo, hace muchos años. Formaba parte del tribunal de la prueba de acceso. Recuerdo aquel día: un chico suspendió por sus faltas y algunos aspirantes se rieron de él delante de todos."
     },
     {
       "tipo": "relato",
@@ -458,8 +458,8 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Y yo no lo defendí como debía. Me quedé callada, y me he arrepentido muchas veces. No recuerdo su nombre, y su ficha desapareció del archivo azul. Si el Tachón se llevó esta foto, es porque sale en ella. Y si es aquel chico, le debo una disculpa. Clavad la foto en el tablón."
+      "quien": "Director Robles",
+      "texto": "Y yo no lo defendí como debía. Me quedé callado, y me he arrepentido muchas veces. No recuerdo su nombre, y su ficha desapareció del archivo azul. Si el Tachón se llevó esta foto, es porque sale en ella. Y si es aquel chico, le debo una disculpa. Clavad la foto en el tablón."
     },
     {
       "tipo": "apunta",
@@ -469,12 +469,12 @@
         "expresion": "pensativo",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
-        "Escribe 3 o 4 líneas: ¿qué pasó en la exposición y qué nos ha contado la directora Robles?",
+        "Escribe 3 o 4 líneas: ¿qué pasó en la exposición y qué nos ha contado el director Robles?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {
@@ -486,7 +486,7 @@
         "pilar",
         "paco"
       ],
-      "texto": "La exposición abre con todos sus carteles bien escritos. Y en el tablón de la agencia hay una pieza nueva: la directora Robles conoció al Tachón hace años… y quiere pedirle perdón."
+      "texto": "La exposición abre con todos sus carteles bien escritos. Y en el tablón de la agencia hay una pieza nueva: el director Robles conoció al Tachón hace años… y quiere pedirle perdón."
     }
   ]
 }

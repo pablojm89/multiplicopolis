@@ -59,9 +59,9 @@ function vistaTablon() {
     if (!ultimo) return iniciarCaso(u);
     abrirModal(`
       <h3>${esc(D.casos[u.caso].titulo)}</h3>
-      <p>${ultimo.libreta ? `Expediente <b>sellado</b> por la directora (${ultimo.libreta.puntos}/4 en la libreta).` : "Tu expediente está <b>pendiente de sello</b>: enseña tu libreta a la directora."}</p>
+      <p>${ultimo.libreta ? `Expediente <b>sellado</b> por el director (${ultimo.libreta.puntos}/4 en la libreta).` : "Tu expediente está <b>pendiente de sello</b>: enseña tu libreta al director."}</p>
       <div class="acciones">
-        ${ultimo.libreta ? "" : `<button class="boton-papel" id="sellarYa">Sellar (directora)</button>`}
+        ${ultimo.libreta ? "" : `<button class="boton-papel" id="sellarYa">Sellar (director)</button>`}
         <button class="boton-sello" id="jugarOtra">Jugar otra vez ▸</button>
       </div>`, "ventana-libreta");
     $("#jugarOtra").onclick = () => { cerrarModal(); iniciarCaso(u); };
@@ -141,9 +141,9 @@ function pintarInforme(res) {
           <div class="barra-nota"><i style="width:${n.nota * 10}%"></i></div>
           <small>${n.aciertos} de ${n.intentos} a la primera</small></div>`).join("")}</div>
       ${res.repasar.length ? `<p class="etiqueta">Palabras para repasar</p><div class="repasar">${res.repasar.map(w => `<span class="palabra-ficha">${esc(w)}</span>`).join("")}</div>` : `<p class="maquina-fija">Ni una sola palabra para repasar. ¡Impecable!</p>`}
-      <p class="maquina-fija sello-aviso">${res.libreta ? `La directora ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Enseña tu libreta a la directora Robles para que selle el expediente y ganes puntos extra."}</p>
+      <p class="maquina-fija sello-aviso">${res.libreta ? `El director ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Enseña tu libreta al director Robles para que selle el expediente y ganes puntos extra."}</p>
       <div class="acciones izquierda">
-        ${res.libreta ? "" : `<button class="boton-papel" id="sellar">Sellar (directora)</button>`}
+        ${res.libreta ? "" : `<button class="boton-papel" id="sellar">Sellar (director)</button>`}
         <button class="boton-papel" id="academia">🎓 Ir a la Academia${res.aCola ? ` (${res.aCola} fichas nuevas)` : ""}</button>
         <button class="boton-sello" id="volver">Volver al tablón ▸</button>
       </div>
@@ -153,14 +153,14 @@ function pintarInforme(res) {
   $("#sellar")?.addEventListener("click", () => sellar(res, () => pintarInforme(res)));
 }
 
-/* ── Sello de la directora: rúbrica rápida de la libreta + código ── */
+/* ── Sello del director: rúbrica rápida de la libreta + código ── */
 const RUBRICA = ["Ha apuntado las pistas y cifras", "Ha escrito la regla con sus palabras", "Ha copiado bien las palabras corregidas", "Ha escrito el informe sin faltas"];
 function sellar(res, despues) {
   abrirModal(`
-    <h3>Sello de la directora</h3>
+    <h3>Sello del director</h3>
     <p>Solo para el maestro/a: marca lo que está bien en la libreta.</p>
     <div class="rubrica">${RUBRICA.map((r, k) => `<label><input type="checkbox" id="rub${k}"> ${esc(r)}</label>`).join("")}</div>
-    <input id="codigoSello" class="entrada" type="password" autocomplete="off" placeholder="Código de la directora" aria-label="Código de la directora">
+    <input id="codigoSello" class="entrada" type="password" autocomplete="off" placeholder="Código del director" aria-label="Código del director">
     <p id="selloMsg" class="msg"></p>
     <div class="acciones"><button class="boton-sello" id="estampar">Sellar expediente</button></div>`, "ventana-libreta");
   $("#estampar").onclick = () => {

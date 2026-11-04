@@ -17,11 +17,11 @@
       "fondo": "agencia",
       "personaje": {
         "id": "robles",
-        "expresion": "pensativo",
+        "expresion": "deporte",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Esta noche se inaugura la feria y alguien ha dejado una nota en el ayuntamiento: va a apagar todos los {farolios|farolillos}. Está firmada con un tachón. Esta vez quiero que lo pilléis con las manos en la masa."
+      "quien": "Director Robles",
+      "texto": "Esta noche se inaugura la feria y alguien ha dejado una nota en el ayuntamiento: va a apagar todos los {farolios|farolillos}. Está firmada con un tachón. Esta vez quiero que lo pilléis con las manos en la masa. Y si echa a correr, tranquilos: para eso traigo el cronómetro."
     },
     {
       "tipo": "descubre",
@@ -487,7 +487,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de ll e y. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -504,7 +504,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Una llave de la antigua escuela del barrio, cerrada desde hace años. «El sitio donde empezó todo»… Esa escuela la conozco muy bien. Mañana iremos allí. Clavad la llave en el tablón."
     },
     {
@@ -515,12 +515,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó en la feria y cómo se escapó el Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

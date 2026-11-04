@@ -1,6 +1,6 @@
 # Agencia La Lupa
 
-Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alumno es detective del equipo de la agencia, junto a Lola y Mateo, con la directora Robles al frente, en el barrio ficticio de La Alameda. Cada caso trabaja una o varias reglas: encontrar y corregir faltas hace avanzar la investigación. Modo individual.
+Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alumno es detective del equipo de la agencia, junto a Lola y Mateo, con el director Robles al frente (avatar del maestro, que también es profe de Educación Física: a veces sale con ropa de deporte, expresiones `deporte`, `deporte-contento` y `agotado`), en el barrio ficticio de La Alameda. Cada caso trabaja una o varias reglas: encontrar y corregir faltas hace avanzar la investigación. Modo individual.
 
 - **Lee primero `PLAN.md`**: fases, estado y decisiones.
 - `BITACORA.md`: lo hablado con Pablo, sesión a sesión. **Actualízala** al terminar cada tarea importante.

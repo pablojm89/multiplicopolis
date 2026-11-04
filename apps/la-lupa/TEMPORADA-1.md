@@ -20,7 +20,7 @@ La programación puede cambiar (libro de texto, centro…), así que **el orden 
 | **El alumno** | Detective novato | Entra en prácticas y termina la temporada con la placa oficial |
 | **Lola** | Detective estrella del equipo | Quiere atrapar a El Tachón ella sola; aprende a fiarse del equipo |
 | **Mateo** | Archivero, cerebro de las reglas | Esconde que antes cometía muchas faltas: «los errores se corrigen» |
-| **Directora Robles** | Jefa (en la vida real, el maestro) | Sabe más de El Tachón de lo que cuenta… |
+| **Director Robles** | Jefe. Es el avatar del maestro: cuando el juego pide el sello, los alumnos van a su mesa. También es profe de Educación Física, y a veces aparece con ropa de deporte, recién llegado de entrenar | Sabe más de El Tachón de lo que cuenta… |
 | **El Tachón** | Villano recurrente | Mandíbula cuadrada «sigma», pose de mewing, gafas de sol de noche, gabardina negra y flequillo perfecto. Deja notas con faltas a propósito y firma con un tachón |
 | **Vecinos** | Testigos y sospechosos de cada caso | Algunos repiten. Uno de ellos es El Tachón (ver «La revelación») |
 

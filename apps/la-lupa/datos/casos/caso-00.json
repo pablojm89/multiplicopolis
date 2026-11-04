@@ -40,7 +40,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Bienvenido a la agencia. O a lo que queda de ella. Alguien entró anoche por la ventana, revolvió los expedientes… y los llenó de faltas de ortografía. Tu prueba de acceso será arreglar este desastre. Sin pistas: quiero ver lo que ya sabes."
     },
     {
@@ -138,7 +138,7 @@
         "lado": "izq"
       },
       "quien": "Bruno, el repartidor",
-      "texto": "¡Buenos días! ¿Eres la detective nueva? Toma, el periódico del barrio. Aunque hoy ha salido rarísimo, lleno de faltas… Yo solo lo reparto, ¿eh? ¡Suerte en la agencia!"
+      "texto": "¡Buenos días! ¿Eres quien empieza hoy en la agencia? Toma, el periódico del barrio. Aunque hoy ha salido rarísimo, lleno de faltas… Yo solo lo reparto, ¿eh? ¡Suerte en la agencia!"
     },
     {
       "tipo": "caza",
@@ -162,7 +162,7 @@
         "lado": "izq"
       },
       "quien": "Lola",
-      "texto": "Faltas en la agencia, faltas en el periódico… y el mismo rotulador negro. Esto no es casualidad. Volvamos: la directora tiene algo para ti."
+      "texto": "Faltas en la agencia, faltas en el periódico… y el mismo rotulador negro. Esto no es casualidad. Volvamos: el director tiene algo para ti."
     },
     {
       "tipo": "relato",
@@ -172,7 +172,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Antes de darte la placa, firma tu ficha de ingreso. Pero ojo: el intruso también ha pasado por aquí. Revísala bien."
     },
     {
@@ -181,9 +181,9 @@
       "quien": "Ficha de ingreso",
       "titulo": "Tu ficha de ingreso",
       "intro": "La ficha tiene 6 faltas. Fíjate también en las mayúsculas.",
-      "declaracion": "Barrio: La Alameda, en {andalucía|Andalucía|mayusculas-puntuacion-1}. Día de la prueba: {Lunes|lunes|mayusculas-puntuacion-1}. Quiero ser detective para descubrir la {verdaz|verdad|d-z-finales} y cuidar mi {ciudá|ciudad|d-z-finales}. Quien me {dió|dio|diptongo-monosilabos} esta ficha {fué|fue|diptongo-monosilabos} la directora Robles.",
+      "declaracion": "Barrio: La Alameda, en {andalucía|Andalucía|mayusculas-puntuacion-1}. Día de la prueba: {Lunes|lunes|mayusculas-puntuacion-1}. Quiero ser detective para descubrir la {verdaz|verdad|d-z-finales} y cuidar mi {ciudá|ciudad|d-z-finales}. Quien me {dió|dio|diptongo-monosilabos} esta ficha {fué|fue|diptongo-monosilabos} el director Robles.",
       "recompensa": {
-        "texto": "Al pie de la ficha, la directora ha apuntado su número de la suerte: el 5.",
+        "texto": "Al pie de la ficha, el director ha apuntado su número de la suerte: el 5.",
         "digito": "5"
       }
     },
@@ -191,7 +191,7 @@
       "tipo": "candado",
       "fondo": "agencia",
       "objeto": "expedientes-revueltos",
-      "titulo": "El archivador de la directora",
+      "titulo": "El archivador del director",
       "instruccion": "El archivador tiene un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
       "codigo": "205",
       "exito": "Dentro del archivador, envuelta en un pañuelo rojo, está tu placa de detective en prácticas."
@@ -205,7 +205,7 @@
         "expresion": "contento",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Prueba superada. Bienvenido a la Agencia La Lupa, detective. Desde hoy, tu libreta y tú sois inseparables. Y ahora… alguien tendrá que explicarme quién ha hecho todo esto."
     },
     {
@@ -239,12 +239,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Termina tu primera página",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó anoche en la agencia y qué has descubierto?",
         "Copia bien escritas tres palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

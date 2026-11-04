@@ -18,11 +18,11 @@
       "objeto": "llave-escuela",
       "personaje": {
         "id": "robles",
-        "expresion": "pensativo",
+        "expresion": "agotado",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "La llave que se le cayó al Tachón es de la antigua escuela del barrio, la que llevo meses arreglando para abrir nuestra Academia de detectives. Don Anselmo, el conserje, me ha llamado esta mañana: alguien ha entrado y lo ha dejado todo lleno de faltas de g y j. ¡Qué {corage|coraje}! Id para allá ahora mismo."
+      "quien": "Director Robles",
+      "texto": "¡Uf! He subido la cuesta de la escuela corriendo: esto cuenta como calentamiento. La llave que se le cayó al Tachón es de la antigua escuela del barrio, la que llevo meses arreglando para abrir nuestra Academia de detectives. Don Anselmo, el conserje, me ha llamado esta mañana: alguien ha entrado y lo ha dejado todo lleno de faltas de g y j. ¡Qué {corage|coraje}! Id para allá ahora mismo."
     },
     {
       "tipo": "descubre",
@@ -457,7 +457,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de g y j. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -474,7 +474,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Un niño de La Alameda del que se reían por sus faltas… y, años después, un aspirante que no superó nuestra prueba de acceso. Creo que son la misma persona, y ha recortado su cara para que no lo reconozcamos. Esta orla… dejadme pensar. De momento, clavadla en el tablón: la cara que falta es la del Tachón."
     },
     {
@@ -485,12 +485,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué encontramos en la antigua escuela y qué sabemos ya del Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

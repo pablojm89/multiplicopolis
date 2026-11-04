@@ -17,11 +17,11 @@
       "fondo": "agencia",
       "personaje": {
         "id": "robles",
-        "expresion": "pensativo",
+        "expresion": "agotado",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "¡Urgente! Doña Pilar, la pregonera de la Feria de La Alameda, ha perdido su {pregon|pregón}. Lo dejó ayer en la Casa de la Feria y esta mañana ya no estaba. La feria empieza mañana: hay que actuar {rapido|rápido}."
+      "quien": "Director Robles",
+      "texto": "¡Urgente! Uf… perdonad, vengo corriendo desde las pistas. Doña Pilar, la pregonera de la Feria de La Alameda, ha perdido su {pregon|pregón}. Lo dejó ayer en la Casa de la Feria y esta mañana ya no estaba. La feria empieza mañana: hay que actuar {rapido|rápido}."
     },
     {
       "tipo": "descubre",
@@ -425,7 +425,7 @@
       "titulo": "La caja de música",
       "instruccion": "Ramón no recuerda la clave… pero tú tienes tu libreta. Las cifras van en el orden en que las encontraste.",
       "codigo": "734",
-      "exito": "La caja se abre y suena una melodía. Dentro está el pregón de Doña Pilar, junto a la canción que Ramón estaba escribiendo como sorpresa.",
+      "exito": "La caja se abre y suena una melodía. Dentro está el pregón de doña Pilar, junto a la canción que Ramón estaba escribiendo como sorpresa.",
       "pistas": [
         "Abre tu libreta: ahí están las cifras.",
         "La primera es la hora del pedido de la panadería."
@@ -451,7 +451,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de tildes. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -468,7 +468,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Una última cosa. Entre los papeles que alguien tiró en la panadería apareció esto: un tachón y unas gafas de sol. El mismo dibujo de la noche del sabotaje. Esto no ha terminado."
     },
     {
@@ -479,18 +479,18 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿quién se llevó el pregón, dónde estaba y por qué?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {
       "tipo": "final",
       "fondo": "plaza-feria",
-      "texto": "El pregón vuelve a su dueña y la feria empieza a tiempo. La directora Robles cuelga tu primer expediente en el tablón de la agencia."
+      "texto": "El pregón vuelve a su dueña y la feria empieza a tiempo. El director Robles cuelga tu primer expediente en el tablón de la agencia."
     }
   ]
 }

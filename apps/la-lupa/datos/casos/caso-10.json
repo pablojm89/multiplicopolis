@@ -28,7 +28,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Ha llegado el día, detectives. Ayer, {Jueves|jueves|mayusculas-puntuacion-1}, el Tachón dejó su último mensaje: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». {Ace|Hace|h-1} una hora que los vecinos esperan en la plaza. Coged las libretas: esta noche sabremos quién es."
     },
     {
@@ -523,8 +523,8 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
-      "texto": "Bruno, yo estaba en aquel tribunal. Vi cómo se reían de ti y me quedé callada. Debí defenderte y no lo hice: lo siento de verdad. Una falta se corrige en un segundo, pero una burla escuece mucho más tiempo."
+      "quien": "Director Robles",
+      "texto": "Bruno, yo estaba en aquel tribunal. Vi cómo se reían de ti y me quedé callado. Debí defenderte y no lo hice: lo siento de verdad. Una falta se corrige en un segundo, pero una burla escuece mucho más tiempo."
     },
     {
       "tipo": "relato",
@@ -546,7 +546,7 @@
         "lado": "izq"
       },
       "quien": "Lola",
-      "texto": "Yo quería atraparte sola, ¿sabes? Pero esta temporada he aprendido que en equipo se llega más lejos. Bruno, conoces cada calle del barrio y cada falta posible. La directora está de acuerdo: ¿quieres entrar en la agencia como aprendiz?"
+      "texto": "Yo quería atraparte sola, ¿sabes? Pero esta temporada he aprendido que en equipo se llega más lejos. Bruno, conoces cada calle del barrio y cada falta posible. El director está de acuerdo: ¿quieres entrar en la agencia como aprendiz?"
     },
     {
       "tipo": "relato",
@@ -572,7 +572,7 @@
       "instruccion": "Mi primera tarea como aprendiz: ayudarte con el expediente. En los textos del caso se colaron faltas de todas las reglas. Encuéntralas y corrígelas antes de archivar la temporada.",
       "pistas": [
         "Son nueve, una de cada regla.",
-        "Hay faltas en el aviso de la directora y en lo que dijeron Lola, el Tachón, Herminia y Mateo."
+        "Hay faltas en el aviso del director y en lo que dijeron Lola, el Tachón, Herminia y Mateo."
       ]
     },
     {
@@ -602,7 +602,7 @@
         "Nombra tres pistas de la temporada que te ayudaron a resolver el misterio.",
         "Copia bien escritas cinco palabras que te hayan costado este curso, cada una de una regla distinta.",
         "Escribe qué le dirías a alguien que se ríe de las faltas de otra persona.",
-        "Enseña tu libreta a la directora para que selle el expediente de la temporada."
+        "Enseña tu libreta al director para que selle el expediente de la temporada."
       ]
     },
     {
@@ -616,7 +616,7 @@
         "bruno",
         "pilar"
       ],
-      "texto": "La Alameda recupera todas sus palabras, y la agencia, un aprendiz nuevo. Bruno clava en el tablón la última pieza: su ficha de aspirante, con todas las faltas corregidas. Y tú ya no eres un novato: la directora Robles te entrega la placa oficial de detective. Aunque una carta de lejos dice que esto no ha hecho más que empezar…"
+      "texto": "La Alameda recupera todas sus palabras, y la agencia, un aprendiz nuevo. Bruno clava en el tablón la última pieza: su ficha de aspirante, con todas las faltas corregidas. Y tú ya no eres un novato: el director Robles te entrega la placa oficial de detective. Aunque una carta de lejos dice que esto no ha hecho más que empezar…"
     }
   ]
 }

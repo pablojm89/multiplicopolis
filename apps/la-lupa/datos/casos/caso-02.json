@@ -20,7 +20,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Nos llaman del mercado de abastos. Esta madrugada alguien ha {canbiado|cambiado} todos los letreros de los puestos y los vecinos no saben ni qué compran. Huele a nuestro amigo el del rotulador negro."
     },
     {
@@ -475,7 +475,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de b y v. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -492,7 +492,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "La primera foto de nuestro amigo. La clavaremos en el tablón: es la primera pieza del misterio. Esa mancha roja en la muñeca… no la perdáis de vista."
     },
     {
@@ -503,12 +503,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó en el mercado y qué hemos descubierto del Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {

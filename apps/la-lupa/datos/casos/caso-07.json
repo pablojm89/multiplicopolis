@@ -20,7 +20,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "Nos llaman de Radio Alameda. Esta mañana, en pleno programa, Charo, la locutora, empezó a leer las noticias y se {dió|dio} cuenta de que alguien le había cambiado el guion: estaba lleno de faltas. Y al final hay algo escrito para Mateo. Id para allá enseguida."
     },
     {
@@ -484,7 +484,7 @@
         "expresion": "neutral",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de diptongos y monosílabos. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
@@ -501,7 +501,7 @@
         "expresion": "pensativo",
         "lado": "der"
       },
-      "quien": "Directora Robles",
+      "quien": "Director Robles",
       "texto": "El Tachón ha hecho con Mateo lo mismo que le hicieron a él en la antigua escuela: reírse de sus faltas. Y ha sacado ese cuaderno de nuestro propio archivo… Mateo quiere clavar su página corregida en el tablón, y me parece muy bien. Hay algo que debería haberos contado hace mucho. Mañana, a primera hora, en mi despacho."
     },
     {
@@ -512,12 +512,12 @@
         "expresion": "contento",
         "lado": "izq"
       },
-      "titulo": "Informe para la directora",
+      "titulo": "Informe para el director",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó en Radio Alameda y qué nos contó Mateo?",
         "Copia bien escritas las palabras que te hayan costado.",
-        "Enseña tu libreta a la directora para que selle tu expediente."
+        "Enseña tu libreta al director para que selle tu expediente."
       ]
     },
     {
