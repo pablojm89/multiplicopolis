@@ -24,7 +24,9 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] **Piloto «La prueba de acceso»** (`caso-00`): evaluación inicial de las 9 reglas de 5.º, debut de Bruno y El Tachón, informe con el punto de partida y tabla de evaluación inicial en la zona del maestro. Arte del lote 3 integrado (issue #2)
 - [x] Gancho de El Tachón al final del caso 1
 - [ ] **Trama de temporada**: pasar los ganchos a `datos/temporada-1.json` por número de episodio (`TEMPORADA-1.md`)
-- [ ] Caso 2 (b/v) con El Tachón
+- [x] Caso 2 «El mercado del revés» (b/v): primera foto de El Tachón. Arte pendiente (issue #3)
+- [ ] Caso 3 (h)
+- [ ] **Academia de detectives**: zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`
 
