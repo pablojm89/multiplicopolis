@@ -101,3 +101,5 @@ Claude actualiza este archivo al terminar cada tarea importante.
 - Imprenta del Eco: galeradas con reglas mezcladas.
 
 Además, la **libreta imprimible** (`imprimibles/libreta.html`).
+
+**Encargos: ya hay 10** (3 subagentes y revisión), del rango Novato al de Detective de élite. Trabajan el texto instructivo, el cartel, la postal, los sinónimos y las familias de palabras, la noticia, la concordancia, los refranes, el lenguaje figurado, los bulos y el diccionario. Solo usan arte que ya existe. En la revisión se corrigió una variante de refrán que no existía («dentado») y una pregunta que delataba la respuesta.
