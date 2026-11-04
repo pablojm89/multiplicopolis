@@ -51,15 +51,35 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `robles-deporte-contento.png` | SOLO PARA ROBLES: con la ropa de deporte, sonrisa amplia y pulgar arriba, toalla al hombro, lleno de energía |
 | `robles-agotado.png` | SOLO PARA ROBLES: con la ropa de deporte, recién llegado corriendo, jadeando con las manos en las rodillas o secándose el sudor con la toalla, gesto cómico de «un momento, que vengo de correr» |
 
+## Fondos (16:9, 1920×1080, sin personajes)
+
+| Archivo | Qué se ve |
+|---|---|
+| `buzon-agencia.png` | Rincón de la Agencia La Lupa junto a la puerta, de noche: un buzón antiguo de latón empotrado en la pared de azulejos, del que asoman cartas; debajo, una cesta de mimbre con sobres, postales y paquetes atados con cordel; al lado, un tablón de corcho con sobres clavados con chinchetas rojas y una lámpara verde de banquero que ilumina la escena. Ambiente acogedor y misterioso. Sin personas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+
 ## Objetos (fondo transparente, 1024×1024)
 
 | Archivo | Qué se ve |
 |---|---|
 | `foto-tribunal.png` | Fotografía antigua en blanco y negro, algo amarillenta, con borde blanco de papel: una sala de examen con una mesa de tribunal al fondo, con tres adultos sentados (en el centro, el director Robles de joven, unos 25 años: hombre delgado con el pelo rizado recogido en un moño alto y barba corta, serio), y delante varias filas de niños de unos 11 años en pupitres. Uno de los niños de la última fila sale movido y borroso, como si se levantara deprisa, y no se le ve la cara. Sin letras, fechas ni números. |
+| `receta-mojada.png` | Cuaderno de recetas antiguo y abierto, con las páginas amarillentas, una gran mancha de café y unas hojas sueltas que se han despegado; al lado, una torta de aceite con anís sobre papel de estraza. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `cartel-ofertas.png` | Pizarra de caballete de frutería, con marco de madera, VACÍA (sin ninguna palabra ni precio), con dibujos de tiza de una naranja, un melón y unas uvas en las esquinas; a sus pies, una caja de naranjas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `postal-antigua.png` | Postal antigua algo doblada con la ilustración de una playa andaluza al atardecer en una cara, un sello ilustrado con un faro y un matasellos redondo abstracto; asoma de entre las páginas de un libro viejo de tapas rojas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `tortuga-huerto.png` | Fotografía a color, con borde blanco, de una tortuga de tierra simpática escondida entre las lechugas de un huerto escolar, con una regadera al lado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `libreta-canciones.png` | Guitarra española apoyada junto a una libreta de canciones abierta con tachones y garabatos ilegibles, una púa y un lápiz mordisqueado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `tarjetas-pregon.png` | Puñado de tarjetas de cartulina de colores, algunas partidas por la mitad y mojadas, flotando en el borde de una fuente de azulejos andaluces, con garabatos ilegibles. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `sobre-oyente.png` | Radio de válvulas antigua de madera sobre una mesa, con un sobre de papel crema atado con un cordel y un clavel rojo encima; un micrófono de sobremesa al lado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `movil-bulo.png` | Teléfono móvil moderno de pantalla grande que muestra burbujas de chat VACÍAS de colores (sin texto), un gran icono triangular de advertencia y flechas de reenvío; alrededor, flechas curvas que salen del móvil como si el mensaje se propagara. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `fichero-empapado.png` | Cajón de fichero de madera con fichas de cartulina mojadas y desordenadas, gotas de agua y un charco, una lupa de detective apoyada en el borde. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `microscopio.png` | Microscopio antiguo de latón y esmalte verde, con su espejo y su platina, sobre la que hay un portaobjetos con dos palabras borrosas (ilegibles); luz de laboratorio violeta y ámbar. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `centrifugadora.png` | Centrifugadora de laboratorio retro, redonda y cromada, con tapa de cristal por la que se ven letras de colores sueltas girando (letras sueltas desordenadas, sin formar palabras), luces piloto y una palanca. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `maquina-sin-tilde.png` | Máquina de escribir antigua negra y dorada, con una hoja de papel puesta con garabatos ilegibles; le falta una tecla (hueco vacío con un muelle suelto) y de ella sale un hilillo de humo cómico. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `walkie.png` | Walkie-talkie robusto naranja y negro con antena extensible y una lucecita roja encendida, con ondas de radio dibujadas a su alrededor. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
+| `carne-academia.png` | Carné de cartulina gruesa de la Academia de detectives: un escudo con una lupa y un naranjo, un recuadro vacío para la foto y una fila de ocho círculos vacíos para estampar sellos; esquinas gastadas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. |
 
 ## Notas del ilustrador
 
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **8** imágenes por entregar.
+Quedan **23** imágenes por entregar.

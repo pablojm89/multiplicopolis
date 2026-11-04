@@ -721,5 +721,110 @@
     "emoji": "✉️",
     "listo": true,
     "prompt": "Sobre de papel color crema, algo gastado por el viaje, con dos sellos postales de un paisaje lejano (montañas nevadas y un faro, sin texto ni números) y un matasellos redondo borroso; en una esquina, en lugar de firma, una sola rayita inclinada dibujada con tinta azul brillante, como una tilde. Aire misterioso, luz cálida de lámpara. Sin letras, direcciones ni números."
+  },
+  "buzon-agencia": {
+    "tipo": "fondo",
+    "nombre": "El buzón de encargos de la agencia",
+    "color": "#2a2230",
+    "listo": false,
+    "prompt": "Rincón de la Agencia La Lupa junto a la puerta, de noche: un buzón antiguo de latón empotrado en la pared de azulejos, del que asoman cartas; debajo, una cesta de mimbre con sobres, postales y paquetes atados con cordel; al lado, un tablón de corcho con sobres clavados con chinchetas rojas y una lámpara verde de banquero que ilumina la escena. Ambiente acogedor y misterioso. Sin personas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "receta-mojada": {
+    "tipo": "objeto",
+    "nombre": "La receta de la abuela Carmen",
+    "emoji": "📜",
+    "listo": false,
+    "prompt": "Cuaderno de recetas antiguo y abierto, con las páginas amarillentas, una gran mancha de café y unas hojas sueltas que se han despegado; al lado, una torta de aceite con anís sobre papel de estraza. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "cartel-ofertas": {
+    "tipo": "objeto",
+    "nombre": "El cartel de ofertas de Manolo",
+    "emoji": "🪧",
+    "listo": false,
+    "prompt": "Pizarra de caballete de frutería, con marco de madera, VACÍA (sin ninguna palabra ni precio), con dibujos de tiza de una naranja, un melón y unas uvas en las esquinas; a sus pies, una caja de naranjas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "postal-antigua": {
+    "tipo": "objeto",
+    "nombre": "La postal sin dueña",
+    "emoji": "✉️",
+    "listo": false,
+    "prompt": "Postal antigua algo doblada con la ilustración de una playa andaluza al atardecer en una cara, un sello ilustrado con un faro y un matasellos redondo abstracto; asoma de entre las páginas de un libro viejo de tapas rojas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "tortuga-huerto": {
+    "tipo": "objeto",
+    "nombre": "Matilde, la tortuga del colegio",
+    "emoji": "🐢",
+    "listo": false,
+    "prompt": "Fotografía a color, con borde blanco, de una tortuga de tierra simpática escondida entre las lechugas de un huerto escolar, con una regadera al lado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "libreta-canciones": {
+    "tipo": "objeto",
+    "nombre": "La libreta de canciones de Ramón",
+    "emoji": "🎸",
+    "listo": false,
+    "prompt": "Guitarra española apoyada junto a una libreta de canciones abierta con tachones y garabatos ilegibles, una púa y un lápiz mordisqueado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "tarjetas-pregon": {
+    "tipo": "objeto",
+    "nombre": "Las tarjetas del pregón",
+    "emoji": "🃏",
+    "listo": false,
+    "prompt": "Puñado de tarjetas de cartulina de colores, algunas partidas por la mitad y mojadas, flotando en el borde de una fuente de azulejos andaluces, con garabatos ilegibles. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "sobre-oyente": {
+    "tipo": "objeto",
+    "nombre": "El sobre del oyente anónimo",
+    "emoji": "📻",
+    "listo": false,
+    "prompt": "Radio de válvulas antigua de madera sobre una mesa, con un sobre de papel crema atado con un cordel y un clavel rojo encima; un micrófono de sobremesa al lado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "movil-bulo": {
+    "tipo": "objeto",
+    "nombre": "El mensaje que corre por el barrio",
+    "emoji": "📱",
+    "listo": false,
+    "prompt": "Teléfono móvil moderno de pantalla grande que muestra burbujas de chat VACÍAS de colores (sin texto), un gran icono triangular de advertencia y flechas de reenvío; alrededor, flechas curvas que salen del móvil como si el mensaje se propagara. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "fichero-empapado": {
+    "tipo": "objeto",
+    "nombre": "Las fichas del diccionario empapadas",
+    "emoji": "🗂️",
+    "listo": false,
+    "prompt": "Cajón de fichero de madera con fichas de cartulina mojadas y desordenadas, gotas de agua y un charco, una lupa de detective apoyada en el borde. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "microscopio": {
+    "tipo": "objeto",
+    "nombre": "El microscopio de homófonos",
+    "emoji": "🔬",
+    "listo": false,
+    "prompt": "Microscopio antiguo de latón y esmalte verde, con su espejo y su platina, sobre la que hay un portaobjetos con dos palabras borrosas (ilegibles); luz de laboratorio violeta y ámbar. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "centrifugadora": {
+    "tipo": "objeto",
+    "nombre": "La centrifugadora de palabras",
+    "emoji": "🌀",
+    "listo": false,
+    "prompt": "Centrifugadora de laboratorio retro, redonda y cromada, con tapa de cristal por la que se ven letras de colores sueltas girando (letras sueltas desordenadas, sin formar palabras), luces piloto y una palanca. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "maquina-sin-tilde": {
+    "tipo": "objeto",
+    "nombre": "La máquina de escribir sin tilde",
+    "emoji": "⌨️",
+    "listo": false,
+    "prompt": "Máquina de escribir antigua negra y dorada, con una hoja de papel puesta con garabatos ilegibles; le falta una tecla (hueco vacío con un muelle suelto) y de ella sale un hilillo de humo cómico. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "walkie": {
+    "tipo": "objeto",
+    "nombre": "El walkie-talkie de Lola",
+    "emoji": "📟",
+    "listo": false,
+    "prompt": "Walkie-talkie robusto naranja y negro con antena extensible y una lucecita roja encendida, con ondas de radio dibujadas a su alrededor. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
+  },
+  "carne-academia": {
+    "tipo": "objeto",
+    "nombre": "El carné de la Academia",
+    "emoji": "🎫",
+    "listo": false,
+    "prompt": "Carné de cartulina gruesa de la Academia de detectives: un escudo con una lupa y un naranjo, un recuadro vacío para la foto y una fila de ocho círculos vacíos para estampar sellos; esquinas gastadas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   }
 }
