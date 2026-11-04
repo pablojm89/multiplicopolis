@@ -85,3 +85,5 @@ Claude actualiza este archivo al terminar cada tarea importante.
 - `herramientas/paquete_clase.py`, que convierte los PNG de GPT en el paquete (unos 45 KB por avatar).
 - `imprimibles/ficha-aspirante.html` (A4 a doble cara, con una tira para recortar el nombre antes de escanear) e `imprimibles/autorizacion-familias.html` (borrador para revisar con la dirección o el DPD).
 - `arte/AVATARES-ALUMNADO.md`: el procedimiento y el encargo tipo para ChatGPT. Pablo sube las fichas directamente en el chat de ChatGPT, nunca por GitHub.
+
+**Idea de Pablo: misiones secundarias.** «Va a haber una campaña o historia principal con sus misiones principales, la zona de entrenamiento y luego un apartado de historia secundaria o misiones secundarias, con encargos que llegan a la agencia». Apuntado en `PLAN.md` con una propuesta de diseño; pendiente de sus decisiones.
