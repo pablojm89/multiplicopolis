@@ -7,7 +7,12 @@ Comprueba, en cada artículo:
 - que hay forma errónea (propia o de palabras.json), distinta de la correcta y de una sola palabra;
 - que el error es de su regla (tilde, b/v, h, c/z/s, ll/y, g/j, -d/-z, mayúscula, monosílabo);
 - que no se repite una candidata en el mismo artículo;
-- que hay 7-10 candidatas de al menos 4 reglas distintas (cada galerada lleva 4-5 faltas de reglas distintas);
+- que en las faltas de mayúscula del banco la forma errónea se usa tal cual (sevilla, Lunes) y no desaparece;
+- que cada artículo tiene «nivel» (1-3) y, según su nivel, la longitud y las candidatas que piden las lupas:
+    nivel 1 (bronce: 3 faltas muy visibles): 35-75 palabras, 5-9 candidatas, ≥ 4 reglas (≥ 3 muy visibles);
+    nivel 2 (plata: 4-5 faltas; oro: 6): 80-140 palabras, 9-14 candidatas, ≥ 7 reglas;
+    nivel 3 (oro: 6; diamante: 7-8 + sospechosas): 150-260 palabras, 12-18 candidatas, las 9 reglas;
+- que hay al menos 30 artículos (y 8 de cada nivel) y que no se destripa la temporada (ni el Tachón ni Bruno);
 - que el texto, sin marcas, no deja corchetes ni llaves sueltos.
 """
 import json
@@ -22,6 +27,11 @@ REGLAS_5 = ["tildes-generales", "b-v-1", "h-1", "c-z-s", "ll-y", "g-j-dieresis",
 reglas = json.loads((RAIZ / "datos" / "reglas.json").read_text(encoding="utf-8"))
 banco = {w["p"]: w for w in json.loads((RAIZ / "datos" / "academia" / "palabras.json").read_text(encoding="utf-8"))["palabras"]}
 galeradas = json.loads((RAIZ / "datos" / "academia" / "galeradas.json").read_text(encoding="utf-8"))["galeradas"]
+VISIBLES = {"mayusculas-puntuacion-1", "h-1", "b-v-1", "ll-y", "g-j-dieresis", "c-z-s", "d-z-finales"}
+NIVELES = {1: {"palabras": (35, 75), "candidatas": (5, 9), "reglas": 4},
+           2: {"palabras": (80, 140), "candidatas": (9, 14), "reglas": 7},
+           3: {"palabras": (150, 260), "candidatas": (12, 18), "reglas": 9}}
+PROHIBIDAS = re.compile(r"tach[oó]n|bruno", re.I)
 MARCA = re.compile(r"\[([^\]|]+)\|([^\]|]+)(?:\|([^\]|]+))?\]")
 
 
@@ -61,6 +71,7 @@ def neutro(regla, s):
 
 errores = []
 avisos = []
+por_nivel = {}
 ids = set()
 for g in galeradas:
     gid = g.get("id", "?")
@@ -70,6 +81,12 @@ for g in galeradas:
     for campo in ("seccion", "titular", "entradilla", "firma", "parrafos"):
         if not g.get(campo):
             errores.append(f"{gid}: falta «{campo}»")
+    nivel = g.get("nivel")
+    if nivel not in NIVELES:
+        errores.append(f"{gid}: «nivel» tiene que ser 1, 2 o 3")
+        nivel = 2
+    if PROHIBIDAS.search(json.dumps(g, ensure_ascii=False)):
+        errores.append(f"{gid}: no se puede nombrar al Tachón ni a Bruno (destripa la temporada)")
     for campo in ("titular", "entradilla"):
         if re.search(r"[\[\]{}|]", g.get(campo, "")):
             errores.append(f"{gid}: el {campo} no puede llevar marcas")
@@ -86,7 +103,7 @@ for g in galeradas:
                 continue
             if regla not in reglas:
                 errores.append(f"{gid}: [{p}] regla desconocida {regla}")
-            w = banco.get(p.lower())
+            w = banco.get(p) or banco.get(p.lower())
             if mal is None:
                 if not w:
                     errores.append(f"{gid}: [{p}] no está en palabras.json: añade la forma errónea [{p}|{regla}|…]")
@@ -97,7 +114,8 @@ for g in galeradas:
                 if w["regla"] != regla:
                     errores.append(f"{gid}: [{p}] es de {w['regla']} en palabras.json, no de {regla}")
                 mal = w["mal"]
-                if p[0].isupper():
+                # Como candidatasImprenta(): la mayúscula inicial se copia, salvo en las faltas de mayúscula
+                if p[0].isupper() and regla != "mayusculas-puntuacion-1":
                     mal = mal[0].upper() + mal[1:]
             if mal == p:
                 errores.append(f"{gid}: [{p}] la forma errónea es igual a la correcta")
@@ -111,22 +129,31 @@ for g in galeradas:
                 errores.append(f"{gid}: [{p}] está marcada dos veces")
             vistas.add(p.lower())
             reglas_art.add(regla)
-    if not 7 <= n <= 10:
-        errores.append(f"{gid}: tiene {n} candidatas (deben ser 7-10)")
-    if len(reglas_art) < 4:
-        errores.append(f"{gid}: solo tiene candidatas de {len(reglas_art)} reglas (mínimo 4)")
-    elif len(reglas_art) < 5:
-        avisos.append(f"{gid}: solo {len(reglas_art)} reglas: siempre saldrán 4 faltas")
+    cfg = NIVELES[nivel]
+    lo, hi = cfg["candidatas"]
+    if not lo <= n <= hi:
+        errores.append(f"{gid} (nivel {nivel}): tiene {n} candidatas (deben ser {lo}-{hi})")
+    if len(reglas_art) < cfg["reglas"]:
+        errores.append(f"{gid} (nivel {nivel}): solo tiene candidatas de {len(reglas_art)} reglas (mínimo {cfg['reglas']})")
+    if nivel == 1 and len(reglas_art & VISIBLES) < 3:
+        errores.append(f"{gid}: en bronce hacen falta 3 reglas muy visibles (no tildes ni monosílabos)")
     palabras = len(re.findall(r"\w+", " ".join(MARCA.sub(lambda m: m[1], p) for p in g.get("parrafos", []))))
-    if not 80 <= palabras <= 150:
-        avisos.append(f"{gid}: {palabras} palabras (lo cómodo en la galerada es 80-150)")
+    lo, hi = cfg["palabras"]
+    if not lo <= palabras <= hi:
+        errores.append(f"{gid} (nivel {nivel}): {palabras} palabras (deben ser {lo}-{hi})")
+    por_nivel.setdefault(nivel, []).append((gid, palabras, n))
 
 cobertura = {r: sum(1 for g in galeradas for p in g["parrafos"] for m in MARCA.finditer(p) if m[2] == r) for r in REGLAS_5}
 print(f"{len(galeradas)} galeradas · candidatas por regla: " + ", ".join(f"{r} {c}" for r, c in cobertura.items()))
+for nv in sorted(por_nivel):
+    arts = por_nivel[nv]
+    print(f"  nivel {nv}: {len(arts)} artículos · {min(a[1] for a in arts)}-{max(a[1] for a in arts)} palabras · {min(a[2] for a in arts)}-{max(a[2] for a in arts)} candidatas")
+    if len(arts) < 8:
+        errores.append(f"nivel {nv}: solo {len(arts)} artículos (mínimo 8)")
 for a in avisos:
     print("  aviso:", a)
-if len(galeradas) < 12:
-    errores.append(f"hay {len(galeradas)} galeradas; deben ser al menos 12")
+if len(galeradas) < 30:
+    errores.append(f"hay {len(galeradas)} galeradas; deben ser al menos 30")
 if errores:
     print("ERRORES:")
     for e in errores:

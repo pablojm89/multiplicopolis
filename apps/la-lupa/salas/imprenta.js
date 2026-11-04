@@ -146,10 +146,10 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
   const vistas = cargar(claveVistas, []);
   const nivel = nivelAca(), cfg = IMP_NIVELES[nivel], lupa = NIVELES_ACA[nivel - 1];
   // Artículos de la lupa: los que tienen palabras de la cola primero, y los de las últimas rondas al final.
-  // En diamante, de los más largos.
+  // En oro, mejor los largos; en diamante, de los más largos.
   const largo = a => a.parrafos.join(" ").length;
   const pool = banco.filter(cfg.articulos);
-  const puntuar = a => candidatasImprenta(a).filter(c => enCola.has(norm(c.p))).length * 10 - (vistas.includes(a.id) ? 25 : 0) + (nivel === 4 ? largo(a) / 100 : 0) + Math.random() * 4;
+  const puntuar = a => candidatasImprenta(a).filter(c => enCola.has(norm(c.p))).length * 10 - (vistas.includes(a.id) ? 25 : 0) + (nivel === 4 ? largo(a) / 100 : 0) + (nivel === 3 && a.nivel === 3 ? 3 : 0) + Math.random() * 4;
   const arts = (pool.length >= cfg.galeradas ? pool : banco).slice().sort((a, b) => puntuar(b) - puntuar(a)).slice(0, cfg.galeradas);
   guardar(claveVistas, [...arts.map(a => a.id), ...vistas].slice(0, 8));
   const usadas = new Set();

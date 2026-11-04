@@ -140,6 +140,8 @@
 
 /* ── Niveles (lupas) ── */
 .imp-tira .imp-lupa { color: var(--imp-tinta); font-weight: 700; }
+.imp-tira span { white-space: nowrap; }
+.imp-tira span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 /* La letra del cuerpo la ajusta el JS para que la galerada quepa entera */
 .imp-cuerpo .texto-pistas { font-size: var(--imp-letra, 23px); }
 .imp-galerada.apretada .imp-cuerpo .texto-pistas { line-height: 1.5; }
@@ -150,15 +152,19 @@
 .imp-galerada.imp-corta .imp-cuerpo .texto-pistas { line-height: 1.7; }
 /* «?» a lápiz del aprendiz encima de las palabras que le sonaban raras (no todas están mal) */
 .imp-galerada .w.imp-duda { position: relative; }
-.imp-galerada .w.imp-duda::before { content: "?"; position: absolute; left: 50%; top: -.78em; transform: translateX(-50%) rotate(8deg); font: .7em/1 var(--f-mano); color: #5a6f8c; pointer-events: none; }
-.imp-galerada .w.imp-duda.resuelta::before { content: none; }
+/* El aprendiz rodea la palabra a lápiz y le pone un «?» al lado */
+.imp-galerada .w.imp-duda:not(.resuelta)::before { content: ""; position: absolute; inset: -.02em -.16em; border: 1.5px dashed rgba(70, 64, 58, .65); border-radius: 50%; transform: rotate(-2deg); pointer-events: none; }
+.imp-galerada .w.imp-duda:not(.resuelta)::after { content: "?"; position: absolute; right: -.42em; top: -.5em; font: 700 .72em/1 var(--f-mano); color: #4f4a44; transform: rotate(12deg); pointer-events: none; }
 /* Diamante: la hoja de correcciones, boca abajo hasta aprobar la galerada */
 .imp-boca-abajo { margin: 6px 0 4px; font: 19px/1.25 var(--f-mano); color: var(--gris-tinta); }
 .imp-hoja.imp-tapada { background: var(--ruido), repeating-linear-gradient(45deg, rgba(120, 95, 50, .08) 0 8px, transparent 8px 16px), #e9dfc6; }
 .imp-hoja.imp-tapada .imp-lista, .imp-hoja.imp-tapada .imp-falsas { display: none; }
 .imp-hoja:not(.imp-tapada) .imp-boca-abajo { display: none; }
-.imp-galerada.n4 ~ .imp-hoja .imp-lista { gap: 2px; }
+/* Con 7-8 faltas, cada corrección va en una sola fila: palabra y regla al lado */
+.imp-galerada.n4 ~ .imp-hoja .imp-lista { gap: 4px; }
+.imp-galerada.n4 ~ .imp-hoja .imp-lista li { grid-template-columns: 22px auto 1fr; align-items: center; }
+.imp-galerada.n4 ~ .imp-hoja .imp-lista li i { grid-row: auto; }
 .imp-galerada.n4 ~ .imp-hoja .imp-lista li b { font-size: 20px; }
-.imp-galerada.n4 ~ .imp-hoja .imp-lista li small { font-size: 12px; }
+.imp-galerada.n4 ~ .imp-hoja .imp-lista li small { font-size: 11.5px; line-height: 1.1; }
 .imp-galerada.n4 ~ .imp-hoja:not(.imp-tapada) { animation: imp-destapar .5s ease-out; }
 @keyframes imp-destapar { from { transform: rotate(1.2deg) rotateY(90deg); } to { transform: rotate(1.2deg); } }
