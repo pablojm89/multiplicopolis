@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Libreta de detective · Agencia La Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Libreta imprimible (A4). Se genera desde los datos de cada caso: ?casos=caso-01,caso-02 · ?casos=todos · &portada=0 para quitarla.
+     Las cifras NO se imprimen: el alumno las apunta al conseguirlas en el juego. */
+  :root { --tinta: #1d1a16; --gris: #6b645a; --linea: #b9b1a3; --acento: #a8322d; }
+  * { box-sizing: border-box; }
+  html { background: #8a8378; }
+  body { margin: 0; font: 14px/1.4 "Nunito", sans-serif; color: var(--tinta); }
+  .hoja { width: 210mm; height: 297mm; margin: 10mm auto; padding: 13mm 14mm 11mm; background: #fff; overflow: hidden; display: flex; flex-direction: column; gap: 4mm; box-shadow: 0 4px 18px rgba(0,0,0,.35); }
+  .cab { display: flex; align-items: flex-end; gap: 4mm; border-bottom: 2.5px solid var(--tinta); padding-bottom: 2.5mm; }
+  .cab .agencia { font: 12px "Special Elite", monospace; letter-spacing: .12em; color: var(--gris); }
+  .cab h1 { margin: 0; font: 34px/1 "Bebas Neue", sans-serif; letter-spacing: .04em; }
+  .cab .exp { margin-left: auto; font: 14px "Special Elite"; border: 1.5px solid var(--tinta); padding: 1.5mm 3mm; white-space: nowrap; }
+  h2 { margin: 0 0 1mm; font: 21px "Bebas Neue", sans-serif; letter-spacing: .05em; }
+  h2 small { font: 700 11.5px "Nunito"; color: var(--gris); letter-spacing: 0; margin-left: 2mm; }
+  .campos { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2mm 6mm; }
+  .campo { display: flex; align-items: flex-end; gap: 2mm; font-weight: 800; font-size: 13px; }
+  .campo .raya { flex: 1; border-bottom: 1.5px solid var(--tinta); height: 7mm; }
+  .lineas i { display: block; height: 7.6mm; border-bottom: 1px solid var(--linea); }
+  .caja { border: 1.5px solid var(--tinta); border-radius: 2mm; padding: 2.5mm 3.5mm; }
+  .testigos { display: grid; gap: 1.5mm; }
+  .testigo { display: grid; grid-template-columns: 52mm 1fr; align-items: end; gap: 3mm; font-size: 13px; }
+  .testigo b { border-bottom: 1px solid var(--linea); padding-bottom: 1mm; }
+  .testigo span { border-bottom: 1px solid var(--linea); height: 7mm; }
+  .cifras { display: flex; gap: 4mm; flex-wrap: wrap; }
+  .cifra { display: grid; grid-template-columns: 1fr 13mm; gap: 2mm; align-items: center; flex: 1 1 55mm; border: 1px dashed var(--gris); border-radius: 2mm; padding: 2mm 3mm; font-size: 12.5px; }
+  .cifra .rueda { width: 13mm; height: 15mm; border: 2px solid var(--tinta); border-radius: 2mm; }
+  .cifra .pista { border-bottom: 1px solid var(--linea); height: 7mm; }
+  .candado { font: 13px "Special Elite"; color: var(--gris); }
+  .pide { font-size: 12.5px; margin: 0; padding-left: 4.5mm; color: var(--gris); }
+  .pide li { margin-bottom: .8mm; }
+  .palabras { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
+  .palabras div { display: grid; grid-template-columns: 1fr 26mm; gap: 2mm; }
+  .palabras i { display: block; height: 7.6mm; border-bottom: 1px solid var(--linea); }
+  .pie { display: grid; grid-template-columns: 1fr 40mm; gap: 4mm; align-items: center; }
+  .relleno { flex: 1; min-height: 20mm; border: 1.5px dashed var(--linea); border-radius: 2mm; padding: 2mm 3mm; font: 12px "Special Elite"; color: var(--gris); }
+  .rubrica { font-size: 12.5px; }
+  .rubrica h3 { margin: 0 0 1mm; font: 17px "Bebas Neue"; letter-spacing: .05em; }
+  .rubrica ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .6mm; }
+  .rubrica li::before { content: "☐ "; }
+  .sello { border: 2px dashed var(--acento); border-radius: 50%; aspect-ratio: 1; display: grid; place-items: center; text-align: center; color: var(--acento); font: 14px "Bebas Neue"; letter-spacing: .06em; padding: 4mm; }
+  /* Portada */
+  .portada { justify-content: center; align-items: center; text-align: center; gap: 8mm; }
+  .portada .marco { border: 3px double var(--tinta); padding: 14mm 12mm; width: 100%; display: grid; gap: 7mm; justify-items: center; }
+  .portada .lupa { width: 34mm; height: 34mm; border: 4px solid var(--tinta); border-radius: 50%; position: relative; }
+  .portada .lupa::after { content: ""; position: absolute; width: 18mm; height: 4px; background: var(--tinta); right: -14mm; bottom: -3mm; transform: rotate(45deg); }
+  .portada h1 { margin: 0; font: 64px/0.95 "Bebas Neue"; letter-spacing: .05em; }
+  .portada .sub { font: 16px "Special Elite"; letter-spacing: .14em; color: var(--gris); }
+  .portada .datos { width: 120mm; display: grid; gap: 4mm; text-align: left; }
+  .portada .foto { width: 42mm; height: 52mm; border: 2px dashed var(--tinta); display: grid; place-items: center; font: 12px "Special Elite"; color: var(--gris); }
+  .portada .rangos { font-size: 12.5px; color: var(--gris); }
+  .aviso { max-width: 210mm; margin: 10mm auto; background: #fff7d6; border: 1px solid #c9b26a; border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+  .controles { position: fixed; left: 12px; bottom: 12px; max-width: 380px; background: #fff7d6; border: 1px solid #c9b26a; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+  .controles button { margin-top: 6px; font: 800 14px "Nunito"; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--tinta); background: #fff; cursor: pointer; }
+  @page { size: A4; margin: 0; }
+  @media print { html { background: none; } .hoja { margin: 0; box-shadow: none; break-after: page; } .controles, .aviso { display: none; } }
+  @media screen and (max-width: 820px) { .hoja { zoom: .45; margin: 4mm; } }
+</style>
+</head>
+<body>
+<div id="libreta"><p class="aviso">Preparando la libreta…</p></div>
+<aside class="controles">
+  <b>Libreta de detective.</b> Portada y una doble página por caso (imprime a doble cara). Elige los casos en la zona del maestro o con <code>?casos=caso-01,caso-02</code>.<br>
+  <button onclick="print()">Imprimir</button>
+</aside>
+<script>
+"use strict";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const leer = async ruta => { const r = await fetch(ruta); if (!r.ok) throw new Error(ruta); return r.json(); };
+const lineas = n => `<div class="lineas">${"<i></i>".repeat(n)}</div>`;
+const EQUIPO = /^(lola|mateo|director robles|directora robles|robles)\b/i;
+
+function portada() {
+  return `<section class="hoja portada"><div class="marco">
+    <div class="lupa" aria-hidden="true"></div>
+    <div class="sub">AGENCIA LA LUPA · BARRIO DE LA ALAMEDA</div>
+    <h1>Libreta<br>de detective</h1>
+    <div class="foto">Mi foto de ficha (dibújate)</div>
+    <div class="datos">
+      <div class="campo">Alias de detective<span class="raya"></span></div>
+      <div class="campo">Nombre<span class="raya"></span></div>
+      <div class="campo">Curso<span class="raya"></span><span>N.º de placa</span><span class="raya"></span></div>
+    </div>
+    <p class="rangos">Rangos: Novato · Agente · Detective · Inspector/a · Detective de élite. Cada expediente sellado por el director suma puntos.</p>
+  </div></section>`;
+}
+
+function dobleCaso(c) {
+  const escenas = c.escenas || [];
+  const cifras = escenas.filter(e => e.recompensa?.digito).length;
+  const testigos = [...new Set(escenas.filter(e => ["relato", "careo"].includes(e.tipo)).map(e => e.quien).filter(Boolean))]
+    .filter(q => !EQUIPO.test(q) && (/,/.test(q) || /tachón|doña|don /i.test(q))).slice(0, 5);
+  const pide = escenas.filter(e => e.tipo === "apunta").flatMap(e => e.apuntar || []);
+  const reglas = (c.reglas || []).length > 1 ? "Reglas: repaso de la temporada" : "";
+  const huecosTestigos = Math.max(0, 4 - testigos.length);
+  const izq = `<section class="hoja">
+    <header class="cab"><div><div class="agencia">EXPEDIENTE ${esc(c.numero)} · LIBRETA DE DETECTIVE</div><h1>${esc(c.titulo)}</h1></div><div class="exp">N.º ${esc(c.numero)}</div></header>
+    <div class="campos">
+      <div class="campo">Fecha<span class="raya"></span></div>
+      <div class="campo">Lugar<span class="raya"></span></div>
+    </div>
+    <div><h2>El misterio <small>¿Qué ha pasado? Cuéntalo en una o dos frases.</small></h2>${lineas(2)}</div>
+    <div><h2>La regla con mis palabras <small>${esc(reglas) || "Escríbela como se la explicarías a un compañero."}</small></h2>${lineas(3)}
+      <div class="campos"><div class="campo">Un ejemplo mío<span class="raya"></span></div><div class="campo">Un contraejemplo<span class="raya"></span></div></div></div>
+    <div><h2>Testigos y sospechosos <small>Quién es y qué dijo (una frase).</small></h2>
+      <div class="testigos">${testigos.map(t => `<div class="testigo"><b>${esc(t)}</b><span></span></div>`).join("")}${'<div class="testigo"><span></span><span></span></div>'.repeat(huecosTestigos)}</div></div>
+    <div><h2>Pistas y cifras <small>Apunta cada cifra cuando la consigas: la necesitarás para el candado.</small></h2>
+      <div class="cifras">${Array.from({ length: cifras }, (_, k) => `<div class="cifra"><span>Pista ${k + 1}<span class="pista" style="display:block"></span></span><span class="rueda"></span></div>`).join("")}</div>
+      <p class="candado">Código del candado: ${"▢ ".repeat(cifras)}</p></div>
+    ${pide.length ? `<div class="caja"><h2>El juego te pedirá que apuntes <small>Hazlo aquí o en tu libreta.</small></h2><ul class="pide">${pide.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+    <div class="relleno">Notas del detective</div>
+  </section>`;
+  const der = `<section class="hoja">
+    <header class="cab"><div><div class="agencia">EXPEDIENTE ${esc(c.numero)} · CIERRE DEL CASO</div><h1>${esc(c.titulo)}</h1></div><div class="exp">N.º ${esc(c.numero)}</div></header>
+    <div><h2>Palabras corregidas <small>Cópialas bien escritas y anota la regla que lo explica.</small></h2>
+      <div class="palabras"><div><b>Palabra</b><b>Regla</b></div><div><b>Palabra</b><b>Regla</b></div>${"<div><i></i><i></i></div>".repeat(16)}</div></div>
+    <div><h2>Conclusión <small>¿Quién fue y cómo lo has descubierto?</small></h2>${lineas(2)}</div>
+    <div><h2>Informe para el director <small>3-5 líneas: quién, qué y por qué. Sin faltas.</small></h2>${lineas(5)}</div>
+    <div class="relleno">Mi dibujo o esquema del caso</div>
+    <div class="pie">
+      <div class="caja rubrica"><h3>Rúbrica del sello</h3><ul>
+        <li>He apuntado las pistas y las cifras.</li><li>He escrito la regla con mis palabras.</li>
+        <li>He copiado bien las palabras corregidas.</li><li>He escrito el informe sin faltas.</li></ul></div>
+      <div class="sello">Sello del director</div>
+    </div>
+  </section>`;
+  return izq + der;
+}
+
+(async () => {
+  const q = new URLSearchParams(location.search);
+  try {
+    const prog = await leer("../datos/programacion.json");
+    const todos = Object.values(prog.cursos).flatMap(c => c.unidades.map(u => u.caso).filter(Boolean));
+    const pedidos = (q.get("casos") || "todos") === "todos" ? [...new Set(todos)] : q.get("casos").split(",").map(s => s.trim()).filter(id => /^caso-\d+$/.test(id));
+    const casos = await Promise.all(pedidos.map(id => leer(`../datos/casos/${id}.json`)));
+    document.querySelector("#libreta").innerHTML = (q.get("portada") === "0" ? "" : portada()) + casos.map(dobleCaso).join("");
+  } catch (e) {
+    document.querySelector("#libreta").innerHTML = `<p class="aviso">No se han podido cargar los casos (${esc(e.message)}). Ábrela desde el juego o desde un servidor web.</p>`;
+  }
+})();
+</script>
+</body>
+</html>

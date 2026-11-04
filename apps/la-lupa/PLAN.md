@@ -20,7 +20,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Arte del caso 1: 36 ilustraciones de GPT integradas (issue #1). Retocado el candado de `caja-musica`, que traía números dibujados
 - [x] Pablo prueba el caso 1 con arte: «me gusta bastante» (4/11)
 - [x] **Libreta de papel** como herramienta central (`LIBRETA.md`): modo papel o digital, momentos «¡Apúntalo!» (escena `apunta`), sello del director con rúbrica y código (opción B: premia, no bloquea), puntos y rangos
-- [ ] Plantilla imprimible de la libreta
+- [x] Plantilla imprimible de la libreta (`imprimibles/libreta.html`): portada y una doble página por caso, generada desde los datos; se abre desde la zona del maestro
 - [x] **Piloto «La prueba de acceso»** (`caso-00`): evaluación inicial de las 9 reglas de 5.º, debut de Bruno y El Tachón, informe con el punto de partida y tabla de evaluación inicial en la zona del maestro. Arte del lote 3 integrado (issue #2)
 - [x] Gancho de El Tachón al final del caso 1
 - [ ] **Trama de temporada**: pasar los ganchos a `datos/temporada-1.json` por número de episodio (`TEMPORADA-1.md`)

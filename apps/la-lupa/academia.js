@@ -113,12 +113,14 @@ function entrarSala(id, { regla = null, turno = null }) {
   const s = estadoAca();
   if (sl.actividad === "fichas") return leccion(sl, null, turno, `Este es el fichero de tus palabras falladas. Cada ficha vuelve cuando toca: si la escribes bien, se va alejando; si fallas, vuelve al principio. ${fichasVencidas(s).length ? `Hoy tienes ${fichasVencidas(s).length} pendientes.` : "Hoy no tienes fichas vencidas: entrenaremos palabras de riesgo."}`);
   if (sl.actividad === "testigo") return leccion(sl, null, turno, "En La Alameda muchos hablamos con seseo: decimos «casuela» y se escribe cazuela. También decimos «caye» por calle (yeísmo) y nos comemos la d del final: «verdá». Hablar así no es un error: es nuestra forma de hablar, y está muy bien. Lo que tiene que saber un detective es cómo se ESCRIBE. Yo lo digo así… y lo escribo así.");
+  // Salas sin elección de regla (salas/<id>.js define sl.leccionFija con el texto del instructor)
+  if (sl.leccionFija) return leccion(sl, null, turno, sl.leccionFija);
   if (!regla) return elegirRegla(sl, turno);
   leccion(sl, regla, turno);
 }
 
 function elegirRegla(sl, turno) {
-  const reglas = sl.actividad === "sismografo" ? ["tildes-generales"] : reglasBanco();
+  const reglas = sl.reglas || (sl.actividad === "sismografo" ? ["tildes-generales"] : reglasBanco());
   if (reglas.length === 1) return leccion(sl, reglas[0], turno);
   pintarEscena(`
     <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>

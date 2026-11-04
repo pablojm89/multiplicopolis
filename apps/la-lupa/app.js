@@ -207,6 +207,15 @@ function vistaMaestro() {
         <thead><tr><th>Detective</th>${reglasDiag.map(r => `<th>${esc(D.reglas[r]?.nombre || r)}</th>`).join("")}</tr></thead>
         <tbody>${Object.values(ultimoDiag).map(r => `<tr><td>${esc(r.nombre)}</td>${reglasDiag.map(rg => { const d = r.diagnostico.find(x => x.regla === rg); return `<td class="${d ? (d.porcentaje >= 75 ? "celda-bien" : d.porcentaje >= 50 ? "celda-casi" : "celda-mal") : ""}">${d ? `${d.porcentaje} %` : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody>
       </table></div>` : ""}
+      <h2>Imprimibles</h2>
+      <div class="fila">
+        <label>Libreta: <select id="impCaso"><option value="todos">Toda la temporada (con portada)</option>${Object.values(D.casos).sort((a, b) => a.numero.localeCompare(b.numero)).map(c => `<option value="${esc(c.id)}">${esc(c.numero)} · ${esc(c.titulo)}</option>`).join("")}</select></label>
+        <a class="boton-papel" id="impLibreta" target="_blank" rel="noopener" href="imprimibles/libreta.html?casos=todos">Abrir libreta para imprimir</a>
+      </div>
+      <div class="fila">
+        <a class="boton-papel" target="_blank" rel="noopener" href="imprimibles/ficha-aspirante.html">Ficha de aspirante (avatares)</a>
+        <a class="boton-papel" target="_blank" rel="noopener" href="imprimibles/autorizacion-familias.html">Autorización para las familias (borrador)</a>
+      </div>
       ${resumenAcademiaHTML()}
       ${htmlPaqueteMaestro()}
       <h2>Casos resueltos</h2>
@@ -231,6 +240,10 @@ function vistaMaestro() {
     ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA" };
     guardar("ajustes", ajustes);
     $("#ajGuardar").textContent = "Guardado ✔";
+  };
+  $("#impCaso").onchange = () => {
+    const v = $("#impCaso").value;
+    $("#impLibreta").href = `imprimibles/libreta.html?casos=${encodeURIComponent(v)}${v === "todos" ? "" : "&portada=0"}`;
   };
   activarPaqueteMaestro(vistaMaestro);
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());

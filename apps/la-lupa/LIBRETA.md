@@ -4,7 +4,7 @@
 
 ## Resumen
 
-La libreta de papel es la herramienta principal del detective, no un extra. El juego **no apunta las pistas por el alumno**: le pide que lo haga él en su libreta, y sin esas notas no se resuelve el caso. Al cerrar cada caso, el alumno escribe en la libreta su informe y la regla con sus palabras. El maestro (la «directora Robles» en la ficción) lo revisa, lo sella y lo puntúa. Esa nota entra en el cuaderno del maestro junto a la del juego, como evidencia escrita para los criterios 5.1 y 9.1.
+La libreta de papel es la herramienta principal del detective, no un extra. El juego **no apunta las pistas por el alumno**: le pide que lo haga él en su libreta, y sin esas notas no se resuelve el caso. Al cerrar cada caso, el alumno escribe en la libreta su informe y la regla con sus palabras. El maestro (el «director Robles» en la ficción) lo revisa, lo sella y lo puntúa. Esa nota entra en el cuaderno del maestro junto a la del juego, como evidencia escrita para los criterios 5.1 y 9.1.
 
 ## Lo que hacía Sherlock Ort (y lo que no se sabe)
 
@@ -33,8 +33,8 @@ La libreta de papel es la herramienta principal del detective, no un extra. El j
 ### 3. Plantilla propia de la libreta (imprimible)
 Una portada y una doble página por caso, para pegar en la libreta del alumno o usar como cuadernillo:
 - **Portada**: «Libreta de detective · Agencia La Lupa», con nombre, número de placa, curso y huella o dibujo.
-- **Doble página del caso**: expediente (n.º, lugar, fecha), testigos y sospechosos, pistas y cifras, palabras corregidas + regla, «la regla con mis palabras», conclusión e informe, y un hueco para el **sello de la directora**.
-- Se generará desde los datos de cada caso, desde la zona del maestro («Imprimir libreta del caso»).
+- **Doble página del caso**: expediente (n.º, lugar, fecha), testigos y sospechosos, pistas y cifras, palabras corregidas + regla, «la regla con mis palabras», conclusión e informe, y un hueco para el **sello del director**.
+- **Hecho:** `imprimibles/libreta.html` la genera desde los datos de cada caso: los avisos de «apúntalo», los testigos y tantas casillas como cifras tenga el candado (vacías: las cifras nunca se imprimen). Se abre desde la zona del maestro («Imprimibles»), para un caso o para toda la temporada con portada.
 
 ### 4. El sello del director (puente papel ↔ juego)
 - Al terminar un caso, el juego dice: «Enseña tu libreta al director Robles para que selle el expediente».

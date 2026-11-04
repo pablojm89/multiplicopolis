@@ -19,7 +19,7 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 | `datos/academia/` | Bancos de la Academia: `palabras.json` (forma correcta, forma errónea típica, sílabas, tónica y frase con hueco) y `textos.json` (documentos con `[palabras]` marcadas) y `testigos.json` (declaraciones para el testigo seseante). Valídalos con `python3 herramientas/validar_academia.py` |
 | `app.js` | Entrada, tablón de corcho, partida, informe, zona maestro/a (página normal) y arranque |
 | `clase.js` | **Paquete de clase** (avatares del alumnado, solo en la clase de Pablo): se importa desde la zona del maestro y se guarda solo en ese dispositivo (IndexedDB). El alumno elige su avatar por su alias al crear su ficha; sale en la entrada, la placa, el informe y la foto de equipo del final. Sin paquete, todo funciona igual. Proceso y privacidad: `arte/AVATARES-ALUMNADO.md` |
-| `imprimibles/` | `ficha-aspirante.html` (A4 a doble cara: alias, dibujo y descripción, con tira del nombre para recortar) y `autorizacion-familias.html` (borrador para el centro) |
+| `imprimibles/` | `libreta.html?casos=…` (libreta del alumno: portada y una doble página por caso, generada desde los datos; las cifras nunca se imprimen), `ficha-aspirante.html` (A4 a doble cara: alias, dibujo y descripción, con tira del nombre para recortar) y `autorizacion-familias.html` (borrador para el centro). Enlazados desde la zona del maestro |
 | `styles.css` | Todo en px del escenario de 1280×720. Mundo visual único: papel envejecido, tinta, albero y azulejo |
 | `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a una programación |
 | `datos/reglas.json` | Reglas: nombre, saberes, criterios, ficha del Archivo de Mateo y cartas de los careos |
@@ -79,4 +79,3 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 
 - Arte de la temporada 1 completo, salvo el director Robles y la foto del tribunal (issue #6).
 - Los datos se guardan solo en `localStorage`. La zona del maestro/a no tiene PIN (el código de sello sí protege el sello). No hay sincronización con el backend.
-- Falta la plantilla imprimible de la libreta (`LIBRETA.md` §3).
