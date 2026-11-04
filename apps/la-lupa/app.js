@@ -241,6 +241,7 @@ function vistaMaestro() {
         <tbody>${Object.values(ultimoDiag).map(r => `<tr><td>${esc(r.nombre)}</td>${reglasDiag.map(rg => { const d = r.diagnostico.find(x => x.regla === rg); return `<td class="${d ? (d.porcentaje >= 75 ? "celda-bien" : d.porcentaje >= 50 ? "celda-casi" : "celda-mal") : ""}">${d ? `${d.porcentaje} %` : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody>
       </table></div>` : ""}
       ${htmlNotasFinales()}
+      ${htmlSinInternet()}
       <h2>Imprimibles</h2>
       <div class="fila">
         <label>Libreta: <select id="impCaso"><option value="todos">Toda la temporada (con portada)</option>${Object.values(D.casos).sort((a, b) => a.numero.localeCompare(b.numero)).map(c => `<option value="${esc(c.id)}">${esc(c.numero)} · ${esc(c.titulo)}</option>`).join("")}</select></label>
@@ -288,6 +289,7 @@ function vistaMaestro() {
     $("#impLibreta").href = `imprimibles/libreta.html?casos=${encodeURIComponent(v)}${v === "todos" ? "" : "&portada=0"}`;
   };
   activarPaqueteMaestro(vistaMaestro);
+  activarSinInternet();
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());
   $("#csv").onclick = exportarCSV;
   $("#borrar").onclick = () => {
@@ -346,6 +348,47 @@ function exportarCSV() {
   a.click();
 }
 
+/* ── Sin internet: service worker (sw.js) y descarga de todo desde la zona del maestro ── */
+function registrarSinInternet() {
+  try { if ("serviceWorker" in navigator && /^(https:|http:\/\/localhost)/.test(location.href)) navigator.serviceWorker.register("sw.js").catch(() => {}); } catch { /* sin service worker */ }
+}
+const BANCOS_ACADEMIA = ["palabras", "textos", "testigos", "verbos", "pizarra", "dictados", "galeradas", "apuntes", "partes", "sintilde", "homofonos", "familias", "comas"];
+function archivosDelJuego() {
+  const u = new Set(["./", "index.html", "manifest.webmanifest", "icono-192.png", "icono-512.png", "datos/reglas.json", "datos/programacion.json", "datos/arte.json", "datos/encargos.json"]);
+  $$("script[src], link[rel=stylesheet]").forEach(x => u.add(x.getAttribute("src") || x.getAttribute("href")));
+  BANCOS_ACADEMIA.forEach(b => u.add(`datos/academia/${b}.json`));
+  Object.keys(D.casos).forEach(id => u.add(`datos/casos/${id}.json`));
+  Object.keys(D.encargos || {}).forEach(id => u.add(`datos/encargos/${id}.json`));
+  Object.entries(D.arte).forEach(([id, a]) => {
+    if (a.listo) u.add(`arte/${id}.webp`);
+    (a.listas || []).forEach(e => u.add(`arte/${id}-${e}.webp`));
+  });
+  ["apuntes", "libreta", "ficha-aspirante", "autorizacion-familias"].forEach(x => u.add(`imprimibles/${x}.html`));
+  return [...u].filter(Boolean).map(x => new URL(x, location.href).href);
+}
+function htmlSinInternet() {
+  return `
+      <h2>Jugar sin internet</h2>
+      <p class="aviso-maestro">Descarga el juego completo en este dispositivo (unos 25 MB, sobre todo las imágenes). Después funciona aunque falle el wifi. En tablets se puede «Añadir a la pantalla de inicio» y se abre como una app.</p>
+      <div class="fila"><button class="boton-papel" id="precargar">Descargar todo para usar sin internet</button><span id="precargaMsg"></span></div>`;
+}
+function activarSinInternet() {
+  $("#precargar").onclick = async () => {
+    const msg = $("#precargaMsg");
+    if (!("serviceWorker" in navigator)) { msg.textContent = "Este navegador no permite guardar el juego sin conexión."; return; }
+    try {
+      const reg = await navigator.serviceWorker.register("sw.js");
+      const sw = reg.active || reg.waiting || reg.installing || (await navigator.serviceWorker.ready).active;
+      navigator.serviceWorker.onmessage = ev => {
+        if (ev.data?.tipo === "progreso") msg.textContent = `Descargando… ${ev.data.hechos} de ${ev.data.total}`;
+        if (ev.data?.tipo === "precargado") msg.textContent = ev.data.fallos ? `Listo, pero ${ev.data.fallos} archivos no se han podido descargar. Vuelve a intentarlo con buena conexión.` : `¡Listo! ${ev.data.hechos} archivos guardados: ya funciona sin internet.`;
+      };
+      (sw || navigator.serviceWorker.controller).postMessage({ tipo: "precargar", urls: archivosDelJuego() });
+      msg.textContent = "Empezando la descarga…";
+    } catch { msg.textContent = "No se ha podido preparar la descarga (hace falta abrir el juego desde su web, no desde un archivo)."; }
+  };
+}
+
 /* ── Arranque ───────────────────────────────────────────────── */
 async function init() {
   ajustarEscenario();
@@ -365,6 +408,7 @@ async function init() {
     return;
   }
   marcarRevision();
+  registrarSinInternet();
   await cargarEncargos();
   await cargarPaquete();
   vistaInicio();

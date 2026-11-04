@@ -1,0 +1,17 @@
+{
+  "name": "Agencia La Lupa",
+  "short_name": "La Lupa",
+  "description": "Juego de detectives de la lengua para 5.º y 6.º de Primaria.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#05080e",
+  "theme_color": "#16243a",
+  "icons": [
+    { "src": "icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icono-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
