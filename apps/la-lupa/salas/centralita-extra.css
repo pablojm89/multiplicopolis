@@ -99,7 +99,7 @@
 .del-casilla.ok small { color: var(--verde); }
 .del-casilla.mal, .del-casilla.falta { border: 3px solid var(--rojo); background: var(--ruido), #fbe1dd; animation: del-sacude .4s ease-in-out; }
 .del-casilla.mal small, .del-casilla.falta small { color: var(--rojo-osc); }
-.del-casilla.mal::after { content: attr(data-puse); position: absolute; margin: -78px 0 0 44px; font: 20px var(--f-maquina); color: #fff; background: var(--rojo); border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; text-decoration: line-through; box-shadow: 0 2px 4px rgba(0, 0, 0, .4); }
+.del-casilla.mal::after { content: attr(data-puse); position: absolute; margin: -78px 0 0 44px; font: 20px var(--f-maquina); color: #fff; background: var(--rojo); border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; box-shadow: 0 2px 4px rgba(0, 0, 0, .4); }
 .del-casilla { position: relative; }
 .del-casilla.arreglada { border: 3px solid #9be2ae; background: var(--ruido), #d4f1db; }
 @keyframes del-sacude { 25% { transform: translateX(-4px) rotate(-2deg); } 75% { transform: translateX(4px) rotate(2deg); } }
@@ -128,7 +128,7 @@
 .del-tecla.ayuda { box-shadow: 0 5px 0 #8a6a3a, 0 0 0 4px var(--albero), 0 0 22px rgba(242, 169, 59, .9); animation: del-ayuda 1s ease-in-out infinite; }
 @keyframes del-bien { 0% { background: #9be2ae; } 100% { background: linear-gradient(#fffaf0, #eadcbf); } }
 @keyframes del-fallo { 0% { background: #f4b0a8; transform: translateX(-5px); } 30% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 100% { transform: none; } }
-@keyframes del-ayuda { 50% { transform: translateY(-4px); } }
+@keyframes del-ayuda { 50% { box-shadow: 0 5px 0 #8a6a3a, 0 0 0 4px rgba(242, 169, 59, .35), 0 0 6px rgba(242, 169, 59, .3); } }
 
 /* Pie */
 .del-pie { flex: none; min-height: 58px; display: flex; align-items: center; justify-content: flex-end; gap: 16px; }

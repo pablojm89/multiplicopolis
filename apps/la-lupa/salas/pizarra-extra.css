@@ -19,11 +19,13 @@
 .coma-frase.editable .coma-hueco.lleno::before { display: none; }
 .coma-frase.editable .coma-hueco:hover { background: rgba(255, 255, 255, .09); }
 .coma-frase.editable .coma-hueco:hover::before { background: var(--piz-amarilla); transform: scale(1.4); }
-.coma-frase:not(.editable) .coma-hueco { cursor: default; }
-.coma-frase:not(.editable) .coma-hueco:not(.lleno) { min-width: .3em; }
+.coma-frase:not(.editable) .coma-hueco { cursor: default; min-width: .3em; padding: 0; }
+/* Ya puntuada: el signo se pega a su palabra y el espacio va detrás */
+.coma-frase:not(.editable) .coma-hueco.lleno { min-width: 0; padding-right: .3em; justify-items: start; }
+.coma-frase:not(.editable) .coma-grupo:first-child > .coma-hueco:first-child,
+.coma-frase:not(.editable) .coma-grupo:last-child > .coma-hueco:last-child { padding: 0; min-width: 0; }
 .coma-hueco.correcto span { color: var(--piz-verde); }
 .coma-hueco.solucion span { color: var(--piz-amarilla); }
-.coma-hueco:first-child { padding-right: 0; }
 
 /* ── Paso 3: escribirla de memoria ── */
 .coma-aviso { margin: 0 0 10px; font-size: 24px; color: rgba(245, 242, 231, .75); }
@@ -34,14 +36,15 @@
 
 /* ── Fichas de papel con las dos situaciones ── */
 .coma-zona { top: 528px; }
-.coma-lecturas, .coma-compara { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; height: 100%; }
-.coma-lectura { position: relative; display: grid; grid-template-columns: 92px 1fr; grid-template-rows: 1fr auto; align-items: center; column-gap: 10px; text-align: left; padding: 12px 18px 10px 12px; color: var(--tinta); border-radius: 3px;
+.coma-lecturas, .coma-compara { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 100%; gap: 22px; height: 100%; }
+.coma-lectura { position: relative; min-height: 0; display: grid; grid-template-columns: 92px 1fr; grid-template-rows: 1fr auto; align-items: center; column-gap: 10px; text-align: left; padding: 12px 18px 10px 12px; color: var(--tinta); border-radius: 3px;
   background: linear-gradient(transparent 27px, rgba(31, 95, 168, .13) 27px) 0 6px / 100% 28px, var(--ruido), var(--papel-claro);
   box-shadow: 0 8px 16px rgba(0, 0, 0, .5); transform: rotate(-.7deg); transition: transform .15s, box-shadow .15s; }
 .coma-lectura:nth-child(2) { transform: rotate(.8deg); }
 .coma-lectura::before { content: ""; position: absolute; top: -7px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ff9a8f, var(--rojo) 60%, var(--rojo-osc)); box-shadow: 0 2px 3px rgba(0, 0, 0, .5); }
 button.coma-lectura:hover { transform: translateY(-4px) rotate(-.3deg); box-shadow: 0 14px 22px rgba(0, 0, 0, .55); }
 .coma-emoji { grid-row: span 2; font-size: 44px; line-height: 1.05; text-align: center; letter-spacing: -.08em; word-break: break-all; }
+.coma-emoji.muchos { font-size: 34px; line-height: 1.15; letter-spacing: 0; }
 .coma-sit { font: 22px/1.22 var(--f-mano); }
 .coma-lectura small { justify-self: end; font: 800 14px var(--f-ui); color: var(--rojo); text-transform: uppercase; letter-spacing: .06em; }
 

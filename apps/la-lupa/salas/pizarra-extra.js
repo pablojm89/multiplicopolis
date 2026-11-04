@@ -44,6 +44,11 @@ const comaIguales = (a, b) => a.length === b.length && a.every((x, i) => x === b
 const comaLimpia = s => String(s ?? "").normalize("NFC").replace(/[“”"]/g, "").trim().replace(/\s+/g, " ").replace(/\s+([,.:?!])/g, "$1").replace(/([¿¡])\s+/g, "$1");
 const comaVer = h => esc(h.replace(/([,.:?!])(?=[¿¡])/, "$1 "));
 const clavecoma = () => `coma-${perfil.id}`;
+/* El emoji de cada situación: con más de dos, van de dos en dos y más pequeños */
+function comaEmoji(e) {
+  const n = typeof Intl !== "undefined" && Intl.Segmenter ? [...new Intl.Segmenter("es", { granularity: "grapheme" }).segment(e)].length : [...e].length;
+  return `<span class="coma-emoji ${n > 2 ? "muchos" : ""}" aria-hidden="true">${esc(e)}</span>`;
+}
 
 function comaHayVoz() {
   if (!hayVoz()) return false;
@@ -102,7 +107,7 @@ nuevaActividad("pizarra", {
     };
     const tarjeta = (j, extra = "", cuerpo = "") => {
       const L = f.lecturas[j];
-      return `<div class="coma-lectura ${extra}"><span class="coma-emoji" aria-hidden="true">${L.emoji}</span><span class="coma-sit">${cuerpo || esc(L.situacion)}</span></div>`;
+      return `<div class="coma-lectura ${extra}">${comaEmoji(L.emoji)}<span class="coma-sit">${cuerpo || esc(L.situacion)}</span></div>`;
     };
 
     /* 1 · Elegir lo que se quiere decir */
@@ -116,7 +121,7 @@ nuevaActividad("pizarra", {
       $("#pizAcc").innerHTML = "";
       $("#pizZona").className = "piz-zona coma-zona";
       $("#pizZona").innerHTML = `<div class="coma-lecturas">${orden.map(j => `<button class="coma-lectura" data-j="${j}">
-          <span class="coma-emoji" aria-hidden="true">${f.lecturas[j].emoji}</span><span class="coma-sit">${esc(f.lecturas[j].situacion)}</span><small>Quiero decir esto ▸</small></button>`).join("")}</div>`;
+          ${comaEmoji(f.lecturas[j].emoji)}<span class="coma-sit">${esc(f.lecturas[j].situacion)}</span><small>Quiero decir esto ▸</small></button>`).join("")}</div>`;
       $$(".coma-lecturas .coma-lectura").forEach(b => b.onclick = () => { elegida = Number(b.dataset.j); paso2(); });
     };
 
@@ -170,7 +175,7 @@ nuevaActividad("pizarra", {
         cerrado = true;
         huecos = [...sol[elegida][0]];
         pintarFrase(false, "solucion");
-        cerca.forEach(i => pizDibujar($(`.coma-hueco[data-g="${i}"]`), pizTrazoCirculo, "circulo amarilla", [12, 8]));
+        cerca.filter(i => huecos[i]).forEach(i => pizDibujar($(`.coma-hueco[data-g="${i}"]`), pizTrazoCirculo, "circulo amarilla", [12, 8]));
         comparar(0, false);
       };
     };

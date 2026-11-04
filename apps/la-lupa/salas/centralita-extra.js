@@ -64,12 +64,12 @@ function delTruco(u, antes) {
 /* Lo que hay que recordar de la palabra (según su regla) */
 function delNota(w, U) {
   const claves = DEL_CLAVE[w.regla] || [];
-  if (w.regla === "h-1" && !U.includes("h")) return `«${w.p}» no lleva hache: empieza por «${delNombre(U[0])}».`;
-  if (w.regla === "d-z-finales") return `«${w.p}» termina en ${delNombre(U.at(-1))}, aunque casi no se oiga.`;
+  if (w.regla === "h-1" && !U.includes("h")) return `La palabra «${w.p}» no lleva hache: empieza por «${delNombre(U[0])}».`;
+  if (w.regla === "d-z-finales") return `La palabra «${w.p}» termina en ${delNombre(U.at(-1))}, aunque casi no se oiga.`;
   const l = U.find(x => claves.includes(x));
-  if (!l) return `«${w.p}», letra a letra.`;
-  if (l === "h") return `«${w.p}» lleva hache aunque no suene.`;
-  return `«${w.p}» lleva ${delNombre(l)} (${l}).`;
+  if (!l) return `La palabra «${w.p}», letra a letra.`;
+  if (l === "h") return `La palabra «${w.p}» lleva hache aunque no suene.`;
+  return `La palabra «${w.p}» lleva ${delNombre(l)} (${l}).`;
 }
 
 /* Alineación letra a letra (así una letra saltada no estropea las siguientes) */

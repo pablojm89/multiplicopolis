@@ -1,1 +1,160 @@
-/* Ejercicios extra de «laboratorio»: pendiente. */
+/* ============================================================
+   AGENCIA LA LUPA · Academia · El Laboratorio (ejercicios extra)
+   Microscopio de homófonos y centrifugadora de palabras.
+   Acero, latón y luz fría del fondo sala-laboratorio. Prefijo: lab-
+   ============================================================ */
+
+/* ── Piezas comunes: la mesa de acero de la derecha ──────────── */
+.lab-mesa {
+  position: absolute; left: 600px; right: 40px; top: 150px; bottom: 28px;
+  display: flex; flex-direction: column; gap: 12px; padding: 18px 26px 20px; overflow: hidden;
+  color: var(--crema); border: 3px solid #8a96a3; border-radius: 16px;
+  background:
+    radial-gradient(circle at 12px 12px, #c9d2da 0 3px, transparent 4px),
+    radial-gradient(circle at calc(100% - 12px) 12px, #c9d2da 0 3px, transparent 4px),
+    radial-gradient(circle at 12px calc(100% - 12px), #c9d2da 0 3px, transparent 4px),
+    radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #c9d2da 0 3px, transparent 4px),
+    linear-gradient(160deg, #3a4452, #222a35 55%, #161b22);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .18), inset 0 0 40px rgba(124, 196, 242, .06);
+}
+.lab-rotulo { margin: 0; font: 800 13px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: #9be2ae; }
+.lab-dice { margin: 0; font: 19px/1.4 var(--f-ui); background: rgba(0, 0, 0, .28); border-left: 4px solid var(--albero); padding: 8px 14px; border-radius: 6px; }
+.lab-dice b { color: var(--albero); }
+.lab-zona { display: flex; flex-direction: column; gap: 4px; }
+.lab-mesa .entrada { margin: 0; font-size: 34px; }
+.lab-mesa .msg { margin: 4px 0 0; color: #ffb4a8; font-size: 19px; }
+.lab-mesa .msg strong { color: var(--crema); }
+.lab-acciones { margin-top: auto; display: flex; gap: 14px; align-items: center; justify-content: flex-end; }
+.lab-zona .lab-acciones { margin-top: 10px; }
+.lab-ok { color: #9be2ae; }
+.lab-hueco { display: inline-block; min-width: 3.4em; border-bottom: 3px dashed #c2410c; background: rgba(242, 169, 59, .28); border-radius: 4px; line-height: 1.15; }
+.lab-hueco.lleno { min-width: 0; padding: 0 .12em; border-bottom: 3px solid var(--verde); background: rgba(47, 138, 85, .2); color: #1f6b40; font-weight: 700; animation: lab-aparece .5s ease-out; }
+.lab-mesa .lab-hueco { background: rgba(242, 169, 59, .18); border-bottom-color: var(--albero); }
+@keyframes lab-aparece { from { opacity: 0; transform: scale(1.4); } }
+
+/* ── L2 · El microscopio: ocular de latón con el campo iluminado ── */
+.lab-micro { position: absolute; left: 60px; top: 146px; width: 500px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.lab-ocular {
+  width: 480px; height: 480px; padding: 22px; border-radius: 50%;
+  background: conic-gradient(from 210deg, #6b5a3a, #e8c66f, #8a6a32, #f6e2a0, #7a6236, #d9b45e, #6b5a3a);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .65), inset 0 0 0 3px rgba(0, 0, 0, .35), 0 0 0 6px #1b2430;
+  transition: box-shadow .6s;
+}
+.lab-campo {
+  position: relative; width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  background:
+    radial-gradient(circle at 24% 30%, rgba(124, 196, 242, .25) 0 26px, transparent 28px),
+    radial-gradient(circle at 76% 70%, rgba(155, 226, 174, .22) 0 34px, transparent 36px),
+    radial-gradient(circle at 70% 24%, rgba(201, 162, 245, .18) 0 18px, transparent 20px),
+    radial-gradient(circle at 50% 45%, #f6fcff 0, #ddeff8 45%, #a5cde2 76%, #3d6a86 100%);
+  box-shadow: inset 0 0 46px rgba(10, 30, 50, .75), inset 0 0 0 8px #10161e;
+}
+/* Retícula fina del ocular */
+.lab-campo::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(transparent calc(50% - .5px), rgba(19, 38, 58, .22) calc(50% - .5px), rgba(19, 38, 58, .22) calc(50% + .5px), transparent calc(50% + .5px)),
+    linear-gradient(90deg, transparent calc(50% - .5px), rgba(19, 38, 58, .22) calc(50% - .5px), rgba(19, 38, 58, .22) calc(50% + .5px), transparent calc(50% + .5px)),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(19, 38, 58, .07) 39px 40px),
+    repeating-linear-gradient(transparent 0 39px, rgba(19, 38, 58, .07) 39px 40px);
+}
+.lab-campo small { position: relative; font: 800 13px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: #2d5570; }
+.lab-frase { position: relative; margin: 0; max-width: 350px; text-align: center; font: 26px/1.5 var(--f-maquina); color: #13263a; animation: lab-enfoque .9s ease-out; }
+.lab-aumento { position: absolute; bottom: 30px; font: 800 13px var(--f-ui); letter-spacing: .1em; color: #2d5570; }
+@keyframes lab-enfoque { from { filter: blur(7px); opacity: .3; transform: scale(1.06); } }
+.lab-ocular.enfocado { box-shadow: 0 20px 44px rgba(0, 0, 0, .65), inset 0 0 0 3px rgba(0, 0, 0, .35), 0 0 0 6px #1b2430, 0 0 40px 10px rgba(155, 226, 174, .55); }
+.lab-placa { margin: 0; padding: 5px 18px; font: 800 12px var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: #3a2a10; background: linear-gradient(#f3dc95, #c9a14e); border-radius: 4px; box-shadow: 0 3px 0 #6b5a3a, 0 6px 12px rgba(0, 0, 0, .4); }
+
+/* Bandeja con los portaobjetos de cristal */
+.lab-bandeja { display: flex; gap: 16px; justify-content: center; padding: 22px 12px; border-radius: 10px; background: linear-gradient(#c9d2da, #95a2ae); box-shadow: inset 0 3px 10px rgba(0, 0, 0, .45), 0 1px 0 rgba(255, 255, 255, .2); }
+.lab-porta {
+  position: relative; width: 172px; height: 96px; display: flex; align-items: center; justify-content: center;
+  color: #13263a; border: 1px solid rgba(255, 255, 255, .95); border-radius: 6px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(214, 236, 250, .7) 48%, rgba(255, 255, 255, .88) 52%, rgba(230, 244, 252, .8));
+  box-shadow: 0 5px 12px rgba(0, 0, 0, .35); transition: transform .2s, opacity .3s, box-shadow .3s;
+}
+.lab-porta i { position: absolute; left: 0; top: 0; bottom: 0; width: 26px; display: flex; align-items: center; justify-content: center; font: 800 14px var(--f-ui); font-style: normal; color: #3a2a10; background: var(--albero); border-radius: 6px 0 0 6px; }
+.lab-porta b { margin-left: 22px; font: 34px var(--f-maquina); font-weight: 400; }
+.lab-porta:hover:not(:disabled) { transform: translateY(-5px) rotate(-1.5deg); box-shadow: 0 10px 18px rgba(0, 0, 0, .4); }
+.lab-porta.descartada { opacity: .4; filter: grayscale(.7); transform: rotate(2deg) translateY(4px); }
+.lab-porta.elegida { box-shadow: 0 0 0 4px #9be2ae, 0 0 26px rgba(155, 226, 174, .8); }
+.lab-porta.tapada b { visibility: hidden; }
+.lab-porta.tapada::after { content: "?"; position: absolute; inset: 0 0 0 26px; display: flex; align-items: center; justify-content: center; font: 44px var(--f-cartel); color: #5a6b7a; border-radius: 0 6px 6px 0; background: repeating-linear-gradient(45deg, rgba(206, 219, 230, .97) 0 8px, rgba(184, 200, 214, .97) 8px 16px); }
+
+/* Informe: cada forma con su significado */
+.lab-analisis { display: grid; gap: 8px; }
+.lab-ficha { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: center; padding: 8px 14px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); border-radius: 8px; animation: lab-aparece .4s ease-out backwards; }
+.lab-ficha:nth-child(2) { animation-delay: .12s; } .lab-ficha:nth-child(3) { animation-delay: .24s; }
+.lab-ficha b { font: 30px var(--f-maquina); font-weight: 400; color: var(--crema); }
+.lab-ficha span { font: 17px/1.35 var(--f-ui); color: #d6dee6; }
+.lab-ficha.buena { border-color: #9be2ae; background: rgba(47, 138, 85, .28); }
+.lab-ficha.buena b { color: #c8f5d4; }
+.lab-ficha.buena b::after { content: " ✔"; font-size: 22px; color: #9be2ae; }
+
+/* ── L3 · La centrifugadora ─────────────────────────────────── */
+.lab-centri { position: absolute; left: 50px; top: 146px; bottom: 28px; width: 520px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.lab-maquina {
+  position: relative; width: 310px; height: 310px; flex: none; border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #f1f4f7, #a3aeb9 52%, #5c6773 100%);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .65), inset 0 -8px 14px rgba(0, 0, 0, .35), 0 0 0 8px #2b333d, 0 0 0 11px #8a96a3;
+}
+.lab-rotor { position: absolute; inset: 24px; border-radius: 50%; background: radial-gradient(circle, #1c232b 0 28%, #36404c 29% 100%); box-shadow: inset 0 0 22px rgba(0, 0, 0, .75); }
+.lab-rotor i { position: absolute; left: 50%; top: 50%; width: 26px; height: 62px; margin: -31px 0 0 -13px; border-radius: 13px; border: 2px solid rgba(255, 255, 255, .6); background: linear-gradient(90deg, rgba(255, 255, 255, .45), rgba(255, 255, 255, .1)); overflow: hidden; transform: rotate(var(--a)) translateY(-92px); }
+.lab-rotor i::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: var(--tinte); opacity: .85; }
+.lab-rotor.girando { animation: lab-giro 1.6s cubic-bezier(.5, 0, .25, 1); }
+@keyframes lab-giro { to { transform: rotate(1440deg); } }
+.lab-tapa { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 236px; height: 96px; display: flex; align-items: center; justify-content: center; border-radius: 48px; background: rgba(10, 20, 30, .86); border: 3px solid #c9d2da; box-shadow: 0 0 20px rgba(155, 226, 174, .25), inset 0 0 16px rgba(155, 226, 174, .2); }
+.lab-raiz { font: 38px var(--f-maquina); color: #e6fff0; white-space: nowrap; transition: filter .3s; }
+.lab-maquina.girando .lab-raiz { filter: blur(4px); }
+.lab-raiz mark { background: none; color: #e6fff0; }
+.lab-raiz.separada mark { color: var(--albero); text-shadow: 0 0 14px rgba(242, 169, 59, .9); }
+.lab-raiz span { display: inline-block; transition: transform .7s cubic-bezier(.2, 1.4, .4, 1), opacity .7s; }
+.lab-raiz.separada .lab-tronco { transform: translateX(-8px); }
+.lab-raiz.separada .lab-suelta { opacity: .5; color: #9fb3c3; transform: translate(16px, 10px) rotate(14deg); }
+.lab-lectura { margin: 0; min-width: 380px; padding: 8px 16px; text-align: center; font: 19px var(--f-maquina); color: #9be2ae; background: #0d1a12; border: 2px solid #3a5a44; border-radius: 8px; box-shadow: inset 0 0 12px rgba(155, 226, 174, .15); }
+.lab-lectura b { color: var(--albero); font-weight: 400; }
+.lab-base { display: flex; justify-content: center; }
+
+/* Gradilla de madera con una probeta por palabra */
+.lab-gradilla { display: flex; gap: 26px; justify-content: center; align-items: flex-end; padding: 12px 22px 10px; border-radius: 10px; border-top: 7px solid #8a6a46; background: linear-gradient(#5a4632, #3b2d20); box-shadow: 0 10px 22px rgba(0, 0, 0, .55); }
+.lab-probeta { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 120px; }
+.lab-tubo { position: relative; width: 30px; height: 82px; border: 2px solid rgba(255, 255, 255, .75); border-top: 0; border-radius: 0 0 15px 15px; background: rgba(255, 255, 255, .12); overflow: hidden; transition: box-shadow .3s; }
+.lab-tubo b { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: var(--tinte); transition: height 1s ease; }
+.lab-probeta.llena .lab-tubo b { height: 72%; }
+.lab-probeta.activa .lab-tubo { border-color: var(--albero); box-shadow: 0 0 16px rgba(242, 169, 59, .85); }
+.lab-probeta span { font: 19px var(--f-maquina); color: var(--crema); white-space: nowrap; }
+.lab-probeta mark, .lab-molde mark, .lab-familia mark { background: none; color: var(--albero); font-weight: 700; }
+
+/* Mesa de trabajo de la centrifugadora */
+.lab-trabajo { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.lab-pide { margin: 0; font: 30px/1.2 var(--f-mano); color: var(--crema); }
+.lab-contexto { margin: 0; font: 20px/1.45 var(--f-maquina); color: #c9d3e0; }
+.lab-molde { align-self: center; padding: 6px 24px 4px; font: 50px var(--f-maquina); letter-spacing: .04em; color: #13263a; background: #f3ead2; border-radius: 10px; box-shadow: 0 5px 0 #8a7a5a; transition: opacity .6s, filter .6s, transform .6s; }
+.lab-molde.evaporada { opacity: 0; filter: blur(8px); transform: translateY(-14px); }
+.lab-molde.hecho { animation: lab-aparece .5s ease-out; }
+.lab-molde mark { color: #b5651d; }
+.lab-q { display: inline-block; min-width: .75em; text-align: center; color: var(--rojo); border-bottom: 4px solid var(--rojo); }
+.lab-q.puesta { color: var(--verde); border-color: var(--verde); }
+.lab-q.vacia { min-width: .3em; }
+.lab-letras { display: flex; gap: 16px; justify-content: center; }
+.lab-letras button { min-width: 120px; padding: 6px 18px; font: 32px var(--f-maquina); color: var(--tinta); background: var(--papel-claro); border-radius: 10px; box-shadow: 0 4px 0 #8a7a5a; }
+.lab-letras button:hover:not(:disabled) { transform: translateY(-2px); }
+.lab-letras button.mal { opacity: .4; }
+.lab-letras button.bien { background: #d9f0df; box-shadow: 0 4px 0 var(--verde); }
+.lab-explica { font-size: 19px; }
+.lab-escribe { display: flex; gap: 14px; align-items: center; }
+.lab-escribe .entrada { flex: 1; }
+.lab-escribe .boton-sello { flex: none; }
+
+/* Resumen: la familia entera */
+.lab-familia { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: baseline; }
+.lab-familia span { padding: 4px 14px; font: 28px var(--f-maquina); color: #13263a; background: #f3ead2; border-radius: 8px; box-shadow: 0 3px 0 #8a7a5a; }
+.lab-familia span mark { color: #b5651d; }
+.lab-familia .lab-madre { background: var(--albero); box-shadow: 0 3px 0 #9a6a1c; }
+.lab-familia .lab-madre mark { color: #13263a; text-decoration: underline 3px; }
+.lab-familia span.cambia { background: #ffe2d6; box-shadow: 0 3px 0 #c2410c; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-rotor.girando, .lab-frase, .lab-hueco.lleno, .lab-ficha, .lab-molde.hecho { animation: none; }
+}
