@@ -192,7 +192,7 @@ const ESCENAS = {
       const w = e.palabras[k];
       if (!w) return;
       const ok = b.dataset.id === w.cat;
-      if (primera) { registrar(e.criterio || "9.1", ok, w.p, "clasificar"); primera = false; }
+      if (primera) { registrar(w.criterio || e.criterio || "9.1", ok, w.p, "clasificar"); primera = false; }
       if (!ok) {
         $("#clMsg").innerHTML = w.pista ? `No. ${esc(w.pista)}` : `No. Sepárala en sílabas: <strong>${esc(w.silabas)}</strong>. ¿Cuál suena más fuerte?`;
         b.classList.remove("sacude"); void b.offsetWidth; b.classList.add("sacude");

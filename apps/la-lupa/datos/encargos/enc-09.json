@@ -11,59 +11,221 @@
     "dificultad": 4
   },
   "escenas": [
-    { "tipo": "portada", "fondo": "redaccion-eco" },
     {
-      "tipo": "relato", "fondo": "redaccion-eco", "quien": "Aurora, la directora del periódico",
-      "personaje": { "id": "aurora", "expresion": "sorprendido", "lado": "der" },
+      "tipo": "portada",
+      "fondo": "redaccion-eco"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "redaccion-eco",
+      "quien": "Aurora, la directora del periódico",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
       "texto": "¡Detectives, el barrio está revolucionado! Alguien ha mandado al grupo de mensajes de la calle que van a cerrar el mercado. Remedios está muy disgustada, Manolo casi regala los tomates y a mí me han llamado veinte vecinos. Antes de publicar nada, quiero saber qué es verdad. En el Eco no se publica sin comprobar."
     },
     {
-      "tipo": "pregunta", "fondo": "redaccion-eco", "titulo": "El mensaje reenviado",
-      "personaje": { "id": "aurora", "expresion": "contento", "lado": "izq" },
+      "tipo": "pregunta",
+      "fondo": "redaccion-eco",
+      "titulo": "El mensaje reenviado",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "quien": "Grupo de mensajes de la calle · Reenviado muchas veces",
       "documento": "¡¡¡URGENTE!!! ¡¡VAN A CERRAR EL MERCADO DE LA ALAMEDA!!!\n\nMe lo ha dicho el primo de una vecina que trabaja en el ayuntamiento. Lo tiran el lunes para hacer un aparcamiento.\n\n¡¡Reenvíalo a todos tus contactos antes de que lo borren!!",
       "preguntas": [
-        { "pregunta": "¿Quién ha escrito este mensaje?", "opciones": ["Una trabajadora del ayuntamiento", "El primo de una vecina", "No se sabe: no lleva nombre ni firma"], "correcta": 2, "criterio": "6.1", "pista": "Busca un nombre y apellidos, una firma o un cargo. ¿Los hay?", "explicacion": "No hay autor. «El primo de una vecina» no es una fuente: nadie puede comprobar quién es ni si existe de verdad." },
-        { "pregunta": "¿Por qué pide que lo reenvíes «antes de que lo borren»?", "opciones": ["Para que corra deprisa y nadie se pare a comprobarlo", "Porque el ayuntamiento borra los mensajes del grupo", "Porque es una noticia oficial y hay que difundirla"], "correcta": 0, "criterio": "6.3", "pista": "Piensa qué haces tú cuando alguien te mete prisa. ¿Te paras a pensar?", "explicacion": "Las prisas y el miedo son trucos de los bulos: si te hacen correr, no te detienes a comprobar si es verdad." },
-        { "pregunta": "¿Qué llama más la atención de cómo está escrito?", "opciones": ["Que usa palabras técnicas y difíciles", "Las mayúsculas y los signos repetidos: parece que grita", "Que da muchas fechas, nombres y datos"], "correcta": 1, "criterio": "6.3", "explicacion": "Gritar con MAYÚSCULAS y «¡¡¡!!!» busca asustar, no informar. Una noticia seria se escribe con calma y con datos que se pueden comprobar." }
+        {
+          "pregunta": "¿Quién ha escrito este mensaje?",
+          "opciones": [
+            "Una trabajadora del ayuntamiento",
+            "El primo de una vecina",
+            "No se sabe: no lleva nombre ni firma"
+          ],
+          "correcta": 2,
+          "criterio": "6.1",
+          "pista": "Busca un nombre y apellidos, una firma o un cargo. ¿Los hay?",
+          "explicacion": "No hay autor. «El primo de una vecina» no es una fuente: nadie puede comprobar quién es ni si existe de verdad."
+        },
+        {
+          "pregunta": "¿Por qué pide que lo reenvíes «antes de que lo borren»?",
+          "opciones": [
+            "Para que corra deprisa y nadie se pare a comprobarlo",
+            "Porque el ayuntamiento borra los mensajes del grupo",
+            "Porque es una noticia oficial y hay que difundirla"
+          ],
+          "correcta": 0,
+          "criterio": "6.3",
+          "pista": "Piensa qué haces tú cuando alguien te mete prisa. ¿Te paras a pensar?",
+          "explicacion": "Las prisas y el miedo son trucos de los bulos: si te hacen correr, no te detienes a comprobar si es verdad."
+        },
+        {
+          "pregunta": "¿Qué llama más la atención de cómo está escrito?",
+          "opciones": [
+            "Que usa palabras técnicas y difíciles",
+            "Las mayúsculas y los signos repetidos: parece que grita",
+            "Que da muchas fechas, nombres y datos"
+          ],
+          "correcta": 1,
+          "criterio": "6.3",
+          "explicacion": "Gritar con MAYÚSCULAS y «¡¡¡!!!» busca asustar, no informar. Una noticia seria se escribe con calma y con datos que se pueden comprobar."
+        }
       ]
     },
     {
-      "tipo": "pregunta", "fondo": "redaccion-eco", "titulo": "Tres fuentes, una verdad",
-      "personaje": { "id": "lola", "expresion": "contento", "lado": "izq" },
+      "tipo": "pregunta",
+      "fondo": "redaccion-eco",
+      "titulo": "Tres fuentes, una verdad",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "quien": "Lo que ha reunido la agencia",
-      "documento": "FUENTE A · Mensaje reenviado, sin autor ni fecha\n«¡¡Van a cerrar el mercado el lunes para hacer un aparcamiento!!»\n\nFUENTE B · Web del ayuntamiento, 3 de noviembre\n«Obras en el tejado del mercado de La Alameda. El mercado seguirá abierto. Solo se cerrará la puerta norte, del 10 al 14 de noviembre».\n\nFUENTE C · «El Eco de La Alameda». Noticia firmada por Elena Ruiz, redactora\n«Los vendedores lo confirman: el mercado no cierra. Las obras del tejado durarán una semana».",
+      "documento": "FUENTE A · Reenviado, sin autor ni fecha\n«¡¡Cierran el mercado el lunes!!»\n\nFUENTE B · Web del ayuntamiento, 3 de noviembre\n«El mercado seguirá abierto. Por obras en el tejado, se cerrará la puerta norte del 10 al 14 de noviembre».\n\nFUENTE C · «El Eco». Firma: Elena Ruiz, redactora\n«Los vendedores lo confirman: el mercado no cierra; solo hay obras en el tejado».",
       "preguntas": [
-        { "pregunta": "¿Qué fuente es la menos fiable?", "opciones": ["La fuente A", "La fuente B", "La fuente C"], "correcta": 0, "criterio": "6.1", "explicacion": "La fuente A no tiene autor, ni fecha, ni pruebas. Que la haya reenviado mucha gente no la hace más verdadera." },
-        { "pregunta": "¿Por qué la fuente B es de fiar?", "opciones": ["Porque es la que más se ha reenviado por el barrio", "Porque es oficial: el ayuntamiento decide las obras, y lleva fecha", "Porque es la más corta y la más fácil de leer"], "correcta": 1, "criterio": "6.1", "pista": "Piensa en quién organiza las obras del mercado. ¿Quién lo sabe mejor que nadie?", "explicacion": "Es una fuente oficial: quien decide las obras es quien mejor las conoce. Además, tiene fecha y se puede consultar." },
-        { "pregunta": "¿En qué coinciden las fuentes B y C?", "opciones": ["En que el lunes se cierra el mercado", "En que van a hacer un aparcamiento", "En que el mercado sigue abierto y hay obras en el tejado"], "correcta": 2, "criterio": "6.1", "explicacion": "Eso es contrastar: si dos fuentes fiables y distintas dicen lo mismo, la información gana fuerza." },
-        { "pregunta": "Entonces, ¿de dónde puede haber salido el bulo?", "opciones": ["El ayuntamiento cambió de idea por la noche", "Alguien supo que cerraban una puerta por obras y lo exageró", "El Eco se equivocó al escribir su noticia"], "correcta": 1, "criterio": "4.1", "pista": "Mira qué se cierra de verdad según la fuente B, y durante cuánto tiempo.", "explicacion": "Muchos bulos nacen así: un dato real (una puerta cerrada cinco días) que, de boca en boca, se convierte en otra cosa." }
+        {
+          "pregunta": "¿Qué fuente es la menos fiable?",
+          "opciones": [
+            "La fuente A",
+            "La fuente B",
+            "La fuente C"
+          ],
+          "correcta": 0,
+          "criterio": "6.1",
+          "explicacion": "La fuente A no tiene autor, ni fecha, ni pruebas. Que la haya reenviado mucha gente no la hace más verdadera."
+        },
+        {
+          "pregunta": "¿Por qué la fuente B es de fiar?",
+          "opciones": [
+            "Porque es la que más se ha reenviado por el barrio",
+            "Porque es oficial: el ayuntamiento decide las obras, y lleva fecha",
+            "Porque es la más corta y la más fácil de leer"
+          ],
+          "correcta": 1,
+          "criterio": "6.1",
+          "pista": "Piensa en quién organiza las obras del mercado. ¿Quién lo sabe mejor que nadie?",
+          "explicacion": "Es una fuente oficial: quien decide las obras es quien mejor las conoce. Además, tiene fecha y se puede consultar."
+        },
+        {
+          "pregunta": "¿En qué coinciden las fuentes B y C?",
+          "opciones": [
+            "En que el lunes se cierra el mercado",
+            "En que van a hacer un aparcamiento",
+            "En que el mercado sigue abierto y hay obras en el tejado"
+          ],
+          "correcta": 2,
+          "criterio": "6.1",
+          "explicacion": "Eso es contrastar: si dos fuentes fiables y distintas dicen lo mismo, la información gana fuerza."
+        },
+        {
+          "pregunta": "Entonces, ¿de dónde puede haber salido el bulo?",
+          "opciones": [
+            "El ayuntamiento cambió de idea por la noche",
+            "Alguien supo que cerraban una puerta por obras y lo exageró",
+            "El Eco se equivocó al escribir su noticia"
+          ],
+          "correcta": 1,
+          "criterio": "4.1",
+          "pista": "Mira qué se cierra de verdad según la fuente B, y durante cuánto tiempo.",
+          "explicacion": "Muchos bulos nacen así: un dato real (una puerta cerrada cinco días) que, de boca en boca, se convierte en otra cosa."
+        }
       ]
     },
     {
-      "tipo": "clasifica", "fondo": "redaccion-eco", "titulo": "El detector de bulos",
+      "tipo": "clasifica",
+      "fondo": "redaccion-eco",
+      "titulo": "El detector de bulos",
       "instruccion": "Aurora quiere publicar una guía para el barrio. Pon cada señal en su cubo.",
-      "categorias": [{ "id": "bulo", "nombre": "Huele a bulo" }, { "id": "fiable", "nombre": "Es de fiar" }],
-      "palabras": [
-        { "p": "Sin autor", "cat": "bulo", "criterio": "6.3", "pista": "Si no sabes quién lo dice, no puedes comprobarlo." },
-        { "p": "Firma con nombre", "cat": "fiable", "criterio": "6.3", "pista": "Quien firma se hace responsable de lo que escribe." },
-        { "p": "¡Reenvía ya!", "cat": "bulo", "criterio": "6.3", "pista": "Las prisas son el truco favorito de los bulos." },
-        { "p": "Lleva fecha", "cat": "fiable", "criterio": "6.3", "pista": "La fecha te dice si la información es de hoy o de hace años." },
-        { "p": "«Me lo dijo un primo»", "cat": "bulo", "criterio": "6.3", "pista": "¿Puedes comprobar quién es ese primo?" },
-        { "p": "Web oficial", "cat": "fiable", "criterio": "6.3", "pista": "Es la fuente de quien toma las decisiones." },
-        { "p": "Todo con mayúsculas", "cat": "bulo", "criterio": "6.3", "pista": "Escribir gritando busca asustar, no informar." },
-        { "p": "Otra fuente lo dice", "cat": "fiable", "criterio": "6.3", "pista": "Si dos fuentes distintas coinciden, la información gana fuerza." },
-        { "p": "Quiere asustarte", "cat": "bulo", "criterio": "6.3", "pista": "Las noticias informan; los bulos buscan que te alarmes." }
+      "categorias": [
+        {
+          "id": "bulo",
+          "nombre": "Huele a bulo"
+        },
+        {
+          "id": "fiable",
+          "nombre": "Es de fiar"
+        }
       ],
-      "recompensa": { "texto": "Guía lista para el Eco: sin autor, con prisas, a gritos y sin pruebas… ¡desconfía! Con firma, fecha y otras fuentes que coinciden… puedes empezar a fiarte." }
+      "palabras": [
+        {
+          "p": "Sin autor",
+          "cat": "bulo",
+          "criterio": "6.3",
+          "pista": "Si no sabes quién lo dice, no puedes comprobarlo."
+        },
+        {
+          "p": "Firma con nombre",
+          "cat": "fiable",
+          "criterio": "6.3",
+          "pista": "Quien firma se hace responsable de lo que escribe."
+        },
+        {
+          "p": "¡Reenvía ya!",
+          "cat": "bulo",
+          "criterio": "6.3",
+          "pista": "Las prisas son el truco favorito de los bulos."
+        },
+        {
+          "p": "Lleva fecha",
+          "cat": "fiable",
+          "criterio": "6.3",
+          "pista": "La fecha te dice si la información es de hoy o de hace años."
+        },
+        {
+          "p": "«Me lo dijo un primo»",
+          "cat": "bulo",
+          "criterio": "6.3",
+          "pista": "¿Puedes comprobar quién es ese primo?"
+        },
+        {
+          "p": "Web oficial",
+          "cat": "fiable",
+          "criterio": "6.3",
+          "pista": "Es la fuente de quien toma las decisiones."
+        },
+        {
+          "p": "Todo con mayúsculas",
+          "cat": "bulo",
+          "criterio": "6.3",
+          "pista": "Escribir gritando busca asustar, no informar."
+        },
+        {
+          "p": "Otra fuente lo dice",
+          "cat": "fiable",
+          "criterio": "6.3",
+          "pista": "Si dos fuentes distintas coinciden, la información gana fuerza."
+        },
+        {
+          "p": "Quiere asustarte",
+          "cat": "bulo",
+          "criterio": "6.3",
+          "pista": "Las noticias informan; los bulos buscan que te alarmes."
+        }
+      ],
+      "recompensa": {
+        "texto": "Guía lista para el Eco: sin autor, con prisas, a gritos y sin pruebas… ¡desconfía! Con firma, fecha y otras fuentes que coinciden… puedes empezar a fiarte."
+      },
+      "contador": "Señal"
     },
     {
-      "tipo": "relato", "fondo": "redaccion-eco", "quien": "Aurora, la directora del periódico",
-      "personaje": { "id": "aurora", "expresion": "sorprendido", "lado": "der" },
+      "tipo": "relato",
+      "fondo": "redaccion-eco",
+      "quien": "Aurora, la directora del periódico",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
       "texto": "¡Otro! Acaba de llegar al grupo de la calle: «Dicen que el lunes no hay colegio porque van a pintar todas las aulas. ¡Pásalo!». Sin firma, sin fecha… y los niños del barrio ya están celebrándolo. ¿Qué hacemos?"
     },
     {
-      "tipo": "hipotesis", "fondo": "redaccion-eco", "titulo": "¿Qué hacemos con el mensaje?",
+      "tipo": "hipotesis",
+      "fondo": "redaccion-eco",
+      "titulo": "¿Qué hacemos con el mensaje?",
       "opciones": [
         "Reenviarlo a todo el grupo, por si acaso es verdad.",
         "Contestar en el grupo que es mentira y que quien lo mandó es un mentiroso.",
@@ -75,12 +237,25 @@
       "fallo": "Piénsalo otra vez: ¿sabes ya si es verdad o mentira? Antes de hacer nada con un mensaje dudoso, hay que comprobarlo."
     },
     {
-      "tipo": "relato", "fondo": "redaccion-eco", "quien": "Aurora, la directora del periódico",
-      "personaje": { "id": "aurora", "expresion": "contento", "lado": "der" },
+      "tipo": "relato",
+      "fondo": "redaccion-eco",
+      "quien": "Aurora, la directora del periódico",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "texto": "Portada de mañana: «El mercado no cierra: solo hay obras en el tejado». Y en la página dos, vuestra guía para detectar bulos. Remedios ya ha vuelto a cantar el pescado y Manolo dice que los tomates que regaló… se los apunta a la cuenta del bulo."
     },
     {
-      "tipo": "final", "fondo": "redaccion-eco", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "aurora"],
+      "tipo": "final",
+      "fondo": "redaccion-eco",
+      "sello": "¡ENCARGO CUMPLIDO!",
+      "equipo": [
+        "lola",
+        "mateo",
+        "aurora"
+      ],
       "texto": "El Eco agota la edición y el grupo de la calle estrena una norma nueva: antes de reenviar, se comprueba."
     }
   ]
