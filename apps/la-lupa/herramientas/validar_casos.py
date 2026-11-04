@@ -47,6 +47,8 @@ for f in sorted((RAIZ / "datos" / "casos").glob("*.json")):
         pj = e.get("personaje")
         if pj and (pj["id"] not in arte or pj.get("expresion", "neutral") not in arte[pj["id"]].get("expresiones", [])):
             err(f"{donde}: personaje/expresión {pj} no está en arte.json")
+        if pj and arte.get(pj["id"], {}).get("no_voltear") and arte[pj["id"]].get("mira") == pj.get("lado", "der"):
+            err(f"{donde}: {pj['id']} no se puede voltear (pulsera en la muñeca izquierda): ponlo en el lado contrario a «{pj.get('lado', 'der')}»")
         for id_ in e.get("equipo", []):
             if id_ not in arte:
                 err(f"{donde}: personaje del equipo «{id_}» no está en arte.json")

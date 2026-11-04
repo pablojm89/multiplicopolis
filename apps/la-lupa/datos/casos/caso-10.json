@@ -499,7 +499,7 @@
       "personaje": {
         "id": "bruno",
         "expresion": "desenmascarado",
-        "lado": "der"
+        "lado": "izq"
       },
       "quien": "Bruno",
       "texto": "Vale… ya está. Se acabaron las gafas de sol. Soy yo: Bruno, el del periódico. Y lo de la mandíbula era pura pose: me duele la cara de tanto «mewing»."
@@ -510,7 +510,7 @@
       "personaje": {
         "id": "bruno",
         "expresion": "desenmascarado",
-        "lado": "der"
+        "lado": "izq"
       },
       "quien": "Bruno",
       "texto": "Hace años hice la prueba de acceso de la agencia. Estaba tan nervioso que llené la ficha de faltas, y unos aspirantes la leyeron en voz alta. Todos se rieron de mí. En la escuela ya me había pasado lo mismo. Desde entonces, cada palabra bien escrita del barrio me recordaba aquel día… y quise «borrarlas» todas, una a una."
@@ -554,7 +554,7 @@
       "personaje": {
         "id": "bruno",
         "expresion": "contento",
-        "lado": "der"
+        "lado": "izq"
       },
       "quien": "Bruno",
       "texto": "¿Yo, aprendiz de La Lupa? ¡Claro que sí! Pero antes, dejadme hacer mi último tachón. Mirad: escribo en el cartel la palabra «venganza»… y la tacho. Ya está. Esa sí que sobraba en La Alameda."
@@ -565,7 +565,7 @@
       "personaje": {
         "id": "bruno",
         "expresion": "contento",
-        "lado": "der"
+        "lado": "izq"
       },
       "quien": "Bruno, el aprendiz",
       "titulo": "Revisa el expediente",

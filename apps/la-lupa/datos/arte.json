@@ -235,10 +235,12 @@
       "contento",
       "nervioso",
       "neutral",
-      "sorprendido"
+      "sorprendido",
+      "desenmascarado"
     ],
     "mira": "der",
-    "prompt": "Bruno, repartidor del periódico del barrio, unos 19 años, estilo anime: delgado, pelo castaño despeinado con gorra de visera verde oliva, sudadera gris con capucha, cartera de reparto cruzada llena de periódicos, PULSERA ROJA DE TELA en la muñeca izquierda (detalle importante, debe verse siempre). Aire amable, tímido e inofensivo, nada sospechoso a primera vista."
+    "prompt": "Bruno, repartidor del periódico del barrio, unos 19 años, estilo anime: delgado, pelo castaño despeinado con gorra de visera verde oliva, sudadera gris con capucha, cartera de reparto cruzada llena de periódicos, PULSERA ROJA DE TELA en la muñeca izquierda (detalle importante, debe verse siempre). Aire amable, tímido e inofensivo, nada sospechoso a primera vista.",
+    "no_voltear": true
   },
   "tachon": {
     "tipo": "personaje",
@@ -255,7 +257,8 @@
       "sorprendido"
     ],
     "mira": "izq",
-    "prompt": "El Tachón, villano misterioso de la temporada, estilo anime, parodia del rollo «sigma»: mandíbula cuadrada exageradísima en pose de mewing, gafas de sol oscuras de noche, flequillo perfecto engominado, gabardina negra larga con el cuello subido, guantes negros, rotulador gordo negro en la mano. Lleva la misma PULSERA ROJA DE TELA en la muñeca izquierda que Bruno (pista secreta, que se vea pero sin destacar). Pose chulesca y arrogante, más cómico que aterrador; apto para 10-12 años. Su cara NO debe parecerse claramente a la de Bruno."
+    "prompt": "El Tachón, villano misterioso de la temporada, estilo anime, parodia del rollo «sigma»: mandíbula cuadrada exageradísima en pose de mewing, gafas de sol oscuras de noche, flequillo perfecto engominado, gabardina negra larga con el cuello subido, guantes negros, rotulador gordo negro en la mano. Lleva la misma PULSERA ROJA DE TELA en la muñeca izquierda que Bruno (pista secreta, que se vea pero sin destacar). Pose chulesca y arrogante, más cómico que aterrador; apto para 10-12 años. Su cara NO debe parecerse claramente a la de Bruno.",
+    "no_voltear": true
   },
   "nota-tachon": {
     "tipo": "objeto",
@@ -509,35 +512,35 @@
     "tipo": "fondo",
     "nombre": "La feria a oscuras",
     "color": "#141a2a",
-    "listo": false,
+    "listo": true,
     "prompt": "La plaza de La Alameda la noche de la feria con todas las luces APAGADAS: cientos de farolillos de papel colgando sin luz, casetas cerradas, guirnaldas oscuras, solo la luz azul de la luna y alguna linterna lejana; algunos farolillos tienen garabatos negros de rotulador (SIN letras legibles). Inquietante pero apta para niños. Sin personas."
   },
   "caseta-feria": {
     "tipo": "fondo",
     "nombre": "La caseta de la feria",
     "color": "#2a1e2e",
-    "listo": false,
+    "listo": true,
     "prompt": "Interior y trasera de una caseta de feria andaluza de noche: lona de rayas, cajas de cartón con bombillas, rollos de cable, sillas plegables, un escenario pequeño con un micrófono, y al fondo una casilla de feria pintada de amarillo; luz tenue de linternas. Sin personas y sin letras."
   },
   "llave-escuela": {
     "tipo": "objeto",
     "nombre": "Llave antigua de la escuela",
     "emoji": "🗝️",
-    "listo": false,
+    "listo": true,
     "prompt": "Llave antigua grande de hierro forjado, con una etiqueta de cartón atada con cordel en la que hay dibujada una pequeña escuela con campanario (SIN letras)."
   },
   "cuadro-electrico": {
     "tipo": "objeto",
     "nombre": "Cuadro eléctrico de la feria",
     "emoji": "⚡",
-    "listo": false,
+    "listo": true,
     "prompt": "Cuadro eléctrico metálico de feria con palancas e interruptores, con un símbolo de rayo, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
   },
   "conserjeria": {
     "tipo": "fondo",
     "nombre": "Conserjería de la antigua escuela",
     "color": "#3a3024",
-    "listo": false,
+    "listo": true,
     "prompt": "Conserjería pequeña de una antigua escuela andaluza, de noche: mostrador de madera con ventanilla, tablero de madera con llaves antiguas colgadas de ganchos, mesa del conserje con un gran cajón cerrado con candado, flexo encendido, campana de mano de latón, estantería con cuadernos viejos apilados, radio antigua, un jarrón volcado, ventana que da a un patio con un naranjo; luz ámbar cálida contra el azul de la noche. Sin personas y sin letras, números ni rótulos."
   },
   "gregorio": {
@@ -551,35 +554,39 @@
       "nervioso",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "nervioso",
+      "neutral"
+    ],
     "mira": "der"
   },
   "cajon-conserjeria": {
     "tipo": "objeto",
     "nombre": "Cajón de la conserjería con candado",
     "emoji": "🗃️",
-    "listo": false,
+    "listo": true,
     "prompt": "Cajón grande de una mesa de madera antigua de escuela, con tirador de latón, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). Sin letras ni etiquetas escritas."
   },
   "orla-recortada": {
     "tipo": "objeto",
     "nombre": "Orla con una cara recortada",
     "emoji": "🖼️",
-    "listo": false,
+    "listo": true,
     "prompt": "Orla escolar antigua en un marco de madera: foto de grupo en colores desvaídos de unos veinte niños y niñas de unos 10 años con su maestro (canoso, con bigote y gafas redondas), delante de un patio con un naranjo. A uno de los niños le han recortado la cara con tijeras (queda un hueco en la foto); ese niño lleva una pulsera roja de tela en la muñeca izquierda, pequeña pero visible. La franja de abajo, donde irían los nombres, está recortada a trozos. Sin letras ni números legibles."
   },
   "centro-vecinal": {
     "tipo": "fondo",
     "nombre": "Sala de exposiciones del centro vecinal",
     "color": "#3b3a52",
-    "listo": false,
+    "listo": true,
     "prompt": "Sala del centro vecinal de La Alameda de noche, preparada para una exposición: una gran pared encalada llena de fotos antiguas enmarcadas, en blanco y negro y en color (escenas del barrio, SIN letras), con cartelitos blancos vacíos debajo de cada foto; en el centro, un hueco vacío con un clavo donde falta una foto. Guirnaldas de inauguración, sillas plegables en fila, zócalo de azulejos y una ventana con reja por la que entra la luz de una farola. Sin personas."
   },
   "estudio-fotos": {
     "tipo": "fondo",
     "nombre": "Estudio de fotos de Paco y su cuarto oscuro",
     "color": "#4a1f22",
-    "listo": false,
+    "listo": true,
     "prompt": "Estudio de fotografía antiguo del barrio, visto hacia el cuarto oscuro con la puerta abierta: luz roja de seguridad, cubetas de revelado, una ampliadora, pinzas con fotos colgadas de una cuerda para secarse (imágenes borrosas, SIN letras), cámaras antiguas en una estantería y sobres de negativos revueltos sobre la mesa, con etiquetas en blanco. Ambiente misterioso, rojo contra sombras azules. Sin personas."
   },
   "paco": {
@@ -592,35 +599,39 @@
       "sorprendido",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "sorprendido"
+    ],
     "mira": "der"
   },
   "foto-tribunal": {
     "tipo": "objeto",
     "nombre": "Foto antigua de la prueba de acceso",
     "emoji": "🖼️",
-    "listo": false,
+    "listo": true,
     "prompt": "Fotografía antigua en blanco y negro, algo amarillenta, con borde blanco de papel: una sala de examen con una mesa de tribunal al fondo, con tres adultos sentados (en el centro, una mujer de unos 35 años con moño oscuro y gafas finas, seria), y delante varias filas de niños de unos 11 años en pupitres. Uno de los niños de la última fila sale movido y borroso, como si se levantara deprisa, y no se le ve la cara. Sin letras, fechas ni números."
   },
   "caja-negativos": {
     "tipo": "objeto",
     "nombre": "Caja de negativos con candado",
     "emoji": "🎞️",
-    "listo": false,
+    "listo": true,
     "prompt": "Caja metálica antigua para guardar negativos fotográficos, verde oscuro, con esquinas de latón y algo de óxido, con una tira de negativos asomando por un lado, cerrada con un candado de latón de tres ruedas lisas (SIN números visibles). Sin letras."
   },
   "radio-alameda": {
     "tipo": "fondo",
     "nombre": "Estudio de Radio Alameda",
     "color": "#2b2f45",
-    "listo": false,
+    "listo": true,
     "prompt": "Estudio de una pequeña emisora de radio de barrio en el primer piso de una casa antigua de La Alameda, al amanecer: mesa de mezclas con botones y ruedecillas, dos micrófonos de pie con filtro antipop, auriculares grandes colgados, un piloto rojo encendido sobre la puerta (SIN letras), estanterías con discos de vinilo y cintas, tazas de café, hojas de guion revueltas por la mesa (sin texto legible), ventana con reja andaluza y la luz azul del amanecer, zócalo de azulejos y una puerta entreabierta a una escalera que sube a la azotea. Sin personas y sin letras."
   },
   "azotea-radio": {
     "tipo": "fondo",
     "nombre": "La azotea de la radio",
     "color": "#34405e",
-    "listo": false,
+    "listo": true,
     "prompt": "Azotea encalada de la casa de la radio del barrio al amanecer: una antena de radio alta de hierro con lucecitas rojas, tendederos con ropa, macetas de geranios, un cuartillo pequeño de puerta azul entreabierta con cajas de cartón amontonadas dentro, una escalera de incendios de hierro en el borde, y al fondo los tejados de La Alameda, un campanario y el cielo entre azul noche y ámbar. Sin personas y sin letras."
   },
   "charo": {
@@ -632,7 +643,11 @@
       "sorprendido",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Charo, locutora de la radio del barrio, unos 40 años, estilo anime: pelo rizado pelirrojo recogido con un lápiz, auriculares grandes de estudio al cuello, gafas de pasta rojas, camisa de cuadros remangada sobre camiseta negra, pendientes de aro y una taza de café en la mano; simpática, charlatana y muy expresiva."
   },
@@ -640,28 +655,28 @@
     "tipo": "objeto",
     "nombre": "El cuaderno de segundo de Mateo",
     "emoji": "📓",
-    "listo": false,
+    "listo": true,
     "prompt": "Cuaderno escolar antiguo de niño, abierto, con las esquinas dobladas: renglones de letra infantil dibujados como garabatos ondulados ilegibles (SIN letras reconocibles), muchas marcas de corrección en tinta roja (círculos y subrayados) y varios tachones gruesos de rotulador negro encima; una pegatina de estrella desgastada en la tapa. Sin texto legible."
   },
   "taquilla-radio": {
     "tipo": "objeto",
     "nombre": "Taquilla del cuarto de la azotea",
     "emoji": "🔒",
-    "listo": false,
+    "listo": true,
     "prompt": "Taquilla metálica estrecha, verde oliva y algo oxidada, con rejillas de ventilación arriba, cerrada con un candado de latón de tres ruedas lisas (SIN números visibles). Sin letras ni pegatinas con texto."
   },
   "redaccion-eco": {
     "tipo": "fondo",
     "nombre": "Redacción de «El Eco de La Alameda»",
     "color": "#3a3226",
-    "listo": false,
+    "listo": true,
     "prompt": "Redacción del periódico del barrio de madrugada: mesas de madera con máquinas de escribir antiguas y ordenadores viejos, flexos encendidos, recortes de papel tirados por el suelo, tablero de corcho con fotos del barrio (sin rótulos), ventana con reja andaluza y la luz azul de la noche, una taza de café fría. Sin personas y sin letras ni titulares legibles."
   },
   "imprenta-eco": {
     "tipo": "fondo",
     "nombre": "Imprenta y muelle de reparto del Eco",
     "color": "#2b2a33",
-    "listo": false,
+    "listo": true,
     "prompt": "Nave de la imprenta del periódico del barrio antes del amanecer: una rotativa grande de rodillos con bobinas de papel en el centro, iluminada por lámparas industriales de luz ámbar; al fondo, el muelle de reparto con paquetes de periódicos atados con cuerdas de colores, una carretilla y una puerta metálica entreabierta al callejón con la luz azul de la madrugada; un reloj de pared de agujas sin números. Sin personas y sin letras, números ni titulares legibles."
   },
   "aurora": {
@@ -673,7 +688,11 @@
       "sorprendido",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Aurora, directora del periódico del barrio, unos 45 años, estilo anime: pelo corto pelirrojo con un lápiz detrás de la oreja, gafas de pasta subidas a la cabeza, camisa blanca remangada, chaleco marrón, dedos manchados de tinta, un fajo de hojas en blanco bajo el brazo; enérgica, despierta y algo nerviosa. Sin letras ni texto en la ropa ni en los papeles."
   },
@@ -681,28 +700,28 @@
     "tipo": "objeto",
     "nombre": "La portada falsa",
     "emoji": "📰",
-    "listo": false,
+    "listo": true,
     "prompt": "Portada de periódico recién impresa y algo arrugada, con columnas de texto ilegibles (solo líneas grises), una foto borrosa de la fachada de una pequeña agencia de detectives y un gran tachón negro de rotulador con unas gafas de sol dibujadas al lado. Sin letras ni números legibles."
   },
   "cuadro-rotativa": {
     "tipo": "objeto",
     "nombre": "Cuadro de mandos de la rotativa",
     "emoji": "🎛️",
-    "listo": false,
+    "listo": true,
     "prompt": "Cuadro de mandos metálico de una rotativa antigua, con dos palancas grandes, una roja y otra verde, varios botones y un pequeño reloj de agujas sin números, todo detrás de una tapa de cristal cerrada con un candado de latón de tres ruedas lisas (SIN números visibles)."
   },
   "cartera-tachon": {
     "tipo": "objeto",
     "nombre": "Cartera negra de El Tachón",
     "emoji": "👜",
-    "listo": false,
+    "listo": true,
     "prompt": "Cartera de reparto de periódicos de lona, igual que la de un repartidor pero teñida de negro, con correa cruzada, caída en el suelo de la plaza, cerrada con un candado de latón de cuatro ruedas lisas (SIN números visibles); por una esquina asoma la punta de un rotulador negro gordo. Sin letras ni números."
   },
   "carta-lejana": {
     "tipo": "objeto",
     "nombre": "Carta de fuera del barrio",
     "emoji": "✉️",
-    "listo": false,
+    "listo": true,
     "prompt": "Sobre de papel color crema, algo gastado por el viaje, con dos sellos postales de un paisaje lejano (montañas nevadas y un faro, sin texto ni números) y un matasellos redondo borroso; en una esquina, en lugar de firma, una sola rayita inclinada dibujada con tinta azul brillante, como una tilde. Aire misterioso, luz cálida de lámpara. Sin letras, direcciones ni números."
   }
 }

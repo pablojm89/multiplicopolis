@@ -74,7 +74,8 @@ function htmlPersonaje(pj, extra = "") {
   const lado = pj.lado || "der";
   const listas = a.listas || [];
   const usar = listas.includes(expr) ? expr : listas.includes("neutral") ? "neutral" : null;
-  const espejo = (lado === "der" && a.mira === "der") || (lado === "izq" && a.mira === "izq") ? "espejo" : "";
+  // no_voltear: personajes con pistas asimétricas (la pulsera de Bruno va en la muñeca IZQUIERDA)
+  const espejo = !a.no_voltear && ((lado === "der" && a.mira === "der") || (lado === "izq" && a.mira === "izq")) ? "espejo" : "";
   if (usar) return `<img class="personaje ${lado} ${espejo} ${extra}" src="arte/${esc(pj.id)}-${esc(usar)}.webp" alt="${esc(a.nombre)}">`;
   return `<div class="personaje pendiente ${lado} ${extra}" style="--c:${esc(a.color || "#8a6d4a")}">${SILUETA}<span class="etiqueta-arte">${esc(a.nombre)} · ${esc(expr)}</span></div>`;
 }
