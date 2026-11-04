@@ -1,6 +1,35 @@
 {
   "_nota": "Encargos (misiones secundarias). rango: 0 Novato, 1 Agente, 2 Detective, 3 Inspector/a, 4 Detective de élite. Cada uno en datos/encargos/<id>.json",
   "encargos": [
-    { "id": "enc-01" }
+    {
+      "id": "enc-01"
+    },
+    {
+      "id": "enc-02"
+    },
+    {
+      "id": "enc-03"
+    },
+    {
+      "id": "enc-04"
+    },
+    {
+      "id": "enc-05"
+    },
+    {
+      "id": "enc-06"
+    },
+    {
+      "id": "enc-07"
+    },
+    {
+      "id": "enc-08"
+    },
+    {
+      "id": "enc-09"
+    },
+    {
+      "id": "enc-10"
+    }
   ]
 }
