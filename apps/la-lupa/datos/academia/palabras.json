@@ -1,86 +1,871 @@
 {
   "_nota": "Banco de palabras de la Academia. p: forma correcta; regla: id de reglas.json; mal: forma errónea típica (solo para sembrarla en documentos; nunca se enseña sola); silabas y tonica (índice de la sílaba fuerte, desde 0) para el sismógrafo; frase: pista de recuperación con ___ en lugar de la palabra.",
   "palabras": [
-    { "p": "camión", "regla": "tildes-generales", "mal": "camion", "silabas": ["ca", "mión"], "tonica": 1, "frase": "El ___ de la basura pasa cada noche por la calle." },
-    { "p": "sofá", "regla": "tildes-generales", "mal": "sofa", "silabas": ["so", "fá"], "tonica": 1, "frase": "El gato duerme la siesta en el ___ del salón." },
-    { "p": "compás", "regla": "tildes-generales", "mal": "compas", "silabas": ["com", "pás"], "tonica": 1, "frase": "Para dibujar un círculo perfecto uso el ___." },
-    { "p": "café", "regla": "tildes-generales", "mal": "cafe", "silabas": ["ca", "fé"], "tonica": 1, "frase": "La directora siempre tiene una taza de ___ en la mesa." },
-    { "p": "reloj", "regla": "tildes-generales", "silabas": ["re", "loj"], "tonica": 1, "frase": "Mira el ___: ya son las nueve." },
-    { "p": "papel", "regla": "tildes-generales", "silabas": ["pa", "pel"], "tonica": 1, "frase": "Apunta la pista en un trozo de ___." },
-    { "p": "ciudad", "regla": "tildes-generales", "silabas": ["ciu", "dad"], "tonica": 1, "frase": "La Alameda es un barrio de una gran ___." },
-    { "p": "feliz", "regla": "tildes-generales", "silabas": ["fe", "liz"], "tonica": 1, "frase": "Lola está muy ___ porque ha resuelto el caso." },
-    { "p": "jamón", "regla": "tildes-generales", "mal": "jamon", "silabas": ["ja", "món"], "tonica": 1, "frase": "En la feria venden bocadillos de ___." },
-    { "p": "limón", "regla": "tildes-generales", "mal": "limon", "silabas": ["li", "món"], "tonica": 1, "frase": "Julián hace un pastel de ___ riquísimo." },
-    { "p": "canción", "regla": "tildes-generales", "mal": "cancion", "silabas": ["can", "ción"], "tonica": 1, "frase": "Ramón compuso una ___ para la feria." },
-    { "p": "violín", "regla": "tildes-generales", "mal": "violin", "silabas": ["vio", "lín"], "tonica": 1, "frase": "En la orquesta, ella toca el ___." },
-    { "p": "tambor", "regla": "tildes-generales", "silabas": ["tam", "bor"], "tonica": 1, "frase": "El desfile empieza con el sonido de un ___." },
-    { "p": "melón", "regla": "tildes-generales", "mal": "melon", "silabas": ["me", "lón"], "tonica": 1, "frase": "Manolo vende un ___ dulcísimo en el mercado." },
-    { "p": "balón", "regla": "tildes-generales", "mal": "balon", "silabas": ["ba", "lón"], "tonica": 1, "frase": "En el recreo jugamos con el ___." },
-    { "p": "ratón", "regla": "tildes-generales", "mal": "raton", "silabas": ["ra", "tón"], "tonica": 1, "frase": "Un ___ se escondió detrás del archivador." },
-    { "p": "árbol", "regla": "tildes-generales", "mal": "arbol", "silabas": ["ár", "bol"], "tonica": 0, "frase": "En la plaza hay un ___ lleno de naranjas." },
-    { "p": "lápiz", "regla": "tildes-generales", "mal": "lapiz", "silabas": ["lá", "piz"], "tonica": 0, "frase": "Escribe tu nombre con ___ en la libreta." },
-    { "p": "fácil", "regla": "tildes-generales", "mal": "facil", "silabas": ["fá", "cil"], "tonica": 0, "frase": "Este caso parecía ___, pero no lo era." },
-    { "p": "azúcar", "regla": "tildes-generales", "mal": "azucar", "silabas": ["a", "zú", "car"], "tonica": 1, "frase": "Al café le echo una cucharada de ___." },
-    { "p": "césped", "regla": "tildes-generales", "mal": "cesped", "silabas": ["cés", "ped"], "tonica": 0, "frase": "No pises el ___ del parque." },
-    { "p": "cárcel", "regla": "tildes-generales", "mal": "carcel", "silabas": ["cár", "cel"], "tonica": 0, "frase": "Los ladrones de las películas acaban en la ___." },
-    { "p": "difícil", "regla": "tildes-generales", "mal": "dificil", "silabas": ["di", "fí", "cil"], "tonica": 1, "frase": "El último enigma fue muy ___." },
-    { "p": "mesa", "regla": "tildes-generales", "silabas": ["me", "sa"], "tonica": 0, "frase": "Deja el expediente encima de la ___." },
-    { "p": "joven", "regla": "tildes-generales", "mal": "jóven", "silabas": ["jo", "ven"], "tonica": 0, "frase": "Ramón es el músico más ___ del barrio." },
-    { "p": "lunes", "regla": "tildes-generales", "silabas": ["lu", "nes"], "tonica": 0, "frase": "El ___ volvemos al colegio." },
-    { "p": "examen", "regla": "tildes-generales", "mal": "exámen", "silabas": ["e", "xa", "men"], "tonica": 1, "frase": "Mañana tenemos ___ de Lengua." },
-    { "p": "ventana", "regla": "tildes-generales", "silabas": ["ven", "ta", "na"], "tonica": 1, "frase": "El intruso entró por la ___." },
-    { "p": "música", "regla": "tildes-generales", "mal": "musica", "silabas": ["mú", "si", "ca"], "tonica": 0, "frase": "En el kiosco suena ___ todas las tardes." },
-    { "p": "pájaro", "regla": "tildes-generales", "mal": "pajaro", "silabas": ["pá", "ja", "ro"], "tonica": 0, "frase": "Un ___ canta en la reja de la ventana." },
-    { "p": "teléfono", "regla": "tildes-generales", "mal": "telefono", "silabas": ["te", "lé", "fo", "no"], "tonica": 1, "frase": "Suena el ___ de la agencia: ¡un caso nuevo!" },
-    { "p": "sábado", "regla": "tildes-generales", "mal": "sabado", "silabas": ["sá", "ba", "do"], "tonica": 0, "frase": "El ___ no hay colegio." },
-    { "p": "miércoles", "regla": "tildes-generales", "mal": "miercoles", "silabas": ["miér", "co", "les"], "tonica": 0, "frase": "El ___ es el día de en medio de la semana." },
-    { "p": "pétalo", "regla": "tildes-generales", "mal": "petalo", "silabas": ["pé", "ta", "lo"], "tonica": 0, "frase": "A la rosa se le cayó un ___." },
-    { "p": "médico", "regla": "tildes-generales", "mal": "medico", "silabas": ["mé", "di", "co"], "tonica": 0, "frase": "Si te duele la garganta, ve al ___." },
-    { "p": "brújula", "regla": "tildes-generales", "mal": "brujula", "silabas": ["brú", "ju", "la"], "tonica": 0, "frase": "Con la ___ sabemos dónde está el norte." },
-    { "p": "plátano", "regla": "tildes-generales", "mal": "platano", "silabas": ["plá", "ta", "no"], "tonica": 0, "frase": "De merienda me como un ___." },
-    { "p": "ritmo", "regla": "tildes-generales", "silabas": ["rit", "mo"], "tonica": 0, "frase": "Seguimos el ___ de la canción con palmas." },
-    { "p": "guitarra", "regla": "tildes-generales", "silabas": ["gui", "ta", "rra"], "tonica": 1, "frase": "Ramón lleva siempre su ___ a la espalda." },
-
-    { "p": "cantaba", "regla": "b-v-1", "mal": "cantava", "frase": "Mi abuela ___ coplas mientras cocinaba." },
-    { "p": "jugaba", "regla": "b-v-1", "mal": "jugava", "frase": "De pequeño, mi padre ___ en esta plaza." },
-    { "p": "saltaba", "regla": "b-v-1", "mal": "saltava", "frase": "El perro ___ de alegría al verme." },
-    { "p": "estaba", "regla": "b-v-1", "mal": "estava", "frase": "La carpeta ___ vacía." },
-    { "p": "iba", "regla": "b-v-1", "mal": "iva", "frase": "Bruno ___ en bicicleta a repartir el periódico." },
-    { "p": "trabajaba", "regla": "b-v-1", "mal": "trabajava", "frase": "Remedios ___ en el mercado desde muy temprano." },
-    { "p": "cambio", "regla": "b-v-1", "mal": "canbio", "frase": "Ha habido un ___ de planes: nos vamos al mercado." },
-    { "p": "hombre", "regla": "b-v-1", "mal": "honbre", "frase": "Un ___ con gafas de sol salió del almacén." },
-    { "p": "blanco", "regla": "b-v-1", "mal": "vlanco", "frase": "Las casas del barrio son de color ___." },
-    { "p": "brazo", "regla": "b-v-1", "mal": "vrazo", "frase": "Lleva una pulsera roja en el ___." },
-    { "p": "escribir", "regla": "b-v-1", "mal": "escrivir", "frase": "Voy a ___ el informe en mi libreta." },
-    { "p": "recibir", "regla": "b-v-1", "mal": "recivir", "frase": "Me encanta ___ cartas por correo." },
-    { "p": "subir", "regla": "b-v-1", "mal": "suvir", "frase": "Hay que ___ la escalera hasta la azotea." },
-    { "p": "invierno", "regla": "b-v-1", "mal": "inbierno", "frase": "En ___ hace frío y anochece pronto." },
-    { "p": "enviar", "regla": "b-v-1", "mal": "enbiar", "frase": "Voy a ___ un mensaje a la directora." },
-    { "p": "nuevo", "regla": "b-v-1", "mal": "nuebo", "frase": "Tenemos un caso ___ en el tablón." },
-    { "p": "octavo", "regla": "b-v-1", "mal": "octabo", "frase": "Llegó el ___ de la carrera, justo detrás del séptimo." },
-    { "p": "activo", "regla": "b-v-1", "mal": "actibo", "frase": "Mateo es un chico muy ___: nunca para quieto." },
-    { "p": "estuve", "regla": "b-v-1", "mal": "estube", "frase": "Ayer ___ toda la tarde en la biblioteca." },
-    { "p": "tuvimos", "regla": "b-v-1", "mal": "tubimos", "frase": "___ que correr para llegar a tiempo." },
-
-    { "p": "hielo", "regla": "h-1", "mal": "ielo", "frase": "En invierno el charco se convirtió en ___." },
-    { "p": "huevo", "regla": "h-1", "mal": "uevo", "frase": "Para la tortilla hace falta más de un ___." },
-    { "p": "hueso", "regla": "h-1", "mal": "ueso", "frase": "El perro enterró un ___ en el jardín." },
-    { "p": "huida", "regla": "h-1", "mal": "uida", "frase": "La ___ del ladrón duró muy poco." },
-    { "p": "hermano", "regla": "h-1", "mal": "ermano", "frase": "Mi ___ pequeño quiere ser detective." },
-    { "p": "hormiga", "regla": "h-1", "mal": "ormiga", "frase": "Una ___ llevaba una miga de pan." },
-    { "p": "horrible", "regla": "h-1", "mal": "orrible", "frase": "¡Qué ruido tan ___ hace esa moto!" },
-    { "p": "hospital", "regla": "h-1", "mal": "ospital", "frase": "La ambulancia llegó rápido al ___." },
-    { "p": "humo", "regla": "h-1", "mal": "umo", "frase": "Sale ___ de la chimenea de la panadería." },
-    { "p": "humano", "regla": "h-1", "mal": "umano", "frase": "El cuerpo ___ tiene más de doscientos huesos." },
-    { "p": "había", "regla": "h-1", "mal": "abía", "frase": "En la caja ___ un pergamino." },
-    { "p": "hizo", "regla": "h-1", "mal": "izo", "frase": "Ramón ___ una canción con el pregón." },
-    { "p": "hablaba", "regla": "h-1", "mal": "ablaba", "frase": "El testigo ___ muy deprisa." },
-    { "p": "hallé", "regla": "h-1", "mal": "allé", "frase": "Por fin ___ la pista que buscaba." },
-    { "p": "hemos", "regla": "h-1", "mal": "emos", "frase": "Ya ___ resuelto tres casos." },
-    { "p": "hacemos", "regla": "h-1", "mal": "acemos", "frase": "Los detectives ___ los deberes antes de investigar." },
-    { "p": "habitan", "regla": "h-1", "mal": "abitan", "frase": "En el barrio ___ más de mil vecinos." },
-    { "p": "óseo", "regla": "h-1", "mal": "hóseo", "frase": "El esqueleto es el sistema ___ del cuerpo." },
-    { "p": "óvalo", "regla": "h-1", "mal": "hóvalo", "frase": "El espejo tiene forma de ___." },
-    { "p": "oquedad", "regla": "h-1", "mal": "hoquedad", "frase": "En la pared de piedra había una ___ llena de musgo." }
+    {
+      "p": "camión",
+      "regla": "tildes-generales",
+      "mal": "camion",
+      "silabas": [
+        "ca",
+        "mión"
+      ],
+      "tonica": 1,
+      "frase": "El ___ de la basura pasa cada noche por la calle."
+    },
+    {
+      "p": "sofá",
+      "regla": "tildes-generales",
+      "mal": "sofa",
+      "silabas": [
+        "so",
+        "fá"
+      ],
+      "tonica": 1,
+      "frase": "El gato duerme la siesta en el ___ del salón."
+    },
+    {
+      "p": "compás",
+      "regla": "tildes-generales",
+      "mal": "compas",
+      "silabas": [
+        "com",
+        "pás"
+      ],
+      "tonica": 1,
+      "frase": "Para dibujar un círculo perfecto uso el ___."
+    },
+    {
+      "p": "café",
+      "regla": "tildes-generales",
+      "mal": "cafe",
+      "silabas": [
+        "ca",
+        "fé"
+      ],
+      "tonica": 1,
+      "frase": "La directora siempre tiene una taza de ___ en la mesa."
+    },
+    {
+      "p": "reloj",
+      "regla": "tildes-generales",
+      "silabas": [
+        "re",
+        "loj"
+      ],
+      "tonica": 1,
+      "frase": "Mira el ___: ya son las nueve."
+    },
+    {
+      "p": "papel",
+      "regla": "tildes-generales",
+      "silabas": [
+        "pa",
+        "pel"
+      ],
+      "tonica": 1,
+      "frase": "Apunta la pista en un trozo de ___."
+    },
+    {
+      "p": "ciudad",
+      "regla": "tildes-generales",
+      "silabas": [
+        "ciu",
+        "dad"
+      ],
+      "tonica": 1,
+      "frase": "La Alameda es un barrio de una gran ___."
+    },
+    {
+      "p": "feliz",
+      "regla": "tildes-generales",
+      "silabas": [
+        "fe",
+        "liz"
+      ],
+      "tonica": 1,
+      "frase": "Lola está muy ___ porque ha resuelto el caso."
+    },
+    {
+      "p": "jamón",
+      "regla": "tildes-generales",
+      "mal": "jamon",
+      "silabas": [
+        "ja",
+        "món"
+      ],
+      "tonica": 1,
+      "frase": "En la feria venden bocadillos de ___."
+    },
+    {
+      "p": "limón",
+      "regla": "tildes-generales",
+      "mal": "limon",
+      "silabas": [
+        "li",
+        "món"
+      ],
+      "tonica": 1,
+      "frase": "Julián hace un pastel de ___ riquísimo."
+    },
+    {
+      "p": "canción",
+      "regla": "tildes-generales",
+      "mal": "cancion",
+      "silabas": [
+        "can",
+        "ción"
+      ],
+      "tonica": 1,
+      "frase": "Ramón compuso una ___ para la feria."
+    },
+    {
+      "p": "violín",
+      "regla": "tildes-generales",
+      "mal": "violin",
+      "silabas": [
+        "vio",
+        "lín"
+      ],
+      "tonica": 1,
+      "frase": "En la orquesta, ella toca el ___."
+    },
+    {
+      "p": "tambor",
+      "regla": "tildes-generales",
+      "silabas": [
+        "tam",
+        "bor"
+      ],
+      "tonica": 1,
+      "frase": "El desfile empieza con el sonido de un ___."
+    },
+    {
+      "p": "melón",
+      "regla": "tildes-generales",
+      "mal": "melon",
+      "silabas": [
+        "me",
+        "lón"
+      ],
+      "tonica": 1,
+      "frase": "Manolo vende un ___ dulcísimo en el mercado."
+    },
+    {
+      "p": "balón",
+      "regla": "tildes-generales",
+      "mal": "balon",
+      "silabas": [
+        "ba",
+        "lón"
+      ],
+      "tonica": 1,
+      "frase": "En el recreo jugamos con el ___."
+    },
+    {
+      "p": "ratón",
+      "regla": "tildes-generales",
+      "mal": "raton",
+      "silabas": [
+        "ra",
+        "tón"
+      ],
+      "tonica": 1,
+      "frase": "Un ___ se escondió detrás del archivador."
+    },
+    {
+      "p": "árbol",
+      "regla": "tildes-generales",
+      "mal": "arbol",
+      "silabas": [
+        "ár",
+        "bol"
+      ],
+      "tonica": 0,
+      "frase": "En la plaza hay un ___ lleno de naranjas."
+    },
+    {
+      "p": "lápiz",
+      "regla": "tildes-generales",
+      "mal": "lapiz",
+      "silabas": [
+        "lá",
+        "piz"
+      ],
+      "tonica": 0,
+      "frase": "Escribe tu nombre con ___ en la libreta."
+    },
+    {
+      "p": "fácil",
+      "regla": "tildes-generales",
+      "mal": "facil",
+      "silabas": [
+        "fá",
+        "cil"
+      ],
+      "tonica": 0,
+      "frase": "Este caso parecía ___, pero no lo era."
+    },
+    {
+      "p": "azúcar",
+      "regla": "tildes-generales",
+      "mal": "azucar",
+      "silabas": [
+        "a",
+        "zú",
+        "car"
+      ],
+      "tonica": 1,
+      "frase": "Al café le echo una cucharada de ___."
+    },
+    {
+      "p": "césped",
+      "regla": "tildes-generales",
+      "mal": "cesped",
+      "silabas": [
+        "cés",
+        "ped"
+      ],
+      "tonica": 0,
+      "frase": "No pises el ___ del parque."
+    },
+    {
+      "p": "cárcel",
+      "regla": "tildes-generales",
+      "mal": "carcel",
+      "silabas": [
+        "cár",
+        "cel"
+      ],
+      "tonica": 0,
+      "frase": "Los ladrones de las películas acaban en la ___."
+    },
+    {
+      "p": "difícil",
+      "regla": "tildes-generales",
+      "mal": "dificil",
+      "silabas": [
+        "di",
+        "fí",
+        "cil"
+      ],
+      "tonica": 1,
+      "frase": "El último enigma fue muy ___."
+    },
+    {
+      "p": "mesa",
+      "regla": "tildes-generales",
+      "silabas": [
+        "me",
+        "sa"
+      ],
+      "tonica": 0,
+      "frase": "Deja el expediente encima de la ___."
+    },
+    {
+      "p": "joven",
+      "regla": "tildes-generales",
+      "mal": "jóven",
+      "silabas": [
+        "jo",
+        "ven"
+      ],
+      "tonica": 0,
+      "frase": "Ramón es el músico más ___ del barrio."
+    },
+    {
+      "p": "lunes",
+      "regla": "tildes-generales",
+      "silabas": [
+        "lu",
+        "nes"
+      ],
+      "tonica": 0,
+      "frase": "El ___ volvemos al colegio."
+    },
+    {
+      "p": "examen",
+      "regla": "tildes-generales",
+      "mal": "exámen",
+      "silabas": [
+        "e",
+        "xa",
+        "men"
+      ],
+      "tonica": 1,
+      "frase": "Mañana tenemos ___ de Lengua."
+    },
+    {
+      "p": "ventana",
+      "regla": "tildes-generales",
+      "silabas": [
+        "ven",
+        "ta",
+        "na"
+      ],
+      "tonica": 1,
+      "frase": "El intruso entró por la ___."
+    },
+    {
+      "p": "música",
+      "regla": "tildes-generales",
+      "mal": "musica",
+      "silabas": [
+        "mú",
+        "si",
+        "ca"
+      ],
+      "tonica": 0,
+      "frase": "En el kiosco suena ___ todas las tardes."
+    },
+    {
+      "p": "pájaro",
+      "regla": "tildes-generales",
+      "mal": "pajaro",
+      "silabas": [
+        "pá",
+        "ja",
+        "ro"
+      ],
+      "tonica": 0,
+      "frase": "Un ___ canta en la reja de la ventana."
+    },
+    {
+      "p": "teléfono",
+      "regla": "tildes-generales",
+      "mal": "telefono",
+      "silabas": [
+        "te",
+        "lé",
+        "fo",
+        "no"
+      ],
+      "tonica": 1,
+      "frase": "Suena el ___ de la agencia: ¡un caso nuevo!"
+    },
+    {
+      "p": "sábado",
+      "regla": "tildes-generales",
+      "mal": "sabado",
+      "silabas": [
+        "sá",
+        "ba",
+        "do"
+      ],
+      "tonica": 0,
+      "frase": "El ___ no hay colegio."
+    },
+    {
+      "p": "miércoles",
+      "regla": "tildes-generales",
+      "mal": "miercoles",
+      "silabas": [
+        "miér",
+        "co",
+        "les"
+      ],
+      "tonica": 0,
+      "frase": "El ___ es el día de en medio de la semana."
+    },
+    {
+      "p": "pétalo",
+      "regla": "tildes-generales",
+      "mal": "petalo",
+      "silabas": [
+        "pé",
+        "ta",
+        "lo"
+      ],
+      "tonica": 0,
+      "frase": "A la rosa se le cayó un ___."
+    },
+    {
+      "p": "médico",
+      "regla": "tildes-generales",
+      "mal": "medico",
+      "silabas": [
+        "mé",
+        "di",
+        "co"
+      ],
+      "tonica": 0,
+      "frase": "Si te duele la garganta, ve al ___."
+    },
+    {
+      "p": "brújula",
+      "regla": "tildes-generales",
+      "mal": "brujula",
+      "silabas": [
+        "brú",
+        "ju",
+        "la"
+      ],
+      "tonica": 0,
+      "frase": "Con la ___ sabemos dónde está el norte."
+    },
+    {
+      "p": "plátano",
+      "regla": "tildes-generales",
+      "mal": "platano",
+      "silabas": [
+        "plá",
+        "ta",
+        "no"
+      ],
+      "tonica": 0,
+      "frase": "De merienda me como un ___."
+    },
+    {
+      "p": "ritmo",
+      "regla": "tildes-generales",
+      "silabas": [
+        "rit",
+        "mo"
+      ],
+      "tonica": 0,
+      "frase": "Seguimos el ___ de la canción con palmas."
+    },
+    {
+      "p": "guitarra",
+      "regla": "tildes-generales",
+      "silabas": [
+        "gui",
+        "ta",
+        "rra"
+      ],
+      "tonica": 1,
+      "frase": "Ramón lleva siempre su ___ a la espalda."
+    },
+    {
+      "p": "cantaba",
+      "regla": "b-v-1",
+      "mal": "cantava",
+      "frase": "Mi abuela ___ coplas mientras cocinaba."
+    },
+    {
+      "p": "jugaba",
+      "regla": "b-v-1",
+      "mal": "jugava",
+      "frase": "De pequeño, mi padre ___ en esta plaza."
+    },
+    {
+      "p": "saltaba",
+      "regla": "b-v-1",
+      "mal": "saltava",
+      "frase": "El perro ___ de alegría al verme."
+    },
+    {
+      "p": "estaba",
+      "regla": "b-v-1",
+      "mal": "estava",
+      "frase": "La carpeta ___ vacía."
+    },
+    {
+      "p": "iba",
+      "regla": "b-v-1",
+      "mal": "iva",
+      "frase": "Bruno ___ en bicicleta a repartir el periódico."
+    },
+    {
+      "p": "trabajaba",
+      "regla": "b-v-1",
+      "mal": "trabajava",
+      "frase": "Remedios ___ en el mercado desde muy temprano."
+    },
+    {
+      "p": "cambio",
+      "regla": "b-v-1",
+      "mal": "canbio",
+      "frase": "Ha habido un ___ de planes: nos vamos al mercado."
+    },
+    {
+      "p": "hombre",
+      "regla": "b-v-1",
+      "mal": "honbre",
+      "frase": "Un ___ con gafas de sol salió del almacén."
+    },
+    {
+      "p": "blanco",
+      "regla": "b-v-1",
+      "mal": "vlanco",
+      "frase": "Las casas del barrio son de color ___."
+    },
+    {
+      "p": "brazo",
+      "regla": "b-v-1",
+      "mal": "vrazo",
+      "frase": "Lleva una pulsera roja en el ___."
+    },
+    {
+      "p": "escribir",
+      "regla": "b-v-1",
+      "mal": "escrivir",
+      "frase": "Voy a ___ el informe en mi libreta."
+    },
+    {
+      "p": "recibir",
+      "regla": "b-v-1",
+      "mal": "recivir",
+      "frase": "Me encanta ___ cartas por correo."
+    },
+    {
+      "p": "subir",
+      "regla": "b-v-1",
+      "mal": "suvir",
+      "frase": "Hay que ___ la escalera hasta la azotea."
+    },
+    {
+      "p": "invierno",
+      "regla": "b-v-1",
+      "mal": "inbierno",
+      "frase": "En ___ hace frío y anochece pronto."
+    },
+    {
+      "p": "enviar",
+      "regla": "b-v-1",
+      "mal": "enbiar",
+      "frase": "Voy a ___ un mensaje a la directora."
+    },
+    {
+      "p": "nuevo",
+      "regla": "b-v-1",
+      "mal": "nuebo",
+      "frase": "Tenemos un caso ___ en el tablón."
+    },
+    {
+      "p": "octavo",
+      "regla": "b-v-1",
+      "mal": "octabo",
+      "frase": "Llegó el ___ de la carrera, justo detrás del séptimo."
+    },
+    {
+      "p": "activo",
+      "regla": "b-v-1",
+      "mal": "actibo",
+      "frase": "Mateo es un chico muy ___: nunca para quieto."
+    },
+    {
+      "p": "estuve",
+      "regla": "b-v-1",
+      "mal": "estube",
+      "frase": "Ayer ___ toda la tarde en la biblioteca."
+    },
+    {
+      "p": "tuvimos",
+      "regla": "b-v-1",
+      "mal": "tubimos",
+      "frase": "___ que correr para llegar a tiempo."
+    },
+    {
+      "p": "hielo",
+      "regla": "h-1",
+      "mal": "ielo",
+      "frase": "En invierno el charco se convirtió en ___."
+    },
+    {
+      "p": "huevo",
+      "regla": "h-1",
+      "mal": "uevo",
+      "frase": "Para la tortilla hace falta más de un ___."
+    },
+    {
+      "p": "hueso",
+      "regla": "h-1",
+      "mal": "ueso",
+      "frase": "El perro enterró un ___ en el jardín."
+    },
+    {
+      "p": "huida",
+      "regla": "h-1",
+      "mal": "uida",
+      "frase": "La ___ del ladrón duró muy poco."
+    },
+    {
+      "p": "hermano",
+      "regla": "h-1",
+      "mal": "ermano",
+      "frase": "Mi ___ pequeño quiere ser detective."
+    },
+    {
+      "p": "hormiga",
+      "regla": "h-1",
+      "mal": "ormiga",
+      "frase": "Una ___ llevaba una miga de pan."
+    },
+    {
+      "p": "horrible",
+      "regla": "h-1",
+      "mal": "orrible",
+      "frase": "¡Qué ruido tan ___ hace esa moto!"
+    },
+    {
+      "p": "hospital",
+      "regla": "h-1",
+      "mal": "ospital",
+      "frase": "La ambulancia llegó rápido al ___."
+    },
+    {
+      "p": "humo",
+      "regla": "h-1",
+      "mal": "umo",
+      "frase": "Sale ___ de la chimenea de la panadería."
+    },
+    {
+      "p": "humano",
+      "regla": "h-1",
+      "mal": "umano",
+      "frase": "El cuerpo ___ tiene más de doscientos huesos."
+    },
+    {
+      "p": "había",
+      "regla": "h-1",
+      "mal": "abía",
+      "frase": "En la caja ___ un pergamino."
+    },
+    {
+      "p": "hizo",
+      "regla": "h-1",
+      "mal": "izo",
+      "frase": "Ramón ___ una canción con el pregón."
+    },
+    {
+      "p": "hablaba",
+      "regla": "h-1",
+      "mal": "ablaba",
+      "frase": "El testigo ___ muy deprisa."
+    },
+    {
+      "p": "hallé",
+      "regla": "h-1",
+      "mal": "allé",
+      "frase": "Por fin ___ la pista que buscaba."
+    },
+    {
+      "p": "hemos",
+      "regla": "h-1",
+      "mal": "emos",
+      "frase": "Ya ___ resuelto tres casos."
+    },
+    {
+      "p": "hacemos",
+      "regla": "h-1",
+      "mal": "acemos",
+      "frase": "Los detectives ___ los deberes antes de investigar."
+    },
+    {
+      "p": "habitan",
+      "regla": "h-1",
+      "mal": "abitan",
+      "frase": "En el barrio ___ más de mil vecinos."
+    },
+    {
+      "p": "óseo",
+      "regla": "h-1",
+      "mal": "hóseo",
+      "frase": "El esqueleto es el sistema ___ del cuerpo."
+    },
+    {
+      "p": "óvalo",
+      "regla": "h-1",
+      "mal": "hóvalo",
+      "frase": "El espejo tiene forma de ___."
+    },
+    {
+      "p": "oquedad",
+      "regla": "h-1",
+      "mal": "hoquedad",
+      "frase": "En la pared de piedra había una ___ llena de musgo."
+    },
+    {
+      "p": "zapato",
+      "regla": "c-z-s",
+      "mal": "sapato",
+      "frase": "Se me ha roto el cordón del ___."
+    },
+    {
+      "p": "cazuela",
+      "regla": "c-z-s",
+      "mal": "casuela",
+      "frase": "Mi abuela cocina el guiso en una ___ de barro."
+    },
+    {
+      "p": "cebolla",
+      "regla": "c-z-s",
+      "mal": "sebolla",
+      "frase": "Al cortar la ___ siempre lloro."
+    },
+    {
+      "p": "cereza",
+      "regla": "c-z-s",
+      "mal": "sereza",
+      "frase": "La ___ es una fruta pequeña y roja."
+    },
+    {
+      "p": "plaza",
+      "regla": "c-z-s",
+      "mal": "plasa",
+      "frase": "La fuente está en el centro de la ___."
+    },
+    {
+      "p": "arroz",
+      "regla": "c-z-s",
+      "mal": "arros",
+      "frase": "Los domingos comemos ___ con pollo."
+    },
+    {
+      "p": "diez",
+      "regla": "c-z-s",
+      "mal": "dies",
+      "frase": "Tengo ___ dedos en las manos."
+    },
+    {
+      "p": "cocina",
+      "regla": "c-z-s",
+      "mal": "cosina",
+      "frase": "Huele a bizcocho en la ___."
+    },
+    {
+      "p": "luces",
+      "regla": "c-z-s",
+      "mal": "luses",
+      "frase": "En la feria se encienden miles de ___."
+    },
+    {
+      "p": "peces",
+      "regla": "c-z-s",
+      "mal": "peses",
+      "frase": "En la fuente nadan unos ___ de colores."
+    },
+    {
+      "p": "empecé",
+      "regla": "c-z-s",
+      "mal": "empesé",
+      "frase": "Ayer ___ a leer un libro de misterio."
+    },
+    {
+      "p": "queso",
+      "regla": "c-z-s",
+      "mal": "qeso",
+      "frase": "El ratón se comió el ___."
+    },
+    {
+      "p": "quince",
+      "regla": "c-z-s",
+      "mal": "kince",
+      "frase": "Mi hermana mayor tiene ___ años."
+    },
+    {
+      "p": "cielo",
+      "regla": "c-z-s",
+      "mal": "sielo",
+      "frase": "Esta noche el ___ está lleno de estrellas."
+    },
+    {
+      "p": "azulejo",
+      "regla": "c-z-s",
+      "mal": "asulejo",
+      "frase": "Se ha caído un ___ del panel de la fuente."
+    },
+    {
+      "p": "lluvia",
+      "regla": "ll-y",
+      "mal": "yuvia",
+      "frase": "Con la ___ el suelo del mercado está mojado."
+    },
+    {
+      "p": "calle",
+      "regla": "ll-y",
+      "mal": "caye",
+      "frase": "La agencia está en una ___ estrecha y blanca."
+    },
+    {
+      "p": "caballo",
+      "regla": "ll-y",
+      "mal": "cabayo",
+      "frase": "En la feria hay un ___ de cartón."
+    },
+    {
+      "p": "llave",
+      "regla": "ll-y",
+      "mal": "yave",
+      "frase": "Mateo guarda la ___ del archivo azul."
+    },
+    {
+      "p": "silla",
+      "regla": "ll-y",
+      "mal": "siya",
+      "frase": "Siéntate en esa ___ mientras te interrogo."
+    },
+    {
+      "p": "toalla",
+      "regla": "ll-y",
+      "mal": "toaya",
+      "frase": "Llévate la ___ a la playa."
+    },
+    {
+      "p": "yema",
+      "regla": "ll-y",
+      "mal": "llema",
+      "frase": "La ___ del huevo es amarilla."
+    },
+    {
+      "p": "ayer",
+      "regla": "ll-y",
+      "mal": "aller",
+      "frase": "___ estuvimos en la biblioteca."
+    },
+    {
+      "p": "verdad",
+      "regla": "d-z-finales",
+      "mal": "verdaz",
+      "frase": "Siempre hay que decir la ___."
+    },
+    {
+      "p": "pared",
+      "regla": "d-z-finales",
+      "mal": "parez",
+      "frase": "Hay una foto colgada en la ___."
+    },
+    {
+      "p": "salud",
+      "regla": "d-z-finales",
+      "mal": "saluz",
+      "frase": "Comer fruta es bueno para la ___."
+    },
+    {
+      "p": "amistad",
+      "regla": "d-z-finales",
+      "mal": "amistaz",
+      "frase": "La ___ de Lola y Mateo es muy fuerte."
+    },
+    {
+      "p": "juventud",
+      "regla": "d-z-finales",
+      "mal": "juventuz",
+      "frase": "Herminia cantaba en el coro en su ___."
+    },
+    {
+      "p": "libertad",
+      "regla": "d-z-finales",
+      "mal": "libertaz",
+      "frase": "Los pájaros vuelan en ___."
+    },
+    {
+      "p": "cerezas",
+      "regla": "c-z-s",
+      "mal": "serezas",
+      "frase": "Las ___ del cerezo ya están maduras."
+    },
+    {
+      "p": "azulejos",
+      "regla": "c-z-s",
+      "mal": "asulejos",
+      "frase": "La fuente tiene un panel de ___ antiguos."
+    },
+    {
+      "p": "zapatos",
+      "regla": "c-z-s",
+      "mal": "sapatos",
+      "frase": "Me he comprado unos ___ nuevos para la feria."
+    }
   ]
 }

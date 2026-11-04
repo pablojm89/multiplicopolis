@@ -62,3 +62,4 @@ Claude actualiza este archivo al terminar cada tarea importante.
 **Hecho:** primera versión de la Academia: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio), con bancos de datos y un validador. Arte de la Academia pedido en la issue #4 (9 fondos + don Anselmo).
 
 - Caso 4 «El panel de azulejos» (c/z/s) escrito y jugable. Nuevo `herramientas/validar_casos.py` (encontró una posición de hueco mal puesta). Sus 6 imágenes se añaden a la issue #3.
+- Academia: Sala de Interrogatorios con «el testigo seseante». Lola lo explica con orgullo («yo lo digo así… y lo escribo así»); nunca se habla de error. Banco ampliado a 111 palabras.

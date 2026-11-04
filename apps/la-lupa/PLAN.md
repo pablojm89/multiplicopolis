@@ -29,7 +29,8 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Caso 4 «El panel de azulejos» (c/z/s): El Tachón habla con seseo → es del barrio. Seseo tratado como forma de hablar, no como error. Arte pendiente (issue #3)
 - [ ] Caso 5 (ll/y): mitad de temporada, careo cara a cara con El Tachón
 - [x] **Academia, primera versión**: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio) con bancos de 79 palabras y 9 documentos (tildes, b/v, h). Arte pedido (issue #4)
-- [ ] Academia: resto de salas (Terminal, Pizarra, Interrogatorios con «el testigo seseante», Centralita, Imprenta) y más bancos (resto de reglas, gramática, léxico, comprensión)
+- [x] Academia: Sala de Interrogatorios con «el testigo seseante» (seseo, yeísmo y -d final como forma de hablar; se escribe la norma) y banco ampliado a 111 palabras (c/z/s, ll/y, -d/-z)
+- [ ] Academia: resto de salas (Terminal, Pizarra, Centralita, Imprenta) y más bancos (resto de reglas, gramática, léxico, comprensión)
 - [ ] ~~**Academia de detectives**~~ (idea original): zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`

@@ -1,0 +1,37 @@
+{
+  "_nota": "Declaraciones para «El testigo seseante» (Sala de Interrogatorios). Las [palabras] se muestran como se pronuncian en buena parte de Andalucía (seseo, yeísmo, -d final) y el alumno las escribe como se escriben. Nunca se presenta como un error: es la diferencia entre hablar y escribir (criterio 1.3).",
+  "testigos": [
+    {
+      "quien": "pilar",
+      "frase": "Mi abuela hacía una [cazuela] de [arroz] con [cebolla] que olía en toda la [plaza]."
+    },
+    {
+      "quien": "julian",
+      "frase": "Esta mañana la [calle] estaba llena de [lluvia] y se me cayó la [llave] del horno."
+    },
+    {
+      "quien": "ines",
+      "frase": "La [verdad] es que nuestra [amistad] viene de la [juventud]."
+    },
+    {
+      "quien": "ramon",
+      "frase": "Esta noche tocaré en la [plaza] bajo las [luces] de la feria, con [diez] amigos."
+    },
+    {
+      "quien": "pilar",
+      "frase": "En la [cocina] tengo una [silla] para mi nieto y una [toalla] para secar los platos."
+    },
+    {
+      "quien": "julian",
+      "frase": "Vi a un señor con [zapatos] negros mirando el [cielo] junto a la [pared] del mercado."
+    },
+    {
+      "quien": "ines",
+      "frase": "Le regalé [cerezas] y [queso] a Herminia, y ella me dio un [azulejo] precioso."
+    },
+    {
+      "quien": "ramon",
+      "frase": "El [caballo] de cartón de la feria se mojó con la [lluvia] de [ayer]."
+    }
+  ]
+}

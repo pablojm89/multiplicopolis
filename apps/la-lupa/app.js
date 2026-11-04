@@ -260,8 +260,8 @@ async function init() {
     const [reglas, prog, arteCat] = await Promise.all([leerJSON("datos/reglas.json"), leerJSON("datos/programacion.json"), leerJSON("datos/arte.json")]);
     D.reglas = reglas; D.prog = prog; D.arte = arteCat;
     try {
-      const [pal, tex] = await Promise.all([leerJSON("datos/academia/palabras.json"), leerJSON("datos/academia/textos.json")]);
-      ACA.palabras = pal.palabras; ACA.textos = tex.textos;
+      const [pal, tex, tes] = await Promise.all([leerJSON("datos/academia/palabras.json"), leerJSON("datos/academia/textos.json"), leerJSON("datos/academia/testigos.json")]);
+      ACA.palabras = pal.palabras; ACA.textos = tex.textos; ACA.testigos = tes.testigos;
     } catch { console.warn("Sin datos de la Academia"); }
     const ids = [...new Set(Object.values(prog.cursos).flatMap(c => c.unidades.map(u => u.caso).filter(Boolean)))];
     await Promise.all(ids.map(async id => {

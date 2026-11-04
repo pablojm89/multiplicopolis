@@ -40,7 +40,13 @@ for t in textos:
         if m.lower() not in vistas:
             errores.append(f"texto «{t['tipo']}»: [{m}] no está en el banco")
 
-print(f"{len(banco)} palabras, {len(textos)} textos")
+testigos = json.loads((RAIZ / "datos" / "academia" / "testigos.json").read_text(encoding="utf-8"))["testigos"]
+for t in testigos:
+    for m in re.findall(r"\[([^\]]+)\]", t["frase"]):
+        if m.lower() not in vistas:
+            errores.append(f"testigo «{t['quien']}»: [{m}] no está en el banco")
+
+print(f"{len(banco)} palabras, {len(textos)} textos, {len(testigos)} testigos")
 if errores:
     print("ERRORES:")
     for e in errores:

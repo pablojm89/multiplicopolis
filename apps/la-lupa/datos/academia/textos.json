@@ -36,6 +36,18 @@
     {
       "tipo": "Mensaje de radio",
       "texto": "Atención: el [joven] del [brazo] vendado [jugaba] en la plaza a las ocho. Hay que [enviar] a un detective [activo] antes de que caiga el [hielo] de la noche."
+    },
+    {
+      "tipo": "Receta de Doña Pilar",
+      "texto": "Pon la [cazuela] al fuego con aceite. Echa la [cebolla] picada, después el [arroz] y, al final, [diez] [cerezas] para decorar. ¡Y no te olvides del [queso]!"
+    },
+    {
+      "tipo": "Parte del tiempo",
+      "texto": "[Ayer] cayó tanta [lluvia] que la [calle] de la agencia parecía un río. Un [caballo] de la feria se refugió junto a la [pared] del mercado."
+    },
+    {
+      "tipo": "Carta de una vecina",
+      "texto": "Queridos detectives: os escribo con toda [verdad]. Mi [amistad] con Azucena viene de la [juventud], y sé que ella no tocó los [azulejos] de la [plaza]."
     }
   ]
 }

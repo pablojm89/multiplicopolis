@@ -10,7 +10,7 @@
    ============================================================ */
 "use strict";
 
-const ACA = { palabras: [], textos: [] };          // bancos de datos (datos/academia/)
+const ACA = { palabras: [], textos: [], testigos: [] };   // bancos de datos (datos/academia/)
 const INTERVALOS = [1, 3, 7, 15, 30];              // sesiones hasta el siguiente repaso
 const TOPE_DIARIO = 150;                           // puntos de entrenamiento por día
 let registrosAca = cargar("academia-registros", []);
@@ -21,7 +21,7 @@ const SALAS = [
   { id: "laboratorio", nombre: "El Laboratorio", lugar: "Aula de ciencias", fondo: "sala-laboratorio", instructor: "mateo", activa: true, actividad: "sismografo", gancho: "Analiza la palabra: sílabas, golpe de voz y tilde." },
   { id: "terminal", nombre: "La Terminal ORTO-3000", lugar: "Informática", fondo: "sala-terminal", activa: false },
   { id: "pizarra", nombre: "La Pizarra", lugar: "Aula de gramática", fondo: "sala-pizarra", activa: false },
-  { id: "interrogatorios", nombre: "Interrogatorios", lugar: "Planta baja", fondo: "sala-interrogatorios", activa: false },
+  { id: "interrogatorios", nombre: "Interrogatorios", lugar: "Planta baja", fondo: "sala-interrogatorios", instructor: "lola", activa: true, actividad: "testigo", gancho: "El testigo seseante: así se dice, así se escribe." },
   { id: "centralita", nombre: "La Centralita", lugar: "Azotea", fondo: "sala-centralita", activa: false },
   { id: "imprenta", nombre: "La Imprenta del Eco", lugar: "Antigua imprenta", fondo: "sala-imprenta", activa: false },
 ];
@@ -74,7 +74,9 @@ function turnoDeHoy(s) {
     vencidas ? { clave: "repaso", sala: "archivo", texto: `Repaso: ${vencidas} ficha${vencidas > 1 ? "s" : ""} vencida${vencidas > 1 ? "s" : ""}` }
              : { clave: "repaso", sala: "archivo", texto: "Repaso: palabras de riesgo" },
     { clave: "caso", sala: delCaso === "tildes-generales" ? "laboratorio" : "pupitre", regla: delCaso, texto: `Del último caso: ${D.reglas[delCaso]?.nombre || delCaso}` },
-    { clave: "sorpresa", sala: "pupitre", regla: otra, texto: `Sorpresa: ${D.reglas[otra]?.nombre || otra}` },
+    s.sesion % 2 && ACA.testigos.length
+      ? { clave: "sorpresa", sala: "interrogatorios", texto: "Sorpresa: el testigo seseante" }
+      : { clave: "sorpresa", sala: "pupitre", regla: otra, texto: `Sorpresa: ${D.reglas[otra]?.nombre || otra}` },
   ];
 }
 
@@ -110,6 +112,7 @@ function entrarSala(id, { regla = null, turno = null }) {
   const sl = sala(id);
   const s = estadoAca();
   if (sl.actividad === "fichas") return leccion(sl, null, turno, `Este es el fichero de tus palabras falladas. Cada ficha vuelve cuando toca: si la escribes bien, se va alejando; si fallas, vuelve al principio. ${fichasVencidas(s).length ? `Hoy tienes ${fichasVencidas(s).length} pendientes.` : "Hoy no tienes fichas vencidas: entrenaremos palabras de riesgo."}`);
+  if (sl.actividad === "testigo") return leccion(sl, null, turno, "En La Alameda muchos hablamos con seseo: decimos «casuela» y se escribe cazuela. También decimos «caye» por calle (yeísmo) y nos comemos la d del final: «verdá». Hablar así no es un error: es nuestra forma de hablar, y está muy bien. Lo que tiene que saber un detective es cómo se ESCRIBE. Yo lo digo así… y lo escribo así.");
   if (!regla) return elegirRegla(sl, turno);
   leccion(sl, regla, turno);
 }
@@ -280,6 +283,56 @@ const ACTIVIDADES = {
     pintar();
   },
 
+  /* I5 · El testigo seseante: así se dice, así se escribe (5.1 y 1.3, sin tratar el habla como error) */
+  testigo(sl, _regla, turno) {
+    const lista = barajar(ACA.testigos).slice(0, 4);
+    partidaAca(sl, ["c-z-s", "ll-y", "d-z-finales"]);
+    let k = 0;
+    const pintar = () => {
+      const t = lista[k];
+      if (!t) return terminarActividad(sl, turno);
+      const objetivos = [...t.frase.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(w => pronunciar(w) !== w.toLowerCase());
+      const dicho = t.frase.split(/(\[[^\]]+\])/).map(trozo => {
+        const m = trozo.match(/^\[(.+)\]$/);
+        if (!m) return esc(trozo);
+        return pronunciar(m[1]) !== m[1].toLowerCase() ? `<b>${esc(pronunciar(m[1]))}</b>` : esc(m[1]);
+      }).join("");
+      pintarEscena(`
+        <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+        ${htmlPersonaje({ id: t.quien, expresion: "neutral", lado: "der" })}
+        <div class="acta">
+          <small>Acta de declaración · Testigo ${k + 1} de ${lista.length}: ${esc(arte(t.quien).nombre || t.quien)}</small>
+          <p class="etiqueta">Así lo ha dicho</p>
+          <p class="oral">[ ${dicho} ]</p>
+          <p class="etiqueta">Escríbelo como se escribe</p>
+          ${objetivos.map((w, i) => `<label class="campo-acta"><span class="oral">[${esc(pronunciar(w))}]</span> → <input data-i="${i}" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe ${esc(pronunciar(w))} como se escribe"><small class="corr"></small></label>`).join("")}
+          <p id="msg" class="msg"></p>
+          <div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar el acta</button></div>
+        </div>
+        <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      const intentadas = new Set(), bien = new Set();
+      $$(".campo-acta input")[0]?.focus();
+      $("#ok").onclick = () => {
+        $$(".campo-acta input").forEach(inp => {
+          const i = Number(inp.dataset.i), w = objetivos[i];
+          if (bien.has(i) || !inp.value.trim()) return;
+          const ok = norm(inp.value) === norm(w);
+          if (!intentadas.has(i)) { intentadas.add(i); registrar("5.1", ok, w, "testigo", enBanco(w)?.regla); }
+          const nota = inp.parentElement.querySelector(".corr");
+          if (ok) { bien.add(i); inp.disabled = true; inp.classList.add("acierto"); nota.textContent = ""; }
+          else { nota.textContent = `Se escribe: ${w}. Escríbela tú.`; inp.value = ""; }
+        });
+        if (bien.size < objetivos.length) { $("#msg").textContent = bien.size ? "Revisa las que faltan." : "Escribe todas las palabras marcadas."; return; }
+        $("#msg").textContent = "";
+        $(".acta .acciones").innerHTML = `<div class="explicacion">${objetivos.map(w => `Se dice «${esc(pronunciar(w))}» y se escribe <b>${esc(w)}</b>: ${esc(porQueSeEscribe(w))}`).join("<br>")}</div><button class="flecha" id="sig">Siguiente testigo ▸</button>`;
+        $("#sig").onclick = () => { k++; pintar(); };
+        $(".acta").scrollTop = $(".acta").scrollHeight;
+      };
+    };
+    pintar();
+  },
+
   /* L1 · El sismógrafo de sílabas: sílaba fuerte (9.1) → tipo (9.1) → escribir con o sin tilde (5.1) */
   sismografo(sl, _regla, turno) {
     const s = estadoAca();
@@ -359,6 +412,26 @@ const ACTIVIDADES = {
   },
 };
 const quitarTildes = p => [...p].map(quitarTilde).join("");
+
+/* Cómo suena en buena parte de Andalucía: seseo, yeísmo y -d final (solo para mostrarlo como habla, entre corchetes) */
+const CON_TILDE = { a: "á", e: "é", i: "í", o: "ó", u: "ú" };
+function pronunciar(w) {
+  let s = w.toLowerCase().replace(/z/g, "s").replace(/c(?=[eiéí])/g, "s").replace(/ll/g, "y");
+  if (s.endsWith("d")) {
+    s = s.slice(0, -1);
+    const i = s.search(/[aeiou][^aeiouáéíóú]*$/);
+    if (i >= 0 && !/[áéíóú]/.test(s)) s = s.slice(0, i) + CON_TILDE[s[i]] + s.slice(i + 1);
+  }
+  return s;
+}
+function porQueSeEscribe(w) {
+  const partes = [];
+  if (/z/.test(w)) partes.push("lleva z (za, zo, zu, o z al final, como en arroz o diez)");
+  if (/c(?=[eiéí])/.test(w)) partes.push("lleva c porque va delante de e, i (ce, ci)");
+  if (/ll/.test(w)) partes.push("lleva ll, que con yeísmo suena igual que la y");
+  if (/d$/.test(w)) partes.push("lleva d al final aunque no la pronunciemos (piensa en el plural: verdades, paredes)");
+  return partes.join("; y ") + ".";
+}
 
 /* ── Resumen para la zona del maestro ────────────────────────── */
 function resumenAcademiaHTML() {

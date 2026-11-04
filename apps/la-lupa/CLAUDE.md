@@ -15,8 +15,8 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 |---|---|
 | `motor.js` | Escenario 16:9 de 1280×720 escalado a la pantalla, arte (o hueco marcado), texto que se escribe solo, HUD (libreta, archivo, lupa de pistas), ventanas, pantallas de «¡Pista conseguida!» / «¡Pista falsa!», registro y notas, palabras pulsables |
 | `escenas.js` | `ESCENAS.<tipo>`: una función por tipo de escena |
-| `academia.js` | **Academia de detectives**: patio con «turno de hoy», cola de repaso espaciado por alumno (`actualizarCola`, intervalos 1-3-7-15-30 sesiones), salas (`SALAS`) y actividades (`ACTIVIDADES.<id>`). Activas: Archivo (`fichas`), Pupitre (`documento`) y Laboratorio (`sismografo`). Diseño en `docs/investigacion/academia-actividades.md` |
-| `datos/academia/` | Bancos de la Academia: `palabras.json` (forma correcta, forma errónea típica, sílabas, tónica y frase con hueco) y `textos.json` (documentos con `[palabras]` marcadas). Valídalos con `python3 herramientas/validar_academia.py` |
+| `academia.js` | **Academia de detectives**: patio con «turno de hoy», cola de repaso espaciado por alumno (`actualizarCola`, intervalos 1-3-7-15-30 sesiones), salas (`SALAS`) y actividades (`ACTIVIDADES.<id>`). Activas: Archivo (`fichas`), Pupitre (`documento`), Laboratorio (`sismografo`) e Interrogatorios (`testigo`: el testigo seseante; `pronunciar()` pasa una palabra a cómo se dice con seseo, yeísmo y -d final). Diseño en `docs/investigacion/academia-actividades.md` |
+| `datos/academia/` | Bancos de la Academia: `palabras.json` (forma correcta, forma errónea típica, sílabas, tónica y frase con hueco) y `textos.json` (documentos con `[palabras]` marcadas) y `testigos.json` (declaraciones para el testigo seseante). Valídalos con `python3 herramientas/validar_academia.py` |
 | `app.js` | Entrada, tablón de corcho, partida, informe, zona maestro/a (página normal) y arranque |
 | `styles.css` | Todo en px del escenario de 1280×720. Mundo visual único: papel envejecido, tinta, albero y azulejo |
 | `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a una programación |
