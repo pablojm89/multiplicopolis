@@ -205,5 +205,74 @@
     "emoji": "📜",
     "listo": true,
     "prompt": "Pergamino enrollado atado con una cinta roja y verde, asomando de una carpeta azul."
+  },
+  "agencia-saboteada": {
+    "tipo": "fondo",
+    "nombre": "Oficina saboteada de noche",
+    "color": "#22314a",
+    "listo": false,
+    "prompt": "La misma oficina de la Agencia La Lupa (mismo encuadre y muebles que agencia.png) pero saboteada de noche: ventana con reja abierta y lluvia entrando, papeles y expedientes tirados por el suelo, cajones del archivador abiertos, lámpara verde volcada pero encendida, tablón de corcho con fotos arrancadas. Inquietante, sin personas."
+  },
+  "calle-alameda": {
+    "tipo": "fondo",
+    "nombre": "Callejón de La Alameda al amanecer",
+    "color": "#3a4a66",
+    "listo": false,
+    "prompt": "Callejón encalado del barrio de La Alameda al amanecer, cielo azul con primer brillo ámbar, farolas aún encendidas, macetas de geranios en las rejas, suelo mojado, una bicicleta de reparto apoyada en la pared. Sin personas."
+  },
+  "bruno": {
+    "tipo": "personaje",
+    "nombre": "Bruno, el repartidor",
+    "color": "#6b7f3a",
+    "expresiones": [
+      "neutral",
+      "contento",
+      "sorprendido",
+      "nervioso"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "Bruno, repartidor del periódico del barrio, unos 19 años, estilo anime: delgado, pelo castaño despeinado con gorra de visera verde oliva, sudadera gris con capucha, cartera de reparto cruzada llena de periódicos, PULSERA ROJA DE TELA en la muñeca izquierda (detalle importante, debe verse siempre). Aire amable, tímido e inofensivo, nada sospechoso a primera vista."
+  },
+  "tachon": {
+    "tipo": "personaje",
+    "nombre": "El Tachón",
+    "color": "#1a1a24",
+    "expresiones": [
+      "neutral",
+      "burlon",
+      "sorprendido"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "El Tachón, villano misterioso de la temporada, estilo anime, parodia del rollo «sigma»: mandíbula cuadrada exageradísima en pose de mewing, gafas de sol oscuras de noche, flequillo perfecto engominado, gabardina negra larga con el cuello subido, guantes negros, rotulador gordo negro en la mano. Lleva la misma PULSERA ROJA DE TELA en la muñeca izquierda que Bruno (pista secreta, que se vea pero sin destacar). Pose chulesca y arrogante, más cómico que aterrador; apto para 10-12 años. Su cara NO debe parecerse claramente a la de Bruno."
+  },
+  "nota-tachon": {
+    "tipo": "objeto",
+    "nombre": "Nota firmada por El Tachón",
+    "emoji": "🗒️",
+    "listo": false,
+    "prompt": "Hoja de papel arrugada pegada con cinta, con un gran tachón negro de rotulador y al lado un pequeño dibujo de unas gafas de sol (su firma). Sin letras ni palabras escritas."
+  },
+  "placa-practicas": {
+    "tipo": "objeto",
+    "nombre": "Placa de detective en prácticas",
+    "emoji": "🔰",
+    "listo": false,
+    "prompt": "Placa de detective de latón dorado con una lupa grabada en el centro y una cinta roja, sobre una funda de cuero; brillo ámbar. Sin letras ni números."
+  },
+  "periodico": {
+    "tipo": "objeto",
+    "nombre": "Periódico del barrio",
+    "emoji": "📰",
+    "listo": false,
+    "prompt": "Periódico doblado del barrio con una foto de la plaza en portada y columnas de texto ilegibles (solo líneas grises, sin letras legibles), algo mojado por la lluvia."
+  },
+  "expedientes-revueltos": {
+    "tipo": "objeto",
+    "nombre": "Expedientes revueltos",
+    "emoji": "🗂️",
+    "listo": false,
+    "prompt": "Montón desordenado de carpetas de expediente color manila abiertas, con hojas sueltas saliendo, una de ellas con un tachón negro de rotulador. Sin letras legibles."
   }
 }

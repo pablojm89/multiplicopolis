@@ -30,6 +30,7 @@ EXPRESION = {
     "pensativo": "pensativo/a, mano en la barbilla, mirada de lado",
     "sorprendido": "sorprendido/a, ojos muy abiertos, cejas arriba",
     "nervioso": "nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca",
+    "burlon": "sonrisa chulesca de medio lado, se baja un poco las gafas, superioridad cómica",
 }
 
 lineas = [
