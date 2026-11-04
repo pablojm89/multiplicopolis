@@ -81,6 +81,37 @@
 .piz-lupa path:last-child { stroke-width: 3; opacity: .6; }
 .piz-nota { margin: 8px 0 0; font-size: 20px; color: var(--piz-amarilla); }
 
+/* ── Niveles (lupas) ────────────────────────────────────────── */
+/* La lupa del nivel, colgada en la esquina de arriba a la derecha de la pizarra */
+.piz-nivel { position: absolute; left: 872px; top: 60px; z-index: 3; font: 800 15px var(--f-ui); color: var(--tinta); background: var(--papel-claro); padding: 4px 12px 4px 10px; border-radius: 4px; transform: rotate(3deg); box-shadow: 0 4px 8px rgba(0, 0, 0, .5); white-space: nowrap; }
+.piz-nivel::before { content: ""; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ff9a8f, var(--rojo) 60%, var(--rojo-osc)); box-shadow: 0 1px 2px rgba(0, 0, 0, .5); }
+/* Plata, oro y diamante: 8 pruebas, tiza algo más pequeña */
+.piz-pruebas.muchas:not(.frases) { --tam: 38px; gap: 10px 28px; }
+.piz-pruebas.nuevas.muchas:not(.frases) { --tam: 36px; gap: 6px 30px; }
+.piz-pruebas.frases.muchas:not(.nuevas) { gap: 4px 16px; }
+.piz-pruebas.nuevas.frases.muchas { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; gap: 0 12px; }
+.piz-p.corregida { animation: piz-aviso .9s ease-in-out 3; }
+/* Oro: dos círculos (blanco y amarillo) y dos hipótesis buenas */
+.piz-cuenta .c0 { color: var(--piz-tiza); }
+.piz-cuenta .c1 { color: var(--piz-amarilla); margin-left: 10px; }
+.piz-hipotesis.cuatro { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.piz-hipotesis.cuatro .piz-pizarrin { font-size: 19px; line-height: 1.15; padding: 6px 10px 22px; border-width: 7px; justify-content: flex-start; }
+.piz-pizarrin.buena.c0 { box-shadow: inset 0 0 18px rgba(0, 0, 0, .55), 0 0 0 3px var(--piz-tiza), 0 0 24px rgba(245, 242, 231, .4); }
+.piz-pizarrin.buena.c1 { box-shadow: inset 0 0 18px rgba(0, 0, 0, .55), 0 0 0 3px var(--piz-amarilla), 0 0 24px rgba(255, 229, 143, .45); }
+.piz-veredicto.circulo { right: auto; left: 10px; color: var(--piz-tiza); }
+.piz-pizarrin.c1 .piz-veredicto.circulo { color: var(--piz-amarilla); }
+.piz-reglas-dos { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; width: 100%; margin-bottom: 4px; }
+.piz-reglas-dos .piz-regla { margin: 0; font-size: 20px; line-height: 1.1; max-width: none; }
+.piz-reglas-dos .piz-regla.c0 { color: var(--piz-tiza); }
+.piz-reglas-dos .piz-regla.c1 { color: var(--piz-amarilla); }
+.piz-reglas-dos .piz-regla small { font-size: 15px; }
+.piz-reglas-dos + .piz-tuyo { margin-top: 4px; }
+.piz-tuyo > span { white-space: nowrap; }
+.piz-reglas-dos + .piz-tuyo .piz-entrada { width: 300px; font-size: 38px; }
+.piz-reglas-dos + .piz-tuyo .piz-entrada.frase { width: 380px; font-size: 26px; }
+.piz-ficha.doble p { font-size: 19px; line-height: 1.22; display: block; margin: 2px 0 4px; background: none; }
+.piz-ficha.doble p::first-line { background: linear-gradient(transparent 55%, rgba(255, 229, 143, .7) 55%); }
+
 /* ── Borrador y tizas en la repisa ──────────────────────────── */
 .piz-borrador { position: absolute; left: 872px; top: 334px; width: 96px; height: 30px; z-index: 4; border-radius: 6px 6px 3px 3px; box-shadow: 0 5px 6px rgba(0, 0, 0, .5);
   background: linear-gradient(180deg, #c48a4f 0, #9c6534 50%, #5d3a1b 58%, #45484e 60%, #2f3136 100%); }

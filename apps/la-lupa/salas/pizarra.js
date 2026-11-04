@@ -6,6 +6,10 @@
    demasiado estrecha); 3) pone la regla a prueba con palabras nuevas
    (la excepción o la que la confirma); 4) escribe un ejemplo propio.
    Al final, la ficha de Mateo confirma la regla descubierta.
+   Niveles (lupas, ver PIZ_NIVELES): bronce, 6 pruebas y hipótesis muy distintas;
+   plata, 8 pruebas y hipótesis parecidas; oro, «reglas rivales» (dos subreglas
+   a la vez y dos círculos de tiza); diamante, sin pistas, dos contraejemplos
+   y un ejemplo propio difícil. Cada subregla y cada ejemplo tienen «nivel» (1-3).
    Datos: datos/academia/pizarra.json (validador: herramientas/validar_pizarra.py)
 
    Por qué leccionFija y no «reglas» en la sala: la lección normal enseña la
@@ -18,6 +22,20 @@
 const PIZ = { datos: null };
 const PIZ_REGLAS = ["tildes-generales", "b-v-1", "h-1", "c-z-s", "ll-y", "g-j-dieresis", "diptongo-monosilabos", "d-z-finales", "mayusculas-puntuacion-1"];
 const PIZ_PASOS = ["Observa", "Hipótesis", "Contraejemplo", "Tu ejemplo"];
+/* Qué cambia en cada lupa: pruebas en la pizarra, cuántas cumplen la regla (por círculo),
+   qué hipótesis salen y cuántos contraejemplos hay que encontrar */
+const PIZ_NIVELES = {
+  1: { pruebas: 6, cumplen: 4, hipotesis: ["buena", "amplia", "otra"], buscar: 1 },
+  2: { pruebas: 8, cumplen: 5, hipotesis: ["buena", "amplia", "estrecha"], buscar: 1 },
+  3: { pruebas: 8, cumplen: 3, rivales: true, buscar: 1 },
+  4: { pruebas: 8, cumplen: 5, hipotesis: ["buena", "amplia", "estrecha"], buscar: 2, sinPista: true, propioDificil: true },
+};
+const PIZ_NUM = ["ninguna", "una", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho"];
+const PIZ_COLOR = [{ clase: "", nombre: "blanco" }, { clase: "amarilla", nombre: "amarillo" }];
+/* Los ejemplos del banco son {p, nivel}; el resto de listas, palabras sueltas */
+const pizP = x => (typeof x === "string" ? x : x.p);
+const pizNv = x => (typeof x === "string" ? 1 : x.nivel || 1);
+const pizMay = t => t.charAt(0).toUpperCase() + t.slice(1);
 
 Object.assign(sala("pizarra"), {
   activa: true,
@@ -48,6 +66,7 @@ const PIZ_FILTRO = `<svg class="piz-defs" aria-hidden="true" focusable="false"><
   </filter></defs></svg>`;
 
 function pizEscena(sl, tema, { volver }) {
+  const lupa = NIVELES_ACA[nivelAca() - 1];
   pintarEscena(`
     ${PIZ_FILTRO}
     <button class="hud-volver" id="acaVolver">◂ Patio</button>
@@ -58,6 +77,7 @@ function pizEscena(sl, tema, { volver }) {
       <div class="piz-contenido" id="pizCont"></div>
       <div class="piz-polvo" aria-hidden="true"></div>
     </div>
+    <span class="piz-nivel" title="${esc(lupa.nombre)}">${lupa.icono} ${esc(lupa.corto)}</span>
     <div class="piz-tizas" aria-hidden="true"><i></i><i class="amarilla"></i></div>
     <div class="piz-borrador" id="pizBorrador" aria-hidden="true"></div>
     ${htmlPersonaje({ id: "anselmo", expresion: "neutral", lado: "izq" }, "pequeno piz-anselmo")}
@@ -166,105 +186,194 @@ function pizElegir(sl, turno) {
   };
 }
 
-/* ── Una ronda: una subregla entera, en cuatro pasos ─────────── */
+/* ── Una ronda: una subregla entera (o dos rivales, en oro), en cuatro pasos ── */
 function pizRonda(sl, regla, turno) {
+  const nv = nivelAca();
+  let cfg = PIZ_NIVELES[nv];
   const st = estadoPiz();
   const vistas = st.vistas[regla] || [];
-  const subs = PIZ.datos[regla];
-  const sub = azarElem(subs.filter(s => !vistas.includes(s.id)).length ? subs.filter(s => !vistas.includes(s.id)) : subs);
+  const todas = PIZ.datos[regla];
+  const sinVer = l => { const n = l.filter(s => !vistas.includes(s.id)); return n.length ? n : l; };
+  const deId = id => todas.find(s => s.id === id);
+
+  /* Oro: dos subreglas rivales a la vez. El resto: una subregla del nivel */
+  let subs;
+  const conRival = todas.filter(s => (s.rivales || []).some(deId));
+  if (cfg.rivales && conRival.length) {
+    const a = azarElem(sinVer(conRival));
+    subs = barajar([a, azarElem(sinVer(a.rivales.map(deId).filter(Boolean)))]);
+  } else {
+    if (cfg.rivales) cfg = { ...PIZ_NIVELES[2] };
+    subs = [azarElem(sinVer(porNivel(todas, 2, nv)))];
+  }
+  const rivales = subs.length === 2;
+  const sub = subs[0];
+  const C = cfg.cumplen, N = cfg.pruebas, total = C * subs.length;
   const frases = !!sub.frases;
   const clave = x => (frases ? String(x).trim().replace(/\s+/g, " ") : norm(x));
-  const hip = Object.fromEntries(sub.hipotesis.map(h => [h.valor, h]));
+  const prep = x => (frases ? String(x).trim() : norm(x));
+  const rxs = subs.map(s => (s.patron ? new RegExp(s.patron) : null));
+  const hipDe = (s, v) => s.hipotesis.find(h => h.valor === v);
+  const color = g => PIZ_COLOR[colorDe[g]];
+  let colorDe = [0, 1];   // círculo (color) de cada subregla; en oro se decide al comprobar el paso 1
 
-  /* Muestra: 4 ejemplos (al menos uno que tumbe la estrecha) + 2 de relleno (al menos uno que tumbe la amplia) */
-  const conPrueba = (lista, n, prueba = []) => {
-    const b = barajar(lista);
-    const una = b.find(x => prueba.includes(x));
-    return una ? [una, ...b.filter(x => x !== una)].slice(0, n) : b.slice(0, n);
+  /* Ejemplos de cada subregla según la lupa (en diamante, primero los más difíciles) */
+  const ejs = subs.map(s => barajar(porNivel(s.ejemplos, C + 4)).sort((a, b) => (nv === 4 ? pizNv(b) - pizNv(a) : 0)).map(pizP));
+  const enEj = subs.map(s => new Set(s.ejemplos.map(x => clave(pizP(x)))));
+  const enCon = subs.map(s => new Set((s.contraejemplos || []).map(clave)));
+  /* De relleno, palabras correctas que no cumplen ninguna de las reglas en juego */
+  const cumpleAlguna = x => subs.some((s, g) => enEj[g].has(clave(x)) || enCon[g].has(clave(x)) || rxs[g]?.test(prep(x)));
+  const relPool = barajar([...new Set(subs.flatMap(s => s.relleno))].filter(x => !cumpleAlguna(x)));
+
+  /* Hipótesis: bronce, muy distintas (buena, amplia y otra que habla de otra cosa); plata y diamante, parecidas;
+     oro, las dos buenas y una mala de cada subregla */
+  let hips;
+  if (rivales) {
+    const malas = barajar(["amplia", "estrecha"]);
+    hips = barajar([...subs.map((s, g) => ({ ...hipDe(s, "buena"), g })), ...subs.map((s, g) => ({ ...(hipDe(s, malas[g]) || hipDe(s, "amplia")), g }))]);
+  } else {
+    hips = barajar(cfg.hipotesis.map(v => hipDe(sub, v) || hipDe(sub, "estrecha")).filter(Boolean).map(h => ({ ...h, g: 0 })));
+  }
+  const pruebaDe = (g, v) => hips.find(h => h.g === g && h.valor === v)?.prueba || [];
+
+  /* Paso 1: la pizarra. Siempre hay alguna prueba que tumba cada hipótesis mala */
+  const usados = new Set();
+  const tomar = (lista, n, prueba = []) => {
+    const libres = lista.filter(x => x && !usados.has(clave(x)));
+    const una = libres.find(x => prueba.includes(x));
+    const res = (una ? [una, ...libres.filter(x => x !== una)] : libres).slice(0, n);
+    res.forEach(x => usados.add(clave(x)));
+    return res;
   };
-  const ej = conPrueba(sub.ejemplos, 4, hip.estrecha?.prueba);
-  const rel = conPrueba(sub.relleno, 2, hip.amplia?.prueba);
-  const pruebas = barajar([...ej.map(p => ({ p, si: true })), ...rel.map(p => ({ p, si: false }))]);
-  const restoEj = barajar(sub.ejemplos.filter(x => !ej.includes(x)));
-  const restoRel = barajar(sub.relleno.filter(x => !rel.includes(x)));
-  const modo = sub.contraejemplos?.length && Math.random() < 0.65 ? "excepcion" : "confirma";
-  const nuevas = barajar(modo === "excepcion"
-    ? [{ p: azarElem(sub.contraejemplos), ok: true }, ...restoEj.slice(0, 2).map(p => ({ p, ok: false }))]
-    : [{ p: restoEj[0], ok: true }, ...restoRel.slice(0, 2).map(p => ({ p, ok: false }))]);
+  const pruebas = barajar([
+    ...subs.flatMap((s, g) => tomar(ejs[g], C, pruebaDe(g, "estrecha")).map(p => ({ p, g }))),
+    ...tomar(relPool, N - total, subs.flatMap((s, g) => pruebaDe(g, "amplia"))).map(p => ({ p, g: -1 })),
+  ]);
+
+  /* Paso 3: pruebas nuevas. objetivo: las que hay que encontrar */
+  const restoEj = ejs.map(l => l.filter(x => !usados.has(clave(x))));
+  const restoRel = relPool.filter(x => !usados.has(clave(x)));
+  let modo, nuevas;
+  if (rivales) {
+    // Excepciones que no cumplen el patrón del rival (si no, no se sabría en qué círculo van)
+    const exc = [0, 1].map(g => (subs[g].contraejemplos || []).filter(x => !rxs[1 - g]?.test(prep(x))));
+    const conExc = [0, 1].filter(g => exc[g].length);
+    const gx = conExc.length && Math.random() < 0.65 ? azarElem(conExc) : -1;
+    modo = gx >= 0 ? "excepcion" : "intrusa";
+    nuevas = [{ p: gx >= 0 ? azarElem(exc[gx]) : restoRel[0], ok: true, g: gx }, ...[0, 1].map(g => ({ p: restoEj[g][0], ok: false, g }))];
+  } else if (cfg.buscar === 2) {
+    const con = barajar(sub.contraejemplos || []);
+    modo = con.length >= 2 && Math.random() < 0.75 ? "excepcion" : "intrusa";
+    nuevas = [...(modo === "excepcion" ? con.slice(0, 2).map(p => ({ p, ok: true, g: 0 })) : restoRel.slice(0, 2).map(p => ({ p, ok: true, g: -1 }))),
+              ...restoEj[0].slice(0, 3).map(p => ({ p, ok: false, g: 0 }))];
+  } else {
+    modo = sub.contraejemplos?.length && Math.random() < 0.65 ? "excepcion" : "confirma";
+    nuevas = modo === "excepcion"
+      ? [{ p: azarElem(sub.contraejemplos), ok: true, g: 0 }, ...restoEj[0].slice(0, 2).map(p => ({ p, ok: false, g: 0 }))]
+      : [{ p: restoEj[0][0], ok: true, g: 0 }, ...restoRel.slice(0, 2).map(p => ({ p, ok: false, g: -1 }))];
+  }
+  nuevas = barajar(nuevas.filter(x => x.p));
+  nuevas.forEach(x => usados.add(clave(x.p)));
+  const objetivos = nuevas.filter(x => x.ok).length;
   const enPizarra = new Set([...pruebas, ...nuevas].map(x => clave(x.p)));
   const plural = w => (w.endsWith("z") ? `${w.slice(0, -1)}ces` : `${w}es`);
-  const conPlural = (texto, w) => texto.replace("{plural}", plural(w));
+  const conPlural = (texto, w) => String(texto || "").replace("{plural}", plural(w));
 
   partidaAca(sl, [regla]);
   // Aquí las palabras pulsadas por error están bien escritas: no van a la lista de «repasar» (que es de ortografía)
   const anotar9 = (ok, palabra, detalle) => { registrar("9.1", ok, palabra, detalle, regla); if (!ok && palabra) P.repasar.delete(palabra); };
   const salir = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
-  pizEscena(sl, D.reglas[regla]?.nombre || regla, { volver: salir });
+  pizEscena(sl, rivales ? `${D.reglas[regla]?.nombre || regla} · reglas rivales` : D.reglas[regla]?.nombre || regla, { volver: salir });
 
   const htmlPrueba = (x, i, extra = "") =>
     `<button class="piz-p ${frases ? "frase" : ""} ${extra}" data-i="${i}" style="--g:${pizAzar(-2.5, 2.5).toFixed(1)}deg">${esc(x.p)}</button>`;
-  const htmlHipotesis = () => `<p class="piz-regla"><small>Hipótesis</small>${pizTxt(hip.buena.texto)}</p>`;
+  const htmlHipotesis = () => rivales
+    ? `<div class="piz-reglas-dos">${[0, 1].sort((a, b) => colorDe[a] - colorDe[b]).map(g =>
+        `<p class="piz-regla c${colorDe[g]}"><small>Círculo ${color(g).nombre}</small>${pizTxt(hipDe(subs[g], "buena").texto)}</p>`).join("")}</div>`
+    : `<p class="piz-regla"><small>Hipótesis</small>${pizTxt(hipDe(sub, "buena").texto)}</p>`;
 
-  /* Paso 1 · Observar: rodear las cuatro que tienen algo en común */
+  /* Paso 1 · Observar: rodear las que tienen algo en común (en oro, dos grupos con dos tizas) */
   const paso1 = () => {
     pizPasos(1);
-    $("#pizCont").innerHTML = `<div class="piz-pruebas ${frases ? "frases" : ""}">${pruebas.map((x, i) => htmlPrueba(x, i)).join("")}</div>`;
+    $("#pizCont").innerHTML = `<div class="piz-pruebas ${frases ? "frases" : ""} ${N > 6 ? "muchas" : ""}">${pruebas.map((x, i) => htmlPrueba(x, i)).join("")}</div>`;
     pizAjustar();
-    pizDecir(`Seis pruebas. Cuatro tienen algo en común… y dos se han colado. Rodea con la tiza las cuatro que se parecen.`);
-    $("#pizAcc").innerHTML = `<p class="piz-cuenta" id="pizCuenta">Rodeadas: 0 de 4</p><button class="boton-sello" id="pizOk" disabled>Comprobar</button>`;
-    const elegidas = new Set();
+    pizDecir(rivales
+      ? `${pizMay(PIZ_NUM[N])} pruebas y dos reglas rivales. Tres van juntas por una razón, otras tres por otra… y ${PIZ_NUM[N - total]} se han colado. Toca una vez para el círculo blanco y otra vez para el amarillo.`
+      : `${pizMay(PIZ_NUM[N])} pruebas. ${pizMay(PIZ_NUM[C])} tienen algo en común… y ${PIZ_NUM[N - C]} se han colado. Rodea con la tiza las ${PIZ_NUM[C]} que se parecen.`);
+    $("#pizAcc").innerHTML = `<p class="piz-cuenta" id="pizCuenta"></p><button class="boton-sello" id="pizOk" disabled>Comprobar</button>`;
+    const marca = pruebas.map(() => null);   // círculo de cada prueba: 0 blanco, 1 amarillo
     let intentos = 0, cerrado = false;
-    const contar = () => { $("#pizCuenta").textContent = `Rodeadas: ${elegidas.size} de 4`; $("#pizOk").disabled = elegidas.size !== 4; };
-    const rodear = b => { b.classList.add("rodeada"); pizDibujar(b, pizTrazoCirculo, "circulo"); };
+    const cuenta = c => marca.filter(m => m === c).length;
+    const contar = () => {
+      $("#pizCuenta").innerHTML = rivales
+        ? `<span class="c0">◯ ${cuenta(0)} de ${C}</span> <span class="c1">◯ ${cuenta(1)} de ${C}</span>`
+        : `Rodeadas: ${cuenta(0)} de ${C}`;
+      $("#pizOk").disabled = rivales ? cuenta(0) !== C || cuenta(1) !== C : cuenta(0) !== C;
+    };
+    const rodear = (b, c) => { b.querySelector(".circulo")?.remove(); b.classList.add("rodeada"); pizDibujar(b, pizTrazoCirculo, `circulo ${PIZ_COLOR[c].clase}`); };
     const desrodear = b => { b.classList.remove("rodeada"); b.querySelector(".circulo")?.remove(); };
+    contar();
     $$(".piz-p").forEach(b => b.onclick = () => {
       if (cerrado) return;
-      const i = Number(b.dataset.i);
-      if (elegidas.has(i)) { elegidas.delete(i); desrodear(b); }
-      else if (elegidas.size < 4) { elegidas.add(i); rodear(b); }
-      else aviso("Ya tienes cuatro rodeadas. Toca una para borrar su círculo.");
+      const i = Number(b.dataset.i), cur = marca[i];
+      // Ciclo: sin círculo → blanco → amarillo (en oro) → sin círculo, saltando los círculos llenos
+      const ciclo = rivales ? [null, 0, 1] : [null, 0];
+      let k = ciclo.indexOf(cur), sig = null;
+      for (let t = 0; t < ciclo.length; t++) { k = (k + 1) % ciclo.length; if (ciclo[k] === null || cuenta(ciclo[k]) < C) { sig = ciclo[k]; break; } }
+      if (sig === null && cur === null) return aviso(rivales ? "Los dos círculos están llenos. Toca una rodeada para cambiarla." : `Ya tienes ${PIZ_NUM[C]} rodeadas. Toca una para borrar su círculo.`);
+      marca[i] = sig;
+      sig === null ? desrodear(b) : rodear(b, sig);
       contar();
     });
     $("#pizOk").onclick = () => {
-      const bien = [...elegidas].filter(i => pruebas[i].si).length;
-      const ok = bien === 4;
-      if (!intentos) registrar("9.1", ok, null, "observar", regla);
+      // En oro, los colores pueden ir al revés: el círculo blanco puede ser de cualquiera de las dos reglas
+      const bienCon = m => pruebas.filter((x, i) => x.g >= 0 && marca[i] === m[x.g]).length;
+      const mejor = (rivales ? [[0, 1], [1, 0]] : [[0, 1]]).reduce((a, m) => (bienCon(m) > bienCon(a) ? m : a));
+      const bien = bienCon(mejor), ok = bien === total;
+      if (!intentos) registrar("9.1", ok, null, rivales ? "observar (rivales)" : "observar", regla);
       intentos++;
       if (!ok && intentos < 2) {
-        pizDecir(`Tienes ${bien} de 4. Entre tus círculos hay alguna intrusa. Pista: ${sub.pista}`, "pensativo");
+        const pista = cfg.sinPista ? "Mira cada una con lupa de diamante." : `Pista: ${subs.map(s => s.pista).join(" ")}`;
+        pizDecir(`Tienes ${bien} de ${total} bien ${rivales ? "colocadas" : "rodeadas"}. ${rivales ? "Alguna está en el círculo que no es, o se ha colado." : "Entre tus círculos hay alguna intrusa."} ${pista}`, "pensativo");
         return;
       }
       cerrado = true;
+      colorDe = mejor;
       $$(".piz-p").forEach(b => {
-        const x = pruebas[Number(b.dataset.i)];
-        if (x.si && !b.classList.contains("rodeada")) { rodear(b); b.querySelector(".circulo").classList.add("amarilla"); }
-        if (!x.si) { desrodear(b); b.classList.add("fuera"); }
+        const i = Number(b.dataset.i), x = pruebas[i];
+        if (x.g < 0) { desrodear(b); b.classList.add("fuera"); return; }
+        if (rivales) { if (marca[i] !== colorDe[x.g]) { rodear(b, colorDe[x.g]); b.classList.add("corregida"); } }
+        else if (marca[i] === null) rodear(b, 1);   // las que faltaban, en tiza amarilla
       });
-      pizDecir(ok ? "¡Buen ojo! Esas cuatro tienen algo en común. Ahora, la pregunta de detective: ¿qué regla lo explica?"
-                  : `Te lo enseño: son estas cuatro (las de tiza amarilla). ${sub.pista}`, ok ? "contento" : "neutral");
+      pizDecir(ok
+        ? (rivales ? "¡Buen ojo! Dos grupos, cada uno en su círculo. Ahora, la pregunta de detective: ¿qué regla explica cada círculo?" : `¡Buen ojo! Esas ${PIZ_NUM[C]} tienen algo en común. Ahora, la pregunta de detective: ¿qué regla lo explica?`)
+        : (rivales ? `Te lo enseño: cada una en su círculo (las que he cambiado parpadean). ${cfg.sinPista ? "" : subs.map(s => s.pista).join(" ")}`
+                   : `Te lo enseño: son estas ${PIZ_NUM[C]} (las de tiza amarilla, también). ${sub.pista}`), ok ? "contento" : "neutral");
       $("#pizAcc").innerHTML = `<button class="flecha" id="pizSig">Formular la hipótesis ▸</button>`;
       $("#pizSig").onclick = paso2;
     };
   };
 
-  /* Paso 2 · Hipótesis: una buena, una demasiado amplia y una demasiado estrecha */
+  /* Paso 2 · Hipótesis: la buena (o las dos buenas, en oro); las malas se tachan y se dice por qué */
   const paso2 = () => {
     pizPasos(2);
     $("#pizAcc").innerHTML = "";
-    pizDecir("¿Qué regla explica las cuatro rodeadas y deja fuera a las otras dos? Elige la hipótesis buena.");
-    const lista = barajar(sub.hipotesis);
-    $("#pizZona").innerHTML = `<div class="piz-hipotesis">${lista.map((h, k) => `<button class="piz-pizarrin" data-k="${k}"><span>${pizTxt(h.texto)}</span><i class="piz-marca"></i></button>`).join("")}</div>`;
+    pizDecir(rivales
+      ? "Dos círculos, dos reglas. Entre estas cuatro hipótesis hay dos buenas: una explica el círculo blanco y la otra, el amarillo. Encuéntralas."
+      : `¿Qué regla explica las ${PIZ_NUM[C]} rodeadas y deja fuera a las otras ${PIZ_NUM[N - C]}? Elige la hipótesis buena.`);
+    $("#pizZona").innerHTML = `<div class="piz-hipotesis ${hips.length > 3 ? "cuatro" : ""}">${hips.map((h, k) => `<button class="piz-pizarrin" data-k="${k}"><span>${pizTxt(h.texto)}</span><i class="piz-marca"></i></button>`).join("")}</div>`;
     let primera = true;
+    const halladas = new Set();
     $$(".piz-hipotesis .piz-pizarrin").forEach(b => b.onclick = () => {
-      const h = lista[Number(b.dataset.k)];
-      if (b.classList.contains("tachada")) return;
+      const h = hips[Number(b.dataset.k)];
+      if (b.classList.contains("tachada") || b.classList.contains("buena")) return;
       if (primera) { registrar("9.1", h.valor === "buena", null, `hipótesis ${h.valor}`, regla); primera = false; }
       if (h.valor !== "buena") {
         b.classList.add("tachada");
         pizDibujar(b.querySelector("span"), pizTrazoTachon, "tachon", [6, 4]);
-        b.insertAdjacentHTML("beforeend", `<em class="piz-veredicto">demasiado ${h.valor}</em>`);
+        b.insertAdjacentHTML("beforeend", `<em class="piz-veredicto">${h.valor === "otra" ? "no encaja" : `demasiado ${h.valor}`}</em>`);
         const testigo = (h.prueba || []).find(p => pruebas.some(x => x.p === p)) || h.prueba?.[0] || "";
-        pizDecir(h.porque.replace("{p}", testigo), "pensativo");
+        pizDecir(String(h.porque || "").replace("{p}", testigo), "pensativo");
         const i = pruebas.findIndex(x => x.p === testigo);
         if (i >= 0) {
           const pb = $(`.piz-p[data-i="${i}"]`);
@@ -274,67 +383,108 @@ function pizRonda(sl, regla, turno) {
         }
         return;
       }
-      $$(".piz-hipotesis .piz-pizarrin").forEach(x => (x.disabled = true));
+      halladas.add(h.g);
       b.classList.add("buena");
+      if (rivales) { b.classList.add(`c${colorDe[h.g]}`); b.insertAdjacentHTML("beforeend", `<em class="piz-veredicto circulo">círculo ${color(h.g).nombre}</em>`); }
       pizDibujar(b.querySelector(".piz-marca"), pizTrazoVisto, "visto", [0, 0]);
-      pizDecir(`¡Eso es! ${h.porque || "Explica las cuatro pruebas rodeadas y deja fuera a las otras dos."} Pero un buen detective no se fía de una hipótesis hasta ponerla a prueba.`, "contento");
-      $("#pizAcc").innerHTML = `<button class="flecha" id="pizSig">Ponerla a prueba ▸</button>`;
+      if (halladas.size < subs.length) {
+        primera = true;   // la búsqueda de la segunda buena también cuenta
+        pizDecir(`¡Eso es! Esa explica el círculo ${color(h.g).nombre}. ${h.porque || ""} Ahora busca la del otro círculo.`, "contento");
+        return;
+      }
+      $$(".piz-hipotesis .piz-pizarrin").forEach(x => (x.disabled = true));
+      pizDecir(rivales
+        ? `¡Las dos! ${h.porque || "Cada hipótesis explica su círculo y deja fuera a las coladas."} Pero un buen detective no se fía hasta ponerlas a prueba.`
+        : `¡Eso es! ${h.porque || `Explica las ${PIZ_NUM[C]} pruebas rodeadas y deja fuera a las otras ${PIZ_NUM[N - C]}.`} Pero un buen detective no se fía de una hipótesis hasta ponerla a prueba.`, "contento");
+      $("#pizAcc").innerHTML = `<button class="flecha" id="pizSig">Ponerla${rivales ? "s" : ""} a prueba ▸</button>`;
       $("#pizSig").onclick = paso3;
     });
   };
 
-  /* Paso 3 · Contraejemplo: la excepción que rompe la regla, o la palabra que la confirma */
+  /* Paso 3 · Contraejemplo: la excepción que rompe la regla, la que la confirma o la que no va en ningún círculo */
+  const explicar = x => {
+    const s = subs[Math.max(0, x.g)];
+    if (modo === "excepcion") return `«${x.p}» es la excepción: ${conPlural(s.excepcion, x.p)}`;
+    if (modo === "intrusa") return `«${x.p}» está bien escrita, pero no cumple ${rivales ? "ninguna de las dos reglas" : "la regla"}.`;
+    return `«${x.p}» cumple la regla: ${conPlural(s.si, x.p)}`;
+  };
   const paso3 = () => {
     $("#pizAcc").innerHTML = "";
     $("#pizZona").innerHTML = "";
     pizBorrar(() => {
       pizPasos(3);
-      $("#pizCont").innerHTML = `${htmlHipotesis()}<div class="piz-pruebas nuevas ${frases ? "frases" : ""}">${nuevas.map((x, i) => htmlPrueba(x, i, "nueva")).join("")}</div>`;
+      $("#pizCont").innerHTML = `${htmlHipotesis()}<div class="piz-pruebas nuevas ${frases ? "frases" : ""} ${nuevas.length > 3 ? "muchas" : ""}">${nuevas.map((x, i) => htmlPrueba(x, i, "nueva")).join("")}</div>`;
       pizAjustar();
-      pizDecir(modo === "excepcion"
-        ? "Te añado tres pruebas nuevas. Una de ellas rompe la regla: es la excepción. ¿Cuál es?"
-        : `Te añado tres pruebas nuevas. Solo una cumple la regla. ¿Cuál la confirma?`);
-      let primera = true, hecho = false;
+      const n = pizMay(PIZ_NUM[nuevas.length]);
+      pizDecir(rivales
+        ? (modo === "excepcion" ? `${n} pruebas nuevas. Dos van cada una a su círculo, pero hay una que rompe su regla: es la excepción. ¿Cuál es?`
+                                : `${n} pruebas nuevas. Dos van cada una a su círculo, pero hay una que no va en ninguno. ¿Cuál es?`)
+        : objetivos === 2
+          ? (modo === "excepcion" ? `${n} pruebas nuevas. Dos de ellas rompen la regla: son excepciones. Encuentra las dos.`
+                                  : `${n} pruebas nuevas. Dos no cumplen la regla, aunque lo parezca: son los contraejemplos. Encuentra los dos.`)
+          : modo === "excepcion" ? `${n} pruebas nuevas. Una de ellas rompe la regla: es la excepción. ¿Cuál es?`
+                                 : `${n} pruebas nuevas. Solo una cumple la regla. ¿Cuál la confirma?`);
+      let primera = true, halladas = 0, hecho = false;
       $$(".piz-p.nueva").forEach(b => b.onclick = () => {
-        if (hecho || b.classList.contains("tachada")) return;
+        if (hecho || b.classList.contains("tachada") || b.classList.contains("rodeada")) return;
         const x = nuevas[Number(b.dataset.i)];
-        if (primera) { anotar9(x.ok, x.p, modo === "excepcion" ? "contraejemplo" : "confirmación"); primera = false; }
+        if (primera) { anotar9(x.ok, x.p, { excepcion: "contraejemplo", intrusa: "contraejemplo", confirma: "confirmación" }[modo]); primera = false; }
         if (!x.ok) {
           b.classList.add("tachada");
           pizDibujar(b, pizTrazoTachon, "tachon rosa", [6, 2]);
-          pizDecir(modo === "excepcion"
-            ? `«${x.p}» cumple la regla: ${conPlural(sub.si, x.p)} Busca la que no la cumple.`
-            : `«${x.p}» no cumple la regla. Vuelve a leer la hipótesis de la pizarra.`, "pensativo");
+          pizDecir(modo === "confirma"
+            ? `«${x.p}» no cumple la regla. Vuelve a leer la hipótesis de la pizarra.`
+            : rivales ? `«${x.p}» va en el círculo ${color(x.g).nombre}: ${conPlural(subs[x.g].si, x.p)} Busca otra.`
+                      : `«${x.p}» cumple la regla: ${conPlural(sub.si, x.p)} Busca ${objetivos === 2 ? "las que no la cumplen" : "la que no la cumple"}.`, "pensativo");
+          return;
+        }
+        halladas++;
+        b.classList.add("rodeada");
+        pizDibujar(b, pizTrazoCirculo, "circulo amarilla");
+        if (halladas < objetivos) {
+          primera = true;   // el segundo contraejemplo también cuenta
+          pizDecir(`¡Una! ${explicar(x)} Te queda otra.`, "contento");
           return;
         }
         hecho = true;
-        b.classList.add("rodeada");
-        pizDibujar(b, pizTrazoCirculo, "circulo amarilla");
-        pizDecir(modo === "excepcion"
-          ? `¡Pillada! «${x.p}» es la excepción: ${conPlural(sub.excepcion, x.p)}`
-          : `¡Confirmada! «${x.p}» cumple la regla: ${conPlural(sub.si, x.p)}`, modo === "excepcion" ? "sorprendido" : "contento");
+        pizDecir(`${modo === "confirma" ? "¡Confirmada!" : "¡Pillada!"} ${explicar(x)}`, modo === "confirma" ? "contento" : "sorprendido");
         $("#pizAcc").innerHTML = `<button class="flecha" id="pizSig">Tu ejemplo ▸</button>`;
         $("#pizSig").onclick = paso4;
       });
     });
   };
 
-  /* Paso 4 · Tu ejemplo: si está en el banco, «¡en el archivo!»; si no, se acepta y lo revisa el maestro */
+  /* Paso 4 · Tu ejemplo: si está en el banco, «¡en el archivo!»; si no, se acepta y lo revisa el maestro.
+     En oro se pide para uno de los dos círculos; en diamante tiene que ser difícil (nivel 2-3) */
+  const gObj = rivales ? Math.floor(Math.random() * 2) : 0;
+  const obj = subs[gObj];
   const paso4 = () => {
     $("#pizAcc").innerHTML = "";
     pizBorrar(() => {
       pizPasos(4);
       $("#pizCont").innerHTML = `${htmlHipotesis()}
-        <label class="piz-tuyo"><span>Tu ejemplo:</span>
+        <label class="piz-tuyo"><span>${rivales ? `Para el círculo ${color(gObj).nombre}:` : "Tu ejemplo:"}</span>
           <input id="pizResp" class="piz-entrada ${frases ? "frase" : ""}" maxlength="${frases ? 40 : 24}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe tu ejemplo"></label>`;
-      pizDecir(frases
-        ? "Y ahora lo más difícil: una frase tuya que cumpla la regla y que no esté en la pizarra. Escríbela con tu mejor letra."
-        : "Y ahora lo más difícil: un ejemplo tuyo que cumpla la regla y que no esté en la pizarra. Escríbelo con tu mejor letra.");
+      const que = frases ? "una frase tuya" : "un ejemplo tuyo";
+      pizDecir(rivales
+        ? `Y ahora lo más difícil: ${que} para el círculo ${color(gObj).nombre}, que no esté en la pizarra. Escríbelo con tu mejor letra.`
+        : cfg.propioDificil
+          ? `Y ahora, la prueba de maestro detective: ${que} que cumpla la regla, que no esté en la pizarra… y que no sea de los fáciles. Nada de ${frases ? "frases cortitas" : "palabras cortitas"}.`
+          : `Y ahora lo más difícil: ${que} que cumpla la regla y que no esté en la pizarra. Escríbel${frases ? "a" : "o"} con tu mejor letra.`);
       $("#pizAcc").innerHTML = `<button class="boton-sello" id="pizOk">Escribir en la pizarra</button>`;
       const inp = $("#pizResp");
       inp.focus();
-      const rx = sub.patron ? new RegExp(sub.patron) : null;
-      const delBanco = new Set([...sub.ejemplos, ...ACA.palabras.filter(w => w.regla === regla && (!rx || rx.test(norm(w.p)))).map(w => w.p)].map(clave));
+      const rx = rxs[gObj], rxOtra = rivales ? rxs[1 - gObj] : null;
+      const otra = rivales ? subs[1 - gObj] : null;
+      const delBanco = new Set([...obj.ejemplos.map(pizP), ...ACA.palabras.filter(w => w.regla === regla && (!rx || rx.test(norm(w.p))) && !(rxOtra && rxOtra.test(norm(w.p)))).map(w => w.p)].map(clave));
+      // Lo difícil (diamante): nivel del banco; si no está, por su largo (como los ejemplos de nivel 3 de la subregla)
+      const largo = x => (frases ? x.split(" ").length : [...norm(x)].length);
+      const largoDificil = Math.min(frases ? 5 : 7, ...obj.ejemplos.filter(x => pizNv(x) === 3).map(x => largo(pizP(x))));
+      const nivelDe = (v, k) => {
+        const e = obj.ejemplos.find(x => clave(pizP(x)) === k) || ACA.palabras.find(w => clave(w.p) === k && w.nivel);
+        return e ? pizNv(e) : largo(v) >= largoDificil ? 2 : 1;
+      };
+      const ideas = restoEj[gObj].filter(x => !enPizarra.has(clave(x)) && (!cfg.propioDificil || nivelDe(x, clave(x)) >= 2));
       let registrado = false, dudas = 0, hecho = false;
       const anotar = (ok, v, detalle) => { if (!registrado) { registrado = true; anotar9(ok, v, detalle); } };
       // Un ejemplo propio que no está en el banco se guarda siempre para el maestro, aunque antes hubiera un fallo
@@ -342,6 +492,16 @@ function pizRonda(sl, regla, turno) {
         if (!registrado) anotar(true, v, "ejemplo propio (revisar)");
         const e = P.eventos.findLast(x => x.detalle?.startsWith("ejemplo propio"));
         if (e && e.palabra !== v) { e.fallo = e.palabra; e.palabra = v; e.detalle = "ejemplo propio (revisar)"; }   // el primer intento sigue contando para la nota
+      };
+      const darIdea = () => {
+        if (dudas < 2 || $("#pizAyuda")) return;
+        $("#pizAcc").insertAdjacentHTML("afterbegin", `<button class="boton-papel" id="pizAyuda">Dame una idea</button>`);
+        $("#pizAyuda").onclick = () => {
+          anotar(false, null, "ejemplo propio (ayuda)");
+          const idea = ideas[0] || pizP(obj.ejemplos.find(x => !enPizarra.has(clave(pizP(x)))) || obj.ejemplos[0]);
+          pizDecir(`Te doy una del archivo: «${idea}». Escríbela tú en la pizarra.`, "neutral");
+          inp.value = ""; inp.focus();
+        };
       };
       const comprobar = () => {
         if (hecho) return;
@@ -351,28 +511,28 @@ function pizRonda(sl, regla, turno) {
         if (frases && v.split(" ").length < 3) return pizDecir("Escribe una frase entera, con al menos tres palabras.", "pensativo");
         const k = clave(v);
         if (enPizarra.has(k)) return pizDecir(`«${v}» ya ha salido en la pizarra. Piensa en ${frases ? "una frase tuya" : "una palabra tuya"}.`, "pensativo");
-        if (sub.contraejemplos.map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`¡Cuidado! «${v}» es justo una excepción: no sirve como ejemplo de la regla. Prueba con otro.`, "sorprendido"); }
-        if (sub.relleno.map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`«${v}» está bien escrita, pero no cumple la regla. Prueba con otro.`, "pensativo"); }
+        if ((obj.contraejemplos || []).map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`¡Cuidado! «${v}» es justo una excepción: no sirve como ejemplo de la regla. Prueba con otro.`, "sorprendido"); }
+        if (otra && (otra.ejemplos.some(x => clave(pizP(x)) === k) || (rxOtra && rxOtra.test(prep(v))))) {
+          anotar(false, v, "ejemplo propio");
+          return pizDecir(`«${v}» va en el otro círculo, el ${color(1 - gObj).nombre}. Para el ${color(gObj).nombre}, prueba con otro.`, "pensativo");
+        }
+        if (obj.relleno.map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`«${v}» está bien escrita, pero no cumple la regla. Prueba con otro.`, "pensativo"); }
         const enArchivo = delBanco.has(k);
-        if (!enArchivo && rx && !rx.test(frases ? v : norm(v))) {
+        if (!enArchivo && rx && !rx.test(prep(v))) {
           dudas++;
-          pizDecir(`Mmm… no me cuadra con la regla. Léela otra vez y prueba con otro. Pista: ${sub.pista}`, "pensativo");
-          if (dudas >= 2 && !$("#pizAyuda")) {
-            $("#pizAcc").insertAdjacentHTML("afterbegin", `<button class="boton-papel" id="pizAyuda">Dame una idea</button>`);
-            $("#pizAyuda").onclick = () => {
-              anotar(false, null, "ejemplo propio (ayuda)");
-              const idea = restoEj.find(x => !enPizarra.has(clave(x))) || sub.ejemplos[0];
-              pizDecir(`Te doy una del archivo: «${idea}». Escríbela tú en la pizarra.`, "neutral");
-              inp.value = ""; inp.focus();
-            };
-          }
-          return;
+          pizDecir(`Mmm… no me cuadra con la regla. Léela otra vez y prueba con otro.${cfg.sinPista ? "" : ` Pista: ${obj.pista}`}`, "pensativo");
+          return darIdea();
+        }
+        if (cfg.propioDificil && nivelDe(v, k) < 2) {
+          dudas++;
+          pizDecir(`«${v}» cumple la regla, pero es demasiado fácil para un maestro detective. Busca ${frases ? "una frase más larga" : "una palabra más larga o menos corriente"}.`, "pensativo");
+          return darIdea();
         }
         hecho = true;
         if (enArchivo) anotar(true, v, "ejemplo propio"); else paraRevisar(v);
         inp.replaceWith(Object.assign(document.createElement("span"), { className: `piz-escrito ${frases ? "frase" : ""}`, textContent: v }));
         const caja = $(".piz-escrito");
-        pizDibujar(caja, pizTrazoCirculo, "circulo amarilla", [16, 8]);
+        pizDibujar(caja, pizTrazoCirculo, `circulo ${rivales ? color(gObj).clase : "amarilla"}`, [16, 8]);
         caja.insertAdjacentHTML("beforeend", enArchivo
           ? `<em class="piz-sello">★ ¡en el archivo!</em>`
           : `<em class="piz-sello revisar">? lo revisará tu maestro</em>`);
@@ -387,22 +547,22 @@ function pizRonda(sl, regla, turno) {
     });
   };
 
-  /* Final · La ficha de Mateo confirma la regla descubierta */
+  /* Final · La ficha de Mateo confirma la regla (o las dos) descubierta */
   const final = () => {
     pizPasos(5);
     const ficha = D.reglas[regla]?.ficha;
-    const punto = ficha?.puntos?.[sub.punto];
-    pizDecir("Caso cerrado. Lo que has descubierto con tiza coincide con el Archivo de Mateo. Míralo:", "contento");
-    $("#pizZona").innerHTML = ficha ? `<div class="piz-ficha">
+    const puntos = [...new Set(subs.map(s => s.punto))];
+    pizDecir(`Caso cerrado. Lo que has descubierto con tiza coincide con el Archivo de Mateo. Míralo:`, "contento");
+    $("#pizZona").innerHTML = ficha ? `<div class="piz-ficha ${puntos.length > 1 ? "doble" : ""}">
         <span class="piz-ficha-sello">Confirmado</span>
-        <small>${esc(ficha.titulo)} · ${esc(sub.nombre)}</small>
-        <p>${esc(punto || ficha.puntos[0])}</p>
+        <small>${esc(ficha.titulo)} · ${subs.map(s => esc(s.nombre)).join(" · ")}</small>
+        ${puntos.map(i => `<p>${esc(ficha.puntos[i] || ficha.puntos[0])}</p>`).join(" ")}
         <button class="boton-papel" id="pizFicha">Ver la ficha completa</button></div>` : "";
-    $("#pizFicha")?.addEventListener("click", () => abrirModal(`<div class="sello-archivo">ARCHIVO DE MATEO</div><h3>${esc(ficha.titulo)}</h3><ul class="ficha">${ficha.puntos.map((x, i) => `<li${i === sub.punto ? ` class="piz-destacado"` : ""}>${esc(x)}</li>`).join("")}</ul>`, "ventana-archivo"));
+    $("#pizFicha")?.addEventListener("click", () => abrirModal(`<div class="sello-archivo">ARCHIVO DE MATEO</div><h3>${esc(ficha.titulo)}</h3><ul class="ficha">${ficha.puntos.map((x, i) => `<li${puntos.includes(i) ? ` class="piz-destacado"` : ""}>${esc(x)}</li>`).join("")}</ul>`, "ventana-archivo"));
     $("#pizAcc").innerHTML = `<button class="flecha" id="pizFin">Terminar ▸</button>`;
     $("#pizFin").onclick = () => {
       const st2 = estadoPiz();
-      st2.vistas[regla] = [...new Set([...(st2.vistas[regla] || []), sub.id])];
+      st2.vistas[regla] = [...new Set([...(st2.vistas[regla] || []), ...subs.map(s => s.id)])];
       guardar(clavePiz(), st2);
       const s = estadoAca(); s.leccionVista[regla] = s.sesion; guardarAca(s);   // ya ha visto la ficha hoy
       terminarActividad(sl, turno);

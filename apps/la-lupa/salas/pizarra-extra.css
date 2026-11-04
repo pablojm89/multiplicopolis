@@ -77,3 +77,8 @@ button.coma-lectura:hover { transform: translateY(-4px) rotate(-.3deg); box-shad
 @media (prefers-reduced-motion: reduce) {
   .coma-lectura, .coma-signo { transition: none; }
 }
+
+/* Plata, oro y diamante: la tiza de signos gana los dos puntos (siete signos y la esponja) */
+.coma-paleta.siete { gap: 7px; padding: 12px 10px; }
+.coma-paleta.siete .coma-signo { width: 54px; height: 72px; font-size: 42px; }
+.coma-paleta.siete .coma-signo.esponja { font-size: 28px; }

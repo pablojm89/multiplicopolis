@@ -117,11 +117,27 @@
 
 /* ── Niveles (lupas) ── */
 .pup-nivel { white-space: nowrap; font-weight: 800; color: var(--rojo-osc); }
-/* Partes de 5 y 6 casillas (oro y diamante): líneas más apretadas para que quepan en la hoja */
-.pup-parte.pup-c5 .pup-entrada, .pup-parte.pup-c6 .pup-entrada { height: 36px; }
-.pup-parte.pup-c5 .pup-hueco, .pup-parte.pup-c6 .pup-hueco { min-height: 36px; }
-.pup-parte.pup-c6 .pup-linea { padding: 1px 0; }
-.pup-parte.pup-c6 .pup-campo span { font-size: 16px; line-height: 1.15; }
+/* Partes de 5 y 6 casillas (oro y diamante): cabecera y líneas más apretadas para que quepan en la hoja */
+.pup-parte.pup-c5 .pup-agencia, .pup-parte.pup-c6 .pup-agencia { min-width: 0; }
+.pup-parte.pup-c5 .pup-agencia small, .pup-parte.pup-c6 .pup-agencia small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pup-parte.pup-c5 .pup-titulo, .pup-parte.pup-c6 .pup-titulo { font-size: 24px; margin: 4px 0 2px; }
+.pup-parte.pup-c5 .pup-datos span, .pup-parte.pup-c6 .pup-datos span { font-size: 13px; }
+.pup-parte.pup-c5 .pup-datos .pup-firma, .pup-parte.pup-c6 .pup-datos .pup-firma { font-size: 17px; }
+.pup-parte.pup-c5 .pup-linea, .pup-parte.pup-c6 .pup-linea { padding: 1px 0; }
+.pup-parte.pup-c5 .pup-campo small, .pup-parte.pup-c6 .pup-campo small { font-size: 10.5px; }
+.pup-parte.pup-c5 .pup-campo span, .pup-parte.pup-c6 .pup-campo span { font-size: 15px; line-height: 1.12; }
+.pup-parte.pup-c5 .pup-entrada, .pup-parte.pup-c6 .pup-entrada { height: 32px; font-size: 26px; }
+.pup-parte.pup-c5 .pup-hueco, .pup-parte.pup-c6 .pup-hueco { min-height: 32px; }
+.pup-parte.pup-c5 .pup-ok, .pup-parte.pup-c6 .pup-ok { width: 32px; height: 32px; font-size: 17px; }
+.pup-parte.pup-c5 .pup-tinta, .pup-parte.pup-c6 .pup-tinta { font-size: 27px; }
+.pup-parte.pup-c5 .pup-visto, .pup-parte.pup-c6 .pup-visto { font-size: 22px; padding-bottom: 3px; }
 .pup-entrada::placeholder { color: rgba(31, 95, 168, .45); font-size: 15px; }
 /* La máquina sin tilde: el tamaño lo ajusta pupAjustar() si la hoja es larga */
 .pup-maq-texto .texto-pistas, .pup-limpio { font-size: var(--pup-fs, 26px); line-height: var(--pup-lh, 1.85); }
+.pup-parte.pup-c5 .pup-logo, .pup-parte.pup-c6 .pup-logo { width: 34px; height: 34px; }
+.pup-parte.pup-c5 .pup-agencia b, .pup-parte.pup-c6 .pup-agencia b { font-size: 24px; }
+.pup-parte.pup-c5 .pup-campo span, .pup-parte.pup-c6 .pup-campo span { font-size: 14.5px; line-height: 1.08; }
+.pup-parte.pup-c5 .pup-letra, .pup-parte.pup-c6 .pup-letra { font-size: 11px; line-height: 1.15; }
+.pup-parte.pup-c5 .pup-pie, .pup-parte.pup-c6 .pup-pie { padding-top: 3px; }
+.pup-parte.pup-c5 .pup-lineas, .pup-parte.pup-c6 .pup-lineas { margin-top: 0; }
+.pup-parte.pup-c6 .pup-linea { gap: 8px; }

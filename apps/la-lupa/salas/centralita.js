@@ -120,8 +120,8 @@ function cenElegir(activas, mezcla) {
   const nivel = nivelAca(), ronda = segunNivel(CEN_RONDA);
   const pesa = f => (f.marcas.some(m => cola[m.p]) ? 1 : 0);
   const deRegla = CEN.banco.filter(f => activas.includes(f.regla));
-  // Primero las de la cola de repaso; en oro, las más largas (nivel 3) antes que las de nivel 2
-  const ordenar = l => barajar(l).sort((a, b) => pesa(b) - pesa(a) || (nivel === 3 ? (b.nivel || 1) - (a.nivel || 1) : 0));
+  // Primero las de la cola de repaso; en plata y oro, las más largas de su lupa antes que las cortas
+  const ordenar = l => barajar(l).sort((a, b) => pesa(b) - pesa(a) || (nivel >= 2 ? (b.nivel || 1) - (a.nivel || 1) : 0));
   const tomar = (cand, n, evitar = new Set()) => {
     if (!mezcla) return cand.filter(f => !evitar.has(f)).slice(0, n);
     const elegidas = [], usadas = new Set();

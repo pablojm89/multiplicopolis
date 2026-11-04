@@ -11,6 +11,13 @@
         lectura, Anselmo se lo hace ver. Al acertar, las dos versiones se
         comparan: la comparación es la explicación;
      3) Escribe: la pizarra se borra y la escribe entera de memoria.
+   Niveles (lupas): bronce, vocativo, sí/no y signos ¿? ¡! en frases cortas;
+   plata, enumeraciones, dos puntos y punto (la tiza de signos gana los dos
+   puntos); oro, incisos y frases más largas con varios signos; diamante,
+   frases de nivel 3 con al menos tres signos y la reescritura sin chuleta
+   (el modelo solo aparece al segundo fallo). Las mayúsculas que dependen de
+   un punto (No. Lo ha roto Mateo / No lo ha roto Mateo) se ponen solas en la
+   pizarra al colocar el signo.
    Registra 9.1 al puntuar y 5.1 al reescribir (regla mayusculas-puntuacion-1;
    sin palabra, para que una frase no entre en la cola de repaso de palabras).
    Reutiliza la escena de pizarra.js (pizEscena, pizDecir, pizBorrar, pizDibujar).
@@ -21,7 +28,7 @@
 const COMA = { banco: null };
 const COMA_RONDA = 4;
 const COMA_REGLA = "mayusculas-puntuacion-1";
-const COMA_SIGNOS = [",", ".", "¿", "?", "¡", "!"];
+const comaSignos = () => (nivelAca() >= 2 ? [",", ".", ":", "¿", "?", "¡", "!"] : [",", ".", "¿", "?", "¡", "!"]);
 const COMA_ORDEN = ",.:?!¿¡";   // en un hueco, primero lo que cierra y después lo que abre: «Lola, ¿vienes?»
 const COMA_PASOS = ["Elige", "Puntúa", "Escribe"];
 const COMA_TIPO = {
@@ -31,7 +38,12 @@ const COMA_TIPO = {
   "pregunta-exclamacion": "Pregunta: ¿ y ?. Exclamación (sorpresa, alegría, susto): ¡ y !. Siempre dos signos, uno al principio y otro al final.",
   enumeracion: "Coma de enumeración: separa los elementos de una lista; el último se une con «y», sin coma.",
   inciso: "Un inciso (la explicación que añadimos en medio) va entre dos comas.",
+  "dos-puntos": "Los dos puntos anuncian lo que viene detrás: una lista que explica lo anterior o las palabras de alguien.",
+  punto: "El punto cierra una oración; lo que viene detrás es otra oración y empieza con mayúscula.",
 };
+/* Signos de una frase (todos, también el del final): el diamante pide frases con tres o más en cada lectura */
+const comaNumSignos = fr => [...fr].filter(c => COMA_ORDEN.includes(c)).length;
+const comaDificil = f => Math.min(...f.lecturas.map(l => comaNumSignos(l.frase))) >= 3;
 
 const comaCanon = s => [...s].filter(c => COMA_ORDEN.includes(c)).sort((a, b) => COMA_ORDEN.indexOf(a) - COMA_ORDEN.indexOf(b)).join("");
 /* Palabras y signos de cada hueco: antes de la primera palabra, entre palabras y después de la última */
@@ -56,10 +68,14 @@ function comaHayVoz() {
   catch { return false; }
 }
 
-/* Frases de la ronda: primero las que no ha visto, con tipos variados */
+/* Frases de la ronda según la lupa: primero las que no ha visto, con tipos variados */
 function comaElegir() {
+  const nv = nivelAca();
+  const filtro = { 1: f => f.nivel === 1, 2: f => f.nivel === 2, 3: f => f.nivel === 3, 4: f => f.nivel === 3 && comaDificil(f) }[nv];
+  let banco = COMA.banco.filter(filtro);
+  if (banco.length < COMA_RONDA * 2) banco = COMA.banco.filter(f => Math.abs(f.nivel - Math.min(nv, 3)) <= (nv === 4 ? 0 : 1));
   const vistas = new Set(cargar(clavecoma(), []));
-  const orden = [...barajar(COMA.banco.filter(f => !vistas.has(f.id))), ...barajar(COMA.banco.filter(f => vistas.has(f.id)))];
+  const orden = [...barajar(banco.filter(f => !vistas.has(f.id))), ...barajar(banco.filter(f => vistas.has(f.id)))];
   const elegidas = [], tipos = new Set();
   orden.forEach(f => { if (elegidas.length < COMA_RONDA && !tipos.has(f.tipo)) { elegidas.push(f); tipos.add(f.tipo); } });
   orden.forEach(f => { if (elegidas.length < COMA_RONDA && !elegidas.includes(f)) elegidas.push(f); });
@@ -90,8 +106,17 @@ nuevaActividad("pizarra", {
   const ronda = () => {
     const f = lista[k];
     if (!f) return terminarActividad(sl, turno);
-    const { palabras } = comaPartir(f.lecturas[0].frase);
-    const n = palabras.length;
+    const n = comaPartir(f.lecturas[0].frase).palabras.length;
+    /* Mayúsculas: una palabra es «propia» si va con mayúscula en todas las versiones o en mitad de una oración;
+       las demás van en minúscula y se ponen en mayúscula al principio o detrás de . ? ! */
+    const versiones = f.lecturas.flatMap(l => [l.frase, ...(l.tambien || [])]).map(comaPartir);
+    const empieza = (h, i) => i === 0 || /[.?!]/.test(h[i] || "");
+    const esMay = w => /^\p{Lu}/u.test(w || "");
+    const palabras = versiones[0].palabras.map((w, i) => {
+      const propia = versiones.every(v => esMay(v.palabras[i])) || versiones.some(v => esMay(v.palabras[i]) && !empieza(v.huecos, i));
+      return propia ? w : w.toLowerCase();
+    });
+    const verPalabra = i => (empieza(huecos, i) ? palabras[i].charAt(0).toUpperCase() + palabras[i].slice(1) : palabras[i]);
     const sol = f.lecturas.map(l => [l.frase, ...(l.tambien || [])].map(x => comaPartir(x).huecos));
     const orden = barajar([0, 1]);   // las dos situaciones, en orden al azar
     let elegida = null;
@@ -102,7 +127,7 @@ nuevaActividad("pizarra", {
       const hueco = i => `<button class="coma-hueco ${huecos[i] ? "lleno" : ""} ${clase}" data-g="${i}" ${editable ? "" : "disabled tabindex=\"-1\""}
         aria-label="${i === 0 ? "Antes de la primera palabra" : i === n ? "Después de la última palabra" : `Entre «${esc(palabras[i - 1])}» y «${esc(palabras[i])}»`}"><span>${comaVer(huecos[i])}</span></button>`;
       $("#pizCont").innerHTML = `<div class="coma-frase ${editable ? "editable" : ""}">${palabras.map((p, i) =>
-        `<span class="coma-grupo">${i === 0 ? hueco(0) : ""}<span class="coma-w">${esc(p)}</span>${hueco(i + 1)}</span>`).join("")}</div>`;
+        `<span class="coma-grupo">${i === 0 ? hueco(0) : ""}<span class="coma-w">${esc(verPalabra(i))}</span>${hueco(i + 1)}</span>`).join("")}</div>`;
       comaAjustar();
     };
     const tarjeta = (j, extra = "", cuerpo = "") => {
@@ -134,7 +159,7 @@ nuevaActividad("pizarra", {
       pizDecir("Coge la tiza: elige un signo y toca entre las palabras para ponerlo (si lo vuelves a tocar, se borra). ¡No te olvides del principio ni del final!");
       $("#pizZona").innerHTML = `<div class="coma-puntuar">
           ${tarjeta(elegida, "elegida")}
-          <div class="coma-paleta" role="group" aria-label="Tiza de signos">${COMA_SIGNOS.map(s => `<button class="coma-signo" data-s="${s}" aria-label="Signo ${s}">${s}</button>`).join("")}
+          <div class="coma-paleta ${comaSignos().length > 6 ? "siete" : ""}" role="group" aria-label="Tiza de signos">${comaSignos().map(s => `<button class="coma-signo" data-s="${s}" aria-label="Signo ${s}">${s}</button>`).join("")}
             <button class="coma-signo esponja" data-s="" aria-label="Esponja: borra un hueco" title="Esponja: borra los signos de un hueco">🧽</button></div>
         </div>`;
       $(".coma-puntuar .coma-lectura").insertAdjacentHTML("beforeend", `<button class="coma-cambiar" id="comaCambiar">⇄ Cambiar</button>`);
@@ -149,6 +174,7 @@ nuevaActividad("pizarra", {
         else huecos[g] = huecos[g].includes(signo) ? huecos[g].replace(signo, "") : comaCanon(huecos[g] + signo);
         b.querySelector("span").innerHTML = comaVer(huecos[g]);
         b.classList.toggle("lleno", !!huecos[g]);
+        $$(".coma-w").forEach((w, i) => (w.textContent = verPalabra(i)));   // la mayúscula detrás de punto se pone sola
         $$(".coma-marca").forEach(m => m.remove());
       });
       activar();
@@ -210,7 +236,9 @@ nuevaActividad("pizarra", {
         $("#pizCont").innerHTML = `<p class="coma-aviso">Escríbela entera, con sus mayúsculas y sus signos:</p>
           <input id="comaResp" class="piz-entrada frase coma-entrada" maxlength="80" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la frase bien puntuada">
           <p class="coma-modelo" id="comaModelo"></p>`;
-        pizDecir("La he borrado. Ahora escríbela tú, de memoria. Si tu teclado no tiene ¿ o ¡, usa los botones de la derecha.");
+        pizDecir(nivelAca() === 4
+          ? "La he borrado. Escríbela entera, de memoria y sin chuleta. Si tu teclado no tiene ¿ o ¡, usa los botones de la derecha."
+          : "La he borrado. Ahora escríbela tú, de memoria. Si tu teclado no tiene ¿ o ¡, usa los botones de la derecha.");
         $("#pizAcc").innerHTML = `<div class="coma-ayudas"><button class="coma-signo mini" data-c="¿">¿</button><button class="coma-signo mini" data-c="¡">¡</button></div><button class="boton-sello" id="comaOk">Escribir</button>`;
         const inp = $("#comaResp");
         inp.focus();
@@ -218,7 +246,8 @@ nuevaActividad("pizarra", {
           const a = inp.selectionStart ?? inp.value.length, z = inp.selectionEnd ?? a;
           inp.setRangeText(b.dataset.c, a, z, "end"); inp.focus();
         });
-        let intentada = false, hecho = false;
+        let intentada = false, hecho = false, fallos = 0;
+        const sinChuleta = nivelAca() === 4;   // diamante: el modelo solo aparece al segundo fallo
         const comprobar = () => {
           if (hecho) return;
           const v = comaLimpia(inp.value);
@@ -226,11 +255,17 @@ nuevaActividad("pizarra", {
           const ok = validas.some(x => comaLimpia(x) === v);
           if (!intentada) { intentada = true; registrar("5.1", ok, null, `reescribir: ${L.frase}`, COMA_REGLA); }
           if (!ok) {
-            const suyas = comaPartir(v).palabras;
+            fallos++;
+            const suyas = comaPartir(v).palabras, buenas = comaPartir(L.frase).palabras;
             const sinTildes = a => a.map(w => quitarTildes(w.toLowerCase()));
-            const diag = comaIguales(suyas, palabras) ? "Las palabras están perfectas: fallan los signos."
-              : comaIguales(sinTildes(suyas), sinTildes(palabras)) ? "Revisa las mayúsculas y las tildes."
+            const diag = comaIguales(suyas, buenas) ? "Las palabras están perfectas: fallan los signos."
+              : comaIguales(sinTildes(suyas), sinTildes(buenas)) ? "Revisa las mayúsculas y las tildes."
               : "Alguna palabra no está igual.";
+            if (sinChuleta && fallos < 2) {
+              pizDecir(`Casi. ${diag} Un maestro detective no necesita chuleta: inténtalo otra vez.`, "pensativo");
+              inp.focus();
+              return;
+            }
             $("#comaModelo").innerHTML = `Se escribe: <b>${esc(L.frase)}</b>`;
             pizDecir(`Casi. ${diag} Te la dejo escrita debajo: cópiala tú, signo a signo.`, "pensativo");
             inp.value = ""; inp.focus();

@@ -152,6 +152,7 @@
 .del-casillas.muy-largas .del-casilla b { font-size: 36px; }
 .del-casillas.muy-largas .del-casilla small { font-size: 10.5px; }
 /* Muchas teclas trampa (diamante): seis columnas y teclas algo más bajas */
-.del-teclado.muchas { grid-template-columns: repeat(6, 1fr); gap: 8px; }
-.del-teclado.muchas .del-tecla { height: 52px; }
-.del-teclado.muchas .del-tecla b { font-size: 18px; }
+.del-teclado.muchas { grid-template-columns: repeat(6, 1fr); gap: 6px 8px; }
+.del-teclado.muchas .del-tecla { height: 46px; }
+.del-teclado.muchas .del-tecla b { font-size: 17px; }
+.del-teclado.muchas .del-tecla small { font-size: 11px; }

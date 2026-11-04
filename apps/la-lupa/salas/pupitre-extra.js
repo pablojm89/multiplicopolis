@@ -138,8 +138,8 @@ function pupNota(texto, expr = "neutral", palabra = "") {
   n.classList.remove("pup-nueva"); void n.offsetWidth; n.classList.add("pup-nueva");
 }
 /* Teclas de repuesto: escriben letras con tilde, diéresis y eñe en el último campo usado */
-function pupTeclas(cont, campo) {
-  cont.innerHTML = ["á", "é", "í", "ó", "ú", "ü", "ñ"].map(l => `<button type="button" class="pup-tecla" data-l="${l}" aria-label="Escribir ${l}">${l}</button>`).join("");
+function pupTeclas(cont, campo, extra = []) {
+  cont.innerHTML = ["á", "é", "í", "ó", "ú", "ü", "ñ", ...extra].map(l => `<button type="button" class="pup-tecla" data-l="${l}" aria-label="Escribir ${l}">${l}</button>`).join("");
   $$(".pup-tecla", cont).forEach(b => {
     b.onmousedown = ev => ev.preventDefault();   // que el campo no pierda el foco
     b.onclick = () => {
@@ -309,7 +309,7 @@ nuevaActividad("pupitre", {
       const hoja = $("#pupHoja");
       hoja.classList.add("tramitada");
       const repasos = $$(".pup-linea.pup-repaso").length;
-      pupNota(repasos ? `Parte tramitado. Las ${repasos === 1 ? "palabra marcada vuelve" : `${repasos} palabras marcadas vuelven`} a tus fichas de repaso.` : "¡Parte tramitado a la primera! La directora no tendrá nada que tachar.", "contento");
+      pupNota(repasos ? `Parte tramitado. ${repasos === 1 ? "La palabra marcada vuelve" : `Las ${repasos} palabras marcadas vuelven`} a tus fichas de repaso.` : "¡Parte tramitado a la primera! La directora no tendrá nada que tachar.", "contento");
       const ultimo = r + 1 >= partes.length;
       setTimeout(() => {
         if (!hoja.isConnected) return;
@@ -414,7 +414,10 @@ nuevaActividad("pupitre", {
       <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "sala-pup" });
     $("#acaVolver").onclick = pupSalir;
     pupNota(r === 0
-      ? "Esta vieja Tipógrafa perdió la tecla de la tilde en 1987 y nadie la ha encontrado. Ojo: no todas las palabras la necesitan. Las de una sola sílaba, como «fue» o «dio», no la llevan."
+      ? ["Esta vieja Tipógrafa perdió la tecla de la tilde en 1987 y nadie la ha encontrado. Ojo: no todas las palabras la necesitan. Las de una sola sílaba, como «fue» o «dio», no la llevan.",
+         "Esta vieja Tipógrafa perdió la tecla de la tilde en 1987 y nadie la ha encontrado. Ojo: no todas las palabras la necesitan. Las de una sola sílaba, como «fue» o «dio», no la llevan.",
+         "Hoja de oro: hay esdrújulas, y también palabras que parecen llevar tilde y no la llevan, como «examen» o «joven». No piques.",
+         "Hoja de diamante: las mayúsculas también llevan tilde (Ángel, Úbeda), los monosílabos como «fue» o «pie» no la llevan y hay diptongos por todas partes."][nivel - 1]
       : "Otra hoja de la Tipógrafa. Lee despacio y escucha qué sílaba suena más fuerte.");
 
     let hechas = 0, falsas = 0;
@@ -451,14 +454,16 @@ nuevaActividad("pupitre", {
         <p id="pupCorrMsg" class="msg"></p>
         <div class="acciones"><button class="boton-sello" id="pupCorrOk">Comprobar</button></div>`, "ventana-libreta pup-ventana");
       const inp = $("#pupCorr");
-      pupTeclas($("#pupTeclasM"), () => inp);
+      // En diamante hay mayúsculas con tilde (Ángel, Úbeda…): se exige la mayúscula y hay teclas para ellas
+      const mayus = nivel >= 4 && /^[ÁÉÍÓÚ]/.test(tk.bien);
+      pupTeclas($("#pupTeclasM"), () => inp, mayus ? ["Á", "É", "Í", "Ó", "Ú"] : []);
       const cerrarSinResolver = () => b.classList.remove("sospechosa");
       $("#capaModal .cerrar").addEventListener("click", cerrarSinResolver);
       inp.focus();
       const comprobar = () => {
         const v = inp.value.normalize("NFC").trim();
         if (!v) return;
-        const ok = norm(v) === norm(tk.bien);
+        const ok = norm(v) === norm(tk.bien) && (!mayus || v[0] === tk.bien[0]);
         // En la cola de repaso, en minúscula salvo los nombres propios (Julián, Ramón…)
         if (!tk.intentada) { tk.intentada = true; registrar("5.1", ok, propios.has(tk.bien) ? tk.bien : tk.bien.toLowerCase(), "sin tilde", tk.regla); }
         if (ok) {
@@ -477,6 +482,8 @@ nuevaActividad("pupitre", {
         const sinT = pupSinTildes(v) === v;
         $("#pupCorrMsg").innerHTML = fallos >= 2
           ? `Se escribe <strong>${esc(tk.bien)}</strong>. Escríbela tú.`
+          : mayus && norm(v) === norm(tk.bien)
+            ? "Casi: va con mayúscula. Y la mayúscula también lleva tilde (Á, É, Í, Ó, Ú)."
           : norm(pupSinTildes(v)) === norm(tk.t)
             ? (sinT ? "Le falta la tilde. ¿Qué sílaba suena más fuerte?" : "La tilde no va en esa vocal. Di la palabra en voz alta y busca la sílaba fuerte.")
             : "Fíjate bien en cada letra: solo hay que añadir la tilde.";

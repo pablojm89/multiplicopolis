@@ -158,3 +158,33 @@
 @media (prefers-reduced-motion: reduce) {
   .lab-rotor.girando, .lab-frase, .lab-hueco.lleno, .lab-ficha, .lab-molde.hecho { animation: none; }
 }
+
+/* ── Niveles (lupas): insignia del nivel en la esquina ──────── */
+.lab-insignia { position: absolute; top: 26px; right: 28px; z-index: 5; display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font: 800 18px var(--f-ui); color: var(--crema); background: var(--cristal); border: 2px solid rgba(242, 169, 59, .55); border-radius: 999px; box-shadow: 0 4px 14px rgba(0, 0, 0, .45); }
+.lab-insignia.n1 { border-color: #c98a52; }
+.lab-insignia.n2 { border-color: #c9d2da; }
+.lab-insignia.n3 { border-color: #f2c94c; box-shadow: 0 4px 14px rgba(0, 0, 0, .45), 0 0 14px rgba(242, 201, 76, .35); }
+.lab-insignia.n4 { border-color: #9be7ff; box-shadow: 0 4px 14px rgba(0, 0, 0, .45), 0 0 16px rgba(155, 231, 255, .45); }
+
+/* Oro: frases largas en el ocular */
+.lab-frase.larga { max-width: 370px; font-size: 21px; line-height: 1.45; }
+/* Diamante: dos huecos numerados; el que se resuelve, iluminado */
+.lab-hueco i { font: 800 15px var(--f-ui); font-style: normal; color: #9a4a12; vertical-align: middle; }
+.lab-hueco.activo { background: rgba(242, 169, 59, .55); box-shadow: 0 0 0 2px #c2410c; }
+.lab-doble .lab-bandeja { flex-wrap: wrap; gap: 12px 14px; padding: 14px 10px; }
+.lab-doble .lab-porta { width: 164px; height: 72px; }
+.lab-doble .lab-porta b { font-size: 28px; }
+.lab-doble .lab-porta.elegida i { background: #9be2ae; }
+.lab-doble .lab-analisis { gap: 5px; }
+.lab-doble .lab-ficha { grid-template-columns: 128px 1fr; gap: 10px; padding: 4px 12px; }
+.lab-doble .lab-ficha b { font-size: 24px; }
+.lab-doble .lab-ficha span { font-size: 14.5px; line-height: 1.3; }
+.lab-doble .lab-ficha:nth-child(4) { animation-delay: .36s; } .lab-doble .lab-ficha:nth-child(5) { animation-delay: .48s; } .lab-doble .lab-ficha:nth-child(6) { animation-delay: .6s; }
+.lab-doble .lab-dice { font-size: 17px; }
+/* Los trucos de Mateo, al final del diamante */
+.lab-trucos { display: grid; gap: 10px; }
+.lab-truco { display: grid; gap: 4px; padding: 10px 14px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); border-left: 4px solid var(--albero); border-radius: 8px; animation: lab-aparece .4s ease-out backwards; }
+.lab-truco b { font: 24px var(--f-maquina); font-weight: 400; color: var(--crema); }
+.lab-truco span { font: 16px/1.35 var(--f-ui); color: #d6dee6; }
+.lab-truco.fallado { border-left-color: #ffb4a8; background: rgba(194, 65, 12, .16); }
+@media (prefers-reduced-motion: reduce) { .lab-truco { animation: none; } }

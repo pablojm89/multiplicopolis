@@ -119,7 +119,8 @@ async function delCargar() {
   if (banco.length) DEL.banco = banco;
   return banco;
 }
-/* Las palabras que tocan en cada lupa: se prueba el filtro estricto y, si hay pocas, se afloja */
+/* Las palabras que tocan en cada lupa, en orden: primero las del filtro estricto (barajadas) y, si no
+   llegan, las del siguiente filtro, más flojo; así en oro van primero las largas con tilde o diéresis */
 const delLargo = w => [...w.p].length;
 const delAcento = w => /[áéíóúü]/.test(w.p);
 function delDeNivel(lista, n, nivel = nivelAca()) {
@@ -130,15 +131,18 @@ function delDeNivel(lista, n, nivel = nivelAca()) {
     3: [w => delLargo(w) >= 7 && delAcento(w), w => delLargo(w) >= 7 && (delAcento(w) || nv(w) >= 2), w => delLargo(w) >= 7],
     4: [w => nv(w) === 3 && delLargo(w) >= 6, w => nv(w) === 3, w => nv(w) >= 2 && delLargo(w) >= 8, w => delLargo(w) >= 8],
   }[nivel] || [];
-  for (const f of filtros) { const l = lista.filter(f); if (l.length >= n) return l; }
-  return lista;
+  const out = [], usadas = new Set();
+  const meter = l => barajar(l.filter(w => !usadas.has(w))).forEach(w => { usadas.add(w); out.push(w); });
+  for (const f of filtros) { meter(lista.filter(f)); if (out.length >= n) return out; }
+  meter(lista);
+  return out;
 }
 /* Primero, las palabras que el alumno tiene en la cola de repaso; en modo inspector, reglas alternadas */
 function delElegir(banco, activas, mezcla) {
   const n = DEL_RONDA[0] + DEL_RONDA[1];
   const cola = estadoAca().cola;
   const pesa = w => (cola[w.p] ? 1 : 0);
-  const cand = barajar(delDeNivel(banco.filter(w => activas.includes(w.regla)), n)).sort((a, b) => pesa(b) - pesa(a));
+  const cand = delDeNivel(banco.filter(w => activas.includes(w.regla)), n).map((w, i) => [w, i]).sort((a, b) => pesa(b[0]) - pesa(a[0]) || a[1] - b[1]).map(x => x[0]);
   let elegidas = [];
   if (!mezcla) elegidas = cand.slice(0, n);
   else {
@@ -147,7 +151,7 @@ function delElegir(banco, activas, mezcla) {
     const rs = barajar(Object.keys(por));
     for (let i = 0; elegidas.length < n && rs.some(r => por[r].length); i++) { const w = por[rs[i % rs.length]].shift(); if (w) elegidas.push(w); }
   }
-  if (elegidas.length < n) elegidas.push(...barajar(delDeNivel(banco, n).filter(w => !elegidas.includes(w))).slice(0, n - elegidas.length));
+  if (elegidas.length < n) elegidas.push(...delDeNivel(banco, n).filter(w => !elegidas.includes(w)).slice(0, n - elegidas.length));
   // En la fase 1 (de oído) van primero las más cortas
   const oido = elegidas.slice(0, DEL_RONDA[0]).sort((a, b) => delLetras(a.p).length - delLetras(b.p).length);
   return [...oido, ...elegidas.slice(DEL_RONDA[0])];
