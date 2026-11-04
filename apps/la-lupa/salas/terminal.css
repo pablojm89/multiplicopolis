@@ -1,1 +1,134 @@
-/* Sala «terminal» de la Academia: pendiente. */
+/* ============================================================
+   Sala «terminal» de la Academia: la Terminal ORTO-3000
+   Monitor CRT de fósforo verde (barrido, líneas, cursor), dial temporal
+   tipo sintonizador de radio, interruptor N1/N2 y teclado beige.
+   Todo en px del escenario de 1280×720. Prefijo .ter-
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+.ter-escena { --ter-verde: #8dffa8; --ter-verde-osc: #2fbf62; --ter-ambar: #ffcf5c; --ter-beige: #e7dcc1; --ter-beige-osc: #b9aa86; --f-ter: "VT323", "Courier New", monospace; }
+.escenario.ter-escena .fondo { filter: brightness(.42) saturate(.85); }
+.ter-sala { position: absolute; inset: 0; }
+
+/* El monitor pequeño del fondo también se enciende */
+.ter-mini { position: absolute; left: 182px; top: 249px; width: 97px; height: 91px; border-radius: 10px 10px 14px 14px; background: radial-gradient(ellipse at 50% 45%, #1d6b38, #062211 75%); box-shadow: 0 0 26px rgba(80, 255, 130, .45), inset 0 0 18px rgba(0, 0, 0, .8); display: grid; place-items: center; overflow: hidden; }
+.ter-mini::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(rgba(0, 0, 0, .35) 0 1px, transparent 1px 3px); }
+.ter-mini span { font: 22px var(--f-ter); color: var(--ter-verde); text-shadow: 0 0 6px rgba(120, 255, 160, .9); animation: parpadeo 2.4s steps(2) infinite; }
+
+/* Mateo, a la izquierda, delante del escritorio */
+.personaje.izq.ter-mateo { left: -26px; height: 410px; z-index: 2; }
+
+/* ── Carcasa del monitor ── */
+.ter-crt { position: absolute; left: 292px; top: 8px; width: 970px; height: 540px; border-radius: 28px 28px 22px 22px; background: linear-gradient(180deg, #f1e8d2 0%, var(--ter-beige) 40%, #d3c6a6 100%); box-shadow: inset 0 3px 0 rgba(255, 255, 255, .7), inset 0 -6px 0 rgba(0, 0, 0, .12), 0 22px 40px rgba(0, 0, 0, .65), 0 0 90px rgba(60, 255, 120, .12); }
+.ter-pantalla { position: absolute; left: 26px; right: 26px; top: 20px; height: 432px; border-radius: 26px / 34px; overflow: hidden; cursor: text; background: radial-gradient(ellipse at 50% 45%, #0d3219 0%, #06200f 55%, #020c05 100%); border: 10px solid #2d2b24; box-shadow: inset 0 0 70px rgba(0, 0, 0, .85), inset 0 0 18px rgba(120, 255, 160, .18), 0 0 0 3px #a89a78; }
+/* Líneas de barrido y la franja que baja */
+.ter-pantalla::before { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: repeating-linear-gradient(rgba(0, 0, 0, .28) 0 1px, transparent 1px 3px); }
+.ter-pantalla::after { content: ""; position: absolute; left: 0; right: 0; height: 120px; top: -120px; z-index: 3; pointer-events: none; background: linear-gradient(transparent, rgba(140, 255, 170, .07) 60%, rgba(140, 255, 170, .14), transparent); animation: ter-barrido 7s linear infinite; }
+@keyframes ter-barrido { to { top: 100%; } }
+.ter-pantalla.ter-destello { animation: ter-destello .45s ease-out; }
+.ter-pantalla.ter-fallo { animation: ter-fallo .4s steps(2); }
+@keyframes ter-destello { 0% { filter: brightness(1.9) saturate(1.4); } 100% { filter: none; } }
+@keyframes ter-fallo { 0% { transform: translateX(-5px); filter: hue-rotate(-70deg) brightness(1.4); } 50% { transform: translateX(5px); } 100% { transform: none; filter: none; } }
+
+.ter-salida { position: absolute; inset: 14px 26px 12px; z-index: 2; font: 25px/1.06 var(--f-ter); color: var(--ter-verde); text-shadow: 0 0 5px rgba(110, 255, 150, .75), 0 0 16px rgba(40, 210, 100, .45); animation: ter-zumbido 5s infinite; }
+@keyframes ter-zumbido { 0%, 96%, 100% { opacity: 1; } 97% { opacity: .86; } 98% { opacity: 1; } 99% { opacity: .92; } }
+.ter-linea { margin: 0; white-space: pre-wrap; }
+.ter-hueco-linea { height: 14px; }
+.ter-cab { display: flex; justify-content: space-between; font-size: 22px; color: #0a2512; background: var(--ter-verde); text-shadow: none; padding: 1px 10px 0; margin: 0 0 10px; box-shadow: 0 0 12px rgba(110, 255, 150, .5); }
+.ter-cuerpo { display: grid; grid-template-columns: 1fr 318px; gap: 22px; align-items: start; }
+.ter-cuerpo.viaje { grid-template-columns: 1fr 236px; }
+.ter-izq .ter-linea { line-height: 1; font-size: 24px; }
+.ter-dato { padding-left: 22px; opacity: .92; }
+.ter-verbo { color: #fff; font-weight: 400; text-shadow: 0 0 8px rgba(160, 255, 190, .9); }
+.ter-frase { padding: 6px 0 2px 22px; color: #e9ffef; }
+.ter-dato u { text-decoration: underline 2px; text-underline-offset: 4px; }
+.ter-hueco { color: var(--ter-ambar); text-shadow: 0 0 8px rgba(255, 200, 80, .7); }
+
+/* Línea de entrada con cursor de bloque */
+.ter-entrada { display: flex; gap: 10px; margin-top: 6px; font-size: 32px; line-height: 1; }
+.ter-prompt { color: var(--ter-verde); }
+.ter-campo { position: relative; flex: 1; display: flex; align-items: baseline; min-height: 36px; border-bottom: 1px dashed rgba(141, 255, 168, .35); }
+.ter-campo input { position: absolute; inset: 0; width: 100%; opacity: 0; font-size: 20px; border: 0; padding: 0; }
+.ter-espejo { white-space: pre; color: #f2fff5; }
+.ter-cursor { animation: ter-cursor 1s steps(1) infinite; }
+@keyframes ter-cursor { 50% { opacity: 0; } }
+.ter-entrada.hecha .ter-cursor, .ter-campo:has(input:disabled) .ter-cursor { display: none; }
+.ter-entrada.hecha .ter-espejo { color: var(--ter-verde); }
+.ter-pista-copia { display: none; margin-left: auto; font-size: 20px; color: var(--ter-ambar); animation: parpadeo 1.2s steps(2) infinite; }
+.ter-entrada.copiar:not(.hecha) .ter-campo:not(.lleno) .ter-pista-copia { display: block; }
+
+/* Tabla del tiempo (derecha) */
+.ter-tabla { border: 2px solid rgba(141, 255, 168, .6); padding: 4px 12px 6px; box-shadow: inset 0 0 14px rgba(110, 255, 150, .15); }
+.ter-tabla-tit { margin: 0 0 4px; font-size: 20px; border-bottom: 1px dashed rgba(141, 255, 168, .5); padding-bottom: 3px; }
+.ter-fila-tabla { margin: 0; display: grid; grid-template-columns: 112px 1fr; font-size: 23px; line-height: 1; }
+.ter-fila-tabla span:first-child { opacity: .7; }
+.ter-fila-tabla.objetivo { color: var(--ter-ambar); text-shadow: 0 0 8px rgba(255, 200, 80, .6); animation: parpadeo 1.6s steps(2) infinite; }
+.ter-fila-tabla.objetivo:has(.ter-partido) { animation: none; }
+
+/* Viaje en el tiempo: caja del salto */
+.ter-salto { border: 2px solid rgba(141, 255, 168, .6); padding: 10px 12px; display: grid; gap: 8px; text-align: center; }
+.ter-salto b { font-weight: 400; font-size: 27px; letter-spacing: .06em; }
+.ter-salto span { color: var(--ter-ambar); text-shadow: 0 0 8px rgba(255, 200, 80, .6); }
+.ter-salto small { font-size: 19px; line-height: 1; opacity: .85; }
+.ter-barra { display: block; height: 18px; border: 2px solid var(--ter-verde); padding: 2px; }
+.ter-barra i { display: block; height: 100%; width: 100%; background: repeating-linear-gradient(90deg, var(--ter-verde) 0 10px, transparent 10px 13px); animation: ter-carga 2.2s steps(12) infinite; }
+@keyframes ter-carga { from { width: 0; } to { width: 100%; } }
+
+/* Raíz | desinencia en colores */
+.ter-partido { white-space: nowrap; }
+.ter-raiz { color: var(--ter-verde); }
+.ter-des { color: var(--ter-ambar); text-shadow: 0 0 8px rgba(255, 200, 80, .7); }
+.ter-aux { color: #9fd8ff; text-shadow: 0 0 8px rgba(120, 200, 255, .6); }
+.ter-sep { color: #fff; opacity: .7; padding: 0 2px; }
+.ter-partido.grande { font-size: 34px; background: rgba(0, 0, 0, .35); padding: 0 8px; border: 1px solid rgba(141, 255, 168, .4); }
+.ter-error .ter-partido.grande .ter-des { background: var(--ter-ambar); color: #241600; text-shadow: none; padding: 0 2px; }
+
+/* Respuesta de la máquina */
+.ter-res { margin-top: 8px; border-top: 1px dashed rgba(141, 255, 168, .35); padding-top: 6px; display: grid; gap: 4px; }
+.ter-res:empty { display: none; }
+.ter-ok { font-size: 28px; }
+.ter-leyenda { font-size: 20px; opacity: .9; }
+.ter-error { font-size: 26px; }
+.ter-inverso { background: var(--ter-verde); color: #0a2512; text-shadow: none; padding: 0 8px; }
+.ter-aviso { color: var(--ter-ambar); }
+.ter-mateo-dice { font-size: 21px; line-height: 1; color: #d5ffe0; padding-left: 74px; text-indent: -74px; }
+.ter-parpadea { animation: parpadeo 1.2s steps(2) infinite; }
+.ter-boton { display: block; margin-top: 4px; background: none; color: var(--ter-verde); font: 26px var(--f-ter); text-shadow: inherit; text-align: left; padding: 0 6px; border: 1px solid transparent; }
+.ter-boton:hover, .ter-boton:focus-visible { border-color: var(--ter-verde); outline: none; }
+
+/* Arranque: opciones de nivel */
+.ter-opcion-nivel { display: block; width: 100%; text-align: left; background: none; color: var(--ter-verde); font: 25px var(--f-ter); text-shadow: inherit; padding: 2px 10px; margin: 2px 0; border: 1px solid transparent; }
+.ter-opcion-nivel b { font-weight: 400; }
+.ter-opcion-nivel.activo { background: var(--ter-verde); color: #0a2512; text-shadow: none; box-shadow: 0 0 14px rgba(110, 255, 150, .55); }
+.ter-opcion-nivel:hover:not(.activo) { border-color: var(--ter-verde); }
+
+/* ── Bisel inferior: dial temporal, interruptor y marca ── */
+.ter-bisel { position: absolute; left: 30px; right: 30px; bottom: 10px; height: 74px; display: flex; gap: 20px; align-items: stretch; }
+.ter-dial { flex: 1; display: grid; grid-template-rows: auto 1fr; gap: 3px; }
+.ter-dial small, .ter-nivel small { font: 800 11px var(--f-ui); letter-spacing: .14em; color: #6f6247; text-align: center; }
+.ter-escala { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); align-items: end; border-radius: 8px; padding: 0 6px 8px; background: repeating-linear-gradient(90deg, rgba(255, 210, 140, .35) 0 1px, transparent 1px 11px) bottom / 100% 12px no-repeat, linear-gradient(#3a2610, #1d1206); box-shadow: inset 0 3px 10px rgba(0, 0, 0, .8), 0 1px 0 rgba(255, 255, 255, .6); border: 2px solid #8d7c58; overflow: hidden; }
+.ter-escala span { text-align: center; font: 17px/1 var(--f-cartel); letter-spacing: .04em; color: rgba(255, 207, 120, .45); padding-bottom: 12px; transition: color .4s, text-shadow .4s; }
+.ter-escala span.activo { color: #ffe3a1; text-shadow: 0 0 10px rgba(255, 190, 70, .95); }
+.ter-aguja { position: absolute; top: 4px; bottom: 4px; left: 58%; width: 3px; margin-left: -1px; background: #ff4a3a; box-shadow: 0 0 8px rgba(255, 70, 50, .9); transition: left .9s cubic-bezier(.3, 1.4, .5, 1); }
+.ter-nivel { width: 130px; display: grid; grid-template-rows: auto 1fr; gap: 3px; }
+.ter-interruptor { display: grid; grid-template-columns: 1fr 1fr; background: #3b352a; border-radius: 10px; padding: 5px; gap: 5px; box-shadow: inset 0 3px 8px rgba(0, 0, 0, .7); }
+.ter-interruptor button { font: 26px var(--f-cartel); color: #6f6247; background: linear-gradient(#efe6cf, #cbbd99); border-radius: 6px; box-shadow: 0 5px 0 #8d7c58; transform: translateY(-3px); position: relative; }
+.ter-interruptor button::after { content: ""; position: absolute; top: 6px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: #5b5240; }
+.ter-interruptor button.activo { color: #2b2418; background: linear-gradient(#cfc2a0, #e0d4b6); box-shadow: 0 1px 0 #8d7c58, inset 0 2px 5px rgba(0, 0, 0, .35); transform: translateY(1px); }
+.ter-interruptor button.activo::after { background: #4dff7c; box-shadow: 0 0 8px #4dff7c; }
+.ter-interruptor button:disabled { cursor: not-allowed; }
+.ter-marca { width: 150px; display: grid; align-content: center; justify-items: center; gap: 6px; position: relative; }
+.ter-marca b { font: 30px var(--f-cartel); font-weight: 400; color: #5e523c; letter-spacing: .06em; text-shadow: 0 1px 0 rgba(255, 255, 255, .7); }
+.ter-marca i { width: 110px; height: 14px; background: linear-gradient(#5fb847 0 16.6%, #f6c23e 16.6% 33.3%, #f08a32 33.3% 50%, #e0443e 50% 66.6%, #9a4fb5 66.6% 83.3%, #3a7bd5 83.3%); border-radius: 2px; }
+.ter-led { position: absolute; right: 6px; bottom: 4px; width: 10px; height: 10px; border-radius: 50%; background: #4dff7c; box-shadow: 0 0 10px #4dff7c; }
+
+/* ── Teclado beige ── */
+.ter-teclado { position: absolute; left: 330px; top: 558px; width: 900px; height: 154px; padding: 10px 16px; border-radius: 14px 14px 18px 18px; background: linear-gradient(#e9dfc6, #cdbf9c); box-shadow: inset 0 2px 0 rgba(255, 255, 255, .7), 0 6px 0 #9d8f6c, 0 16px 30px rgba(0, 0, 0, .6); display: grid; gap: 7px; align-content: center; transform: perspective(900px) rotateX(10deg); transform-origin: top; }
+.ter-fila { display: flex; gap: 6px; justify-content: center; }
+.ter-tecla { width: 46px; height: 38px; border-radius: 6px; background: linear-gradient(#fbf5e6, #ddd0ae); color: #4a4030; font: 19px var(--f-ter); box-shadow: 0 4px 0 #9d8f6c, 0 5px 4px rgba(0, 0, 0, .3); border: 1px solid #b8a983; }
+.ter-tecla.acento { background: linear-gradient(#c99a6b, #a9774a); color: #fff3dc; border-color: #7f5530; box-shadow: 0 4px 0 #6d4826, 0 5px 4px rgba(0, 0, 0, .3); font-size: 22px; }
+.ter-tecla.ancha { width: 112px; font-size: 18px; }
+.ter-tecla[data-k=" "] { width: 210px; }
+.ter-tecla.intro { width: 128px; background: linear-gradient(#f08a62, #d9583a); color: #fff; border-color: #a33d24; box-shadow: 0 4px 0 #8c3420, 0 5px 4px rgba(0, 0, 0, .3); }
+.ter-tecla:active, .ter-tecla.pulsada { transform: translateY(3px); box-shadow: 0 1px 0 #9d8f6c; filter: brightness(.95); }
+.ter-hueco-tecla { width: 18px; }
