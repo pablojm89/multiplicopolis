@@ -38,11 +38,11 @@
 .piz-pruebas { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 16px 40px; width: 100%; }
 .piz-pruebas.frases { gap: 12px 22px; }
 .piz-pruebas.nuevas { gap: 10px 44px; margin-top: 6px; }
-.piz-p { position: relative; font: 46px/1.05 var(--f-mano); color: inherit; background: none; padding: 6px 16px; transform: rotate(var(--g, 0deg)); transition: opacity .3s, text-shadow .2s; }
-.piz-p.frase { font-size: 23px; line-height: 1; padding: 5px 10px; max-width: 290px; text-align: center; }
-.piz-pruebas.nuevas .piz-p { font-size: 44px; }
+.piz-p { position: relative; font: var(--tam, 46px)/1.05 var(--f-mano); color: inherit; background: none; padding: 6px 16px; transform: rotate(var(--g, 0deg)); transition: opacity .3s, text-shadow .2s; }
+.piz-p.frase { font-size: var(--tam, 23px); line-height: 1; padding: 5px 10px; max-width: 290px; text-align: center; }
+.piz-pruebas.nuevas .piz-p { font-size: var(--tam, 44px); }
 .piz-pruebas.nuevas.frases { flex-direction: column; align-items: center; gap: 2px; margin-top: 2px; }
-.piz-pruebas.nuevas .piz-p.frase { font-size: 23px; max-width: none; padding: 4px 12px; }
+.piz-pruebas.nuevas .piz-p.frase { font-size: var(--tam, 23px); max-width: none; padding: 4px 12px; }
 .piz-p:hover { text-shadow: 0 0 12px rgba(255, 255, 255, .45); }
 .piz-p.fuera { opacity: .45; }
 .piz-p.tachada { opacity: .6; }

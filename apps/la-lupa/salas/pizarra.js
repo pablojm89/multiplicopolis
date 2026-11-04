@@ -99,6 +99,14 @@ function pizBorrar(despues) {
   setTimeout(() => t.classList.remove("polvo", "escribiendo"), 2600);
 }
 
+/* Si las pruebas no caben en la pizarra (palabras largas), la tiza se hace más pequeña */
+function pizAjustar() {
+  const c = $("#pizCont"), pr = $$("#pizCont .piz-pruebas").at(-1);
+  if (!c || !pr) return;
+  let tam = parseFloat(getComputedStyle(pr.querySelector(".piz-p")).fontSize);
+  while (c.scrollHeight > c.clientHeight + 1 && tam > 20) { tam -= 2; pr.style.setProperty("--tam", `${tam}px`); }
+}
+
 /* ── Trazos de tiza a mano alzada (SVG) ──────────────────────── */
 const pizAzar = (a, b) => a + Math.random() * (b - a);
 function pizTrazoCirculo(w, h) {
@@ -186,6 +194,8 @@ function pizRonda(sl, regla, turno) {
   const conPlural = (texto, w) => texto.replace("{plural}", plural(w));
 
   partidaAca(sl, [regla]);
+  // Aquí las palabras pulsadas por error están bien escritas: no van a la lista de «repasar» (que es de ortografía)
+  const anotar9 = (ok, palabra, detalle) => { registrar("9.1", ok, palabra, detalle, regla); if (!ok && palabra) P.repasar.delete(palabra); };
   const salir = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
   pizEscena(sl, D.reglas[regla]?.nombre || regla, { volver: salir });
 
@@ -197,6 +207,7 @@ function pizRonda(sl, regla, turno) {
   const paso1 = () => {
     pizPasos(1);
     $("#pizCont").innerHTML = `<div class="piz-pruebas ${frases ? "frases" : ""}">${pruebas.map((x, i) => htmlPrueba(x, i)).join("")}</div>`;
+    pizAjustar();
     pizDecir(`Seis pruebas. Cuatro tienen algo en común… y dos se han colado. Rodea con la tiza las cuatro que se parecen.`);
     $("#pizAcc").innerHTML = `<p class="piz-cuenta" id="pizCuenta">Rodeadas: 0 de 4</p><button class="boton-sello" id="pizOk" disabled>Comprobar</button>`;
     const elegidas = new Set();
@@ -277,6 +288,7 @@ function pizRonda(sl, regla, turno) {
     pizBorrar(() => {
       pizPasos(3);
       $("#pizCont").innerHTML = `${htmlHipotesis()}<div class="piz-pruebas nuevas ${frases ? "frases" : ""}">${nuevas.map((x, i) => htmlPrueba(x, i, "nueva")).join("")}</div>`;
+      pizAjustar();
       pizDecir(modo === "excepcion"
         ? "Te añado tres pruebas nuevas. Una de ellas rompe la regla: es la excepción. ¿Cuál es?"
         : `Te añado tres pruebas nuevas. Solo una cumple la regla. ¿Cuál la confirma?`);
@@ -284,7 +296,7 @@ function pizRonda(sl, regla, turno) {
       $$(".piz-p.nueva").forEach(b => b.onclick = () => {
         if (hecho || b.classList.contains("tachada")) return;
         const x = nuevas[Number(b.dataset.i)];
-        if (primera) { registrar("9.1", x.ok, x.p, modo === "excepcion" ? "contraejemplo" : "confirmación", regla); primera = false; }
+        if (primera) { anotar9(x.ok, x.p, modo === "excepcion" ? "contraejemplo" : "confirmación"); primera = false; }
         if (!x.ok) {
           b.classList.add("tachada");
           pizDibujar(b, pizTrazoTachon, "tachon rosa", [6, 2]);
@@ -322,12 +334,12 @@ function pizRonda(sl, regla, turno) {
       const rx = sub.patron ? new RegExp(sub.patron) : null;
       const delBanco = new Set([...sub.ejemplos, ...ACA.palabras.filter(w => w.regla === regla && (!rx || rx.test(norm(w.p)))).map(w => w.p)].map(clave));
       let registrado = false, dudas = 0, hecho = false;
-      const anotar = (ok, v, detalle) => { if (!registrado) { registrado = true; registrar("9.1", ok, v, detalle, regla); } };
+      const anotar = (ok, v, detalle) => { if (!registrado) { registrado = true; anotar9(ok, v, detalle); } };
       // Un ejemplo propio que no está en el banco se guarda siempre para el maestro, aunque antes hubiera un fallo
       const paraRevisar = v => {
         if (!registrado) anotar(true, v, "ejemplo propio (revisar)");
         const e = P.eventos.findLast(x => x.detalle?.startsWith("ejemplo propio"));
-        if (e) { e.revisar = v; e.detalle = "ejemplo propio (revisar)"; }   // el primer intento sigue contando para la nota
+        if (e && e.palabra !== v) { e.fallo = e.palabra; e.palabra = v; e.detalle = "ejemplo propio (revisar)"; }   // el primer intento sigue contando para la nota
       };
       const comprobar = () => {
         if (hecho) return;
