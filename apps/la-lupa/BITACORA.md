@@ -130,3 +130,23 @@ Además, la **libreta imprimible** (`imprimibles/libreta.html`).
 - **Propuesta de la temporada 2**, con 3 opciones.
 
 Además, **otra sesión hizo la música y los efectos** (rama `claude/sonido`: motor común `shared/sonido.js`), integrados aquí.
+
+**Niveles en toda la Academia, terminados** (5 subagentes y revisión). Los 14 ejercicios tienen sus 4 lupas, y cada una cambia de verdad el ejercicio: más elementos, palabras más difíciles, menos ayudas y menos tiempo. El contenido se ha multiplicado:
+
+| Banco | Contenido |
+|---|---|
+| Palabras | 670 |
+| Textos | 57 |
+| Verbos / frases de la Terminal | 75 / 94 |
+| Galeradas | 32 |
+| Pizarra (ejemplos / subreglas) | 1142 / 41 |
+| Frases de la coma | 66 |
+| Dictados | 126 |
+| Pistas de los partes | 205 |
+| Hojas sin tilde | 32 |
+| Grupos de homófonos | 65 |
+| Familias de palabras | 89 |
+
+Arreglados al revisar:
+- La falta de mayúscula desaparecía en el documento y en la Imprenta («sevilla» pasaba a «Sevilla»).
+- Las fichas de mayúsculas no se comparaban respetando la mayúscula.
