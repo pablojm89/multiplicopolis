@@ -462,3 +462,6 @@ button.silaba:hover { transform: translateY(-3px); }
 .pq-lista { display: flex; flex-wrap: wrap; gap: 10px; }
 .pq-lista figure { margin: 0; width: 90px; text-align: center; font-size: 13px; }
 .pq-lista img { width: 90px; height: 110px; object-fit: cover; object-position: top; border-radius: 6px; background: #eee; }
+
+/* El título animado de los momentos no debe tapar el botón mientras entra */
+.momento .cartel, .momento .digito-grande { pointer-events: none; }
