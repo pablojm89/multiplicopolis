@@ -4,7 +4,7 @@
 Uso (desde apps/la-lupa/):  python3 herramientas/validar_partes.py
 Comprueba:
 - al menos 10 plantillas de parte, con id único, título, negociado, código, «otros» y apartados
-  con campos conocidos (cosa, lugar, ser, tiempo, accion, como);
+  con campos conocidos (cosa, lugar, ser, animal, tiempo, accion, verbo, como; uno o una lista);
 - al menos 40 pistas, de las 9 reglas de 5.º, y al menos 8 por regla (una ronda son 2 partes de 4 casillas);
 - que la pista nunca contiene la palabra que se busca (ni sin tildes) y cabe en la hoja (≤ 80 letras);
 - que la explicación (porque) nombra la palabra;
@@ -21,7 +21,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 REGLAS_5 = ["tildes-generales", "b-v-1", "h-1", "c-z-s", "ll-y", "g-j-dieresis",
             "diptongo-monosilabos", "d-z-finales", "mayusculas-puntuacion-1"]
-CAMPOS = {"cosa", "lugar", "ser", "tiempo", "accion", "como"}
+CAMPOS = {"cosa", "lugar", "ser", "animal", "tiempo", "accion", "verbo", "como"}
 datos = json.loads((RAIZ / "datos" / "academia" / "partes.json").read_text(encoding="utf-8"))
 banco = {w["p"].lower(): w for w in json.loads((RAIZ / "datos" / "academia" / "palabras.json").read_text(encoding="utf-8"))["palabras"]}
 reglas = json.loads((RAIZ / "datos" / "reglas.json").read_text(encoding="utf-8"))
@@ -48,7 +48,8 @@ for pl in partes:
     if len(aps) < 4:
         errores.append(f"parte {pid}: necesita al menos 4 apartados")
     for ap in aps:
-        if ap.get("campo") not in CAMPOS:
+        campos = ap.get("campo") if isinstance(ap.get("campo"), list) else [ap.get("campo")]
+        if not campos or not set(campos) <= CAMPOS:
             errores.append(f"parte {pid}: campo desconocido «{ap.get('campo')}»")
         if not ap.get("etiqueta"):
             errores.append(f"parte {pid}: apartado sin etiqueta")

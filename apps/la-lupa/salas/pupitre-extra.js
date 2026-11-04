@@ -121,7 +121,8 @@ function pupHTMLNota() {
 function pupNota(texto, expr = "neutral", palabra = "") {
   const t = $("#pupNotaTxt");
   if (!t) return;
-  t.innerHTML = `${palabra ? `<b class="pup-nota-pal">${esc(palabra)}</b>` : ""}${esc(texto)}`;
+  // «-n», «-s»… no se parten al final de la línea
+  t.innerHTML = `${palabra ? `<b class="pup-nota-pal">${esc(palabra)}</b>` : ""}${esc(texto).replace(/(^|[\s(])-(\p{L}+)/gu, '$1<span class="pup-nw">-$2</span>')}`;
   const listas = arte("anselmo").listas || [];
   $("#pupRetrato").style.backgroundImage = listas.includes(expr) ? `url('arte/anselmo-${expr}.webp')` : listas.includes("neutral") ? "url('arte/anselmo-neutral.webp')" : "none";
   const n = $("#pupNota");
@@ -160,7 +161,7 @@ function pupMontarParte(pl, orden, usadas, n) {
   for (const x of orden) {
     if (lineas.length >= n) break;
     if (usadas.has(x)) continue;
-    const k = libres.findIndex(ap => ap.campo === x.campo);
+    const k = libres.findIndex(ap => [].concat(ap.campo).includes(x.campo));
     if (k >= 0) { lineas.push({ etiqueta: libres[k].etiqueta, pos: libres[k].i, x }); libres.splice(k, 1); usadas.add(x); }
     else if (!otros) { otros++; lineas.push({ etiqueta: pl.otros, pos: 100, x }); usadas.add(x); }
   }
@@ -235,7 +236,7 @@ nuevaActividad("pupitre", {
     pupTeclas($("#pupTeclas"), () => ultimo);
     const nombreRegla = D.reglas[activas[0]]?.nombre || activas[0];
     pupNota(r === 0
-      ? (mezcla ? "Modo inspector: cada casilla puede ser de una regla distinta. Un parte mal escrito acaba en el cajón de los misterios sin resolver." : `Hoy, ${nombreRegla}. Lee la pista de cada casilla y escribe la palabra. Un parte bien escrito se tramita a la primera.`)
+      ? (mezcla ? "Modo inspector: cada casilla puede ser de una regla distinta. Un parte mal escrito acaba en el cajón de los misterios sin resolver." : `Hoy entrenamos «${nombreRegla}». Lee la pista de cada casilla y escribe la palabra. Un parte bien escrito se tramita a la primera.`)
       : "Otro parte. Este viene con prisa: lo espera la directora.");
 
     const estado = lineas.map(() => ({ intentada: false, otras: 0, hecha: false }));
