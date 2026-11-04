@@ -284,8 +284,11 @@ const ACTIVIDADES = {
     let r = 0;
     partidaAca(sl, activas);
     const generar = () => {
-      const candidatos = ACA.textos.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => { const w = enBanco(m); return w?.mal && activas.includes(w.regla); }) }))
-        .filter(c => c.marcas.length >= 2);
+      // Textos con al menos 2 palabras de la regla; si no los hay, con 1; y si tampoco, con cualquier regla
+      const conReglas = rs => ACA.textos.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => { const w = enBanco(m); return w?.mal && rs.includes(w.regla); }) }));
+      let candidatos = conReglas(activas).filter(c => c.marcas.length >= 2);
+      if (!candidatos.length) candidatos = conReglas(activas).filter(c => c.marcas.length >= 1);
+      if (!candidatos.length) candidatos = conReglas(reglasBanco()).filter(c => c.marcas.length >= 2);
       const { t, marcas } = azarElem(candidatos);
       const n = Math.min(marcas.length, regla === "mezcla" ? 4 : 3);
       const elegidas = new Set([...marcas.filter(m => enCola.has(norm(m))), ...barajar(marcas)].slice(0, n));

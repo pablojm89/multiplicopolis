@@ -103,3 +103,15 @@ Claude actualiza este archivo al terminar cada tarea importante.
 Además, la **libreta imprimible** (`imprimibles/libreta.html`).
 
 **Encargos: ya hay 10** (3 subagentes y revisión), del rango Novato al de Detective de élite. Trabajan el texto instructivo, el cartel, la postal, los sinónimos y las familias de palabras, la noticia, la concordancia, los refranes, el lenguaje figurado, los bulos y el diccionario. Solo usan arte que ya existe. En la revisión se corrigió una variante de refrán que no existía («dentado») y una pregunta que delataba la respuesta.
+
+**Pablo: «quiero que todo sirva o pueda servir para nota si lo decido; y que antes de las misiones principales, que pueden servir como evaluación, los alumnos tengan que hacer lo de la Academia tomando apuntes en su libreta con reglas, esquemas, apuntes y tablas que puedan estudiar y repasar, para que antes de la misión ya estén preparados, con muchos ejercicios diferentes».** Hecho:
+- **Nota:** en la zona del maestro se marca qué cuenta (casos, encargos y Academia), con la media por criterio de cada alumno y el CSV con todo.
+- **Preparación:** ruta de 5 pasos antes de cada caso, obligatoria por defecto (también puede ser opcional o desactivarse):
+  - descubre la regla en la Pizarra;
+  - copia los apuntes en la libreta (esquemas con huecos para sus ejemplos; también en hojas imprimibles);
+  - dos prácticas elegidas para cada regla;
+  - el dictado por radio.
+- **Ejercicios:** 6 nuevos, hechos por 4 subagentes en paralelo, más los apuntes de las 9 reglas. Las salas tienen ahora un menú de ejercicios.
+- **Arreglo:** «Corrige el documento» se rompía con g/j, diptongos y mayúsculas por falta de textos; afectaba también al «turno de hoy».
+
+**Pablo: «no tengas reparo en pedir más imágenes a GPT».** Lote 7 pedido en la issue #7: 15 imágenes (el buzón de encargos, los objetos de los encargos y los aparatos de los ejercicios nuevos).

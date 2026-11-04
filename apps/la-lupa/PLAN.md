@@ -40,7 +40,11 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] **Academia, primera versión**: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio) con bancos de 79 palabras y 9 documentos (tildes, b/v, h). Arte pedido (issue #4)
 - [x] Academia: Sala de Interrogatorios con «el testigo seseante» (seseo, yeísmo y -d final como forma de hablar; se escribe la norma) y banco ampliado a 111 palabras (c/z/s, ll/y, -d/-z)
 - [x] Academia: las 8 salas activas. Terminal (T2, máquina del tiempo verbal), Pizarra (Z1, descubre la regla), Centralita (R1, dictado por radio o relámpago) e Imprenta (E3, pruebas de imprenta), escritas por 4 subagentes en paralelo y revisadas
-- [ ] Academia: más actividades por sala (T1, T3, T4, Z2-Z5, R2-R4, E1, E2, E4, E5…) y niveles N2/N3
+- [x] **Preparación antes de cada caso** (Pablo, 4/11): ruta de 5 pasos en la Academia (descubre → apuntes en la libreta → 2 prácticas → dictado), obligatoria por defecto. Apuntes de las 9 reglas (27 esquemas) en pantalla y en `imprimibles/apuntes.html`
+- [x] **Todo puede contar para nota**: el maestro marca casos, encargos o Academia; media por criterio y CSV con el tipo
+- [x] Academia: 6 ejercicios nuevos (rellena el parte, la máquina sin tilde, microscopio de homófonos, centrifugadora de familias, deletreo, la coma que cambia el culpable); salas con menú de ejercicios
+- [ ] Academia: más actividades por sala (T1, T3, T4, Z2, Z4, Z5, R2, R4, E1, E2, E4, E5…) y niveles N2/N3
+- [ ] Arte del lote 7 (issue #7): buzón de encargos, objetos de los encargos y aparatos de la Academia
 - [ ] ~~**Academia de detectives**~~ (idea original): zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [x] ~~Más casos de 5.º según `datos/programacion.json`~~ → temporada 1 completa (11 casos)
@@ -79,6 +83,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-04 | Academia: **siempre abierta**; se **registra aparte** (ya se verá si cuenta); **don Anselmo** entra como personaje; **el testigo seseante** le encanta; **sin libreta**; **se puede usar en casa**. |
 | 2026-11-04 | Libreta: el sello del director **premia sin bloquear** (opción B de `LIBRETA.md`). |
 | 2026-11-04 | **Robles pasa a ser el director Robles, avatar de Pablo**: así el «enseña tu libreta al director» lleva a los alumnos a su mesa. Se mantiene toda su trama (estuvo en el tribunal y pide perdón a Bruno). Guiño: Pablo también es profe de Educación Física, y el director aparece a veces con ropa de deporte. Arte en la issue #6. |
+| 2026-11-04 | **Todo puede contar para nota si el maestro lo decide**, y **antes de cada caso el alumno se prepara en la Academia** tomando apuntes en su libreta (reglas, esquemas, tablas), con muchos ejercicios distintos: el caso sirve como evaluación. |
 | 2026-11-04 | **Avatares del alumnado**: ficha de aspirante en papel después del piloto, con alias, dibujo y descripción. GPT hace el avatar a partir del dibujo, nunca de fotos. Paquete de clase privado, solo en los dispositivos del aula y nunca en el repo, y autorización de las familias. |
 | 2026-11-04 | Trama de temporada: El Tachón es **Bruno, el repartidor del periódico**, un antiguo aspirante a la agencia del que se rieron por sus faltas. Al final se une al equipo (opción C de `TEMPORADA-1.md`). |
 | 2026-11-03 | **Cambio de estilo:** anime moderno con tono de misterio (noir de detectives, serie juvenil de suspense), sin aire infantil, ambientado en el barrio andaluz de La Alameda. Tensión sí; sangre, violencia y terror no. La interfaz del juego se oscurecerá para encajar cuando llegue el arte. |

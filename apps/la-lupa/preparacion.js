@@ -16,6 +16,29 @@ async function cargarApuntes() {
   return PREP_RAIZ.apuntes;
 }
 
+/* Ejercicios de práctica de la Academia y los dos que mejor funcionan con cada regla (comprobado con cada regla) */
+const EJERCICIO = {
+  documento: { sala: "pupitre", act: "documento", icono: "📝", nombre: "Corrige el documento", desc: "En el Pupitre: encuentra y corrige las faltas que ha colado el Simulador." },
+  parte: { sala: "pupitre", act: "parte", icono: "🗒️", nombre: "Rellena el parte", desc: "En el Pupitre: completa el parte de la agencia con las palabras de las pistas." },
+  sintilde: { sala: "pupitre", act: "sintilde", icono: "⌨️", nombre: "La máquina sin tilde", desc: "En el Pupitre: devuelve las tildes que se ha comido la máquina de escribir." },
+  sismografo: { sala: "laboratorio", act: "sismografo", icono: "📈", nombre: "El sismógrafo de sílabas", desc: "En el Laboratorio: separa en sílabas, busca la tónica y decide la tilde." },
+  homofonos: { sala: "laboratorio", act: "homofonos", icono: "🔬", nombre: "El microscopio de homófonos", desc: "En el Laboratorio: palabras que suenan igual y se escriben distinto." },
+  familias: { sala: "laboratorio", act: "familias", icono: "🌀", nombre: "La centrifugadora de palabras", desc: "En el Laboratorio: las familias de palabras heredan la letra… casi siempre." },
+  deletreo: { sala: "centralita", act: "deletreo", icono: "📟", nombre: "El deletreo", desc: "En la Centralita: Lola deletrea por el walkie y tú escribes." },
+  coma: { sala: "pizarra", act: "coma", icono: "✏️", nombre: "La coma que cambia el culpable", desc: "En la Pizarra: un signo mal puesto y acusamos a quien no es." },
+};
+const PRACTICAS = {
+  "tildes-generales": ["sismografo", "sintilde"],
+  "b-v-1": ["homofonos", "documento"],
+  "h-1": ["homofonos", "deletreo"],
+  "c-z-s": ["familias", "parte"],
+  "ll-y": ["homofonos", "deletreo"],
+  "g-j-dieresis": ["familias", "parte"],
+  "diptongo-monosilabos": ["sintilde", "parte"],
+  "d-z-finales": ["familias", "parte"],
+  "mayusculas-puntuacion-1": ["coma", "parte"],
+};
+
 /* Los pasos de la ruta según las reglas del caso */
 function pasosPreparacion(u) {
   const caso = u.caso && D.casos[u.caso];
@@ -26,11 +49,12 @@ function pasosPreparacion(u) {
     { id: "archivo", sala: "archivo", act: "fichas", regla: null, icono: "🗂️", nombre: "Tus fichas pendientes", desc: "Las palabras que más te han costado en la temporada." },
   ];
   const r = u.reglas[0];
-  const tildes = r === "tildes-generales";
+  const [a, b] = PRACTICAS[r] || ["parte", "documento"];
   return [
     { id: "descubre", sala: "pizarra", act: "descubre-regla", regla: r, icono: "🧑‍🏫", nombre: "Descubre la regla", desc: "En la Pizarra, con don Anselmo: observa, formula la hipótesis y busca el contraejemplo." },
     { id: "apuntes", tipo: "apuntes", regla: r, icono: "📓", nombre: "Apuntes en tu libreta", desc: "Copia y completa el esquema de la regla. Te servirá para estudiar y para el caso." },
-    { id: "practica", sala: tildes ? "laboratorio" : "pupitre", act: tildes ? "sismografo" : "documento", regla: r, icono: tildes ? "🔬" : "📝", nombre: tildes ? "El sismógrafo de sílabas" : "Corrige el documento", desc: tildes ? "Separa en sílabas, busca la tónica y decide la tilde." : "Encuentra y corrige las faltas de la regla." },
+    { id: "practica", regla: r, ...EJERCICIO[a] },
+    { id: "practica2", regla: r, ...EJERCICIO[b] },
     { id: "dictado", sala: "centralita", act: "dictado", regla: r, icono: "📻", nombre: "Dictado por radio", desc: "Escribe los mensajes de Lola sin perder una letra." },
   ];
 }
