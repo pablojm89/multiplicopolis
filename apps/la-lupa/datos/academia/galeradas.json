@@ -1,0 +1,159 @@
+{
+  "_nota": "Artículos de «El Eco de La Alameda» para la sala de la Imprenta (E3, Pruebas de imprenta). Van BIEN escritos. Candidatas: [palabra|regla] (la forma errónea sale de palabras.json) o [palabra|regla|mal] (forma errónea típica propia). En cada galerada el juego convierte 4-5 candidatas de reglas distintas en faltas, con prioridad a la cola de repaso del alumno. Valídalo con python3 herramientas/validar_imprenta.py",
+  "galeradas": [
+    {
+      "id": "verbena",
+      "seccion": "Fiestas",
+      "titular": "Farolillos, churros y pasodobles: la verbena vuelve a la plaza",
+      "entradilla": "Cientos de vecinos bailaron hasta la medianoche bajo los farolillos de papel.",
+      "firma": "Redacción",
+      "parrafos": [
+        "El [sábado|tildes-generales] por la noche, la [plaza|c-z-s] de La Alameda se llenó de farolillos y de música. Ramón [cantaba|b-v-1] coplas antiguas mientras los más pequeños bailaban alrededor de la fuente. Había tanta [gente|g-j-dieresis|jente] que los churros se acabaron antes de las once.",
+        "Hacía tanto calor que doña Pilar repartió vasos de agua con [hielo|h-1] y limón. A medianoche, la orquesta tocó un pasodoble y medio barrio se puso a bailar en [mitad|d-z-finales|mitaz] de la [calle|ll-y]. «Esta [fue|diptongo-monosilabos|fué] la mejor verbena que recuerdo», aseguraba [Herminia|mayusculas-puntuacion-1|herminia], la bibliotecaria, que no se sentó en toda la noche. El año que viene, prometen, habrá todavía más churros."
+      ]
+    },
+    {
+      "id": "sandia",
+      "seccion": "Mercado",
+      "titular": "Una sandía de veinte kilos deja boquiabierto al mercado",
+      "entradilla": "Manolo, el frutero, necesitó una carretilla para llevarla hasta su puesto.",
+      "firma": "Texto: Redacción · Foto: Paco",
+      "parrafos": [
+        "Ayer por la mañana, el puesto de Manolo se convirtió en la [atracción|tildes-generales|atraccion] del mercado. El frutero [trabajaba|b-v-1] desde las seis cuando llegó una sandía tan grande que hubo que traerla en carretilla. Enseguida se formó una cola que llegaba hasta el final del [pasillo|ll-y|pasiyo].",
+        "Paco, el fotógrafo, sacó la mejor [imagen|g-j-dieresis|imajen] de la mañana: el frutero abrazado a la sandía como si fuera un trofeo. Quien la [vio|diptongo-monosilabos|vió] de cerca asegura que pesaba más que el carrito. «En treinta años no [había|h-1] visto nada igual, de [verdad|d-z-finales]», nos contó [Manolo|mayusculas-puntuacion-1|manolo]. La sandía se repartirá a trozos el [miércoles|tildes-generales], junto con [diez|c-z-s] cajas de cerezas. Eso sí: el frutero avisa de que las pepitas no se regalan."
+      ]
+    },
+    {
+      "id": "comics",
+      "seccion": "Cultura",
+      "titular": "La biblioteca del barrio estrena un rincón para los cómics",
+      "entradilla": "Herminia promete silencio… salvo cuando alguien se ríe con una viñeta.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Desde el [lunes|mayusculas-puntuacion-1|Lunes], la biblioteca de La Alameda tiene un rincón [nuevo|b-v-1] dedicado a los cómics. La idea [fue|diptongo-monosilabos|fué] de Herminia, la bibliotecaria, que [recibió|b-v-1|recivió] decenas de cartas de los lectores más jóvenes pidiéndolo. Hay [sillas|ll-y|siyas] de colores, cojines en el suelo y una claraboya por la que se ve el [cielo|c-z-s].",
+        "Cada [miércoles|tildes-generales] habrá un taller para aprender a dibujar [personajes|g-j-dieresis|personages]. Allí se puede [hablar|h-1|ablar] en voz baja, pero Herminia pide [tranquilidad|d-z-finales|tranquilidaz] y manos limpias: «El chocolate y los cómics no se llevan bien». El primer día ya no quedaba ni un cojín libre."
+      ]
+    },
+    {
+      "id": "canasta",
+      "seccion": "Deportes",
+      "titular": "Los alevines del colegio ganan la liga con una canasta en el último segundo",
+      "entradilla": "El pabellón se vino abajo cuando el balón entró sin tocar el aro.",
+      "firma": "Texto: Redacción · Foto: Paco",
+      "parrafos": [
+        "Ni el entrenador se lo creía. Quedaban dos segundos cuando una alumna de [quinto|c-z-s|kinto] lanzó desde el centro de la pista y el [balón|tildes-generales] entró limpio. Durante todo el partido, el equipo [jugaba|b-v-1] con una [energía|g-j-dieresis|enerjía] que no se veía desde hacía años, aunque al descanso perdía por seis puntos.",
+        "«Nos [dio|diptongo-monosilabos|dió] igual ir por detrás: confiábamos en nuestra [velocidad|d-z-finales|velocidaz]», explicó la capitana. El público [hizo|h-1] la ola y cada jugadora recibió una [medalla|ll-y|medaya]. En primavera, el equipo viajará a [Sevilla|mayusculas-puntuacion-1|sevilla] para jugar el torneo andaluz."
+      ]
+    },
+    {
+      "id": "lluvia",
+      "seccion": "El tiempo",
+      "titular": "Paraguas en la puerta: la lluvia vuelve a La Alameda esta semana",
+      "entradilla": "Después de un otoño muy seco, llegan las nubes cargadas. Las macetas lo agradecerán.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Los vecinos más madrugadores ya lo notaron [ayer|ll-y]: el [cielo|c-z-s] amaneció gris y olía a tierra mojada. Según los expertos, la lluvia llegará el [jueves|mayusculas-puntuacion-1|Jueves] y durará hasta el [sábado|tildes-generales]. La [humedad|d-z-finales|humedaz] será alta y conviene [recoger|g-j-dieresis|recojer] la ropa tendida antes de que empiece a llover.",
+        "En la sierra podría caer granizo, aunque no se espera [hielo|h-1] en las calles del barrio. Lo mejor será salir con paraguas y botas: nadie quiere meter el [pie|diptongo-monosilabos|pié] en un charco camino del colegio. Es el primer aviso de que el [invierno|b-v-1] ya está cerca."
+      ]
+    },
+    {
+      "id": "feria",
+      "seccion": "Fiestas",
+      "titular": "La feria de otoño enciende sus luces con más casetas que nunca",
+      "entradilla": "Hay atracciones nuevas, un concurso de sevillanas y un tiovivo restaurado.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Esta noche se inaugura la feria de otoño en el recinto que hay junto al río. Este año hay [quince|c-z-s] casetas, una noria y un tiovivo de [caballos|ll-y|cabayos] de madera que han restaurado los propios vecinos. «Yo [fui|diptongo-monosilabos|fuí] la primera niña que se montó en él, hace sesenta años», recuerda doña Pilar.",
+        "Azucena, la ceramista, ha decorado la portada con cientos de azulejos pintados a mano. El [domingo|mayusculas-puntuacion-1|Domingo] [habrá|h-1|abrá] un concurso de sevillanas, y la tómbola regala un [pingüino|g-j-dieresis|pinguino] de peluche más alto que una persona. Los más valientes podrán [subir|b-v-1] a la noria y ver la [mitad|d-z-finales|mitaz] del barrio iluminada. La [música|tildes-generales] sonará hasta la medianoche."
+      ]
+    },
+    {
+      "id": "huerto",
+      "seccion": "Escuela",
+      "titular": "El huerto del colegio da su primera cosecha",
+      "entradilla": "Lechugas, rábanos y una calabaza que nadie sabe cómo ha crecido tanto.",
+      "firma": "Texto: Redacción · Foto: Paco",
+      "parrafos": [
+        "Los alumnos de sexto llevan desde [septiembre|mayusculas-puntuacion-1|Septiembre] cuidando el [huerto|h-1|uerto] del colegio, y esta semana por fin han [recogido|g-j-dieresis|recojido] la primera cosecha: lechugas, [rábanos|tildes-generales|rabanos] y una [calabaza|c-z-s|calabasa] gigante. Cada mañana, antes de entrar en clase, [regaban|b-v-1|regavan] las [semillas|ll-y|semiyas] por turnos y apuntaban en un cuaderno cuánto crecían.",
+        "«Lo más difícil [fue|diptongo-monosilabos|fué] convencer a los caracoles de que se marcharan», bromea una de las alumnas. Las verduras se venderán en el mercadillo del colegio, y lo recaudado servirá para plantar árboles en el patio. Quizá el próximo curso sea el patio más verde de la [ciudad|d-z-finales|ciudaz]."
+      ]
+    },
+    {
+      "id": "azoteas",
+      "seccion": "Cultura",
+      "titular": "Ramón estrena una canción dedicada a las azoteas del barrio",
+      "entradilla": "La presentó en la plaza, con su guitarra, ante un público que no paró de aplaudir.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Ramón, el músico de La Alameda, presentó el [viernes|mayusculas-puntuacion-1|Viernes] su [nueva|b-v-1|nueba] [canción|tildes-generales], dedicada a las azoteas del barrio. La tocó en la plaza, bajo las [estrellas|ll-y|estreyas], mientras su [hermano|h-1] lo acompañaba con el violín. La letra habla de la ropa tendida, de las macetas de geranios y de la [libertad|d-z-finales] de mirar el cielo desde arriba.",
+        "«Al principio me daba [vergüenza|g-j-dieresis|verguenza] cantarla delante de los vecinos», confesó. No tenía motivo: el público le [dio|diptongo-monosilabos|dió] un aplauso tan largo que tuvo que repetirla, y al final las [voces|c-z-s|voses] de todo el barrio se unieron al estribillo."
+      ]
+    },
+    {
+      "id": "azulejos",
+      "seccion": "Barrio",
+      "titular": "Azucena enseña a los niños a pintar azulejos como los de antes",
+      "entradilla": "Su taller abre los sábados por la mañana. Las manchas de pintura van incluidas.",
+      "firma": "Texto: Redacción · Foto: Paco",
+      "parrafos": [
+        "El taller de Azucena huele a barro y a pintura fresca. Cada sábado, una docena de niños aprende allí a decorar [azulejos|c-z-s] con los dibujos de siempre en [Andalucía|mayusculas-puntuacion-1|andalucía]: flores, pájaros y estrellas de ocho puntas. Primero, cada niño elige una [imagen|g-j-dieresis|imajen], la dibuja a [lápiz|tildes-generales] y después la pinta con un pincel muy fino sobre el fondo [blanco|b-v-1].",
+        "«Hay que tener paciencia y no [hacer|h-1|acer] las cosas con prisa», explica Azucena. Ella lo sabe bien: su primer azulejo [fue|diptongo-monosilabos|fué] un pez [amarillo|ll-y|amariyo] y bastante torcido, que todavía cuelga en el taller. Los mejores trabajos de los alumnos se colocarán en una [pared|d-z-finales] del mercado."
+      ]
+    },
+    {
+      "id": "roscon",
+      "seccion": "Barrio",
+      "titular": "La panadería de Julián cumple cincuenta años con un roscón gigante",
+      "entradilla": "Medio siglo de pan recién hecho en la misma esquina. La receta sigue siendo secreta.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Julián levantó la persiana a las cinco de la mañana, como cada día desde hace medio siglo. Pero el [martes|mayusculas-puntuacion-1|Martes] no [fue|diptongo-monosilabos|fué] un día cualquiera: los vecinos lo esperaban en la puerta con una pancarta y muchos aplausos. Él, a cambio, [hizo|h-1] un roscón de dos metros con [azúcar|tildes-generales] glas y frutas confitadas.",
+        "La receta era de su abuelo, que [trabajaba|b-v-1] en el mismo obrador, y sigue guardada bajo [llave|ll-y] en un cajón de la [cocina|c-z-s]. Julián amasa con la precisión de un [relojero|g-j-dieresis|relogero] y no piensa jubilarse: «Mientras tenga [salud|d-z-finales], aquí habrá pan calentito». El roscón, por cierto, duró siete minutos."
+      ]
+    },
+    {
+      "id": "exposicion",
+      "seccion": "Cultura",
+      "titular": "Paco expone cien fotos del barrio en el centro cívico",
+      "entradilla": "Cuarenta años de bodas, ferias, tormentas y algún que otro gato despistado.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Paco, el fotógrafo del barrio, ha reunido cien fotografías de La Alameda en una exposición que podrá verse hasta [junio|mayusculas-puntuacion-1|Junio]. [Comenzó|c-z-s|Comensó] a hacer fotos a la [edad|d-z-finales|edaz] de doce años, con una [cámara|tildes-generales|camara] que le regaló su padre. Hay bodas, ferias y hasta la gran nevada que dejó la plaza [blanca|b-v-1|vlanca] por primera vez en un siglo.",
+        "La más comentada es la de un [caballo|ll-y] que se escapó de la feria y entró tan tranquilo en el [hospital|h-1]. «Cuando lo [vi|diptongo-monosilabos|ví] en la sala de espera, pensé que estaba soñando», recuerda Paco. La entrada es gratuita, y la exposición es un [viaje|g-j-dieresis|viage] por cuarenta años de historia del barrio."
+      ]
+    },
+    {
+      "id": "garbanzos",
+      "seccion": "Gastronomía",
+      "titular": "Doña Pilar gana el concurso de cocina con su cazuela de garbanzos",
+      "entradilla": "El jurado repitió plato tres veces. Ella dice que el truco es «cocinar sin prisa».",
+      "firma": "Texto: Redacción · Foto: Paco",
+      "parrafos": [
+        "La [cazuela|c-z-s] de garbanzos de doña Pilar ha ganado el concurso de cocina de La Alameda. Se presentaron veinte platos, pero el jurado lo tuvo claro desde la primera cucharada. [Pilar|mayusculas-puntuacion-1|pilar] la preparó a fuego lento durante toda la mañana, en la misma [olla|ll-y|oya] de siempre, con pimiento, [cebolla|c-z-s] y un [huevo|h-1] duro picado por encima.",
+        "La receta [estaba|b-v-1] escrita en una libreta de su madre, que ella [cogió|g-j-dieresis|cojió] del cajón esa misma mañana. «La [verdad|d-z-finales] es que no esperaba ganar», confesó con una sonrisa. Además, el jurado le [dio|diptongo-monosilabos|dió] una mención especial «por el olor». El premio, una [sartén|tildes-generales|sarten] nueva, se estrenará el domingo con una tortilla para todo el jurado."
+      ]
+    },
+    {
+      "id": "la-tiza",
+      "seccion": "Escuela",
+      "titular": "Los alumnos de quinto publican su propio periódico escolar",
+      "entradilla": "Se llama «La Tiza» y su primer número se agotó en el recreo.",
+      "firma": "Redacción",
+      "parrafos": [
+        "Los alumnos de quinto han creado un [periódico|tildes-generales|periodico] escolar con noticias del colegio, entrevistas y hasta una sección de chistes. El primer número salió en [octubre|mayusculas-puntuacion-1|Octubre] y se agotó en el recreo. Para las entrevistas, cada redactor prepara un [guion|diptongo-monosilabos|guión] con sus preguntas. Ya [hablaron|h-1|ablaron] con la cocinera del comedor, con el conserje y con el maestro de música.",
+        "Lo [escriben|b-v-1|escriven] en clase de Lengua, con [lápices|c-z-s|lápises] de colores y mucha [curiosidad|d-z-finales|curiosidaz]. «Escribir una noticia parece [sencillo|ll-y|senciyo], pero hay que revisarla diez veces», explica la directora, que tiene once años. La última [página|g-j-dieresis|pájina] es la favorita de todos: la de los chistes."
+      ]
+    },
+    {
+      "id": "patios",
+      "seccion": "Barrio",
+      "titular": "Los patios del barrio se visten de flores para el concurso",
+      "entradilla": "Geranios, claveles y una buganvilla que ya ha trepado hasta el tercer piso.",
+      "firma": "Texto: Redacción · Foto: Paco",
+      "parrafos": [
+        "Una docena de vecinos abrirá este fin de semana las puertas de sus patios para el concurso de flores del barrio. Hay geranios en las paredes, claveles en las escaleras y una fuente con [peces|c-z-s] de colores en el [jardín|tildes-generales|jardin] de Herminia. «No tienen nada que envidiar a los de [Córdoba|mayusculas-puntuacion-1|córdoba]», presume una vecina. La ruta se puede hacer a [pie|diptongo-monosilabos|pié] en una hora.",
+        "Detrás de cada maceta hay muchas horas de trabajo y mucha [voluntad|d-z-finales|voluntaz]. El jurado tendrá que [elegir|g-j-dieresis|elejir] el patio ganador, y no será [fácil|tildes-generales]: todos son una [maravilla|ll-y|maraviya]. Los visitantes pueden [escribir|b-v-1] su voto en una papeleta. La única queja de los participantes son las [hormigas|h-1|ormigas], que también se han apuntado al concurso."
+      ]
+    }
+  ]
+}
