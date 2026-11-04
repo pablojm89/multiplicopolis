@@ -502,3 +502,7 @@ button.silaba:hover { transform: translateY(-3px); }
 .encargo.cerrado { background: var(--ruido), #8d8170; color: #2b2620; opacity: .8; place-content: center; text-align: center; }
 .encargo.cerrado .lacre { font-size: 34px; }
 .encargo.cerrado p { color: #2b2620; font-weight: 800; }
+
+/* Menú de actividades de una sala */
+.aca-act { display: grid; gap: 2px; text-align: left; }
+.aca-act small { font: 14px var(--f-ui); color: var(--gris-tinta); }

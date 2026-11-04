@@ -10,7 +10,7 @@
    ============================================================ */
 "use strict";
 
-const ACA = { palabras: [], textos: [], testigos: [] };   // bancos de datos (datos/academia/)
+const ACA = { palabras: [], textos: [], testigos: [], alTerminar: null };   // bancos de datos (datos/academia/)
 const INTERVALOS = [1, 3, 7, 15, 30];              // sesiones hasta el siguiente repaso
 const TOPE_DIARIO = 150;                           // puntos de entrenamiento por día
 let registrosAca = cargar("academia-registros", []);
@@ -108,8 +108,36 @@ function vistaPatio() {
 }
 
 /* ── Entrada a una sala: el instructor explica antes de practicar ── */
-function entrarSala(id, { regla = null, turno = null }) {
+/* Varias actividades por sala: salas/<sala>-extra.js llama a nuevaActividad(...).
+   La primera de la lista es la original de la sala. Al entrar, si hay más de una, se elige en un menú. */
+function nuevaActividad(salaId, meta, fn) {
+  const sl = sala(salaId);
+  sl.actividades ??= [{ id: sl.actividad, nombre: sl.nombreActividad || "Entrenamiento principal", desc: sl.gancho, reglas: sl.reglas, leccionFija: sl.leccionFija }];
+  sl.actividades.push(meta);
+  ACTIVIDADES[meta.id] = fn;
+}
+function usarActividad(sl, id) {
+  const m = (sl.actividades || []).find(a => a.id === id);
+  if (!m) return;
+  sl.actividad = m.id; sl.reglas = m.reglas; sl.leccionFija = m.leccionFija;
+}
+function menuActividades(sl, opts) {
+  pintarEscena(`
+    <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+    ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
+    <div class="aca-panel der">
+      <p class="apuntalo">¿Qué ejercicio hacemos hoy?</p>
+      <div class="opciones">${sl.actividades.map(a => `<button class="opcion aca-act" data-act="${esc(a.id)}"><b>${esc(a.nombre)}</b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaPatio;
+  $$(".aca-act").forEach(b => b.onclick = () => entrarSala(sl.id, { ...opts, actividad: b.dataset.act }));
+}
+
+function entrarSala(id, { regla = null, turno = null, actividad = null }) {
   const sl = sala(id);
+  if (sl.actividades?.length > 1 && !actividad) return menuActividades(sl, { regla, turno });
+  if (actividad) usarActividad(sl, actividad);
   const s = estadoAca();
   if (sl.actividad === "fichas") return leccion(sl, null, turno, `Este es el fichero de tus palabras falladas. Cada ficha vuelve cuando toca: si la escribes bien, se va alejando; si fallas, vuelve al principio. ${fichasVencidas(s).length ? `Hoy tienes ${fichasVencidas(s).length} pendientes.` : "Hoy no tienes fichas vencidas: entrenaremos palabras de riesgo."}`);
   if (sl.actividad === "testigo") return leccion(sl, null, turno, "En La Alameda muchos hablamos con seseo: decimos «casuela» y se escribe cazuela. También decimos «caye» por calle (yeísmo) y nos comemos la d del final: «verdá». Hablar así no es un error: es nuestra forma de hablar, y está muy bien. Lo que tiene que saber un detective es cómo se ESCRIBE. Yo lo digo así… y lo escribo así.");
@@ -182,8 +210,12 @@ function terminarActividad(sl, turno) {
   guardar("academia-registros", registrosAca);
   P = null;
   const aura = aciertos === ev.length && ev.length ? " ¡Ronda perfecta: +aura!" : "";
-  momento({ titulo: "¡Entrenamiento completado!", personaje: { id: sl.instructor, expresion: "contento", lado: "izq" }, boton: "Volver al patio",
-    texto: `${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}`, alSeguir: vistaPatio });
+  // Si la actividad se lanzó desde otra pantalla (la ruta de preparación de un caso), se vuelve allí
+  const volver = ACA.alTerminar;
+  ACA.alTerminar = null;
+  volver?.marcar?.(aciertos, ev.length);
+  momento({ titulo: "¡Entrenamiento completado!", personaje: { id: sl.instructor, expresion: "contento", lado: "izq" }, boton: volver ? volver.boton : "Volver al patio",
+    texto: `${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}`, alSeguir: volver ? volver.ir : vistaPatio });
 }
 
 /* Leer en voz alta (si el navegador tiene voz en español; si no, no pasa nada) */
