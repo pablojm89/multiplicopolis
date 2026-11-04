@@ -1,0 +1,75 @@
+{
+  "id": "enc-10",
+  "numero": "E10",
+  "titulo": "El diccionario empapado",
+  "resumen": "Una tubería rota ha inundado el Archivo de la agencia y las fichas del diccionario se han revuelto. Sin orden alfabético, encontrar una palabra es imposible.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Mateo",
+    "rango": 4,
+    "contenido": "El diccionario: orden alfabético, palabras guía, acepciones, polisemia y homonimia",
+    "dificultad": 5
+  },
+  "escenas": [
+    { "tipo": "portada", "fondo": "sala-archivo" },
+    {
+      "tipo": "relato", "fondo": "sala-archivo", "quien": "Mateo",
+      "personaje": { "id": "mateo", "expresion": "sorprendido", "lado": "der" },
+      "texto": "¡Desastre en el Archivo! Anoche se rompió una tubería y cayó agua justo encima del fichero del diccionario: cientos de fichas, cada una con una palabra y sus significados. Las hemos secado con un secador de pelo, pero están todas revueltas. Sin orden alfabético, esto no es un diccionario: ¡es una sopa de letras!"
+    },
+    {
+      "tipo": "ordena", "fondo": "sala-archivo", "titulo": "El cajón de la «ca»",
+      "instruccion": "Toca las fichas en orden alfabético. Todas empiezan por «ca»: mira la tercera letra, la cuarta… ¡o más!",
+      "criterio": "9.1",
+      "pista": "Si la primera letra es igual, mira la segunda; si también, la tercera… hasta encontrar una diferente. Las tildes no cuentan.",
+      "fragmentos": ["cama", "camión", "campana", "caracol", "carácter", "carta"]
+    },
+    {
+      "tipo": "pregunta", "fondo": "sala-archivo", "titulo": "Las palabras guía",
+      "personaje": { "id": "anselmo", "expresion": "pensativo", "lado": "izq" },
+      "preguntas": [
+        { "pregunta": "Arriba de una página pone «lámpara · lavar». ¿Qué palabra encontrarás en esa página?", "opciones": ["ladrón", "lata", "lazo"], "correcta": 1, "criterio": "9.1", "pista": "Las palabras guía son la primera y la última de la página. Compara la tercera letra: m… v.", "explicacion": "«Lata» va entre «lámpara» y «lavar»: la t va después de la m y antes de la v. «Ladrón» está antes y «lazo», después." },
+        { "pregunta": "Las palabras guía son «pez · picar». ¿Qué palabra está en esa página?", "opciones": ["pequeño", "pila", "piano"], "correcta": 2, "criterio": "9.1", "pista": "«Pequeño» y «pez» empiezan igual: compara su tercera letra. Y «pila» con «picar», también.", "explicacion": "«Piano» va después de «pez» (la i va tras la e) y antes de «picar» (la a va antes de la c)." },
+        { "pregunta": "Buscas «sombrero». Una página tiene las palabras guía «sombra · sonar». ¿Está ahí?", "opciones": ["Sí: va después de «sombra» y antes de «sonar»", "No: tiene que estar antes de «sombra»", "No: tiene que estar después de «sonar»"], "correcta": 0, "criterio": "9.1", "pista": "«Sombra» y «sombrero» son iguales hasta la quinta letra. Mira la sexta.", "explicacion": "¡Hasta la sexta letra! Somb-r-a / somb-r-e: la a va antes que la e. Y «som-» va antes que «son-» porque la m va antes que la n." }
+      ]
+    },
+    {
+      "tipo": "escribe", "fondo": "sala-archivo", "titulo": "¿Qué palabra busco?",
+      "instruccion": "En el diccionario, las palabras no salen en todas sus formas. Escribe la que tendrías que buscar.",
+      "personaje": { "id": "mateo", "expresion": "neutral", "lado": "izq" },
+      "items": [
+        { "enunciado": "«Las panaderas del barrio madrugan mucho». Para entender «panaderas», busco…", "respuestas": ["panadero"], "criterio": "9.1", "pista": "Los nombres y los adjetivos se buscan en masculino y en singular.", "explicacion": "«Panadero»: el diccionario la recoge como «panadero, ra». Busca siempre el masculino singular." },
+        { "enunciado": "«El gato corrió por el tejado». Para entender «corrió», busco…", "respuestas": ["correr"], "criterio": "9.1", "pista": "Los verbos se buscan en infinitivo: la forma que termina en -ar, -er o -ir.", "explicacion": "Los verbos se buscan en infinitivo: «corrió» → «correr»." },
+        { "enunciado": "«La ardilla escondió tres nueces». Para entender «nueces», busco…", "respuestas": ["nuez"], "criterio": "9.1", "pista": "Pásala a singular… ¡y ojo con la última letra!", "explicacion": "«Nuez», en singular. La z cambia a c en el plural: nuez, nueces; pez, peces; lápiz, lápices." },
+        { "enunciado": "«Ayer dijimos la verdad». Para entender «dijimos», busco…", "respuestas": ["decir"], "criterio": "9.1", "pista": "Es un verbo irregular. ¿Cómo se dice el verbo si hoy «decimos» algo?", "explicacion": "«Dijimos» viene de «decir»: es un verbo irregular y su forma cambia mucho. El infinitivo es la llave del diccionario." }
+      ]
+    },
+    {
+      "tipo": "relato", "fondo": "sala-archivo", "quien": "Don Anselmo",
+      "personaje": { "id": "anselmo", "expresion": "contento", "lado": "der" },
+      "texto": "¡Buen trabajo, detectives! Cuando era maestro, siempre decía que el diccionario es como una ciudad: las palabras guía son los letreros de las calles. Pero lo mejor está dentro de cada casa. Mirad estas fichas, que el agua ha dejado medio borrosas: hay que leerlas con lupa."
+    },
+    {
+      "tipo": "pregunta", "fondo": "sala-archivo", "titulo": "Las fichas borrosas",
+      "personaje": { "id": "anselmo", "expresion": "contento", "lado": "izq" },
+      "quien": "Fichas del diccionario de la agencia",
+      "documento": "banco\n1. m. Asiento largo para varias personas.\n2. m. Mesa de trabajo del carpintero.\n3. m. Empresa que guarda dinero y hace préstamos.\n4. m. Grupo grande de peces que nadan juntos.\n\nllama¹ (del latín flamma)\nf. Fuego que sale de algo que arde.\n\nllama² (palabra quechua)\nf. Animal de los Andes, pariente del camello.",
+      "preguntas": [
+        { "pregunta": "«Un banco de sardinas rodeó la barca». ¿Qué acepción de «banco» es?", "opciones": ["Acepción 1", "Acepción 2", "Acepción 3", "Acepción 4"], "correcta": 3, "criterio": "9.1", "pista": "¿Qué hacen las sardinas? ¿Se sientan, trabajan o nadan?", "explicacion": "Acepción 4: un grupo de peces. Cada significado de una palabra en el diccionario se llama acepción, y va numerado." },
+        { "pregunta": "«En su taller, el carpintero sujetó la tabla al banco y empezó a serrar». ¿Qué acepción es?", "opciones": ["Acepción 1", "Acepción 2", "Acepción 3", "Acepción 4"], "correcta": 1, "criterio": "9.1", "pista": "El carpintero no se sienta encima de la tabla: trabaja sobre algo.", "explicacion": "Acepción 2: la mesa de trabajo. La frase (el taller, la tabla, serrar) te dice qué acepción elegir." },
+        { "pregunta": "«Banco» tiene una sola entrada con cuatro acepciones. ¿Qué tipo de palabra es?", "opciones": ["Polisémica: una palabra con varios significados", "Homónima: dos palabras distintas que se escriben igual", "Antónima: una palabra de significado contrario"], "correcta": 0, "criterio": "9.1", "explicacion": "Es polisémica: una sola palabra con varios significados emparentados. Por eso todos están juntos en la misma entrada." },
+        { "pregunta": "«Llama¹» y «llama²» tienen entradas separadas y vienen de lenguas distintas. ¿Qué son?", "opciones": ["Una palabra polisémica con dos acepciones", "Sinónimos: palabras que significan lo mismo", "Homónimas: se escriben igual, pero son palabras distintas"], "correcta": 2, "criterio": "9.1", "pista": "Fíjate en los numeritos y en el origen: ¿es una palabra o son dos?", "explicacion": "Son homónimas: dos palabras distintas que se escriben igual. El diccionario las separa con numeritos. ¡Y hay otra «llama», del verbo llamar, que se busca en «llamar»!" },
+        { "pregunta": "¿Qué quiere decir la «f.» que va delante de las dos «llama»?", "opciones": ["Que es una palabra fácil", "Que es un nombre femenino: decimos «la llama»", "Que la palabra viene del francés"], "correcta": 1, "criterio": "9.1", "explicacion": "«f.» es femenino, y «m.», masculino: «la llama», «el banco». El diccionario usa abreviaturas para ahorrar espacio." }
+      ]
+    },
+    {
+      "tipo": "relato", "fondo": "sala-archivo", "quien": "Mateo",
+      "personaje": { "id": "mateo", "expresion": "contento", "lado": "der" },
+      "texto": "¡Fichero rescatado! Todas las fichas en su cajón, en orden y bien leídas. Don Anselmo dice que en sus tiempos había quien se aprendía el diccionario de memoria. Yo prefiero saber buscar en él: es igual de útil y ocupa mucho menos sitio en la cabeza."
+    },
+    {
+      "tipo": "final", "fondo": "sala-archivo", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "anselmo"],
+      "texto": "El fichero del diccionario vuelve a estar en orden alfabético. Por si acaso, Mateo le ha puesto un paraguas encima."
+    }
+  ]
+}

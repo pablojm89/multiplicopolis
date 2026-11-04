@@ -1,0 +1,80 @@
+{
+  "id": "enc-06",
+  "numero": "E06",
+  "titulo": "La canción que no concuerda",
+  "resumen": "Ramón estrena esta noche su nueva canción en la plaza, pero su abuela, que tiene un oído finísimo, dice que hay versos que «no concuerdan». ¿Qué les pasa?",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Ramón, el músico",
+    "rango": 2,
+    "contenido": "El sujeto, el predicado y la concordancia con el verbo",
+    "dificultad": 3
+  },
+  "escenas": [
+    { "tipo": "portada", "fondo": "plaza-feria" },
+    {
+      "tipo": "relato", "fondo": "plaza-feria", "quien": "Ramón, el músico",
+      "personaje": { "id": "ramon", "expresion": "nervioso", "lado": "der" },
+      "texto": "Detectives, os necesito antes de que empiece la fiesta. Esta noche estreno «Farolillos de La Alameda», y mi abuela, que tiene un oído finísimo, la ha leído y ha torcido el gesto: «Ramón, hay versos que no concuerdan». Yo los canto y no noto nada raro… pero mi abuela nunca falla."
+    },
+    {
+      "tipo": "pregunta", "fondo": "plaza-feria", "titulo": "El estribillo",
+      "quien": "«Farolillos de La Alameda» · Estribillo",
+      "documento": "Esta noche brillan los farolillos,\nla plaza entera canta conmigo.\nMi guitarra no tiene prisa:\nsuena despacio, como un suspiro.\nY tú, desde tu ventana,\nme escuchas sin hacer ruido.",
+      "preguntas": [
+        { "pregunta": "En «Esta noche brillan los farolillos», ¿cuál es el sujeto?", "opciones": ["Esta noche", "Los farolillos", "Brillan"], "correcta": 1, "criterio": "9.1", "pista": "Pregúntale al verbo: ¿quiénes brillan?", "explicacion": "El sujeto es de quien se dice algo. Truco: pregúntale al verbo «¿quiénes brillan?» → los farolillos. Aquí va detrás del verbo: en las canciones, el sujeto cambia mucho de sitio." },
+        { "pregunta": "En «la plaza entera canta conmigo», ¿cuál es el predicado?", "opciones": ["La plaza entera", "Conmigo", "Canta conmigo"], "correcta": 2, "criterio": "9.1", "pista": "El predicado es lo que se dice del sujeto, y siempre lleva el verbo dentro.", "explicacion": "El predicado es lo que se dice del sujeto: «canta conmigo». Su núcleo es el verbo, «canta»." },
+        { "pregunta": "«Suena despacio, como un suspiro.» ¿Cuál es el sujeto de este verso?", "opciones": ["Un suspiro", "Está omitido: es «mi guitarra»", "Despacio"], "correcta": 1, "criterio": "9.1", "pista": "¿Qué es lo que suena? Mira el verso de arriba.", "explicacion": "Sujeto omitido: no está escrito, pero se sobrentiende por el verbo y por el verso anterior. Lo que suena es «mi guitarra»." },
+        { "pregunta": "«Y tú, desde tu ventana, me escuchas sin hacer ruido.» ¿Cuál es el verbo que concuerda con «tú»?", "opciones": ["Hacer", "Escuchas", "Ventana"], "correcta": 1, "criterio": "9.1", "pista": "«Hacer» es un infinitivo: no cambia según la persona. ¿Qué verbo cambia si dices «yo» en vez de «tú»?", "explicacion": "«Escuchas» concuerda con «tú»: segunda persona del singular. Con «yo» sería «escucho»; con «ellos», «escuchan»." }
+      ]
+    },
+    {
+      "tipo": "escribe", "fondo": "plaza-feria", "titulo": "Los versos desafinados",
+      "instruccion": "Estos son los versos que chirrían. Escribe bien el verbo para que concuerde con su sujeto.",
+      "personaje": { "id": "ramon", "expresion": "nervioso", "lado": "izq" },
+      "items": [
+        { "enunciado": "«El sonido de las palmas llenan la plaza.» El verbo debe ser…", "respuestas": ["llena"], "criterio": "9.1", "pista": "¿Qué llena la plaza: el sonido o las palmas? El núcleo del sujeto es una sola palabra.", "explicacion": "El sujeto es «el sonido de las palmas», y su núcleo es «sonido», en singular. «Palmas» está cerca del verbo, pero no manda." },
+        { "enunciado": "«Mi abuela y mi tía baila sevillanas en la caseta.» El verbo debe ser…", "respuestas": ["bailan"], "criterio": "9.1", "pista": "¿Cuántas personas bailan?", "explicacion": "Sujeto con dos núcleos, «mi abuela y mi tía»: son dos, así que el verbo va en plural." },
+        { "enunciado": "«Esta noche se enciende los farolillos de la feria.» El verbo debe ser…", "respuestas": ["se encienden", "encienden"], "criterio": "9.1", "pista": "¿Qué se enciende? El sujeto está detrás del verbo, pero manda igual.", "explicacion": "«Se encienden los farolillos»: el sujeto va detrás del verbo, pero sigue siendo plural." },
+        { "enunciado": "«Yo, cuando cae la tarde, cantas para ti.» El verbo debe ser…", "respuestas": ["canto"], "criterio": "9.1", "pista": "Hay dos verbos. «Cae» va con «la tarde». ¿Qué verbo va con «yo»?", "explicacion": "Con «yo», primera persona: «canto». Y «cae» concuerda con su propio sujeto, «la tarde». Cada verbo, con el suyo." }
+      ]
+    },
+    {
+      "tipo": "clasifica", "fondo": "calle-alameda", "titulo": "La libreta de Ramón",
+      "instruccion": "Ramón apunta frases sueltas para sus canciones. ¿El sujeto está escrito o se sobrentiende?",
+      "categorias": [{ "id": "explicito", "nombre": "Sujeto explícito" }, { "id": "omitido", "nombre": "Sujeto omitido" }],
+      "palabras": [
+        { "p": "Ramón afina la guitarra.", "cat": "explicito", "pista": "¿Quién afina? Está escrito en la frase." },
+        { "p": "Ensayamos cada tarde.", "cat": "omitido", "pista": "¿Quiénes ensayan? «Nosotros», pero no está escrito: lo dice el verbo." },
+        { "p": "Los vecinos aplauden.", "cat": "explicito", "pista": "¿Quiénes aplauden? Está escrito: los vecinos." },
+        { "p": "Mañana tocaré en la feria.", "cat": "omitido", "pista": "¿Quién tocará? «Yo», pero solo lo dice el verbo." },
+        { "p": "Suenan las palmas.", "cat": "explicito", "pista": "¿Qué suena? Las palmas: el sujeto está, aunque vaya detrás del verbo." },
+        { "p": "¿Vienes al concierto?", "cat": "omitido", "pista": "¿Quién viene? «Tú», escondido en el verbo." },
+        { "p": "Mi abuela tararea el estribillo.", "cat": "explicito", "pista": "¿Quién tararea? Está escrito al principio." },
+        { "p": "Bailaron hasta el amanecer.", "cat": "omitido", "pista": "¿Quiénes bailaron? «Ellos» o «ellas», pero no aparece: lo dice el verbo." }
+      ],
+      "pistas": ["Pregúntale al verbo «¿quién?». Si la respuesta está escrita en la frase, el sujeto es explícito; si solo la dice el verbo, es omitido."]
+    },
+    {
+      "tipo": "hipotesis", "fondo": "calle-alameda", "titulo": "¿Qué regla rompían los versos?",
+      "opciones": [
+        "El verbo concuerda con la palabra que tiene más cerca.",
+        "Si el sujeto va detrás, el verbo ya no tiene que concordar.",
+        "El verbo concuerda en número y persona con el núcleo del sujeto, vaya donde vaya.",
+        "En las canciones, el verbo va en la persona que mejor rime."
+      ],
+      "correcta": 2,
+      "acierto": "Eso es: el verbo concuerda en número y persona con el núcleo del sujeto, aunque esté lejos, detrás del verbo o escondido. La abuela de Ramón tenía razón.",
+      "fallo": "Esa regla no se sostiene. Busca un contraejemplo en los versos que has corregido: «el sonido de las palmas llena», «se encienden los farolillos»…"
+    },
+    {
+      "tipo": "relato", "fondo": "plaza-feria", "quien": "Ramón, el músico",
+      "personaje": { "id": "ramon", "expresion": "contento", "lado": "der" },
+      "texto": "¡Lo hemos conseguido! He cantado la canción entera y mi abuela, en primera fila, no ha torcido el gesto ni una vez. Bueno, una: cuando he desafinado en el estribillo. Pero eso ya no es cosa de la gramática… sino de mis dedos."
+    },
+    {
+      "tipo": "final", "fondo": "plaza-feria", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "ramon"],
+      "texto": "Toda la plaza acaba cantando «Farolillos de La Alameda». Y, por primera vez, cada verbo de la canción concuerda con su sujeto."
+    }
+  ]
+}
