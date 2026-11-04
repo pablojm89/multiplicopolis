@@ -414,7 +414,9 @@ td.celda-bien { background: #d9f0df; } td.celda-casi { background: #fbecc8; } td
 .aca-pista { font: 28px/1.4 var(--f-mano); margin: 0; }
 .aca-ficha .boton-papel { justify-self: start; }
 .aca-ficha.sellada { border-top-color: var(--verde); } .aca-ficha.copiada { border-top-color: var(--rojo); }
-.documento.pupitre { top: 160px; width: 860px; transform: translateX(-50%) rotate(-1.2deg); }
+/* El fondo sala-pupitre trae una hoja en blanco (≈ x 284-978, y 140-590): el documento se escribe encima */
+.documento.pupitre { top: 150px; left: 292px; width: 678px; max-height: 432px; overflow: auto; transform: none; background: none; box-shadow: none; padding: 12px 20px; }
+.documento.pupitre .texto-pistas { font-size: 25px; line-height: 1.75; }
 .sismo { position: absolute; left: 50%; top: 160px; transform: translateX(-50%); width: 820px; background: linear-gradient(#2c3440, #1a2028); border: 6px solid #8a96a3; border-radius: 16px; padding: 18px 26px 20px; color: var(--crema); box-shadow: 0 18px 40px rgba(0, 0, 0, .6), inset 0 0 30px rgba(155, 226, 174, .08); display: grid; gap: 12px; justify-items: center; }
 .sismo small { font: 800 14px var(--f-ui); color: #9be2ae; letter-spacing: .06em; text-transform: uppercase; }
 .muestra { display: flex; gap: 12px; }

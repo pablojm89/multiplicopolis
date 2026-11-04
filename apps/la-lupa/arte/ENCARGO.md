@@ -33,7 +33,7 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 ## Ya aprobadas: úsalas como referencia
 
-Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo estilo, luz y acabado, y el mismo aspecto de cada personaje: `fachada-agencia.png`, `agencia.png`, `casa-feria.png`, `panaderia.png`, `floristeria.png`, `kiosco.png`, `plaza-feria.png`, `carpeta-vacia.png`, `partitura.png`, `caja-musica.png`, `pregon.png`, `agencia-saboteada.png`, `calle-alameda.png`, `nota-tachon.png`, `placa-practicas.png`, `periodico.png`, `expedientes-revueltos.png`, `lola-neutral.png`, `lola-contento.png`, `lola-pensativo.png`, `lola-sorprendido.png`, `mateo-contento.png`, `mateo-neutral.png`, `mateo-pensativo.png`, `mateo-sorprendido.png`, `robles-contento.png`, `robles-neutral.png`, `robles-pensativo.png`, `robles-sorprendido.png`, `julian-contento.png`, `julian-neutral.png`, `julian-sorprendido.png`, `ines-contento.png`, `ines-neutral.png`, `ines-sorprendido.png`, `ramon-contento.png`, `ramon-nervioso.png`, `ramon-neutral.png`, `ramon-sorprendido.png`, `pilar-contento.png`, `pilar-neutral.png`, `pilar-sorprendido.png`, `bruno-contento.png`, `bruno-nervioso.png`, `bruno-neutral.png`, `bruno-sorprendido.png`, `tachon-burlon.png`, `tachon-neutral.png`, `tachon-sorprendido.png`.
+Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo estilo, luz y acabado, y el mismo aspecto de cada personaje: `fachada-agencia.png`, `agencia.png`, `casa-feria.png`, `panaderia.png`, `floristeria.png`, `kiosco.png`, `plaza-feria.png`, `carpeta-vacia.png`, `partitura.png`, `caja-musica.png`, `pregon.png`, `agencia-saboteada.png`, `calle-alameda.png`, `nota-tachon.png`, `placa-practicas.png`, `periodico.png`, `expedientes-revueltos.png`, `mercado.png`, `almacen-mercado.png`, `foto-borrosa.png`, `grabadora.png`, `biblioteca.png`, `sobre-tachon.png`, `fichero-azul.png`, `patio-academia.png`, `sala-pupitre.png`, `sala-laboratorio.png`, `sala-archivo.png`, `sala-terminal.png`, `sala-pizarra.png`, `sala-interrogatorios.png`, `sala-centralita.png`, `sala-imprenta.png`, `plaza-azulejos.png`, `taller-ceramica.png`, `horno-ceramica.png`, `lola-neutral.png`, `lola-contento.png`, `lola-pensativo.png`, `lola-sorprendido.png`, `mateo-contento.png`, `mateo-neutral.png`, `mateo-pensativo.png`, `mateo-sorprendido.png`, `robles-contento.png`, `robles-neutral.png`, `robles-pensativo.png`, `robles-sorprendido.png`, `julian-contento.png`, `julian-neutral.png`, `julian-sorprendido.png`, `ines-contento.png`, `ines-neutral.png`, `ines-sorprendido.png`, `ramon-contento.png`, `ramon-nervioso.png`, `ramon-neutral.png`, `ramon-sorprendido.png`, `pilar-contento.png`, `pilar-neutral.png`, `pilar-sorprendido.png`, `bruno-contento.png`, `bruno-nervioso.png`, `bruno-neutral.png`, `bruno-sorprendido.png`, `tachon-burlon.png`, `tachon-neutral.png`, `tachon-sorprendido.png`, `manolo-contento.png`, `manolo-neutral.png`, `manolo-sorprendido.png`, `remedios-contento.png`, `remedios-nervioso.png`, `remedios-neutral.png`, `herminia-contento.png`, `herminia-neutral.png`, `herminia-sorprendido.png`, `anselmo-contento.png`, `anselmo-neutral.png`, `anselmo-pensativo.png`, `anselmo-sorprendido.png`, `azucena-contento.png`, `azucena-neutral.png`, `azucena-sorprendido.png`.
 
 ## Personajes
 
@@ -44,57 +44,6 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | Archivo | Expresión |
 |---|---|
 | `bruno-desenmascarado.png` | SOLO PARA BRUNO: lleva puesta la gabardina negra de El Tachón, abierta y con el cuello bajado, con su sudadera gris debajo; sin gorra, flequillo engominado medio deshecho; sostiene en la mano las gafas de sol de El Tachón; PULSERA ROJA DE TELA bien visible en la muñeca izquierda; su cara normal (sin la mandíbula exagerada); mirada baja, avergonzado pero aliviado, media sonrisa tímida |
-
-### Manolo, el frutero
-
-**Descripción:** Manolo, frutero del mercado, unos 60 años, estilo anime: bajito y fuerte, calvo con bigote blanco, gorra de tela, chaleco marrón sobre camisa de cuadros, delantal verde, una naranja en la mano; bonachón y algo despistado.
-
-| Archivo | Expresión |
-|---|---|
-| `manolo-neutral.png` | expresión neutra, atenta |
-| `manolo-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
-| `manolo-contento.png` | contento/a, sonrisa amplia |
-
-### Remedios, la pescadera
-
-**Descripción:** Remedios, pescadera del mercado, unos 40 años, estilo anime: pelo negro rizado recogido con un pañuelo azul, delantal de goma azul, botas de agua, guantes, mirada desconfiada pero noble; carácter fuerte.
-
-| Archivo | Expresión |
-|---|---|
-| `remedios-neutral.png` | expresión neutra, atenta |
-| `remedios-nervioso.png` | nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca |
-| `remedios-contento.png` | contento/a, sonrisa amplia |
-
-### Herminia, la bibliotecaria
-
-**Descripción:** Herminia, bibliotecaria del barrio, unos 50 años, estilo anime: pelo gris corto con mechón morado, gafas de pasta grandes con cadenita, rebeca de punto granate, falda larga, una pila de libros en los brazos; seria pero muy cariñosa.
-
-| Archivo | Expresión |
-|---|---|
-| `herminia-neutral.png` | expresión neutra, atenta |
-| `herminia-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
-| `herminia-contento.png` | contento/a, sonrisa amplia |
-
-### Don Anselmo
-
-**Descripción:** Don Anselmo, conserje y antiguo maestro jubilado de la escuela, unos 75 años, estilo anime: alto y delgado, pelo blanco peinado hacia atrás, bigote blanco, gafas redondas de leer en la punta de la nariz, chaleco de punto gris, pajarita granate, manojo de llaves antiguas en el cinturón y una tiza en la mano; sabio, tranquilo y con humor.
-
-| Archivo | Expresión |
-|---|---|
-| `anselmo-neutral.png` | expresión neutra, atenta |
-| `anselmo-contento.png` | contento/a, sonrisa amplia |
-| `anselmo-pensativo.png` | pensativo/a, mano en la barbilla, mirada de lado |
-| `anselmo-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
-
-### Azucena, la ceramista
-
-**Descripción:** Azucena, ceramista del barrio, unos 35 años, estilo anime: piel morena, pelo negro largo recogido con un lápiz, delantal manchado de pintura azul y de barro, pañuelo verde al cuello, pincel en la mano; creativa y despistada.
-
-| Archivo | Expresión |
-|---|---|
-| `azucena-neutral.png` | expresión neutra, atenta |
-| `azucena-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
-| `azucena-contento.png` | contento/a, sonrisa amplia |
 
 ### Gregorio, el pintor
 
@@ -140,20 +89,6 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 
 | Archivo | Qué se ve |
 |---|---|
-| `mercado.png` | Interior de un mercado de abastos de barrio andaluz de madrugada: nave con techo de hierro y cristal, puestos de fruta, verdura y pescado con toldos, pizarras de precios y letreros de cartón colgados (SIN letras ni números, solo superficies vacías o garabatos abstractos), cajas de naranjas, azulejos en los mostradores, luz fría de fluorescentes y algún foco ámbar, suelo mojado. Sin personas. |
-| `almacen-mercado.png` | Almacén trasero del mismo mercado: sacos de arpillera y cajas de madera apiladas, una bombilla colgando con luz ámbar, una cámara de seguridad en lo alto de la pared, puerta metálica entreabierta a la calle con luz azul de madrugada, carretilla, papeles por el suelo. Sin personas y sin letras. |
-| `biblioteca.png` | Biblioteca municipal del barrio de La Alameda al anochecer: estanterías altas de madera llenas de libros, lámparas verdes encendidas en mesas largas, un mostrador de préstamo con un fichero antiguo de cajoncitos, ventanales con reja andaluza y la luz azul de la noche, azulejos en el zócalo, carteles en la pared SIN letras (vacíos), polvo flotando en la luz. Sin personas. |
-| `patio-academia.png` | Patio andaluz nocturno de una antigua escuela de barrio convertida en academia de detectives: suelo de azulejos, naranjo central con farolillos, aljibe de piedra, galería con arcos encalados y ocho puertas de madera de colores distintos (una escalera baja a un sótano, una antena en la azotea), macetas con geranios, luz ámbar de faroles y cielo azul noche. Sin personas y sin letras ni rótulos. |
-| `sala-pupitre.png` | Vista cenital (desde arriba) de un pupitre de madera gastada de escuela antigua: en el centro una hoja de papel en blanco SIN letras, alrededor un lápiz, una goma, un sacapuntas, una lupa de latón, un flexo que proyecta luz cálida, una taza de cacao y un cuaderno cerrado; los márgenes en penumbra azul de noche. |
-| `sala-laboratorio.png` | Laboratorio forense escolar de detectives: mesa de acero con microscopio grande, tubos de ensayo con líquidos de colores, pinzas, balanza de dos platos, lámpara ultravioleta violeta, lupa con brazo articulado y bandejas con etiquetas en blanco; luz fría azul y reflejos violeta, ventana con reja andaluza al fondo. Sin personas y sin letras. |
-| `sala-archivo.png` | Sótano abovedado de ladrillo de la antigua escuela: estanterías de expedientes hasta el techo, un gran fichero metálico de cajoncitos, escalera de biblioteca, lámpara de mesa verde encendida, cajas de cartón, alguna telaraña discreta; luz ámbar cálida en la penumbra. Sin personas y sin letras en las etiquetas. |
-| `sala-terminal.png` | Sala de informática de los años 80 en penumbra: ordenador antiguo con monitor de fósforo verde apagado (pantalla negra, sin texto), teclado beige grueso, disquetes, cables y una cinta de casete; luz verde del monitor iluminando la habitación. Sin personas y sin letras. |
-| `sala-pizarra.png` | Aula antigua de gramática de noche: pizarra verde de tiza grande y VACÍA (sin letras ni dibujos), tarima, mesa del maestro con tizas y borrador, mapa enrollado, globo terráqueo, pupitres de madera, ventana con la luna. Sin personas. |
-| `sala-interrogatorios.png` | Sala de interrogatorios de detectives: paredes grises, mesa metálica con dos sillas, lámpara colgante que ilumina la mesa, espejo unidireccional grande al fondo (reflejo difuso), grabadora de cinta sobre la mesa, vaso de agua y carpeta cerrada. Ambiente de serie juvenil de misterio, no terrorífico. Sin personas y sin letras. |
-| `sala-centralita.png` | Azotea cubierta de la antigua escuela convertida en centralita de radio: mesa con radio antigua de válvulas, micrófono de sobremesa, auriculares, walkie-talkie, mapa del barrio clavado con chinchetas e hilo rojo (SIN rótulos), antena y cielo nocturno de La Alameda con farolillos a lo lejos. Sin personas. |
-| `sala-imprenta.png` | Redacción e imprenta del periódico del barrio al amanecer: mesa con máquina de escribir antigua y hojas en blanco, taza de café, pequeña rotativa al fondo, bobinas de papel, tablero de corcho con recortes en blanco, luz dorada del amanecer por la ventana. Sin personas y sin letras ni titulares. |
-| `plaza-azulejos.png` | Plaza del barrio de La Alameda al atardecer: fuente de piedra con un gran panel de azulejos antiguos de colores en la pared de detrás (dibujos geométricos y florales, SIN letras), naranjos, bancos de forja, farolas encendiéndose y algunas piezas del panel caídas en el suelo. Sin personas. |
-| `taller-ceramica.png` | Taller de cerámica artesanal: torno de alfarero, estanterías con platos, jarras y azulejos pintados a mano (dibujos, SIN letras), botes de pintura de colores, pinceles en vasos, un horno de cerámica al fondo, luz cálida de tarde por un ventanal con reja. Sin personas. |
 | `feria-apagada.png` | La plaza de La Alameda la noche de la feria con todas las luces APAGADAS: cientos de farolillos de papel colgando sin luz, casetas cerradas, guirnaldas oscuras, solo la luz azul de la luna y alguna linterna lejana; algunos farolillos tienen garabatos negros de rotulador (SIN letras legibles). Inquietante pero apta para niños. Sin personas. |
 | `caseta-feria.png` | Interior y trasera de una caseta de feria andaluza de noche: lona de rayas, cajas de cartón con bombillas, rollos de cable, sillas plegables, un escenario pequeño con un micrófono, y al fondo una casilla de feria pintada de amarillo; luz tenue de linternas. Sin personas y sin letras. |
 | `conserjeria.png` | Conserjería pequeña de una antigua escuela andaluza, de noche: mostrador de madera con ventanilla, tablero de madera con llaves antiguas colgadas de ganchos, mesa del conserje con un gran cajón cerrado con candado, flexo encendido, campana de mano de latón, estantería con cuadernos viejos apilados, radio antigua, un jarrón volcado, ventana que da a un patio con un naranjo; luz ámbar cálida contra el azul de la noche. Sin personas y sin letras, números ni rótulos. |
@@ -168,11 +103,6 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 
 | Archivo | Qué se ve |
 |---|---|
-| `foto-borrosa.png` | Fotograma impreso de cámara de seguridad, en blanco y negro con ruido y rayas: silueta borrosa de alguien con gabardina negra, gafas de sol y mandíbula muy cuadrada, de espaldas a medias junto a sacos; en su muñeca izquierda se distingue una pequeña mancha de color rojo (lo único en color). Sin letras, fecha ni números. |
-| `grabadora.png` | Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida. |
-| `sobre-tachon.png` | Sobre de papel antiguo cerrado con un sello de lacre negro con forma de tachón (garabato) y unas gafas de sol pequeñas dibujadas al lado. Sin letras, direcciones ni números. |
-| `fichero-azul.png` | Mueble fichero antiguo de madera pintada de azul con cajoncitos con tiradores de latón y etiquetas vacías, uno de los cajones cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). |
-| `horno-ceramica.png` | Horno de cerámica de taller, de metal con puerta redonda y mirilla con brillo naranja, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). |
 | `llave-escuela.png` | Llave antigua grande de hierro forjado, con una etiqueta de cartón atada con cordel en la que hay dibujada una pequeña escuela con campanario (SIN letras). |
 | `cuadro-electrico.png` | Cuadro eléctrico metálico de feria con palancas e interruptores, con un símbolo de rayo, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). |
 | `cajon-conserjeria.png` | Cajón grande de una mesa de madera antigua de escuela, con tirador de latón, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). Sin letras ni etiquetas escritas. |
@@ -191,4 +121,4 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **69** imágenes por entregar.
+Quedan **34** imágenes por entregar.

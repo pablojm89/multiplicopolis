@@ -289,14 +289,14 @@
     "tipo": "fondo",
     "nombre": "Mercado de abastos de madrugada",
     "color": "#2c3d52",
-    "listo": false,
+    "listo": true,
     "prompt": "Interior de un mercado de abastos de barrio andaluz de madrugada: nave con techo de hierro y cristal, puestos de fruta, verdura y pescado con toldos, pizarras de precios y letreros de cartón colgados (SIN letras ni números, solo superficies vacías o garabatos abstractos), cajas de naranjas, azulejos en los mostradores, luz fría de fluorescentes y algún foco ámbar, suelo mojado. Sin personas."
   },
   "almacen-mercado": {
     "tipo": "fondo",
     "nombre": "Almacén del mercado",
     "color": "#2a2f3a",
-    "listo": false,
+    "listo": true,
     "prompt": "Almacén trasero del mismo mercado: sacos de arpillera y cajas de madera apiladas, una bombilla colgando con luz ámbar, una cámara de seguridad en lo alto de la pared, puerta metálica entreabierta a la calle con luz azul de madrugada, carretilla, papeles por el suelo. Sin personas y sin letras."
   },
   "manolo": {
@@ -308,7 +308,11 @@
       "sorprendido",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Manolo, frutero del mercado, unos 60 años, estilo anime: bajito y fuerte, calvo con bigote blanco, gorra de tela, chaleco marrón sobre camisa de cuadros, delantal verde, una naranja en la mano; bonachón y algo despistado."
   },
@@ -321,7 +325,11 @@
       "nervioso",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "nervioso",
+      "neutral"
+    ],
     "mira": "der",
     "prompt": "Remedios, pescadera del mercado, unos 40 años, estilo anime: pelo negro rizado recogido con un pañuelo azul, delantal de goma azul, botas de agua, guantes, mirada desconfiada pero noble; carácter fuerte."
   },
@@ -329,21 +337,21 @@
     "tipo": "objeto",
     "nombre": "Foto borrosa de la cámara",
     "emoji": "📷",
-    "listo": false,
+    "listo": true,
     "prompt": "Fotograma impreso de cámara de seguridad, en blanco y negro con ruido y rayas: silueta borrosa de alguien con gabardina negra, gafas de sol y mandíbula muy cuadrada, de espaldas a medias junto a sacos; en su muñeca izquierda se distingue una pequeña mancha de color rojo (lo único en color). Sin letras, fecha ni números."
   },
   "grabadora": {
     "tipo": "objeto",
     "nombre": "Grabadora de la cámara",
     "emoji": "📼",
-    "listo": false,
+    "listo": true,
     "prompt": "Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida."
   },
   "biblioteca": {
     "tipo": "fondo",
     "nombre": "Biblioteca del barrio al anochecer",
     "color": "#2e2a44",
-    "listo": false,
+    "listo": true,
     "prompt": "Biblioteca municipal del barrio de La Alameda al anochecer: estanterías altas de madera llenas de libros, lámparas verdes encendidas en mesas largas, un mostrador de préstamo con un fichero antiguo de cajoncitos, ventanales con reja andaluza y la luz azul de la noche, azulejos en el zócalo, carteles en la pared SIN letras (vacíos), polvo flotando en la luz. Sin personas."
   },
   "herminia": {
@@ -355,7 +363,11 @@
       "sorprendido",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Herminia, bibliotecaria del barrio, unos 50 años, estilo anime: pelo gris corto con mechón morado, gafas de pasta grandes con cadenita, rebeca de punto granate, falda larga, una pila de libros en los brazos; seria pero muy cariñosa."
   },
@@ -363,77 +375,77 @@
     "tipo": "objeto",
     "nombre": "Sobre sellado con un tachón",
     "emoji": "✉️",
-    "listo": false,
+    "listo": true,
     "prompt": "Sobre de papel antiguo cerrado con un sello de lacre negro con forma de tachón (garabato) y unas gafas de sol pequeñas dibujadas al lado. Sin letras, direcciones ni números."
   },
   "fichero-azul": {
     "tipo": "objeto",
     "nombre": "Fichero azul de la agencia",
     "emoji": "🗄️",
-    "listo": false,
+    "listo": true,
     "prompt": "Mueble fichero antiguo de madera pintada de azul con cajoncitos con tiradores de latón y etiquetas vacías, uno de los cajones cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
   },
   "patio-academia": {
     "tipo": "fondo",
     "nombre": "Patio de la Academia",
     "color": "#26324a",
-    "listo": false,
+    "listo": true,
     "prompt": "Patio andaluz nocturno de una antigua escuela de barrio convertida en academia de detectives: suelo de azulejos, naranjo central con farolillos, aljibe de piedra, galería con arcos encalados y ocho puertas de madera de colores distintos (una escalera baja a un sótano, una antena en la azotea), macetas con geranios, luz ámbar de faroles y cielo azul noche. Sin personas y sin letras ni rótulos."
   },
   "sala-pupitre": {
     "tipo": "fondo",
     "nombre": "El Pupitre (vista cenital)",
     "color": "#3a2f25",
-    "listo": false,
+    "listo": true,
     "prompt": "Vista cenital (desde arriba) de un pupitre de madera gastada de escuela antigua: en el centro una hoja de papel en blanco SIN letras, alrededor un lápiz, una goma, un sacapuntas, una lupa de latón, un flexo que proyecta luz cálida, una taza de cacao y un cuaderno cerrado; los márgenes en penumbra azul de noche."
   },
   "sala-laboratorio": {
     "tipo": "fondo",
     "nombre": "El Laboratorio forense",
     "color": "#1f2a3a",
-    "listo": false,
+    "listo": true,
     "prompt": "Laboratorio forense escolar de detectives: mesa de acero con microscopio grande, tubos de ensayo con líquidos de colores, pinzas, balanza de dos platos, lámpara ultravioleta violeta, lupa con brazo articulado y bandejas con etiquetas en blanco; luz fría azul y reflejos violeta, ventana con reja andaluza al fondo. Sin personas y sin letras."
   },
   "sala-archivo": {
     "tipo": "fondo",
     "nombre": "El Archivo del sótano",
     "color": "#2a2620",
-    "listo": false,
+    "listo": true,
     "prompt": "Sótano abovedado de ladrillo de la antigua escuela: estanterías de expedientes hasta el techo, un gran fichero metálico de cajoncitos, escalera de biblioteca, lámpara de mesa verde encendida, cajas de cartón, alguna telaraña discreta; luz ámbar cálida en la penumbra. Sin personas y sin letras en las etiquetas."
   },
   "sala-terminal": {
     "tipo": "fondo",
     "nombre": "La Terminal ORTO-3000",
     "color": "#0f1f14",
-    "listo": false,
+    "listo": true,
     "prompt": "Sala de informática de los años 80 en penumbra: ordenador antiguo con monitor de fósforo verde apagado (pantalla negra, sin texto), teclado beige grueso, disquetes, cables y una cinta de casete; luz verde del monitor iluminando la habitación. Sin personas y sin letras."
   },
   "sala-pizarra": {
     "tipo": "fondo",
     "nombre": "La Pizarra",
     "color": "#1e3328",
-    "listo": false,
+    "listo": true,
     "prompt": "Aula antigua de gramática de noche: pizarra verde de tiza grande y VACÍA (sin letras ni dibujos), tarima, mesa del maestro con tizas y borrador, mapa enrollado, globo terráqueo, pupitres de madera, ventana con la luna. Sin personas."
   },
   "sala-interrogatorios": {
     "tipo": "fondo",
     "nombre": "La Sala de Interrogatorios",
     "color": "#22262c",
-    "listo": false,
+    "listo": true,
     "prompt": "Sala de interrogatorios de detectives: paredes grises, mesa metálica con dos sillas, lámpara colgante que ilumina la mesa, espejo unidireccional grande al fondo (reflejo difuso), grabadora de cinta sobre la mesa, vaso de agua y carpeta cerrada. Ambiente de serie juvenil de misterio, no terrorífico. Sin personas y sin letras."
   },
   "sala-centralita": {
     "tipo": "fondo",
     "nombre": "La Centralita de radio",
     "color": "#2a2436",
-    "listo": false,
+    "listo": true,
     "prompt": "Azotea cubierta de la antigua escuela convertida en centralita de radio: mesa con radio antigua de válvulas, micrófono de sobremesa, auriculares, walkie-talkie, mapa del barrio clavado con chinchetas e hilo rojo (SIN rótulos), antena y cielo nocturno de La Alameda con farolillos a lo lejos. Sin personas."
   },
   "sala-imprenta": {
     "tipo": "fondo",
     "nombre": "La Imprenta del Eco",
     "color": "#33281e",
-    "listo": false,
+    "listo": true,
     "prompt": "Redacción e imprenta del periódico del barrio al amanecer: mesa con máquina de escribir antigua y hojas en blanco, taza de café, pequeña rotativa al fondo, bobinas de papel, tablero de corcho con recortes en blanco, luz dorada del amanecer por la ventana. Sin personas y sin letras ni titulares."
   },
   "anselmo": {
@@ -446,7 +458,12 @@
       "pensativo",
       "sorprendido"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "pensativo",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Don Anselmo, conserje y antiguo maestro jubilado de la escuela, unos 75 años, estilo anime: alto y delgado, pelo blanco peinado hacia atrás, bigote blanco, gafas redondas de leer en la punta de la nariz, chaleco de punto gris, pajarita granate, manojo de llaves antiguas en el cinturón y una tiza en la mano; sabio, tranquilo y con humor."
   },
@@ -454,14 +471,14 @@
     "tipo": "fondo",
     "nombre": "La fuente del panel de azulejos",
     "color": "#2f3d58",
-    "listo": false,
+    "listo": true,
     "prompt": "Plaza del barrio de La Alameda al atardecer: fuente de piedra con un gran panel de azulejos antiguos de colores en la pared de detrás (dibujos geométricos y florales, SIN letras), naranjos, bancos de forja, farolas encendiéndose y algunas piezas del panel caídas en el suelo. Sin personas."
   },
   "taller-ceramica": {
     "tipo": "fondo",
     "nombre": "Taller de cerámica de Azucena",
     "color": "#3a2c22",
-    "listo": false,
+    "listo": true,
     "prompt": "Taller de cerámica artesanal: torno de alfarero, estanterías con platos, jarras y azulejos pintados a mano (dibujos, SIN letras), botes de pintura de colores, pinceles en vasos, un horno de cerámica al fondo, luz cálida de tarde por un ventanal con reja. Sin personas."
   },
   "azucena": {
@@ -473,7 +490,11 @@
       "sorprendido",
       "contento"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "neutral",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Azucena, ceramista del barrio, unos 35 años, estilo anime: piel morena, pelo negro largo recogido con un lápiz, delantal manchado de pintura azul y de barro, pañuelo verde al cuello, pincel en la mano; creativa y despistada."
   },
@@ -481,7 +502,7 @@
     "tipo": "objeto",
     "nombre": "Horno de cerámica con candado",
     "emoji": "🔥",
-    "listo": false,
+    "listo": true,
     "prompt": "Horno de cerámica de taller, de metal con puerta redonda y mirilla con brillo naranja, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
   },
   "feria-apagada": {
