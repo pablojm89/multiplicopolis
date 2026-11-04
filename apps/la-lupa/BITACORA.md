@@ -87,3 +87,17 @@ Claude actualiza este archivo al terminar cada tarea importante.
 - `arte/AVATARES-ALUMNADO.md`: el procedimiento y el encargo tipo para ChatGPT. Pablo sube las fichas directamente en el chat de ChatGPT, nunca por GitHub.
 
 **Idea de Pablo: misiones secundarias.** «Va a haber una campaña o historia principal con sus misiones principales, la zona de entrenamiento y luego un apartado de historia secundaria o misiones secundarias, con encargos que llegan a la agencia». Apuntado en `PLAN.md` con una propuesta de diseño; pendiente de sus decisiones.
+
+**Pablo: «para que los aprendices puedan ir haciendo, y según suben su rango de detective haya más misiones y más difíciles».** Hecho:
+- Buzón de **Encargos** desde el tablón. Cada encargo se abre con su rango; los cerrados se ven como sobres lacrados que dicen con qué rango se abren.
+- Tres escenas nuevas para el resto de la Lengua: preguntas sobre un documento, escribe la respuesta y ordena los fragmentos.
+- Primer encargo: «La receta perdida» (Julián), sobre el texto instructivo.
+- Por ahora, sin libreta ni sello, y registrados aparte de la nota; Pablo puede cambiarlo.
+
+**La Academia, completa:** las 4 salas que faltaban, hechas por 4 subagentes en paralelo y revisadas:
+- Terminal ORTO-3000: la máquina del tiempo verbal.
+- Pizarra: descubre la regla.
+- Centralita: dictado por radio, o «relámpago» si el equipo no tiene voz.
+- Imprenta del Eco: galeradas con reglas mezcladas.
+
+Además, la **libreta imprimible** (`imprimibles/libreta.html`).
