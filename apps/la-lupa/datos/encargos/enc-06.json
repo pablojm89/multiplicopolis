@@ -40,7 +40,7 @@
       ]
     },
     {
-      "tipo": "clasifica", "fondo": "calle-alameda", "titulo": "La libreta de Ramón",
+      "tipo": "clasifica", "fondo": "calle-alameda", "titulo": "La libreta de Ramón", "contador": "Frase", "criterio": "9.1",
       "instruccion": "Ramón apunta frases sueltas para sus canciones. ¿El sujeto está escrito o se sobrentiende?",
       "categorias": [{ "id": "explicito", "nombre": "Sujeto explícito" }, { "id": "omitido", "nombre": "Sujeto omitido" }],
       "palabras": [

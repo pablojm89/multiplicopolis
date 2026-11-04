@@ -47,20 +47,21 @@
         { "pregunta": "A Lucía le ofrecen cambiar su cromo por cinco que «a lo mejor» le traen mañana. Ella se queda con el suyo. ¿Qué refrán le va?", "opciones": ["Perro ladrador, poco mordedor", "Más vale pájaro en mano que ciento volando", "Hasta el cuarenta de mayo no te quites el sayo"], "correcta": 1, "criterio": "8.3" },
         { "pregunta": "Es mayo, sale el sol y Toni se va sin chaqueta. Por la tarde, tiritando, se arrepiente. ¿Qué refrán le va?", "opciones": ["Hasta el cuarenta de mayo no te quites el sayo", "Dime con quién andas y te diré quién eres", "Camarón que se duerme, se lo lleva la corriente"], "correcta": 0, "criterio": "8.3", "pista": "Busca el refrán que habla de un mes y de ropa.", "explicacion": "El sayo era una prenda de abrigo. El «cuarenta de mayo» es el 9 de junio: hasta entonces, el tiempo puede engañar." },
         { "pregunta": "Marta se quedó dormida y, cuando llegó, ya no quedaban plazas en el taller. ¿Qué refrán le va?", "opciones": ["A caballo regalado, no le mires el diente", "Dime con quién andas y te diré quién eres", "Camarón que se duerme, se lo lleva la corriente"], "correcta": 2, "criterio": "8.3" },
-        { "pregunta": "Andrés se levantó del banco para tirar un papel y, al volver, su hermano se había sentado en su sitio. ¿Qué refrán le va?", "opciones": ["Quien se fue a Sevilla perdió su silla", "Más vale pájaro en mano que ciento volando", "No por mucho madrugar amanece más temprano"], "correcta": 0, "criterio": "8.3", "pista": "¿Qué ha perdido Andrés por irse un momento?" }
+        { "pregunta": "Andrés se levantó del banco para tirar un papel y, al volver, su hermano se había sentado en su sitio. ¿Qué refrán le va?", "opciones": ["Quien se fue a Sevilla perdió su silla", "Más vale pájaro en mano que ciento volando", "No por mucho madrugar amanece más temprano"], "correcta": 0, "criterio": "8.3", "pista": "¿Qué ha perdido Andrés por irse un momento?" },
+        { "pregunta": "Doña Pilar quiere cerrar el pregón animando a todos a ayudar, aunque sea un poco. ¿Qué refrán elige?", "opciones": ["Agua que no has de beber, déjala correr", "Un grano no hace granero, pero ayuda al compañero", "Quien se fue a Sevilla perdió su silla"], "correcta": 1, "criterio": "8.3", "pista": "Busca el refrán en el que algo pequeño ayuda a llenar algo grande.", "explicacion": "Un grano solo no llena el granero, pero cada uno ayuda: lo poco de cada vecino, junto, es mucho." }
       ]
     },
     {
-      "tipo": "hipotesis", "fondo": "casa-feria", "titulo": "El refrán final: «si todos ayudamos un poco, la fiesta sale»",
+      "tipo": "hipotesis", "fondo": "casa-feria", "titulo": "Y un refrán es…",
       "opciones": [
-        "Agua que no has de beber, déjala correr.",
-        "Un grano no hace granero, pero ayuda al compañero.",
-        "Quien se fue a Sevilla perdió su silla.",
-        "Más vale pájaro en mano que ciento volando."
+        "Un poema largo que escribió un autor andaluz famoso.",
+        "Una frase que solo se entiende al pie de la letra.",
+        "Un dicho popular, corto y con ritmo, que da un consejo o una enseñanza.",
+        "Una adivinanza que se dice para que otro la resuelva."
       ],
-      "correcta": 1,
-      "acierto": "Un grano solo no llena el granero, pero cada grano ayuda: lo poco de cada uno, junto, es mucho. ¡Justo lo que doña Pilar quiere decir al barrio!",
-      "fallo": "Ese refrán existe, pero no dice eso. Pilar quiere animar a todo el barrio a echar una mano, aunque sea poco."
+      "correcta": 2,
+      "acierto": "Eso es: un dicho popular, sin autor conocido, que se transmite de boca en boca. Es corto, tiene ritmo y casi siempre se entiende en sentido figurado.",
+      "fallo": "No encaja con los refranes del pregón. Piensa en cómo son: ¿largos o cortos?, ¿con autor o populares?, ¿al pie de la letra o con otro sentido?"
     },
     {
       "tipo": "relato", "fondo": "plaza-feria", "quien": "Doña Pilar",

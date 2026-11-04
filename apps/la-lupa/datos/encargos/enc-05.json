@@ -23,17 +23,17 @@
       "criterio": "4.2",
       "pista": "La entradilla resume toda la noticia y va la primera. Después, el cuerpo cuenta lo que pasó en orden: del miércoles al sábado.",
       "fragmentos": [
-        "La tortuga Matilde, mascota del colegio Las Moreras, apareció el sábado en el huerto escolar tras pasar tres días perdida.",
-        "Todo empezó el miércoles: la clase de 5.º encontró el terrario vacío y la tapa mal cerrada.",
+        "La tortuga Matilde, mascota del colegio Las Moreras, apareció el sábado en el huerto tras pasar tres días perdida.",
+        "Todo empezó el miércoles, cuando la clase de 5.º encontró el terrario vacío.",
         "Durante tres días, el alumnado la buscó por los pasillos, el gimnasio y el patio.",
-        "El sábado, dos alumnas que regaban el huerto siguieron un rastro de lechugas mordisqueadas y la hallaron dormida bajo una tomatera.",
+        "El sábado, dos alumnas siguieron un rastro de lechugas mordisqueadas y la hallaron dormida bajo una tomatera.",
         "Según la veterinaria del barrio, Matilde se escapó buscando sombra por el calor. «Está perfecta, solo un poco empachada», aseguró."
       ]
     },
     {
       "tipo": "pregunta", "fondo": "estudio-fotos", "titulo": "Las seis preguntas",
       "quien": "Noticia de Paco (todavía sin titular)",
-      "documento": "La tortuga Matilde, mascota del colegio Las Moreras, apareció el sábado en el huerto escolar tras pasar tres días perdida.\nTodo empezó el miércoles: la clase de 5.º encontró el terrario vacío y la tapa mal cerrada.\nDurante tres días, el alumnado la buscó por los pasillos, el gimnasio y el patio.\nEl sábado, dos alumnas que regaban el huerto siguieron un rastro de lechugas mordisqueadas y la hallaron dormida bajo una tomatera.\nSegún la veterinaria del barrio, Matilde se escapó buscando sombra por el calor. «Está perfecta, solo un poco empachada», aseguró.",
+      "documento": "La tortuga Matilde, mascota del colegio Las Moreras, apareció el sábado en el huerto tras pasar tres días perdida.\nTodo empezó el miércoles, cuando la clase de 5.º encontró el terrario vacío.\nDurante tres días, el alumnado la buscó por los pasillos, el gimnasio y el patio.\nEl sábado, dos alumnas siguieron un rastro de lechugas mordisqueadas y la hallaron dormida bajo una tomatera.\nSegún la veterinaria del barrio, Matilde se escapó buscando sombra por el calor. «Está perfecta, solo un poco empachada», aseguró.",
       "preguntas": [
         { "pregunta": "¿Qué ha pasado?", "opciones": ["Unas alumnas han plantado tomateras", "La tortuga del colegio ha aparecido tras perderse", "La veterinaria ha abierto una consulta"], "correcta": 1, "criterio": "4.1", "explicacion": "Una buena noticia responde a seis preguntas: qué, quién, cuándo, dónde, cómo y por qué. Las más importantes ya aparecen en la entradilla." },
         { "pregunta": "¿Quién es la protagonista?", "opciones": ["La veterinaria del barrio", "Una de las alumnas del huerto", "Matilde, la tortuga del colegio"], "correcta": 2, "criterio": "4.1" },
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "tipo": "hipotesis", "fondo": "redaccion-eco", "titulo": "Aurora necesita un titular. ¿Cuál es el mejor?",
+      "tipo": "hipotesis", "fondo": "redaccion-eco", "titulo": "¿Cuál es el mejor titular?",
       "opciones": [
         "Cosas que pasan en el colegio",
         "La tortuga del colegio aparece en el huerto tras tres días perdida",
