@@ -196,3 +196,4 @@
   .piz-trazo path { animation: none; stroke-dashoffset: 0; }
   .piz-borrador.borrando, .piz-tablero.borrando .piz-contenido, .piz-tablero.escribiendo .piz-contenido, .piz-ficha { animation: none; }
 }
+.piz-pruebas.nuevas.frases.muchas .piz-p.frase { max-width: 290px; }
