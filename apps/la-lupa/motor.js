@@ -32,7 +32,15 @@ let perfil = null;   // detective con la sesión abierta
 let P = null;        // partida en curso
 
 const NOMBRE_CRITERIO = {
+  "1.2": "Respeto las lenguas y sus hablantes",
+  "1.3": "Conozco el habla andaluza",
+  "4.1": "Leo y comprendo textos",
+  "4.2": "Analizo cómo está hecho un texto",
   "5.1": "Escribo con corrección",
+  "6.1": "Busco y contrasto información",
+  "6.3": "Uso internet con cabeza",
+  "8.1": "Leo y disfruto la literatura",
+  "8.3": "Conozco la cultura popular andaluza",
   "9.1": "Descubro y aplico reglas",
   "9.2": "Reviso textos y encuentro errores",
 };
@@ -44,6 +52,8 @@ function ajustarEscenario() {
   e.style.transform = `translate(-50%, -50%) scale(${s})`;
 }
 addEventListener("resize", ajustarEscenario);
+/* El escenario nunca se desplaza: al dar el foco a un campo, el navegador puede hacer scroll dentro de un overflow:hidden */
+document.addEventListener("scroll", ev => { const e = ev.target; if (e?.id === "escenario" && (e.scrollTop || e.scrollLeft)) { e.scrollTop = 0; e.scrollLeft = 0; } }, true);
 
 /* Pinta una escena completa: fondo + contenido + capas de ventana y aviso */
 function pintarEscena(html, { fondo = null, clase = "" } = {}) {

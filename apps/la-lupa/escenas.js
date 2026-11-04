@@ -400,6 +400,111 @@ const ESCENAS = {
     };
   },
 
+  /* ── Escenas de los encargos (resto de la Lengua). Cada pregunta o ítem trae su criterio ── */
+
+  /* Preguntas sobre un documento: comprensión, gramática, vocabulario… (criterio de cada pregunta) */
+  pregunta(e) {
+    let q = 0;
+    const pintar = () => {
+      const pr = e.preguntas[q];
+      let primera = true;
+      pintarEscena(`
+        ${tituloEscena(e)}
+        ${e.documento ? `<article class="documento doc-pregunta">${e.quien ? `<small>${esc(e.quien)}</small>` : ""}<div class="texto-doc">${esc(e.documento).replace(/\n/g, "<br>")}</div></article>` : htmlPersonaje(e.personaje, "pequeno")}
+        <div class="panel-pregunta ${e.documento ? "" : "solo"}">
+          <h2 class="pregunta">${esc(pr.pregunta)}</h2>
+          <div class="opciones">${pr.opciones.map((o, k) => `<button class="opcion" data-k="${k}">${esc(o)}</button>`).join("")}</div>
+          <small class="contador-q">Pregunta ${q + 1} de ${e.preguntas.length}</small>
+        </div>
+        ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
+      activarHUD();
+      $$(".opcion").forEach(b => b.onclick = () => {
+        const ok = Number(b.dataset.k) === pr.correcta;
+        if (primera) { registrar(pr.criterio || e.criterio || "4.1", ok, null, "pregunta", pr.regla || null); primera = false; }
+        if (!ok) { b.classList.add("mal"); b.disabled = true; aviso(pr.pista || "Vuelve a leer con atención: la respuesta está en el texto.", "mal"); return; }
+        $$(".opcion").forEach(x => (x.disabled = true));
+        b.classList.add("bien");
+        const ultima = q + 1 >= e.preguntas.length;
+        const seguir = () => { q++; if (!ultima) return pintar(); e.recompensa ? recompensa(e) : siguiente(); };
+        if (pr.explicacion) momento({ titulo: "¡Bien visto!", texto: pr.explicacion, personaje: { id: e.personaje?.id || "lola", expresion: "contento", lado: "izq" }, alSeguir: seguir });
+        else seguir();
+      });
+    };
+    pintar();
+  },
+
+  /* Escribe la respuesta: una palabra o una frase corta (conjugar, derivar, sinónimo…). Se compara sin mayúsculas, con tildes */
+  escribe(e) {
+    let k = 0;
+    const pintar = () => {
+      const it = e.items[k];
+      let fallos = 0;
+      pintarEscena(`
+        ${tituloEscena(e)}${instruccion(e)}
+        ${htmlPersonaje(e.personaje, "pequeno")}
+        <div class="panel-escribe">
+          <p class="enunciado">${esc(it.enunciado)}</p>
+          <input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Tu respuesta">
+          <p id="respMsg" class="msg"></p>
+          <div class="acciones"><button class="boton-sello" id="respOk">Comprobar</button></div>
+          <small class="contador-q">${k + 1} de ${e.items.length}</small>
+        </div>
+        ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
+      activarHUD();
+      const inp = $("#resp");
+      inp.focus();
+      const comprobar = () => {
+        if (!inp.value.trim()) return;
+        const dado = norm(inp.value).replace(/\s+/g, " ").replace(/[.!?¡¿]+$/, "");
+        const ok = it.respuestas.some(r => norm(r).replace(/[.!?¡¿]+$/, "") === dado);
+        if (!fallos && !it.intentado) { it.intentado = true; registrar(it.criterio || e.criterio || "9.1", ok, it.respuestas[0], "escribe", it.regla || null); }
+        if (ok) {
+          const fin = () => { k++; k < e.items.length ? pintar() : e.recompensa ? recompensa(e) : siguiente(); };
+          if (it.explicacion) momento({ titulo: "¡Correcto!", texto: it.explicacion, personaje: { id: e.personaje?.id || "mateo", expresion: "contento", lado: "izq" }, alSeguir: fin });
+          else { aviso("¡Correcto!", "bien"); setTimeout(fin, 700); }
+          return;
+        }
+        fallos++;
+        $("#respMsg").innerHTML = fallos >= 2 ? `La respuesta es <strong>${esc(it.respuestas[0])}</strong>. Escríbela tú.` : esc(it.pista || "Todavía no. Piénsalo otra vez.");
+        inp.select();
+      };
+      $("#respOk").onclick = comprobar;
+      inp.onkeydown = ev => { if (ev.key === "Enter") comprobar(); };
+    };
+    pintar();
+  },
+
+  /* Ordena los fragmentos (un relato, una receta, los pasos de una carta…): se tocan en orden */
+  ordena(e) {
+    const rnd = azar(P.caso.id + P.i);
+    const orden = e.fragmentos.map((t, i) => ({ t, i }));
+    let mezcla = orden.map(x => ({ x, k: rnd() })).sort((a, b) => a.k - b.k).map(o => o.x);
+    if (mezcla.every((x, i) => x.i === i)) mezcla = [...mezcla.slice(1), mezcla[0]];
+    let puestos = [], primera = true;
+    const pintar = () => {
+      pintarEscena(`
+        ${tituloEscena(e)}${instruccion(e)}
+        <div class="ordena">
+          <ol class="ordenados">${e.fragmentos.map((_, i) => `<li class="${puestos[i] ? "lleno" : ""}">${puestos[i] ? esc(puestos[i].t) : "…"}</li>`).join("")}</ol>
+          <div class="sueltos">${mezcla.filter(x => !puestos.includes(x)).map(x => `<button class="tira-maquina frag" data-i="${x.i}">${esc(x.t)}</button>`).join("")}</div>
+        </div>
+        <div class="acciones abajo-centro">${puestos.length ? `<button class="boton-papel" id="deshacer">Deshacer</button>` : ""}${puestos.length === e.fragmentos.length ? `<button class="boton-sello" id="compOrden">Comprobar el orden</button>` : ""}</div>
+        ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
+      activarHUD();
+      $$(".frag").forEach(b => b.onclick = () => { puestos.push(orden[Number(b.dataset.i)]); pintar(); });
+      $("#deshacer")?.addEventListener("click", () => { puestos.pop(); pintar(); });
+      $("#compOrden")?.addEventListener("click", () => {
+        const mal = puestos.findIndex((x, i) => x.i !== i);
+        if (primera) { registrar(e.criterio || "4.1", mal < 0, null, "ordena", e.regla || null); primera = false; }
+        if (mal < 0) return e.recompensa ? recompensa(e) : siguiente();
+        aviso(e.pista || `El fragmento ${mal + 1} no va ahí. Busca las pistas: palabras como «primero», «después» o «al final».`, "mal");
+        puestos = puestos.slice(0, mal);
+        setTimeout(pintar, 900);
+      });
+    };
+    pintar();
+  },
+
   /* Cierre del caso */
   final(e) {
     pintarEscena(`

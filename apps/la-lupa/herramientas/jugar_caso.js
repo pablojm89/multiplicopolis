@@ -69,7 +69,8 @@ fs.mkdirSync(DIR, { recursive: true });
     await p.click('#irMaestro'); await p.setInputFiles('#pqArchivo', process.env.PAQUETE); await p.waitForTimeout(600);
     await p.click('#volver'); await p.click('.ficha-clase');
   } else { await p.fill('#nNombre', 'Robot ' + UNIDAD); await p.click('#nuevo button'); }
-  await p.click(`[data-unidad="${UNIDAD}"]`);
+  if (UNIDAD.startsWith('enc-')) await p.evaluate(id => iniciarEncargo(id), UNIDAD); // los encargos se abren por rango: se entra directo
+  else await p.click(`[data-unidad="${UNIDAD}"]`);
   let ultimo = -1, eventos = [];
   for (let vuelta = 0; vuelta < 80; vuelta++) {
     await p.waitForTimeout(250);
@@ -142,6 +143,38 @@ fs.mkdirSync(DIR, { recursive: true });
       }
       case 'apunta': await shot(nombre); if (LIBRETA === 'digital') for (const t of await p.locator('.nota-digital').all()) await t.fill('Respuesta de prueba'); await p.click('#hecho'); break;
       case 'final': await p.click('#txt'); await shot(nombre); await p.waitForSelector('#informe:not([hidden])'); eventos = await p.evaluate(() => P.eventos); await p.click('#informe'); break;
+      case 'pregunta':
+        for (let q = 0; q < e.preguntas.length; q++) {
+          const pr = e.preguntas[q];
+          await p.waitForSelector(`.opcion[data-k="${pr.correcta}"]`);
+          if (q === 0) await shot(nombre);
+          if (FALLOS) await p.click(`.opcion[data-k="${pr.correcta === 0 ? 1 : 0}"]`);
+          await p.click(`.opcion[data-k="${pr.correcta}"]`);
+          await revisarDesbordes(i, 'pregunta');
+          if (pr.explicacion) await seguir();
+          await p.waitForTimeout(200);
+        }
+        if (e.recompensa) await seguir(); break;
+      case 'escribe':
+        for (let k = 0; k < e.items.length; k++) {
+          const it = e.items[k];
+          await p.waitForSelector('#resp');
+          if (k === 0) await shot(nombre);
+          if (FALLOS) { await p.fill('#resp', 'zzz'); await p.click('#respOk'); }
+          await p.fill('#resp', it.respuestas[0]); await p.click('#respOk');
+          await revisarDesbordes(i, 'escribe');
+          if (it.explicacion) await seguir(); else await p.waitForTimeout(900);
+        }
+        if (e.recompensa) await seguir(); break;
+      case 'ordena': {
+        await shot(nombre);
+        const n = e.fragmentos.length;
+        if (FALLOS) { for (const k of [1, 0, ...Array.from({ length: n - 2 }, (_, j) => j + 2)]) await p.click(`.frag[data-i="${k}"]`); await p.click('#compOrden'); await p.waitForTimeout(1200); }
+        for (let k = 0; k < n; k++) await p.click(`.frag[data-i="${k}"]`);
+        await revisarDesbordes(i, 'ordena'); await shot(nombre + '-hecho');
+        await p.click('#compOrden');
+        if (e.recompensa) await seguir(); break;
+      }
       default: throw new Error('tipo sin jugador: ' + e.tipo);
     }
     if (e.tipo === 'final') break;

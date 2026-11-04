@@ -25,15 +25,30 @@ for f in sorted((RAIZ / "datos" / "pendiente").glob("*.json")) if (RAIZ / "datos
     arte.update(extra.get("arte", {}))
     en_prog.add(f.stem)
 TIPOS = {"portada", "relato", "descubre", "apunta", "papeles", "caza", "hipotesis", "clasifica", "huecos",
-         "manchas", "careo", "candado", "expediente", "final"}
+         "manchas", "careo", "candado", "expediente", "final", "pregunta", "escribe", "ordena"}
+# Encargos (misiones secundarias): datos/encargos.json + datos/encargos/<id>.json
+ind_enc = RAIZ / "datos" / "encargos.json"
+en_indice = {x["id"] for x in json.loads(ind_enc.read_text(encoding="utf-8"))["encargos"]} if ind_enc.exists() else set()
 SEMILLA = re.compile(r"\{([^{}|]+)\|([^{}|]+)(?:\|([^{}|]+))?\}")
 
 errores = []
-for f in sorted((RAIZ / "datos" / "casos").glob("*.json")):
+archivos = sorted((RAIZ / "datos" / "casos").glob("*.json")) + sorted((RAIZ / "datos" / "encargos").glob("*.json"))
+for f in archivos:
     c = json.loads(f.read_text(encoding="utf-8"))
     nombre = f.stem
     err = lambda m: errores.append(f"{nombre}: {m}")
-    if c["id"] not in en_prog:
+    if c.get("id") != nombre:
+        err("el id no coincide con el nombre del archivo")
+    if "encargo" in c:
+        enc = c["encargo"]
+        if c["id"] not in en_indice:
+            err("no está en datos/encargos.json")
+        if not isinstance(enc.get("rango"), int) or not 0 <= enc["rango"] <= 4:
+            err("encargo.rango tiene que ser 0-4 (Novato, Agente, Detective, Inspector/a, Élite)")
+        for k in ("cliente", "contenido"):
+            if not enc.get(k):
+                err(f"al encargo le falta «{k}»")
+    elif c["id"] not in en_prog:
         err("no está en programacion.json")
     cartas = {k["id"] for r in c["reglas"] for k in reglas.get(r, {}).get("cartas", [])}
     digitos = []
@@ -74,12 +89,19 @@ for f in sorted((RAIZ / "datos" / "casos").glob("*.json")):
         for q in e.get("preguntas", []):
             if not 0 <= q["correcta"] < len(q["opciones"]):
                 err(f"{donde}: pregunta con respuesta fuera de rango")
+        for it in e.get("items", []) if e["tipo"] == "escribe" else []:
+            if not it.get("enunciado") or not it.get("respuestas"):
+                err(f"{donde}: a un ítem le falta el enunciado o las respuestas")
+        if e["tipo"] == "ordena" and len(e.get("fragmentos", [])) < 3:
+            err(f"{donde}: hacen falta al menos 3 fragmentos")
+        if e["tipo"] == "pregunta" and not e.get("preguntas"):
+            err(f"{donde}: no hay preguntas")
         if e.get("recompensa", {}).get("digito"):
             digitos.append(e["recompensa"]["digito"])
         if e["tipo"] == "candado" and e["codigo"] != "".join(digitos):
             err(f"{donde}: el código {e['codigo']} no coincide con las cifras encontradas {''.join(digitos)}")
 
-print(f"{len(list((RAIZ / 'datos' / 'casos').glob('*.json')))} casos revisados")
+print(f"{len(archivos)} casos y encargos revisados")
 if errores:
     print("ERRORES:")
     for e in errores:

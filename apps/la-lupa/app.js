@@ -54,12 +54,14 @@ function vistaTablon() {
     <div class="tablon-cabecera">
       <h1 class="cartel">Tablón de casos</h1>
       <span class="placa">${htmlAvatar(perfil, "mini")}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
+      ${listaEncargos().length ? `<button class="boton-sello" id="irEncargos">📬 Encargos${encargosNuevos(mios, puntos) ? ` <span class="globo">${encargosNuevos(mios, puntos)}</span>` : ""}</button>` : ""}
       <button class="boton-sello" id="irAcademia">🎓 Academia</button>
       <button class="boton-papel" id="salir">Salir</button>
     </div>
     <div class="corcho tablon">${curso.unidades.map(u => tarjetaUnidad(u, mios)).join("")}</div>`, { fondo: "agencia" });
   $("#salir").onclick = () => { perfil = null; vistaInicio(); };
   $("#irAcademia").onclick = vistaPatio;
+  $("#irEncargos")?.addEventListener("click", vistaEncargos);
   $$("[data-unidad]").forEach(b => b.onclick = () => {
     const u = curso.unidades.find(x => x.id === b.dataset.unidad);
     const ultimo = mios.filter(r => r.unidad === u.id).at(-1);
@@ -120,6 +122,7 @@ function vistaInforme() {
     pistas: Object.values(P.pistas).reduce((a, b) => a + b, 0), consultas: P.consultas, modoLibreta: ajustes.libreta,
     notas, repasar: [...P.repasar], notasLibreta: P.notas, eventos: P.eventos, libreta: null,
     diagnostico: P.caso.diagnostico ? diagnosticoPorRegla(P.eventos) : null,
+    ...(P.encargo ? { encargo: true } : {}),
   };
   resultados.push(res);
   guardar("resultados", resultados);
@@ -138,8 +141,8 @@ function pintarInforme(res) {
         </div>`).join("")}</div>` : "";
   pintarEscena(`
     <div class="informe-doc">
-      <div class="sello-informe ${res.libreta ? "" : "pendiente"}">${res.libreta ? "SELLADO" : "SIN SELLAR"}</div>
-      <small>AGENCIA LA LUPA · INFORME DEL DETECTIVE</small>
+      ${res.encargo ? `<div class="sello-informe">ENCARGO CUMPLIDO</div>` : `<div class="sello-informe ${res.libreta ? "" : "pendiente"}">${res.libreta ? "SELLADO" : "SIN SELLAR"}</div>`}
+      <small>AGENCIA LA LUPA · ${res.encargo ? "INFORME DEL ENCARGO" : "INFORME DEL DETECTIVE"}</small>
       <h1 class="cartel">${esc(res.titulo)}</h1>
       <p class="maquina-fija">${htmlAvatar(perfil, "mini")}Detective: ${esc(res.nombre)} · Pistas pedidas: ${res.pistas}${res.consultas ? ` · Consultas a la libreta: ${res.consultas}` : ""} · Tiempo: ${res.minutos} min</p>
       ${diag}
@@ -148,15 +151,15 @@ function pintarInforme(res) {
           <div class="barra-nota"><i style="width:${n.nota * 10}%"></i></div>
           <small>${n.aciertos} de ${n.intentos} a la primera</small></div>`).join("")}</div>
       ${res.repasar.length ? `<p class="etiqueta">Palabras para repasar</p><div class="repasar">${res.repasar.map(w => `<span class="palabra-ficha">${esc(w)}</span>`).join("")}</div>` : `<p class="maquina-fija">Ni una sola palabra para repasar. ¡Impecable!</p>`}
-      <p class="maquina-fija sello-aviso">${res.libreta ? `El director ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Enseña tu libreta al director Robles para que selle el expediente y ganes puntos extra."}</p>
+      ${res.encargo ? `<p class="maquina-fija sello-aviso">+${puntosResultado(res)} puntos para tu rango.</p>` : `<p class="maquina-fija sello-aviso">${res.libreta ? `El director ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Enseña tu libreta al director Robles para que selle el expediente y ganes puntos extra."}</p>`}
       <div class="acciones izquierda">
-        ${res.libreta ? "" : `<button class="boton-papel" id="sellar">Sellar (director)</button>`}
+        ${res.libreta || res.encargo ? "" : `<button class="boton-papel" id="sellar">Sellar (director)</button>`}
         <button class="boton-papel" id="academia">🎓 Ir a la Academia${res.aCola ? ` (${res.aCola} fichas nuevas)` : ""}</button>
-        <button class="boton-sello" id="volver">Volver al tablón ▸</button>
+        <button class="boton-sello" id="volver">${res.encargo ? "Volver a los encargos" : "Volver al tablón"} ▸</button>
       </div>
     </div>`, { fondo: "agencia", clase: "oscurecido" });
   $("#academia").onclick = vistaPatio;
-  $("#volver").onclick = vistaTablon;
+  $("#volver").onclick = res.encargo ? vistaEncargos : vistaTablon;
   $("#sellar")?.addEventListener("click", () => sellar(res, () => pintarInforme(res)));
 }
 
@@ -228,10 +231,10 @@ function vistaMaestro() {
       <div class="tabla-scroll"><table>
         <thead><tr><th>Detective</th><th>Curso</th><th>Caso</th><th>Fecha</th>${criterios.map(c => `<th title="${esc(NOMBRE_CRITERIO[c] || "")}">${esc(c)}</th>`).join("")}<th>Libreta</th><th>Pistas</th><th>Repasar</th></tr></thead>
         <tbody>${filas.map(r => `<tr>
-          <td>${esc(r.nombre)}</td><td>${esc(r.curso)}.º</td><td>${esc(r.titulo)}</td>
+          <td>${esc(r.nombre)}</td><td>${esc(r.curso)}.º</td><td>${r.encargo ? "📬 " : ""}${esc(r.titulo)}</td>
           <td>${esc(new Date(r.fecha).toLocaleDateString("es-ES"))}</td>
           ${criterios.map(c => { const n = r.notas.find(x => x.criterio === c); return `<td>${n ? `${n.nota} <small>${n.calificacion}</small><br><small>${esc(n.codigo)}</small>` : "—"}</td>`; }).join("")}
-          <td>${r.libreta ? `${r.libreta.puntos}/4 ✔` : "sin sellar"}</td>
+          <td>${r.encargo ? "—" : r.libreta ? `${r.libreta.puntos}/4 ✔` : "sin sellar"}</td>
           <td>${r.pistas}${r.consultas ? ` (+${r.consultas} consultas)` : ""}</td><td>${esc(r.repasar.join(", "))}</td></tr>`).join("")}
         </tbody></table></div>` : `<p>Todavía no hay casos resueltos en este dispositivo.</p>`}
     </main>`;
@@ -261,7 +264,7 @@ function vistaMaestro() {
 
 function exportarCSV() {
   const filas = resultados.flatMap(r => r.notas.map(n => ({
-    alumno: r.nombre, curso: r.curso, unidad: r.unidad, caso: r.titulo, criterio: n.codigo,
+    alumno: r.nombre, curso: r.curso, tipo: r.encargo ? "encargo" : "caso", unidad: r.unidad, caso: r.titulo, criterio: n.codigo,
     nota: String(n.nota).replace(".", ","), calificacion: n.calificacion, aciertos: n.aciertos,
     intentos: n.intentos, libreta: r.libreta ? `${r.libreta.puntos}/4` : "sin sellar",
     pistas: r.pistas, consultas_libreta: r.consultas || 0, minutos: r.minutos, fecha: r.fecha.slice(0, 10),
@@ -293,6 +296,7 @@ async function init() {
     pintarEscena(`<div class="bocadillo izq"><p>No se pudieron cargar los datos del juego. Ábrelo desde un servidor web (GitHub Pages, o <code>node .claude/serve.js</code> en local), no como archivo suelto.</p></div>`);
     return;
   }
+  await cargarEncargos();
   await cargarPaquete();
   vistaInicio();
 }

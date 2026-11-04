@@ -465,3 +465,40 @@ button.silaba:hover { transform: translateY(-3px); }
 
 /* El título animado de los momentos no debe tapar el botón mientras entra */
 .momento .cartel, .momento .digito-grande { pointer-events: none; }
+
+/* ── Escenas de los encargos: pregunta, escribe, ordena ── */
+.documento.doc-pregunta { left: 40px; top: 110px; transform: rotate(-.4deg); width: 600px; max-height: 560px; overflow: auto; }
+.documento.doc-pregunta .texto-doc { font: 22px/1.6 var(--f-maquina); }
+.panel-pregunta { position: absolute; right: 40px; top: 120px; width: 560px; background: var(--cristal); border: 1px solid rgba(242, 169, 59, .45); border-radius: 14px; padding: 22px 24px; color: var(--crema); }
+.panel-pregunta.solo { left: 50%; right: auto; transform: translateX(-50%); width: 760px; top: 150px; }
+.panel-pregunta .pregunta { font: 26px/1.3 var(--f-ui); font-weight: 800; margin: 0 0 14px; color: var(--crema); }
+.panel-pregunta .opciones { display: grid; gap: 10px; }
+.panel-pregunta .contador-q { display: block; margin-top: 12px; color: var(--albero); }
+.panel-escribe { position: absolute; left: 50%; top: 170px; transform: translateX(-50%); width: 720px; background: var(--ruido), var(--papel-claro); color: var(--tinta); border-radius: 10px; padding: 26px 30px; box-shadow: 0 18px 40px rgba(0, 0, 0, .55); }
+.panel-escribe .enunciado { font: 26px/1.4 var(--f-maquina); margin: 0 0 16px; }
+.panel-escribe .entrada { width: 100%; }
+.panel-escribe .contador-q { display: block; margin-top: 10px; color: var(--gris-tinta); }
+.ordena { position: absolute; left: 40px; right: 40px; top: 170px; bottom: 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.ordena .ordenados { margin: 0; padding: 18px 18px 18px 46px; background: var(--ruido), var(--papel-claro); color: var(--tinta); border-radius: 8px; overflow: auto; font: 19px/1.4 var(--f-maquina); }
+.ordena .ordenados li { min-height: 44px; border-bottom: 1px dashed #b9b1a3; padding: 6px 0; color: #9a917f; }
+.ordena .ordenados li.lleno { color: var(--tinta); }
+.ordena .sueltos { display: flex; flex-direction: column; gap: 10px; overflow: auto; }
+.ordena .frag { text-align: left; font-size: 18px; }
+.acciones.abajo-centro { position: absolute; left: 0; right: 0; bottom: 28px; justify-content: center; }
+
+/* ── Encargos (encargos.js): el buzón de la agencia ── */
+.globo { display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 6px; margin-left: 6px; border-radius: 13px; background: var(--rojo); color: #fff; font: 800 15px var(--f-ui); }
+.aviso-encargos { position: absolute; top: 108px; left: 30px; right: 30px; margin: 0; color: var(--crema); font: 18px var(--f-ui); }
+.buzon { position: absolute; top: 150px; left: 30px; right: 30px; bottom: 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-content: start; overflow: auto; padding: 6px; }
+.encargo { position: relative; min-height: 170px; text-align: left; background: var(--ruido), #efe3c4; color: var(--tinta); border: none; border-radius: 4px; padding: 18px 18px 14px; box-shadow: 0 10px 22px rgba(0, 0, 0, .45); display: grid; gap: 4px; align-content: start;
+  background-image: repeating-linear-gradient(135deg, #b8322d 0 10px, #efe3c4 10px 20px, #2f5fae 20px 30px, #efe3c4 30px 40px); background-size: 100% 8px; background-repeat: no-repeat; background-position: top; }
+.encargo:hover:not(.cerrado) { filter: brightness(1.05); box-shadow: 0 14px 26px rgba(0, 0, 0, .55); }
+.encargo small { font: 800 13px var(--f-ui); color: var(--gris-tinta); text-transform: uppercase; letter-spacing: .06em; margin-top: 6px; }
+.encargo h3 { margin: 0; font: 26px/1.05 var(--f-cartel); font-weight: 400; letter-spacing: .02em; }
+.encargo p { margin: 0; font: 15px var(--f-ui); color: var(--gris-tinta); }
+.encargo .estrellas { margin-top: 4px; color: #b8861f; letter-spacing: 2px; }
+.encargo .sello-correo { position: absolute; top: 14px; right: 12px; transform: rotate(8deg); border: 2px solid var(--rojo); color: var(--rojo); font: 15px var(--f-cartel); padding: 0 6px; letter-spacing: .08em; }
+.encargo.hecho .sello-correo { border-color: var(--verde, #2e8b57); color: var(--verde, #2e8b57); }
+.encargo.cerrado { background: var(--ruido), #8d8170; color: #2b2620; opacity: .8; place-content: center; text-align: center; }
+.encargo.cerrado .lacre { font-size: 34px; }
+.encargo.cerrado p { color: #2b2620; font-weight: 800; }

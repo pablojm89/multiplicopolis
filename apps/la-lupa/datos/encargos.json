@@ -1,0 +1,6 @@
+{
+  "_nota": "Encargos (misiones secundarias). rango: 0 Novato, 1 Agente, 2 Detective, 3 Inspector/a, 4 Detective de élite. Cada uno en datos/encargos/<id>.json",
+  "encargos": [
+    { "id": "enc-01" }
+  ]
+}
