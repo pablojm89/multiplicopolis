@@ -15,6 +15,8 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 |---|---|
 | `motor.js` | Escenario 16:9 de 1280×720 escalado a la pantalla, arte (o hueco marcado), texto que se escribe solo, HUD (libreta, archivo, lupa de pistas), ventanas, pantallas de «¡Pista conseguida!» / «¡Pista falsa!», registro y notas, palabras pulsables |
 | `escenas.js` | `ESCENAS.<tipo>`: una función por tipo de escena |
+| `academia.js` | **Academia de detectives**: patio con «turno de hoy», cola de repaso espaciado por alumno (`actualizarCola`, intervalos 1-3-7-15-30 sesiones), salas (`SALAS`) y actividades (`ACTIVIDADES.<id>`). Activas: Archivo (`fichas`), Pupitre (`documento`) y Laboratorio (`sismografo`). Diseño en `docs/investigacion/academia-actividades.md` |
+| `datos/academia/` | Bancos de la Academia: `palabras.json` (forma correcta, forma errónea típica, sílabas, tónica y frase con hueco) y `textos.json` (documentos con `[palabras]` marcadas). Valídalos con `python3 herramientas/validar_academia.py` |
 | `app.js` | Entrada, tablón de corcho, partida, informe, zona maestro/a (página normal) y arranque |
 | `styles.css` | Todo en px del escenario de 1280×720. Mundo visual único: papel envejecido, tinta, albero y azulejo |
 | `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a una programación |
@@ -58,6 +60,10 @@ Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 
 4. **Arte**: añade a `arte.json` los fondos, personajes (con expresiones) y objetos nuevos, con su `prompt`. Reutiliza siempre Lola, Mateo, Robles y la oficina. Ejecuta `python3 herramientas/encargo_arte.py`. La IA de imágenes (ChatGPT o Gemini) lee `arte/ENCARGO.md` y deja los PNG en `arte/entrega/`. GPT no puede escribir en el repo (le da error 403), así que entrega zips con un `MANIFIESTO.json` de SHA-256 a través de Pablo. Extráelos en una carpeta del scratchpad (comprobando que ninguna ruta se sale de ella), verifica las firmas, copia los PNG a `arte/entrega/` y ejecuta `python3 herramientas/integrar_arte.py --borrar`. Revisa a mano que no haya **números o letras dibujados** que contradigan el caso (pasó con el candado del caso 1), indica hacia dónde mira cada personaje (`mira`), revisa las capturas y sube los cambios. Cada lote de un caso nuevo va en su propia issue.
 5. **Prueba**: juega el caso entero en el navegador (Playwright) con aciertos y fallos. Revisa capturas de cada escena y comprueba las notas del informe.
 6. **Revisión de Pablo** antes de darlo por cerrado.
+
+## Academia (decisiones de Pablo, 4/11/2026)
+
+Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra aparte de los casos (`academia-registros`, `contexto: "academia"`): Pablo decidirá más adelante si cuenta para la nota. Sin libreta. Se puede usar en casa. Los puntos suman al rango con un tope diario (`TOPE_DIARIO`). Las palabras falladas en los casos y en la Academia entran en la cola de repaso. Para añadir contenido: palabras y textos nuevos en `datos/academia/`, y después el validador. Para añadir una sala: entrada en `SALAS` + función en `ACTIVIDADES`.
 
 ## Probar
 

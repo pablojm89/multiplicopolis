@@ -27,7 +27,9 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Caso 2 «El mercado del revés» (b/v): primera foto de El Tachón. Arte pendiente (issue #3)
 - [x] Caso 3 «La carta sin haches» (h): El Tachón conoce la agencia por dentro; desaparece su ficha de aspirante; Bruno cuenta que suspendió la prueba. Arte pendiente (issue #3)
 - [ ] Caso 4 (c/z/s)
-- [ ] **Academia de detectives**: zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
+- [x] **Academia, primera versión**: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio) con bancos de 79 palabras y 9 documentos (tildes, b/v, h). Arte pedido (issue #4)
+- [ ] Academia: resto de salas (Terminal, Pizarra, Interrogatorios con «el testigo seseante», Centralita, Imprenta) y más bancos (resto de reglas, gramática, léxico, comprensión)
+- [ ] ~~**Academia de detectives**~~ (idea original): zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`
 
@@ -58,6 +60,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-03 | La v1 (formulario) se descarta. La v2 se hace con escenas a pantalla completa al estilo de un episodio, y el arte se adelanta. |
 | 2026-11-03 | Estilo visual: ilustración de álbum o cómic de detectives, papel envejecido y paleta andaluza (albero, azulejo, cal). |
 | 2026-11-03 | Lo que funcione y guste a Pablo se convierte en un procedimiento para crear más casos. |
+| 2026-11-04 | Academia: **siempre abierta**; se **registra aparte** (ya se verá si cuenta); **don Anselmo** entra como personaje; **el testigo seseante** le encanta; **sin libreta**; **se puede usar en casa**. |
 | 2026-11-04 | Libreta: el sello de la directora **premia sin bloquear** (opción B de `LIBRETA.md`). |
 | 2026-11-04 | Trama de temporada: El Tachón es **Bruno, el repartidor del periódico**, un antiguo aspirante a la agencia del que se rieron por sus faltas. Al final se une al equipo (opción C de `TEMPORADA-1.md`). |
 | 2026-11-03 | **Cambio de estilo:** anime moderno con tono de misterio (noir de detectives, serie juvenil de suspense), sin aire infantil, ambientado en el barrio andaluz de La Alameda. Tensión sí; sangre, violencia y terror no. La interfaz del juego se oscurecerá para encajar cuando llegue el arte. |

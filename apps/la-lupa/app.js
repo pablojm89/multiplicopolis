@@ -47,10 +47,12 @@ function vistaTablon() {
     <div class="tablon-cabecera">
       <h1 class="cartel">Tablón de casos</h1>
       <span class="placa">Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
+      <button class="boton-sello" id="irAcademia">🎓 Academia</button>
       <button class="boton-papel" id="salir">Salir</button>
     </div>
     <div class="corcho tablon">${curso.unidades.map(u => tarjetaUnidad(u, mios)).join("")}</div>`, { fondo: "agencia" });
   $("#salir").onclick = () => { perfil = null; vistaInicio(); };
+  $("#irAcademia").onclick = vistaPatio;
   $$("[data-unidad]").forEach(b => b.onclick = () => {
     const u = curso.unidades.find(x => x.id === b.dataset.unidad);
     const ultimo = mios.filter(r => r.unidad === u.id).at(-1);
@@ -69,7 +71,7 @@ function vistaTablon() {
 const puntosDetective = mios => {
   const ultimoPorUnidad = {};
   mios.forEach(r => (ultimoPorUnidad[r.unidad] = r));
-  return Object.values(ultimoPorUnidad).reduce((a, r) => a + puntosResultado(r), 0);
+  return Object.values(ultimoPorUnidad).reduce((a, r) => a + puntosResultado(r), 0) + puntosAcademia();
 };
 
 function tarjetaUnidad(u, mios) {
@@ -114,6 +116,7 @@ function vistaInforme() {
   };
   resultados.push(res);
   guardar("resultados", resultados);
+  res.aCola = actualizarCola(res.eventos, res.caso);
   P = null;
   pintarInforme(res);
 }
@@ -141,9 +144,11 @@ function pintarInforme(res) {
       <p class="maquina-fija sello-aviso">${res.libreta ? `La directora ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Enseña tu libreta a la directora Robles para que selle el expediente y ganes puntos extra."}</p>
       <div class="acciones izquierda">
         ${res.libreta ? "" : `<button class="boton-papel" id="sellar">Sellar (directora)</button>`}
+        <button class="boton-papel" id="academia">🎓 Ir a la Academia${res.aCola ? ` (${res.aCola} fichas nuevas)` : ""}</button>
         <button class="boton-sello" id="volver">Volver al tablón ▸</button>
       </div>
     </div>`, { fondo: "agencia", clase: "oscurecido" });
+  $("#academia").onclick = vistaPatio;
   $("#volver").onclick = vistaTablon;
   $("#sellar")?.addEventListener("click", () => sellar(res, () => pintarInforme(res)));
 }
@@ -195,6 +200,7 @@ function vistaMaestro() {
         <thead><tr><th>Detective</th>${reglasDiag.map(r => `<th>${esc(D.reglas[r]?.nombre || r)}</th>`).join("")}</tr></thead>
         <tbody>${Object.values(ultimoDiag).map(r => `<tr><td>${esc(r.nombre)}</td>${reglasDiag.map(rg => { const d = r.diagnostico.find(x => x.regla === rg); return `<td class="${d ? (d.porcentaje >= 75 ? "celda-bien" : d.porcentaje >= 50 ? "celda-casi" : "celda-mal") : ""}">${d ? `${d.porcentaje} %` : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody>
       </table></div>` : ""}
+      ${resumenAcademiaHTML()}
       <h2>Casos resueltos</h2>
       <div class="fila">
         <button class="boton-sello" id="csv">Exportar notas por criterio (CSV)</button>
@@ -253,6 +259,10 @@ async function init() {
   try {
     const [reglas, prog, arteCat] = await Promise.all([leerJSON("datos/reglas.json"), leerJSON("datos/programacion.json"), leerJSON("datos/arte.json")]);
     D.reglas = reglas; D.prog = prog; D.arte = arteCat;
+    try {
+      const [pal, tex] = await Promise.all([leerJSON("datos/academia/palabras.json"), leerJSON("datos/academia/textos.json")]);
+      ACA.palabras = pal.palabras; ACA.textos = tex.textos;
+    } catch { console.warn("Sin datos de la Academia"); }
     const ids = [...new Set(Object.values(prog.cursos).flatMap(c => c.unidades.map(u => u.caso).filter(Boolean)))];
     await Promise.all(ids.map(async id => {
       try { D.casos[id] = await leerJSON(`datos/casos/${id}.json`); } catch { console.warn(`Falta el caso ${id}`); }

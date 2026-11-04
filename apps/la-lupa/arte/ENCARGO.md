@@ -67,6 +67,17 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `herminia-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
 | `herminia-contento.png` | contento/a, sonrisa amplia |
 
+### Don Anselmo
+
+**Descripción:** Don Anselmo, conserje y antiguo maestro jubilado de la escuela, unos 75 años, estilo anime: alto y delgado, pelo blanco peinado hacia atrás, bigote blanco, gafas redondas de leer en la punta de la nariz, chaleco de punto gris, pajarita granate, manojo de llaves antiguas en el cinturón y una tiza en la mano; sabio, tranquilo y con humor.
+
+| Archivo | Expresión |
+|---|---|
+| `anselmo-neutral.png` | expresión neutra, atenta |
+| `anselmo-contento.png` | contento/a, sonrisa amplia |
+| `anselmo-pensativo.png` | pensativo/a, mano en la barbilla, mirada de lado |
+| `anselmo-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
+
 ## Fondos (16:9, 1920×1080, sin personajes)
 
 | Archivo | Qué se ve |
@@ -74,6 +85,15 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `mercado.png` | Interior de un mercado de abastos de barrio andaluz de madrugada: nave con techo de hierro y cristal, puestos de fruta, verdura y pescado con toldos, pizarras de precios y letreros de cartón colgados (SIN letras ni números, solo superficies vacías o garabatos abstractos), cajas de naranjas, azulejos en los mostradores, luz fría de fluorescentes y algún foco ámbar, suelo mojado. Sin personas. |
 | `almacen-mercado.png` | Almacén trasero del mismo mercado: sacos de arpillera y cajas de madera apiladas, una bombilla colgando con luz ámbar, una cámara de seguridad en lo alto de la pared, puerta metálica entreabierta a la calle con luz azul de madrugada, carretilla, papeles por el suelo. Sin personas y sin letras. |
 | `biblioteca.png` | Biblioteca municipal del barrio de La Alameda al anochecer: estanterías altas de madera llenas de libros, lámparas verdes encendidas en mesas largas, un mostrador de préstamo con un fichero antiguo de cajoncitos, ventanales con reja andaluza y la luz azul de la noche, azulejos en el zócalo, carteles en la pared SIN letras (vacíos), polvo flotando en la luz. Sin personas. |
+| `patio-academia.png` | Patio andaluz nocturno de una antigua escuela de barrio convertida en academia de detectives: suelo de azulejos, naranjo central con farolillos, aljibe de piedra, galería con arcos encalados y ocho puertas de madera de colores distintos (una escalera baja a un sótano, una antena en la azotea), macetas con geranios, luz ámbar de faroles y cielo azul noche. Sin personas y sin letras ni rótulos. |
+| `sala-pupitre.png` | Vista cenital (desde arriba) de un pupitre de madera gastada de escuela antigua: en el centro una hoja de papel en blanco SIN letras, alrededor un lápiz, una goma, un sacapuntas, una lupa de latón, un flexo que proyecta luz cálida, una taza de cacao y un cuaderno cerrado; los márgenes en penumbra azul de noche. |
+| `sala-laboratorio.png` | Laboratorio forense escolar de detectives: mesa de acero con microscopio grande, tubos de ensayo con líquidos de colores, pinzas, balanza de dos platos, lámpara ultravioleta violeta, lupa con brazo articulado y bandejas con etiquetas en blanco; luz fría azul y reflejos violeta, ventana con reja andaluza al fondo. Sin personas y sin letras. |
+| `sala-archivo.png` | Sótano abovedado de ladrillo de la antigua escuela: estanterías de expedientes hasta el techo, un gran fichero metálico de cajoncitos, escalera de biblioteca, lámpara de mesa verde encendida, cajas de cartón, alguna telaraña discreta; luz ámbar cálida en la penumbra. Sin personas y sin letras en las etiquetas. |
+| `sala-terminal.png` | Sala de informática de los años 80 en penumbra: ordenador antiguo con monitor de fósforo verde apagado (pantalla negra, sin texto), teclado beige grueso, disquetes, cables y una cinta de casete; luz verde del monitor iluminando la habitación. Sin personas y sin letras. |
+| `sala-pizarra.png` | Aula antigua de gramática de noche: pizarra verde de tiza grande y VACÍA (sin letras ni dibujos), tarima, mesa del maestro con tizas y borrador, mapa enrollado, globo terráqueo, pupitres de madera, ventana con la luna. Sin personas. |
+| `sala-interrogatorios.png` | Sala de interrogatorios de detectives: paredes grises, mesa metálica con dos sillas, lámpara colgante que ilumina la mesa, espejo unidireccional grande al fondo (reflejo difuso), grabadora de cinta sobre la mesa, vaso de agua y carpeta cerrada. Ambiente de serie juvenil de misterio, no terrorífico. Sin personas y sin letras. |
+| `sala-centralita.png` | Azotea cubierta de la antigua escuela convertida en centralita de radio: mesa con radio antigua de válvulas, micrófono de sobremesa, auriculares, walkie-talkie, mapa del barrio clavado con chinchetas e hilo rojo (SIN rótulos), antena y cielo nocturno de La Alameda con farolillos a lo lejos. Sin personas. |
+| `sala-imprenta.png` | Redacción e imprenta del periódico del barrio al amanecer: mesa con máquina de escribir antigua y hojas en blanco, taza de café, pequeña rotativa al fondo, bobinas de papel, tablero de corcho con recortes en blanco, luz dorada del amanecer por la ventana. Sin personas y sin letras ni titulares. |
 
 ## Objetos (fondo transparente, 1024×1024)
 
@@ -89,4 +109,4 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **16** imágenes por entregar.
+Quedan **29** imágenes por entregar.

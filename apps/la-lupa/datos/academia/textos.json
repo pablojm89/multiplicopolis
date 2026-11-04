@@ -1,0 +1,41 @@
+{
+  "_nota": "Documentos de la Academia para «La corrección del documento». Las palabras entre [corchetes] están en palabras.json y pueden sembrarse con su forma errónea. El generador elige 2-4 de las reglas activas, así cada ronda es distinta.",
+  "textos": [
+    {
+      "tipo": "Parte de la agencia",
+      "texto": "Esta mañana un [camión] de reparto [estaba] aparcado junto a la plaza. El conductor [hablaba] por [teléfono] y no vio que un [hombre] con gafas de sol se llevaba un [melón] de la caja."
+    },
+    {
+      "tipo": "Nota de un vecino",
+      "texto": "Queridos detectives: el [sábado] por la noche [había] [humo] saliendo del almacén. Mi [hermano] dice que vio a alguien [subir] por la [ventana] con una [guitarra]."
+    },
+    {
+      "tipo": "Cartel del mercado",
+      "texto": "Hoy en el puesto de Manolo: [limón], [plátano] y [melón] a buen precio. Si quieres [recibir] tu pedido en casa, deja tu nombre en el [papel] del mostrador. Abrimos también en [invierno]."
+    },
+    {
+      "tipo": "Informe de Mateo",
+      "texto": "El sospechoso [iba] en bicicleta. Llevaba un [lápiz] detrás de la oreja y un [reloj] dorado. En el [árbol] de la plaza encontramos un [hueso] de aceituna y una [hormiga] gigante."
+    },
+    {
+      "tipo": "Diario de Lola",
+      "texto": "[Estuve] toda la tarde en la biblioteca. Herminia me contó que de pequeña [cantaba] en el coro y que su [música] favorita era la del [violín]. Fue un día muy [feliz]."
+    },
+    {
+      "tipo": "Aviso de la directora",
+      "texto": "Detectives: [hemos] recibido un aviso [nuevo]. No es [fácil] de leer: tiene manchas de [café] y le faltan letras. Quiero el informe el [miércoles] en mi [mesa]."
+    },
+    {
+      "tipo": "Noticia del periódico",
+      "texto": "Un [pájaro] se coló en el [hospital] de la [ciudad] y [hizo] un nido en la sala de espera. El [médico] de guardia lo sacó con un [balón] de playa."
+    },
+    {
+      "tipo": "Receta de la panadería",
+      "texto": "Para el bizcocho de Julián hace falta un [huevo], [azúcar], ralladura de [limón] y mucha paciencia. El horno ya [estaba] caliente a las siete, y el bizcocho salió oliendo a gloria."
+    },
+    {
+      "tipo": "Mensaje de radio",
+      "texto": "Atención: el [joven] del [brazo] vendado [jugaba] en la plaza a las ocho. Hay que [enviar] a un detective [activo] antes de que caiga el [hielo] de la noche."
+    }
+  ]
+}

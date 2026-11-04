@@ -371,5 +371,82 @@
     "emoji": "🗄️",
     "listo": false,
     "prompt": "Mueble fichero antiguo de madera pintada de azul con cajoncitos con tiradores de latón y etiquetas vacías, uno de los cajones cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
+  },
+  "patio-academia": {
+    "tipo": "fondo",
+    "nombre": "Patio de la Academia",
+    "color": "#26324a",
+    "listo": false,
+    "prompt": "Patio andaluz nocturno de una antigua escuela de barrio convertida en academia de detectives: suelo de azulejos, naranjo central con farolillos, aljibe de piedra, galería con arcos encalados y ocho puertas de madera de colores distintos (una escalera baja a un sótano, una antena en la azotea), macetas con geranios, luz ámbar de faroles y cielo azul noche. Sin personas y sin letras ni rótulos."
+  },
+  "sala-pupitre": {
+    "tipo": "fondo",
+    "nombre": "El Pupitre (vista cenital)",
+    "color": "#3a2f25",
+    "listo": false,
+    "prompt": "Vista cenital (desde arriba) de un pupitre de madera gastada de escuela antigua: en el centro una hoja de papel en blanco SIN letras, alrededor un lápiz, una goma, un sacapuntas, una lupa de latón, un flexo que proyecta luz cálida, una taza de cacao y un cuaderno cerrado; los márgenes en penumbra azul de noche."
+  },
+  "sala-laboratorio": {
+    "tipo": "fondo",
+    "nombre": "El Laboratorio forense",
+    "color": "#1f2a3a",
+    "listo": false,
+    "prompt": "Laboratorio forense escolar de detectives: mesa de acero con microscopio grande, tubos de ensayo con líquidos de colores, pinzas, balanza de dos platos, lámpara ultravioleta violeta, lupa con brazo articulado y bandejas con etiquetas en blanco; luz fría azul y reflejos violeta, ventana con reja andaluza al fondo. Sin personas y sin letras."
+  },
+  "sala-archivo": {
+    "tipo": "fondo",
+    "nombre": "El Archivo del sótano",
+    "color": "#2a2620",
+    "listo": false,
+    "prompt": "Sótano abovedado de ladrillo de la antigua escuela: estanterías de expedientes hasta el techo, un gran fichero metálico de cajoncitos, escalera de biblioteca, lámpara de mesa verde encendida, cajas de cartón, alguna telaraña discreta; luz ámbar cálida en la penumbra. Sin personas y sin letras en las etiquetas."
+  },
+  "sala-terminal": {
+    "tipo": "fondo",
+    "nombre": "La Terminal ORTO-3000",
+    "color": "#0f1f14",
+    "listo": false,
+    "prompt": "Sala de informática de los años 80 en penumbra: ordenador antiguo con monitor de fósforo verde apagado (pantalla negra, sin texto), teclado beige grueso, disquetes, cables y una cinta de casete; luz verde del monitor iluminando la habitación. Sin personas y sin letras."
+  },
+  "sala-pizarra": {
+    "tipo": "fondo",
+    "nombre": "La Pizarra",
+    "color": "#1e3328",
+    "listo": false,
+    "prompt": "Aula antigua de gramática de noche: pizarra verde de tiza grande y VACÍA (sin letras ni dibujos), tarima, mesa del maestro con tizas y borrador, mapa enrollado, globo terráqueo, pupitres de madera, ventana con la luna. Sin personas."
+  },
+  "sala-interrogatorios": {
+    "tipo": "fondo",
+    "nombre": "La Sala de Interrogatorios",
+    "color": "#22262c",
+    "listo": false,
+    "prompt": "Sala de interrogatorios de detectives: paredes grises, mesa metálica con dos sillas, lámpara colgante que ilumina la mesa, espejo unidireccional grande al fondo (reflejo difuso), grabadora de cinta sobre la mesa, vaso de agua y carpeta cerrada. Ambiente de serie juvenil de misterio, no terrorífico. Sin personas y sin letras."
+  },
+  "sala-centralita": {
+    "tipo": "fondo",
+    "nombre": "La Centralita de radio",
+    "color": "#2a2436",
+    "listo": false,
+    "prompt": "Azotea cubierta de la antigua escuela convertida en centralita de radio: mesa con radio antigua de válvulas, micrófono de sobremesa, auriculares, walkie-talkie, mapa del barrio clavado con chinchetas e hilo rojo (SIN rótulos), antena y cielo nocturno de La Alameda con farolillos a lo lejos. Sin personas."
+  },
+  "sala-imprenta": {
+    "tipo": "fondo",
+    "nombre": "La Imprenta del Eco",
+    "color": "#33281e",
+    "listo": false,
+    "prompt": "Redacción e imprenta del periódico del barrio al amanecer: mesa con máquina de escribir antigua y hojas en blanco, taza de café, pequeña rotativa al fondo, bobinas de papel, tablero de corcho con recortes en blanco, luz dorada del amanecer por la ventana. Sin personas y sin letras ni titulares."
+  },
+  "anselmo": {
+    "tipo": "personaje",
+    "nombre": "Don Anselmo",
+    "color": "#7a6a4a",
+    "expresiones": [
+      "neutral",
+      "contento",
+      "pensativo",
+      "sorprendido"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "Don Anselmo, conserje y antiguo maestro jubilado de la escuela, unos 75 años, estilo anime: alto y delgado, pelo blanco peinado hacia atrás, bigote blanco, gafas redondas de leer en la punta de la nariz, chaleco de punto gris, pajarita granate, manojo de llaves antiguas en el cinturón y una tiza en la mano; sabio, tranquilo y con humor."
   }
 }

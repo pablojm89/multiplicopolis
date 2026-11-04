@@ -57,3 +57,6 @@ Claude actualiza este archivo al terminar cada tarea importante.
 
 - Caso 3 «La carta sin haches» (h) escrito y jugable. Sus 6 imágenes se añaden al encargo de la issue #3.
 - Lluvia de ideas de la Academia terminada (`docs/investigacion/academia-actividades.md`): la antigua escuela del barrio como academia, 8 salas, 35 actividades, «turno de hoy» con repaso espaciado y bancos de datos. Pendiente de las decisiones de Pablo (§7).
+
+**Decisiones de Pablo sobre la Academia:** siempre abierta («tiene mucho más sentido»); que se registre y ya se verá si se usa para la nota; don Anselmo, de acuerdo; el testigo seseante «me encanta»; sin libreta; sí se puede usar en casa.
+**Hecho:** primera versión de la Academia: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio), con bancos de datos y un validador. Arte de la Academia pedido en la issue #4 (9 fondos + don Anselmo).
