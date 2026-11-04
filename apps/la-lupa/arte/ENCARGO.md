@@ -35,9 +35,45 @@ Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el n
 
 Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo estilo, luz y acabado, y el mismo aspecto de cada personaje: `fachada-agencia.png`, `agencia.png`, `casa-feria.png`, `panaderia.png`, `floristeria.png`, `kiosco.png`, `plaza-feria.png`, `carpeta-vacia.png`, `partitura.png`, `caja-musica.png`, `pregon.png`, `agencia-saboteada.png`, `calle-alameda.png`, `nota-tachon.png`, `placa-practicas.png`, `periodico.png`, `expedientes-revueltos.png`, `lola-neutral.png`, `lola-contento.png`, `lola-pensativo.png`, `lola-sorprendido.png`, `mateo-contento.png`, `mateo-neutral.png`, `mateo-pensativo.png`, `mateo-sorprendido.png`, `robles-contento.png`, `robles-neutral.png`, `robles-pensativo.png`, `robles-sorprendido.png`, `julian-contento.png`, `julian-neutral.png`, `julian-sorprendido.png`, `ines-contento.png`, `ines-neutral.png`, `ines-sorprendido.png`, `ramon-contento.png`, `ramon-nervioso.png`, `ramon-neutral.png`, `ramon-sorprendido.png`, `pilar-contento.png`, `pilar-neutral.png`, `pilar-sorprendido.png`, `bruno-contento.png`, `bruno-nervioso.png`, `bruno-neutral.png`, `bruno-sorprendido.png`, `tachon-burlon.png`, `tachon-neutral.png`, `tachon-sorprendido.png`.
 
+## Personajes
+
+### Manolo, el frutero
+
+**Descripción:** Manolo, frutero del mercado, unos 60 años, estilo anime: bajito y fuerte, calvo con bigote blanco, gorra de tela, chaleco marrón sobre camisa de cuadros, delantal verde, una naranja en la mano; bonachón y algo despistado.
+
+| Archivo | Expresión |
+|---|---|
+| `manolo-neutral.png` | expresión neutra, atenta |
+| `manolo-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
+| `manolo-contento.png` | contento/a, sonrisa amplia |
+
+### Remedios, la pescadera
+
+**Descripción:** Remedios, pescadera del mercado, unos 40 años, estilo anime: pelo negro rizado recogido con un pañuelo azul, delantal de goma azul, botas de agua, guantes, mirada desconfiada pero noble; carácter fuerte.
+
+| Archivo | Expresión |
+|---|---|
+| `remedios-neutral.png` | expresión neutra, atenta |
+| `remedios-nervioso.png` | nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca |
+| `remedios-contento.png` | contento/a, sonrisa amplia |
+
+## Fondos (16:9, 1920×1080, sin personajes)
+
+| Archivo | Qué se ve |
+|---|---|
+| `mercado.png` | Interior de un mercado de abastos de barrio andaluz de madrugada: nave con techo de hierro y cristal, puestos de fruta, verdura y pescado con toldos, pizarras de precios y letreros de cartón colgados (SIN letras ni números, solo superficies vacías o garabatos abstractos), cajas de naranjas, azulejos en los mostradores, luz fría de fluorescentes y algún foco ámbar, suelo mojado. Sin personas. |
+| `almacen-mercado.png` | Almacén trasero del mismo mercado: sacos de arpillera y cajas de madera apiladas, una bombilla colgando con luz ámbar, una cámara de seguridad en lo alto de la pared, puerta metálica entreabierta a la calle con luz azul de madrugada, carretilla, papeles por el suelo. Sin personas y sin letras. |
+
+## Objetos (fondo transparente, 1024×1024)
+
+| Archivo | Qué se ve |
+|---|---|
+| `foto-borrosa.png` | Fotograma impreso de cámara de seguridad, en blanco y negro con ruido y rayas: silueta borrosa de alguien con gabardina negra, gafas de sol y mandíbula muy cuadrada, de espaldas a medias junto a sacos; en su muñeca izquierda se distingue una pequeña mancha de color rojo (lo único en color). Sin letras, fecha ni números. |
+| `grabadora.png` | Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida. |
+
 ## Notas del ilustrador
 
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **0** imágenes por entregar.
+Quedan **10** imágenes por entregar.

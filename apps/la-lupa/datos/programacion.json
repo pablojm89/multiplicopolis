@@ -37,7 +37,8 @@
           "titulo": "b y v (I)",
           "reglas": [
             "b-v-1"
-          ]
+          ],
+          "caso": "caso-02"
         },
         {
           "id": "5-03",

@@ -283,5 +283,59 @@
     "emoji": "🗂️",
     "listo": true,
     "prompt": "Montón desordenado de carpetas de expediente color manila abiertas, con hojas sueltas saliendo, una de ellas con un tachón negro de rotulador. Sin letras legibles."
+  },
+  "mercado": {
+    "tipo": "fondo",
+    "nombre": "Mercado de abastos de madrugada",
+    "color": "#2c3d52",
+    "listo": false,
+    "prompt": "Interior de un mercado de abastos de barrio andaluz de madrugada: nave con techo de hierro y cristal, puestos de fruta, verdura y pescado con toldos, pizarras de precios y letreros de cartón colgados (SIN letras ni números, solo superficies vacías o garabatos abstractos), cajas de naranjas, azulejos en los mostradores, luz fría de fluorescentes y algún foco ámbar, suelo mojado. Sin personas."
+  },
+  "almacen-mercado": {
+    "tipo": "fondo",
+    "nombre": "Almacén del mercado",
+    "color": "#2a2f3a",
+    "listo": false,
+    "prompt": "Almacén trasero del mismo mercado: sacos de arpillera y cajas de madera apiladas, una bombilla colgando con luz ámbar, una cámara de seguridad en lo alto de la pared, puerta metálica entreabierta a la calle con luz azul de madrugada, carretilla, papeles por el suelo. Sin personas y sin letras."
+  },
+  "manolo": {
+    "tipo": "personaje",
+    "nombre": "Manolo, el frutero",
+    "color": "#8a5a2a",
+    "expresiones": [
+      "neutral",
+      "sorprendido",
+      "contento"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "Manolo, frutero del mercado, unos 60 años, estilo anime: bajito y fuerte, calvo con bigote blanco, gorra de tela, chaleco marrón sobre camisa de cuadros, delantal verde, una naranja en la mano; bonachón y algo despistado."
+  },
+  "remedios": {
+    "tipo": "personaje",
+    "nombre": "Remedios, la pescadera",
+    "color": "#3a6a8a",
+    "expresiones": [
+      "neutral",
+      "nervioso",
+      "contento"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "Remedios, pescadera del mercado, unos 40 años, estilo anime: pelo negro rizado recogido con un pañuelo azul, delantal de goma azul, botas de agua, guantes, mirada desconfiada pero noble; carácter fuerte."
+  },
+  "foto-borrosa": {
+    "tipo": "objeto",
+    "nombre": "Foto borrosa de la cámara",
+    "emoji": "📷",
+    "listo": false,
+    "prompt": "Fotograma impreso de cámara de seguridad, en blanco y negro con ruido y rayas: silueta borrosa de alguien con gabardina negra, gafas de sol y mandíbula muy cuadrada, de espaldas a medias junto a sacos; en su muñeca izquierda se distingue una pequeña mancha de color rojo (lo único en color). Sin letras, fecha ni números."
+  },
+  "grabadora": {
+    "tipo": "objeto",
+    "nombre": "Grabadora de la cámara",
+    "emoji": "📼",
+    "listo": false,
+    "prompt": "Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida."
   }
 }

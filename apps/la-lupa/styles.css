@@ -368,3 +368,9 @@ td.celda-bien { background: #d9f0df; } td.celda-casi { background: #fbecc8; } td
 .documento .w.resuelta { color: var(--verde); font-weight: 700; }
 .objeto-documento { left: 40px; top: 190px; max-height: 300px; max-width: 330px; transform: rotate(-6deg); }
 .objeto-documento.pendiente { width: 300px; height: 240px; }
+
+/* Huecos: cuaderno mojado con letras perdidas */
+.hoja-huecos { background: repeating-linear-gradient(transparent 0 38px, rgba(31, 95, 168, .25) 38px 39px), #f3ead2; }
+.hueco-letra { display: inline-block; min-width: .8em; border-bottom: 3px solid var(--rojo); color: var(--rojo); text-align: center; }
+.si-no button { min-width: 54px; }
+.cubos { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }

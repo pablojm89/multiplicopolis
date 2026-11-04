@@ -194,7 +194,7 @@ const ESCENAS = {
       const ok = b.dataset.id === w.cat;
       if (primera) { registrar("9.1", ok, w.p, "clasificar"); primera = false; }
       if (!ok) {
-        $("#clMsg").innerHTML = `No. Sepárala en sílabas: <strong>${esc(w.silabas)}</strong>. ¿Cuál suena más fuerte?`;
+        $("#clMsg").innerHTML = w.pista ? `No. ${esc(w.pista)}` : `No. Sepárala en sílabas: <strong>${esc(w.silabas)}</strong>. ¿Cuál suena más fuerte?`;
         b.classList.remove("sacude"); void b.offsetWidth; b.classList.add("sacude");
         return;
       }
@@ -252,6 +252,51 @@ const ESCENAS = {
     };
   },
 
+  /* Huecos: a cada palabra le falta una letra; el alumno elige cuál (5.1) */
+  huecos(e) {
+    const resp = {}, contadas = new Set(), resueltas = new Set();
+    pintarEscena(`
+      ${tituloEscena(e)}${instruccion(e)}
+      <div class="partitura hoja-huecos">${e.palabras.map((w, k) => `
+        <div class="manchada" data-k="${k}">
+          <span class="palabra-mancha">${esc(w.p.slice(0, w.pos))}<span class="hueco-letra">?</span>${esc(w.p.slice(w.pos + w.letra.length))}</span>
+          <span class="si-no">${w.opciones.map(o => `<button data-v="${esc(o)}">${esc(o)}</button>`).join("")}</span>
+          <small class="expl"></small>
+        </div>`).join("")}</div>
+      <button class="boton-sello comprobar" id="comprobar">Comprobar</button>
+      ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
+    activarHUD();
+    $$(".manchada").forEach(caja => {
+      const k = Number(caja.dataset.k);
+      $$(".si-no button", caja).forEach(b => b.onclick = () => {
+        resp[k] = b.dataset.v;
+        $$(".si-no button", caja).forEach(x => x.classList.toggle("activo", x === b));
+      });
+    });
+    $("#comprobar").onclick = () => {
+      if (e.palabras.some((_, k) => !resueltas.has(k) && resp[k] === undefined)) return aviso("Elige primero la letra de todas las palabras.");
+      e.palabras.forEach((w, k) => {
+        if (resueltas.has(k)) return;
+        const caja = $(`.manchada[data-k="${k}"]`);
+        const ok = resp[k] === w.letra;
+        if (!contadas.has(k)) { contadas.add(k); registrar("5.1", ok, w.p, "huecos", w.regla); }
+        if (ok) {
+          resueltas.add(k);
+          caja.className = "manchada resuelta";
+          $(".palabra-mancha", caja).textContent = w.p;
+          $(".expl", caja).textContent = w.pista || "";
+        } else {
+          caja.className = "manchada error";
+          delete resp[k];
+          $$(".si-no button", caja).forEach(x => x.classList.remove("activo"));
+          $(".expl", caja).textContent = `Pista: ${w.pista || "fíjate en la regla"}`;
+        }
+      });
+      if (resueltas.size === e.palabras.length) { $("#comprobar").remove(); setTimeout(() => recompensa(e), 700); }
+      else aviso("Algunas no son correctas. Mira las pistas y vuelve a elegir.", "mal");
+    };
+  },
+
   /* Careo: señalar la falta, presentar la carta y corregir (9.2 + 9.1 + 5.1) */
   careo(e) {
     const tokens = tokenizar(e.declaracion);
@@ -269,7 +314,7 @@ const ESCENAS = {
     const contador = () => ($("#cont").textContent = `Faltas demostradas: ${total - ctx.pendientes} de ${total}`);
     const ctx = {
       pendientes: total, conCarta: true, onCambio: contador,
-      onCompleto: () => setTimeout(() => momento({ titulo: "¡Declaración aclarada!", texto: "Ramón no es un ladrón… pero el pregón sigue encerrado en la caja.", personaje: { id: "lola", expresion: "contento", lado: "izq" }, alSeguir: siguiente }), 600),
+      onCompleto: () => setTimeout(() => momento({ titulo: "¡Declaración aclarada!", texto: e.aclarado || "La declaración ya no tiene faltas. Sigamos investigando.", personaje: { id: "lola", expresion: "contento", lado: "izq" }, alSeguir: siguiente }), 600),
     };
     $("#decl").append(textoInteractivo(tokens, ctx));
     contador();
