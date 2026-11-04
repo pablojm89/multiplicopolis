@@ -42,3 +42,11 @@ Claude actualiza este archivo al terminar cada tarea importante.
 
 **Decidido:** El Tachón es la opción C, Bruno el repartidor: un antiguo aspirante del que se rieron por sus faltas, que acaba uniéndose al equipo.
 **Pablo pregunta qué es el «código de sello»** de la libreta: se le explican las opciones (bloquear el avance, que el sello sume puntos sin bloquear, o solo rúbrica). Pendiente de su elección.
+
+**Decidido:** libreta con **opción B** (el sello premia sin bloquear).
+**Pablo, con prisa porque su plan semanal de GPT se reiniciaba:** «aprovecha ahora si necesitas imágenes». Se encargó el lote 3 (13 imágenes: Bruno, El Tachón, la oficina saboteada, el callejón y 4 objetos) en la [issue #2](https://github.com/pablojm89/multiplicopolis/issues/2). Llegó en 3 zips y se integró.
+
+**Hecho:**
+- **Piloto «La prueba de acceso»** (evaluación inicial): sabotaje nocturno de la agencia, Bruno reparte un periódico lleno de faltas, ficha de ingreso, placa de prácticas y, al final, El Tachón: «Bienvenido, novato».
+- **Modo libreta de papel**, sello de la directora y rangos de detective.
+- **Gancho de El Tachón** al final del caso 1.

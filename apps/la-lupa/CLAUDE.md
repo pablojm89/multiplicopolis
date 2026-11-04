@@ -27,14 +27,16 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 ## Tipos de escena
 
 Campos comunes: `fondo`, `personaje {id, expresion, lado: izq|der}`, `objeto`, `titulo`, `instruccion`, `quien`, `pistas[]`.
-Marcado de faltas: `{mal|bien}`; en los careos, `{mal|bien|carta}`. Las faltas de `texto` e `intro` se repasan después en `expediente`.
+Marcado de faltas: `{mal|bien}` o `{mal|bien|etiqueta}`. La etiqueta es un id de `reglas.json` (para evaluar por regla) o, en los careos, la carta que demuestra la falta. Las faltas de `texto` e `intro` se repasan después en `expediente`. Un caso con `"diagnostico": true` (el piloto) muestra al alumno su punto de partida por regla y alimenta la tabla de evaluación inicial de la zona del maestro.
 
 | Tipo | Campos propios | Evalúa |
 |---|---|---|
 | `portada` | (usa número, título y resumen del caso) Precinto que hay que romper | — |
 | `relato` | `texto` (se escribe solo; la flecha aparece al terminar) | — |
 | `descubre` | `preguntas[{grupos, pregunta, opciones, correcta, explicacion}]`, `desbloquea:"cartas"` | 9.1 |
-| `papeles` | `palabras[]` correctas, `faltas[{mal,bien}]`, `frase` con `{0}…`: las correcciones rellenan la pista | 9.2 + 5.1 |
+| `papeles` | `palabras[]` correctas, `faltas[{mal,bien,regla?}]`, `frase` opcional con `{0}…`: las correcciones rellenan la pista | 9.2 + 5.1 |
+| `caza` | `declaracion` (documento: periódico, ficha, nota…) con faltas, `objeto` opcional, `recompensa` | 9.2 + 5.1 |
+| `apunta` | `cabecera`, `apuntar[]`: momento de libreta. En modo papel el alumno lo escribe en su libreta; en modo digital, en el juego | — (lo valora el maestro con el sello) |
 | `hipotesis` | `opciones[]`, `correcta`, `acierto`, `fallo` | — |
 | `clasifica` | `categorias[]`, `palabras[{p, cat, silabas}]` | 9.1 |
 | `manchas` | `palabras[{p, pos (índice de la vocal tapada), silabas}]` | 5.1 |
@@ -44,6 +46,7 @@ Marcado de faltas: `{mal|bien}`; en los careos, `{mal|bien|carta}`. Las faltas d
 | `final` | `texto` → informe | — |
 
 Los retos con `recompensa {texto, digito}` muestran «¡Pista conseguida!» y guardan la cifra en la libreta.
+**Libreta** (ver `LIBRETA.md`): `ajustes.libreta` es `papel` (por defecto: el juego no muestra las cifras; si el alumno las consulta, queda anotado) o `digital`. Al acabar el caso, el maestro **sella** el expediente en el propio dispositivo: rúbrica de 4 puntos + código de sello (zona del maestro, por defecto `LUPA`). El sello no bloquea; suma puntos para el rango (`puntosResultado`, `RANGOS` en `motor.js`).
 Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 1), escala IN/SU/BI/NT/SB, código del criterio con `.a` (5.º) o `.b` (6.º).
 
 ## Cómo crear un caso nuevo (borrador; se consolida cuando Pablo dé por bueno el caso 1)
@@ -62,4 +65,5 @@ Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 
 ## Pendiente / conocido
 
 - Todo el arte son huecos marcados: faltan las imágenes, que se generarán con Gemini o ChatGPT a partir de `arte.json`.
-- Los datos se guardan solo en `localStorage`. La zona del maestro/a no tiene PIN. No hay sincronización con el backend.
+- Los datos se guardan solo en `localStorage`. La zona del maestro/a no tiene PIN (el código de sello sí protege el sello). No hay sincronización con el backend.
+- Falta la plantilla imprimible de la libreta (`LIBRETA.md` §3).

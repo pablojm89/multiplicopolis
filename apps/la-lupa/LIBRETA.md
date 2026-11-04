@@ -46,7 +46,7 @@ Una portada y una doble página por caso, para pegar en la libreta del alumno o 
 - Rangos propios (nombres por decidir; no usar los del original). Por ejemplo: Novato → Agente → Detective → Inspector/a → Detective de élite.
 - Aquí encajan los guiños actuales: «+1000 de aura» por resolver sin pistas.
 
-## Decisiones pendientes de Pablo
-1. ¿Código de sello para desbloquear casos, o solo la rúbrica?
+## Decisiones
+1. **Decidido (4/11): opción B.** El sello premia (puntos y rango) pero no bloquea el avance. Implementado: el maestro sella en el dispositivo del alumno con la rúbrica de 4 puntos y el código de sello.
 2. ¿Libreta propia del alumno o cuadernillo impreso con nuestra plantilla?
 3. Nombres de los rangos.

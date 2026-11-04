@@ -19,8 +19,12 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] **v2**: motor de escenas 16:9 (pantalla completa, texto que se escribe solo, retos dentro de la escena, pantallas de pista conseguida / pista falsa, HUD de objetos) y caso 1 rehecho
 - [x] Arte del caso 1: 36 ilustraciones de GPT integradas (issue #1). Retocado el candado de `caja-musica`, que traía números dibujados
 - [x] Pablo prueba el caso 1 con arte: «me gusta bastante» (4/11)
-- [ ] **Libreta de papel** como herramienta central (propuesta en `LIBRETA.md`): modo papel, momentos «¡Apúntalo!», plantilla imprimible, sello de la directora, rúbrica en la zona del maestro
-- [ ] **Trama de temporada** (borrador en `TEMPORADA-1.md`): piloto «La prueba de acceso» (evaluación inicial), ganchos por número de episodio y final cerrado
+- [x] **Libreta de papel** como herramienta central (`LIBRETA.md`): modo papel o digital, momentos «¡Apúntalo!» (escena `apunta`), sello de la directora con rúbrica y código (opción B: premia, no bloquea), puntos y rangos
+- [ ] Plantilla imprimible de la libreta
+- [x] **Piloto «La prueba de acceso»** (`caso-00`): evaluación inicial de las 9 reglas de 5.º, debut de Bruno y El Tachón, informe con el punto de partida y tabla de evaluación inicial en la zona del maestro. Arte del lote 3 integrado (issue #2)
+- [x] Gancho de El Tachón al final del caso 1
+- [ ] **Trama de temporada**: pasar los ganchos a `datos/temporada-1.json` por número de episodio (`TEMPORADA-1.md`)
+- [ ] Caso 2 (b/v) con El Tachón
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`
 
@@ -51,6 +55,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-03 | La v1 (formulario) se descarta. La v2 se hace con escenas a pantalla completa al estilo de un episodio, y el arte se adelanta. |
 | 2026-11-03 | Estilo visual: ilustración de álbum o cómic de detectives, papel envejecido y paleta andaluza (albero, azulejo, cal). |
 | 2026-11-03 | Lo que funcione y guste a Pablo se convierte en un procedimiento para crear más casos. |
+| 2026-11-04 | Libreta: el sello de la directora **premia sin bloquear** (opción B de `LIBRETA.md`). |
 | 2026-11-04 | Trama de temporada: El Tachón es **Bruno, el repartidor del periódico**, un antiguo aspirante a la agencia del que se rieron por sus faltas. Al final se une al equipo (opción C de `TEMPORADA-1.md`). |
 | 2026-11-03 | **Cambio de estilo:** anime moderno con tono de misterio (noir de detectives, serie juvenil de suspense), sin aire infantil, ambientado en el barrio andaluz de La Alameda. Tensión sí; sangre, violencia y terror no. La interfaz del juego se oscurecerá para encajar cuando llegue el arte. |
 

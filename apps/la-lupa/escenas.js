@@ -108,21 +108,26 @@ const ESCENAS = {
     const rnd = azar(P.caso.id + P.i);
     const items = [
       ...e.palabras.map(p => ({ t: p, palabra: true })),
-      ...e.faltas.map((f, n) => ({ t: f.mal, palabra: true, error: true, bien: f.bien, n })),
+      ...e.faltas.map((f, n) => ({ t: f.mal, palabra: true, error: true, bien: f.bien, regla: f.regla || null, n })),
     ].map(x => ({ x, k: rnd() })).sort((a, b) => a.k - b.k).map(o => o.x);
     const cols = 5, celdaW = 236, celdaH = 92;
-    const frase = esc(e.frase).replace(/\{(\d+)\}/g, (_, n) => `<span class="hueco" data-n="${n}">?</span>`);
+    const frase = !e.frase ? "" : esc(e.frase).replace(/\{(\d+)\}/g, (_, n) => `<span class="hueco" data-n="${n}">?</span>`);
     pintarEscena(`
       ${tituloEscena(e)}${instruccion(e)}
       <div class="mostrador" id="mostrador"></div>
-      <div class="tira-pista"><span class="etiqueta">PISTA</span> <span class="frase-pista">${frase}</span></div>
+      ${frase ? `<div class="tira-pista"><span class="etiqueta">PISTA</span> <span class="frase-pista">${frase}</span></div>` : `<p class="contador centro-abajo" id="cont"></p>`}
       ${hud()}`, { fondo: e.fondo });
     activarHUD();
     const ctx = {
       pendientes: e.faltas.length,
-      onCambio: tk => { const h = $(`.hueco[data-n="${tk.n}"]`); h.textContent = tk.bien; h.classList.add("lleno"); },
+      onCambio: tk => {
+        const h = $(`.hueco[data-n="${tk.n}"]`);
+        if (h) { h.textContent = tk.bien; h.classList.add("lleno"); }
+        if ($("#cont")) $("#cont").textContent = `Faltas corregidas: ${e.faltas.length - ctx.pendientes} de ${e.faltas.length}`;
+      },
       onCompleto: () => setTimeout(() => recompensa(e), 700),
     };
+    if ($("#cont")) $("#cont").textContent = `Faltas corregidas: 0 de ${e.faltas.length}`;
     items.forEach((tk, i) => {
       const b = botonPalabra(tk, ctx, "papel");
       const c = i % cols, f = Math.floor(i / cols);
@@ -132,6 +137,27 @@ const ESCENAS = {
       b.style.fontSize = `${26 + Math.round(rnd() * 10)}px`;
       $("#mostrador").append(b);
     });
+  },
+
+  /* Caza del error en un documento (periódico, ficha, nota…): detectar y escribir bien (9.2 + 5.1) */
+  caza(e) {
+    const tokens = tokenizar(e.declaracion);
+    const total = tokens.filter(t => t.error).length;
+    pintarEscena(`
+      ${tituloEscena(e)}${e.intro ? `<p class="instruccion">${esc(visible(e.intro))}</p>` : ""}
+      ${htmlObjeto(e.objeto, "objeto-documento")}
+      ${htmlPersonaje(e.personaje, "pequeno")}
+      <article class="documento ${e.objeto ? "con-objeto" : ""}">
+        ${e.quien ? `<small>${esc(e.quien)}</small>` : ""}
+        <div id="decl"></div>
+      </article>
+      <p class="contador centro-abajo" id="cont"></p>
+      ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
+    activarHUD();
+    const contador = () => ($("#cont").textContent = `Faltas corregidas: ${total - ctx.pendientes} de ${total}`);
+    const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => setTimeout(() => recompensa(e), 600) };
+    $("#decl").append(textoInteractivo(tokens, ctx));
+    contador();
   },
 
   /* Elegir la conclusión del caso */
@@ -310,12 +336,31 @@ const ESCENAS = {
     };
   },
 
+  /* Momento de libreta: el alumno apunta en su libreta de papel (o aquí, en modo digital) */
+  apunta(e) {
+    const digital = ajustes.libreta === "digital";
+    pintarEscena(`
+      ${tituloEscena(e)}
+      ${htmlPersonaje(e.personaje)}
+      <div class="hoja-libreta ${ladoContrario(e.personaje)}">
+        <p class="apuntalo">📓 ${esc(e.cabecera || "Saca tu libreta de detective")}</p>
+        <ol>${e.apuntar.map((x, k) => `<li>${esc(x)}${digital ? `<textarea class="nota-digital" data-k="${k}" rows="2" aria-label="${esc(x)}"></textarea>` : ""}</li>`).join("")}</ol>
+        <button class="boton-sello" id="hecho">${digital ? "Guardar" : "Ya lo he apuntado"} ▸</button>
+      </div>
+      ${hud()}`, { fondo: e.fondo });
+    activarHUD();
+    $("#hecho").onclick = () => {
+      if (digital) $$(".nota-digital").forEach(t => P.notas.push({ escena: P.i, pregunta: e.apuntar[t.dataset.k], respuesta: t.value.trim() }));
+      siguiente();
+    };
+  },
+
   /* Cierre del caso */
   final(e) {
     pintarEscena(`
       <div class="final">
-        <div class="sello-resuelto">¡CASO RESUELTO!</div>
-        <div class="equipo">${["lola", "mateo", "pilar", "ramon"].map(id => htmlPersonaje({ id, expresion: "contento", lado: "fila" })).join("")}</div>
+        <div class="sello-resuelto">${esc(e.sello || "¡CASO RESUELTO!")}</div>
+        <div class="equipo">${(e.equipo || ["lola", "mateo", "pilar", "ramon"]).map(id => htmlPersonaje({ id, expresion: "contento", lado: "fila" })).join("")}</div>
         <p class="bocadillo-final maquina" id="txt"></p>
         <button class="boton-sello" id="informe" hidden>Ver mi informe ▸</button>
       </div>`, { fondo: e.fondo, clase: "oscurecido" });

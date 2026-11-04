@@ -27,6 +27,7 @@ async function leerJSON(ruta) {
 const D = { reglas: {}, prog: null, casos: {}, arte: {} };
 let perfiles = cargar("perfiles", []);
 let resultados = cargar("resultados", []);
+let ajustes = { libreta: "papel", codigoSello: "LUPA", ...cargar("ajustes", {}) };  // los cambia el maestro
 let perfil = null;   // detective con la sesión abierta
 let P = null;        // partida en curso
 
@@ -104,7 +105,9 @@ function maquina(el, texto, alFinal) {
   el.title = "Toca para leerlo entero";
 }
 
-/* ── Marcado de faltas: {mal|bien} o {mal|bien|carta} ───────── */
+/* ── Marcado de faltas: {mal|bien} o {mal|bien|etiqueta} ───────
+   La etiqueta es una regla de reglas.json (para la evaluación por regla)
+   o, en los careos, la carta que demuestra la falta. */
 const SEMILLA = /\{([^{}|]+)\|([^{}|]+)(?:\|([^{}|]+))?\}/g;
 const visible = t => String(t ?? "").replace(SEMILLA, (_, mal) => mal);
 const tieneFaltas = t => /\{[^{}|]+\|[^{}|]+/.test(String(t ?? ""));
@@ -114,7 +117,8 @@ function tokenizar(texto) {
   const plano = s => s.split(/(\p{L}+)/u).forEach(parte => { if (parte) out.push({ t: parte, palabra: /^\p{L}+$/u.test(parte) }); });
   for (const m of String(texto).matchAll(SEMILLA)) {
     plano(texto.slice(ultimo, m.index));
-    out.push({ t: m[1], palabra: true, error: true, bien: m[2], carta: m[3] || null });
+    const esRegla = m[3] && D.reglas[m[3]];
+    out.push({ t: m[1], palabra: true, error: true, bien: m[2], carta: esRegla ? null : m[3] || null, regla: esRegla ? m[3] : null });
     ultimo = m.index + m[0].length;
   }
   plano(texto.slice(ultimo));
@@ -124,11 +128,32 @@ const quitarTilde = ch => ch.normalize("NFD").replace(/́/g, "").normalize("NFC"
 const llevaTilde = (p, pos) => quitarTilde(p[pos]) !== p[pos];
 
 /* ── Registro y notas ───────────────────────────────────────── */
-function registrar(criterio, ok, palabra, detalle) {
+/* La regla sale del elemento (si la trae), de la escena o de la única regla del caso */
+function registrar(criterio, ok, palabra, detalle, regla) {
   const e = P.caso.escenas[P.i];
-  P.eventos.push({ escena: P.i, tipo: e.tipo, criterio, ok, palabra: palabra || null, detalle, at: new Date().toISOString() });
+  regla = regla || e.regla || (P.caso.reglas.length === 1 ? P.caso.reglas[0] : null);
+  P.eventos.push({ escena: P.i, tipo: e.tipo, criterio, ok, palabra: palabra || null, detalle, regla, at: new Date().toISOString() });
   if (!ok && palabra && detalle !== "falsa alarma") P.repasar.add(palabra);
 }
+/* Diagnóstico por regla (evaluación inicial): solo cuentan las correcciones escritas */
+function diagnosticoPorRegla(eventos) {
+  const por = {};
+  eventos.filter(e => e.regla && e.criterio === "5.1").forEach(e => { por[e.regla] ??= { ok: 0, total: 0 }; por[e.regla].total++; if (e.ok) por[e.regla].ok++; });
+  return Object.entries(por).map(([regla, v]) => ({ regla, aciertos: v.ok, intentos: v.total, porcentaje: Math.round(v.ok / v.total * 100) }));
+}
+
+/* ── Puntos y rangos de detective (juego + libreta sellada) ── */
+const RANGOS = [
+  { min: 0, nombre: "Novato" }, { min: 300, nombre: "Agente" }, { min: 800, nombre: "Detective" },
+  { min: 1500, nombre: "Inspector/a" }, { min: 2500, nombre: "Detective de élite" },
+];
+function puntosResultado(r) {
+  const juego = Math.round(r.notas.reduce((a, n) => a + n.nota, 0) / Math.max(1, r.notas.length) * 20);  // hasta 200
+  const aura = r.pistas === 0 ? 50 : 0;                         // +aura por no pedir pistas
+  const libreta = r.libreta ? r.libreta.puntos * 25 + 50 : 0;   // rúbrica (0-4) + sello
+  return juego + aura + libreta;
+}
+const rangoDe = puntos => [...RANGOS].reverse().find(r => puntos >= r.min);
 const calificacion = n => (n < 5 ? "IN" : n < 6 ? "SU" : n < 7 ? "BI" : n < 9 ? "NT" : "SB");
 function calcularNotas(eventos) {
   const por = {};
@@ -192,6 +217,15 @@ function refrescarHUD() {
   activarHUD();
 }
 function verLibreta() {
+  if (ajustes.libreta === "papel" && !P.libretaAbierta) {
+    abrirModal(`
+      <h3>📓 Tu libreta es la de papel</h3>
+      <p>Los detectives de La Lupa apuntan sus pistas en su libreta. Mírala ahí.</p>
+      <p>¿Se te olvidó apuntar algo? Puedes verlo otra vez, pero quedará anotado en tu informe.</p>
+      <div class="acciones"><button class="boton-sello" id="verIgual">Ver mis pistas</button></div>`, "ventana-libreta");
+    $("#verIgual").onclick = () => { P.consultas++; P.libretaAbierta = true; verLibreta(); P.libretaAbierta = false; };
+    return;
+  }
   abrirModal(`
     <h3>Mi libreta</h3>
     <p class="etiqueta">Cifras encontradas</p>
@@ -214,6 +248,7 @@ function pedirPista() {
 
 /* ── Pantallas de momento: pista conseguida / pista falsa ───── */
 function momento({ titulo, texto, digito, personaje, tipo = "exito", boton = "Seguir", alSeguir }) {
+  const apunta = ajustes.libreta === "papel" ? `<p class="apuntalo">📓 ¡Apúntalo en tu libreta!</p>` : `<p class="anotado">Anotado en tu libreta</p>`;
   const m = $("#capaModal");
   $("#toast")?.classList.remove("visible");
   m.innerHTML = `
@@ -221,7 +256,7 @@ function momento({ titulo, texto, digito, personaje, tipo = "exito", boton = "Se
       ${htmlPersonaje(personaje, "momento-pj")}
       <div class="momento-texto">
         <h2 class="cartel">${esc(titulo)}</h2>
-        ${digito ? `<div class="digito-grande">${esc(digito)}</div><p class="anotado">Anotado en tu libreta</p>` : ""}
+        ${digito ? `<div class="digito-grande">${esc(digito)}</div>${apunta}` : ""}
         ${texto ? `<p class="momento-p">${esc(texto)}</p>` : ""}
         <button class="flecha" id="momentoSeguir">${esc(boton)} ▸</button>
       </div>
@@ -271,12 +306,12 @@ function textoInteractivo(tokens, ctx) {
 function pulsarPalabra(tk, b, ctx) {
   if (tk.resuelta) return;
   if (!tk.error) {
-    if (!tk.falsa) { tk.falsa = true; registrar("9.2", false, tk.t, "falsa alarma"); }
+    if (!tk.falsa) { tk.falsa = true; registrar("9.2", false, tk.t, "falsa alarma", tk.regla); }
     b.classList.remove("falsa"); void b.offsetWidth; b.classList.add("falsa");
     aviso(`«${tk.t}» está bien escrita. ¡Sigue buscando!`);
     return;
   }
-  if (!tk.detectada) { tk.detectada = true; registrar("9.2", true, tk.bien, "detectada"); }
+  if (!tk.detectada) { tk.detectada = true; registrar("9.2", true, tk.bien, "detectada", tk.regla); }
   b.classList.add("sospechosa");
   const escribir = () => pedirCorreccion(tk, () => {
     tk.resuelta = true;
@@ -297,13 +332,25 @@ function elegirCarta(tk, despues) {
     <p id="cartaMsg" class="msg"></p>`, "ventana-cartas");
   $$("#capaModal .carta").forEach(btn => btn.onclick = () => {
     const ok = btn.dataset.id === tk.carta;
-    if (!tk.cartaIntentada) { tk.cartaIntentada = true; registrar("9.1", ok, tk.bien, "carta"); }
+    if (!tk.cartaIntentada) { tk.cartaIntentada = true; registrar("9.1", ok, tk.bien, "carta", tk.regla); }
     if (ok) { tk.cartaOk = true; despues(); return; }
     btn.classList.add("mal");
     btn.disabled = true;
     $("#cartaMsg").textContent = "Esa carta no lo demuestra. Busca la sílaba fuerte y mira cómo termina la palabra.";
   });
 }
+/* Consejo tras un fallo, según la regla de la falta */
+const PISTA_REGLA = {
+  "tildes-generales": "Busca la sílaba fuerte y mira cómo termina la palabra.",
+  "b-v-1": "¿b o v? Piensa en la regla o en palabras de su familia.",
+  "h-1": "¿No le faltará una letra que no suena?",
+  "c-z-s": "Aunque suene igual, ¿va con c, con z o con s?",
+  "ll-y": "¿ll o y? Piensa en otras palabras de su familia.",
+  "g-j-dieresis": "¿g o j? ¿Y necesita diéresis (ü) para que suene la u?",
+  "diptongo-monosilabos": "Las palabras de una sola sílaba, por regla general, no llevan tilde.",
+  "d-z-finales": "Piensa en su plural: ¿termina en -des o en -ces?",
+  "mayusculas-puntuacion-1": "Mira las mayúsculas: los nombres propios sí; los días de la semana, no.",
+};
 function pedirCorreccion(tk, hecho) {
   let fallos = 0;
   abrirModal(`
@@ -316,13 +363,15 @@ function pedirCorreccion(tk, hecho) {
   inp.focus();
   const comprobar = () => {
     if (!inp.value.trim()) return;
-    const ok = norm(inp.value) === norm(tk.bien);
-    if (!tk.intentada) { tk.intentada = true; registrar("5.1", ok, tk.bien, "corrección"); }
+    // Si la falta es solo de mayúsculas (andalucía → Andalucía), se compara exacto
+    const soloMayus = tk.t.toLowerCase() === tk.bien.toLowerCase();
+    const ok = soloMayus ? inp.value.normalize("NFC").trim() === tk.bien : norm(inp.value) === norm(tk.bien);
+    if (!tk.intentada) { tk.intentada = true; registrar("5.1", ok, tk.bien, "corrección", tk.regla); }
     if (ok) { cerrarModal(); aviso(`¡Bien! Se escribe «${tk.bien}».`, "bien"); hecho(); return; }
     fallos++;
     $("#corrMsg").innerHTML = fallos >= 2
       ? `Se escribe <strong>${esc(tk.bien)}</strong>. Escríbela tú.`
-      : "Todavía no. Busca la sílaba fuerte y mira cómo termina la palabra.";
+      : `Todavía no. ${PISTA_REGLA[tk.regla || P.caso.escenas[P.i].regla || (P.caso.reglas.length === 1 ? P.caso.reglas[0] : "")] || "Fíjate bien en cada letra."}`;
     inp.select();
   };
   $("#corrOk").onclick = comprobar;

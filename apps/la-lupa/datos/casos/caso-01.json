@@ -139,6 +139,22 @@
       ]
     },
     {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "La regla, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe la regla de las agudas, las llanas y las esdrújulas con tus propias palabras.",
+        "Inventa un ejemplo de cada tipo que lleve tilde.",
+        "Busca un contraejemplo: una palabra acabada en -n que no lleve tilde."
+      ]
+    },
+    {
       "tipo": "relato",
       "fondo": "casa-feria",
       "objeto": "carpeta-vacia",
@@ -441,6 +457,34 @@
       "pistas": [
         "Hay una falta en el aviso del caso… y alguna más.",
         "Revisa lo que dijeron Inés y Lola en el kiosco."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "nota-tachon",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Directora Robles",
+      "texto": "Una última cosa. Entre los papeles que alguien tiró en la panadería apareció esto: un tachón y unas gafas de sol. El mismo dibujo de la noche del sabotaje. Esto no ha terminado."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe para la directora",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿quién se llevó el pregón, dónde estaba y por qué?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta a la directora para que selle tu expediente."
       ]
     },
     {

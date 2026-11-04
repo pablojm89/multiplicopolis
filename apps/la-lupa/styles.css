@@ -330,3 +330,41 @@ th, td { border-bottom: 1px solid #e0d2b2; padding: 8px 10px; text-align: left; 
 @keyframes parpadeo { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
 @keyframes cortar { 0% { transform: rotate(-9deg); } 30% { transform: rotate(-12deg) translateY(-10px); } 100% { transform: rotate(14deg) translateY(520px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ── Libreta de papel, evaluación inicial y sello ───────────── */
+.apuntalo { font: 26px var(--f-mano); color: var(--albero); margin: 4px 0 0; }
+.ventana .apuntalo { color: var(--rojo); }
+.hoja-libreta { position: absolute; top: 120px; bottom: 40px; width: 720px; background: repeating-linear-gradient(var(--papel-claro) 0 40px, #c9d6e8 40px 41px); border-left: 10px double var(--rojo); border-radius: 6px; padding: 18px 34px; color: var(--tinta); box-shadow: 0 18px 40px rgba(0, 0, 0, .55); transform: rotate(-.8deg); display: flex; flex-direction: column; overflow: auto; }
+.hoja-libreta.izq { left: 60px; }
+.hoja-libreta.der { right: 60px; }
+.hoja-libreta .apuntalo { color: var(--rojo); font-size: 30px; }
+.hoja-libreta ol { font: 26px/1.5 var(--f-mano); margin: 10px 0 16px; padding-left: 1.3em; flex: 1; }
+.hoja-libreta li { margin: 6px 0; }
+.hoja-libreta .boton-sello { align-self: flex-end; }
+.nota-digital { display: block; width: 100%; font: 22px var(--f-mano); border: 2px solid var(--tinta); border-radius: 8px; background: #fffef8; padding: 6px 10px; margin-top: 4px; resize: vertical; }
+.contador.centro-abajo { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; color: var(--crema); text-shadow: 0 2px 4px #000; }
+.diagnostico { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 4px 0 14px; }
+.regla-diag { border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; font: 700 15px var(--f-ui); border: 2px solid; }
+.regla-diag b { font: 20px var(--f-cartel); letter-spacing: .03em; }
+.regla-diag.domina { border-color: var(--verde); background: #d9f0df; }
+.regla-diag.casi { border-color: #c98a12; background: #fbecc8; }
+.regla-diag.entrenar { border-color: var(--rojo); background: #f9dfdc; }
+.sello-informe.pendiente { color: var(--gris-tinta); border-color: var(--gris-tinta); }
+.sello-mini.pendiente { color: var(--rojo); }
+.sello-aviso { font-size: 19px; margin: 12px 0 0; }
+.acciones.izquierda { justify-content: flex-start; }
+.rubrica { display: grid; gap: 8px; margin: 10px 0 14px; }
+.rubrica label { font: 20px var(--f-ui); display: flex; gap: 10px; align-items: center; }
+.rubrica input { width: 24px; height: 24px; }
+.pagina h2 { font: 30px var(--f-cartel); letter-spacing: .03em; margin: 26px 0 8px; }
+.pagina label { display: flex; gap: 8px; align-items: center; }
+td.celda-bien { background: #d9f0df; } td.celda-casi { background: #fbecc8; } td.celda-mal { background: #f9dfdc; }
+
+/* Caza del error en un documento */
+.documento { position: absolute; top: 160px; left: 50%; transform: translateX(-50%) rotate(-.5deg); width: 900px; background: var(--ruido), var(--papel-claro); color: var(--tinta); padding: 22px 34px 26px; box-shadow: 0 18px 40px rgba(0, 0, 0, .55); border-radius: 4px; }
+.documento.con-objeto { left: auto; right: 50px; transform: rotate(-.5deg); width: 820px; }
+.documento small { display: block; font: 800 15px var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--gris-tinta); margin-bottom: 6px; }
+.documento .texto-pistas { font: 28px/1.85 var(--f-maquina); margin: 0; }
+.documento .w.resuelta { color: var(--verde); font-weight: 700; }
+.objeto-documento { left: 40px; top: 190px; max-height: 300px; max-width: 330px; transform: rotate(-6deg); }
+.objeto-documento.pendiente { width: 300px; height: 240px; }
