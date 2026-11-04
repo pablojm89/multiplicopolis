@@ -3,140 +3,453 @@
   "numero": "03",
   "titulo": "La carta sin haches",
   "resumen": "El Tachón manda una carta a la agencia… y demuestra que la conoce por dentro.",
-  "reglas": ["h-1"],
-  "_nota": "Temporada 1, episodio 3. Pieza del gran misterio: El Tachón conoce la agencia por dentro y en el archivo azul había una ficha con su nombre (la de los aspirantes a la prueba de acceso), que ha desaparecido. Bruno suelta que de pequeño suspendió la prueba de acceso: pista para los atentos, sin señalarla. Faltas sembradas para el expediente: abla, Ace, a.",
+  "reglas": [
+    "h-1"
+  ],
+  "_nota": "Temporada 1, episodio 3. Pieza del gran misterio: el Tachón conoce la agencia por dentro y en el archivo azul había una ficha con su nombre (la de los aspirantes a la prueba de acceso), que ha desaparecido. Bruno suelta que de pequeño suspendió la prueba de acceso: pista para los atentos, sin señalarla. Faltas sembradas para el expediente: abla, Ace, a.",
   "escenas": [
-    { "tipo": "portada", "fondo": "biblioteca" },
-
-    { "tipo": "relato", "fondo": "agencia", "objeto": "sobre-tachon", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+    {
+      "tipo": "portada",
+      "fondo": "biblioteca"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "sobre-tachon",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "Esta mañana ha llegado un sobre a la agencia, cerrado con un tachón negro. Dentro hay una carta a la que le faltan todas las haches. Y mirad cómo nos {abla|habla}: sabe cosas de la agencia que solo conoce alguien de dentro." },
-
-    { "tipo": "descubre", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "neutral", "lado": "izq" },
+      "texto": "Esta mañana ha llegado un sobre a la agencia, cerrado con un tachón negro. Dentro hay una carta a la que le faltan todas las haches. Y mirad cómo nos {abla|habla}: sabe cosas de la agencia que solo conoce alguien de dentro."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
       "quien": "Mateo",
       "intro": "La h no suena, así que hay que conocer sus reglas. Mira mis fichas.",
       "desbloquea": "cartas",
       "preguntas": [
-        { "grupos": [ { "titulo": "Empiezan por hie-, hue-, hui-", "palabras": ["hielo", "huevo", "hueso", "huida"] } ],
+        {
+          "grupos": [
+            {
+              "titulo": "Empiezan por hie-, hue-, hui-",
+              "palabras": [
+                "hielo",
+                "huevo",
+                "hueso",
+                "huida"
+              ]
+            }
+          ],
           "pregunta": "¿Qué tienen en común estas palabras?",
-          "opciones": ["Empiezan por ie-, ue- o ui- y llevan h delante", "Todas son cosas frías", "Llevan h porque son cortas", "Que ninguna lleva h"], "correcta": 0,
-          "explicacion": "Las palabras que empiezan por los sonidos ie-, ue- y ui- llevan h delante: hielo, huevo, hueso, huida." },
-        { "grupos": [ { "titulo": "Verbos con h", "palabras": ["había", "hizo", "hablaba", "hallé"] } ],
+          "opciones": [
+            "Empiezan por ie-, ue- o ui- y llevan h delante",
+            "Todas son cosas frías",
+            "Llevan h porque son cortas",
+            "Que ninguna lleva h"
+          ],
+          "correcta": 0,
+          "explicacion": "Las palabras que empiezan por los sonidos ie-, ue- y ui- llevan h delante: hielo, huevo, hueso, huida."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Verbos con h",
+              "palabras": [
+                "había",
+                "hizo",
+                "hablaba",
+                "hallé"
+              ]
+            }
+          ],
           "pregunta": "Son formas de los verbos haber, hacer, hablar y hallar. ¿Qué pasa con su h?",
-          "opciones": ["Todas las formas de esos verbos la llevan", "Solo la lleva el infinitivo", "Solo en pasado", "Depende de quién hable"], "correcta": 0,
-          "explicacion": "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h: había, hizo, hablábamos, hallaste, habitan." },
-        { "grupos": [ { "titulo": "Empiezan así", "palabras": ["hermano", "hormiga", "horrible", "hospital", "humo"] } ],
+          "opciones": [
+            "Todas las formas de esos verbos la llevan",
+            "Solo la lleva el infinitivo",
+            "Solo en pasado",
+            "Depende de quién hable"
+          ],
+          "correcta": 0,
+          "explicacion": "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h: había, hizo, hablábamos, hallaste, habitan."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Empiezan así",
+              "palabras": [
+                "hermano",
+                "hormiga",
+                "horrible",
+                "hospital",
+                "humo"
+              ]
+            }
+          ],
           "pregunta": "¿Qué tienen en común estas palabras?",
-          "opciones": ["Empiezan por herm-, horm-, horr-, hosp- o hum- + vocal, y llevan h", "Son todas largas", "Tienen dos sílabas", "No tienen nada en común"], "correcta": 0,
-          "explicacion": "Las palabras que empiezan por herm-, horm-, horr-, hosp- y hum- seguido de vocal llevan h: hermano, hormiga, horrible, hospital, humo." },
-        { "grupos": [],
+          "opciones": [
+            "Empiezan por herm-, horm-, horr-, hosp- o hum- + vocal, y llevan h",
+            "Son todas largas",
+            "Tienen dos sílabas",
+            "No tienen nada en común"
+          ],
+          "correcta": 0,
+          "explicacion": "Las palabras que empiezan por herm-, horm-, horr-, hosp- y hum- seguido de vocal llevan h: hermano, hormiga, horrible, hospital, humo."
+        },
+        {
+          "grupos": [],
           "pregunta": "Un vecino dice: «Hueso lleva h, así que todas las palabras de su familia la llevan». ¿Qué palabra demuestra que se equivoca?",
-          "opciones": ["huesudo", "óseo", "deshuesar", "huesecillo"], "correcta": 1,
-          "explicacion": "Óseo es de la familia de hueso y no lleva h: cuando desaparece el ue, desaparece la h. Pasa igual con huevo y óvalo, o con hueco y oquedad. ¡Contraejemplo encontrado!" }
+          "opciones": [
+            "huesudo",
+            "óseo",
+            "deshuesar",
+            "huesecillo"
+          ],
+          "correcta": 1,
+          "explicacion": "Óseo es de la familia de hueso y no lleva h: cuando desaparece el ue, desaparece la h. Pasa igual con huevo y óvalo, o con hueco y oquedad. ¡Contraejemplo encontrado!"
+        }
       ],
-      "pistas": ["Fíjate en cómo empieza cada palabra.", "Abre el Archivo de Mateo (la carpeta de arriba)."] },
-
-    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "contento", "lado": "izq" },
+      "pistas": [
+        "Fíjate en cómo empieza cada palabra.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "titulo": "Las reglas, en tu libreta",
       "cabecera": "Apúntalo en tu libreta",
       "apuntar": [
         "Escribe con tus palabras las tres reglas de la h.",
         "Pon dos ejemplos tuyos de cada una.",
         "Apunta el truco de la familia de hueso: hueso, pero óseo."
-      ] },
-
-    { "tipo": "relato", "fondo": "biblioteca", "personaje": { "id": "herminia", "expresion": "sorprendido", "lado": "der" },
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "biblioteca",
+      "personaje": {
+        "id": "herminia",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
       "quien": "Herminia, la bibliotecaria",
-      "texto": "¡Detectives, qué alivio! {Ace|Hace} dos noches que alguien entra en la biblioteca y borra las haches de las fichas de los libros. Y en el mostrador me dejó este mismo dibujo: un tachón con gafas de sol." },
-
-    { "tipo": "huecos", "fondo": "biblioteca", "regla": "h-1",
+      "texto": "¡Detectives, qué alivio! {Ace|Hace} dos noches que alguien entra en la biblioteca y borra las haches de las fichas de los libros. Y en el mostrador me dejó este mismo dibujo: un tachón con gafas de sol."
+    },
+    {
+      "tipo": "huecos",
+      "fondo": "biblioteca",
+      "regla": "h-1",
       "titulo": "Las fichas de los libros",
       "instruccion": "A estas fichas les han borrado la primera letra. ¿Llevan h o no llevan nada?",
       "palabras": [
-        { "p": "hielo", "pos": 0, "letra": "h", "opciones": ["h", ""], "pista": "Empieza por ie-: lleva h delante." },
-        { "p": "hueso", "pos": 0, "letra": "h", "opciones": ["h", ""], "pista": "Empieza por ue-: lleva h delante." },
-        { "p": "óseo", "pos": 0, "letra": "", "opciones": ["h", ""], "pista": "Es de la familia de hueso, pero sin ue: no lleva h." },
-        { "p": "humo", "pos": 0, "letra": "h", "opciones": ["h", ""], "pista": "hum- + vocal: lleva h." },
-        { "p": "hormiga", "pos": 0, "letra": "h", "opciones": ["h", ""], "pista": "horm-: lleva h." },
-        { "p": "oquedad", "pos": 0, "letra": "", "opciones": ["h", ""], "pista": "Es de la familia de hueco, pero sin ue: no lleva h." },
-        { "p": "había", "pos": 0, "letra": "h", "opciones": ["h", ""], "pista": "Es una forma de haber: lleva h." },
-        { "p": "hospital", "pos": 0, "letra": "h", "opciones": ["h", ""], "pista": "hosp-: lleva h." }
+        {
+          "p": "hielo",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "Empieza por ie-: lleva h delante."
+        },
+        {
+          "p": "hueso",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "Empieza por ue-: lleva h delante."
+        },
+        {
+          "p": "óseo",
+          "pos": 0,
+          "letra": "",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "Es de la familia de hueso, pero sin ue: no lleva h."
+        },
+        {
+          "p": "humo",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "hum- + vocal: lleva h."
+        },
+        {
+          "p": "hormiga",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "horm-: lleva h."
+        },
+        {
+          "p": "oquedad",
+          "pos": 0,
+          "letra": "",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "Es de la familia de hueco, pero sin ue: no lleva h."
+        },
+        {
+          "p": "había",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "Es una forma de haber: lleva h."
+        },
+        {
+          "p": "hospital",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "hosp-: lleva h."
+        }
       ],
-      "pistas": ["Fíjate en cómo empieza cada palabra.", "Usa tus cartas. Y ojo con la familia de hueso y hueco."],
-      "recompensa": { "texto": "En la última ficha alguien ha dejado un número escrito con rotulador negro: el 6.", "digito": "6" } },
-
-    { "tipo": "relato", "fondo": "biblioteca", "personaje": { "id": "bruno", "expresion": "nervioso", "lado": "izq" },
+      "pistas": [
+        "Fíjate en cómo empieza cada palabra.",
+        "Usa tus cartas. Y ojo con la familia de hueso y hueco."
+      ],
+      "recompensa": {
+        "texto": "En la última ficha alguien ha dejado un número escrito con rotulador negro: el 6.",
+        "digito": "6"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "biblioteca",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "nervioso",
+        "lado": "izq"
+      },
       "quien": "Bruno, el repartidor",
-      "texto": "¡Hola, detective! Traigo el periódico para la biblioteca. Oye, ¿sabes que de pequeño quise entrar en vuestra agencia? Hice la prueba de acceso… y suspendí. Bueno, ¡no pasa nada, eh! ¡Suerte con el caso!" },
-
-    { "tipo": "caza", "fondo": "agencia", "objeto": "sobre-tachon", "regla": "h-1",
-      "quien": "La carta de El Tachón",
+      "texto": "¡Hola, detective! Traigo el periódico para la biblioteca. Oye, ¿sabes que de pequeño quise entrar en vuestra agencia? Hice la prueba de acceso… y suspendí. Bueno, ¡no pasa nada, eh! ¡Suerte con el caso!"
+    },
+    {
+      "tipo": "caza",
+      "fondo": "agencia",
+      "objeto": "sobre-tachon",
+      "regla": "h-1",
+      "quien": "La carta del Tachón",
       "titulo": "La carta sin haches",
       "intro": "A la carta le faltan 5 haches. Encuentra las palabras y escríbelas bien.",
       "declaracion": "Queridos detectives: {abéis|habéis} ganado dos veces, pero yo conozco vuestra agencia mejor que nadie. Sé dónde guardáis el {ielo|hielo} para el café, sé que el {ermano|hermano} pequeño de Mateo os ayuda los sábados y sé que en el archivo azul {ay|hay} una ficha con mi nombre. {Asta|Hasta} pronto. T.",
-      "pistas": ["Busca formas de haber y palabras que empiecen por ie- o herm-.", "Son: abéis, ielo, ermano, ay y Asta."],
-      "recompensa": { "texto": "En el sobre, debajo del tachón de lacre, hay un número marcado con la uña: el 1.", "digito": "1" } },
-
-    { "tipo": "relato", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "sorprendido", "lado": "izq" },
+      "pistas": [
+        "Busca formas de haber y palabras que empiecen por ie- o herm-.",
+        "Son: abéis, ielo, ermano, ay y Asta."
+      ],
+      "recompensa": {
+        "texto": "En el sobre, debajo del tachón de lacre, hay un número marcado con la uña: el 1.",
+        "digito": "1"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
       "quien": "Mateo",
-      "texto": "¿Una ficha con su nombre en mi archivo azul? Ahí guardo las fichas de todos los que han hecho la prueba de acceso… Pero el archivo está cerrado y nadie lo {a|ha} tocado. Antes de abrirlo, ayúdame a ordenar las fichas sueltas." },
-
-    { "tipo": "clasifica", "fondo": "agencia",
+      "texto": "¿Una ficha con su nombre en mi archivo azul? Ahí guardo las fichas de todos los que han hecho la prueba de acceso… Pero el archivo está cerrado y nadie lo {a|ha} tocado. Antes de abrirlo, ayúdame a ordenar las fichas sueltas."
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "agencia",
       "titulo": "Las fichas sueltas",
       "instruccion": "Pon cada ficha en el cajón de la regla de la h que la explica.",
-      "categorias": [ { "id": "hie", "nombre": "hie- · hue- · hui-" }, { "id": "verbos", "nombre": "haber · hacer · hablar" }, { "id": "herm", "nombre": "herm- · horm- · hum-" } ],
-      "palabras": [
-        { "p": "huevo", "cat": "hie", "pista": "Empieza por hue-." },
-        { "p": "hemos", "cat": "verbos", "pista": "Es una forma del verbo haber." },
-        { "p": "hormiga", "cat": "herm", "pista": "Empieza por horm-." },
-        { "p": "hielo", "cat": "hie", "pista": "Empieza por hie-." },
-        { "p": "hicimos", "cat": "verbos", "pista": "Es una forma del verbo hacer." },
-        { "p": "humano", "cat": "herm", "pista": "Empieza por hum- + vocal." },
-        { "p": "huida", "cat": "hie", "pista": "Empieza por hui-." },
-        { "p": "hablaron", "cat": "verbos", "pista": "Es una forma del verbo hablar." },
-        { "p": "hermoso", "cat": "herm", "pista": "Empieza por herm-." }
+      "categorias": [
+        {
+          "id": "hie",
+          "nombre": "hie- · hue- · hui-"
+        },
+        {
+          "id": "verbos",
+          "nombre": "haber · hacer · hablar"
+        },
+        {
+          "id": "herm",
+          "nombre": "herm- · horm- · hum-"
+        }
       ],
-      "pistas": ["Mira cómo empieza la palabra o de qué verbo viene."],
-      "recompensa": { "texto": "Detrás de la última ficha, Mateo encuentra un número que no es suyo: el 9.", "digito": "9" } },
-
-    { "tipo": "hipotesis", "fondo": "agencia",
-      "titulo": "¿Qué sabemos de El Tachón?",
-      "opciones": ["Que es un turista que se ha perdido por el barrio.", "Que conoce la agencia por dentro: quizá hizo nuestra prueba de acceso.", "Que trabaja en el mercado de abastos.", "Que es un fantasma de la biblioteca."],
+      "palabras": [
+        {
+          "p": "huevo",
+          "cat": "hie",
+          "pista": "Empieza por hue-."
+        },
+        {
+          "p": "hemos",
+          "cat": "verbos",
+          "pista": "Es una forma del verbo haber."
+        },
+        {
+          "p": "hormiga",
+          "cat": "herm",
+          "pista": "Empieza por horm-."
+        },
+        {
+          "p": "hielo",
+          "cat": "hie",
+          "pista": "Empieza por hie-."
+        },
+        {
+          "p": "hicimos",
+          "cat": "verbos",
+          "pista": "Es una forma del verbo hacer."
+        },
+        {
+          "p": "humano",
+          "cat": "herm",
+          "pista": "Empieza por hum- + vocal."
+        },
+        {
+          "p": "huida",
+          "cat": "hie",
+          "pista": "Empieza por hui-."
+        },
+        {
+          "p": "hablaron",
+          "cat": "verbos",
+          "pista": "Es una forma del verbo hablar."
+        },
+        {
+          "p": "hermoso",
+          "cat": "herm",
+          "pista": "Empieza por herm-."
+        }
+      ],
+      "pistas": [
+        "Mira cómo empieza la palabra o de qué verbo viene."
+      ],
+      "recompensa": {
+        "texto": "Detrás de la última ficha, Mateo encuentra un número que no es suyo: el 9.",
+        "digito": "9"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "agencia",
+      "titulo": "¿Qué sabemos del Tachón?",
+      "opciones": [
+        "Que es un turista que se ha perdido por el barrio.",
+        "Que conoce la agencia por dentro: quizá hizo nuestra prueba de acceso.",
+        "Que trabaja en el mercado de abastos.",
+        "Que es un fantasma de la biblioteca."
+      ],
       "correcta": 1,
       "acierto": "Sabe dónde guardamos las cosas y que en el archivo azul hay una ficha con su nombre. Ahí solo están las fichas de los aspirantes a la agencia… Vamos a abrirlo.",
-      "fallo": "Piensa en lo que dice la carta: ¿cómo puede saber tantas cosas de la agencia?" },
-
-    { "tipo": "candado", "fondo": "agencia", "objeto": "fichero-azul",
+      "fallo": "Piensa en lo que dice la carta: ¿cómo puede saber tantas cosas de la agencia?"
+    },
+    {
+      "tipo": "candado",
+      "fondo": "agencia",
+      "objeto": "fichero-azul",
       "titulo": "El archivo azul",
       "instruccion": "El cajón de los aspirantes tiene un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
       "codigo": "619",
       "exito": "El cajón se abre… pero la ficha con su nombre ha desaparecido. Solo queda la funda vacía, con un tachón negro.",
-      "pistas": ["Abre tu libreta: ahí están las cifras.", "La primera estaba en las fichas de la biblioteca."] },
-
-    { "tipo": "relato", "fondo": "biblioteca", "personaje": { "id": "herminia", "expresion": "contento", "lado": "der" },
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba en las fichas de la biblioteca."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "biblioteca",
+      "personaje": {
+        "id": "herminia",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "quien": "Herminia, la bibliotecaria",
-      "texto": "Gracias a vosotros, todas las fichas vuelven a tener sus haches. Os haré un carné de lectores de honor. ¡Y venid a leer, que un buen detective lee mucho!" },
-
-    { "tipo": "expediente", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "neutral", "lado": "der" },
+      "texto": "Gracias a vosotros, todas las fichas vuelven a tener sus haches. Os haré un carné de lectores de honor. ¡Y venid a leer, que un buen detective lee mucho!"
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de h. Encuéntralas y corrígelas antes de archivarlo.",
-      "pistas": ["Hay una en el aviso del caso.", "Revisa lo que dijeron Herminia y Mateo."] },
-
-    { "tipo": "relato", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+      "pistas": [
+        "Hay una en el aviso del caso.",
+        "Revisa lo que dijeron Herminia y Mateo."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "Alguien que hizo nuestra prueba de acceso y no la superó… y ahora se ha llevado su ficha para que no sepamos quién es. Mateo, busca la lista de aspirantes de los últimos años. La clavaremos en el tablón." },
-
-    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "lola", "expresion": "contento", "lado": "izq" },
+      "texto": "Alguien que hizo nuestra prueba de acceso y no la superó… y ahora se ha llevado su ficha para que no sepamos quién es. Mateo, busca la lista de aspirantes de los últimos años. La clavaremos en el tablón."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "titulo": "Informe para la directora",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
-        "Escribe 3 o 4 líneas: ¿qué decía la carta y qué hemos descubierto de El Tachón?",
+        "Escribe 3 o 4 líneas: ¿qué decía la carta y qué hemos descubierto del Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
         "Enseña tu libreta a la directora para que selle tu expediente."
-      ] },
-
-    { "tipo": "final", "fondo": "biblioteca", "equipo": ["lola", "mateo", "herminia", "robles"],
-      "texto": "Las haches vuelven a su sitio. En el tablón de la agencia hay una pieza nueva: El Tachón hizo la prueba de acceso… y alguien de la lista de aspirantes es él." }
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "biblioteca",
+      "equipo": [
+        "lola",
+        "mateo",
+        "herminia",
+        "robles"
+      ],
+      "texto": "Las haches vuelven a su sitio. En el tablón de la agencia hay una pieza nueva: el Tachón hizo la prueba de acceso… y alguien de la lista de aspirantes es él."
+    }
   ]
 }

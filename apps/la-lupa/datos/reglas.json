@@ -196,7 +196,41 @@
     ],
     "criterios": [
       "5.1",
+      "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · g, j y diéresis",
+      "puntos": [
+        "Gen-, -gen, -gente y -gencia se escriben con g: general, imagen, gente, urgencia.",
+        "Geo-, -logía y -gía también van con g: geografía, biología, magia.",
+        "Los verbos en -ger y -gir se escriben con g: coger, proteger, elegir, dirigir. Excepciones: tejer y crujir. Delante de a y o, la g se cambia por j: cojo, elijo.",
+        "Con j: las palabras en -aje, -eje (viaje, garaje, hereje) y en -jero, -jera, -jería (relojero, cajera, conserjería). Excepción: ligero.",
+        "Si el verbo no tiene g ni j en el infinitivo, sus formas con je, ji van con j: decir → dije, traer → traje, conducir → conduje.",
+        "En gue, gui la u no suena: guerra, guitarra. Si la u suena, lleva diéresis: pingüino, cigüeña, vergüenza."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "gen-geo",
+        "titulo": "Carta de gen- y geo-",
+        "texto": "Gen-, -gen, -gente, -gencia, geo-, -logía y -gía van con g: imagen, gente, geografía, biología."
+      },
+      {
+        "id": "ger-gir",
+        "titulo": "Carta de -ger y -gir",
+        "texto": "Los verbos en -ger y -gir se escriben con g: coger, elegir, dirigir. Excepciones: tejer y crujir."
+      },
+      {
+        "id": "j-aje",
+        "titulo": "Carta de la j",
+        "texto": "Con j: -aje, -eje, -jero, -jería (viaje, relojero) y las formas de verbos sin g ni j (dije, traje, conduje)."
+      },
+      {
+        "id": "dieresis",
+        "titulo": "Carta de la diéresis",
+        "texto": "Si la u de gue, gui suena, lleva diéresis: pingüino, cigüeña, vergüenza."
+      }
     ]
   },
   "diptongo-monosilabos": {
@@ -208,6 +242,34 @@
       "5.1",
       "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Diptongos y monosílabos",
+      "puntos": [
+        "Un diptongo son dos vocales que se pronuncian en la misma sílaba: una abierta (a, e, o) con una cerrada (i, u) que no suena fuerte, o dos cerradas distintas. Ejemplos: CIE-lo, PUER-ta, AI-re, ciu-DAD, RUI-do.",
+        "Un triptongo son tres vocales en la misma sílaba: cerrada + abierta + cerrada. Ejemplos: buey, a-ve-ri-GUÁIS.",
+        "Las palabras con diptongo o triptongo siguen las reglas de siempre: can-CIÓN (aguda en -n), HUÉS-ped (llana en -d), CUÍ-da-te (esdrújula). CUEN-to es llana en vocal: sin tilde.",
+        "Si la sílaba del diptongo lleva tilde, va en la vocal abierta: canción, después. Si son dos cerradas, en la segunda: cuídate, construí.",
+        "Los monosílabos (palabras de una sola sílaba) no llevan tilde: fue, fui, dio, vio, pie. Para la ortografía, guion y truhan también tienen una sola sílaba: sin tilde.",
+        "Aviso: unos pocos monosílabos llevan tilde para no confundirse con su pareja: él/el, tú/tu, mí/mi, sí/si, té/te, más/mas. Es la tilde diacrítica y la estudiarás a fondo en 6.º."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "diptongo",
+        "titulo": "Carta del diptongo",
+        "texto": "Dos vocales en la misma sílaba (abierta + cerrada que no suena fuerte, o dos cerradas). Siguen las reglas de siempre: canción, huésped, cuídate."
+      },
+      {
+        "id": "triptongo",
+        "titulo": "Carta del triptongo",
+        "texto": "Tres vocales en la misma sílaba. También siguen las reglas de siempre: a-ve-ri-GUÁIS es aguda en -s y lleva tilde."
+      },
+      {
+        "id": "monosilabo",
+        "titulo": "Carta de los monosílabos",
+        "texto": "Las palabras de una sola sílaba no llevan tilde: fue, fui, dio, vio, pie, guion. Aviso: él/el, tú/tu… la llevan para distinguirse (en 6.º)."
+      }
     ]
   },
   "d-z-finales": {
@@ -216,8 +278,36 @@
       "LCL.3.B.3.5"
     ],
     "criterios": [
+      "1.3",
       "5.1",
+      "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · -d y -z finales",
+      "puntos": [
+        "El truco del plural: si el plural termina en -des, la palabra acaba en d: pared → paredes, red → redes, césped → céspedes.",
+        "Si el plural termina en -ces, la palabra acaba en z: luz → luces, pez → peces, lápiz → lápices, voz → voces.",
+        "Las palabras terminadas en -dad, -tad y -tud llevan d: ciudad, amistad, libertad, juventud, virtud.",
+        "En Andalucía, al hablar, la d final se suele perder, y en otras zonas suena parecida a una z. No es hablar mal: al escribir, la d se pone siempre, y el plural te lo recuerda."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "plural-des",
+        "titulo": "Carta del plural en -des",
+        "texto": "Si el plural termina en -des, la palabra acaba en d: pared → paredes, verdad → verdades."
+      },
+      {
+        "id": "plural-ces",
+        "titulo": "Carta del plural en -ces",
+        "texto": "Si el plural termina en -ces, la palabra acaba en z: luz → luces, lápiz → lápices."
+      },
+      {
+        "id": "dad-tud",
+        "titulo": "Carta del -dad, -tad, -tud",
+        "texto": "Las palabras terminadas en -dad, -tad y -tud llevan d: ciudad, amistad, juventud."
+      }
     ]
   },
   "mayusculas-puntuacion-1": {
@@ -230,6 +320,34 @@
       "5.1",
       "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Mayúsculas y puntuación",
+      "puntos": [
+        "Mayúscula al empezar un texto y después de punto. También después de ? y ! cuando cierran la oración: ¿Quién ha sido? Nadie lo sabe.",
+        "Llevan mayúscula los nombres propios de personas (Aurora), de lugares (Sevilla, La Alameda) y de periódicos (El Eco de La Alameda).",
+        "En los títulos de libros solo va con mayúscula la primera palabra y los nombres propios: El principito, Platero y yo.",
+        "En minúscula: los días (lunes), los meses (junio), las estaciones (verano), los gentilicios (andaluz), los idiomas (inglés) y los cargos (la directora Robles, el alcalde).",
+        "El punto cierra una oración. La coma separa los elementos de una enumeración, y el último se une con y, sin coma: tinta, papel y cola.",
+        "Las preguntas y las exclamaciones llevan dos signos, uno al principio y otro al final: ¿Qué hora es? ¡Qué susto! Los puntos suspensivos son siempre tres y dejan la frase en suspense: Y entonces…"
+      ]
+    },
+    "cartas": [
+      {
+        "id": "mayuscula-inicio",
+        "titulo": "Carta de la mayúscula inicial",
+        "texto": "Mayúscula al empezar un texto y después de punto (y después de ? o ! cuando cierran la oración)."
+      },
+      {
+        "id": "nombre-propio",
+        "titulo": "Carta de los nombres propios",
+        "texto": "Los nombres de personas, lugares y periódicos llevan mayúscula: Aurora, Sevilla, El Eco de La Alameda."
+      },
+      {
+        "id": "minuscula",
+        "titulo": "Carta de la minúscula",
+        "texto": "Días, meses, estaciones, gentilicios, idiomas y cargos van en minúscula: lunes, junio, verano, andaluz, inglés, la directora."
+      }
     ]
   },
   "hiato": {

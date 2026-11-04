@@ -63,3 +63,9 @@ Claude actualiza este archivo al terminar cada tarea importante.
 
 - Caso 4 «El panel de azulejos» (c/z/s) escrito y jugable. Nuevo `herramientas/validar_casos.py` (encontró una posición de hueco mal puesta). Sus 6 imágenes se añaden a la issue #3.
 - Academia: Sala de Interrogatorios con «el testigo seseante». Lola lo explica con orgullo («yo lo digo así… y lo escribo así»); nunca se habla de error. Banco ampliado a 111 palabras.
+
+**Pablo: «Sigue con el caso 5»** → caso 5 «La noche de los farolillos» (ll/y), la mitad de la temporada.
+**Pablo: «Pon si quieres a varios subagentes para hacerlas todas»** → se escribieron los casos 6-10 a la vez, con 5 subagentes, uno por caso. Para que no se pisaran, cada uno dejó lo que añadía a los archivos compartidos en `datos/pendiente/` (ahora `fusionar_pendientes.py` lo pasa a su sitio). Después se revisaron y se jugaron todos con un jugador automático nuevo (`herramientas/jugar_caso.js`), que juega cualquier caso con aciertos y con fallos.
+- **Temporada 1 completa:** piloto + 10 casos. Resumen de cada episodio en `TEMPORADA-1.md`. Final: Bruno desenmascarado, Robles le pide perdón, Mateo: «Los errores se corrigen. Las personas no se tachan», Bruno entra como aprendiz. Gancho para 6.º: una carta de lejos con una tilde diacrítica dudosa.
+- **Arreglos que salieron al probar:** las cartas del careo temblaban con el ratón encima (no se podían pulsar bien); la pista al fallar la carta hablaba siempre de «la sílaba fuerte», ahora depende de la regla; en el caso de repaso (28 cartas), las cartas salen agrupadas por regla; «el Tachón» con el artículo en minúscula en mitad de frase, como pide la RAE para los apodos.
+- **Arte:** 34 imágenes nuevas de los casos 5-10 (69 pendientes en total, sumando las de las issues #3 y #4).

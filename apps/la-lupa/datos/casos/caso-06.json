@@ -1,0 +1,508 @@
+{
+  "id": "caso-06",
+  "numero": "06",
+  "titulo": "La orla recortada",
+  "resumen": "La llave del Tachón abre la antigua escuela del barrio… y allí nos espera un regalo.",
+  "reglas": [
+    "g-j-dieresis"
+  ],
+  "_nota": "Temporada 1, episodio 6. Pieza del gran misterio: el Tachón estudió en la antigua escuela del barrio (hoy, la Academia de detectives). La llave que dejó caer en la feria es la de la puerta del patio, perdida hace años. En el cajón de la conserjería deja una orla con su cara y su nombre recortados, y don Anselmo recuerda a un niño de aquella clase del que se reían por sus faltas (sin nombre). Bruno dice de pasada que estudió allí y que los dictados se le daban fatal (es el Tachón: no adelantarlo). En el arte de la orla, el niño recortado lleva una pulsera roja (solo en la imagen, nunca en el texto). Cronología: el Tachón entró la tarde de la feria, después de las seis, y perdió la llave esa misma noche. Faltas sembradas para el expediente: corage, recojí, garage.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "patio-academia"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "llave-escuela",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Directora Robles",
+      "texto": "La llave que se le cayó al Tachón es de la antigua escuela del barrio, la que llevo meses arreglando para abrir nuestra Academia de detectives. Don Anselmo, el conserje, me ha llamado esta mañana: alguien ha entrado y lo ha dejado todo lleno de faltas de g y j. ¡Qué {corage|coraje}! Id para allá ahora mismo."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "Delante de e, i, la g suena igual que la j. Por eso hay que saberse sus reglas. Y ojo con la u de gue, gui. Mira mis fichas.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "gen- · -gen · -gente · -gencia",
+              "palabras": [
+                "general",
+                "imagen",
+                "gente",
+                "urgencia"
+              ]
+            },
+            {
+              "titulo": "geo- · -logía · -gía",
+              "palabras": [
+                "geografía",
+                "biología",
+                "magia"
+              ]
+            }
+          ],
+          "pregunta": "¿Con qué letra se escribe el sonido /j/ en todas estas palabras?",
+          "opciones": [
+            "Con g",
+            "Con j",
+            "Con g solo si la palabra es larga",
+            "Unas veces con g y otras con j, sin regla"
+          ],
+          "correcta": 0,
+          "explicacion": "Gen-, -gen, -gente y -gencia se escriben con g: general, imagen, gente, urgencia. Y también geo-, -logía y -gía: geografía, biología, magia."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "-aje · -jero · -jera",
+              "palabras": [
+                "viaje",
+                "garaje",
+                "relojero",
+                "cajera"
+              ]
+            },
+            {
+              "titulo": "Verbos sin g ni j",
+              "palabras": [
+                "decir → dije",
+                "traer → traje",
+                "conducir → conduje"
+              ]
+            }
+          ],
+          "pregunta": "¿Y en estas otras? ¿Con qué letra se escribe el sonido /j/?",
+          "opciones": [
+            "Con j",
+            "Con g",
+            "Con g delante de e y con j delante de i",
+            "Con j solo en las palabras cortas"
+          ],
+          "correcta": 0,
+          "explicacion": "Las palabras terminadas en -aje, -eje, -jero, -jera y -jería se escriben con j: viaje, garaje, relojero, cajera (¡ojo con ligero, que va con g!). Y si un verbo no tiene g ni j en el infinitivo, sus formas con je, ji van con j: dije, traje, conduje."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "La u no suena",
+              "palabras": [
+                "guerra",
+                "guitarra",
+                "juguete"
+              ]
+            },
+            {
+              "titulo": "La u sí suena",
+              "palabras": [
+                "pingüino",
+                "cigüeña",
+                "antigüedad"
+              ]
+            }
+          ],
+          "pregunta": "En pingüino, cigüeña y antigüedad, la u sí suena. ¿Cómo se indica al escribir?",
+          "opciones": [
+            "Con dos puntos encima de la u: la diéresis",
+            "Con una tilde encima de la u",
+            "No se indica: hay que saberlo de memoria",
+            "Escribiendo la u dos veces"
+          ],
+          "correcta": 0,
+          "explicacion": "En gue y gui la u no suena: guerra, guitarra, juguete. Cuando sí suena, se le ponen dos puntos encima, la diéresis: pingüino, cigüeña, antigüedad."
+        },
+        {
+          "grupos": [],
+          "pregunta": "Un vecino dice: «Todos los verbos que terminan en -ger o en -gir se escriben con g». ¿Qué verbo demuestra que se equivoca?",
+          "opciones": [
+            "proteger",
+            "tejer",
+            "elegir",
+            "dirigir"
+          ],
+          "correcta": 1,
+          "explicacion": "Coger, proteger, elegir y dirigir se escriben con g, pero tejer y crujir van con j: son las excepciones. ¡Contraejemplo encontrado! Y un truco: delante de a y o, la g se cambia por j para que suene igual: elijo, protejo."
+        }
+      ],
+      "pistas": [
+        "Fíjate en cómo empieza o termina cada palabra.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Las reglas, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe las reglas de la g (gen-, geo-, -logía, -ger, -gir) y las de la j (-aje, -jero, dije).",
+        "Pon dos ejemplos tuyos de cada una y apunta las excepciones: tejer y crujir.",
+        "Escribe tres palabras con diéresis, como pingüino."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "patio-academia",
+      "personaje": {
+        "id": "anselmo",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "titulo": "La antigua escuela",
+      "quien": "Don Anselmo, el conserje",
+      "texto": "¡Bienvenidos a la Academia! Fui maestro en esta escuela cuarenta años y ahora soy su conserje. Pero… ¡esa llave! Es la de la puerta del patio: se perdió hace muchos años y nunca apareció. Esta mañana, cuando {recojí|recogí} el correo, vi que alguien había entrado. Venid al aula de la pizarra."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "patio-academia",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Bruno, el repartidor",
+      "texto": "¡Buenos días! Traigo el periódico para don Anselmo. ¡Anda, detectives en mi antigua escuela! Yo estudié aquí de pequeño, ¿sabes? Los dictados se me daban fatal… pero el naranjo del patio era lo mejor. Bueno, ¡me voy, que el reparto no espera!"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "sala-pizarra",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "titulo": "El aula de la pizarra",
+      "quien": "Lola",
+      "texto": "¡Mira la pizarra! Está llena de palabras escritas con tiza, como si fuera una lección… pero algunas tienen faltas. Seguro que entre ellas hay un mensaje para nosotros."
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "sala-pizarra",
+      "titulo": "La lección de la pizarra",
+      "instruccion": "En la pizarra hay 4 palabras mal escritas. Corrígelas: juntas forman una pista.",
+      "palabras": [
+        "origen",
+        "gente",
+        "urgencia",
+        "geografía",
+        "biología",
+        "magia",
+        "proteger",
+        "elegir",
+        "paisaje",
+        "garaje",
+        "relojero",
+        "dijimos",
+        "pingüino",
+        "guitarra"
+      ],
+      "faltas": [
+        {
+          "mal": "trage",
+          "bien": "traje"
+        },
+        {
+          "mal": "imajen",
+          "bien": "imagen"
+        },
+        {
+          "mal": "consergería",
+          "bien": "conserjería"
+        },
+        {
+          "mal": "verguenza",
+          "bien": "vergüenza"
+        }
+      ],
+      "frase": "Os {0} un regalo: una {1} antigua en el cajón de la {2}. Aquí empezó mi {3}.",
+      "pistas": [
+        "Busca una forma del verbo traer, una palabra en -gen, otra en -jería y otra en la que la u suena.",
+        "Traer no tiene g ni j: su forma traje va con j. Y si la u de gue suena, lleva diéresis.",
+        "Son: trage, imajen, consergería y verguenza."
+      ],
+      "recompensa": {
+        "texto": "En una esquina de la pizarra, alguien ha dibujado un número con tiza: el 6.",
+        "digito": "6"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "sala-pizarra",
+      "titulo": "¿Dónde está el «regalo»?",
+      "opciones": [
+        "En el sótano, entre los expedientes viejos.",
+        "En un cajón de la conserjería de don Anselmo.",
+        "En la azotea, junto a la antena.",
+        "Enterrado debajo del naranjo del patio."
+      ],
+      "correcta": 1,
+      "acierto": "El mensaje lo dice claro: una imagen antigua, en el cajón de la conserjería. Y además se le ha escapado algo: «Aquí empezó mi vergüenza». ¿Qué le pasaría en esta escuela?",
+      "fallo": "Vuelve a leer la pista que han formado las palabras corregidas."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "conserjeria",
+      "personaje": {
+        "id": "anselmo",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "titulo": "La conserjería",
+      "quien": "Don Anselmo, el conserje",
+      "texto": "¿En mi conserjería? Ese cajón tiene un candado de tres cifras y hace años que no lo abro… ¡y alguien ha cambiado la combinación! Y mirad mis cuadernos de dictados: los guardo de recuerdo, de cuando daba clase. Les han tirado encima el agua del jarrón."
+    },
+    {
+      "tipo": "huecos",
+      "fondo": "conserjeria",
+      "regla": "g-j-dieresis",
+      "titulo": "Los cuadernos de dictados",
+      "instruccion": "Con el agua se ha corrido la tinta y a cada palabra le falta un trozo. Elige qué va en el hueco.",
+      "palabras": [
+        {
+          "p": "imagen",
+          "pos": 3,
+          "letra": "g",
+          "opciones": [
+            "g",
+            "j"
+          ],
+          "pista": "Termina en -gen: con g."
+        },
+        {
+          "p": "viaje",
+          "pos": 3,
+          "letra": "j",
+          "opciones": [
+            "g",
+            "j"
+          ],
+          "pista": "Termina en -aje: con j."
+        },
+        {
+          "p": "pingüino",
+          "pos": 3,
+          "letra": "gü",
+          "opciones": [
+            "gu",
+            "gü"
+          ],
+          "pista": "La u suena: pin-güi-no. Lleva diéresis."
+        },
+        {
+          "p": "elegir",
+          "pos": 3,
+          "letra": "g",
+          "opciones": [
+            "g",
+            "j"
+          ],
+          "pista": "Es un verbo en -gir: con g."
+        },
+        {
+          "p": "guitarra",
+          "pos": 0,
+          "letra": "gu",
+          "opciones": [
+            "gu",
+            "gü"
+          ],
+          "pista": "La u no suena: gu, sin diéresis."
+        },
+        {
+          "p": "dije",
+          "pos": 2,
+          "letra": "j",
+          "opciones": [
+            "g",
+            "j"
+          ],
+          "pista": "Viene de decir, que no tiene g ni j: con j."
+        },
+        {
+          "p": "biología",
+          "pos": 5,
+          "letra": "g",
+          "opciones": [
+            "g",
+            "j"
+          ],
+          "pista": "Termina en -logía: con g."
+        },
+        {
+          "p": "tejer",
+          "pos": 2,
+          "letra": "j",
+          "opciones": [
+            "g",
+            "j"
+          ],
+          "pista": "Es una de las dos excepciones de -ger, -gir: tejer va con j."
+        }
+      ],
+      "pistas": [
+        "Mira cómo termina la palabra o de qué verbo viene.",
+        "Usa tus cartas: gen- y geo-, -ger y -gir, la j y la diéresis."
+      ],
+      "recompensa": {
+        "texto": "En la última página del último cuaderno, alguien ha escrito un número con rotulador negro: el 3.",
+        "digito": "3"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "patio-academia",
+      "personaje": {
+        "id": "gregorio",
+        "expresion": "nervioso",
+        "lado": "der"
+      },
+      "quien": "Gregorio, el pintor",
+      "texto": "¡Buenos días! Soy Gregorio, el pintor. Llevo toda la semana pintando la escuela para la inauguración y guardo las brochas en el {garage|garaje} de al lado. ¿Que si he visto algo raro? Bueno… ¡el cartel de bienvenida que colgué ayer! Alguien lo ha dejado lleno de faltas."
+    },
+    {
+      "tipo": "caza",
+      "fondo": "patio-academia",
+      "regla": "g-j-dieresis",
+      "quien": "Cartel de la Academia",
+      "titulo": "El cartel de bienvenida",
+      "intro": "Al cartel le han cambiado 5 palabras. Encuéntralas y escríbelas bien.",
+      "declaracion": "Bienvenidos a la Academia de detectives. Durante {jeneraciones|generaciones}, en estas aulas se estudió {jeografía|geografía} y {biolojía|biología}. Hoy abrimos sus puertas a la {jente|gente} que quiere aprender a {elejir|elegir} siempre el camino de la verdad. ¡Buen viaje, detectives!",
+      "pistas": [
+        "Busca dos palabras que empiezan por gen-, una con geo-, otra con -logía y un verbo en -gir.",
+        "Son: jeneraciones, jeografía, biolojía, jente y elejir."
+      ],
+      "recompensa": {
+        "texto": "Detrás del cartel, en una esquina, hay un número pintado con rotulador negro: el 8.",
+        "digito": "8"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "patio-academia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "quien": "Lola",
+      "texto": "Gregorio tiene escalera, conoce cada rincón de la escuela y colgó él mismo el cartel… y está nerviosísimo. Antes de abrir el cajón, hay que oír su versión."
+    },
+    {
+      "tipo": "careo",
+      "fondo": "patio-academia",
+      "personaje": {
+        "id": "gregorio",
+        "expresion": "nervioso",
+        "lado": "der"
+      },
+      "quien": "Gregorio, el pintor",
+      "titulo": "Careo",
+      "instruccion": "Gregorio colgó el cartel y conoce la escuela de arriba abajo… En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
+      "declaracion": "¡Yo no he tocado ese cartel! Ayer {dirijí|dirigí|ger-gir} a mi cuadrilla toda la tarde, pintando la galería. A las seis {conduge|conduje|j-aje} la furgoneta hasta el garaje y, antes de irme, pinté un {pinguino|pingüino|dieresis} en la pared del aula de los pequeños. ¡Os lo juro por mis brochas!",
+      "aclarado": "Gregorio dice la verdad: se fue a las seis y la furgoneta durmió en el garaje. Pero, al irse, vio a alguien con gabardina negra y gafas de sol entrar por la puerta del patio… con una llave antigua en la mano.",
+      "pistas": [
+        "Hay un verbo en -gir, una forma de conducir y una palabra en la que la u suena.",
+        "Son: dirijí, conduge y pinguino."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "conserjeria",
+      "objeto": "cajon-conserjeria",
+      "titulo": "El cajón de la conserjería",
+      "instruccion": "El cajón tiene un candado de tres cifras. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "638",
+      "exito": "El cajón se abre. Dentro hay una orla antigua, la foto de toda una clase… y a uno de los niños le han recortado la cara.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba en la pizarra."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "conserjeria",
+      "objeto": "orla-recortada",
+      "personaje": {
+        "id": "anselmo",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Don Anselmo, el conserje",
+      "texto": "Esta orla es de una de mis últimas clases. No sé de quién es la cara que falta: también han recortado los nombres de abajo. Pero me acuerdo de un niño de aquel curso al que los demás se reían mucho por sus faltas. Yo siempre le decía que los errores se corrigen… y que nadie debe burlarse de nadie."
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Directora Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de g y j. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": [
+        "Hay una en el aviso del caso.",
+        "Revisa lo que dijeron don Anselmo y Gregorio."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "orla-recortada",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Directora Robles",
+      "texto": "Un niño de La Alameda del que se reían por sus faltas… y, años después, un aspirante que no superó nuestra prueba de acceso. Creo que son la misma persona, y ha recortado su cara para que no lo reconozcamos. Esta orla… dejadme pensar. De momento, clavadla en el tablón: la cara que falta es la del Tachón."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe para la directora",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿qué encontramos en la antigua escuela y qué sabemos ya del Tachón?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta a la directora para que selle tu expediente."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "patio-academia",
+      "equipo": [
+        "lola",
+        "mateo",
+        "anselmo",
+        "gregorio"
+      ],
+      "texto": "La Academia de detectives abrirá sus puertas con el cartel bien escrito. Y en el tablón de la agencia hay una pieza nueva: una orla con una cara recortada. El Tachón estudió aquí, en el sitio donde empezó todo."
+    }
+  ]
+}

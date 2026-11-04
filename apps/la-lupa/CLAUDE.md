@@ -24,12 +24,12 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 | `datos/arte.json` | Catálogo de arte con su prompt. `_estilo` es el estilo común. `listo` (o `listas`, para las expresiones) cuando la imagen existe |
 | `datos/casos/<id>.json` | Un caso: `numero`, `titulo`, `resumen`, `reglas` y `escenas[]` |
 | `arte/` | Imágenes `.webp`. Fondos y objetos: `<id>.webp`; personajes: `<id>-<expresion>.webp`. `arte/ENCARGO.md` es el pedido para la IA de imágenes, generado automáticamente. `arte/entrega/` es donde llegan los PNG |
-| `herramientas/` | `encargo_arte.py` (genera `ENCARGO.md` desde `arte.json`) e `integrar_arte.py [--borrar]` (convierte lo entregado a `.webp` y lo marca como listo). Necesitan Python con Pillow |
+| `herramientas/` | `encargo_arte.py` (genera `ENCARGO.md` desde `arte.json`) e `integrar_arte.py [--borrar]` (convierte lo entregado a `.webp` y lo marca como listo; necesitan Pillow), `validar_casos.py`, `validar_academia.py`, `fusionar_pendientes.py` y `jugar_caso.js` (jugador automático con Playwright) |
 
 ## Tipos de escena
 
 Campos comunes: `fondo`, `personaje {id, expresion, lado: izq|der}`, `objeto`, `titulo`, `instruccion`, `quien`, `pistas[]`.
-Marcado de faltas: `{mal|bien}` o `{mal|bien|etiqueta}`. La etiqueta es un id de `reglas.json` (para evaluar por regla) o, en los careos, la carta que demuestra la falta. Las faltas de `texto` e `intro` se repasan después en `expediente`. Un caso con `"diagnostico": true` (el piloto) muestra al alumno su punto de partida por regla y alimenta la tabla de evaluación inicial de la zona del maestro.
+Marcado de faltas: `{mal|bien}` o `{mal|bien|etiqueta}`. La etiqueta es un id de `reglas.json` (para evaluar por regla) o, en los careos, la carta que demuestra la falta (la regla se deduce de la carta). Si el caso tiene más de 9 cartas, la ventana del careo las agrupa por regla. Las faltas de `texto` e `intro` se repasan después en `expediente`. Un caso con `"diagnostico": true` (el piloto) muestra al alumno su punto de partida por regla y alimenta la tabla de evaluación inicial de la zona del maestro.
 
 | Tipo | Campos propios | Evalúa |
 |---|---|---|
@@ -58,7 +58,9 @@ Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 
 2. **Historia**: un misterio pequeño en un lugar del barrio, con 3 o 4 sospechosos o testigos y un objeto protagonista. La solución sale de las palabras corregidas.
 3. **Escenas**: copia la estructura del caso 1: portada → aviso → descubre → 2-3 lugares (relato + reto con cifra) → hipótesis → careo → candado → expediente → final. Pon 2-4 faltas por texto y siembra 3-5 en los relatos para el expediente.
 4. **Arte**: añade a `arte.json` los fondos, personajes (con expresiones) y objetos nuevos, con su `prompt`. Reutiliza siempre Lola, Mateo, Robles y la oficina. Ejecuta `python3 herramientas/encargo_arte.py`. La IA de imágenes (ChatGPT o Gemini) lee `arte/ENCARGO.md` y deja los PNG en `arte/entrega/`. GPT no puede escribir en el repo (le da error 403), así que entrega zips con un `MANIFIESTO.json` de SHA-256 a través de Pablo. Extráelos en una carpeta del scratchpad (comprobando que ninguna ruta se sale de ella), verifica las firmas, copia los PNG a `arte/entrega/` y ejecuta `python3 herramientas/integrar_arte.py --borrar`. Revisa a mano que no haya **números o letras dibujados** que contradigan el caso (pasó con el candado del caso 1), indica hacia dónde mira cada personaje (`mira`), revisa las capturas y sube los cambios. Cada lote de un caso nuevo va en su propia issue.
-5. **Prueba**: ejecuta `python3 herramientas/validar_casos.py` (huecos, código del candado = cifras en orden, cartas, imágenes, programación) y juega el caso entero en el navegador (Playwright) con aciertos y fallos. Revisa capturas de cada escena y comprueba las notas del informe.
+5. **Prueba**: ejecuta `python3 herramientas/validar_casos.py` (huecos, código del candado = cifras en orden, cartas, imágenes, programación) y después `node herramientas/jugar_caso.js <unidad> <carpeta> perfecto` y `... fallos` (juega el caso entero; avisa de textos fuera de pantalla y errores de JS). Revisa las capturas de cada escena y las notas del informe.
+
+**Varios casos a la vez (subagentes):** cada uno escribe solo `datos/casos/<caso>.json` y `datos/pendiente/<caso>.json` (`unidad`, `reglas`, `arte`), sin tocar los archivos compartidos; el validador ya los tiene en cuenta. Al terminar, `python3 herramientas/fusionar_pendientes.py --borrar` los pasa a `reglas.json`, `arte.json` y `programacion.json`.
 6. **Revisión de Pablo** antes de darlo por cerrado.
 
 ## Academia (decisiones de Pablo, 4/11/2026)

@@ -31,6 +31,7 @@ EXPRESION = {
     "sorprendido": "sorprendido/a, ojos muy abiertos, cejas arriba",
     "nervioso": "nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca",
     "burlon": "sonrisa chulesca de medio lado, se baja un poco las gafas, superioridad cómica",
+    "desenmascarado": "SOLO PARA BRUNO: lleva puesta la gabardina negra de El Tachón, abierta y con el cuello bajado, con su sudadera gris debajo; sin gorra, flequillo engominado medio deshecho; sostiene en la mano las gafas de sol de El Tachón; PULSERA ROJA DE TELA bien visible en la muñeca izquierda; su cara normal (sin la mandíbula exagerada); mirada baja, avergonzado pero aliviado, media sonrisa tímida",
 }
 
 lineas = [

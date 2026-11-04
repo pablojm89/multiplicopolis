@@ -73,7 +73,8 @@
           "titulo": "g, j y diéresis",
           "reglas": [
             "g-j-dieresis"
-          ]
+          ],
+          "caso": "caso-06"
         },
         {
           "id": "5-07",
@@ -81,7 +82,8 @@
           "titulo": "Diptongos y monosílabos",
           "reglas": [
             "diptongo-monosilabos"
-          ]
+          ],
+          "caso": "caso-07"
         },
         {
           "id": "5-08",
@@ -89,7 +91,8 @@
           "titulo": "-d y -z al final de palabra",
           "reglas": [
             "d-z-finales"
-          ]
+          ],
+          "caso": "caso-08"
         },
         {
           "id": "5-09",
@@ -97,7 +100,8 @@
           "titulo": "Mayúsculas y puntuación básica",
           "reglas": [
             "mayusculas-puntuacion-1"
-          ]
+          ],
+          "caso": "caso-09"
         },
         {
           "id": "5-10",
@@ -113,7 +117,8 @@
             "diptongo-monosilabos",
             "d-z-finales",
             "mayusculas-puntuacion-1"
-          ]
+          ],
+          "caso": "caso-10"
         }
       ]
     },

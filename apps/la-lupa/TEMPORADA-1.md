@@ -34,11 +34,13 @@ La programación puede cambiar (libro de texto, centro…), así que **el orden 
 | 3 | h (I) | Deja un mensaje con todas las haches borradas. Se descubre que conoce la agencia por dentro |
 | 4 | c/z/s | Un testigo describe su voz: seseante, como alguien del barrio |
 | 5 | ll/y | **Mitad de temporada**: careo cara a cara con El Tachón… y se escapa. Deja caer una pista física |
-| 6 | g/j y diéresis | La pista lleva a la antigua escuela del barrio |
-| 7 | Diptongos y monosílabos | Mateo confiesa su pasado con las faltas; el equipo se une más |
-| 8 | -d/-z finales | Robles revela que conoció a El Tachón hace años |
-| 9 | Mayúsculas y puntuación | El Tachón prepara su golpe final para la feria de primavera |
-| **10 · Final** | **Caso especial de repaso** (todas las reglas) | Se le desenmascara. Final cerrado y gancho suave para la temporada 2 (6.º) |
+| 6 | «La orla recortada» (g/j y diéresis) | La llave abre la antigua escuela (hoy la Academia). Don Anselmo recuerda a «un niño del que se reían por sus faltas»; en la orla de clase falta una cara. Bruno: «yo estudié aquí… los dictados se me daban fatal» |
+| 7 | «El guion de la radio» (diptongos y monosílabos) | El Tachón saca a la luz un cuaderno de Mateo de pequeño. Mateo confiesa que se reían de sus faltas («los errores se corrigen»). Lola deja de querer atraparlo sola |
+| 8 | «La foto que faltaba» (-d/-z finales) | Robles estaba en el tribunal de la prueba de acceso el día que se rieron de un aspirante, y no lo defendió. En la foto, ese aspirante sale movido. Bruno: «yo salgo movido en todas» |
+| 9 | «¡Parad las máquinas!» (mayúsculas y puntuación) | El golpe final: cambiar la portada del número especial de «El Eco de La Alameda». Se frustra, pero escapa en bicicleta por la puerta del reparto. «Mañana, en la plaza, delante de todo el barrio. Sin máscaras» |
+| **10 · Final** | **«Sin máscaras»**: repaso de las 9 reglas | Retos encadenados en la plaza; el tablón corregido da el retrato (pulsera roja, seseo, bicicleta, periódico) y el alumno deduce que es Bruno. En la cartera, la cara de la orla y su ficha de aspirante. Robles le pide perdón, Mateo: «Los errores se corrigen. Las personas no se tachan». Bruno entra como aprendiz y tacha «venganza». Gancho: una carta de lejos con una tilde diacrítica dudosa |
+
+Ortografía: «el Tachón» es un apodo, así que en mitad de frase el artículo va en minúscula (el Tachón, del Tachón, al Tachón), como pide la RAE (el Greco).
 
 ## El piloto como evaluación inicial
 

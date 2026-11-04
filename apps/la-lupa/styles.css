@@ -140,8 +140,12 @@ img.personaje { filter: drop-shadow(0 12px 22px rgba(0, 0, 0, .6)); }
 .cartas.grandes { grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
 .carta { background: var(--papel-claro); border: 3px solid var(--azulejo); border-radius: 14px; padding: 16px; text-align: left; display: flex; flex-direction: column; gap: 6px; font: 19px/1.35 var(--f-ui); color: var(--tinta); box-shadow: 0 6px 0 var(--azulejo); }
 .carta strong { font: 23px var(--f-cartel); color: var(--azulejo); font-weight: 400; }
-button.carta:hover:not(:disabled) { transform: translateY(-4px); }
+button.carta:hover:not(:disabled) { background: #fff; box-shadow: 0 6px 0 var(--azulejo), 0 0 0 4px rgba(58, 123, 213, .35); }
 .carta.mal { border-color: var(--rojo); box-shadow: 0 6px 0 var(--rojo); opacity: .6; }
+.grupo-cartas h4 { margin: 16px 0 6px; font: 22px var(--f-cartel); letter-spacing: .04em; color: var(--tinta); border-bottom: 2px solid rgba(58, 123, 213, .35); }
+.cartas.compactas { grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px; }
+.cartas.compactas .carta { padding: 10px 12px; font-size: 16px; box-shadow: 0 4px 0 var(--azulejo); }
+.cartas.compactas .carta strong { font-size: 19px; }
 .cartas.mini .carta { box-shadow: none; font-size: 17px; padding: 10px 12px; }
 
 /* Momentos a pantalla completa */

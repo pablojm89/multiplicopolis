@@ -118,7 +118,10 @@ function tokenizar(texto) {
   for (const m of String(texto).matchAll(SEMILLA)) {
     plano(texto.slice(ultimo, m.index));
     const esRegla = m[3] && D.reglas[m[3]];
-    out.push({ t: m[1], palabra: true, error: true, bien: m[2], carta: esRegla ? null : m[3] || null, regla: esRegla ? m[3] : null });
+    const carta = esRegla ? null : m[3] || null;
+    // Si la etiqueta es una carta, la regla es la que tiene esa carta
+    const regla = esRegla ? m[3] : carta ? Object.keys(D.reglas).find(r => D.reglas[r].cartas?.some(c => c.id === carta)) || null : null;
+    out.push({ t: m[1], palabra: true, error: true, bien: m[2], carta, regla });
     ultimo = m.index + m[0].length;
   }
   plano(texto.slice(ultimo));
@@ -324,11 +327,19 @@ function pulsarPalabra(tk, b, ctx) {
   });
   if (ctx.conCarta && tk.carta && !tk.cartaOk) elegirCarta(tk, escribir); else escribir();
 }
+/* Con muchas cartas (casos de repaso), se agrupan por regla en fichas compactas */
+function htmlCartasElegibles() {
+  const boton = c => `<button class="carta" data-id="${esc(c.id)}"><strong>${esc(c.titulo)}</strong><span>${esc(c.texto)}</span></button>`;
+  if (cartasCaso().length <= 9) return `<div class="cartas grandes">${cartasCaso().map(boton).join("")}</div>`;
+  return P.caso.reglas.filter(r => D.reglas[r]?.cartas?.length).map(r => `
+    <section class="grupo-cartas"><h4>${esc(D.reglas[r].nombre)}</h4>
+      <div class="cartas grandes compactas">${D.reglas[r].cartas.map(boton).join("")}</div></section>`).join("");
+}
 function elegirCarta(tk, despues) {
   abrirModal(`
     <h3>¿Qué carta lo demuestra?</h3>
     <p>¿Por qué <strong class="tachada">${esc(tk.t)}</strong> está mal escrita? Presenta tu prueba.</p>
-    <div class="cartas grandes">${cartasCaso().map(c => `<button class="carta" data-id="${esc(c.id)}"><strong>${esc(c.titulo)}</strong><span>${esc(c.texto)}</span></button>`).join("")}</div>
+    ${htmlCartasElegibles()}
     <p id="cartaMsg" class="msg"></p>`, "ventana-cartas");
   $$("#capaModal .carta").forEach(btn => btn.onclick = () => {
     const ok = btn.dataset.id === tk.carta;
@@ -336,10 +347,11 @@ function elegirCarta(tk, despues) {
     if (ok) { tk.cartaOk = true; despues(); return; }
     btn.classList.add("mal");
     btn.disabled = true;
-    $("#cartaMsg").textContent = "Esa carta no lo demuestra. Busca la sílaba fuerte y mira cómo termina la palabra.";
+    $("#cartaMsg").textContent = `Esa carta no lo demuestra. ${PISTA_REGLA[tk.regla || reglaActual()] || "Lee bien lo que dice cada carta."}`;
   });
 }
-/* Consejo tras un fallo, según la regla de la falta */
+/* Consejo tras un fallo, según la regla de la falta (o de la escena, o la única del caso) */
+const reglaActual = () => P.caso.escenas[P.i].regla || (P.caso.reglas.length === 1 ? P.caso.reglas[0] : "");
 const PISTA_REGLA = {
   "tildes-generales": "Busca la sílaba fuerte y mira cómo termina la palabra.",
   "b-v-1": "¿b o v? Piensa en la regla o en palabras de su familia.",
@@ -371,7 +383,7 @@ function pedirCorreccion(tk, hecho) {
     fallos++;
     $("#corrMsg").innerHTML = fallos >= 2
       ? `Se escribe <strong>${esc(tk.bien)}</strong>. Escríbela tú.`
-      : `Todavía no. ${PISTA_REGLA[tk.regla || P.caso.escenas[P.i].regla || (P.caso.reglas.length === 1 ? P.caso.reglas[0] : "")] || "Fíjate bien en cada letra."}`;
+      : `Todavía no. ${PISTA_REGLA[tk.regla || reglaActual()] || "Fíjate bien en cada letra."}`;
     inp.select();
   };
   $("#corrOk").onclick = comprobar;

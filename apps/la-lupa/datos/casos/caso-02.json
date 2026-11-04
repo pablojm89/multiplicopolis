@@ -3,158 +3,524 @@
   "numero": "02",
   "titulo": "El mercado del revés",
   "resumen": "Esta madrugada alguien ha cambiado todos los letreros del mercado de abastos.",
-  "reglas": ["b-v-1"],
-  "_nota": "Temporada 1, episodio 2. Pieza del gran misterio: la primera foto (borrosa) de El Tachón, con una mancha roja en la muñeca. Bruno aparece de fondo repartiendo el periódico (es El Tachón: no adelantarlo). Faltas sembradas para el expediente: canbiado, Estava, inbierno.",
+  "reglas": [
+    "b-v-1"
+  ],
+  "_nota": "Temporada 1, episodio 2. Pieza del gran misterio: la primera foto (borrosa) del Tachón, con una mancha roja en la muñeca. Bruno aparece de fondo repartiendo el periódico (es el Tachón: no adelantarlo). Faltas sembradas para el expediente: canbiado, Estava, inbierno.",
   "escenas": [
-    { "tipo": "portada", "fondo": "mercado" },
-
-    { "tipo": "relato", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+    {
+      "tipo": "portada",
+      "fondo": "mercado"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "Nos llaman del mercado de abastos. Esta madrugada alguien ha {canbiado|cambiado} todos los letreros de los puestos y los vecinos no saben ni qué compran. Huele a nuestro amigo el del rotulador negro." },
-
-    { "tipo": "descubre", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "neutral", "lado": "izq" },
+      "texto": "Nos llaman del mercado de abastos. Esta madrugada alguien ha {canbiado|cambiado} todos los letreros de los puestos y los vecinos no saben ni qué compran. Huele a nuestro amigo el del rotulador negro."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
       "quien": "Mateo",
       "intro": "La b y la v suenan igual, pero tienen sus reglas. Mira mis fichas antes de salir.",
       "desbloquea": "cartas",
       "preguntas": [
-        { "grupos": [ { "titulo": "Pasado de verbos en -ar", "palabras": ["cantaba", "jugaba", "saltaba", "estaba"] } ],
+        {
+          "grupos": [
+            {
+              "titulo": "Pasado de verbos en -ar",
+              "palabras": [
+                "cantaba",
+                "jugaba",
+                "saltaba",
+                "estaba"
+              ]
+            }
+          ],
           "pregunta": "¿Cómo se escribe siempre el pasado de los verbos en -ar, como cantar o jugar?",
-          "opciones": ["Con -aba, con b", "Con -ava, con v", "Depende del verbo", "Con b solo si el verbo es largo"], "correcta": 0,
-          "explicacion": "El pasado de los verbos en -ar termina siempre en -aba: cantaba, jugábamos, saltabais. ¡Y también el verbo ir: iba, íbamos!" },
-        { "grupos": [ { "titulo": "Con m delante", "palabras": ["hombre", "tambor", "cambio", "ambulancia"] }, { "titulo": "Con n delante", "palabras": ["invierno", "enviar", "convento", "invitar"] } ],
+          "opciones": [
+            "Con -aba, con b",
+            "Con -ava, con v",
+            "Depende del verbo",
+            "Con b solo si el verbo es largo"
+          ],
+          "correcta": 0,
+          "explicacion": "El pasado de los verbos en -ar termina siempre en -aba: cantaba, jugábamos, saltabais. ¡Y también el verbo ir: iba, íbamos!"
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Con m delante",
+              "palabras": [
+                "hombre",
+                "tambor",
+                "cambio",
+                "ambulancia"
+              ]
+            },
+            {
+              "titulo": "Con n delante",
+              "palabras": [
+                "invierno",
+                "enviar",
+                "convento",
+                "invitar"
+              ]
+            }
+          ],
           "pregunta": "¿Qué letra va después de m? ¿Y después de n?",
-          "opciones": ["Después de m, b; después de n, v", "Después de m, v; después de n, b", "Da igual", "Después de las dos, b"], "correcta": 0,
-          "explicacion": "Detrás de m va siempre b (hombre) y detrás de n va siempre v (invierno). ¡Nunca al revés!" },
-        { "grupos": [ { "titulo": "Verbos en -bir", "palabras": ["escribir", "recibir", "subir", "prohibir"] } ],
+          "opciones": [
+            "Después de m, b; después de n, v",
+            "Después de m, v; después de n, b",
+            "Da igual",
+            "Después de las dos, b"
+          ],
+          "correcta": 0,
+          "explicacion": "Detrás de m va siempre b (hombre) y detrás de n va siempre v (invierno). ¡Nunca al revés!"
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Verbos en -bir",
+              "palabras": [
+                "escribir",
+                "recibir",
+                "subir",
+                "prohibir"
+              ]
+            }
+          ],
           "pregunta": "¿Con qué letra se escriben los verbos que terminan en -bir?",
-          "opciones": ["Con v", "Con b", "Unas veces con b y otras con v, sin regla", "Con b solo en el futuro"], "correcta": 1,
-          "explicacion": "Los verbos acabados en -bir se escriben con b: escribir, recibir, subir… y todas sus formas: escribía, recibimos." },
-        { "grupos": [],
+          "opciones": [
+            "Con v",
+            "Con b",
+            "Unas veces con b y otras con v, sin regla",
+            "Con b solo en el futuro"
+          ],
+          "correcta": 1,
+          "explicacion": "Los verbos acabados en -bir se escriben con b: escribir, recibir, subir… y todas sus formas: escribía, recibimos."
+        },
+        {
+          "grupos": [],
           "pregunta": "Un vecino dice: «Todos los verbos que terminan con el sonido /bir/ se escriben con b». ¿Qué palabra demuestra que se equivoca?",
-          "opciones": ["escribir", "vivir", "recibir", "subir"], "correcta": 1,
-          "explicacion": "Vivir, hervir y servir terminan con ese sonido, pero se escriben con v. Son las excepciones de la regla del -bir. ¡Contraejemplo encontrado!" }
+          "opciones": [
+            "escribir",
+            "vivir",
+            "recibir",
+            "subir"
+          ],
+          "correcta": 1,
+          "explicacion": "Vivir, hervir y servir terminan con ese sonido, pero se escriben con v. Son las excepciones de la regla del -bir. ¡Contraejemplo encontrado!"
+        }
       ],
-      "pistas": ["Fíjate en la letra que va justo antes de la b o de la v.", "Abre el Archivo de Mateo (la carpeta de arriba)."] },
-
-    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "contento", "lado": "izq" },
+      "pistas": [
+        "Fíjate en la letra que va justo antes de la b o de la v.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "titulo": "Las reglas, en tu libreta",
       "cabecera": "Apúntalo en tu libreta",
       "apuntar": [
         "Escribe con tus palabras las tres reglas: -aba, mb y nv, y -bir.",
         "Pon un ejemplo tuyo de cada una.",
         "Apunta las tres excepciones del -bir."
-      ] },
-
-    { "tipo": "relato", "fondo": "mercado", "personaje": { "id": "lola", "expresion": "sorprendido", "lado": "izq" },
-      "titulo": "El mercado de abastos", "quien": "Lola",
-      "texto": "{Estava|Estaba} claro que no iba a ser un caso fácil. Mira los puestos: ¡los letreros están del revés y llenos de faltas! Alguien ha escrito entre ellos una nota. A lo mejor nos dice quién ha sido." },
-
-    { "tipo": "papeles", "fondo": "mercado",
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "mercado",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "titulo": "El mercado de abastos",
+      "quien": "Lola",
+      "texto": "{Estava|Estaba} claro que no iba a ser un caso fácil. Mira los puestos: ¡los letreros están del revés y llenos de faltas! Alguien ha escrito entre ellos una nota. A lo mejor nos dice quién ha sido."
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "mercado",
       "titulo": "Los letreros del mercado",
       "instruccion": "Entre los letreros hay 4 palabras mal escritas. Corrígelas: juntas forman una pista.",
-      "palabras": ["naranjas", "verduras", "tomates", "pescado", "aceitunas", "huevos", "bacalao", "berenjenas", "habas", "uvas", "jabón", "sobres", "pimientos", "boquerones"],
+      "palabras": [
+        "naranjas",
+        "verduras",
+        "tomates",
+        "pescado",
+        "aceitunas",
+        "huevos",
+        "bacalao",
+        "berenjenas",
+        "habas",
+        "uvas",
+        "jabón",
+        "sobres",
+        "pimientos",
+        "boquerones"
+      ],
       "faltas": [
-        { "mal": "Llegava", "bien": "Llegaba" },
-        { "mal": "vicicleta", "bien": "bicicleta" },
-        { "mal": "canviaba", "bien": "cambiaba" },
-        { "mal": "iva", "bien": "iba" }
+        {
+          "mal": "Llegava",
+          "bien": "Llegaba"
+        },
+        {
+          "mal": "vicicleta",
+          "bien": "bicicleta"
+        },
+        {
+          "mal": "canviaba",
+          "bien": "cambiaba"
+        },
+        {
+          "mal": "iva",
+          "bien": "iba"
+        }
       ],
       "frase": "{0} en {1} mientras {2} los letreros, y se {3} sin decir nada.",
-      "pistas": ["Las palabras mal escritas no son nombres de comida.", "Busca un pasado en -aba escrito con v y un m + v.", "Son: Llegava, vicicleta, canviaba e iva."],
-      "recompensa": { "texto": "Detrás del puesto de fruta hay un número pintado con rotulador negro: el 8.", "digito": "8" } },
-
-    { "tipo": "hipotesis", "fondo": "mercado",
+      "pistas": [
+        "Las palabras mal escritas no son nombres de comida.",
+        "Busca un pasado en -aba escrito con v y un m + v.",
+        "Son: Llegava, vicicleta, canviaba e iva."
+      ],
+      "recompensa": {
+        "texto": "Detrás del puesto de fruta hay un número pintado con rotulador negro: el 8.",
+        "digito": "8"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "mercado",
       "titulo": "Y la conclusión es…",
-      "opciones": ["Los letreros se cayeron con el viento.", "Alguien llegó en bicicleta muy temprano y los cambió.", "Los vendedores se equivocaron al escribirlos.", "Fue una broma de los niños del barrio por la tarde."],
+      "opciones": [
+        "Los letreros se cayeron con el viento.",
+        "Alguien llegó en bicicleta muy temprano y los cambió.",
+        "Los vendedores se equivocaron al escribirlos.",
+        "Fue una broma de los niños del barrio por la tarde."
+      ],
       "correcta": 1,
       "acierto": "La pista lo dice claro: alguien llegó en bicicleta de madrugada, cambió los letreros y se fue. Hay que preguntar a los primeros en llegar.",
-      "fallo": "Esa conclusión no encaja con la pista que has formado. Vuelve a leerla." },
-
-    { "tipo": "relato", "fondo": "mercado", "personaje": { "id": "manolo", "expresion": "sorprendido", "lado": "der" },
+      "fallo": "Esa conclusión no encaja con la pista que has formado. Vuelve a leerla."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "mercado",
+      "personaje": {
+        "id": "manolo",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
       "quien": "Manolo, el frutero",
-      "texto": "Yo llegué a las siete y ya estaba todo cambiado. Hacía un frío como en pleno {inbierno|invierno}… y vi a alguien con gafas de sol saliendo del almacén. ¡Gafas de sol a esas horas! Mirad allí dentro." },
-
-    { "tipo": "clasifica", "fondo": "almacen-mercado",
+      "texto": "Yo llegué a las siete y ya estaba todo cambiado. Hacía un frío como en pleno {inbierno|invierno}… y vi a alguien con gafas de sol saliendo del almacén. ¡Gafas de sol a esas horas! Mirad allí dentro."
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "almacen-mercado",
       "titulo": "Los sacos del almacén",
       "instruccion": "Los sacos están revueltos. Pon cada etiqueta en el cubo de la regla que la explica.",
-      "categorias": [ { "id": "aba", "nombre": "-aba" }, { "id": "mb", "nombre": "mb · bl · br" }, { "id": "nv", "nombre": "nv · -avo · -ivo" } ],
-      "palabras": [
-        { "p": "cantaba", "cat": "aba", "pista": "Es un pasado de un verbo en -ar." },
-        { "p": "tambor", "cat": "mb", "pista": "Fíjate en la letra que va antes de la b." },
-        { "p": "invierno", "cat": "nv", "pista": "Fíjate en la letra que va antes de la v." },
-        { "p": "jugaba", "cat": "aba", "pista": "Es un pasado de un verbo en -ar." },
-        { "p": "blusa", "cat": "mb", "pista": "Es el grupo bl." },
-        { "p": "octavo", "cat": "nv", "pista": "Es un adjetivo terminado en -avo." },
-        { "p": "brazo", "cat": "mb", "pista": "Es el grupo br." },
-        { "p": "activo", "cat": "nv", "pista": "Es un adjetivo terminado en -ivo." },
-        { "p": "saltaba", "cat": "aba", "pista": "Es un pasado de un verbo en -ar." }
+      "categorias": [
+        {
+          "id": "aba",
+          "nombre": "-aba"
+        },
+        {
+          "id": "mb",
+          "nombre": "mb · bl · br"
+        },
+        {
+          "id": "nv",
+          "nombre": "nv · -avo · -ivo"
+        }
       ],
-      "pistas": ["Mira dónde está la b o la v en cada palabra y qué tiene al lado.", "Si es un pasado en -aba, ya sabes."],
-      "recompensa": { "texto": "En el último saco hay una etiqueta: «Entrega número 4».", "digito": "4" } },
-
-    { "tipo": "relato", "fondo": "almacen-mercado", "personaje": { "id": "bruno", "expresion": "contento", "lado": "der" },
+      "palabras": [
+        {
+          "p": "cantaba",
+          "cat": "aba",
+          "pista": "Es un pasado de un verbo en -ar."
+        },
+        {
+          "p": "tambor",
+          "cat": "mb",
+          "pista": "Fíjate en la letra que va antes de la b."
+        },
+        {
+          "p": "invierno",
+          "cat": "nv",
+          "pista": "Fíjate en la letra que va antes de la v."
+        },
+        {
+          "p": "jugaba",
+          "cat": "aba",
+          "pista": "Es un pasado de un verbo en -ar."
+        },
+        {
+          "p": "blusa",
+          "cat": "mb",
+          "pista": "Es el grupo bl."
+        },
+        {
+          "p": "octavo",
+          "cat": "nv",
+          "pista": "Es un adjetivo terminado en -avo."
+        },
+        {
+          "p": "brazo",
+          "cat": "mb",
+          "pista": "Es el grupo br."
+        },
+        {
+          "p": "activo",
+          "cat": "nv",
+          "pista": "Es un adjetivo terminado en -ivo."
+        },
+        {
+          "p": "saltaba",
+          "cat": "aba",
+          "pista": "Es un pasado de un verbo en -ar."
+        }
+      ],
+      "pistas": [
+        "Mira dónde está la b o la v en cada palabra y qué tiene al lado.",
+        "Si es un pasado en -aba, ya sabes."
+      ],
+      "recompensa": {
+        "texto": "En el último saco hay una etiqueta: «Entrega número 4».",
+        "digito": "4"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "almacen-mercado",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "quien": "Bruno, el repartidor",
-      "texto": "¡Hola otra vez, detective! Vengo a dejar el periódico en el mercado, como cada mañana. ¿Otra vez faltas por todas partes? Qué manía tiene alguien, ¿eh? Por cierto, el cuaderno de pedidos de Manolo se ha mojado entero." },
-
-    { "tipo": "huecos", "fondo": "almacen-mercado",
+      "texto": "¡Hola otra vez, detective! Vengo a dejar el periódico en el mercado, como cada mañana. ¿Otra vez faltas por todas partes? Qué manía tiene alguien, ¿eh? Por cierto, el cuaderno de pedidos de Manolo se ha mojado entero."
+    },
+    {
+      "tipo": "huecos",
+      "fondo": "almacen-mercado",
       "titulo": "El cuaderno mojado",
       "instruccion": "Al cuaderno de pedidos se le ha corrido la tinta. Elige la letra que falta en cada palabra.",
       "palabras": [
-        { "p": "llevaba", "pos": 5, "letra": "b", "opciones": ["b", "v"], "pista": "Pasado de un verbo en -ar: -aba." },
-        { "p": "invierno", "pos": 2, "letra": "v", "opciones": ["b", "v"], "pista": "Después de n, siempre v." },
-        { "p": "hombre", "pos": 3, "letra": "b", "opciones": ["b", "v"], "pista": "Después de m, siempre b." },
-        { "p": "escribir", "pos": 5, "letra": "b", "opciones": ["b", "v"], "pista": "Los verbos en -bir llevan b." },
-        { "p": "nuevo", "pos": 3, "letra": "v", "opciones": ["b", "v"], "pista": "Adjetivo en -evo: con v." },
-        { "p": "estuve", "pos": 4, "letra": "v", "opciones": ["b", "v"], "pista": "Las formas de estar llevan v: estuve." },
-        { "p": "blanco", "pos": 0, "letra": "b", "opciones": ["b", "v"], "pista": "El grupo bl siempre con b." },
-        { "p": "enviar", "pos": 2, "letra": "v", "opciones": ["b", "v"], "pista": "Después de n, siempre v." }
+        {
+          "p": "llevaba",
+          "pos": 5,
+          "letra": "b",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Pasado de un verbo en -ar: -aba."
+        },
+        {
+          "p": "invierno",
+          "pos": 2,
+          "letra": "v",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Después de n, siempre v."
+        },
+        {
+          "p": "hombre",
+          "pos": 3,
+          "letra": "b",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Después de m, siempre b."
+        },
+        {
+          "p": "escribir",
+          "pos": 5,
+          "letra": "b",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Los verbos en -bir llevan b."
+        },
+        {
+          "p": "nuevo",
+          "pos": 3,
+          "letra": "v",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Adjetivo en -evo: con v."
+        },
+        {
+          "p": "estuve",
+          "pos": 4,
+          "letra": "v",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Las formas de estar llevan v: estuve."
+        },
+        {
+          "p": "blanco",
+          "pos": 0,
+          "letra": "b",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "El grupo bl siempre con b."
+        },
+        {
+          "p": "enviar",
+          "pos": 2,
+          "letra": "v",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Después de n, siempre v."
+        }
       ],
-      "pistas": ["Mira la letra de al lado del hueco.", "Usa tus cartas: -aba, mb y nv, -bir."],
-      "recompensa": { "texto": "En la última línea del cuaderno se lee un número: el 3.", "digito": "3" } },
-
-    { "tipo": "careo", "fondo": "mercado", "personaje": { "id": "remedios", "expresion": "nervioso", "lado": "der" },
+      "pistas": [
+        "Mira la letra de al lado del hueco.",
+        "Usa tus cartas: -aba, mb y nv, -bir."
+      ],
+      "recompensa": {
+        "texto": "En la última línea del cuaderno se lee un número: el 3.",
+        "digito": "3"
+      }
+    },
+    {
+      "tipo": "careo",
+      "fondo": "mercado",
+      "personaje": {
+        "id": "remedios",
+        "expresion": "nervioso",
+        "lado": "der"
+      },
       "quien": "Remedios, la pescadera",
       "titulo": "Careo",
       "instruccion": "Su letrero es el único que no cambiaron… sospechoso. En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
       "declaracion": "¡Yo no he tocado nada! Esta mañana {trabajava|trabajaba|aba} en mi puesto como siempre. Solo salí un momento a {enbiar|enviar|mb-nv} un paquete a mi hermana y a {escrivir|escribir|bir} una nota para el reparto. Si no tocaron mi letrero, sería porque no tenía faltas que poner.",
       "aclarado": "Remedios dice la verdad: a su letrero no le cambiaron nada porque estaba en la pared del fondo. La grabadora de la cámara del mercado lo habrá grabado todo.",
-      "pistas": ["Hay un pasado en -aba, una n + v y un verbo en -bir.", "Son: trabajava, enbiar y escrivir."] },
-
-    { "tipo": "candado", "fondo": "almacen-mercado", "objeto": "grabadora",
+      "pistas": [
+        "Hay un pasado en -aba, una n + v y un verbo en -bir.",
+        "Son: trabajava, enbiar y escrivir."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "almacen-mercado",
+      "objeto": "grabadora",
       "titulo": "La grabadora de la cámara",
       "instruccion": "La grabadora del mercado está cerrada con un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
       "codigo": "843",
       "exito": "La grabadora se abre. En la última imagen de la madrugada aparece alguien… muy borroso.",
-      "pistas": ["Abre tu libreta: ahí están las cifras.", "La primera estaba detrás del puesto de fruta."] },
-
-    { "tipo": "relato", "fondo": "almacen-mercado", "objeto": "foto-borrosa", "personaje": { "id": "lola", "expresion": "sorprendido", "lado": "izq" },
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba detrás del puesto de fruta."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "almacen-mercado",
+      "objeto": "foto-borrosa",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
       "quien": "Lola",
-      "texto": "¡Ahí está! Gabardina negra, gafas de sol de noche y esa mandíbula… ¡El Tachón! Y fíjate en la muñeca: una mancha roja. ¿Qué será eso?" },
-
-    { "tipo": "relato", "fondo": "mercado", "personaje": { "id": "remedios", "expresion": "contento", "lado": "der" },
+      "texto": "¡Ahí está! Gabardina negra, gafas de sol de noche y esa mandíbula… ¡El Tachón! Y fíjate en la muñeca: una mancha roja. ¿Qué será eso?"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "mercado",
+      "personaje": {
+        "id": "remedios",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "quien": "Remedios, la pescadera",
-      "texto": "¡Gracias, detectives! Ya hemos vuelto a poner todos los letreros bien escritos. Y que sepáis que el pescado de hoy os sale gratis." },
-
-    { "tipo": "expediente", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "neutral", "lado": "der" },
+      "texto": "¡Gracias, detectives! Ya hemos vuelto a poner todos los letreros bien escritos. Y que sepáis que el pescado de hoy os sale gratis."
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de b y v. Encuéntralas y corrígelas antes de archivarlo.",
-      "pistas": ["Hay una en el aviso del caso.", "Revisa lo que dijeron Lola y Manolo en el mercado."] },
-
-    { "tipo": "relato", "fondo": "agencia", "objeto": "foto-borrosa", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+      "pistas": [
+        "Hay una en el aviso del caso.",
+        "Revisa lo que dijeron Lola y Manolo en el mercado."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "foto-borrosa",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "La primera foto de nuestro amigo. La clavaremos en el tablón: es la primera pieza del misterio. Esa mancha roja en la muñeca… no la perdáis de vista." },
-
-    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "lola", "expresion": "contento", "lado": "izq" },
+      "texto": "La primera foto de nuestro amigo. La clavaremos en el tablón: es la primera pieza del misterio. Esa mancha roja en la muñeca… no la perdáis de vista."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "titulo": "Informe para la directora",
       "cabecera": "Cierra el expediente en tu libreta",
       "apuntar": [
-        "Escribe 3 o 4 líneas: ¿qué pasó en el mercado y qué hemos descubierto de El Tachón?",
+        "Escribe 3 o 4 líneas: ¿qué pasó en el mercado y qué hemos descubierto del Tachón?",
         "Copia bien escritas las palabras que te hayan costado.",
         "Enseña tu libreta a la directora para que selle tu expediente."
-      ] },
-
-    { "tipo": "final", "fondo": "mercado", "equipo": ["lola", "mateo", "remedios", "manolo"],
-      "texto": "Los letreros vuelven a estar bien escritos y el mercado recupera la calma. En el tablón de la agencia ya hay una foto borrosa… y muchas preguntas." }
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "mercado",
+      "equipo": [
+        "lola",
+        "mateo",
+        "remedios",
+        "manolo"
+      ],
+      "texto": "Los letreros vuelven a estar bien escritos y el mercado recupera la calma. En el tablón de la agencia ya hay una foto borrosa… y muchas preguntas."
+    }
   ]
 }

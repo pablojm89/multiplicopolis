@@ -27,13 +27,23 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Caso 2 «El mercado del revés» (b/v): primera foto de El Tachón. Arte pendiente (issue #3)
 - [x] Caso 3 «La carta sin haches» (h): El Tachón conoce la agencia por dentro; desaparece su ficha de aspirante; Bruno cuenta que suspendió la prueba. Arte pendiente (issue #3)
 - [x] Caso 4 «El panel de azulejos» (c/z/s): El Tachón habla con seseo → es del barrio. Seseo tratado como forma de hablar, no como error. Arte pendiente (issue #3)
-- [ ] Caso 5 (ll/y): mitad de temporada, careo cara a cara con El Tachón
+- [x] Caso 5 «La noche de los farolillos» (ll/y): mitad de temporada, careo cara a cara con el Tachón, que escapa y deja caer la llave de la antigua escuela
+- [x] **Casos 6-10 escritos en paralelo por 5 subagentes** (uno por caso, con archivos «pendiente» para no pisarse) y revisados:
+  - 6 «La orla recortada» (g/j y diéresis): la antigua escuela (hoy la Academia) y la orla con una cara recortada
+  - 7 «El guion de la radio» (diptongos y monosílabos): Mateo confiesa que se reían de sus faltas
+  - 8 «La foto que faltaba» (-d/-z finales): Robles estaba en el tribunal de la prueba y no defendió al chico
+  - 9 «¡Parad las máquinas!» (mayúsculas y puntuación): el golpe final contra el periódico, frustrado
+  - 10 «Sin máscaras» (repaso de las 9 reglas): Bruno desenmascarado, perdón, aprendiz de la agencia y gancho para 6.º
+- [x] Jugador automático (`herramientas/jugar_caso.js`): la temporada entera (piloto + 10 casos) se juega sin errores
+- [ ] Arte de los casos 5-10 (pedido a GPT)
+- [ ] Pablo juega la temporada y da su visto bueno
 - [x] **Academia, primera versión**: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio) con bancos de 79 palabras y 9 documentos (tildes, b/v, h). Arte pedido (issue #4)
 - [x] Academia: Sala de Interrogatorios con «el testigo seseante» (seseo, yeísmo y -d final como forma de hablar; se escribe la norma) y banco ampliado a 111 palabras (c/z/s, ll/y, -d/-z)
 - [ ] Academia: resto de salas (Terminal, Pizarra, Centralita, Imprenta) y más bancos (resto de reglas, gramática, léxico, comprensión)
 - [ ] ~~**Academia de detectives**~~ (idea original): zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
-- [ ] Más casos de 5.º según `datos/programacion.json`
+- [x] ~~Más casos de 5.º según `datos/programacion.json`~~ → temporada 1 completa (11 casos)
+- [ ] Temporada 2 (6.º): empieza con la carta de la tilde diacrítica
 
 ## Fase 2: Completar con los contenidos de Lengua del 3.er ciclo
 

@@ -1,0 +1,622 @@
+{
+  "id": "caso-10",
+  "numero": "10",
+  "titulo": "Sin máscaras",
+  "resumen": "Delante de todo el barrio, el Tachón lanza su último desafío. Esta noche se le caen las gafas.",
+  "reglas": [
+    "tildes-generales",
+    "b-v-1",
+    "h-1",
+    "c-z-s",
+    "ll-y",
+    "g-j-dieresis",
+    "diptongo-monosilabos",
+    "d-z-finales",
+    "mayusculas-puntuacion-1"
+  ],
+  "_nota": "Final de la temporada 1 y caso especial de repaso de todas las reglas de 5.º. En los textos, {mal|bien|regla}: cada falta lleva su regla. En el careo, {mal|bien|carta}, solo con cartas que ya existen. El Tachón es Bruno (opción C de TEMPORADA-1.md); las pistas que lo delatan: pulsera roja (caso 2), seseo (caso 4), bicicleta (casos 2 y 5), la llave y la orla de la escuela (casos 5 y 6), la prueba de acceso suspendida (casos 3 y 8) y el periódico (caso 9). La carta del final (gancho de 6.º) lleva una tilde diacrítica mal puesta a propósito; va después del expediente para que no se evalúe.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "plaza-feria"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Directora Robles",
+      "texto": "Ha llegado el día, detectives. Ayer, {Jueves|jueves|mayusculas-puntuacion-1}, el Tachón dejó su último mensaje: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». {Ace|Hace|h-1} una hora que los vecinos esperan en la plaza. Coged las libretas: esta noche sabremos quién es."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "Antes de salir, un repaso relámpago. Hoy vas a necesitar todas las cartas de la temporada.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "Agudas con tilde",
+              "palabras": [
+                "camión",
+                "sofá",
+                "compás"
+              ]
+            },
+            {
+              "titulo": "Esdrújulas",
+              "palabras": [
+                "música",
+                "pájaro",
+                "brújula"
+              ]
+            }
+          ],
+          "pregunta": "Las agudas llevan tilde solo a veces. ¿Y las esdrújulas?",
+          "opciones": [
+            "Llevan tilde siempre",
+            "Solo si terminan en vocal",
+            "No llevan tilde nunca",
+            "Solo si son muy largas"
+          ],
+          "correcta": 0,
+          "explicacion": "Las agudas llevan tilde si terminan en vocal, -n o -s. Las esdrújulas, siempre: música, pájaro, brújula."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Pasados en -aba",
+              "palabras": [
+                "cantaba",
+                "jugaba",
+                "estaba"
+              ]
+            },
+            {
+              "titulo": "Empiezan por hie-, hue-",
+              "palabras": [
+                "hielo",
+                "huevo",
+                "hueso"
+              ]
+            }
+          ],
+          "pregunta": "¿Qué dos reglas esconden estas fichas?",
+          "opciones": [
+            "El pasado en -aba va con b, y las palabras que empiezan por ie-, ue- llevan h delante",
+            "El pasado en -aba va con v, y la h solo va en hielo",
+            "Todas se escriben tal como suenan",
+            "Son excepciones: hay que aprenderlas una a una"
+          ],
+          "correcta": 0,
+          "explicacion": "El pasado de los verbos en -ar se escribe con -aba: cantaba, estaba. Y las palabras que empiezan por ie-, ue- llevan h delante: hielo, huevo, hueso."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "ce, ci · plural en -ces",
+              "palabras": [
+                "cine",
+                "cielo",
+                "peces",
+                "luces"
+              ]
+            },
+            {
+              "titulo": "-illo, -illa",
+              "palabras": [
+                "farolillo",
+                "bombilla",
+                "pasillo"
+              ]
+            }
+          ],
+          "pregunta": "¿Qué es verdad?",
+          "opciones": [
+            "Delante de e, i va c; y las palabras terminadas en -illo, -illa llevan ll",
+            "Delante de e, i va z; y las terminadas en -illo llevan y",
+            "La c y la z se pueden cambiar cuando quieras",
+            "Las palabras en -illa llevan y si nombran cosas pequeñas"
+          ],
+          "correcta": 0,
+          "explicacion": "Za, zo, zu, pero ce, ci: cine, cielo, y el plural de pez es peces. Y las palabras que terminan en -illo, -illa van con ll: farolillo, bombilla."
+        }
+      ],
+      "pistas": [
+        "Lee las palabras de cada ficha en voz alta y busca qué tienen en común.",
+        "Abre el Archivo de Mateo: ahí están todas las reglas de la temporada."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "titulo": "La plaza de La Alameda",
+      "quien": "Lola",
+      "texto": "¡Cuánta gente! Está todo el barrio: doña Pilar, Julián con una bandeja de bollos, {Ramon|Ramón|tildes-generales} con su guitarra, Remedios, Manolo, Herminia, Azucena, don Anselmo… Solo falta Bruno: hoy nadie ha repartido el periódico. Y mira el escenario: hay un cartel enorme tapado con una sábana negra."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "tachon",
+        "expresion": "burlon",
+        "lado": "der"
+      },
+      "quien": "El Tachón",
+      "texto": "¡Vecinos de La Alameda! Bienvenidos a mi último espectáculo. Mi aura está al máximo y mi mandíbula, más sigma que nunca. Os he preparado un pregón {jenial|genial|g-j-dieresis} y unos cuantos retos. Por cada reto superado os daré una cifra. Si con ellas abrís mi cartera… me quitaré las gafas delante de todos."
+    },
+    {
+      "tipo": "caza",
+      "fondo": "plaza-feria",
+      "quien": "El pregón del Tachón",
+      "titulo": "El pregón del Tachón",
+      "intro": "Lola tira de la sábana. El pregón tiene 9 faltas, una de cada regla de la temporada. Encuéntralas y corrígelas.",
+      "declaracion": "¡Vecinos de La {alameda|Alameda|mayusculas-puntuacion-1}! Hoy es el {ultimo|último|tildes-generales} día de vuestras palabras perfectas. Durante meses {cambiava|cambiaba|b-v-1} vuestros carteles y nadie me {vió|vio|diptongo-monosilabos}: ni en el mercado, ni en la biblioteca, ni en la noche de los {faroliyos|farolillos|ll-y}. Mi aura brilla más que mil {luses|luces|c-z-s}. Mañana no {abrá|habrá|h-1} ni una sola tilde en el barrio. Esa es la {verdá|verdad|d-z-finales}. Detectives, os toca {elejir|elegir|g-j-dieresis}: o corregís mi pregón, o La Alameda será mía. Firmado: T.",
+      "pistas": [
+        "Hay una falta de cada regla: tildes, b y v, h, c y z, ll e y, g y j, monosílabos, -d final y mayúsculas.",
+        "Empieza por el principio: ¿cómo se escribe el nombre del barrio?"
+      ],
+      "recompensa": {
+        "texto": "Al pie del pregón, junto a la firma, hay una cifra pintada con rotulador negro: el 5.",
+        "digito": "5"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "tachon",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "El Tachón",
+      "texto": "¿Nueve de nueve? Bah, suerte de novato. Segundo reto: mientras dormíais, he borrado una letra de cada cartel de los puestos de la plaza. {Fué|Fue|diptongo-monosilabos} facilísimo. ¡A ver cuánto os dura el aura!"
+    },
+    {
+      "tipo": "huecos",
+      "fondo": "plaza-feria",
+      "titulo": "Los carteles de los puestos",
+      "instruccion": "A cada cartel le falta una letra. Elige la que va en cada palabra.",
+      "palabras": [
+        {
+          "p": "canción",
+          "pos": 5,
+          "letra": "ó",
+          "opciones": [
+            "o",
+            "ó"
+          ],
+          "pista": "Es aguda y termina en -n: lleva tilde.",
+          "regla": "tildes-generales"
+        },
+        {
+          "p": "cantaba",
+          "pos": 5,
+          "letra": "b",
+          "opciones": [
+            "b",
+            "v"
+          ],
+          "pista": "Es un pasado de un verbo en -ar: -aba.",
+          "regla": "b-v-1"
+        },
+        {
+          "p": "huevo",
+          "pos": 0,
+          "letra": "h",
+          "opciones": [
+            "h",
+            ""
+          ],
+          "pista": "Empieza por ue-: lleva h delante.",
+          "regla": "h-1"
+        },
+        {
+          "p": "peces",
+          "pos": 2,
+          "letra": "c",
+          "opciones": [
+            "c",
+            "z",
+            "s"
+          ],
+          "pista": "Es el plural de pez: la z se convierte en c.",
+          "regla": "c-z-s"
+        },
+        {
+          "p": "bocadillo",
+          "pos": 6,
+          "letra": "ll",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Termina en -illo: con ll.",
+          "regla": "ll-y"
+        },
+        {
+          "p": "pingüino",
+          "pos": 4,
+          "letra": "ü",
+          "opciones": [
+            "u",
+            "ü"
+          ],
+          "pista": "Para que la u suene en güi, lleva diéresis.",
+          "regla": "g-j-dieresis"
+        },
+        {
+          "p": "fue",
+          "pos": 2,
+          "letra": "e",
+          "opciones": [
+            "e",
+            "é"
+          ],
+          "pista": "Es un monosílabo: no lleva tilde.",
+          "regla": "diptongo-monosilabos"
+        },
+        {
+          "p": "lápiz",
+          "pos": 4,
+          "letra": "z",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es lápices: termina en -z.",
+          "regla": "d-z-finales"
+        }
+      ],
+      "pistas": [
+        "Cada cartel es de una regla distinta. Piensa primero cuál es.",
+        "Usa tus cartas y el Archivo de Mateo."
+      ],
+      "recompensa": {
+        "texto": "Julián os da las gracias con un bollo calentito. Debajo de su bandeja hay una cifra con rotulador negro: el 8.",
+        "digito": "8"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "herminia",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Herminia, la bibliotecaria",
+      "texto": "¡Detectives! El Tachón también ha pasado por mi caseta de lectura: ha revuelto todos los libros y les ha arrancado las etiquetas. {Empesé|Empecé|c-z-s} a ordenarlos esta tarde con toda {tranquilidá|tranquilidad|d-z-finales}… y ahora, ¡mirad qué desastre!"
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "plaza-feria",
+      "titulo": "Los libros revueltos",
+      "instruccion": "Cada libro tiene una palabra en el lomo. ¿Por qué lleva tilde… o por qué no? Ponlo en su estante.",
+      "categorias": [
+        {
+          "id": "aguda",
+          "nombre": "Agudas con tilde"
+        },
+        {
+          "id": "esdrujula",
+          "nombre": "Esdrújulas: siempre tilde"
+        },
+        {
+          "id": "monosilabo",
+          "nombre": "Monosílabos: sin tilde"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "sofá",
+          "cat": "aguda",
+          "pista": "Suena fuerte al final y termina en vocal: so-FÁ."
+        },
+        {
+          "p": "pájaro",
+          "cat": "esdrujula",
+          "pista": "La fuerza va en la antepenúltima sílaba: PÁ-ja-ro."
+        },
+        {
+          "p": "fue",
+          "cat": "monosilabo",
+          "pista": "Tiene una sola sílaba: es un monosílabo."
+        },
+        {
+          "p": "jamás",
+          "cat": "aguda",
+          "pista": "Suena fuerte al final y termina en -s: ja-MÁS."
+        },
+        {
+          "p": "música",
+          "cat": "esdrujula",
+          "pista": "La fuerza va en la antepenúltima sílaba: MÚ-si-ca."
+        },
+        {
+          "p": "dio",
+          "cat": "monosilabo",
+          "pista": "Tiene una sola sílaba: es un monosílabo."
+        },
+        {
+          "p": "camión",
+          "cat": "aguda",
+          "pista": "Suena fuerte al final y termina en -n: ca-MIÓN."
+        },
+        {
+          "p": "brújula",
+          "cat": "esdrujula",
+          "pista": "La fuerza va en la antepenúltima sílaba: BRÚ-ju-la."
+        },
+        {
+          "p": "vio",
+          "cat": "monosilabo",
+          "pista": "Tiene una sola sílaba: es un monosílabo."
+        }
+      ],
+      "pistas": [
+        "Da una palmada en la sílaba que suena más fuerte.",
+        "Si la palabra tiene una sola sílaba, es un monosílabo y no lleva tilde."
+      ],
+      "recompensa": {
+        "texto": "Dentro del último libro, Herminia encuentra un punto de lectura con una cifra: el 0.",
+        "digito": "0"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "texto": "He traído el tablón de la agencia. Cuando {iva|iba|b-v-1} a descolgarlo, lo encontré lleno de faltas escritas con tiza {amariya|amarilla|ll-y}. El Tachón no quiere que juntemos las piezas. Corrígelas y leeremos todo lo que sabemos de él."
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "plaza-feria",
+      "titulo": "El tablón de la temporada",
+      "instruccion": "Entre las notas del tablón hay 5 palabras mal escritas. Corrígelas: juntas forman el retrato del Tachón.",
+      "palabras": [
+        "foto",
+        "gabardina",
+        "gafas",
+        "llave",
+        "escuela",
+        "orla",
+        "ficha",
+        "tachón",
+        "rotulador",
+        "mercado",
+        "biblioteca",
+        "azulejos",
+        "farolillo",
+        "sobre"
+      ],
+      "faltas": [
+        {
+          "mal": "llevava",
+          "bien": "llevaba",
+          "regla": "b-v-1"
+        },
+        {
+          "mal": "isquierda",
+          "bien": "izquierda",
+          "regla": "c-z-s"
+        },
+        {
+          "mal": "ablaba",
+          "bien": "hablaba",
+          "regla": "h-1"
+        },
+        {
+          "mal": "hulló",
+          "bien": "huyó",
+          "regla": "ll-y"
+        },
+        {
+          "mal": "periodico",
+          "bien": "periódico",
+          "regla": "tildes-generales"
+        }
+      ],
+      "frase": "El Tachón {0} una pulsera roja en la muñeca {1}, {2} con seseo, {3} en bicicleta y se coló en el {4} del barrio.",
+      "pistas": [
+        "Las palabras mal escritas no son objetos del tablón.",
+        "Busca un pasado en -aba, una z, una forma de hablar, un verbo que viene de huir y una esdrújula."
+      ],
+      "recompensa": {
+        "texto": "En una esquina del tablón, debajo de la foto borrosa, alguien ha escrito una cifra: el 3.",
+        "digito": "3"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "plaza-feria",
+      "titulo": "¿Quién es el Tachón?",
+      "opciones": [
+        "Ramón, el músico",
+        "Julián, el panadero",
+        "Bruno, el repartidor del periódico",
+        "Manolo, el frutero",
+        "Don Anselmo, el conserje de la escuela"
+      ],
+      "correcta": 2,
+      "acierto": "Todo encaja. Bruno lleva una pulsera roja en la muñeca izquierda, habla con el seseo del barrio, va a todas partes en bicicleta y entra cada mañana en el periódico. Además, nos contó que suspendió la prueba de acceso. Y hoy es el único vecino que no está en la plaza… o eso parece.",
+      "fallo": "Esa persona no encaja con todas las pistas. Repasa el tablón: pulsera roja, seseo, bicicleta, periódico y una prueba de acceso suspendida."
+    },
+    {
+      "tipo": "careo",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "tachon",
+        "expresion": "burlon",
+        "lado": "der"
+      },
+      "quien": "El Tachón",
+      "titulo": "El careo final",
+      "instruccion": "El Tachón lo niega todo. Desmonta su declaración: señala sus 5 faltas, presenta la carta que lo demuestra y escríbelas bien.",
+      "declaracion": "¿Bruno? ¡Ja! Ese chico se pone rojo si le dices hola. Yo soy puro sigma: mi mandíbula no tiembla {jamas|jamás|aguda}. Esta mañana no {estava|estaba|aba} en el periódico, y esta pulsera es de un {mercadiyo|mercadillo|illo} de otra ciudad. Además, yo no {ablo|hablo|verbos-h} con seseo, y nunca {hise|hice|ce} esa prueba de acceso.",
+      "aclarado": "Cinco faltas, cinco cartas. ¡Y dice que no sesea mientras sesea delante de todo el barrio! Al Tachón le tiembla la mandíbula, se le escurren las gafas… y del bolsillo se le cae una cartera negra con candado.",
+      "pistas": [
+        "Hay una aguda, un pasado en -aba, una palabra en -illo, una forma de hablar y una c delante de e.",
+        "Tienes todas las cartas en tu libreta."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "plaza-feria",
+      "objeto": "cartera-tachon",
+      "titulo": "La cartera del Tachón",
+      "instruccion": "La cartera está cerrada con un candado de cuatro cifras. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "5803",
+      "exito": "La cartera se abre. Dentro hay un rotulador negro gordo, la cara que faltaba en la orla de la escuela —un niño con una pulsera roja— y la ficha que desapareció del archivo azul. En ella pone un nombre: Bruno.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba al pie del pregón del Tachón."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "desenmascarado",
+        "lado": "der"
+      },
+      "quien": "Bruno",
+      "texto": "Vale… ya está. Se acabaron las gafas de sol. Soy yo: Bruno, el del periódico. Y lo de la mandíbula era pura pose: me duele la cara de tanto «mewing»."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "desenmascarado",
+        "lado": "der"
+      },
+      "quien": "Bruno",
+      "texto": "Hace años hice la prueba de acceso de la agencia. Estaba tan nervioso que llené la ficha de faltas, y unos aspirantes la leyeron en voz alta. Todos se rieron de mí. En la escuela ya me había pasado lo mismo. Desde entonces, cada palabra bien escrita del barrio me recordaba aquel día… y quise «borrarlas» todas, una a una."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Directora Robles",
+      "texto": "Bruno, yo estaba en aquel tribunal. Vi cómo se reían de ti y me quedé callada. Debí defenderte y no lo hice: lo siento de verdad. Una falta se corrige en un segundo, pero una burla escuece mucho más tiempo."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "texto": "De mí también se reían por mis faltas, ¿sabes? Mis primeras fichas tenían más tachones que palabras. Lo que me salvó fue que alguien me enseñó las reglas en vez de burlarse. Los errores se corrigen, Bruno. Las personas no se tachan."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Lola",
+      "texto": "Yo quería atraparte sola, ¿sabes? Pero esta temporada he aprendido que en equipo se llega más lejos. Bruno, conoces cada calle del barrio y cada falta posible. La directora está de acuerdo: ¿quieres entrar en la agencia como aprendiz?"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "quien": "Bruno",
+      "texto": "¿Yo, aprendiz de La Lupa? ¡Claro que sí! Pero antes, dejadme hacer mi último tachón. Mirad: escribo en el cartel la palabra «venganza»… y la tacho. Ya está. Esa sí que sobraba en La Alameda."
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "quien": "Bruno, el aprendiz",
+      "titulo": "Revisa el expediente",
+      "instruccion": "Mi primera tarea como aprendiz: ayudarte con el expediente. En los textos del caso se colaron faltas de todas las reglas. Encuéntralas y corrígelas antes de archivar la temporada.",
+      "pistas": [
+        "Son nueve, una de cada regla.",
+        "Hay faltas en el aviso de la directora y en lo que dijeron Lola, el Tachón, Herminia y Mateo."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "carta-lejana",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "texto": "¡Mirad qué ha traído Bruno en su primer reparto como aprendiz! Una carta de fuera del barrio, sin remite. Solo dice: «Detective: {tú|tu|tilde-diacritica} próximo caso te espera lejos de La Alameda». En vez de firma, una tilde dibujada con tinta azul. Y esa tilde de ahí… ¿sobra o no? Esa regla todavía no está en mi archivo."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe de la temporada",
+      "cabecera": "Cierra la temporada en tu libreta",
+      "apuntar": [
+        "Escribe un informe de 5 o 6 líneas: ¿quién era el Tachón, por qué lo hacía y cómo lo descubriste?",
+        "Nombra tres pistas de la temporada que te ayudaron a resolver el misterio.",
+        "Copia bien escritas cinco palabras que te hayan costado este curso, cada una de una regla distinta.",
+        "Escribe qué le dirías a alguien que se ríe de las faltas de otra persona.",
+        "Enseña tu libreta a la directora para que selle el expediente de la temporada."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "plaza-feria",
+      "sello": "¡TEMPORADA RESUELTA!",
+      "equipo": [
+        "lola",
+        "mateo",
+        "robles",
+        "bruno",
+        "pilar"
+      ],
+      "texto": "La Alameda recupera todas sus palabras, y la agencia, un aprendiz nuevo. Bruno clava en el tablón la última pieza: su ficha de aspirante, con todas las faltas corregidas. Y tú ya no eres un novato: la directora Robles te entrega la placa oficial de detective. Aunque una carta de lejos dice que esto no ha hecho más que empezar…"
+    }
+  ]
+}

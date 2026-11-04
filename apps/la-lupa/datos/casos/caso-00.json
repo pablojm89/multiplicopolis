@@ -4,100 +4,259 @@
   "titulo": "La prueba de acceso",
   "resumen": "Tu primer día en la agencia… y alguien la ha saboteado esta noche.",
   "diagnostico": true,
-  "reglas": ["tildes-generales", "b-v-1", "h-1", "c-z-s", "ll-y", "g-j-dieresis", "diptongo-monosilabos", "d-z-finales", "mayusculas-puntuacion-1"],
-  "_nota": "Episodio piloto de la temporada 1 y evaluación inicial. Dos faltas por regla, sin pistas. En los textos, la tercera parte del marcado {mal|bien|regla} indica la regla que se evalúa. El informe muestra el punto de partida por regla y la zona del maestro, la tabla de evaluación inicial. Bruno aparece de fondo (es El Tachón: no adelantarlo).",
+  "reglas": [
+    "tildes-generales",
+    "b-v-1",
+    "h-1",
+    "c-z-s",
+    "ll-y",
+    "g-j-dieresis",
+    "diptongo-monosilabos",
+    "d-z-finales",
+    "mayusculas-puntuacion-1"
+  ],
+  "_nota": "Episodio piloto de la temporada 1 y evaluación inicial. Dos faltas por regla, sin pistas. En los textos, la tercera parte del marcado {mal|bien|regla} indica la regla que se evalúa. El informe muestra el punto de partida por regla y la zona del maestro, la tabla de evaluación inicial. Bruno aparece de fondo (es el Tachón: no adelantarlo).",
   "escenas": [
-    { "tipo": "portada", "fondo": "fachada-agencia" },
-
-    { "tipo": "relato", "fondo": "fachada-agencia", "personaje": { "id": "lola", "expresion": "sorprendido", "lado": "izq" },
+    {
+      "tipo": "portada",
+      "fondo": "fachada-agencia"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "fachada-agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
       "quien": "Lola",
-      "texto": "¡Por fin llegas! Soy Lola, detective de la Agencia La Lupa. Hoy es tu prueba de acceso… pero ha pasado algo esta noche. Entra, rápido, y no toques nada." },
-
-    { "tipo": "relato", "fondo": "agencia-saboteada", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+      "texto": "¡Por fin llegas! Soy Lola, detective de la Agencia La Lupa. Hoy es tu prueba de acceso… pero ha pasado algo esta noche. Entra, rápido, y no toques nada."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia-saboteada",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "Bienvenido a la agencia. O a lo que queda de ella. Alguien entró anoche por la ventana, revolvió los expedientes… y los llenó de faltas de ortografía. Tu prueba de acceso será arreglar este desastre. Sin pistas: quiero ver lo que ya sabes." },
-
-    { "tipo": "apunta", "fondo": "agencia-saboteada", "personaje": { "id": "lola", "expresion": "contento", "lado": "der" },
+      "texto": "Bienvenido a la agencia. O a lo que queda de ella. Alguien entró anoche por la ventana, revolvió los expedientes… y los llenó de faltas de ortografía. Tu prueba de acceso será arreglar este desastre. Sin pistas: quiero ver lo que ya sabes."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia-saboteada",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "titulo": "Tu libreta de detective",
       "cabecera": "Estrena tu libreta de detective",
       "apuntar": [
         "En la primera página, escribe tu nombre de detective y la fecha de hoy.",
         "Debajo, el título del caso: «Expediente 00: La prueba de acceso».",
         "Durante el caso, apunta cada cifra que encuentres. Sin ellas no abrirás el archivador."
-      ] },
-
-    { "tipo": "papeles", "fondo": "agencia-saboteada",
+      ]
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "agencia-saboteada",
       "titulo": "Los expedientes revueltos",
       "instruccion": "Entre los papeles del suelo hay 6 palabras mal escritas. Tócalas y escríbelas bien.",
-      "palabras": ["expediente", "agencia", "pista", "huella", "lupa", "testigo", "misterio", "teléfono", "jueves", "sábado", "nube", "hielo", "bolígrafo", "archivo"],
-      "faltas": [
-        { "mal": "camion", "bien": "camión", "regla": "tildes-generales" },
-        { "mal": "arbol", "bien": "árbol", "regla": "tildes-generales" },
-        { "mal": "estava", "bien": "estaba", "regla": "b-v-1" },
-        { "mal": "bolver", "bien": "volver", "regla": "b-v-1" },
-        { "mal": "abía", "bien": "había", "regla": "h-1" },
-        { "mal": "uevo", "bien": "huevo", "regla": "h-1" }
+      "palabras": [
+        "expediente",
+        "agencia",
+        "pista",
+        "huella",
+        "lupa",
+        "testigo",
+        "misterio",
+        "teléfono",
+        "jueves",
+        "sábado",
+        "nube",
+        "hielo",
+        "bolígrafo",
+        "archivo"
       ],
-      "recompensa": { "texto": "En el expediente más antiguo hay un número escrito a lápiz: el 2. Y en una esquina, un tachón negro con unas gafas de sol dibujadas…", "digito": "2" } },
-
-    { "tipo": "relato", "fondo": "agencia-saboteada", "personaje": { "id": "mateo", "expresion": "sorprendido", "lado": "izq" },
+      "faltas": [
+        {
+          "mal": "camion",
+          "bien": "camión",
+          "regla": "tildes-generales"
+        },
+        {
+          "mal": "arbol",
+          "bien": "árbol",
+          "regla": "tildes-generales"
+        },
+        {
+          "mal": "estava",
+          "bien": "estaba",
+          "regla": "b-v-1"
+        },
+        {
+          "mal": "bolver",
+          "bien": "volver",
+          "regla": "b-v-1"
+        },
+        {
+          "mal": "abía",
+          "bien": "había",
+          "regla": "h-1"
+        },
+        {
+          "mal": "uevo",
+          "bien": "huevo",
+          "regla": "h-1"
+        }
+      ],
+      "recompensa": {
+        "texto": "En el expediente más antiguo hay un número escrito a lápiz: el 2. Y en una esquina, un tachón negro con unas gafas de sol dibujadas…",
+        "digito": "2"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia-saboteada",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
       "quien": "Mateo",
-      "texto": "¡Mi archivo! Quien haya hecho esto sabía muy bien dónde guardamos cada cosa. Sal a la calle: a lo mejor algún vecino vio algo esta madrugada." },
-
-    { "tipo": "relato", "fondo": "calle-alameda", "objeto": "periodico", "personaje": { "id": "bruno", "expresion": "contento", "lado": "der" },
+      "texto": "¡Mi archivo! Quien haya hecho esto sabía muy bien dónde guardamos cada cosa. Sal a la calle: a lo mejor algún vecino vio algo esta madrugada."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "calle-alameda",
+      "objeto": "periodico",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "quien": "Bruno, el repartidor",
-      "texto": "¡Buenos días! ¿Eres la detective nueva? Toma, el periódico del barrio. Aunque hoy ha salido rarísimo, lleno de faltas… Yo solo lo reparto, ¿eh? ¡Suerte en la agencia!" },
-
-    { "tipo": "caza", "fondo": "calle-alameda", "objeto": "periodico",
+      "texto": "¡Buenos días! ¿Eres la detective nueva? Toma, el periódico del barrio. Aunque hoy ha salido rarísimo, lleno de faltas… Yo solo lo reparto, ¿eh? ¡Suerte en la agencia!"
+    },
+    {
+      "tipo": "caza",
+      "fondo": "calle-alameda",
+      "objeto": "periodico",
       "quien": "El periódico del barrio",
       "titulo": "La portada del periódico",
       "intro": "La noticia de la feria tiene 6 faltas. Encuéntralas y corrígelas.",
       "declaracion": "¡Feria a la vista! Los vecinos han colgado farolillos en la plaza y han montado {dose|doce|c-z-s} casetas. Si mañana hay {yuvia|lluvia|ll-y}, se taparán con lonas. La {jente|gente|g-j-dieresis} podrá ganar un {pinguino|pingüino|g-j-dieresis} de peluche en la tómbola. Habrá {sapatos|zapatos|c-z-s} de regalo para los bailarines y un {cabayo|caballo|ll-y} de cartón para el desfile.",
-      "recompensa": { "texto": "Alguien ha rodeado con rotulador negro el número de la página: el 0.", "digito": "0" } },
-
-    { "tipo": "relato", "fondo": "calle-alameda", "personaje": { "id": "lola", "expresion": "pensativo", "lado": "izq" },
+      "recompensa": {
+        "texto": "Alguien ha rodeado con rotulador negro el número de la página: el 0.",
+        "digito": "0"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "calle-alameda",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
       "quien": "Lola",
-      "texto": "Faltas en la agencia, faltas en el periódico… y el mismo rotulador negro. Esto no es casualidad. Volvamos: la directora tiene algo para ti." },
-
-    { "tipo": "relato", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "neutral", "lado": "der" },
+      "texto": "Faltas en la agencia, faltas en el periódico… y el mismo rotulador negro. Esto no es casualidad. Volvamos: la directora tiene algo para ti."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "Antes de darte la placa, firma tu ficha de ingreso. Pero ojo: el intruso también ha pasado por aquí. Revísala bien." },
-
-    { "tipo": "caza", "fondo": "agencia",
+      "texto": "Antes de darte la placa, firma tu ficha de ingreso. Pero ojo: el intruso también ha pasado por aquí. Revísala bien."
+    },
+    {
+      "tipo": "caza",
+      "fondo": "agencia",
       "quien": "Ficha de ingreso",
       "titulo": "Tu ficha de ingreso",
       "intro": "La ficha tiene 6 faltas. Fíjate también en las mayúsculas.",
       "declaracion": "Barrio: La Alameda, en {andalucía|Andalucía|mayusculas-puntuacion-1}. Día de la prueba: {Lunes|lunes|mayusculas-puntuacion-1}. Quiero ser detective para descubrir la {verdaz|verdad|d-z-finales} y cuidar mi {ciudá|ciudad|d-z-finales}. Quien me {dió|dio|diptongo-monosilabos} esta ficha {fué|fue|diptongo-monosilabos} la directora Robles.",
-      "recompensa": { "texto": "Al pie de la ficha, la directora ha apuntado su número de la suerte: el 5.", "digito": "5" } },
-
-    { "tipo": "candado", "fondo": "agencia", "objeto": "expedientes-revueltos",
+      "recompensa": {
+        "texto": "Al pie de la ficha, la directora ha apuntado su número de la suerte: el 5.",
+        "digito": "5"
+      }
+    },
+    {
+      "tipo": "candado",
+      "fondo": "agencia",
+      "objeto": "expedientes-revueltos",
       "titulo": "El archivador de la directora",
       "instruccion": "El archivador tiene un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
       "codigo": "205",
-      "exito": "Dentro del archivador, envuelta en un pañuelo rojo, está tu placa de detective en prácticas." },
-
-    { "tipo": "relato", "fondo": "agencia", "objeto": "placa-practicas", "personaje": { "id": "robles", "expresion": "contento", "lado": "der" },
+      "exito": "Dentro del archivador, envuelta en un pañuelo rojo, está tu placa de detective en prácticas."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "placa-practicas",
+      "personaje": {
+        "id": "robles",
+        "expresion": "contento",
+        "lado": "der"
+      },
       "quien": "Directora Robles",
-      "texto": "Prueba superada. Bienvenido a la Agencia La Lupa, detective. Desde hoy, tu libreta y tú sois inseparables. Y ahora… alguien tendrá que explicarme quién ha hecho todo esto." },
-
-    { "tipo": "relato", "fondo": "agencia-saboteada", "objeto": "nota-tachon", "personaje": { "id": "lola", "expresion": "sorprendido", "lado": "izq" },
+      "texto": "Prueba superada. Bienvenido a la Agencia La Lupa, detective. Desde hoy, tu libreta y tú sois inseparables. Y ahora… alguien tendrá que explicarme quién ha hecho todo esto."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia-saboteada",
+      "objeto": "nota-tachon",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
       "quien": "Lola",
-      "texto": "¡Mirad la ventana! Hay una nota pegada. Ni una palabra… solo un tachón y unas gafas de sol. El mismo dibujo del expediente. ¿Quién es este tipo?" },
-
-    { "tipo": "relato", "fondo": "calle-alameda", "personaje": { "id": "tachon", "expresion": "burlon", "lado": "der" },
+      "texto": "¡Mirad la ventana! Hay una nota pegada. Ni una palabra… solo un tachón y unas gafas de sol. El mismo dibujo del expediente. ¿Quién es este tipo?"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "calle-alameda",
+      "personaje": {
+        "id": "tachon",
+        "expresion": "burlon",
+        "lado": "der"
+      },
       "quien": "???",
-      "texto": "Bienvenido, novato. Esta vez te he dejado ganar. Pero La Alameda pronto será mía… y no quedará en ella ni una sola tilde. Nos veremos." },
-
-    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "contento", "lado": "izq" },
+      "texto": "Bienvenido, novato. Esta vez te he dejado ganar. Pero La Alameda pronto será mía… y no quedará en ella ni una sola tilde. Nos veremos."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
       "titulo": "Informe para la directora",
       "cabecera": "Termina tu primera página",
       "apuntar": [
         "Escribe 3 o 4 líneas: ¿qué pasó anoche en la agencia y qué has descubierto?",
         "Copia bien escritas tres palabras que te hayan costado.",
         "Enseña tu libreta a la directora para que selle tu expediente."
-      ] },
-
-    { "tipo": "final", "fondo": "plaza-feria", "sello": "¡PRUEBA SUPERADA!", "equipo": ["lola", "mateo", "robles"],
-      "texto": "Así empezó todo. Alguien está llenando La Alameda de faltas… y la Agencia La Lupa tiene un nuevo detective." }
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "plaza-feria",
+      "sello": "¡PRUEBA SUPERADA!",
+      "equipo": [
+        "lola",
+        "mateo",
+        "robles"
+      ],
+      "texto": "Así empezó todo. Alguien está llenando La Alameda de faltas… y la Agencia La Lupa tiene un nuevo detective."
+    }
   ]
 }
