@@ -104,7 +104,9 @@ function pizAjustar() {
   const c = $("#pizCont"), pr = $$("#pizCont .piz-pruebas").at(-1);
   if (!c || !pr) return;
   let tam = parseFloat(getComputedStyle(pr.querySelector(".piz-p")).fontSize);
-  while (c.scrollHeight > c.clientHeight + 1 && tam > 20) { tam -= 2; pr.style.setProperty("--tam", `${tam}px`); }
+  // alto real de lo escrito, dejando sitio para los círculos de tiza (sobresalen unos 12 px por arriba y por abajo)
+  const alto = () => [...c.children].reduce((h, el) => h + el.offsetHeight + parseFloat(getComputedStyle(el).marginTop) + parseFloat(getComputedStyle(el).marginBottom), 0);
+  while (alto() > c.clientHeight - 22 && tam > 20) { tam -= 2; pr.style.setProperty("--tam", `${tam}px`); }
 }
 
 /* ── Trazos de tiza a mano alzada (SVG) ──────────────────────── */
