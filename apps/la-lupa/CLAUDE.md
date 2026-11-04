@@ -3,6 +3,8 @@
 Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alumno es detective del equipo de la agencia, junto a Lola y Mateo, con la directora Robles al frente, en el barrio ficticio de La Alameda. Cada caso trabaja una o varias reglas: encontrar y corregir faltas hace avanzar la investigación. Modo individual.
 
 - **Lee primero `PLAN.md`**: fases, estado y decisiones.
+- `BITACORA.md`: lo hablado con Pablo, sesión a sesión. **Actualízala** al terminar cada tarea importante.
+- `TEMPORADA-1.md`: trama de la temporada de 5.º (hilo conductor, piloto de evaluación inicial, El Tachón). `LIBRETA.md`: cómo se usa la libreta de papel del alumno.
 - **Referencia de experiencia:** `docs/investigacion/sherlock-ort-experiencia.md`. Describe cómo se vive Sherlock Ort al jugarlo: escenas a pantalla completa, ritmo lento, retos dentro de la imagen. La v1 de este juego fracasó por no tenerlo en cuenta.
 - `DISEÑO.md` resume la investigación didáctica y curricular.
 - Identidad propia: no se copia nada de Sherlock Ort (nombre, personajes, textos, imágenes ni listas de palabras). Solo se toma la idea de la mecánica.

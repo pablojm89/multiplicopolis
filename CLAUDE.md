@@ -28,6 +28,13 @@ Cada sesión trabaja en **una sola cosa**:
 | `AGENTS.md` | Instrucciones para otros agentes (ChatGPT/Codex): hoy, el encargo de ilustraciones | Casi nunca |
 | `.claude/serve.js` | Servidor estático local en el puerto 4321 | Para probar en local |
 
+## Forma de trabajar con Pablo
+
+- **Todo lo hablado queda en GitHub**: las decisiones en el `PLAN.md` del juego y el contexto en su `BITACORA.md`. Actualízalos al terminar cada tarea importante; Pablo no tiene por qué recordarlo.
+- **Antes de diseñar a partir de un referente, pruébalo de verdad** (jugarlo o abrirlo), no te quedes en resúmenes.
+- Pablo suele revisar desde el móvil: enséñale los resultados como Artifact o con capturas.
+- El arte lo hace GPT (issues de GitHub; entrega zips a través de Pablo).
+
 ## Convenciones
 
 - Web estática sin build ni dependencias: HTML + JS vanilla + CSS. Nada de npm salvo que se decida explícitamente.

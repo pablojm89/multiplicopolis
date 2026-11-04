@@ -18,6 +18,9 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] ~~Probar el prototipo v1~~ → Pablo lo descarta: no transmite la experiencia de Sherlock Ort. Se juega Sherlock Ort en directo (`docs/investigacion/sherlock-ort-experiencia.md`)
 - [x] **v2**: motor de escenas 16:9 (pantalla completa, texto que se escribe solo, retos dentro de la escena, pantallas de pista conseguida / pista falsa, HUD de objetos) y caso 1 rehecho
 - [x] Arte del caso 1: 36 ilustraciones de GPT integradas (issue #1). Retocado el candado de `caja-musica`, que traía números dibujados
+- [x] Pablo prueba el caso 1 con arte: «me gusta bastante» (4/11)
+- [ ] **Libreta de papel** como herramienta central (propuesta en `LIBRETA.md`): modo papel, momentos «¡Apúntalo!», plantilla imprimible, sello de la directora, rúbrica en la zona del maestro
+- [ ] **Trama de temporada** (borrador en `TEMPORADA-1.md`): piloto «La prueba de acceso» (evaluación inicial), ganchos por número de episodio y final cerrado
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`
 
