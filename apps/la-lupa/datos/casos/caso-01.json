@@ -323,7 +323,8 @@
       "recompensa": {
         "texto": "Inés recuerda: «Ramón me pidió una caja con candado. Eran las 3». ",
         "digito": "3"
-      }
+      },
+      "contador": "Ramo"
     },
     {
       "tipo": "relato",

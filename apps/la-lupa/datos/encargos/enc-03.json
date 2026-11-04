@@ -1,0 +1,64 @@
+{
+  "id": "enc-03",
+  "numero": "E03",
+  "titulo": "La postal sin dueña",
+  "resumen": "Dentro de un libro devuelto a la biblioteca, Herminia ha encontrado una postal antigua rota en tiras. Quiere devolverla, pero las partes se han desordenado y no sabe de quién es.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Herminia, la bibliotecaria",
+    "rango": 0,
+    "contenido": "La carta y la postal: sus partes y para qué sirven",
+    "dificultad": 1
+  },
+  "escenas": [
+    { "tipo": "portada", "fondo": "biblioteca" },
+    {
+      "tipo": "relato", "fondo": "biblioteca", "quien": "Herminia, la bibliotecaria",
+      "personaje": { "id": "herminia", "expresion": "sorprendido", "lado": "der" },
+      "texto": "Detectives, mirad lo que había dentro de un libro de viajes que alguien ha devuelto: una postal antigua, rota en tiras. Alguien la guardaba como un tesoro y me gustaría devolvérsela. El problema es que las tiras se han mezclado y no sé ni quién la escribió ni para quién era."
+    },
+    {
+      "tipo": "ordena", "fondo": "biblioteca", "titulo": "Las tiras de la postal",
+      "instruccion": "Toca las tiras en el orden en que se escribe una carta o una postal, de arriba abajo.",
+      "criterio": "4.2",
+      "pista": "Una carta empieza con el lugar y la fecha; sigue con el saludo y lo que se cuenta; y termina con la despedida y la firma.",
+      "fragmentos": [
+        "Cádiz, 12 de agosto de 1987",
+        "Querida Encarna:",
+        "Te escribo desde la playa de la Caleta. Por las tardes vemos el atardecer junto al castillo y por las noches cenamos pescado frito. ¡Me acuerdo mucho de ti!",
+        "Un abrazo muy fuerte,",
+        "Rafael"
+      ]
+    },
+    {
+      "tipo": "pregunta", "fondo": "biblioteca", "titulo": "¿De quién es la postal?",
+      "quien": "Postal encontrada en un libro de viajes",
+      "documento": "Cádiz, 12 de agosto de 1987\n\nQuerida Encarna:\nTe escribo desde la playa de la Caleta. Por las tardes vemos el atardecer junto al castillo y por las noches cenamos pescado frito. ¡Me acuerdo mucho de ti!\n\nUn abrazo muy fuerte,\nRafael",
+      "preguntas": [
+        { "pregunta": "¿Quién escribió la postal?", "opciones": ["Encarna", "Rafael", "Herminia"], "correcta": 1, "criterio": "4.1", "pista": "Quien escribe una carta pone su nombre al final: es la firma.", "explicacion": "La firma, al final, dice quién escribe: Rafael. El saludo, al principio, dice a quién: a Encarna." },
+        { "pregunta": "¿Desde dónde escribe Rafael?", "opciones": ["Desde Cádiz", "Desde La Alameda", "Desde un barco"], "correcta": 0, "criterio": "4.1", "pista": "Mira la primera línea de la postal." },
+        { "pregunta": "¿Por qué crees que Rafael le escribe a Encarna?", "opciones": ["Porque la echa de menos y quiere contarle su viaje", "Porque quiere venderle un castillo", "Porque le debe dinero"], "correcta": 0, "criterio": "4.1", "explicacion": "Rafael cuenta lo que hace y termina con «¡Me acuerdo mucho de ti!». Las cartas y las postales sirven para comunicarse con alguien que está lejos." },
+        { "pregunta": "¿En qué se diferencia una postal de una carta?", "opciones": ["La postal no lleva saludo ni despedida", "La postal es corta, lleva una foto y se envía sin sobre", "La postal solo se escribe en verano"], "correcta": 1, "criterio": "4.2", "explicacion": "Las dos tienen las mismas partes, pero la postal es más corta: lleva una foto por delante y el texto y la dirección por detrás, sin sobre." }
+      ]
+    },
+    {
+      "tipo": "escribe", "fondo": "biblioteca", "titulo": "Una nota para Encarna",
+      "instruccion": "Herminia quiere dejarle una nota a Encarna para avisarla de que ha aparecido su postal. Ayúdala con el principio y el final.",
+      "personaje": { "id": "mateo", "expresion": "neutral", "lado": "izq" },
+      "items": [
+        { "enunciado": "Escribe un saludo para empezar la nota a Encarna.", "respuestas": ["Querida Encarna:", "Estimada Encarna:", "Hola, Encarna:", "Querida amiga:", "Estimada amiga:", "Hola, amiga:", "Querida lectora:", "Estimada lectora:", "Buenos días, Encarna:", "Buenas tardes, Encarna:"], "criterio": "5.1", "pista": "Empieza con «Querida» o con «Hola», pon el nombre y termina con dos puntos (:). Con «Hola», separa el nombre con una coma.", "explicacion": "Después del saludo de una carta van dos puntos, no una coma. Y lo que sigue empieza en la línea de abajo, con mayúscula." },
+        { "enunciado": "Escribe una despedida corta para terminar la nota (sin la firma).", "respuestas": ["Un abrazo,", "Un abrazo", "Un abrazo muy fuerte,", "Un abrazo muy fuerte", "Un fuerte abrazo,", "Un fuerte abrazo", "Un saludo,", "Un saludo", "Un cordial saludo,", "Un cordial saludo", "Saludos,", "Saludos", "Un beso,", "Un beso", "Besos,", "Besos", "Muchos besos,", "Muchos besos", "Hasta pronto,", "Hasta pronto", "Atentamente,", "Atentamente"], "criterio": "5.1", "pista": "Piensa en cómo terminó Rafael su postal. Con dos o tres palabras basta.", "explicacion": "La despedida cierra la carta con cariño o con educación. Después, en la línea de abajo, va la firma." },
+        { "enunciado": "¿Cómo se llama la última parte de una carta, donde va el nombre de quien escribe?", "respuestas": ["la firma", "firma"], "criterio": "4.2", "pista": "Es lo que haces cuando pones tu nombre al final de un examen o de un documento.", "explicacion": "La firma. Así quedan las partes: lugar y fecha, saludo, cuerpo, despedida y firma." }
+      ]
+    },
+    {
+      "tipo": "relato", "fondo": "biblioteca", "quien": "Herminia, la bibliotecaria",
+      "personaje": { "id": "herminia", "expresion": "contento", "lado": "der" },
+      "texto": "¡Era de Encarna, la lectora de los jueves, la que siempre se lleva libros de viajes! Rafael es su hermano, que vive en Cádiz. Usaba la postal como marcapáginas y la perdió hace años. Se ha emocionado tanto que esta tarde le va a escribir una carta. Con todas sus partes, por supuesto."
+    },
+    {
+      "tipo": "final", "fondo": "biblioteca", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "herminia"],
+      "texto": "La postal de Rafael vuelve a estar entera: lugar y fecha, saludo, cuerpo, despedida y firma, cada cosa en su sitio. Y ya ha vuelto a manos de su dueña."
+    }
+  ]
+}

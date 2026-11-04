@@ -43,7 +43,7 @@ Marcado de faltas: `{mal|bien}` o `{mal|bien|etiqueta}`. La etiqueta es un id de
 | `caza` | `declaracion` (documento: periódico, ficha, nota…) con faltas, `objeto` opcional, `recompensa` | 9.2 + 5.1 |
 | `apunta` | `cabecera`, `apuntar[]`: momento de libreta. En modo papel el alumno lo escribe en su libreta; en modo digital, en el juego | — (lo valora el maestro con el sello) |
 | `hipotesis` | `opciones[]`, `correcta`, `acierto`, `fallo` | — |
-| `clasifica` | `categorias[]`, `palabras[{p, cat, silabas | pista}]` (`pista` es el consejo si falla; si no hay, se usan las sílabas) | 9.1 |
+| `clasifica` | `categorias[]`, `palabras[{p, cat, silabas | pista}]` (`pista` es el consejo si falla; si no hay, se usan las sílabas), `contador` opcional («Ramo», «Azulejo»…; por defecto «Ficha»), `criterio` opcional | 9.1 (o `criterio`) |
 | `huecos` | `palabras[{p, pos, letra, opciones[], pista, regla?}]`: a cada palabra le falta una letra y se elige cuál (nunca se ve una forma mal escrita) | 5.1 |
 | `manchas` | `palabras[{p, pos (índice de la vocal tapada), silabas}]` | 5.1 |
 | `careo` | `declaracion` con `{mal|bien|carta}`, `aclarado` (texto al terminar) | 9.2 + 9.1 + 5.1 |
