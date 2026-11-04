@@ -159,3 +159,5 @@ Arreglados al revisar:
   - el menú de cada sala muestra el aparato de cada ejercicio, y la máquina sin tilde del Pupitre es ya el dibujo;
   - el carné de la Academia es la tarjeta dibujada, con la foto del detective y un sello de oro en cada uno de sus 8 círculos (uno por sala).
 - **Arreglado**: en 21 relatos con objeto, el bocadillo tapaba parte del objeto. Ahora el objeto se ajusta al hueco libre y, si queda pequeño, sale el botón «🔍 Ver en grande».
+
+**Robles, corregido por GPT por GitHub.** GPT ya puede escribir en el repo y ha subido la entrega a su rama `gpt/arte-lotes-6-7-robles-aprobado` (solo `arte/entrega/` + manifiesto; las 23 firmas son correctas). Las 5 imágenes con la transparencia rota vienen ya limpias y conservan mejor los rizos que el recorte automático, así que lo sustituyen; las otras 18 eran idénticas. La rama de GPT no se fusiona: se sacan los PNG, se convierten y se borran. Instrucciones de entrega para GPT actualizadas en `AGENTS.md`.
