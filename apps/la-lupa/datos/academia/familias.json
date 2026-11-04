@@ -1,0 +1,403 @@
+{
+  "_nota": "L3 · La centrifugadora de palabras (salas/laboratorio-extra.js). Cada familia: palabra raíz («raiz», partida en «piezas»: raíz | terminación), la letra dudosa («letra», en la posición «pos» de la raíz) y 2-4 derivadas. En cada derivada, «letra» es la que lleva (o «sin h») en la posición «pos» (si es «sin h», donde iría), «opciones» las que se ofrecen, «pista» lo que se pide y «frase» una frase con hueco (si falta, se usa la de palabras.json). Si la letra cambia respecto a la raíz, «porque» lo explica. Validador: herramientas/validar_familias.py",
+  "familias": [
+    {
+      "id": "hierro", "regla": "h-1", "raiz": "hierro", "piezas": ["hierr", "o"], "letra": "h", "pos": 0,
+      "nota": "La h de hierro pasa a toda la familia. El diptongo ie se convierte en e (herr-), pero la h se queda.",
+      "derivadas": [
+        { "p": "herrero", "pista": "La persona que trabaja el hierro en la fragua", "frase": "El ___ golpea el metal al rojo vivo.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "herrería", "pista": "El taller donde se trabaja el hierro", "frase": "En la ___ del barrio arreglan las rejas de las ventanas.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "herradura", "pista": "La pieza de hierro que se clava en los cascos del caballo", "frase": "Dicen que encontrar una ___ trae buena suerte.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 }
+      ]
+    },
+    {
+      "id": "hueso", "regla": "h-1", "raiz": "hueso", "piezas": ["hues", "o"], "letra": "h", "pos": 0,
+      "nota": "Hueso lleva h porque empieza por ue-. Si en la familia desaparece el ue, desaparece también la h: huesudo, pero óseo y osamenta.",
+      "derivadas": [
+        { "p": "huesudo", "pista": "Que tiene los huesos muy marcados", "frase": "El perro callejero estaba flaco y ___.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "óseo", "pista": "De los huesos o parecido a un hueso", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Ya no empieza por ue-: sin el diptongo ue, se va la h." },
+        { "p": "osamenta", "pista": "El conjunto de los huesos de un esqueleto", "frase": "En el museo vimos la ___ completa de un dinosaurio.", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Ya no empieza por ue-: sin el diptongo ue, se va la h." }
+      ]
+    },
+    {
+      "id": "huevo", "regla": "h-1", "raiz": "huevo", "piezas": ["huev", "o"], "letra": "h", "pos": 0,
+      "nota": "Huevo lleva h por empezar por ue-. Cuando el ue desaparece, se va la h… pero la v se queda: huevera, óvalo, ovíparo.",
+      "derivadas": [
+        { "p": "huevera", "pista": "El recipiente donde se guardan los huevos", "frase": "Coloca los huevos en la ___ de la nevera.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "óvalo", "pista": "Una figura con forma de huevo", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Sin el diptongo ue, desaparece la h (la v sí se hereda)." },
+        { "p": "ovíparo", "pista": "El animal que nace de un huevo", "frase": "La gallina es un animal ___: sus crías salen de huevos.", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Sin el diptongo ue, desaparece la h (la v sí se hereda)." }
+      ]
+    },
+    {
+      "id": "hielo", "regla": "h-1", "raiz": "hielo", "piezas": ["hiel", "o"], "letra": "h", "pos": 0,
+      "nota": "La h de hielo se hereda aunque el ie se convierta en e: helado, heladería. Y se mantiene detrás de un prefijo: deshielo.",
+      "derivadas": [
+        { "p": "helado", "pista": "El dulce frío que se toma en verano", "frase": "En verano me encanta tomar un ___ de limón.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "heladería", "pista": "La tienda donde venden helados", "frase": "La ___ de la plaza abre en primavera.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "deshielo", "pista": "Cuando el hielo y la nieve se derriten", "frase": "Con el ___, los ríos de la sierra bajan llenos.", "opciones": ["h", "sin h"], "letra": "h", "pos": 3 }
+      ]
+    },
+    {
+      "id": "hueco", "regla": "h-1", "raiz": "hueco", "piezas": ["huec", "o"], "letra": "h", "pos": 0,
+      "nota": "Mientras está el ue, está la h, aunque vaya en medio: ahuecar. Si el ue desaparece, se va la h: oquedad.",
+      "derivadas": [
+        { "p": "ahuecar", "pista": "Dejar algo hueco o más mullido", "frase": "Antes de dormir, Lola siempre se pone a ___ la almohada.", "opciones": ["h", "sin h"], "letra": "h", "pos": 1 },
+        { "p": "oquedad", "pista": "Un espacio hueco dentro de algo", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Sin el diptongo ue, desaparece la h. Y la c se escribe qu delante de e para seguir sonando igual." }
+      ]
+    },
+    {
+      "id": "huerfano", "regla": "h-1", "raiz": "huérfano", "piezas": ["huérfan", "o"], "letra": "h", "pos": 0,
+      "nota": "Huérfano empieza por ue-, así que lleva h. En orfanato y orfandad ya no hay ue: se escriben sin h.",
+      "derivadas": [
+        { "p": "orfanato", "pista": "La casa donde viven y se cuida a niños que no tienen padres", "frase": "Oliver Twist pasó su infancia en un ___ de Inglaterra.", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Ya no empieza por ue-: sin el diptongo ue, se va la h." },
+        { "p": "orfandad", "pista": "La situación de quien se ha quedado sin padres", "frase": "El cuento habla de la ___ de dos hermanos que vivían con su tía.", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Ya no empieza por ue-: sin el diptongo ue, se va la h." }
+      ]
+    },
+    {
+      "id": "humo", "regla": "h-1", "raiz": "humo", "piezas": ["hum", "o"], "letra": "h", "pos": 0,
+      "nota": "Humo empieza por hum- + vocal, y toda su familia conserva la h.",
+      "derivadas": [
+        { "p": "humareda", "pista": "Mucho humo junto", "frase": "La barbacoa levantó una ___ enorme.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "humear", "pista": "Echar humo", "frase": "El chocolate caliente empezó a ___ en la taza.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 }
+      ]
+    },
+    {
+      "id": "hacer", "regla": "h-1", "raiz": "hacer", "piezas": ["hac", "er"], "letra": "h", "pos": 0,
+      "nota": "Todas las formas de hacer llevan h, y la h se queda aunque se le ponga un prefijo delante: deshacer, rehacer.",
+      "derivadas": [
+        { "p": "deshacer", "pista": "Lo contrario de hacer", "frase": "Al volver del viaje tengo que ___ la maleta.", "opciones": ["h", "sin h"], "letra": "h", "pos": 3 },
+        { "p": "rehacer", "pista": "Volver a hacer algo", "frase": "El dibujo me salió torcido y lo tuve que ___.", "opciones": ["h", "sin h"], "letra": "h", "pos": 2 }
+      ]
+    },
+    {
+      "id": "hoja", "regla": "h-1", "raiz": "hoja", "piezas": ["hoj", "a"], "letra": "h", "pos": 0,
+      "nota": "La h de hoja pasa a toda la familia, también detrás de des-: hojarasca, deshojar. ¡Ojo!: ojear (mirar por encima) es de la familia de ojo, sin h.",
+      "derivadas": [
+        { "p": "hojarasca", "pista": "El montón de hojas secas caídas", "frase": "En otoño, el parque se llena de ___.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "deshojar", "pista": "Quitar las hojas a una planta o a una flor", "frase": "El viento de otoño empezó a ___ los árboles de la alameda.", "opciones": ["h", "sin h"], "letra": "h", "pos": 3 }
+      ]
+    },
+    {
+      "id": "hormiga", "regla": "h-1", "raiz": "hormiga", "piezas": ["hormig", "a"], "letra": "h", "pos": 0,
+      "nota": "La h de hormiga se hereda. Y fíjate: para que la g siga sonando igual delante de e, i, se escribe gu: hormiguero, hormiguita.",
+      "derivadas": [
+        { "p": "hormiguero", "pista": "La casa de las hormigas", "frase": "Encontramos un ___ debajo de una piedra.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
+        { "p": "hormiguita", "pista": "Una hormiga pequeña", "frase": "Una ___ cargaba con una miga de pan.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 }
+      ]
+    },
+    {
+      "id": "nube", "regla": "b-v-1", "raiz": "nube", "piezas": ["nub", "e"], "letra": "b", "pos": 2,
+      "nota": "La b de nube se hereda en toda la familia: nublado, nubarrón. En nublado, además, el grupo bl siempre va con b.",
+      "derivadas": [
+        { "p": "nublado", "pista": "Cómo está el cielo cuando lo tapan las nubes", "frase": "Hoy el cielo está ___ y gris.", "opciones": ["b", "v"], "letra": "b", "pos": 2 },
+        { "p": "nubarrón", "pista": "Una nube grande y oscura", "frase": "Un ___ negro anunciaba tormenta.", "opciones": ["b", "v"], "letra": "b", "pos": 2 }
+      ]
+    },
+    {
+      "id": "vaca", "regla": "b-v-1", "raiz": "vaca", "piezas": ["vac", "a"], "letra": "v", "pos": 0,
+      "nota": "La v de vaca pasa a toda la familia. Y la c se convierte en qu delante de e para seguir sonando /k/: vaquero, pero vacuno.",
+      "derivadas": [
+        { "p": "vaquero", "pista": "La persona que cuida las vacas", "frase": "El ___ llevó el ganado hasta el prado.", "opciones": ["b", "v"], "letra": "v", "pos": 0 },
+        { "p": "vacuno", "pista": "Que es de vacas, bueyes o toros", "frase": "El ganado ___ pasta tranquilo en la dehesa.", "opciones": ["b", "v"], "letra": "v", "pos": 0 }
+      ]
+    },
+    {
+      "id": "blanco", "regla": "b-v-1", "raiz": "blanco", "piezas": ["blanc", "o"], "letra": "b", "pos": 0,
+      "nota": "Bl siempre va con b, y la familia de blanco la hereda: blancura, blanquear (la c pasa a qu delante de e).",
+      "derivadas": [
+        { "p": "blancura", "pista": "La cualidad de lo que es muy blanco", "frase": "La ___ de las casas encaladas deslumbra al mediodía.", "opciones": ["b", "v"], "letra": "b", "pos": 0 },
+        { "p": "blanquear", "pista": "Pintar de blanco una pared, encalarla", "frase": "En primavera, mi abuela sale a ___ la fachada.", "opciones": ["b", "v"], "letra": "b", "pos": 0 }
+      ]
+    },
+    {
+      "id": "nuevo", "regla": "b-v-1", "raiz": "nuevo", "piezas": ["nuev", "o"], "letra": "v", "pos": 3,
+      "nota": "Aunque el ue se convierta en o, la v se queda en toda la familia: novedad, renovar.",
+      "derivadas": [
+        { "p": "novedad", "pista": "Algo nuevo que acaba de llegar o de pasar", "frase": "La gran ___ del barrio es la biblioteca.", "opciones": ["b", "v"], "letra": "v", "pos": 2 },
+        { "p": "renovar", "pista": "Volver a dejar algo como nuevo", "frase": "El ayuntamiento va a ___ los bancos del parque.", "opciones": ["b", "v"], "letra": "v", "pos": 4 }
+      ]
+    },
+    {
+      "id": "invierno", "regla": "b-v-1", "raiz": "invierno", "piezas": ["inviern", "o"], "letra": "v", "pos": 2,
+      "nota": "Después de n va siempre v, y además la v se hereda: invernal, invernadero (el ie se convierte en e).",
+      "derivadas": [
+        { "p": "invernal", "pista": "Propio del invierno", "frase": "Esta mañana hacía un frío ___.", "opciones": ["b", "v"], "letra": "v", "pos": 2 },
+        { "p": "invernadero", "pista": "Lugar cerrado y cubierto donde las plantas crecen protegidas del frío", "frase": "Los tomates crecen dentro de un ___ de plástico.", "opciones": ["b", "v"], "letra": "v", "pos": 2 }
+      ]
+    },
+    {
+      "id": "bello", "regla": "b-v-1", "tambien": ["ll-y"], "raiz": "bello", "piezas": ["bell", "o"], "letra": "b", "pos": 0,
+      "nota": "La b de bello se hereda: belleza, embellecer. En embellecer, además, antes de b va siempre m.",
+      "derivadas": [
+        { "p": "belleza", "pista": "La cualidad de lo que es bello", "frase": "La ___ del patio está en sus macetas llenas de flores.", "opciones": ["b", "v"], "letra": "b", "pos": 0 },
+        { "p": "embellecer", "pista": "Poner bello algo", "frase": "Las macetas de geranios van a ___ la fachada.", "opciones": ["b", "v"], "letra": "b", "pos": 2 }
+      ]
+    },
+    {
+      "id": "vivir", "regla": "b-v-1", "raiz": "vivir", "piezas": ["viv", "ir"], "letra": "v", "pos": 2,
+      "nota": "Vivir es una de las excepciones de los verbos en -bir: va con v, y toda su familia la hereda. Y después de n, v: convivir.",
+      "derivadas": [
+        { "p": "vivienda", "pista": "El lugar donde vive una persona", "frase": "En este edificio hay una ___ en cada planta.", "opciones": ["b", "v"], "letra": "v", "pos": 2 },
+        { "p": "convivir", "pista": "Vivir junto con otros", "frase": "En la agencia aprendemos a ___ con todo el equipo.", "opciones": ["b", "v"], "letra": "v", "pos": 3 }
+      ]
+    },
+    {
+      "id": "viento", "regla": "b-v-1", "raiz": "viento", "piezas": ["vient", "o"], "letra": "v", "pos": 0,
+      "nota": "La v de viento se hereda aunque el ie se convierta en e: ventarrón, ventisca.",
+      "derivadas": [
+        { "p": "ventarrón", "pista": "Un viento muy fuerte", "frase": "Un ___ se llevó el sombrero de Robles.", "opciones": ["b", "v"], "letra": "v", "pos": 0 },
+        { "p": "ventisca", "pista": "Una tormenta de viento y nieve", "frase": "La ___ dejó la sierra cubierta de blanco.", "opciones": ["b", "v"], "letra": "v", "pos": 0 }
+      ]
+    },
+    {
+      "id": "barco", "regla": "b-v-1", "raiz": "barco", "piezas": ["barc", "o"], "letra": "b", "pos": 0,
+      "nota": "La b de barco pasa a la familia: barquero, embarcar. En embarcar, antes de b va m; y en barquero la c se escribe qu delante de e.",
+      "derivadas": [
+        { "p": "barquero", "pista": "La persona que lleva una barca", "frase": "El ___ nos cruzó al otro lado del río.", "opciones": ["b", "v"], "letra": "b", "pos": 0 },
+        { "p": "embarcar", "pista": "Subir a un barco", "frase": "Los pasajeros van a ___ en el puerto de Cádiz.", "opciones": ["b", "v"], "letra": "b", "pos": 2 }
+      ]
+    },
+    {
+      "id": "arbol", "regla": "b-v-1", "raiz": "árbol", "piezas": ["árbol"], "letra": "b", "pos": 2,
+      "nota": "La b de árbol se hereda: arboleda, arbolito. La tilde, en cambio, no se hereda: cada palabra sigue su propia regla de acentuación.",
+      "derivadas": [
+        { "p": "arboleda", "pista": "Un lugar con muchos árboles", "frase": "Paseamos por la ___ que hay junto al río.", "opciones": ["b", "v"], "letra": "b", "pos": 2 },
+        { "p": "arbolito", "pista": "Un árbol pequeño", "frase": "Plantamos un ___ en el patio del colegio.", "opciones": ["b", "v"], "letra": "b", "pos": 2 }
+      ]
+    },
+    {
+      "id": "caza", "regla": "c-z-s", "raiz": "caza", "piezas": ["caz", "a"], "letra": "z", "pos": 2,
+      "nota": "La familia de caza conserva la z delante de a, o, u (cazador), pero delante de e, i se escribe c: cacería.",
+      "derivadas": [
+        { "p": "cazador", "pista": "La persona que caza", "frase": "El ___ del cuento no encontró al lobo.", "opciones": ["z", "c"], "letra": "z", "pos": 2 },
+        { "p": "cacería", "pista": "Una salida de caza con muchas personas", "frase": "El rey organizó una ___ en el bosque.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "lapiz", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "lápiz", "piezas": ["lápiz"], "letra": "z", "pos": 4,
+      "nota": "Lápiz termina en z (su plural es lápices). En la familia, delante de e, la z pasa a c: lápices, lapicero.",
+      "derivadas": [
+        { "p": "lápices", "pista": "Más de un lápiz", "frase": "Tengo seis ___ de colores en el estuche.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "lapicero", "pista": "Otra forma de llamar al lápiz (o al bote donde se guardan)", "frase": "Se me ha roto la punta del ___.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "pez", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "pez", "piezas": ["pez"], "letra": "z", "pos": 2,
+      "nota": "Pez termina en z, pero delante de e la z pasa a c: peces, pececillo.",
+      "derivadas": [
+        { "p": "peces", "pista": "Más de un pez", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "pececillo", "pista": "Un pez pequeño", "frase": "Un ___ naranja nadaba en la pecera.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "luz", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "luz", "piezas": ["luz"], "letra": "z", "pos": 2,
+      "nota": "Luz termina en z; en su familia, delante de e, la z pasa a c: luces, lucero.",
+      "derivadas": [
+        { "p": "luces", "pista": "Más de una luz", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "lucero", "pista": "Una estrella grande y brillante", "frase": "El ___ del alba brilla justo antes de que salga el sol.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "cruz", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "cruz", "piezas": ["cruz"], "letra": "z", "pos": 3,
+      "nota": "La z de cruz se queda delante de a (cruzar), pero delante de e pasa a c (cruces). ¡Las dos son de la misma familia!",
+      "derivadas": [
+        { "p": "cruzar", "pista": "Pasar al otro lado de una calle o de un río", "frase": "Mira a los dos lados antes de ___ la calle.", "opciones": ["z", "c"], "letra": "z", "pos": 3 },
+        { "p": "cruces", "pista": "Más de una cruz", "frase": "El pirata dibujó dos ___ en el mapa del tesoro.", "opciones": ["z", "c"], "letra": "c", "pos": 3, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "taza", "regla": "c-z-s", "raiz": "taza", "piezas": ["taz", "a"], "letra": "z", "pos": 2,
+      "nota": "Con a, o, u se queda la z (tazón); con e, i se escribe c (tacita).",
+      "derivadas": [
+        { "p": "tazón", "pista": "Una taza grande, sin asa", "frase": "Desayuno un ___ de leche con cacao.", "opciones": ["z", "c"], "letra": "z", "pos": 2 },
+        { "p": "tacita", "pista": "Una taza pequeña", "frase": "La abuela nos sirvió el chocolate en una ___ de porcelana.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de i, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "feliz", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "feliz", "piezas": ["feliz"], "letra": "z", "pos": 4,
+      "nota": "Feliz termina en z; delante de e, i pasa a c: felices, felicidad.",
+      "derivadas": [
+        { "p": "felices", "pista": "Plural de feliz", "frase": "Todos estábamos ___ al resolver el caso.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "felicidad", "pista": "Lo que se siente cuando se es feliz", "frase": "La ___ de Lola se notaba en su sonrisa.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de i, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "andaluz", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "andaluz", "piezas": ["andaluz"], "letra": "z", "pos": 6,
+      "nota": "La z de andaluz se queda delante de a (andaluza) y pasa a c delante de e (andaluces).",
+      "derivadas": [
+        { "p": "andaluza", "pista": "Una mujer de Andalucía", "frase": "Mi vecina es ___, de Jaén.", "opciones": ["z", "c"], "letra": "z", "pos": 6 },
+        { "p": "andaluces", "pista": "Las personas de Andalucía", "frase": "Los ___ celebramos nuestro día el 28 de febrero.", "opciones": ["z", "c"], "letra": "c", "pos": 6, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "zapato", "regla": "c-z-s", "raiz": "zapato", "piezas": ["zapat", "o"], "letra": "z", "pos": 0,
+      "nota": "Za, zo, zu van con z: toda la familia de zapato empieza por za- y la conserva.",
+      "derivadas": [
+        { "p": "zapatero", "pista": "La persona que arregla zapatos", "frase": "El ___ me cambió la suela de las botas.", "opciones": ["z", "c"], "letra": "z", "pos": 0 },
+        { "p": "zapatilla", "pista": "Calzado ligero y cómodo para hacer deporte o estar en casa", "frase": "Se me ha desatado el cordón de la ___.", "opciones": ["z", "c"], "letra": "z", "pos": 0 }
+      ]
+    },
+    {
+      "id": "cereza", "regla": "c-z-s", "raiz": "cereza", "piezas": ["cerez", "a"], "letra": "z", "pos": 4,
+      "nota": "La z de cereza va delante de a y de o en la familia, así que se queda: cerezo, cerezal.",
+      "derivadas": [
+        { "p": "cerezo", "pista": "El árbol que da cerezas", "frase": "En primavera, el ___ se llena de flores blancas.", "opciones": ["z", "c"], "letra": "z", "pos": 4 },
+        { "p": "cerezal", "pista": "Un terreno con muchos cerezos", "frase": "Detrás de la casa del pueblo hay un ___ enorme.", "opciones": ["z", "c"], "letra": "z", "pos": 4 }
+      ]
+    },
+    {
+      "id": "voz", "regla": "c-z-s", "tambien": ["d-z-finales"], "raiz": "voz", "piezas": ["voz"], "letra": "z", "pos": 2,
+      "nota": "Voz termina en z; delante de e, pasa a c: voces, vocecita.",
+      "derivadas": [
+        { "p": "voces", "pista": "Más de una voz", "frase": "Desde el patio se oían las ___ de los niños.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." },
+        { "p": "vocecita", "pista": "Una voz pequeña y suave", "frase": "El ratón del cuento hablaba con una ___ muy aguda.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de e, la z se convierte en c: ce, ci." }
+      ]
+    },
+    {
+      "id": "lazo", "regla": "c-z-s", "raiz": "lazo", "piezas": ["laz", "o"], "letra": "z", "pos": 2,
+      "nota": "Delante de a se queda la z (enlazar); delante de i, c (lacito).",
+      "derivadas": [
+        { "p": "lacito", "pista": "Un lazo pequeño", "frase": "La caja del regalo llevaba un ___ rojo.", "opciones": ["z", "c"], "letra": "c", "pos": 2, "porque": "Delante de i, la z se convierte en c: ce, ci." },
+        { "p": "enlazar", "pista": "Unir una cosa con otra, como con un lazo", "frase": "Hay que ___ las dos cuerdas con un buen nudo.", "opciones": ["z", "c"], "letra": "z", "pos": 4 }
+      ]
+    },
+    {
+      "id": "calle", "regla": "ll-y", "raiz": "calle", "piezas": ["call", "e"], "letra": "ll", "pos": 2,
+      "nota": "La ll de calle pasa a toda su familia: callejón, callejero.",
+      "derivadas": [
+        { "p": "callejón", "pista": "Una calle estrecha", "frase": "El ladrón huyó por un ___ oscuro.", "opciones": ["ll", "y"], "letra": "ll", "pos": 2 },
+        { "p": "callejero", "pista": "Que vive o anda por la calle", "frase": "Un gato ___ duerme cada noche en el portal.", "opciones": ["ll", "y"], "letra": "ll", "pos": 2 }
+      ]
+    },
+    {
+      "id": "lluvia", "regla": "ll-y", "tambien": ["b-v-1"], "raiz": "lluvia", "piezas": ["lluvi", "a"], "letra": "ll", "pos": 0,
+      "nota": "Toda la familia de lluvia hereda la ll (y también la v): lluvioso, llover, llovizna.",
+      "derivadas": [
+        { "p": "lluvioso", "pista": "Con mucha lluvia", "frase": "Noviembre fue un mes muy ___.", "opciones": ["ll", "y"], "letra": "ll", "pos": 0 },
+        { "p": "llover", "pista": "Caer agua de las nubes", "frase": "Parece que va a ___ esta tarde.", "opciones": ["ll", "y"], "letra": "ll", "pos": 0 },
+        { "p": "llovizna", "pista": "Una lluvia muy fina", "frase": "Cayó una ___ suave toda la mañana.", "opciones": ["ll", "y"], "letra": "ll", "pos": 0 }
+      ]
+    },
+    {
+      "id": "silla", "regla": "ll-y", "raiz": "silla", "piezas": ["sill", "a"], "letra": "ll", "pos": 2,
+      "nota": "La ll de silla se queda en toda la familia: sillón, sillita.",
+      "derivadas": [
+        { "p": "sillón", "pista": "Una silla grande y cómoda, con brazos", "frase": "Mi abuelo se queda dormido en el ___.", "opciones": ["ll", "y"], "letra": "ll", "pos": 2 },
+        { "p": "sillita", "pista": "Una silla pequeña", "frase": "La muñeca está sentada en una ___ de madera.", "opciones": ["ll", "y"], "letra": "ll", "pos": 2 }
+      ]
+    },
+    {
+      "id": "rey", "regla": "ll-y", "raiz": "rey", "piezas": ["rey"], "letra": "y", "pos": 2,
+      "nota": "Al final de rey, la y suena como una i débil. En el plural, entre vocales, sigue siendo y: reyes. Pero en medio de la palabra y delante de consonante se escribe i: reinado.",
+      "derivadas": [
+        { "p": "reyes", "pista": "Más de un rey", "frase": "Los ___ de la baraja llevan corona.", "opciones": ["y", "i"], "letra": "y", "pos": 2 },
+        { "p": "reinado", "pista": "El tiempo que un rey o una reina gobierna", "frase": "Durante su ___ se construyó el palacio.", "opciones": ["y", "i"], "letra": "i", "pos": 2, "porque": "Ya no está al final ni entre vocales: delante de consonante se escribe i." }
+      ]
+    },
+    {
+      "id": "pollo", "regla": "ll-y", "raiz": "pollo", "piezas": ["poll", "o"], "letra": "ll", "pos": 2,
+      "nota": "La ll de pollo se hereda: pollito, polluelo.",
+      "derivadas": [
+        { "p": "pollito", "pista": "Un pollo pequeño", "frase": "El ___ piaba buscando a su madre.", "opciones": ["ll", "y"], "letra": "ll", "pos": 2 },
+        { "p": "polluelo", "pista": "La cría de cualquier ave", "frase": "El ___ de la golondrina todavía no sabe volar.", "opciones": ["ll", "y"], "letra": "ll", "pos": 2 }
+      ]
+    },
+    {
+      "id": "estrella", "regla": "ll-y", "raiz": "estrella", "piezas": ["estrell", "a"], "letra": "ll", "pos": 5,
+      "nota": "La ll de estrella se hereda: estrellado, estrellita.",
+      "derivadas": [
+        { "p": "estrellado", "pista": "Lleno de estrellas", "frase": "Esta noche, el cielo está ___.", "opciones": ["ll", "y"], "letra": "ll", "pos": 5 },
+        { "p": "estrellita", "pista": "Una estrella pequeña", "frase": "La maestra me puso una ___ en la libreta.", "opciones": ["ll", "y"], "letra": "ll", "pos": 5 }
+      ]
+    },
+    {
+      "id": "caballo", "regla": "ll-y", "tambien": ["b-v-1"], "raiz": "caballo", "piezas": ["caball", "o"], "letra": "ll", "pos": 4,
+      "nota": "La ll de caballo pasa a su familia: caballero, caballeriza.",
+      "derivadas": [
+        { "p": "caballero", "pista": "En la Edad Media, hombre que luchaba a caballo", "frase": "El ___ llevaba armadura, escudo y espada.", "opciones": ["ll", "y"], "letra": "ll", "pos": 4 },
+        { "p": "caballeriza", "pista": "El lugar donde viven y descansan los caballos", "frase": "Los caballos duermen en la ___.", "opciones": ["ll", "y"], "letra": "ll", "pos": 4 }
+      ]
+    },
+    {
+      "id": "verdad", "regla": "d-z-finales", "raiz": "verdad", "piezas": ["verdad"], "letra": "d", "pos": 5,
+      "nota": "Verdad termina en d, y la familia lo confirma: verdades, verdadero.",
+      "derivadas": [
+        { "p": "verdadero", "pista": "Que es verdad, que no es falso", "frase": "El mapa del tesoro resultó ser ___.", "opciones": ["d", "z"], "letra": "d", "pos": 5 },
+        { "p": "verdades", "pista": "Más de una verdad", "frase": "El testigo dijo dos ___ y una mentira.", "opciones": ["d", "z"], "letra": "d", "pos": 5 }
+      ]
+    },
+    {
+      "id": "pared", "regla": "d-z-finales", "raiz": "pared", "piezas": ["pared"], "letra": "d", "pos": 4,
+      "nota": "Pared termina en d aunque al hablar no la pronunciemos: el plural, paredes, nos lo recuerda.",
+      "derivadas": [
+        { "p": "paredes", "pista": "Más de una pared", "frase": "Las ___ del patio son blancas.", "opciones": ["d", "z"], "letra": "d", "pos": 4 },
+        { "p": "paredón", "pista": "Una pared grande y gruesa", "frase": "El ___ del castillo era altísimo.", "opciones": ["d", "z"], "letra": "d", "pos": 4 }
+      ]
+    },
+    {
+      "id": "salud", "regla": "d-z-finales", "raiz": "salud", "piezas": ["salud"], "letra": "d", "pos": 4,
+      "nota": "La d de salud aparece en toda su familia: saludable, saludar.",
+      "derivadas": [
+        { "p": "saludable", "pista": "Que es bueno para la salud", "frase": "Comer fruta todos los días es muy ___.", "opciones": ["d", "z"], "letra": "d", "pos": 4 },
+        { "p": "saludar", "pista": "Decir hola a alguien", "frase": "Siempre hay que ___ al entrar en la agencia.", "opciones": ["d", "z"], "letra": "d", "pos": 4 }
+      ]
+    },
+    {
+      "id": "ciudad", "regla": "d-z-finales", "raiz": "ciudad", "piezas": ["ciudad"], "letra": "d", "pos": 5,
+      "nota": "Las palabras en -dad terminan en d, y su familia lo demuestra: ciudades, ciudadano.",
+      "derivadas": [
+        { "p": "ciudadano", "pista": "La persona que vive en una ciudad", "frase": "Cada ___ debe cuidar las calles de su barrio.", "opciones": ["d", "z"], "letra": "d", "pos": 5 },
+        { "p": "ciudades", "pista": "Más de una ciudad", "frase": "Sevilla y Málaga son dos ___ andaluzas.", "opciones": ["d", "z"], "letra": "d", "pos": 5 }
+      ]
+    },
+    {
+      "id": "reloj", "regla": "g-j-dieresis", "raiz": "reloj", "piezas": ["reloj"], "letra": "j", "pos": 4,
+      "nota": "Reloj termina en j y su familia la hereda: relojero, relojería (además, -jero y -jería van con j).",
+      "derivadas": [
+        { "p": "relojero", "pista": "La persona que arregla relojes", "frase": "El ___ abrió el reloj con una lupa.", "opciones": ["j", "g"], "letra": "j", "pos": 4 },
+        { "p": "relojería", "pista": "La tienda donde venden y arreglan relojes", "frase": "La ___ de la esquina tiene un reloj de cuco.", "opciones": ["j", "g"], "letra": "j", "pos": 4 }
+      ]
+    },
+    {
+      "id": "viaje", "regla": "g-j-dieresis", "tambien": ["b-v-1"], "raiz": "viaje", "piezas": ["viaj", "e"], "letra": "j", "pos": 3,
+      "nota": "Viaje termina en -aje, con j, y toda la familia la conserva: viajero, viajar.",
+      "derivadas": [
+        { "p": "viajero", "pista": "La persona que viaja", "frase": "Un ___ olvidó su maleta en el andén.", "opciones": ["j", "g"], "letra": "j", "pos": 3 },
+        { "p": "viajar", "pista": "Ir de un lugar a otro", "frase": "Este verano vamos a ___ a Granada.", "opciones": ["j", "g"], "letra": "j", "pos": 3 }
+      ]
+    },
+    {
+      "id": "agua", "regla": "g-j-dieresis", "raiz": "agua", "piezas": ["agu", "a"], "letra": "u", "pos": 2,
+      "nota": "En agua, la u suena. Si en la familia la u va delante de e o i y tiene que seguir sonando, lleva diéresis: agüita, desagüe. Delante de a, no hace falta: aguacero.",
+      "derivadas": [
+        { "p": "agüita", "pista": "Un poco de agua (diminutivo)", "frase": "Dame un poco de ___ fresca, por favor.", "opciones": ["u", "ü"], "letra": "ü", "pos": 2, "porque": "Delante de i, la u no sonaría sin la diéresis: güi." },
+        { "p": "aguacero", "pista": "Una lluvia fuerte y repentina", "frase": "Nos pilló un ___ al salir del colegio.", "opciones": ["u", "ü"], "letra": "u", "pos": 2 },
+        { "p": "desagüe", "pista": "El agujero por donde se va el agua", "frase": "El ___ del fregadero está atascado.", "opciones": ["u", "ü"], "letra": "ü", "pos": 5, "porque": "Delante de e, la u no sonaría sin la diéresis: güe." }
+      ]
+    },
+    {
+      "id": "lengua", "regla": "g-j-dieresis", "raiz": "lengua", "piezas": ["lengu", "a"], "letra": "u", "pos": 4,
+      "nota": "La u de lengua suena. Delante de a no necesita nada (lenguaje), pero delante de e necesita diéresis para seguir sonando (lengüeta).",
+      "derivadas": [
+        { "p": "lenguaje", "pista": "La forma que tenemos de comunicarnos", "frase": "Las abejas tienen su propio ___ para avisarse.", "opciones": ["u", "ü"], "letra": "u", "pos": 4 },
+        { "p": "lengüeta", "pista": "La tira de la zapatilla que va debajo de los cordones", "frase": "Estira la ___ antes de atarte los cordones.", "opciones": ["u", "ü"], "letra": "ü", "pos": 4, "porque": "Delante de e, la u no sonaría sin la diéresis: güe." }
+      ]
+    },
+    {
+      "id": "paja", "regla": "g-j-dieresis", "raiz": "paja", "piezas": ["paj", "a"], "letra": "j", "pos": 2,
+      "nota": "La j de paja se hereda, también delante de e, i: pajar, pajita.",
+      "derivadas": [
+        { "p": "pajar", "pista": "El lugar donde se guarda la paja", "frase": "El gato de la granja duerme en el ___.", "opciones": ["j", "g"], "letra": "j", "pos": 2 },
+        { "p": "pajita", "pista": "El tubito para beber", "frase": "Bebo el zumo con una ___.", "opciones": ["j", "g"], "letra": "j", "pos": 2 }
+      ]
+    },
+    {
+      "id": "ojo", "regla": "g-j-dieresis", "raiz": "ojo", "piezas": ["oj", "o"], "letra": "j", "pos": 1,
+      "nota": "La j de ojo se hereda: ojear, anteojos. ¡Y sin h! Hojear, con h, es de la familia de hoja.",
+      "derivadas": [
+        { "p": "ojear", "pista": "Mirar algo por encima, deprisa", "frase": "Voy a ___ el periódico mientras espero.", "opciones": ["j", "g"], "letra": "j", "pos": 1 },
+        { "p": "anteojos", "pista": "Otra forma de llamar a las gafas", "frase": "El abuelo se puso los ___ para leer la carta.", "opciones": ["j", "g"], "letra": "j", "pos": 5 }
+      ]
+    }
+  ]
+}

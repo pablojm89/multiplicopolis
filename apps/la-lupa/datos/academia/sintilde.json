@@ -1,0 +1,136 @@
+{
+  "_nota": "Hojas de «La máquina sin tilde» (Pupitre, salas/pupitre-extra.js). Cada hoja se escribe con la vieja máquina de la agencia, que no tiene tecla de tilde: el juego quita todas las tildes y el alumno toca y escribe las palabras que la necesitan. Las frases se guardan CORRECTAS; la lista de palabras con tilde se calcula sola. Solo tildes de las reglas generales y de diptongos; nada de hiatos (día, había), tildes diacríticas (él, tú, más) ni interrogativos (qué, cómo), que son de 6.º. El título va sin palabras con tilde. nombres_propios: los que llevan mayúscula aunque no empiecen frase (para guardarlos bien en la cola de repaso). Validador: herramientas/validar_sintilde.py",
+  "nombres_propios": [
+    "Julián",
+    "Ramón",
+    "Mateo",
+    "Lola",
+    "Robles",
+    "Herminia",
+    "Anselmo",
+    "Alameda",
+    "Lengua"
+  ],
+  "hojas": [
+    {
+      "id": "corcho",
+      "regla": "tildes-generales",
+      "titulo": "Aviso para el corcho",
+      "frases": [
+        "El camión de la basura se ha llevado el sofá viejo de la oficina.",
+        "Robles sospecha que dentro estaba su lápiz de la suerte.",
+        "Si alguien lo encuentra, que llame a la agencia antes del miércoles."
+      ]
+    },
+    {
+      "id": "nota-lola",
+      "regla": "tildes-generales",
+      "titulo": "Nota de Lola para Mateo",
+      "frases": [
+        "Mateo: he dejado tu brújula y un plátano encima de la mesa del archivo.",
+        "Lo he puesto junto al árbol de la entrada.",
+        "Por cierto, el examen de Lengua es el lunes y no es nada difícil."
+      ]
+    },
+    {
+      "id": "laboratorio",
+      "regla": "tildes-generales",
+      "titulo": "Parte del laboratorio",
+      "frases": [
+        "El ratón del laboratorio se escapó anoche por la ventana del jardín.",
+        "Mateo lo encontró en la cocina, junto a un trozo de queso.",
+        "El animal estaba tan feliz que nadie tuvo valor para regañarlo."
+      ]
+    },
+    {
+      "id": "feria",
+      "regla": "tildes-generales",
+      "titulo": "Programa de la feria",
+      "frases": [
+        "A las siete, Ramón tocará la guitarra en la plaza.",
+        "Luego habrá bocadillos de jamón para todo el barrio.",
+        "El último en irse recoge las sillas."
+      ]
+    },
+    {
+      "id": "panadero",
+      "regla": "tildes-generales",
+      "titulo": "Recado del panadero",
+      "frases": [
+        "Julián ha preparado un pastel de limón para la fiesta del jueves.",
+        "Lleva azúcar, huevos, harina y un poquito de canela.",
+        "Advierte que es muy fácil de comer y muy difícil de compartir."
+      ]
+    },
+    {
+      "id": "diario-mateo",
+      "regla": "tildes-generales",
+      "titulo": "Diario de Mateo",
+      "frases": [
+        "Hoy he visto un pájaro rarísimo en el balcón de la biblioteca.",
+        "Llevaba un lazo rojo en la pata, como un reloj de pulsera.",
+        "Herminia dice que es el canario del médico."
+      ]
+    },
+    {
+      "id": "autobuses",
+      "regla": "diptongo-monosilabos",
+      "titulo": "Aviso de la parada de autobuses",
+      "frases": [
+        "El autobús de las nueve fue cancelado por la lluvia.",
+        "Ningún viajero se quedó en tierra: el conductor les dio un billete para después.",
+        "La estación cierra a las diez."
+      ]
+    },
+    {
+      "id": "anselmo",
+      "regla": "diptongo-monosilabos",
+      "titulo": "Nota de Don Anselmo",
+      "frases": [
+        "Fui a la biblioteca y vi un murciélago colgado de la lámpara.",
+        "Herminia lo espantó con el plumero y salió volando por la ventana.",
+        "Desde entonces, nadie quiere entrar en la sección de misterio."
+      ]
+    },
+    {
+      "id": "recado-lola",
+      "regla": "diptongo-monosilabos",
+      "titulo": "Recado de Lola",
+      "frases": [
+        "Este cuento es para ti: lo escribió mi abuela cuando era joven.",
+        "Trata de un huésped misterioso que nunca se quitaba el sombrero.",
+        "Cuídalo bien, que es el único que tengo."
+      ]
+    },
+    {
+      "id": "teatro",
+      "regla": "diptongo-monosilabos",
+      "titulo": "Ensayo del grupo de teatro",
+      "frases": [
+        "El guion de la obra se perdió el miércoles en el camerino.",
+        "Apareció debajo del pie de una silla, aplastado como una tortilla.",
+        "El próximo ensayo será el jueves por la tarde."
+      ]
+    },
+    {
+      "id": "partido",
+      "regla": "diptongo-monosilabos",
+      "titulo": "Resultado del partido",
+      "frases": [
+        "El equipo de La Alameda jugó un partido de béisbol contra el del colegio.",
+        "Mateo bateó tan fuerte que la pelota fue a parar al tejado.",
+        "Nadie vio la pelota caer, pero el gato del vecino apareció con ella en la boca."
+      ]
+    },
+    {
+      "id": "radio",
+      "regla": "diptongo-monosilabos",
+      "titulo": "Mensaje de la radio",
+      "frases": [
+        "Atención, detectives: el camión de los helados se ha averiado en la plaza.",
+        "El conductor pide ayuda: cien cucuruchos se derriten al sol, y también los polos.",
+        "El primero que llegue podrá comerse uno gratis."
+      ]
+    }
+  ]
+}
