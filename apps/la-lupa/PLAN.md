@@ -44,6 +44,11 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] **Todo puede contar para nota**: el maestro marca casos, encargos o Academia; media por criterio y CSV con el tipo
 - [x] Academia: 6 ejercicios nuevos (rellena el parte, la máquina sin tilde, microscopio de homófonos, centrifugadora de familias, deletreo, la coma que cambia el culpable); salas con menú de ejercicios
 - [ ] Academia: más actividades por sala (T1, T3, T4, Z2, Z4, Z5, R2, R4, E1, E2, E4, E5…) y niveles N2/N3
+- [x] Modo revisión (lo abre todo para probar) y PIN de la zona del maestro
+- [x] **Niveles en la Academia**: 4 lupas por ejercicio (bronce, plata, oro y diamante), se gana la siguiente con 2 rondas al 80 %; carné de la Academia con sello de oro por sala
+- [x] Funciona sin internet (service worker; «Descargar todo») y se puede instalar como app
+- [x] Nube opcional (Apps Script + Hojas de Google, `NUBE.md`): falta probarla con un Apps Script de verdad
+- [x] Séneca: investigado (`docs/investigacion/seneca-exportacion.md`); exportación por n.º de lista y botón para copiar cada columna
 - [ ] Arte del lote 7 (issue #7): buzón de encargos, objetos de los encargos y aparatos de la Academia
 - [ ] ~~**Academia de detectives**~~ (idea original): zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)

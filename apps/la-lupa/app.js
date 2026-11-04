@@ -296,6 +296,7 @@ function vistaMaestro() {
   };
   activarPaqueteMaestro(vistaMaestro);
   activarSinInternet();
+  activarNotasFinales();
   activarNubeMaestro(vistaMaestro);
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());
   $("#csv").onclick = exportarCSV;
@@ -315,26 +316,66 @@ const cuentanNota = () => ({ casos: true, encargos: false, academia: false, ...(
 const tipoDe = r => (r.contexto === "academia" ? "academia" : r.encargo ? "encargos" : "casos");
 function fuentesNota() {
   const c = cuentanNota();
-  return [...resultados.filter(r => !r.diagnostico), ...registrosAca].filter(r => c[tipoDe(r)]);
+  const desde = ajustes.notaDesde || "", hasta = ajustes.notaHasta || "";
+  return [...resultados.filter(r => !r.diagnostico), ...registrosAca]
+    .filter(r => c[tipoDe(r)])
+    .filter(r => (!desde || r.fecha.slice(0, 10) >= desde) && (!hasta || r.fecha.slice(0, 10) <= hasta));
 }
-function htmlNotasFinales() {
-  const c = cuentanNota();
+/* Media por alumno y criterio de lo que cuenta (con el periodo elegido), en el orden de la lista de Séneca */
+function notasPorAlumno() {
   const por = {};
   fuentesNota().forEach(r => {
-    por[r.perfilId] ??= { nombre: r.nombre, crit: {} };
+    const pf = perfiles.find(p => p.id === r.perfilId);
+    por[r.perfilId] ??= { id: r.perfilId, nombre: r.nombre, lista: pf?.lista || "", crit: {} };
     r.notas.forEach(n => (por[r.perfilId].crit[n.criterio] ??= []).push(n.nota));
   });
-  const crits = [...new Set(Object.values(por).flatMap(p => Object.keys(p.crit)))].sort();
-  const media = v => Math.round(v.reduce((a, b) => a + b, 0) / v.length * 10) / 10;
+  const filas = Object.values(por).sort((a, b) => (Number(a.lista) || 999) - (Number(b.lista) || 999) || a.nombre.localeCompare(b.nombre));
+  const crits = [...new Set(filas.flatMap(p => Object.keys(p.crit)))].sort((a, b) => a.localeCompare(b, "es", { numeric: true }));
+  return { filas, crits };
+}
+const mediaNotas = v => Math.round(v.reduce((a, b) => a + b, 0) / v.length * 10) / 10;
+const notaSeneca = v => Math.max(1, Math.min(10, Math.round(mediaNotas(v))));   // Séneca: nota entera de 1 a 10
+function htmlNotasFinales() {
+  const c = cuentanNota();
+  const { filas, crits } = notasPorAlumno();
   return `
       <h2>¿Qué cuenta para la nota?</h2>
       <div class="fila">${[["casos", "Casos de la temporada"], ["encargos", "Encargos"], ["academia", "Academia (entrenamiento y preparación)"]].map(([k, t]) =>
         `<label><input type="checkbox" class="nf-cuenta" data-tipo="${k}" ${c[k] ? "checked" : ""}> ${t}</label>`).join("")}</div>
-      <p class="aviso-maestro">Media de las notas por criterio de lo marcado (el piloto es evaluación inicial y no cuenta). Todo queda registrado aunque no lo marques, y el CSV lo incluye todo con su tipo.</p>
-      ${crits.length ? `<div class="tabla-scroll"><table>
-        <thead><tr><th>Detective</th>${crits.map(k => `<th title="${esc(NOMBRE_CRITERIO[k] || "")}">${esc(k)}</th>`).join("")}</tr></thead>
-        <tbody>${Object.values(por).map(p => `<tr><td>${esc(p.nombre)}</td>${crits.map(k => { const v = p.crit[k]; if (!v) return "<td>—</td>"; const m = media(v); return `<td>${m} <small>${calificacion(m)}</small><br><small>${v.length} reg.</small></td>`; }).join("")}</tr>`).join("")}</tbody>
-      </table></div>` : "<p>Todavía no hay notas de lo marcado.</p>"}`;
+      <div class="fila"><label>Periodo: desde <input type="date" id="nfDesde" value="${esc(ajustes.notaDesde || "")}"></label><label>hasta <input type="date" id="nfHasta" value="${esc(ajustes.notaHasta || "")}"></label><small>(por ejemplo, el trimestre; vacío = todo)</small></div>
+      <p class="aviso-maestro">Media de las notas por criterio de lo marcado (el piloto es evaluación inicial y no cuenta). <b>Para Séneca</b> (no admite importar archivos): pon a cada detective su <b>n.º de lista de Séneca</b>; la tabla se ordena así, y el botón 📋 de cada criterio copia su columna de notas enteras (1-10) para pasarlas o pegarlas en ese orden. Ver <code>docs/investigacion/seneca-exportacion.md</code>.</p>
+      ${crits.length ? `<div class="tabla-scroll"><table class="tabla-seneca">
+        <thead><tr><th>N.º</th><th>Detective</th>${crits.map(k => `<th title="${esc(NOMBRE_CRITERIO[k] || "")}">${esc(k)}.${esc(letraCurso(perfiles.find(p => p.id === filas[0]?.id)?.curso || "5"))}<br><button class="boton-mini" data-copiar="${esc(k)}" title="Copiar la columna para Séneca">📋</button></th>`).join("")}</tr></thead>
+        <tbody>${filas.map(p => `<tr><td><input class="nf-lista" data-perfil="${esc(p.id)}" value="${esc(p.lista)}" size="3" inputmode="numeric" aria-label="N.º de lista de ${esc(p.nombre)}"></td><td>${esc(p.nombre)}</td>${crits.map(k => { const v = p.crit[k]; if (!v) return "<td>—</td>"; const m = mediaNotas(v); return `<td><b>${notaSeneca(v)}</b> <small>(${m} · ${calificacion(m)})</small><br><small>${v.length} reg.</small></td>`; }).join("")}</tr>`).join("")}</tbody>
+      </table></div>
+      <div class="fila"><button class="boton-papel" id="csvSeneca">Exportar tabla para Séneca (CSV)</button><span id="copiaMsg"></span></div>` : "<p>Todavía no hay notas de lo marcado.</p>"}`;
+}
+function activarNotasFinales() {
+  $$(".nf-lista").forEach(i => i.onchange = () => {
+    const pf = perfiles.find(p => p.id === i.dataset.perfil);
+    if (pf) { pf.lista = i.value.trim(); guardar("perfiles", perfiles); }
+  });
+  ["nfDesde", "nfHasta"].forEach(id => $(`#${id}`) && ($(`#${id}`).onchange = () => {
+    ajustes = { ...ajustes, notaDesde: $("#nfDesde").value, notaHasta: $("#nfHasta").value };
+    guardar("ajustes", ajustes);
+    vistaMaestro();
+  }));
+  $$("[data-copiar]").forEach(b => b.onclick = async () => {
+    const { filas } = notasPorAlumno();
+    const col = filas.map(p => (p.crit[b.dataset.copiar] ? notaSeneca(p.crit[b.dataset.copiar]) : "")).join("\n");
+    try { await navigator.clipboard.writeText(col); $("#copiaMsg").textContent = `Copiada la columna ${b.dataset.copiar} (${filas.length} alumnos, en orden de lista).`; }
+    catch { $("#copiaMsg").textContent = "No se ha podido copiar: usa el CSV."; }
+  });
+  $("#csvSeneca")?.addEventListener("click", () => {
+    const { filas, crits } = notasPorAlumno();
+    const letra = letraCurso(perfiles.find(p => p.id === filas[0]?.id)?.curso || "5");
+    const cab = ["n_lista", "alias", ...crits.map(k => `${k}.${letra}`)];
+    const lineas = [cab.join(";"), ...filas.map(p => [p.lista, `"${p.nombre.replaceAll('"', '""')}"`, ...crits.map(k => (p.crit[k] ? notaSeneca(p.crit[k]) : ""))].join(";"))];
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob(["\ufeff" + lineas.join("\n")], { type: "text/csv;charset=utf-8" }));
+    a.download = `la-lupa_seneca_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+  });
 }
 
 function exportarCSV() {

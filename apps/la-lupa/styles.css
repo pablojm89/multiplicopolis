@@ -571,3 +571,6 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 .carne-pie { margin: 0; font: 14px var(--f-ui); color: var(--gris-tinta); }
 .carne-sala li span { flex: 1; min-width: 0; }
 .carne-sala li b { white-space: nowrap; flex: none; }
+
+.boton-mini { font: 14px var(--f-ui); padding: 1px 6px; border-radius: 6px; border: 1px solid #b9a27a; background: #fff; cursor: pointer; }
+.tabla-seneca input.nf-lista { width: 3.2em; text-align: center; }

@@ -9,6 +9,14 @@
    tilde. El alumno toca las palabras que deberían llevarla (9.2) y las escribe bien
    (5.1); tocar una que no la lleva (fue, dio, ti…) es falsa alarma y se explica por qué.
    Al terminar, la hoja se reescribe correcta: es lo último que se ve.
+   Niveles (lupas, NIVELES_ACA de academia.js):
+     P2 · 🥉 3 casillas con pistas fáciles (nivel 1) y el número de letras a la vista;
+          🥈 4 casillas (nivel ≤ 2), con el número de letras; 🥇 5 casillas con pistas por
+          definición (nivel ≥ 2), el número de letras solo como pista si se falla;
+          💎 6 casillas con las pistas más difíciles (nivel 3) y sin el número de letras.
+     P4 · cada hoja tiene su nivel (1-4) en sintilde.json: 🥉 3 tildes, agudas y llanas claras;
+          🥈 4-5; 🥇 6, con esdrújulas y palabras que no la llevan aunque lo parezcan
+          (examen, joven…); 💎 7-8, con mayúsculas con tilde, monosílabos y diptongos.
    Datos: datos/academia/partes.json y sintilde.json
    (validadores: herramientas/validar_partes.py y validar_sintilde.py). Prefijo CSS: .pup-
    ============================================================ */
@@ -65,6 +73,7 @@ function pupPorQueTilde(w) {
   const sil = pupSilabas(w) ? ` (${pupSilabas(w)})` : "";
   const desde = a.n - 1 - a.tonica;
   let t;
+  const mayus = /^[ÁÉÍÓÚ]/.test(w) ? " Y fíjate: las mayúsculas también llevan tilde." : "";
   if (desde <= 0) t = `Es aguda${sil}: suena fuerte la última sílaba y termina en ${a.fin}. Las agudas que terminan en vocal, -n o -s llevan tilde.`;
   else if (desde === 1) t = `Es llana${sil}: suena fuerte la penúltima sílaba y termina en ${a.fin}. Las llanas que no terminan en vocal, -n ni -s llevan tilde.`;
   else if (desde === 2) t = `Es esdrújula${sil}: suena fuerte la antepenúltima sílaba. Las esdrújulas llevan tilde siempre.`;
@@ -73,7 +82,7 @@ function pupPorQueTilde(w) {
   if (nuc.length > 1) t += /[áéó]/.test(nuc)
     ? ` Tiene diptongo (${nuc}) en la sílaba fuerte: la tilde va en la vocal abierta.`
     : ` Tiene diptongo de dos vocales cerradas (${nuc}): la tilde va en la segunda.`;
-  return t;
+  return t + mayus;
 }
 /* Por qué NO lleva tilde una palabra bien escrita sin ella */
 function pupPorQueSin(w) {
@@ -148,6 +157,7 @@ function pupExplica(x) {
   const resto = x.porque.startsWith(x.p) ? x.porque.slice(x.p.length).replace(/^[\s:]+/, "") : x.porque;
   return resto.charAt(0).toUpperCase() + resto.slice(1);
 }
+const pupLupa = () => { const l = NIVELES_ACA[nivelAca() - 1]; return `<span class="pup-nivel" title="${esc(l.nombre)}">${l.icono} ${esc(l.corto)}</span>`; };
 const pupSalir = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
 
 /* ============================================================
@@ -172,6 +182,18 @@ function pupMontarParte(pl, orden, usadas, n) {
   return lineas.sort((a, b) => a.pos - b.pos);
 }
 
+/* Ayudas cuando se escribe otra palabra. El número de letras solo hasta oro (en bronce y plata ya se ve
+   en la casilla); la inicial, solo en bronce y plata y si no es justo la letra de la regla (h, b/v, g/j…) */
+function pupAyudas(L, w, nivel) {
+  const frase = enBanco(w.p)?.frase, ini = [...w.p][0];
+  const l = [];
+  if (nivel === 3) l.push(`tiene ${[...w.p].length} letras.`);
+  if (frase) l.push(`«${frase}»`);
+  if (nivel <= 2 && !/[hbvgjczsyl]/i.test(ini) && w.regla !== "mayusculas-puntuacion-1") l.push(`empieza por «${ini}».`);
+  l.push(`vuelve a leer la pista despacio y piensa en el apartado «${L.etiqueta}».`);
+  return l;
+}
+
 nuevaActividad("pupitre", {
   id: "parte", nombre: "Rellena el parte",
   desc: "Un parte de la agencia con casillas en blanco: adivina cada palabra por su pista y escríbela bien.",
@@ -182,12 +204,15 @@ nuevaActividad("pupitre", {
   const activas = PUP_REGLAS.includes(regla) ? [regla] : PUP_REGLAS;   // null, «mezcla» u otra regla: todo mezclado
   const mezcla = activas.length > 1;
   const enCola = new Set(Object.keys(estadoAca().cola).map(norm));
-  const RONDAS = 2, CASILLAS = 4;
+  const nivel = nivelAca();
+  const RONDAS = 2, CASILLAS = segunNivel([3, 4, 5, 6]);
+  // Las pistas de la lupa (si en una regla hay pocas, porNivel amplía); en diamante, primero las de nivel 3
+  const pool = porNivel(datos.pistas.filter(x => activas.includes(x.regla)), RONDAS * CASILLAS);
+  const dificultad = x => (nivel >= 4 ? -(x.nivel || 1) : 0);
   // Orden de preferencia: primero las palabras de la cola de repaso; en mezcla, las reglas se alternan
-  const pool = datos.pistas.filter(x => activas.includes(x.regla));
   const rango = new Map();
   barajar(activas).forEach(r => barajar(pool.filter(x => x.regla === r)).forEach((x, i) => rango.set(x, i + Math.random() * .5)));
-  const orden = [...pool].sort((a, b) => (enCola.has(norm(b.p)) - enCola.has(norm(a.p))) || rango.get(a) - rango.get(b));
+  const orden = [...pool].sort((a, b) => (enCola.has(norm(b.p)) - enCola.has(norm(a.p))) || dificultad(a) - dificultad(b) || rango.get(a) - rango.get(b));
   const usadas = new Set();
   const partes = barajar(datos.partes).slice(0, RONDAS).map(pl => ({ pl, lineas: pupMontarParte(pl, orden, usadas, CASILLAS) }));
   partidaAca(sl, [...new Set(partes.flatMap(x => x.lineas.map(l => l.x.regla)))]);
@@ -201,11 +226,11 @@ nuevaActividad("pupitre", {
     const declarante = azarElem(datos.declarantes);
     pintarEscena(`
       <p class="pup-instr">Lee cada pista y escribe la palabra en su casilla. Pulsa <b>Intro</b> o ✓ para comprobarla.</p>
-      <article class="pup-hoja pup-parte" id="pupHoja">
+      <article class="pup-hoja pup-parte pup-c${lineas.length}" id="pupHoja">
         <header class="pup-membrete">
           <span class="pup-logo">${PUP_LUPA}</span>
           <div class="pup-agencia"><b>Agencia La Lupa</b><small>${esc(pl.negociado)}</small></div>
-          <div class="pup-num"><small>Parte ${r + 1} de ${partes.length}</small>N.º ${esc(num)}</div>
+          <div class="pup-num"><small>Parte ${r + 1} de ${partes.length} · ${pupLupa()}</small>N.º ${esc(num)}</div>
         </header>
         <h2 class="pup-titulo">${esc(pl.titulo)}</h2>
         <div class="pup-datos">
@@ -217,7 +242,7 @@ nuevaActividad("pupitre", {
           <li class="pup-linea" data-k="${k}">
             <span class="pup-n">${k + 1}</span>
             <div class="pup-campo"><small>${esc(l.etiqueta)}</small><span>${esc(l.x.pista)}</span></div>
-            <div class="pup-hueco"><input class="pup-entrada" data-k="${k}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="${esc(l.etiqueta)}: ${esc(l.x.pista)}"><button type="button" class="pup-ok" data-k="${k}" aria-label="Comprobar la casilla ${k + 1}">✓</button></div>
+            <div class="pup-hueco"><input class="pup-entrada" data-k="${k}" ${nivel <= 2 ? `placeholder="${[...l.x.p].length} letras"` : ""} autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="${esc(l.etiqueta)}: ${esc(l.x.pista)}"><button type="button" class="pup-ok" data-k="${k}" aria-label="Comprobar la casilla ${k + 1}">✓</button></div>
           </li>`).join("")}
         </ol>
         <footer class="pup-pie"><span class="pup-teclas" id="pupTeclas"></span><span class="pup-letra">${esc(pl.letra_pequena)}</span></footer>
@@ -263,10 +288,10 @@ nuevaActividad("pupitre", {
       // Otra palabra (bien escrita o no, pero no la que se busca): pistas antes de contarlo como fallo
       if (!pupVariante(val, w.p) && !st.intentada && st.otras < 2) {
         st.otras++;
-        const frase = enBanco(w.p)?.frase;
+        const ayudas = pupAyudas(L, w, nivel);
         pupNota(st.otras === 1
-          ? `Esa no es la palabra que pide el parte. Pista: tiene ${[...w.p].length} letras.`
-          : frase ? `Tampoco. Otra pista: «${frase}»` : `Tampoco. Empieza por «${[...w.p][0]}» y tiene ${[...w.p].length} letras.`, "pensativo");
+          ? `Esa no es la palabra que pide el parte. Pista: ${ayudas[0]}`
+          : `Tampoco. Otra pista: ${ayudas[1] || ayudas[0]}`, "pensativo");
         inp.select();
         return;
       }
@@ -299,6 +324,20 @@ nuevaActividad("pupitre", {
 /* ============================================================
    P4 · La máquina sin tilde
    ============================================================ */
+/* Las hojas largas (oro y diamante) bajan la letra hasta que caben en el papel */
+function pupAjustar(cont) {
+  if (!cont) return;
+  const ajustar = () => {
+    if (!cont.isConnected) return;
+    cont.style.removeProperty("--pup-fs"); cont.style.removeProperty("--pup-lh");
+    for (let fs = 26; fs >= 17 && cont.scrollHeight > cont.clientHeight + 1; fs--) {
+      cont.style.setProperty("--pup-fs", `${fs - 1}px`);
+      cont.style.setProperty("--pup-lh", fs - 1 > 22 ? "1.85" : "1.7");
+    }
+  };
+  ajustar();
+  document.fonts?.ready.then(ajustar).catch(() => {});
+}
 const pupSinTildes = t => [...t].map(quitarTilde).join("");
 const pupConTildeHTML = w => [...w].map(ch => (quitarTilde(ch) !== ch ? `<span class="pup-acento">${esc(ch)}</span>` : esc(ch))).join("");
 const PUP_MAQUINA = `<svg class="pup-maquina" viewBox="0 0 270 230" aria-hidden="true">
@@ -334,9 +373,15 @@ nuevaActividad("pupitre", {
   // Primero las hojas con palabras de la cola; las de la ronda anterior, al final
   const puntuar = h => objetivosDe(h).filter(w => enCola.has(norm(w))).length * 10 - (vistas.includes(h.id) ? 5 : 0) + Math.random();
   const elegir = lista => [...lista].sort((a, b) => puntuar(b) - puntuar(a));
+  // Cada hoja tiene su nivel (1-4), que es el de la lupa; si de una regla hay pocas, se toman las del nivel vecino
+  const nivel = nivelAca();
+  const deNivel = (rg, n) => {
+    const de = d => datos.hojas.filter(h => h.regla === rg && Math.abs((h.nivel || 1) - nivel) <= d);
+    return [0, 1, 3].map(de).find(l => l.length >= n) || de(3);
+  };
   const hojas = activas.length === 1
-    ? elegir(datos.hojas.filter(h => h.regla === activas[0])).slice(0, 2)
-    : barajar(activas.map(rg => elegir(datos.hojas.filter(h => h.regla === rg))[0]));
+    ? elegir(deNivel(activas[0], 2)).sort((a, b) => Math.abs((a.nivel || 1) - nivel) - Math.abs((b.nivel || 1) - nivel)).slice(0, 2)
+    : barajar(activas.map(rg => elegir(deNivel(rg, 1)).sort((a, b) => Math.abs((a.nivel || 1) - nivel) - Math.abs((b.nivel || 1) - nivel))[0]));
   guardar(claveVistas, hojas.map(h => h.id));
   const propios = new Set(datos.nombres_propios || []);
   partidaAca(sl, activas);
@@ -358,7 +403,7 @@ nuevaActividad("pupitre", {
     pintarEscena(`
       <p class="pup-instr">La máquina no tiene tecla de tilde. Toca las <b>${total}</b> palabras que la necesitan y escríbelas bien.</p>
       <article class="pup-hoja pup-maq" id="pupHoja">
-        <header class="pup-tira"><span>Agencia La Lupa · mecanografiado en la Tipógrafa 62</span><span>Hoja ${r + 1} de ${hojas.length}</span></header>
+        <header class="pup-tira"><span>Agencia La Lupa · mecanografiado en la Tipógrafa 62</span><span>Hoja ${r + 1} de ${hojas.length} · ${pupLupa()}</span></header>
         <h2 class="pup-maq-titulo">${esc(pupSinTildes(h.titulo).toUpperCase())}</h2>
         <div class="pup-maq-texto" id="pupTexto"></div>
         <footer class="pup-cuenta" id="pupCuenta"></footer>
@@ -378,6 +423,7 @@ nuevaActividad("pupitre", {
     const ctx = { pendientes: total, conCarta: false };
     const p = textoInteractivo(tokens, ctx);
     $("#pupTexto").append(p);
+    pupAjustar($("#pupTexto"));
     const botones = $$("button.w", p);
     tokens.filter(t => t.palabra).forEach((tk, i) => { botones[i].onclick = () => pulsar(tk, botones[i]); });
 
@@ -448,6 +494,7 @@ nuevaActividad("pupitre", {
       const limpio = esc(texto).replace(/\p{L}+/gu, w => (pupSinTildes(w) !== w ? `<b class="pup-devuelta">${pupConTildeHTML(w)}</b>` : w));
       $(".pup-maq-titulo", hoja).textContent = h.titulo.toUpperCase();
       $("#pupTexto").innerHTML = `<p class="pup-limpio">${limpio}</p>`;
+      pupAjustar($("#pupTexto"));
       $("#pupCuenta").innerHTML = `Hoja corregida: <b>${total}</b> tildes devueltas${falsas ? ` · ${falsas} falsa${falsas > 1 ? "s" : ""} alarma${falsas > 1 ? "s" : ""}` : " · sin falsas alarmas"}`;
       hoja.classList.add("reescrita");
       pupNota(falsas ? "Así queda la hoja, con todas sus tildes. Y recuerda: una tilde de más también es una falta." : "¡Ni una tilde de más ni una de menos! Así queda la hoja.", "contento");

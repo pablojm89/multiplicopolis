@@ -114,3 +114,14 @@
 
 /* La Tipógrafa 62 (sobre la libreta) */
 .pup-maquina { position: absolute; left: 12px; top: 382px; width: 272px; filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .55)); pointer-events: none; }
+
+/* ── Niveles (lupas) ── */
+.pup-nivel { white-space: nowrap; font-weight: 800; color: var(--rojo-osc); }
+/* Partes de 5 y 6 casillas (oro y diamante): líneas más apretadas para que quepan en la hoja */
+.pup-parte.pup-c5 .pup-entrada, .pup-parte.pup-c6 .pup-entrada { height: 36px; }
+.pup-parte.pup-c5 .pup-hueco, .pup-parte.pup-c6 .pup-hueco { min-height: 36px; }
+.pup-parte.pup-c6 .pup-linea { padding: 1px 0; }
+.pup-parte.pup-c6 .pup-campo span { font-size: 16px; line-height: 1.15; }
+.pup-entrada::placeholder { color: rgba(31, 95, 168, .45); font-size: 15px; }
+/* La máquina sin tilde: el tamaño lo ajusta pupAjustar() si la hoja es larga */
+.pup-maq-texto .texto-pistas, .pup-limpio { font-size: var(--pup-fs, 26px); line-height: var(--pup-lh, 1.85); }

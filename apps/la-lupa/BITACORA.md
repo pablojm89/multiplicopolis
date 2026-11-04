@@ -118,3 +118,15 @@ Además, la **libreta imprimible** (`imprimibles/libreta.html`).
 
 **Pablo: «actividades de escuchar o hablar, de momento no; o, si están, que sean extras opcionales, porque el niño tiene que venir con cascos o tener un dispositivo con micrófono».** El sonido queda desactivado por defecto y se activa en la zona del maestro («Actividades con sonido»). Sin él, todo funciona en modo visual: dictado relámpago, deletreo en pantalla y sin botones de escuchar. No hay ninguna actividad con micrófono.
 **Sonido, primera versión** (sesión aparte, rama `claude/sonido`): un agente repasó todo el juego y sacó el catálogo de puntos donde debe sonar algo (más de 100, con fichero:línea), ahora en `SONIDO.md`. Todo está hecho con Web Audio: 7 músicas (agencia, noche, tensión, academia, feria, amanecer, triunfo), 11 ambientes de fondo (con pasos que se acercan y se alejan, lluvia en la ventana, búho, campanario, máquina de escribir lejana…) y unos 60 efectos. Se engancha sin tocar el código del juego. La Centralita va sin música, para el dictado. Pablo tiene el laboratorio publicado para escuchar y votar antes de dar nada por bueno.
+
+**Pablo: «adelante, ve montándolo absolutamente todo; no tengo prisa por la parte del colegio. Me preocupa que haya pocas actividades de repaso en la Academia: que cada una tenga niveles (1, 2, 3 y un nivel maestro) con nombres de detective, que se vayan ganando, porque en casa se las comen muy rápido».** Hecho:
+- **Lupas por ejercicio:** de bronce, plata y oro, y de diamante, la de «Maestro detective». Se gana la siguiente con 2 rondas seguidas al 80 %.
+- **Carné de la Academia**, con un sello de oro por sala.
+- **Banco de palabras ampliado y niveles en cada sala**, con subagentes.
+- **Modo revisión y PIN** para la zona del maestro.
+- **Sin internet:** el juego funciona sin conexión.
+- **Nube opcional**, con un Apps Script propio.
+- **Séneca:** se investigó y no hay forma de importar, así que se hizo una exportación por n.º de lista y un botón para copiar la columna de cada criterio.
+- **Propuesta de la temporada 2**, con 3 opciones.
+
+Además, **otra sesión hizo la música y los efectos** (rama `claude/sonido`: motor común `shared/sonido.js`), integrados aquí.
