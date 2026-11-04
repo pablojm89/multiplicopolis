@@ -83,6 +83,7 @@ function turnoDeHoy(s) {
 /* ── Patio de la Academia (hub) ──────────────────────────────── */
 function vistaPatio() {
   P = null;
+  ACA.alTerminar = null;
   const s = estadoAca();
   if (s.ultimoDia !== hoy()) { s.sesion++; s.ultimoDia = hoy(); s.turno = { dia: hoy(), hechas: [] }; guardarAca(s); }
   const turno = turnoDeHoy(s);

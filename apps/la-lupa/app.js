@@ -65,6 +65,7 @@ function vistaTablon() {
   $$("[data-unidad]").forEach(b => b.onclick = () => {
     const u = curso.unidades.find(x => x.id === b.dataset.unidad);
     const ultimo = mios.filter(r => r.unidad === u.id).at(-1);
+    if (!ultimo && pasosPreparacion(u).length && modoPreparacion() !== "no" && (debePrepararse(u, mios) || modoPreparacion() === "opcional" && !preparacionLista(u))) return vistaPreparacion(u);
     if (!ultimo) return iniciarCaso(u);
     abrirModal(`
       <h3>${esc(D.casos[u.caso].titulo)}</h3>
@@ -96,6 +97,7 @@ function tarjetaUnidad(u, mios) {
       <h3>${esc(caso.titulo)}</h3>
       <p>${esc(u.titulo)}</p>
       <span class="sello-mini ${estado[0]}">${estado[1]}</span>
+      ${etiquetaPreparacion(u, mios)}
     </button>`;
 }
 
@@ -202,6 +204,7 @@ function vistaMaestro() {
       <div class="fila">
         <label>Libreta: <select id="ajLibreta"><option value="papel">De papel (el juego no guarda las pistas)</option><option value="digital">Digital (el juego guarda las pistas y deja escribir)</option></select></label>
         <label>Código de sello: <input id="ajCodigo" value="${esc(ajustes.codigoSello)}" maxlength="20"></label>
+        <label>Preparación en la Academia antes de cada caso: <select id="ajPrep"><option value="obligatoria">Obligatoria (el caso se abre al terminarla)</option><option value="opcional">Recomendada (se puede saltar)</option><option value="no">Sin preparación</option></select></label>
         <button class="boton-sello" id="ajGuardar">Guardar ajustes</button>
       </div>
       ${diags.length ? `
@@ -210,6 +213,7 @@ function vistaMaestro() {
         <thead><tr><th>Detective</th>${reglasDiag.map(r => `<th>${esc(D.reglas[r]?.nombre || r)}</th>`).join("")}</tr></thead>
         <tbody>${Object.values(ultimoDiag).map(r => `<tr><td>${esc(r.nombre)}</td>${reglasDiag.map(rg => { const d = r.diagnostico.find(x => x.regla === rg); return `<td class="${d ? (d.porcentaje >= 75 ? "celda-bien" : d.porcentaje >= 50 ? "celda-casi" : "celda-mal") : ""}">${d ? `${d.porcentaje} %` : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody>
       </table></div>` : ""}
+      ${htmlNotasFinales()}
       <h2>Imprimibles</h2>
       <div class="fila">
         <label>Libreta: <select id="impCaso"><option value="todos">Toda la temporada (con portada)</option>${Object.values(D.casos).sort((a, b) => a.numero.localeCompare(b.numero)).map(c => `<option value="${esc(c.id)}">${esc(c.numero)} · ${esc(c.titulo)}</option>`).join("")}</select></label>
@@ -239,8 +243,14 @@ function vistaMaestro() {
         </tbody></table></div>` : `<p>Todavía no hay casos resueltos en este dispositivo.</p>`}
     </main>`;
   $("#ajLibreta").value = ajustes.libreta;
+  $("#ajPrep").value = modoPreparacion();
+  $$(".nf-cuenta").forEach(c => c.onchange = () => {
+    ajustes = { ...ajustes, cuentanNota: { ...cuentanNota(), [c.dataset.tipo]: c.checked } };
+    guardar("ajustes", ajustes);
+    vistaMaestro();
+  });
   $("#ajGuardar").onclick = () => {
-    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA" };
+    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value };
     guardar("ajustes", ajustes);
     $("#ajGuardar").textContent = "Guardado ✔";
   };
@@ -262,11 +272,40 @@ function vistaMaestro() {
   };
 }
 
+/* ── Qué cuenta para la nota (decide el maestro): casos, encargos y Academia ── */
+const cuentanNota = () => ({ casos: true, encargos: false, academia: false, ...(ajustes.cuentanNota || {}) });
+const tipoDe = r => (r.contexto === "academia" ? "academia" : r.encargo ? "encargos" : "casos");
+function fuentesNota() {
+  const c = cuentanNota();
+  return [...resultados.filter(r => !r.diagnostico), ...registrosAca].filter(r => c[tipoDe(r)]);
+}
+function htmlNotasFinales() {
+  const c = cuentanNota();
+  const por = {};
+  fuentesNota().forEach(r => {
+    por[r.perfilId] ??= { nombre: r.nombre, crit: {} };
+    r.notas.forEach(n => (por[r.perfilId].crit[n.criterio] ??= []).push(n.nota));
+  });
+  const crits = [...new Set(Object.values(por).flatMap(p => Object.keys(p.crit)))].sort();
+  const media = v => Math.round(v.reduce((a, b) => a + b, 0) / v.length * 10) / 10;
+  return `
+      <h2>¿Qué cuenta para la nota?</h2>
+      <div class="fila">${[["casos", "Casos de la temporada"], ["encargos", "Encargos"], ["academia", "Academia (entrenamiento y preparación)"]].map(([k, t]) =>
+        `<label><input type="checkbox" class="nf-cuenta" data-tipo="${k}" ${c[k] ? "checked" : ""}> ${t}</label>`).join("")}</div>
+      <p class="aviso-maestro">Media de las notas por criterio de lo marcado (el piloto es evaluación inicial y no cuenta). Todo queda registrado aunque no lo marques, y el CSV lo incluye todo con su tipo.</p>
+      ${crits.length ? `<div class="tabla-scroll"><table>
+        <thead><tr><th>Detective</th>${crits.map(k => `<th title="${esc(NOMBRE_CRITERIO[k] || "")}">${esc(k)}</th>`).join("")}</tr></thead>
+        <tbody>${Object.values(por).map(p => `<tr><td>${esc(p.nombre)}</td>${crits.map(k => { const v = p.crit[k]; if (!v) return "<td>—</td>"; const m = media(v); return `<td>${m} <small>${calificacion(m)}</small><br><small>${v.length} reg.</small></td>`; }).join("")}</tr>`).join("")}</tbody>
+      </table></div>` : "<p>Todavía no hay notas de lo marcado.</p>"}`;
+}
+
 function exportarCSV() {
-  const filas = resultados.flatMap(r => r.notas.map(n => ({
-    alumno: r.nombre, curso: r.curso, tipo: r.encargo ? "encargo" : "caso", unidad: r.unidad, caso: r.titulo, criterio: n.codigo,
+  const c = cuentanNota();
+  const aca = registrosAca.map(r => ({ ...r, unidad: r.sala, titulo: `Academia · ${sala(r.sala)?.nombre || r.sala}`, notas: r.notas.map(n => ({ ...n, codigo: `${n.criterio}.${letraCurso(r.curso)}` })), pistas: 0, consultas: 0, minutos: "" }));
+  const filas = [...resultados, ...aca].flatMap(r => r.notas.map(n => ({
+    alumno: r.nombre, curso: r.curso, tipo: tipoDe(r), cuenta_nota: !r.diagnostico && c[tipoDe(r)] ? "sí" : "no", unidad: r.unidad, caso: r.titulo, criterio: n.codigo,
     nota: String(n.nota).replace(".", ","), calificacion: n.calificacion, aciertos: n.aciertos,
-    intentos: n.intentos, libreta: r.libreta ? `${r.libreta.puntos}/4` : "sin sellar",
+    intentos: n.intentos, libreta: r.contexto === "academia" || r.encargo ? "—" : r.libreta ? `${r.libreta.puntos}/4` : "sin sellar",
     pistas: r.pistas, consultas_libreta: r.consultas || 0, minutos: r.minutos, fecha: r.fecha.slice(0, 10),
   })));
   if (!filas.length) return;

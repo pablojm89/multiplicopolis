@@ -506,3 +506,28 @@ button.silaba:hover { transform: translateY(-3px); }
 /* Menú de actividades de una sala */
 .aca-act { display: grid; gap: 2px; text-align: left; }
 .aca-act small { font: 14px var(--f-ui); color: var(--gris-tinta); }
+
+/* ── Preparación de cada caso (preparacion.js) ── */
+.prep-mini { display: inline-block; margin-top: 6px; font: 800 13px var(--f-ui); color: #7a4e12; background: #f6d991; border-radius: 10px; padding: 2px 8px; }
+.prep-mini.lista { background: #cfe9d2; color: #1f5a30; }
+.prep-panel { position: absolute; left: 330px; right: 40px; top: 120px; bottom: 30px; background: var(--cristal); border: 1px solid rgba(242, 169, 59, .45); border-radius: 14px; padding: 20px 24px; color: var(--crema); display: flex; flex-direction: column; gap: 12px; }
+.prep-pasos { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.prep-paso { width: 100%; display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; text-align: left; background: var(--ruido), var(--papel-claro); color: var(--tinta); border: none; border-radius: 10px; padding: 12px 16px; }
+.prep-paso b { display: block; font: 24px var(--f-cartel); font-weight: 400; letter-spacing: .02em; }
+.prep-paso small { font: 15px var(--f-ui); color: var(--gris-tinta); }
+.prep-icono { font-size: 32px; text-align: center; }
+.prep-estado { font: 800 15px var(--f-ui); color: #7a4e12; }
+.prep-paso.hecho { background: var(--ruido), #dcefd8; }
+.prep-paso.hecho .prep-estado { color: #1f5a30; }
+.prep-paso[disabled] { opacity: .55; }
+.prep-panel .acciones { margin-top: auto; }
+.apuntes-hoja { position: absolute; left: 50%; transform: translateX(-50%); top: 100px; width: 1000px; bottom: 96px; overflow: auto; background: var(--ruido), #fbf6e8; color: var(--tinta); border-radius: 6px; padding: 18px 28px; box-shadow: 0 18px 40px rgba(0, 0, 0, .55);
+  background-image: repeating-linear-gradient(#fbf6e8 0 31px, #c9d9ee 31px 32px); }
+.apunte-intro { font: italic 18px var(--f-ui); margin: 4px 0 10px; }
+.apunte h3 { margin: 12px 0 6px; font: 24px var(--f-cartel); font-weight: 400; letter-spacing: .03em; color: #2f5fae; }
+.apunte-tabla { width: 100%; border-collapse: collapse; font: 17px/1.35 var(--f-ui); background: rgba(255, 255, 255, .7); }
+.apunte-tabla th, .apunte-tabla td { border: 1.5px solid var(--tinta); padding: 6px 10px; vertical-align: top; }
+.apunte-tabla th { background: #f2e3bd; font-weight: 800; }
+.apunte-tabla td.hueco-apunte { color: #a8322d; font-style: italic; }
+.apunte-pasos, .apunte-lista { font: 18px/1.5 var(--f-ui); margin: 0; padding-left: 26px; }
+.apunte-completar { font: 800 17px var(--f-ui); color: #a8322d; margin-top: 12px; }
