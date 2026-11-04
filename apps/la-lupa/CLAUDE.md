@@ -18,13 +18,15 @@ Juego de detectives de Lengua para 5.º y 6.º de Primaria (Andalucía). El alum
 | `academia.js` | **Academia de detectives**: patio con «turno de hoy», cola de repaso espaciado por alumno (`actualizarCola`, intervalos 1-3-7-15-30 sesiones), salas (`SALAS`) y actividades (`ACTIVIDADES.<id>`). Activas: Archivo (`fichas`), Pupitre (`documento`), Laboratorio (`sismografo`) e Interrogatorios (`testigo`: el testigo seseante; `pronunciar()` pasa una palabra a cómo se dice con seseo, yeísmo y -d final). Diseño en `docs/investigacion/academia-actividades.md` |
 | `datos/academia/` | Bancos de la Academia: `palabras.json` (forma correcta, forma errónea típica, sílabas, tónica y frase con hueco) y `textos.json` (documentos con `[palabras]` marcadas) y `testigos.json` (declaraciones para el testigo seseante). Valídalos con `python3 herramientas/validar_academia.py` |
 | `app.js` | Entrada, tablón de corcho, partida, informe, zona maestro/a (página normal) y arranque |
+| `clase.js` | **Paquete de clase** (avatares del alumnado, solo en la clase de Pablo): se importa desde la zona del maestro y se guarda solo en ese dispositivo (IndexedDB). El alumno elige su avatar por su alias al crear su ficha; sale en la entrada, la placa, el informe y la foto de equipo del final. Sin paquete, todo funciona igual. Proceso y privacidad: `arte/AVATARES-ALUMNADO.md` |
+| `imprimibles/` | `ficha-aspirante.html` (A4 a doble cara: alias, dibujo y descripción, con tira del nombre para recortar) y `autorizacion-familias.html` (borrador para el centro) |
 | `styles.css` | Todo en px del escenario de 1280×720. Mundo visual único: papel envejecido, tinta, albero y azulejo |
 | `datos/programacion.json` | **Qué caso va en qué curso, trimestre y orden.** Es lo único que se cambia para adaptarse a una programación |
 | `datos/reglas.json` | Reglas: nombre, saberes, criterios, ficha del Archivo de Mateo y cartas de los careos |
 | `datos/arte.json` | Catálogo de arte con su prompt. `_estilo` es el estilo común. `listo` (o `listas`, para las expresiones) cuando la imagen existe |
 | `datos/casos/<id>.json` | Un caso: `numero`, `titulo`, `resumen`, `reglas` y `escenas[]` |
 | `arte/` | Imágenes `.webp`. Fondos y objetos: `<id>.webp`; personajes: `<id>-<expresion>.webp`. `arte/ENCARGO.md` es el pedido para la IA de imágenes, generado automáticamente. `arte/entrega/` es donde llegan los PNG |
-| `herramientas/` | `encargo_arte.py` (genera `ENCARGO.md` desde `arte.json`) e `integrar_arte.py [--borrar]` (convierte lo entregado a `.webp` y lo marca como listo; necesitan Pillow), `validar_casos.py`, `validar_academia.py`, `fusionar_pendientes.py` y `jugar_caso.js` (jugador automático con Playwright) |
+| `herramientas/` | `encargo_arte.py` (genera `ENCARGO.md` desde `arte.json`) e `integrar_arte.py [--borrar]` (convierte lo entregado a `.webp` y lo marca como listo; necesitan Pillow), `validar_casos.py`, `validar_academia.py`, `fusionar_pendientes.py`, `jugar_caso.js` (jugador automático con Playwright; `PAQUETE=…` para jugar con avatar) y `paquete_clase.py` (crea el paquete de clase desde los PNG de GPT) |
 
 ## Tipos de escena
 
@@ -67,12 +69,14 @@ Notas: solo cuenta el primer intento. Nota = aciertos / intentos × 10 (mínimo 
 
 Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra aparte de los casos (`academia-registros`, `contexto: "academia"`): Pablo decidirá más adelante si cuenta para la nota. Sin libreta. Se puede usar en casa. Los puntos suman al rango con un tope diario (`TOPE_DIARIO`). Las palabras falladas en los casos y en la Academia entran en la cola de repaso. Para añadir contenido: palabras y textos nuevos en `datos/academia/`, y después el validador. Para añadir una sala: entrada en `SALAS` + función en `ACTIVIDADES`.
 
+**Avatares del alumnado = datos de menores:** las fichas, los PNG y los `*.lalupa-clase.json` nunca van al repo (los bloquea `.gitignore`), ni a issues, ni a Artifacts. Se trabajan en el scratchpad, se le entrega el paquete a Pablo y después se borran las copias.
+
 ## Probar
 
 `node .claude/serve.js` → `http://localhost:4321/apps/la-lupa/`.
 
 ## Pendiente / conocido
 
-- Todo el arte son huecos marcados: faltan las imágenes, que se generarán con Gemini o ChatGPT a partir de `arte.json`.
+- Arte de la temporada 1 completo, salvo el director Robles y la foto del tribunal (issue #6).
 - Los datos se guardan solo en `localStorage`. La zona del maestro/a no tiene PIN (el código de sello sí protege el sello). No hay sincronización con el backend.
 - Falta la plantilla imprimible de la libreta (`LIBRETA.md` §3).

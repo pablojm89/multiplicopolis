@@ -405,7 +405,7 @@ const ESCENAS = {
     pintarEscena(`
       <div class="final">
         <div class="sello-resuelto">${esc(e.sello || "¡CASO RESUELTO!")}</div>
-        <div class="equipo">${(e.equipo || ["lola", "mateo", "pilar", "ramon"]).map(id => htmlPersonaje({ id, expresion: "contento", lado: "fila" })).join("")}</div>
+        <div class="equipo">${htmlAvatar(perfil, "personaje fila jugador")}${(e.equipo || ["lola", "mateo", "pilar", "ramon"]).map(id => htmlPersonaje({ id, expresion: "contento", lado: "fila" })).join("")}</div>
         <p class="bocadillo-final maquina" id="txt"></p>
         <button class="boton-sello" id="informe" hidden>Ver mi informe ▸</button>
       </div>`, { fondo: e.fondo, clase: "oscurecido" });

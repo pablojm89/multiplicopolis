@@ -1,6 +1,6 @@
 // Jugador automático de La Lupa: juega cualquier caso entero leyendo la escena actual del propio juego.
 // Necesita el servidor local (node .claude/serve.js) y Playwright (ya instalado en las sesiones en la nube).
-// Uso (desde apps/la-lupa/): node herramientas/jugar_caso.js <unidad> <carpeta-capturas> [perfecto|fallos] [digital]
+// Uso (desde apps/la-lupa/): [PAQUETE=x.lalupa-clase.json] node herramientas/jugar_caso.js <unidad> <carpeta-capturas> [perfecto|fallos] [digital]
 //   perfecto: todo a la primera (las notas deben salir completas). fallos: un error en cada reto (prueba los caminos de fallo).
 // Comprueba: que cada escena avanza, que las cifras conseguidas son el código del candado, textos fuera de pantalla y errores de JS.
 const { chromium } = require('playwright');
@@ -65,7 +65,10 @@ fs.mkdirSync(DIR, { recursive: true });
   await p.goto('http://localhost:4321/apps/la-lupa/');
   if (LIBRETA === 'digital') await p.evaluate(() => { localStorage.setItem('lalupa-ajustes', JSON.stringify({ libreta: 'digital' })); });
   if (LIBRETA === 'digital') await p.reload();
-  await p.fill('#nNombre', 'Robot ' + UNIDAD); await p.click('#nuevo button');
+  if (process.env.PAQUETE) { // PAQUETE=<ruta.lalupa-clase.json>: juega con el avatar del primer alias
+    await p.click('#irMaestro'); await p.setInputFiles('#pqArchivo', process.env.PAQUETE); await p.waitForTimeout(600);
+    await p.click('#volver'); await p.click('.ficha-clase');
+  } else { await p.fill('#nNombre', 'Robot ' + UNIDAD); await p.click('#nuevo button'); }
   await p.click(`[data-unidad="${UNIDAD}"]`);
   let ultimo = -1, eventos = [];
   for (let vuelta = 0; vuelta < 80; vuelta++) {

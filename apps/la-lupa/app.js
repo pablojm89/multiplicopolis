@@ -14,9 +14,12 @@ function vistaInicio() {
     <div class="panel-fichas">
       <h2 class="cartel">¿Quién investiga hoy?</h2>
       <div class="fichas-detective">
-        ${perfiles.map(p => `<button class="ficha-detective" data-id="${esc(p.id)}"><span class="foto">🕵️</span><span><b>${esc(p.nombre)}</b><small>${esc(cursos[p.curso]?.nombre || p.curso)}</small></span></button>`).join("")
+        ${perfiles.map(p => `<button class="ficha-detective" data-id="${esc(p.id)}"><span class="foto">${htmlAvatar(p) || "🕵️"}</span><span><b>${esc(p.nombre)}</b><small>${esc(cursos[p.curso]?.nombre || p.curso)}</small></span></button>`).join("")
           || `<p class="vacio">Todavía no hay detectives en el equipo. ¡Crea tu ficha!</p>`}
       </div>
+      ${aliasLibres().length ? `
+      <p class="etiqueta-clase">¿Eres de la clase? Busca tu ficha de aspirante:</p>
+      <div class="fichas-clase">${aliasLibres().map(a => `<button class="ficha-clase" data-alias="${esc(a.alias)}"><img src="${a.avatar}" alt=""><span>${esc(a.alias)}</span></button>`).join("")}</div>` : ""}
       <form id="nuevo" class="nueva-ficha">
         <input id="nNombre" placeholder="Tu nombre de detective" maxlength="30" required autocomplete="off">
         <select id="nCurso">${Object.entries(cursos).map(([k, c]) => `<option value="${esc(k)}">${esc(c.nombre)}</option>`).join("")}</select>
@@ -25,14 +28,18 @@ function vistaInicio() {
     </div>
     <button class="enlace-maestro" id="irMaestro">Zona maestro/a</button>`, { fondo: "fachada-agencia", clase: "oscurecido" });
   $$(".ficha-detective").forEach(b => b.onclick = () => { perfil = perfiles.find(p => p.id === b.dataset.id); vistaTablon(); });
+  const crear = (nombre, avatar) => {
+    perfil = { id: uid(), nombre, curso: $("#nCurso").value, creado: new Date().toISOString(), ...(avatar ? { avatar } : {}) };
+    perfiles.push(perfil);
+    guardar("perfiles", perfiles);
+    vistaTablon();
+  };
+  $$(".ficha-clase").forEach(b => b.onclick = () => crear(b.dataset.alias, b.dataset.alias));
   $("#nuevo").onsubmit = ev => {
     ev.preventDefault();
     const nombre = $("#nNombre").value.trim();
     if (!nombre) return;
-    perfil = { id: uid(), nombre, curso: $("#nCurso").value, creado: new Date().toISOString() };
-    perfiles.push(perfil);
-    guardar("perfiles", perfiles);
-    vistaTablon();
+    crear(nombre, null);
   };
   $("#irMaestro").onclick = vistaMaestro;
 }
@@ -46,7 +53,7 @@ function vistaTablon() {
   pintarEscena(`
     <div class="tablon-cabecera">
       <h1 class="cartel">Tablón de casos</h1>
-      <span class="placa">Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
+      <span class="placa">${htmlAvatar(perfil, "mini")}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
       <button class="boton-sello" id="irAcademia">🎓 Academia</button>
       <button class="boton-papel" id="salir">Salir</button>
     </div>
@@ -134,7 +141,7 @@ function pintarInforme(res) {
       <div class="sello-informe ${res.libreta ? "" : "pendiente"}">${res.libreta ? "SELLADO" : "SIN SELLAR"}</div>
       <small>AGENCIA LA LUPA · INFORME DEL DETECTIVE</small>
       <h1 class="cartel">${esc(res.titulo)}</h1>
-      <p class="maquina-fija">Detective: ${esc(res.nombre)} · Pistas pedidas: ${res.pistas}${res.consultas ? ` · Consultas a la libreta: ${res.consultas}` : ""} · Tiempo: ${res.minutos} min</p>
+      <p class="maquina-fija">${htmlAvatar(perfil, "mini")}Detective: ${esc(res.nombre)} · Pistas pedidas: ${res.pistas}${res.consultas ? ` · Consultas a la libreta: ${res.consultas}` : ""} · Tiempo: ${res.minutos} min</p>
       ${diag}
       <div class="notas">${res.notas.map(n => `
         <div class="nota"><span>${esc(NOMBRE_CRITERIO[n.criterio] || n.criterio)}</span>
@@ -201,6 +208,7 @@ function vistaMaestro() {
         <tbody>${Object.values(ultimoDiag).map(r => `<tr><td>${esc(r.nombre)}</td>${reglasDiag.map(rg => { const d = r.diagnostico.find(x => x.regla === rg); return `<td class="${d ? (d.porcentaje >= 75 ? "celda-bien" : d.porcentaje >= 50 ? "celda-casi" : "celda-mal") : ""}">${d ? `${d.porcentaje} %` : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody>
       </table></div>` : ""}
       ${resumenAcademiaHTML()}
+      ${htmlPaqueteMaestro()}
       <h2>Casos resueltos</h2>
       <div class="fila">
         <button class="boton-sello" id="csv">Exportar notas por criterio (CSV)</button>
@@ -224,6 +232,7 @@ function vistaMaestro() {
     guardar("ajustes", ajustes);
     $("#ajGuardar").textContent = "Guardado ✔";
   };
+  activarPaqueteMaestro(vistaMaestro);
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());
   $("#csv").onclick = exportarCSV;
   $("#borrar").onclick = () => {
@@ -271,6 +280,7 @@ async function init() {
     pintarEscena(`<div class="bocadillo izq"><p>No se pudieron cargar los datos del juego. Ábrelo desde un servidor web (GitHub Pages, o <code>node .claude/serve.js</code> en local), no como archivo suelto.</p></div>`);
     return;
   }
+  await cargarPaquete();
   vistaInicio();
 }
 init();
