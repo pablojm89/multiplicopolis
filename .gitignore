@@ -2,3 +2,7 @@
 # Datos del alumnado (avatares de clase): nunca al repo
 *.lalupa-clase.json
 apps/*/privado/
+
+# Python
+__pycache__/
+*.pyc
