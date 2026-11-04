@@ -43,7 +43,7 @@
 .cen-canales i.hecho { background: #6ee08f; box-shadow: 0 0 8px rgba(110, 224, 143, .8); }
 .cen-canales i.actual { background: var(--albero); box-shadow: 0 0 10px rgba(242, 169, 59, .9); }
 .cen-rotulo { font: 800 13px var(--f-ui); color: #f3dcb2; text-transform: uppercase; letter-spacing: .1em; }
-.cen-rotulo:last-child { margin-left: 6px; text-transform: none; letter-spacing: .02em; font-size: 15px; }
+.cen-rotulo.cen-msg { margin-left: 6px; text-transform: none; letter-spacing: .02em; font-size: 15px; }
 
 .cen-mandos { display: grid; gap: 12px; justify-items: center; }
 .cen-piloto { display: flex; align-items: center; gap: 8px; font: 800 13px var(--f-ui); color: #f3dcb2; text-transform: uppercase; letter-spacing: .12em; }
@@ -132,4 +132,15 @@
 
 /* Nombres de regla largos: una sola línea en la radio */
 .cen-centro, .cen-canales { min-width: 0; }
-.cen-canales .cen-rotulo:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.cen-canales .cen-rotulo.cen-msg { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+
+/* ── Niveles (lupas) ── */
+.cen-nivel { margin-left: auto; flex: none; padding: 3px 10px; border-radius: 999px; background: rgba(9, 12, 22, .55); border: 1px solid rgba(242, 169, 59, .55); color: #f3dcb2; font: 800 14px var(--f-ui); white-space: nowrap; }
+/* Mensajes largos (oro y diamante): el télex crece y la letra baja un poco para que quepan sin salirse */
+.cen-telex.largo { height: 216px; }
+.cen-telex.largo .cen-maquina { height: 216px; }
+.cen-telex.largo .cen-cinta { height: 184px; }
+.cen-telex.largo .cen-escribe, .cen-telex.largo .cen-recibido { font-size: 24px; line-height: 1.45; }
+.cen-sala:has(.cen-telex.largo) .cen-limpio p { font-size: 19px; line-height: 1.3; }
+.cen-sala:has(.cen-telex.largo) .cen-arreglo p { font-size: 17px; }
+.cen-sala:has(.cen-telex.largo) .cen-dice { font-size: 16.5px; min-height: 48px; }

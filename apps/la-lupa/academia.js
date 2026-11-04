@@ -127,6 +127,7 @@ function vistaPatio() {
       <button class="hud-volver" id="acaVolver">◂ Tablón</button>
       <h1 class="cartel">Academia de detectives</h1>
       <span class="placa">Fichas en cola: <b>${Object.keys(s.cola).length}</b> · Archivadas: <b>${s.archivadas.length}</b> · ${s.puntos || 0} pts</span>
+      <button class="boton-papel" id="verCarne">🎫 Mi carné</button>
     </div>
     <div class="aca-turno">
       <h2 class="cartel">Turno de hoy</h2>
@@ -139,16 +140,46 @@ function vistaPatio() {
         <small>${esc(sl.lugar)}</small><b>${esc(sl.nombre)}</b><span>${sl.activa ? esc(sl.gancho) : "Próximamente"}</span></button>`).join("")}</div>`,
     { fondo: "patio-academia", clase: "oscurecido" });
   $("#acaVolver").onclick = vistaTablon;
+  $("#verCarne").onclick = vistaCarne;
   $$(".aca-tarea").forEach(b => b.onclick = () => entrarSala(b.dataset.sala, { regla: b.dataset.regla || null, turno: b.dataset.clave }));
   $$(".aca-puerta:not(.cerrada)").forEach(b => b.onclick = () => entrarSala(b.dataset.sala, {}));
+}
+
+/* ── El carné de la Academia: las lupas de cada ejercicio y un sello por sala (oro en todos sus ejercicios) ── */
+const actividadesDe = sl => sl.actividades || [{ id: sl.actividad, nombre: sl.nombreActividad || NOMBRE_BASE[sl.actividad] || sl.nombre }];
+const selloSala = sl => sl.activa && actividadesDe(sl).every(a => nivelMaximo(a.id) >= 3);
+function vistaCarne() {
+  const salas = SALAS.filter(sl => sl.activa);
+  const lupas = salas.flatMap(actividadesDe).reduce((n, a) => n + nivelMaximo(a.id) - 1, 0);
+  const sellos = salas.filter(selloSala).length;
+  pintarEscena(`
+    <div class="carne">
+      <header class="carne-cab">
+        <div class="carne-escudo">🔍</div>
+        <div><small>ACADEMIA DE DETECTIVES · LA ALAMEDA</small><h1 class="cartel">Carné de ${esc(perfil.nombre)}</h1>
+          <p>${lupas} lupas ganadas · ${sellos} de ${salas.length} sellos de sala</p></div>
+        ${htmlAvatar(perfil, "carne-foto") || `<div class="carne-foto vacia">🕵️</div>`}
+      </header>
+      <div class="carne-salas">${salas.map(sl => `
+        <section class="carne-sala ${selloSala(sl) ? "sellada" : ""}">
+          <h3>${esc(sl.nombre)}</h3>
+          ${selloSala(sl) ? `<span class="carne-sello">SELLO DE ORO</span>` : ""}
+          <ul>${actividadesDe(sl).map(a => `<li><span>${esc(a.nombre)}</span><b>${NIVELES_ACA.map(l => `<i class="${l.n <= nivelMaximo(a.id) ? "si" : ""}" title="${esc(l.nombre)}">${l.n <= nivelMaximo(a.id) ? l.icono : "·"}</i>`).join("")}</b></li>`).join("")}</ul>
+        </section>`).join("")}</div>
+      <p class="carne-pie">El sello de una sala se consigue con la lupa de oro en todos sus ejercicios. La de diamante es para los Maestros detectives.</p>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: "patio-academia", clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaPatio;
 }
 
 /* ── Entrada a una sala: el instructor explica antes de practicar ── */
 /* Varias actividades por sala: salas/<sala>-extra.js llama a nuevaActividad(...).
    La primera de la lista es la original de la sala. Al entrar, si hay más de una, se elige en un menú. */
+/* Nombre de la actividad original de cada sala (para el menú y el carné) */
+const NOMBRE_BASE = { fichas: "Fichas pendientes", documento: "Corrige el documento", sismografo: "El sismógrafo de sílabas", testigo: "El testigo seseante", conjugar: "La máquina del tiempo verbal", "descubre-regla": "Descubre la regla", dictado: "Dictado relámpago", pruebas: "Pruebas de imprenta" };
 function nuevaActividad(salaId, meta, fn) {
   const sl = sala(salaId);
-  sl.actividades ??= [{ id: sl.actividad, nombre: sl.nombreActividad || "Entrenamiento principal", desc: sl.gancho, reglas: sl.reglas, leccionFija: sl.leccionFija }];
+  sl.actividades ??= [{ id: sl.actividad, nombre: sl.nombreActividad || NOMBRE_BASE[sl.actividad] || "Entrenamiento principal", desc: sl.gancho, reglas: sl.reglas, leccionFija: sl.leccionFija }];
   sl.actividades.push(meta);
   ACTIVIDADES[meta.id] = fn;
 }

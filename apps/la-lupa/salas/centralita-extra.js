@@ -10,13 +10,22 @@
        alumno pulsa en orden las teclas, que llevan el NOMBRE de la letra
        («uve» para la v). Hay teclas trampa: las que suenan igual.
    Registra 5.1 por palabra (y la fallada entra en la cola de repaso).
-   Datos: palabras de 5 a 9 letras de datos/academia/palabras.json y, para
-   las reglas que allí faltan (g/j), las marcadas de dictados.json.
+   Niveles (lupas, NIVELES_ACA de academia.js):
+     🥉 bronce: palabras de 4 a 6 letras de nivel 1;
+     🥈 plata: de 6 a 8 letras (nivel ≤ 2);
+     🥇 oro: palabras largas (7 o más) con tilde o diéresis;
+     💎 diamante: palabras de nivel 3, las letras pasan más deprisa, se puede
+        repetir menos y hay más teclas trampa (tildes, hache, dobles…).
+   Datos: palabras de 4 a 12 letras de datos/academia/palabras.json y, para
+   las reglas que allí faltan (g/j), las marcadas de dictados.json (con el
+   nivel de su frase).
    ============================================================ */
 "use strict";
 
 const DEL_REGLAS = ["h-1", "b-v-1", "g-j-dieresis", "ll-y", "c-z-s", "d-z-finales", "tildes-generales"];
-const DEL_ESCUCHAS = 3;      // veces que Lola puede deletrear cada palabra
+const DEL_ESCUCHAS = [3, 3, 3, 2];          // veces que Lola puede deletrear cada palabra, según la lupa
+const DEL_PASO = { voz: [1500, 1300, 1150, 950], pantalla: [1800, 1500, 1300, 1000] };   // ms por letra
+const DEL_TECLAS = [[8, 11], [10, 14], [10, 15], [15, 20]];   // teclas mínimas y máximas de la fase 2
 const DEL_RONDA = [3, 3];    // palabras de la fase 1 (escuchar) y de la fase 2 (teclas)
 const DEL = { banco: null, gen: 0, tempo: [] };
 
@@ -90,32 +99,46 @@ function delAlinear(E, U) {
   return { pares, sobran };
 }
 
-/* ── Banco: palabras de 5 a 9 letras de la regla ─────────────── */
+/* ── Banco: palabras de 4 a 12 letras de la regla ────────────── */
 async function delCargar() {
   if (DEL.banco) return DEL.banco;
   const banco = [], vistas = new Set();
-  const meter = (p, regla, frase) => {
+  const meter = (p, regla, frase, nivel) => {
     const n = [...p].length;
-    if (n < 5 || n > 9 || !/^[a-záéíóúüñ]+$/.test(p) || vistas.has(p)) return;
-    vistas.add(p); banco.push({ p, regla, frase });
+    if (n < 4 || n > 12 || !/^[a-záéíóúüñ]+$/.test(p) || vistas.has(p)) return;
+    vistas.add(p); banco.push({ p, regla, frase, nivel: nivel || 1 });
   };
-  ACA.palabras.filter(w => DEL_REGLAS.includes(w.regla)).forEach(w => meter(w.p, w.regla, w.frase));
+  ACA.palabras.filter(w => DEL_REGLAS.includes(w.regla)).forEach(w => meter(w.p, w.regla, w.frase, w.nivel));
   try {
     (await leerJSON("datos/academia/dictados.json")).frases.forEach(f => f.marcas.forEach(m => {
       if (!DEL_REGLAS.includes(m.regla)) return;
       const p = f.texto.startsWith(m.p) ? m.p[0].toLowerCase() + m.p.slice(1) : m.p;   // «Había…» → había
-      meter(p, m.regla, f.texto.replace(new RegExp(`(^|[^\\p{L}])${m.p}(?!\\p{L})`, "u"), "$1___"));
+      meter(p, m.regla, f.texto.replace(new RegExp(`(^|[^\\p{L}])${m.p}(?!\\p{L})`, "u"), "$1___"), f.nivel || 2);
     }));
   } catch { /* sin dictados basta con palabras.json */ }
   if (banco.length) DEL.banco = banco;
   return banco;
+}
+/* Las palabras que tocan en cada lupa: se prueba el filtro estricto y, si hay pocas, se afloja */
+const delLargo = w => [...w.p].length;
+const delAcento = w => /[áéíóúü]/.test(w.p);
+function delDeNivel(lista, n, nivel = nivelAca()) {
+  const nv = w => w.nivel || 1;
+  const filtros = {
+    1: [w => nv(w) === 1 && delLargo(w) >= 4 && delLargo(w) <= 6, w => nv(w) <= 2 && delLargo(w) <= 6, w => delLargo(w) <= 7],
+    2: [w => nv(w) <= 2 && delLargo(w) >= 6 && delLargo(w) <= 8, w => delLargo(w) >= 6 && delLargo(w) <= 8, w => delLargo(w) >= 5 && delLargo(w) <= 9],
+    3: [w => delLargo(w) >= 7 && delAcento(w), w => delLargo(w) >= 7 && (delAcento(w) || nv(w) >= 2), w => delLargo(w) >= 7],
+    4: [w => nv(w) === 3 && delLargo(w) >= 6, w => nv(w) === 3, w => nv(w) >= 2 && delLargo(w) >= 8, w => delLargo(w) >= 8],
+  }[nivel] || [];
+  for (const f of filtros) { const l = lista.filter(f); if (l.length >= n) return l; }
+  return lista;
 }
 /* Primero, las palabras que el alumno tiene en la cola de repaso; en modo inspector, reglas alternadas */
 function delElegir(banco, activas, mezcla) {
   const n = DEL_RONDA[0] + DEL_RONDA[1];
   const cola = estadoAca().cola;
   const pesa = w => (cola[w.p] ? 1 : 0);
-  const cand = barajar(banco.filter(w => activas.includes(w.regla))).sort((a, b) => pesa(b) - pesa(a));
+  const cand = barajar(delDeNivel(banco.filter(w => activas.includes(w.regla)), n)).sort((a, b) => pesa(b) - pesa(a));
   let elegidas = [];
   if (!mezcla) elegidas = cand.slice(0, n);
   else {
@@ -124,20 +147,27 @@ function delElegir(banco, activas, mezcla) {
     const rs = barajar(Object.keys(por));
     for (let i = 0; elegidas.length < n && rs.some(r => por[r].length); i++) { const w = por[rs[i % rs.length]].shift(); if (w) elegidas.push(w); }
   }
-  if (elegidas.length < n) elegidas.push(...barajar(banco.filter(w => !elegidas.includes(w))).slice(0, n - elegidas.length));
+  if (elegidas.length < n) elegidas.push(...barajar(delDeNivel(banco, n).filter(w => !elegidas.includes(w))).slice(0, n - elegidas.length));
   // En la fase 1 (de oído) van primero las más cortas
   const oido = elegidas.slice(0, DEL_RONDA[0]).sort((a, b) => delLetras(a.p).length - delLetras(b.p).length);
   return [...oido, ...elegidas.slice(DEL_RONDA[0])];
 }
-/* Teclas de la fase 2: las letras de la palabra + sus trampas + relleno, en orden alfabético */
-function delTeclas(U, regla) {
+/* Teclas de la fase 2: las letras de la palabra + sus trampas + relleno, en orden alfabético.
+   Cuanto más alta la lupa, más trampas: desde oro, tildes en todas las vocales si la palabra lleva alguna;
+   en diamante, siempre, más la hache y las trampas de las trampas (b → v → …). */
+function delTeclas(U, regla, nivel = nivelAca()) {
+  const [min, max] = DEL_TECLAS[nivel - 1];
   const set = new Set(U);
-  U.forEach(u => {
-    const trampas = "aeiou".includes(u) ? (regla === "tildes-generales" ? [DEL_VOCAL_TILDE[u]] : []) : DEL_TRAMPA[u] || [];
-    trampas.forEach(t => { if (set.size < 15) set.add(t); });
-  });
+  const acento = U.some(u => "áéíóúü".includes(u));
+  const tildes = regla === "tildes-generales" || nivel >= 4 || (nivel >= 3 && acento);
+  const trampasDe = u => ("aeiou".includes(u) ? (tildes ? [DEL_VOCAL_TILDE[u]] : []).concat(nivel >= 4 && u === "u" ? ["ü"] : []) : DEL_TRAMPA[u] || []);
+  U.forEach(u => trampasDe(u).forEach(t => { if (set.size < max) set.add(t); }));
+  if (nivel >= 4) {
+    if (!set.has("h") && set.size < max) set.add("h");
+    [...set].forEach(u => (DEL_TRAMPA[u] || []).forEach(t => { if (set.size < max) set.add(t); }));
+  }
   const relleno = barajar(DEL_ORDEN.filter(l => !set.has(l) && !/[áéíóúüñwkx]/.test(l)));
-  while (set.size < 10 && relleno.length) set.add(relleno.pop());
+  while (set.size < min && relleno.length) set.add(relleno.pop());
   return DEL_ORDEN.filter(l => set.has(l));
 }
 
@@ -187,6 +217,7 @@ nuevaActividad("centralita", {
   partidaAca(sl, [...new Set(lista.map(w => w.regla))]);
   let modo = conVoz && cargar("deletreo-modo", "voz") !== "pantalla" ? "voz" : "pantalla";
   let k = 0;
+  const lupa = NIVELES_ACA[nivelAca() - 1], ESCUCHAS = segunNivel(DEL_ESCUCHAS);
 
   const pintar = () => {
     delParar();
@@ -208,9 +239,10 @@ nuevaActividad("centralita", {
           <b>${fase === 1 ? "Fase 1 · Lola deletrea" : "Fase 2 · Deletreas tú"}</b>
           <span class="del-progreso" aria-label="Palabra ${k + 1} de ${lista.length}">${lista.map((_, i) => `<i class="${i < k ? "hecho" : i === k ? "actual" : ""} ${i === DEL_RONDA[0] ? "corte" : ""}"></i>`).join("")}</span>
           <small>${mezcla ? "Modo inspector" : esc(D.reglas[regla]?.nombre || "")}</small>
+          <span class="del-nivel" title="${esc(lupa.nombre)}">${lupa.icono} ${esc(lupa.corto)}</span>
         </header>
         <p class="del-dice" id="delDice" aria-live="polite"></p>
-        <div class="del-casillas ${U.length > 8 ? "largas" : ""}" id="delCasillas">${U.map((_, i) => `<span class="del-casilla" data-i="${i}"><b></b><small></small></span>`).join("")}</div>
+        <div class="del-casillas ${U.length > 10 ? "largas muy-largas" : U.length > 8 ? "largas" : ""}" id="delCasillas">${U.map((_, i) => `<span class="del-casilla" data-i="${i}"><b></b><small></small></span>`).join("")}</div>
         <div class="del-trabajo" id="delTrabajo"></div>
         <div class="del-pie" id="delPie"><p id="msg" class="msg"></p><span id="delPieBtn"></span></div>
       </section>
@@ -257,7 +289,7 @@ nuevaActividad("centralita", {
         <button class="boton-sello" id="delOk" disabled>Comprobar</button>`;
       const inp = $("#delResp");
       const boton = () => {
-        const b = $("#delEmitir"), quedan = DEL_ESCUCHAS - escuchas;
+        const b = $("#delEmitir"), quedan = ESCUCHAS - escuchas;
         b.innerHTML = `${modo === "voz" ? "🔊" : "📟"} ${escuchas ? "Otra vez" : "Recibir"}<small>${quedan ? `quedan ${quedan}` : "sin más"}</small>`;
         b.disabled = !quedan || estado === "emitiendo" || estado === "corrigiendo" || estado === "hecho";
       };
@@ -273,7 +305,7 @@ nuevaActividad("centralita", {
         escuchas++; estado = "emitiendo"; boton(); alAire(true);
         inp.disabled = false; $("#delOk").disabled = false; inp.focus();
         $$(".del-casilla").forEach(c => c.classList.remove("sonando", "sonada"));
-        const paso = modo === "voz" ? 1300 : 1500;
+        const paso = segunNivel(DEL_PASO[modo === "voz" ? "voz" : "pantalla"]);
         let t = 500;
         lcd("¡atento!", "espera");
         U.forEach((u, i) => {
@@ -294,10 +326,10 @@ nuevaActividad("centralita", {
           $("#delPos").textContent = `${U.length} letras`;
           if (estado === "emitiendo") estado = "escribiendo";
           boton();
-          dice(escuchas < DEL_ESCUCHAS ? "Cambio. ¿Lo tienes? Si se te ha escapado alguna letra, te lo repito." : "Cambio y corto. Ya no puedo repetirlo: comprueba lo que has apuntado.");
+          dice(escuchas < ESCUCHAS ? "Cambio. ¿Lo tienes? Si se te ha escapado alguna letra, te lo repito." : "Cambio y corto. Ya no puedo repetirlo: comprueba lo que has apuntado.");
         });
       };
-      $("#delEmitir").onclick = () => { if (escuchas < DEL_ESCUCHAS && estado !== "emitiendo") deletrear(); };
+      $("#delEmitir").onclick = () => { if (escuchas < ESCUCHAS && estado !== "emitiendo") deletrear(); };
 
       const comprobar = () => {
         if (estado === "corrigiendo" || estado === "hecho" || inp.disabled) return;
@@ -362,7 +394,7 @@ nuevaActividad("centralita", {
       $("#delCanal").textContent = "CANAL 7 · PARA LOLA";
       $("#delPos").textContent = "deletréala";
       const teclas = delTeclas(U, w.regla);
-      $("#delTrabajo").innerHTML = `<div class="del-teclado" role="group" aria-label="Teclas con el nombre de las letras">${teclas.map(t =>
+      $("#delTrabajo").innerHTML = `<div class="del-teclado ${teclas.length > 15 ? "muchas" : ""}" role="group" aria-label="Teclas con el nombre de las letras">${teclas.map(t =>
         `<button class="del-tecla" data-l="${esc(t)}"><b>${esc(delNombre(t))}</b>${DEL_OTRO[t] ? `<small>o ${esc(DEL_OTRO[t])}</small>` : ""}</button>`).join("")}</div>`;
       const b = $("#delEmitir");
       b.innerHTML = `💡 Pista<small>la siguiente tecla</small>`;

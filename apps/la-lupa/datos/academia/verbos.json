@@ -1,5 +1,5 @@
 {
- "_nota": "Banco de la Terminal ORTO-3000 (T2, la máquina del tiempo verbal). Las formas regulares se generan con 'desinencias' (raíz = infinitivo sin -ar, -er, -ir); 'formas' guarda las que no salen así (irregulares completos y cambios ortográficos). Compuesto = haber + participio. Valídalo con python3 herramientas/validar_terminal.py",
+ "_nota": "Banco de la Terminal ORTO-3000 (T2, la máquina del tiempo verbal). Las formas regulares se generan con 'desinencias' (raíz = infinitivo sin -ar, -er, -ir); 'formas' guarda las que no salen así (irregulares completos y cambios ortográficos). Compuesto = haber + participio. El imperativo solo tiene 2.ª persona (tú y vosotros): las demás casillas van a null. Niveles de los verbos: 1 regulares, 2 irregulares frecuentes, 3 irregulares menos frecuentes o con cambio de raíz. Frases: 'verbo' y 'persona' (una marca) o 'verbos': [[verbo, persona], …] (dos marcas, para la lupa de diamante). Valídalo con python3 herramientas/validar_terminal.py",
  "personas": [
   {"persona": "1.ª", "numero": "singular", "pronombre": "yo"},
   {"persona": "2.ª", "numero": "singular", "pronombre": "tú"},
@@ -10,12 +10,14 @@
  ],
  "ustedes": "En buena parte de Andalucía se dice «ustedes» en lugar de «vosotros» (ustedes cantan). En la escuela practicamos las dos, y aquí se pide la forma de vosotros: vosotros cantáis.",
  "tiempos": [
-  {"id": "presente", "nombre": "presente", "corto": "PRESENTE", "nivel": 1},
-  {"id": "imperfecto", "nombre": "pretérito imperfecto", "corto": "IMPERFECTO", "nivel": 1},
-  {"id": "futuro", "nombre": "futuro simple", "corto": "FUTURO", "nivel": 1},
-  {"id": "perfecto-simple", "nombre": "pretérito perfecto simple", "corto": "P. SIMPLE", "nivel": 2},
-  {"id": "condicional", "nombre": "condicional simple", "corto": "CONDICIONAL", "nivel": 2},
-  {"id": "perfecto-compuesto", "nombre": "pretérito perfecto compuesto", "corto": "COMPUESTO", "nivel": 2}
+  {"id": "presente", "nombre": "presente", "corto": "PRESENTE", "modo": "indicativo", "nivel": 1},
+  {"id": "imperfecto", "nombre": "pretérito imperfecto", "corto": "IMPERFECTO", "modo": "indicativo", "nivel": 1},
+  {"id": "futuro", "nombre": "futuro simple", "corto": "FUTURO", "modo": "indicativo", "nivel": 1},
+  {"id": "perfecto-simple", "nombre": "pretérito perfecto simple", "corto": "P. SIMPLE", "modo": "indicativo", "nivel": 2},
+  {"id": "condicional", "nombre": "condicional simple", "corto": "CONDICIONAL", "modo": "indicativo", "nivel": 2},
+  {"id": "perfecto-compuesto", "nombre": "pretérito perfecto compuesto", "corto": "COMPUESTO", "modo": "indicativo", "nivel": 3},
+  {"id": "subjuntivo", "nombre": "presente", "corto": "SUBJUNTIVO", "modo": "subjuntivo", "nivel": 4},
+  {"id": "imperativo", "nombre": "imperativo", "corto": "IMPERATIVO", "modo": "imperativo", "nivel": 4}
  ],
  "desinencias": {
   "ar": {
@@ -23,21 +25,27 @@
    "imperfecto": ["aba", "abas", "aba", "ábamos", "abais", "aban"],
    "perfecto-simple": ["é", "aste", "ó", "amos", "asteis", "aron"],
    "futuro": ["aré", "arás", "ará", "aremos", "aréis", "arán"],
-   "condicional": ["aría", "arías", "aría", "aríamos", "aríais", "arían"]
+   "condicional": ["aría", "arías", "aría", "aríamos", "aríais", "arían"],
+   "subjuntivo": ["e", "es", "e", "emos", "éis", "en"],
+   "imperativo": [null, "a", null, null, "ad", null]
   },
   "er": {
    "presente": ["o", "es", "e", "emos", "éis", "en"],
    "imperfecto": ["ía", "ías", "ía", "íamos", "íais", "ían"],
    "perfecto-simple": ["í", "iste", "ió", "imos", "isteis", "ieron"],
    "futuro": ["eré", "erás", "erá", "eremos", "eréis", "erán"],
-   "condicional": ["ería", "erías", "ería", "eríamos", "eríais", "erían"]
+   "condicional": ["ería", "erías", "ería", "eríamos", "eríais", "erían"],
+   "subjuntivo": ["a", "as", "a", "amos", "áis", "an"],
+   "imperativo": [null, "e", null, null, "ed", null]
   },
   "ir": {
    "presente": ["o", "es", "e", "imos", "ís", "en"],
    "imperfecto": ["ía", "ías", "ía", "íamos", "íais", "ían"],
    "perfecto-simple": ["í", "iste", "ió", "imos", "isteis", "ieron"],
    "futuro": ["iré", "irás", "irá", "iremos", "iréis", "irán"],
-   "condicional": ["iría", "irías", "iría", "iríamos", "iríais", "irían"]
+   "condicional": ["iría", "irías", "iría", "iríamos", "iríais", "irían"],
+   "subjuntivo": ["a", "as", "a", "amos", "áis", "an"],
+   "imperativo": [null, "e", null, null, "id", null]
   }
  },
  "haber": ["he", "has", "ha", "hemos", "habéis", "han"],
@@ -51,54 +59,12 @@
   {"inf": "viajar", "nivel": 1},
   {"inf": "trabajar", "nivel": 1},
   {"inf": "guardar", "nivel": 1},
-  {
-   "inf": "buscar",
-   "nivel": 1,
-   "nota": "c → qu delante de e",
-   "formas": {
-    "perfecto-simple": ["busqué", "buscaste", "buscó", "buscamos", "buscasteis", "buscaron"]
-   }
-  },
-  {
-   "inf": "explicar",
-   "nivel": 1,
-   "nota": "c → qu delante de e",
-   "formas": {
-    "perfecto-simple": ["expliqué", "explicaste", "explicó", "explicamos", "explicasteis", "explicaron"]
-   }
-  },
-  {
-   "inf": "llegar",
-   "nivel": 1,
-   "nota": "g → gu delante de e",
-   "formas": {
-    "perfecto-simple": ["llegué", "llegaste", "llegó", "llegamos", "llegasteis", "llegaron"]
-   }
-  },
-  {
-   "inf": "investigar",
-   "nivel": 1,
-   "nota": "g → gu delante de e",
-   "formas": {
-    "perfecto-simple": ["investigué", "investigaste", "investigó", "investigamos", "investigasteis", "investigaron"]
-   }
-  },
-  {
-   "inf": "cruzar",
-   "nivel": 1,
-   "nota": "z → c delante de e",
-   "formas": {
-    "perfecto-simple": ["crucé", "cruzaste", "cruzó", "cruzamos", "cruzasteis", "cruzaron"]
-   }
-  },
-  {
-   "inf": "averiguar",
-   "nivel": 1,
-   "nota": "gu → gü delante de e",
-   "formas": {
-    "perfecto-simple": ["averigüé", "averiguaste", "averiguó", "averiguamos", "averiguasteis", "averiguaron"]
-   }
-  },
+  {"inf": "buscar", "nivel": 1, "nota": "c → qu delante de e", "formas": {"perfecto-simple": ["busqué", "buscaste", "buscó", "buscamos", "buscasteis", "buscaron"], "subjuntivo": ["busque", "busques", "busque", "busquemos", "busquéis", "busquen"]}},
+  {"inf": "explicar", "nivel": 1, "nota": "c → qu delante de e", "formas": {"perfecto-simple": ["expliqué", "explicaste", "explicó", "explicamos", "explicasteis", "explicaron"], "subjuntivo": ["explique", "expliques", "explique", "expliquemos", "expliquéis", "expliquen"]}},
+  {"inf": "llegar", "nivel": 1, "nota": "g → gu delante de e", "formas": {"perfecto-simple": ["llegué", "llegaste", "llegó", "llegamos", "llegasteis", "llegaron"], "subjuntivo": ["llegue", "llegues", "llegue", "lleguemos", "lleguéis", "lleguen"]}},
+  {"inf": "investigar", "nivel": 1, "nota": "g → gu delante de e", "formas": {"perfecto-simple": ["investigué", "investigaste", "investigó", "investigamos", "investigasteis", "investigaron"], "subjuntivo": ["investigue", "investigues", "investigue", "investiguemos", "investiguéis", "investiguen"]}},
+  {"inf": "cruzar", "nivel": 1, "nota": "z → c delante de e", "formas": {"perfecto-simple": ["crucé", "cruzaste", "cruzó", "cruzamos", "cruzasteis", "cruzaron"], "subjuntivo": ["cruce", "cruces", "cruce", "crucemos", "crucéis", "crucen"]}},
+  {"inf": "averiguar", "nivel": 1, "nota": "gu → gü delante de e", "formas": {"perfecto-simple": ["averigüé", "averiguaste", "averiguó", "averiguamos", "averiguasteis", "averiguaron"], "subjuntivo": ["averigüe", "averigües", "averigüe", "averigüemos", "averigüéis", "averigüen"]}},
   {"inf": "comer", "nivel": 1},
   {"inf": "beber", "nivel": 1},
   {"inf": "aprender", "nivel": 1},
@@ -113,255 +79,52 @@
   {"inf": "decidir", "nivel": 1},
   {"inf": "descubrir", "nivel": 1, "participio": "descubierto"},
   {"inf": "compartir", "nivel": 1},
-  {
-   "inf": "ser",
-   "nivel": 2,
-   "irregular": true,
-   "total": true,
-   "participio": "sido",
-   "formas": {
-    "presente": ["soy", "eres", "es", "somos", "sois", "son"],
-    "imperfecto": ["era", "eras", "era", "éramos", "erais", "eran"],
-    "perfecto-simple": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"],
-    "futuro": ["seré", "serás", "será", "seremos", "seréis", "serán"],
-    "condicional": ["sería", "serías", "sería", "seríamos", "seríais", "serían"]
-   }
-  },
-  {
-   "inf": "estar",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "estado",
-   "formas": {
-    "presente": ["estoy", "estás", "está", "estamos", "estáis", "están"],
-    "imperfecto": ["estaba", "estabas", "estaba", "estábamos", "estabais", "estaban"],
-    "perfecto-simple": ["estuve", "estuviste", "estuvo", "estuvimos", "estuvisteis", "estuvieron"],
-    "futuro": ["estaré", "estarás", "estará", "estaremos", "estaréis", "estarán"],
-    "condicional": ["estaría", "estarías", "estaría", "estaríamos", "estaríais", "estarían"]
-   }
-  },
-  {
-   "inf": "ir",
-   "nivel": 2,
-   "irregular": true,
-   "total": true,
-   "participio": "ido",
-   "formas": {
-    "presente": ["voy", "vas", "va", "vamos", "vais", "van"],
-    "imperfecto": ["iba", "ibas", "iba", "íbamos", "ibais", "iban"],
-    "perfecto-simple": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"],
-    "futuro": ["iré", "irás", "irá", "iremos", "iréis", "irán"],
-    "condicional": ["iría", "irías", "iría", "iríamos", "iríais", "irían"]
-   }
-  },
-  {
-   "inf": "tener",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "tenido",
-   "formas": {
-    "presente": ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"],
-    "imperfecto": ["tenía", "tenías", "tenía", "teníamos", "teníais", "tenían"],
-    "perfecto-simple": ["tuve", "tuviste", "tuvo", "tuvimos", "tuvisteis", "tuvieron"],
-    "futuro": ["tendré", "tendrás", "tendrá", "tendremos", "tendréis", "tendrán"],
-    "condicional": ["tendría", "tendrías", "tendría", "tendríamos", "tendríais", "tendrían"]
-   }
-  },
-  {
-   "inf": "hacer",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "hecho",
-   "formas": {
-    "presente": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"],
-    "imperfecto": ["hacía", "hacías", "hacía", "hacíamos", "hacíais", "hacían"],
-    "perfecto-simple": ["hice", "hiciste", "hizo", "hicimos", "hicisteis", "hicieron"],
-    "futuro": ["haré", "harás", "hará", "haremos", "haréis", "harán"],
-    "condicional": ["haría", "harías", "haría", "haríamos", "haríais", "harían"]
-   }
-  },
-  {
-   "inf": "decir",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "dicho",
-   "formas": {
-    "presente": ["digo", "dices", "dice", "decimos", "decís", "dicen"],
-    "imperfecto": ["decía", "decías", "decía", "decíamos", "decíais", "decían"],
-    "perfecto-simple": ["dije", "dijiste", "dijo", "dijimos", "dijisteis", "dijeron"],
-    "futuro": ["diré", "dirás", "dirá", "diremos", "diréis", "dirán"],
-    "condicional": ["diría", "dirías", "diría", "diríamos", "diríais", "dirían"]
-   }
-  },
-  {
-   "inf": "poder",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "podido",
-   "formas": {
-    "presente": ["puedo", "puedes", "puede", "podemos", "podéis", "pueden"],
-    "imperfecto": ["podía", "podías", "podía", "podíamos", "podíais", "podían"],
-    "perfecto-simple": ["pude", "pudiste", "pudo", "pudimos", "pudisteis", "pudieron"],
-    "futuro": ["podré", "podrás", "podrá", "podremos", "podréis", "podrán"],
-    "condicional": ["podría", "podrías", "podría", "podríamos", "podríais", "podrían"]
-   }
-  },
-  {
-   "inf": "querer",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "querido",
-   "formas": {
-    "presente": ["quiero", "quieres", "quiere", "queremos", "queréis", "quieren"],
-    "imperfecto": ["quería", "querías", "quería", "queríamos", "queríais", "querían"],
-    "perfecto-simple": ["quise", "quisiste", "quiso", "quisimos", "quisisteis", "quisieron"],
-    "futuro": ["querré", "querrás", "querrá", "querremos", "querréis", "querrán"],
-    "condicional": ["querría", "querrías", "querría", "querríamos", "querríais", "querrían"]
-   }
-  },
-  {
-   "inf": "venir",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "venido",
-   "formas": {
-    "presente": ["vengo", "vienes", "viene", "venimos", "venís", "vienen"],
-    "imperfecto": ["venía", "venías", "venía", "veníamos", "veníais", "venían"],
-    "perfecto-simple": ["vine", "viniste", "vino", "vinimos", "vinisteis", "vinieron"],
-    "futuro": ["vendré", "vendrás", "vendrá", "vendremos", "vendréis", "vendrán"],
-    "condicional": ["vendría", "vendrías", "vendría", "vendríamos", "vendríais", "vendrían"]
-   }
-  },
-  {
-   "inf": "traer",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "traído",
-   "formas": {
-    "presente": ["traigo", "traes", "trae", "traemos", "traéis", "traen"],
-    "imperfecto": ["traía", "traías", "traía", "traíamos", "traíais", "traían"],
-    "perfecto-simple": ["traje", "trajiste", "trajo", "trajimos", "trajisteis", "trajeron"],
-    "futuro": ["traeré", "traerás", "traerá", "traeremos", "traeréis", "traerán"],
-    "condicional": ["traería", "traerías", "traería", "traeríamos", "traeríais", "traerían"]
-   }
-  },
-  {
-   "inf": "poner",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "puesto",
-   "formas": {
-    "presente": ["pongo", "pones", "pone", "ponemos", "ponéis", "ponen"],
-    "imperfecto": ["ponía", "ponías", "ponía", "poníamos", "poníais", "ponían"],
-    "perfecto-simple": ["puse", "pusiste", "puso", "pusimos", "pusisteis", "pusieron"],
-    "futuro": ["pondré", "pondrás", "pondrá", "pondremos", "pondréis", "pondrán"],
-    "condicional": ["pondría", "pondrías", "pondría", "pondríamos", "pondríais", "pondrían"]
-   }
-  },
-  {
-   "inf": "saber",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "sabido",
-   "formas": {
-    "presente": ["sé", "sabes", "sabe", "sabemos", "sabéis", "saben"],
-    "imperfecto": ["sabía", "sabías", "sabía", "sabíamos", "sabíais", "sabían"],
-    "perfecto-simple": ["supe", "supiste", "supo", "supimos", "supisteis", "supieron"],
-    "futuro": ["sabré", "sabrás", "sabrá", "sabremos", "sabréis", "sabrán"],
-    "condicional": ["sabría", "sabrías", "sabría", "sabríamos", "sabríais", "sabrían"]
-   }
-  },
-  {
-   "inf": "andar",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "andado",
-   "formas": {
-    "presente": ["ando", "andas", "anda", "andamos", "andáis", "andan"],
-    "imperfecto": ["andaba", "andabas", "andaba", "andábamos", "andabais", "andaban"],
-    "perfecto-simple": ["anduve", "anduviste", "anduvo", "anduvimos", "anduvisteis", "anduvieron"],
-    "futuro": ["andaré", "andarás", "andará", "andaremos", "andaréis", "andarán"],
-    "condicional": ["andaría", "andarías", "andaría", "andaríamos", "andaríais", "andarían"]
-   }
-  },
-  {
-   "inf": "conducir",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "conducido",
-   "formas": {
-    "presente": ["conduzco", "conduces", "conduce", "conducimos", "conducís", "conducen"],
-    "imperfecto": ["conducía", "conducías", "conducía", "conducíamos", "conducíais", "conducían"],
-    "perfecto-simple": ["conduje", "condujiste", "condujo", "condujimos", "condujisteis", "condujeron"],
-    "futuro": ["conduciré", "conducirás", "conducirá", "conduciremos", "conduciréis", "conducirán"],
-    "condicional": ["conduciría", "conducirías", "conduciría", "conduciríamos", "conduciríais", "conducirían"]
-   }
-  },
-  {
-   "inf": "caer",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "caído",
-   "formas": {
-    "presente": ["caigo", "caes", "cae", "caemos", "caéis", "caen"],
-    "imperfecto": ["caía", "caías", "caía", "caíamos", "caíais", "caían"],
-    "perfecto-simple": ["caí", "caíste", "cayó", "caímos", "caísteis", "cayeron"],
-    "futuro": ["caeré", "caerás", "caerá", "caeremos", "caeréis", "caerán"],
-    "condicional": ["caería", "caerías", "caería", "caeríamos", "caeríais", "caerían"]
-   }
-  },
-  {
-   "inf": "oír",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "oído",
-   "formas": {
-    "presente": ["oigo", "oyes", "oye", "oímos", "oís", "oyen"],
-    "imperfecto": ["oía", "oías", "oía", "oíamos", "oíais", "oían"],
-    "perfecto-simple": ["oí", "oíste", "oyó", "oímos", "oísteis", "oyeron"],
-    "futuro": ["oiré", "oirás", "oirá", "oiremos", "oiréis", "oirán"],
-    "condicional": ["oiría", "oirías", "oiría", "oiríamos", "oiríais", "oirían"]
-   }
-  },
-  {
-   "inf": "leer",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "leído",
-   "formas": {
-    "presente": ["leo", "lees", "lee", "leemos", "leéis", "leen"],
-    "imperfecto": ["leía", "leías", "leía", "leíamos", "leíais", "leían"],
-    "perfecto-simple": ["leí", "leíste", "leyó", "leímos", "leísteis", "leyeron"],
-    "futuro": ["leeré", "leerás", "leerá", "leeremos", "leeréis", "leerán"],
-    "condicional": ["leería", "leerías", "leería", "leeríamos", "leeríais", "leerían"]
-   }
-  },
-  {
-   "inf": "ver",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "visto",
-   "formas": {
-    "presente": ["veo", "ves", "ve", "vemos", "veis", "ven"],
-    "imperfecto": ["veía", "veías", "veía", "veíamos", "veíais", "veían"],
-    "perfecto-simple": ["vi", "viste", "vio", "vimos", "visteis", "vieron"],
-    "futuro": ["veré", "verás", "verá", "veremos", "veréis", "verán"],
-    "condicional": ["vería", "verías", "vería", "veríamos", "veríais", "verían"]
-   }
-  },
-  {
-   "inf": "dar",
-   "nivel": 2,
-   "irregular": true,
-   "participio": "dado",
-   "formas": {
-    "presente": ["doy", "das", "da", "damos", "dais", "dan"],
-    "imperfecto": ["daba", "dabas", "daba", "dábamos", "dabais", "daban"],
-    "perfecto-simple": ["di", "diste", "dio", "dimos", "disteis", "dieron"],
-    "futuro": ["daré", "darás", "dará", "daremos", "daréis", "darán"],
-    "condicional": ["daría", "darías", "daría", "daríamos", "daríais", "darían"]
-   }
-  }
+  {"inf": "dibujar", "nivel": 1},
+  {"inf": "caminar", "nivel": 1},
+  {"inf": "entrar", "nivel": 1},
+  {"inf": "ayudar", "nivel": 1},
+  {"inf": "esperar", "nivel": 1},
+  {"inf": "llamar", "nivel": 1},
+  {"inf": "vigilar", "nivel": 1},
+  {"inf": "vender", "nivel": 1},
+  {"inf": "romper", "nivel": 1, "participio": "roto"},
+  {"inf": "abrir", "nivel": 1, "participio": "abierto"},
+  {"inf": "permitir", "nivel": 1},
+  {"inf": "tocar", "nivel": 1, "nota": "c → qu delante de e", "formas": {"perfecto-simple": ["toqué", "tocaste", "tocó", "tocamos", "tocasteis", "tocaron"], "subjuntivo": ["toque", "toques", "toque", "toquemos", "toquéis", "toquen"]}},
+  {"inf": "apagar", "nivel": 1, "nota": "g → gu delante de e", "formas": {"perfecto-simple": ["apagué", "apagaste", "apagó", "apagamos", "apagasteis", "apagaron"], "subjuntivo": ["apague", "apagues", "apague", "apaguemos", "apaguéis", "apaguen"]}},
+  {"inf": "lanzar", "nivel": 1, "nota": "z → c delante de e", "formas": {"perfecto-simple": ["lancé", "lanzaste", "lanzó", "lanzamos", "lanzasteis", "lanzaron"], "subjuntivo": ["lance", "lances", "lance", "lancemos", "lancéis", "lancen"]}},
+  {"inf": "ser", "nivel": 2, "irregular": true, "total": true, "participio": "sido", "formas": {"presente": ["soy", "eres", "es", "somos", "sois", "son"], "imperfecto": ["era", "eras", "era", "éramos", "erais", "eran"], "perfecto-simple": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"], "futuro": ["seré", "serás", "será", "seremos", "seréis", "serán"], "condicional": ["sería", "serías", "sería", "seríamos", "seríais", "serían"], "subjuntivo": ["sea", "seas", "sea", "seamos", "seáis", "sean"], "imperativo": [null, "sé", null, null, "sed", null]}},
+  {"inf": "estar", "nivel": 2, "irregular": true, "participio": "estado", "formas": {"presente": ["estoy", "estás", "está", "estamos", "estáis", "están"], "imperfecto": ["estaba", "estabas", "estaba", "estábamos", "estabais", "estaban"], "perfecto-simple": ["estuve", "estuviste", "estuvo", "estuvimos", "estuvisteis", "estuvieron"], "futuro": ["estaré", "estarás", "estará", "estaremos", "estaréis", "estarán"], "condicional": ["estaría", "estarías", "estaría", "estaríamos", "estaríais", "estarían"], "subjuntivo": ["esté", "estés", "esté", "estemos", "estéis", "estén"]}},
+  {"inf": "ir", "nivel": 2, "irregular": true, "total": true, "participio": "ido", "formas": {"presente": ["voy", "vas", "va", "vamos", "vais", "van"], "imperfecto": ["iba", "ibas", "iba", "íbamos", "ibais", "iban"], "perfecto-simple": ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"], "futuro": ["iré", "irás", "irá", "iremos", "iréis", "irán"], "condicional": ["iría", "irías", "iría", "iríamos", "iríais", "irían"], "subjuntivo": ["vaya", "vayas", "vaya", "vayamos", "vayáis", "vayan"], "imperativo": [null, "ve", null, null, "id", null]}},
+  {"inf": "tener", "nivel": 2, "irregular": true, "participio": "tenido", "formas": {"presente": ["tengo", "tienes", "tiene", "tenemos", "tenéis", "tienen"], "imperfecto": ["tenía", "tenías", "tenía", "teníamos", "teníais", "tenían"], "perfecto-simple": ["tuve", "tuviste", "tuvo", "tuvimos", "tuvisteis", "tuvieron"], "futuro": ["tendré", "tendrás", "tendrá", "tendremos", "tendréis", "tendrán"], "condicional": ["tendría", "tendrías", "tendría", "tendríamos", "tendríais", "tendrían"], "subjuntivo": ["tenga", "tengas", "tenga", "tengamos", "tengáis", "tengan"], "imperativo": [null, "ten", null, null, "tened", null]}},
+  {"inf": "hacer", "nivel": 2, "irregular": true, "participio": "hecho", "formas": {"presente": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"], "imperfecto": ["hacía", "hacías", "hacía", "hacíamos", "hacíais", "hacían"], "perfecto-simple": ["hice", "hiciste", "hizo", "hicimos", "hicisteis", "hicieron"], "futuro": ["haré", "harás", "hará", "haremos", "haréis", "harán"], "condicional": ["haría", "harías", "haría", "haríamos", "haríais", "harían"], "subjuntivo": ["haga", "hagas", "haga", "hagamos", "hagáis", "hagan"], "imperativo": [null, "haz", null, null, "haced", null]}},
+  {"inf": "decir", "nivel": 2, "irregular": true, "participio": "dicho", "formas": {"presente": ["digo", "dices", "dice", "decimos", "decís", "dicen"], "imperfecto": ["decía", "decías", "decía", "decíamos", "decíais", "decían"], "perfecto-simple": ["dije", "dijiste", "dijo", "dijimos", "dijisteis", "dijeron"], "futuro": ["diré", "dirás", "dirá", "diremos", "diréis", "dirán"], "condicional": ["diría", "dirías", "diría", "diríamos", "diríais", "dirían"], "subjuntivo": ["diga", "digas", "diga", "digamos", "digáis", "digan"], "imperativo": [null, "di", null, null, "decid", null]}},
+  {"inf": "poder", "nivel": 2, "irregular": true, "participio": "podido", "formas": {"presente": ["puedo", "puedes", "puede", "podemos", "podéis", "pueden"], "imperfecto": ["podía", "podías", "podía", "podíamos", "podíais", "podían"], "perfecto-simple": ["pude", "pudiste", "pudo", "pudimos", "pudisteis", "pudieron"], "futuro": ["podré", "podrás", "podrá", "podremos", "podréis", "podrán"], "condicional": ["podría", "podrías", "podría", "podríamos", "podríais", "podrían"], "subjuntivo": ["pueda", "puedas", "pueda", "podamos", "podáis", "puedan"]}},
+  {"inf": "querer", "nivel": 2, "irregular": true, "participio": "querido", "formas": {"presente": ["quiero", "quieres", "quiere", "queremos", "queréis", "quieren"], "imperfecto": ["quería", "querías", "quería", "queríamos", "queríais", "querían"], "perfecto-simple": ["quise", "quisiste", "quiso", "quisimos", "quisisteis", "quisieron"], "futuro": ["querré", "querrás", "querrá", "querremos", "querréis", "querrán"], "condicional": ["querría", "querrías", "querría", "querríamos", "querríais", "querrían"], "subjuntivo": ["quiera", "quieras", "quiera", "queramos", "queráis", "quieran"]}},
+  {"inf": "venir", "nivel": 2, "irregular": true, "participio": "venido", "formas": {"presente": ["vengo", "vienes", "viene", "venimos", "venís", "vienen"], "imperfecto": ["venía", "venías", "venía", "veníamos", "veníais", "venían"], "perfecto-simple": ["vine", "viniste", "vino", "vinimos", "vinisteis", "vinieron"], "futuro": ["vendré", "vendrás", "vendrá", "vendremos", "vendréis", "vendrán"], "condicional": ["vendría", "vendrías", "vendría", "vendríamos", "vendríais", "vendrían"], "subjuntivo": ["venga", "vengas", "venga", "vengamos", "vengáis", "vengan"], "imperativo": [null, "ven", null, null, "venid", null]}},
+  {"inf": "traer", "nivel": 2, "irregular": true, "participio": "traído", "formas": {"presente": ["traigo", "traes", "trae", "traemos", "traéis", "traen"], "imperfecto": ["traía", "traías", "traía", "traíamos", "traíais", "traían"], "perfecto-simple": ["traje", "trajiste", "trajo", "trajimos", "trajisteis", "trajeron"], "futuro": ["traeré", "traerás", "traerá", "traeremos", "traeréis", "traerán"], "condicional": ["traería", "traerías", "traería", "traeríamos", "traeríais", "traerían"], "subjuntivo": ["traiga", "traigas", "traiga", "traigamos", "traigáis", "traigan"], "imperativo": [null, "trae", null, null, "traed", null]}},
+  {"inf": "poner", "nivel": 2, "irregular": true, "participio": "puesto", "formas": {"presente": ["pongo", "pones", "pone", "ponemos", "ponéis", "ponen"], "imperfecto": ["ponía", "ponías", "ponía", "poníamos", "poníais", "ponían"], "perfecto-simple": ["puse", "pusiste", "puso", "pusimos", "pusisteis", "pusieron"], "futuro": ["pondré", "pondrás", "pondrá", "pondremos", "pondréis", "pondrán"], "condicional": ["pondría", "pondrías", "pondría", "pondríamos", "pondríais", "pondrían"], "subjuntivo": ["ponga", "pongas", "ponga", "pongamos", "pongáis", "pongan"], "imperativo": [null, "pon", null, null, "poned", null]}},
+  {"inf": "saber", "nivel": 2, "irregular": true, "participio": "sabido", "formas": {"presente": ["sé", "sabes", "sabe", "sabemos", "sabéis", "saben"], "imperfecto": ["sabía", "sabías", "sabía", "sabíamos", "sabíais", "sabían"], "perfecto-simple": ["supe", "supiste", "supo", "supimos", "supisteis", "supieron"], "futuro": ["sabré", "sabrás", "sabrá", "sabremos", "sabréis", "sabrán"], "condicional": ["sabría", "sabrías", "sabría", "sabríamos", "sabríais", "sabrían"], "subjuntivo": ["sepa", "sepas", "sepa", "sepamos", "sepáis", "sepan"]}},
+  {"inf": "andar", "nivel": 3, "irregular": true, "participio": "andado", "formas": {"presente": ["ando", "andas", "anda", "andamos", "andáis", "andan"], "imperfecto": ["andaba", "andabas", "andaba", "andábamos", "andabais", "andaban"], "perfecto-simple": ["anduve", "anduviste", "anduvo", "anduvimos", "anduvisteis", "anduvieron"], "futuro": ["andaré", "andarás", "andará", "andaremos", "andaréis", "andarán"], "condicional": ["andaría", "andarías", "andaría", "andaríamos", "andaríais", "andarían"], "subjuntivo": ["ande", "andes", "ande", "andemos", "andéis", "anden"], "imperativo": [null, "anda", null, null, "andad", null]}},
+  {"inf": "conducir", "nivel": 3, "irregular": true, "participio": "conducido", "formas": {"presente": ["conduzco", "conduces", "conduce", "conducimos", "conducís", "conducen"], "imperfecto": ["conducía", "conducías", "conducía", "conducíamos", "conducíais", "conducían"], "perfecto-simple": ["conduje", "condujiste", "condujo", "condujimos", "condujisteis", "condujeron"], "futuro": ["conduciré", "conducirás", "conducirá", "conduciremos", "conduciréis", "conducirán"], "condicional": ["conduciría", "conducirías", "conduciría", "conduciríamos", "conduciríais", "conducirían"], "subjuntivo": ["conduzca", "conduzcas", "conduzca", "conduzcamos", "conduzcáis", "conduzcan"], "imperativo": [null, "conduce", null, null, "conducid", null]}},
+  {"inf": "caer", "nivel": 3, "irregular": true, "participio": "caído", "formas": {"presente": ["caigo", "caes", "cae", "caemos", "caéis", "caen"], "imperfecto": ["caía", "caías", "caía", "caíamos", "caíais", "caían"], "perfecto-simple": ["caí", "caíste", "cayó", "caímos", "caísteis", "cayeron"], "futuro": ["caeré", "caerás", "caerá", "caeremos", "caeréis", "caerán"], "condicional": ["caería", "caerías", "caería", "caeríamos", "caeríais", "caerían"], "subjuntivo": ["caiga", "caigas", "caiga", "caigamos", "caigáis", "caigan"]}},
+  {"inf": "oír", "nivel": 3, "irregular": true, "participio": "oído", "formas": {"presente": ["oigo", "oyes", "oye", "oímos", "oís", "oyen"], "imperfecto": ["oía", "oías", "oía", "oíamos", "oíais", "oían"], "perfecto-simple": ["oí", "oíste", "oyó", "oímos", "oísteis", "oyeron"], "futuro": ["oiré", "oirás", "oirá", "oiremos", "oiréis", "oirán"], "condicional": ["oiría", "oirías", "oiría", "oiríamos", "oiríais", "oirían"], "subjuntivo": ["oiga", "oigas", "oiga", "oigamos", "oigáis", "oigan"], "imperativo": [null, "oye", null, null, "oíd", null]}},
+  {"inf": "leer", "nivel": 3, "irregular": true, "participio": "leído", "formas": {"presente": ["leo", "lees", "lee", "leemos", "leéis", "leen"], "imperfecto": ["leía", "leías", "leía", "leíamos", "leíais", "leían"], "perfecto-simple": ["leí", "leíste", "leyó", "leímos", "leísteis", "leyeron"], "futuro": ["leeré", "leerás", "leerá", "leeremos", "leeréis", "leerán"], "condicional": ["leería", "leerías", "leería", "leeríamos", "leeríais", "leerían"], "subjuntivo": ["lea", "leas", "lea", "leamos", "leáis", "lean"], "imperativo": [null, "lee", null, null, "leed", null]}},
+  {"inf": "ver", "nivel": 2, "irregular": true, "participio": "visto", "formas": {"presente": ["veo", "ves", "ve", "vemos", "veis", "ven"], "imperfecto": ["veía", "veías", "veía", "veíamos", "veíais", "veían"], "perfecto-simple": ["vi", "viste", "vio", "vimos", "visteis", "vieron"], "futuro": ["veré", "verás", "verá", "veremos", "veréis", "verán"], "condicional": ["vería", "verías", "vería", "veríamos", "veríais", "verían"], "subjuntivo": ["vea", "veas", "vea", "veamos", "veáis", "vean"], "imperativo": [null, "ve", null, null, "ved", null]}},
+  {"inf": "dar", "nivel": 2, "irregular": true, "participio": "dado", "formas": {"presente": ["doy", "das", "da", "damos", "dais", "dan"], "imperfecto": ["daba", "dabas", "daba", "dábamos", "dabais", "daban"], "perfecto-simple": ["di", "diste", "dio", "dimos", "disteis", "dieron"], "futuro": ["daré", "darás", "dará", "daremos", "daréis", "darán"], "condicional": ["daría", "darías", "daría", "daríamos", "daríais", "darían"], "subjuntivo": ["dé", "des", "dé", "demos", "deis", "den"], "imperativo": [null, "da", null, null, "dad", null]}},
+  {"inf": "salir", "nivel": 2, "irregular": true, "participio": "salido", "formas": {"presente": ["salgo", "sales", "sale", "salimos", "salís", "salen"], "imperfecto": ["salía", "salías", "salía", "salíamos", "salíais", "salían"], "perfecto-simple": ["salí", "saliste", "salió", "salimos", "salisteis", "salieron"], "futuro": ["saldré", "saldrás", "saldrá", "saldremos", "saldréis", "saldrán"], "condicional": ["saldría", "saldrías", "saldría", "saldríamos", "saldríais", "saldrían"], "subjuntivo": ["salga", "salgas", "salga", "salgamos", "salgáis", "salgan"], "imperativo": [null, "sal", null, null, "salid", null]}},
+  {"inf": "volver", "nivel": 2, "irregular": true, "participio": "vuelto", "formas": {"presente": ["vuelvo", "vuelves", "vuelve", "volvemos", "volvéis", "vuelven"], "imperfecto": ["volvía", "volvías", "volvía", "volvíamos", "volvíais", "volvían"], "perfecto-simple": ["volví", "volviste", "volvió", "volvimos", "volvisteis", "volvieron"], "futuro": ["volveré", "volverás", "volverá", "volveremos", "volveréis", "volverán"], "condicional": ["volvería", "volverías", "volvería", "volveríamos", "volveríais", "volverían"], "subjuntivo": ["vuelva", "vuelvas", "vuelva", "volvamos", "volváis", "vuelvan"], "imperativo": [null, "vuelve", null, null, "volved", null]}},
+  {"inf": "jugar", "nivel": 2, "irregular": true, "participio": "jugado", "formas": {"presente": ["juego", "juegas", "juega", "jugamos", "jugáis", "juegan"], "imperfecto": ["jugaba", "jugabas", "jugaba", "jugábamos", "jugabais", "jugaban"], "perfecto-simple": ["jugué", "jugaste", "jugó", "jugamos", "jugasteis", "jugaron"], "futuro": ["jugaré", "jugarás", "jugará", "jugaremos", "jugaréis", "jugarán"], "condicional": ["jugaría", "jugarías", "jugaría", "jugaríamos", "jugaríais", "jugarían"], "subjuntivo": ["juegue", "juegues", "juegue", "juguemos", "juguéis", "jueguen"], "imperativo": [null, "juega", null, null, "jugad", null]}},
+  {"inf": "pensar", "nivel": 2, "irregular": true, "participio": "pensado", "formas": {"presente": ["pienso", "piensas", "piensa", "pensamos", "pensáis", "piensan"], "imperfecto": ["pensaba", "pensabas", "pensaba", "pensábamos", "pensabais", "pensaban"], "perfecto-simple": ["pensé", "pensaste", "pensó", "pensamos", "pensasteis", "pensaron"], "futuro": ["pensaré", "pensarás", "pensará", "pensaremos", "pensaréis", "pensarán"], "condicional": ["pensaría", "pensarías", "pensaría", "pensaríamos", "pensaríais", "pensarían"], "subjuntivo": ["piense", "pienses", "piense", "pensemos", "penséis", "piensen"], "imperativo": [null, "piensa", null, null, "pensad", null]}},
+  {"inf": "encontrar", "nivel": 2, "irregular": true, "participio": "encontrado", "formas": {"presente": ["encuentro", "encuentras", "encuentra", "encontramos", "encontráis", "encuentran"], "imperfecto": ["encontraba", "encontrabas", "encontraba", "encontrábamos", "encontrabais", "encontraban"], "perfecto-simple": ["encontré", "encontraste", "encontró", "encontramos", "encontrasteis", "encontraron"], "futuro": ["encontraré", "encontrarás", "encontrará", "encontraremos", "encontraréis", "encontrarán"], "condicional": ["encontraría", "encontrarías", "encontraría", "encontraríamos", "encontraríais", "encontrarían"], "subjuntivo": ["encuentre", "encuentres", "encuentre", "encontremos", "encontréis", "encuentren"], "imperativo": [null, "encuentra", null, null, "encontrad", null]}},
+  {"inf": "contar", "nivel": 2, "irregular": true, "participio": "contado", "formas": {"presente": ["cuento", "cuentas", "cuenta", "contamos", "contáis", "cuentan"], "imperfecto": ["contaba", "contabas", "contaba", "contábamos", "contabais", "contaban"], "perfecto-simple": ["conté", "contaste", "contó", "contamos", "contasteis", "contaron"], "futuro": ["contaré", "contarás", "contará", "contaremos", "contaréis", "contarán"], "condicional": ["contaría", "contarías", "contaría", "contaríamos", "contaríais", "contarían"], "subjuntivo": ["cuente", "cuentes", "cuente", "contemos", "contéis", "cuenten"], "imperativo": [null, "cuenta", null, null, "contad", null]}},
+  {"inf": "empezar", "nivel": 3, "irregular": true, "participio": "empezado", "formas": {"presente": ["empiezo", "empiezas", "empieza", "empezamos", "empezáis", "empiezan"], "imperfecto": ["empezaba", "empezabas", "empezaba", "empezábamos", "empezabais", "empezaban"], "perfecto-simple": ["empecé", "empezaste", "empezó", "empezamos", "empezasteis", "empezaron"], "futuro": ["empezaré", "empezarás", "empezará", "empezaremos", "empezaréis", "empezarán"], "condicional": ["empezaría", "empezarías", "empezaría", "empezaríamos", "empezaríais", "empezarían"], "subjuntivo": ["empiece", "empieces", "empiece", "empecemos", "empecéis", "empiecen"], "imperativo": [null, "empieza", null, null, "empezad", null]}},
+  {"inf": "dormir", "nivel": 3, "irregular": true, "participio": "dormido", "formas": {"presente": ["duermo", "duermes", "duerme", "dormimos", "dormís", "duermen"], "imperfecto": ["dormía", "dormías", "dormía", "dormíamos", "dormíais", "dormían"], "perfecto-simple": ["dormí", "dormiste", "durmió", "dormimos", "dormisteis", "durmieron"], "futuro": ["dormiré", "dormirás", "dormirá", "dormiremos", "dormiréis", "dormirán"], "condicional": ["dormiría", "dormirías", "dormiría", "dormiríamos", "dormiríais", "dormirían"], "subjuntivo": ["duerma", "duermas", "duerma", "durmamos", "durmáis", "duerman"], "imperativo": [null, "duerme", null, null, "dormid", null]}},
+  {"inf": "pedir", "nivel": 3, "irregular": true, "participio": "pedido", "formas": {"presente": ["pido", "pides", "pide", "pedimos", "pedís", "piden"], "imperfecto": ["pedía", "pedías", "pedía", "pedíamos", "pedíais", "pedían"], "perfecto-simple": ["pedí", "pediste", "pidió", "pedimos", "pedisteis", "pidieron"], "futuro": ["pediré", "pedirás", "pedirá", "pediremos", "pediréis", "pedirán"], "condicional": ["pediría", "pedirías", "pediría", "pediríamos", "pediríais", "pedirían"], "subjuntivo": ["pida", "pidas", "pida", "pidamos", "pidáis", "pidan"], "imperativo": [null, "pide", null, null, "pedid", null]}},
+  {"inf": "sentir", "nivel": 3, "irregular": true, "participio": "sentido", "formas": {"presente": ["siento", "sientes", "siente", "sentimos", "sentís", "sienten"], "imperfecto": ["sentía", "sentías", "sentía", "sentíamos", "sentíais", "sentían"], "perfecto-simple": ["sentí", "sentiste", "sintió", "sentimos", "sentisteis", "sintieron"], "futuro": ["sentiré", "sentirás", "sentirá", "sentiremos", "sentiréis", "sentirán"], "condicional": ["sentiría", "sentirías", "sentiría", "sentiríamos", "sentiríais", "sentirían"], "subjuntivo": ["sienta", "sientas", "sienta", "sintamos", "sintáis", "sientan"]}},
+  {"inf": "seguir", "nivel": 3, "irregular": true, "participio": "seguido", "formas": {"presente": ["sigo", "sigues", "sigue", "seguimos", "seguís", "siguen"], "imperfecto": ["seguía", "seguías", "seguía", "seguíamos", "seguíais", "seguían"], "perfecto-simple": ["seguí", "seguiste", "siguió", "seguimos", "seguisteis", "siguieron"], "futuro": ["seguiré", "seguirás", "seguirá", "seguiremos", "seguiréis", "seguirán"], "condicional": ["seguiría", "seguirías", "seguiría", "seguiríamos", "seguiríais", "seguirían"], "subjuntivo": ["siga", "sigas", "siga", "sigamos", "sigáis", "sigan"], "imperativo": [null, "sigue", null, null, "seguid", null]}},
+  {"inf": "conocer", "nivel": 3, "irregular": true, "participio": "conocido", "formas": {"presente": ["conozco", "conoces", "conoce", "conocemos", "conocéis", "conocen"], "imperfecto": ["conocía", "conocías", "conocía", "conocíamos", "conocíais", "conocían"], "perfecto-simple": ["conocí", "conociste", "conoció", "conocimos", "conocisteis", "conocieron"], "futuro": ["conoceré", "conocerás", "conocerá", "conoceremos", "conoceréis", "conocerán"], "condicional": ["conocería", "conocerías", "conocería", "conoceríamos", "conoceríais", "conocerían"], "subjuntivo": ["conozca", "conozcas", "conozca", "conozcamos", "conozcáis", "conozcan"], "imperativo": [null, "conoce", null, null, "conoced", null]}},
+  {"inf": "construir", "nivel": 3, "irregular": true, "participio": "construido", "formas": {"presente": ["construyo", "construyes", "construye", "construimos", "construís", "construyen"], "imperfecto": ["construía", "construías", "construía", "construíamos", "construíais", "construían"], "perfecto-simple": ["construí", "construiste", "construyó", "construimos", "construisteis", "construyeron"], "futuro": ["construiré", "construirás", "construirá", "construiremos", "construiréis", "construirán"], "condicional": ["construiría", "construirías", "construiría", "construiríamos", "construiríais", "construirían"], "subjuntivo": ["construya", "construyas", "construya", "construyamos", "construyáis", "construyan"], "imperativo": [null, "construye", null, null, "construid", null]}}
  ],
  "frases": [
   {"texto": "Lola {investiga} el caso de la veleta.", "verbo": "investigar", "persona": 2},
@@ -393,6 +156,70 @@
   {"texto": "Tú {pones} las fichas en orden.", "verbo": "poner", "persona": 1},
   {"texto": "Los testigos {vienen} a declarar.", "verbo": "venir", "persona": 5},
   {"texto": "Nosotros {vemos} una sombra en la ventana.", "verbo": "ver", "persona": 3},
-  {"texto": "Mateo {quiere} resolver el misterio.", "verbo": "querer", "persona": 2}
+  {"texto": "Mateo {quiere} resolver el misterio.", "verbo": "querer", "persona": 2},
+  {"texto": "Lola {dibuja} un plano de la calle.", "verbo": "dibujar", "persona": 2},
+  {"texto": "Nosotros {caminamos} hasta la estación.", "verbo": "caminar", "persona": 3},
+  {"texto": "El cartero {entra} en el portal sin hacer ruido.", "verbo": "entrar", "persona": 2},
+  {"texto": "Tú {ayudas} a la frutera con las cajas.", "verbo": "ayudar", "persona": 1},
+  {"texto": "Los detectives {esperan} al testigo en la esquina.", "verbo": "esperar", "persona": 5},
+  {"texto": "Yo {llamo} a la puerta de la biblioteca.", "verbo": "llamar", "persona": 0},
+  {"texto": "La panadera {vende} pan recién hecho.", "verbo": "vender", "persona": 2},
+  {"texto": "El viento {rompe} el cristal del invernadero.", "verbo": "romper", "persona": 2},
+  {"texto": "Vosotros {abrís} el sobre con mucho cuidado.", "verbo": "abrir", "persona": 4},
+  {"texto": "Herminia no {permite} gritos en la biblioteca.", "verbo": "permitir", "persona": 2},
+  {"texto": "Yo {toco} el timbre del tercero.", "verbo": "tocar", "persona": 0},
+  {"texto": "Mateo {apaga} la linterna para no ser visto.", "verbo": "apagar", "persona": 2},
+  {"texto": "Los niños {lanzan} la pelota contra la pared.", "verbo": "lanzar", "persona": 5},
+  {"texto": "Yo {busco} la llave debajo del felpudo.", "verbo": "buscar", "persona": 0},
+  {"texto": "Robles {explica} el plan en la pizarra.", "verbo": "explicar", "persona": 2},
+  {"texto": "Nosotras {averiguamos} el nombre del dueño.", "verbo": "averiguar", "persona": 3},
+  {"texto": "Tú {aprendes} las claves del código secreto.", "verbo": "aprender", "persona": 1},
+  {"texto": "El perro {corre} detrás de una paloma.", "verbo": "correr", "persona": 2},
+  {"texto": "Los sospechosos {esconden} algo en el patio.", "verbo": "esconder", "persona": 5},
+  {"texto": "Vosotros {vivís} cerca de la plaza.", "verbo": "vivir", "persona": 4},
+  {"texto": "La vecina {recibe} una carta sin remite.", "verbo": "recibir", "persona": 2},
+  {"texto": "Nosotros {decidimos} seguir la pista del gato.", "verbo": "decidir", "persona": 3},
+  {"texto": "Lola y Mateo {comparten} un bocadillo de tortilla.", "verbo": "compartir", "persona": 5},
+  {"texto": "Yo {bebo} un vaso de agua en la fuente.", "verbo": "beber", "persona": 0},
+  {"texto": "Tú {trabajas} en el archivo del sótano.", "verbo": "trabajar", "persona": 1},
+  {"texto": "Las testigos {viajan} en el autobús de las nueve.", "verbo": "viajar", "persona": 5},
+  {"texto": "Yo {soy} detective de guardia.", "verbo": "ser", "persona": 0},
+  {"texto": "Nosotros {estamos} muy cerca de la verdad.", "verbo": "estar", "persona": 3},
+  {"texto": "Tú {vas} a la oficina en bicicleta.", "verbo": "ir", "persona": 1},
+  {"texto": "Lola {pone} la lupa sobre el mapa.", "verbo": "poner", "persona": 2},
+  {"texto": "Mateo {sale} de la oficina con prisa.", "verbo": "salir", "persona": 2},
+  {"texto": "Los vecinos {vuelven} a casa por el callejón.", "verbo": "volver", "persona": 5},
+  {"texto": "Nosotros {jugamos} al ajedrez en el parque.", "verbo": "jugar", "persona": 3},
+  {"texto": "Yo {pienso} en el misterio de la veleta.", "verbo": "pensar", "persona": 0},
+  {"texto": "Tú {encuentras} una huella en el barro.", "verbo": "encontrar", "persona": 1},
+  {"texto": "La abuela {cuenta} la historia del barrio.", "verbo": "contar", "persona": 2},
+  {"texto": "Robles {da} las instrucciones al equipo.", "verbo": "dar", "persona": 2},
+  {"texto": "Vosotros {hacéis} fotos de cada pista.", "verbo": "hacer", "persona": 4},
+  {"texto": "Yo {digo} siempre la verdad.", "verbo": "decir", "persona": 0},
+  {"texto": "Las vecinas {pueden} ver la plaza desde el balcón.", "verbo": "poder", "persona": 5},
+  {"texto": "El conserje {empieza} su ronda por el sótano.", "verbo": "empezar", "persona": 2},
+  {"texto": "El gato {duerme} encima del archivo.", "verbo": "dormir", "persona": 2},
+  {"texto": "Tú {pides} ayuda a los vecinos.", "verbo": "pedir", "persona": 1},
+  {"texto": "Los detectives {siguen} las huellas hasta el río.", "verbo": "seguir", "persona": 5},
+  {"texto": "Yo {conozco} a todos los tenderos del mercado.", "verbo": "conocer", "persona": 0},
+  {"texto": "Los albañiles {construyen} un muro nuevo.", "verbo": "construir", "persona": 5},
+  {"texto": "Nosotros {sentimos} un escalofrío en el desván.", "verbo": "sentir", "persona": 3},
+  {"texto": "Vosotros {andáis} con cuidado por el tejado.", "verbo": "andar", "persona": 4},
+  {"texto": "Los testigos {leen} su declaración en voz alta.", "verbo": "leer", "persona": 5},
+  {"texto": "Nosotros {oímos} pasos en la escalera.", "verbo": "oír", "persona": 3},
+  {"texto": "Lola {abre} la puerta y {encuentra} una carta.", "verbos": [["abrir", 2], ["encontrar", 2]]},
+  {"texto": "Mateo {sale} de casa y {cruza} la plaza.", "verbos": [["salir", 2], ["cruzar", 2]]},
+  {"texto": "Yo {busco} la pista y la {guardo} en el bolsillo.", "verbos": [["buscar", 0], ["guardar", 0]]},
+  {"texto": "Los vecinos {oyen} un ruido y {llaman} a la agencia.", "verbos": [["oír", 5], ["llamar", 5]]},
+  {"texto": "Tú {lees} la nota y {dices} la clave.", "verbos": [["leer", 1], ["decir", 1]]},
+  {"texto": "Nosotros {vamos} al mercado y {pedimos} información.", "verbos": [["ir", 3], ["pedir", 3]]},
+  {"texto": "El testigo {tiene} miedo y {vuelve} a casa.", "verbos": [["tener", 2], ["volver", 2]]},
+  {"texto": "Vosotros {veis} la sombra y {seguís} sus pasos.", "verbos": [["ver", 4], ["seguir", 4]]},
+  {"texto": "Yo {llego} a la oficina y {pongo} las fotos en el corcho.", "verbos": [["llegar", 0], ["poner", 0]]},
+  {"texto": "Las detectives {hacen} preguntas y {escriben} las respuestas.", "verbos": [["hacer", 5], ["escribir", 5]]},
+  {"texto": "El gato {cae} del tejado y {duerme} en el toldo.", "verbos": [["caer", 2], ["dormir", 2]]},
+  {"texto": "Robles {conduce} la furgoneta y nosotros {vigilamos} la calle.", "verbos": [["conducir", 2], ["vigilar", 3]]},
+  {"texto": "Tú {traes} la lupa y yo {investigo} las huellas.", "verbos": [["traer", 1], ["investigar", 0]]},
+  {"texto": "Lola {sabe} el código y {abre} el candado.", "verbos": [["saber", 2], ["abrir", 2]]}
  ]
 }

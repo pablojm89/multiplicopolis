@@ -142,3 +142,16 @@
   .del-pantalla b.destello { animation-name: del-destello-suave; }
   @keyframes del-destello-suave { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
 }
+
+/* ── Niveles (lupas) ── */
+.del-nivel { flex: none; padding: 3px 10px; border-radius: 999px; background: rgba(9, 12, 22, .55); border: 1px solid rgba(242, 169, 59, .55); color: #f3dcb2; font: 800 14px var(--f-ui); white-space: nowrap; }
+.del-cabecera small { min-width: 0; }
+/* Palabras de 11 y 12 letras (diamante): casillas más estrechas para que quepan */
+.del-casillas.muy-largas { gap: 6px; }
+.del-casillas.muy-largas .del-casilla { width: 50px; }
+.del-casillas.muy-largas .del-casilla b { font-size: 36px; }
+.del-casillas.muy-largas .del-casilla small { font-size: 10.5px; }
+/* Muchas teclas trampa (diamante): seis columnas y teclas algo más bajas */
+.del-teclado.muchas { grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.del-teclado.muchas .del-tecla { height: 52px; }
+.del-teclado.muchas .del-tecla b { font-size: 18px; }
