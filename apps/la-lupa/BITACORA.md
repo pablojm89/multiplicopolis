@@ -69,3 +69,7 @@ Claude actualiza este archivo al terminar cada tarea importante.
 - **Temporada 1 completa:** piloto + 10 casos. Resumen de cada episodio en `TEMPORADA-1.md`. Final: Bruno desenmascarado, Robles le pide perdón, Mateo: «Los errores se corrigen. Las personas no se tachan», Bruno entra como aprendiz. Gancho para 6.º: una carta de lejos con una tilde diacrítica dudosa.
 - **Arreglos que salieron al probar:** las cartas del careo temblaban con el ratón encima (no se podían pulsar bien); la pista al fallar la carta hablaba siempre de «la sílaba fuerte», ahora depende de la regla; en el caso de repaso (28 cartas), las cartas salen agrupadas por regla; «el Tachón» con el artículo en minúscula en mitad de frase, como pide la RAE para los apodos.
 - **Arte:** 34 imágenes nuevas de los casos 5-10 (69 pendientes en total, sumando las de las issues #3 y #4).
+
+**Arte de los lotes 4 y 5** (GPT, 35 imágenes en 6 zips): integrado con las firmas verificadas. Los casos 2-4 y la Academia ya tienen todas sus ilustraciones. El Pupitre escribe ahora el documento sobre la hoja en blanco del fondo cenital. Issues #3 y #4 cerradas.
+
+**Pablo pide, para más adelante, sonido en los juegos:** «un hilo musical de ambiente, misterioso, que vaya cambiando según el contexto; sonidos de fondo recurrentes, como de pasos, para darle misterio; clic cuando se abren las cerraduras, puertas… un efecto de sonido que tenga sentido con lo que hay en cada momento». Sirve música de uso gratuito o creada por nosotros. Queda como pendiente en `PLAN.md`.
