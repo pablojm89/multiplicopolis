@@ -1,35 +1,103 @@
-# Temporada 2 (6.º) · propuesta, pendiente de que Pablo elija
+# Temporada 2 (6.º): «La Tilde Azul»
 
-**Punto de partida (ya en el juego):** al final de la temporada 1, Bruno trae en su primer reparto como aprendiz una carta de fuera del barrio, sin remite: «Detective: tú próximo caso te espera lejos de La Alameda». Lleva una tilde de más y, en lugar de firma, una tilde dibujada con tinta azul.
+> Elegida por Pablo el 4/11/2026: **opción A**, un viaje por Andalucía. Las otras dos opciones (la Agencia Borrón y el Autocorrector) quedan como ideas para encargos o para otra temporada.
+> **Por defecto, mientras Pablo no diga otra cosa:**
+> - Lo juega el mismo grupo que hizo 5.º, con continuidad, pero el piloto presenta al equipo para que también sirva a un grupo nuevo.
+> - Bruno sigue de aprendiz.
+> - Lola y Mateo mantienen sus papeles.
 
-**Reglas de 6.º**, ya repartidas en `datos/programacion.json`: el hiato, la tilde diacrítica, interrogativos y exclamativos, b/v (II), h (II), -cc- y -c-, x y s, puntuación (coma, punto y coma y diálogo) y «solo» con los adverbios en -mente. Falta escribir su ficha de Mateo y sus cartas en `reglas.json`. Igual que en 5.º, habrá un piloto de evaluación inicial (repaso de tildes) y un caso final de repaso.
+## Resumen
 
-**Lo que se mantiene:** el equipo (Lola, Mateo, Bruno como aprendiz y el director Robles, el avatar de Pablo), la libreta, la preparación en la Academia antes de cada caso, los encargos por rango y el principio de «trama por posición, contenido por regla».
+Al final de la temporada 1 llegó una carta sin remite: «Detective: tú próximo caso te espera lejos de La Alameda». En lugar de firma, lleva una tilde dibujada con tinta azul.
 
-## Tres opciones de trama
+Detrás está **la Tilde Azul**, una examinadora misteriosa, no un villano. Cada carta trae un billete de tren y un enigma, y lleva a la agencia a una provincia andaluza donde la espera un caso. Mientras lo resuelve, la Tilde Azul observa sin que nadie se dé cuenta.
 
-### A · «La Tilde Azul»: un viaje por Andalucía *(mi recomendación)*
-- Las cartas de la Tilde Azul llegan cada vez desde una ciudad andaluza: Cádiz, Córdoba, Granada, Málaga, Huelva, Jaén, Almería y Sevilla. La agencia sale del barrio y **cada caso es en una provincia**, con su patrimonio, sus fiestas y su habla.
-- Encaja con el criterio 1.3 (la modalidad lingüística andaluza) y con mucho contenido de cultura andaluza para los encargos.
-- La Tilde Azul no es un villano, sino un **examinador misterioso**: deja pruebas cada vez más difíciles.
-- **Giro final:** es quien fundó la agencia hace años, el antiguo maestro del director Robles, que busca a quien la dirija en el futuro… y elige al alumno.
-- Final cerrado y emotivo: el alumno recibe la «tilde azul», la insignia de los grandes detectives de la lengua.
-- **Arte:** un fondo nuevo por provincia (8-10) y 2-3 personajes nuevos por caso. Es la opción que más imágenes necesita.
+Al final se descubre quién es:
+- **Doña Victoria Aldana**, la maestra que **fundó la Agencia La Lupa** hace 45 años en la vieja escuela, la que hoy es la Academia.
+- Fue la maestra del director Robles.
+- La llamaban «la Tilde Azul» porque corregía con tinta azul y no roja: «Corregir no es castigar».
 
-### B · «La Agencia Borrón»: rivales del barrio de al lado
-- Abre una agencia rival en el barrio vecino, con detectives chulescos y rápidos, pero descuidados con la ortografía. Compiten caso a caso por resolver los misterios del distrito.
-- **Giro:** alguien está saboteando a las dos agencias. Al final tienen que **colaborar**, y la rivalidad se vuelve amistad.
-- Tono de competición, muy de 6.º. **Arte:** el barrio vecino y 3-4 rivales recurrentes.
+Ha vuelto para comprobar si su agencia sigue siendo lo que soñó. Al final entrega al alumno la **insignia de la Tilde Azul**, la de los grandes detectives de la lengua.
 
-### C · «El Autocorrector»: el misterio en la red
-- Un programa misterioso corrige mal los textos del barrio: cambia carteles digitales, mensajes de la radio y la web del Eco, y mete bulos.
-- Une la ortografía de 6.º con el **uso crítico de internet** (6.1 y 6.3): fuentes, bulos e inteligencia artificial.
-- **Giro:** detrás no hay una máquina, sino una persona que quería que alguien se diera cuenta de algo. Mensaje sobre usar la tecnología con cabeza.
-- **Arte:** pantallas y escenarios digitales (siempre sin texto dibujado), con menos fondos nuevos.
+Mensaje de la temporada (sigue al de la 1, «las personas no se tachan»): **los errores se corrigen con cariño, no con tinta roja**. Y viajar, leer y escribir bien sirven para entender a la gente.
 
-## Lo que necesito de Pablo
-1. Opción A, B, C o una mezcla (por ejemplo, A con un toque de C en algún caso).
-2. Si Bruno sigue en el equipo como aprendiz, si Lola y Mateo «ascienden» o si llega alguien nuevo.
-3. Si 6.º lo juega el mismo grupo que hizo 5.º (continuidad) o un grupo nuevo. En ese caso, el piloto tiene que presentar a todo el equipo desde cero.
+## Principio técnico (igual que en la temporada 1)
 
-Cuando decida, el procedimiento es el de la temporada 1: fichas y cartas de las reglas → casos escritos por subagentes en paralelo (con archivos `pendiente/`) → revisión y jugador automático → encargo de arte a GPT.
+Cada caso es un misterio cerrado, con su regla y su ciudad. Lo que une la temporada son las cartas y las pistas sobre la identidad de la Tilde Azul, que siguen **el orden de los casos**. Si la programación cambia el orden de las reglas, hay que reordenar las ciudades o reescribir las cartas. Está anotado en `PLAN.md`.
+
+## El equipo
+
+| Personaje | Papel en la temporada 2 |
+|---|---|
+| **El alumno** | Detective oficial desde el final de la temporada 1. Es quien lee mejor las pistas de la Tilde Azul |
+| **Lola** | Jefa de la expedición y mentora de Bruno. Arco: tiene tantas ganas de desenmascarar a la Tilde Azul que al principio la trata como a un villano; aprende que no todo misterio esconde a un culpable |
+| **Mateo** | Lleva el «Archivo portátil» (una maleta llena de fichas). Arco: descubre que las fichas más antiguas del Archivo, las que heredó, las escribió la fundadora con tinta azul |
+| **Bruno** | Aprendiz. Conoce mapas y calles por su trabajo de repartidor y siempre lleva su bici plegable. Le dan miedo los dictados. Arco: mejora caso a caso y en el final repite la prueba de acceso… y la aprueba. Es nombrado detective |
+| **Director Robles** | Avatar del maestro: el sello del expediente sigue siendo en su mesa. Casi siempre está en la agencia (al teléfono o por el walkie), pero aparece en algunas ciudades con ropa de deporte (carrera del puerto en Málaga, ruta en bici por el desierto en Almería). Arco: reconoce poco a poco la letra de las cartas y en el final se emociona al reencontrarse con su maestra |
+| **La viajera del pañuelo azul** | Doña Victoria Aldana, unos 75 años, elegante, con un pañuelo de seda azul, una pluma estilográfica de tinta azul y una maleta antigua de cuero. Aparece **de fondo** en cada ciudad como turista, sin llamar la atención, igual que Bruno en la temporada 1. No se adelanta quién es |
+
+## Pistas de la identidad (una por caso, juego limpio)
+
+| Caso | Pista |
+|---|---|
+| Piloto | La carta tiene una tilde de más («tú próximo caso»). Era la primera prueba: solo quien la corrige recibe el billete |
+| 1 Cádiz | Un testigo vio a «una señora con un pañuelo azul» en el ensayo. La carta huele a azahar |
+| 2 Córdoba | En la tetería, una clienta deja una propina con una notita en tinta azul, sin faltas, que alaba el té |
+| 3 Granada | El papel de la carta lleva el **primer logotipo** de la agencia, una lupa antigua. Mateo solo lo ha visto en las fichas más viejas del Archivo |
+| 4 Málaga | Robles, que ha venido a correr la carrera del puerto, ve la carta: «Esta letra… me suena de algo» |
+| 5 Huelva | En el muelle aparece una maleta antigua con una etiqueta: «V. A.» |
+| 6 Jaén | Don Anselmo, por teléfono: «La fundadora de la agencia escribía siempre con pluma azul. Se jubiló y se fue de viaje. Nunca volvió» |
+| 7 Almería | La viajera sale por casualidad como figurante en el rodaje del wéstern. Corrige el guion sin pestañear, «como una maestra» |
+| 8 Sevilla | En el Archivo aparece el **acta de fundación** de la agencia, firmada por Victoria Aldana con una tilde azul dibujada junto al nombre |
+| 9 Tren | La viajera va en el mismo tren nocturno. El alumno ve el pañuelo y la pluma. Ella baja antes de tiempo y deja la última carta: «Mañana, donde empezó todo» |
+| 10 Final | En la vieja escuela, hoy la Academia: el retrato del tablón (pañuelo, pluma, letra, logotipo, iniciales, acta) da su nombre. Don Anselmo la reconoce |
+
+## Los casos
+
+| Ep. | Id | Regla | Lugar | Título y misterio |
+|---|---|---|---|---|
+| **0 · Piloto** | `caso-11` (6-00) | **Evaluación inicial**: las 9 reglas de 5.º, lo que traen del curso pasado | La Alameda y la estación de tren | **«La carta sin remite»**. Bruno trae la carta. El equipo (presentado desde cero) descubre la tilde de más y, al corregirla, el sobre revela un segundo papel: un mensaje con faltas de 5.º que hay que corregir para descifrar el andén y la hora. En la estación, una consigna guarda los billetes a Cádiz. Diagnóstico: 2 faltas por regla, sin pistas, como el piloto de 5.º |
+| 1 | `caso-12` (6-01) | El hiato | Cádiz (la Caleta y el Gran Teatro Falla) | **«El tipo de la chirigota»**. La víspera del concurso desaparece el baúl con los disfraces (el «tipo») y el libreto de una chirigota del barrio de la Viña. Sospechosos: la autora, el del bombo y una comparsa rival. Palabras del carnaval: día, baúl, poesía, país, reír, oído, ataúd, búho, teatro, poeta |
+| 2 | `caso-13` (6-02) | La tilde diacrítica | Córdoba (un patio de flores y una tetería de la judería) | **«El patio de más»**. En el concurso de patios, las notas del jurado aparecen cambiadas: «el» por «él», «si» por «sí», «te» por «té»… y un patio sale descalificado. ¿Quién cambió las notas y por qué? |
+| 3 | `caso-14` (6-03) | Interrogativos y exclamativos | Granada (el mirador de San Nicolás y un carmen del Albaicín) | **«Las preguntas de la Alhambra»**. Una guía del Albaicín ha perdido el cuaderno con las preguntas de su ruta-acertijo para turistas. Las que aparecen están sin signos ni tildes, y alguien las usa para despistar. Pregunta directa e indirecta |
+| 4 | `caso-15` (6-04) | b y v (II) | Málaga (el puerto y el aula del mar) | **«La biznaga perdida»**. Robles corre la carrera del puerto. Desaparece la biznaga de un biznaguero y, en el aula del mar, los carteles de los animales (herbívoro, carnívoro…) aparecen cambiados. Palabras: biblioteca, buscar, burbuja, amabilidad, vagabundo, distribuir, octavo, nuevo, activo, herbívoro, adverbio, evitar, evolución |
+| 5 | `caso-16` (6-05) | La h (II) | Huelva (el muelle de las carabelas y la ría) | **«La carabela sin rumbo»**. Alguien ha tocado el cuaderno de bitácora de la réplica de una carabela y nadie sabe por dónde se fue el barco de la ruta escolar. Palabras: hidroavión, hipermercado, hemisferio, hexágono, helicóptero; hecho/echo, hola/ola, hay/ahí/ay, haya/halla, a ver/haber |
+| 6 | `caso-17` (6-06) | -cc- y -c- | Jaén (el mar de olivos y una almazara) | **«La cosecha perdida»**. En el concurso del mejor aceite, las etiquetas y el acta del jurado tienen faltas («dirección», «producción», «selección»…) y una botella ganadora ha desaparecido. La familia de cada palabra da la pista |
+| 7 | `caso-18` (6-07) | x y s | Almería (un poblado del oeste en el desierto de Tabernas y el Cabo de Gata) | **«Duelo en Tabernas»**. En el rodaje de un wéstern desaparece una página del guion y la estrella del sheriff. Robles llega en bici por el desierto. Palabras: explicar, explorar, explosión, extraordinario, exalumno, texto, sexto; espléndido, estupendo, estrategia, escalera |
+| 8 | `caso-19` (6-08) | Puntuación: coma, punto y coma y diálogo | Sevilla (el Archivo de Indias y la Torre del Oro) | **«El legajo del Archivo»**. Una carta antigua cambia de sentido según dónde se pongan las comas, y la declaración de un testigo hay que pasarla a diálogo con rayas. Al final aparece el acta de fundación de la agencia |
+| 9 | `caso-20` (6-09) | «solo» y los adverbios en -mente | El tren nocturno de vuelta | **«El tren de medianoche»**. Desaparece la maleta del Archivo portátil de Mateo. La revisora y los viajeros declaran con muchos adverbios: rápidamente, tranquilamente, fácilmente, solo… La viajera del pañuelo azul va en el tren |
+| **10 · Final** | `caso-21` (6-10) | Repaso de las 9 reglas de 6.º | La Alameda: la vieja escuela (la Academia) | **«La tilde azul»**. Retos encadenados por la escuela. El tablón da el retrato y doña Victoria se presenta: fundadora, maestra de Robles, «la Tilde Azul». Explica por qué corregía en azul. Bruno repite la prueba de acceso y la aprueba. El alumno recibe la insignia de la Tilde Azul. Final cerrado y emotivo |
+
+**Estructura de cada caso**, la de la temporada 1:
+1. Portada y aviso.
+2. Descubre la regla.
+3. Dos o tres lugares, cada uno con un relato y un reto que da una cifra.
+4. Hipótesis, careo y candado.
+5. Expediente.
+6. Después del expediente, para que no se evalúe: la **carta de la Tilde Azul** con el enigma de la siguiente ciudad.
+7. Apunta y final.
+
+Y con la Academia y la libreta de siempre: cada caso tiene su preparación en la Academia, sus momentos de libreta y el sello en la mesa del director.
+
+**Cultura andaluza** (criterio 1.3 y saberes de Andalucía): cada caso puede tener un momento breve sobre el habla o las costumbres de la provincia, con respeto. Por ejemplo: el carnaval de Cádiz, la convivencia de culturas en Córdoba o el aceite de Jaén. Las variedades del andaluz (seseo, ceceo, aspiración) se tratan como riqueza, nunca como falta. En la escritura, la norma es la misma para todos.
+
+## Arte necesario (lo pide cada caso en su `pendiente/`)
+
+- **Personaje recurrente**: `viajera` (doña Victoria Aldana), con las expresiones neutral, contento, pensativo, sorprendido y misteriosa. En la misteriosa está medio de espaldas, con el pañuelo tapándole parte de la cara.
+- **Por ciudad**: dos fondos, dos personajes locales y uno o dos objetos.
+- **Pilot y tren**: estación de tren, vagón nocturno, billetes y maleta.
+- **Final**: la insignia de la Tilde Azul y las postales del viaje.
+- Monumentos reales (la Alhambra, la Torre del Oro, el Gran Teatro Falla…): siempre sin letras ni carteles legibles y vistos con el aire de misterio de la serie. Ningún personaje está basado en personas reales.
+
+Total aproximado: 20 fondos, 19 personajes nuevos y 20 objetos. Se encargan a GPT en una issue por bloque de casos.
+
+## Qué falta después de escribir los casos
+
+1. **Academia para 6.º**:
+   - palabras y textos de las 9 reglas nuevas;
+   - esquemas de apuntes;
+   - prácticas de la ruta de preparación (`PRACTICAS` en `preparacion.js`);
+   - dictados, galeradas, pizarra y homófonos de h (II).
+2. Encargo de arte a GPT.
+3. Jugador automático para toda la temporada.
+4. Que Pablo la juegue.

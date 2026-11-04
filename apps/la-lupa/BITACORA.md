@@ -161,3 +161,18 @@ Arreglados al revisar:
 - **Arreglado**: en 21 relatos con objeto, el bocadillo tapaba parte del objeto. Ahora el objeto se ajusta al hueco libre y, si queda pequeño, sale el botón «🔍 Ver en grande».
 
 **Robles, corregido por GPT por GitHub.** GPT ya puede escribir en el repo y ha subido la entrega a su rama `gpt/arte-lotes-6-7-robles-aprobado` (solo `arte/entrega/` + manifiesto; las 23 firmas son correctas). Las 5 imágenes con la transparencia rota vienen ya limpias y conservan mejor los rizos que el recorte automático, así que lo sustituyen; las otras 18 eran idénticas. La rama de GPT no se fusiona: se sacan los PNG, se convierten y se borran. Instrucciones de entrega para GPT actualizadas en `AGENTS.md`.
+
+**Temporada 2: opción A, «La Tilde Azul».** Pablo la elige el 4/11. Queda escrita la biblia en `TEMPORADA-2.md`:
+- un caso por provincia, más el piloto y el tren de vuelta;
+- la Tilde Azul es doña Victoria Aldana, fundadora de la agencia y maestra de Robles, que corregía en azul porque «corregir no es castigar»;
+- una pista por caso sobre su identidad;
+- el arte necesario.
+
+Las 9 reglas de 6.º ya tienen su ficha del Archivo y sus cartas.
+
+Decisiones por defecto, pendientes de que Pablo las confirme:
+- El piloto evalúa las reglas de 5.º, lo que traen del curso anterior.
+- Mismo grupo con continuidad, pero el piloto presenta al equipo.
+- Bruno sigue de aprendiz.
+
+Siguiente sesión: escribir los casos con subagentes.
