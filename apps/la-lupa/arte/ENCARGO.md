@@ -57,12 +57,23 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `remedios-nervioso.png` | nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca |
 | `remedios-contento.png` | contento/a, sonrisa amplia |
 
+### Herminia, la bibliotecaria
+
+**Descripción:** Herminia, bibliotecaria del barrio, unos 50 años, estilo anime: pelo gris corto con mechón morado, gafas de pasta grandes con cadenita, rebeca de punto granate, falda larga, una pila de libros en los brazos; seria pero muy cariñosa.
+
+| Archivo | Expresión |
+|---|---|
+| `herminia-neutral.png` | expresión neutra, atenta |
+| `herminia-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
+| `herminia-contento.png` | contento/a, sonrisa amplia |
+
 ## Fondos (16:9, 1920×1080, sin personajes)
 
 | Archivo | Qué se ve |
 |---|---|
 | `mercado.png` | Interior de un mercado de abastos de barrio andaluz de madrugada: nave con techo de hierro y cristal, puestos de fruta, verdura y pescado con toldos, pizarras de precios y letreros de cartón colgados (SIN letras ni números, solo superficies vacías o garabatos abstractos), cajas de naranjas, azulejos en los mostradores, luz fría de fluorescentes y algún foco ámbar, suelo mojado. Sin personas. |
 | `almacen-mercado.png` | Almacén trasero del mismo mercado: sacos de arpillera y cajas de madera apiladas, una bombilla colgando con luz ámbar, una cámara de seguridad en lo alto de la pared, puerta metálica entreabierta a la calle con luz azul de madrugada, carretilla, papeles por el suelo. Sin personas y sin letras. |
+| `biblioteca.png` | Biblioteca municipal del barrio de La Alameda al anochecer: estanterías altas de madera llenas de libros, lámparas verdes encendidas en mesas largas, un mostrador de préstamo con un fichero antiguo de cajoncitos, ventanales con reja andaluza y la luz azul de la noche, azulejos en el zócalo, carteles en la pared SIN letras (vacíos), polvo flotando en la luz. Sin personas. |
 
 ## Objetos (fondo transparente, 1024×1024)
 
@@ -70,10 +81,12 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 |---|---|
 | `foto-borrosa.png` | Fotograma impreso de cámara de seguridad, en blanco y negro con ruido y rayas: silueta borrosa de alguien con gabardina negra, gafas de sol y mandíbula muy cuadrada, de espaldas a medias junto a sacos; en su muñeca izquierda se distingue una pequeña mancha de color rojo (lo único en color). Sin letras, fecha ni números. |
 | `grabadora.png` | Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida. |
+| `sobre-tachon.png` | Sobre de papel antiguo cerrado con un sello de lacre negro con forma de tachón (garabato) y unas gafas de sol pequeñas dibujadas al lado. Sin letras, direcciones ni números. |
+| `fichero-azul.png` | Mueble fichero antiguo de madera pintada de azul con cajoncitos con tiradores de latón y etiquetas vacías, uno de los cajones cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). |
 
 ## Notas del ilustrador
 
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **10** imágenes por entregar.
+Quedan **16** imágenes por entregar.

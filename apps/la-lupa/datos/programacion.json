@@ -46,7 +46,8 @@
           "titulo": "La h (I)",
           "reglas": [
             "h-1"
-          ]
+          ],
+          "caso": "caso-03"
         },
         {
           "id": "5-04",

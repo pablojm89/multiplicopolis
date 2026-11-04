@@ -82,7 +82,34 @@
     ],
     "criterios": [
       "5.1",
+      "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · La h",
+      "puntos": [
+        "Llevan h las palabras que empiezan por ie-, ue-, ui-: hielo, huevo, hueso, huida.",
+        "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y por hum- + vocal: hermano, hormiga, horrible, hospital, humo.",
+        "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h: había, hizo, hablábamos, hallé, habitan.",
+        "Ojo con la familia de hueso, huevo, hueco y huérfano: si desaparece el ue, desaparece la h (óseo, óvalo, oquedad, orfandad)."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "hie",
+        "titulo": "Carta del hie- hue- hui-",
+        "texto": "Las palabras que empiezan por ie-, ue-, ui- llevan h delante: hielo, huevo, huida."
+      },
+      {
+        "id": "verbos-h",
+        "titulo": "Carta de los verbos con h",
+        "texto": "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h."
+      },
+      {
+        "id": "herm",
+        "titulo": "Carta del herm- horm- hum-",
+        "texto": "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y hum- + vocal."
+      }
     ]
   },
   "c-z-s": {

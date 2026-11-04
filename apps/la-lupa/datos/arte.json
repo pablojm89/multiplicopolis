@@ -337,5 +337,39 @@
     "emoji": "📼",
     "listo": false,
     "prompt": "Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida."
+  },
+  "biblioteca": {
+    "tipo": "fondo",
+    "nombre": "Biblioteca del barrio al anochecer",
+    "color": "#2e2a44",
+    "listo": false,
+    "prompt": "Biblioteca municipal del barrio de La Alameda al anochecer: estanterías altas de madera llenas de libros, lámparas verdes encendidas en mesas largas, un mostrador de préstamo con un fichero antiguo de cajoncitos, ventanales con reja andaluza y la luz azul de la noche, azulejos en el zócalo, carteles en la pared SIN letras (vacíos), polvo flotando en la luz. Sin personas."
+  },
+  "herminia": {
+    "tipo": "personaje",
+    "nombre": "Herminia, la bibliotecaria",
+    "color": "#6a4a7a",
+    "expresiones": [
+      "neutral",
+      "sorprendido",
+      "contento"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "Herminia, bibliotecaria del barrio, unos 50 años, estilo anime: pelo gris corto con mechón morado, gafas de pasta grandes con cadenita, rebeca de punto granate, falda larga, una pila de libros en los brazos; seria pero muy cariñosa."
+  },
+  "sobre-tachon": {
+    "tipo": "objeto",
+    "nombre": "Sobre sellado con un tachón",
+    "emoji": "✉️",
+    "listo": false,
+    "prompt": "Sobre de papel antiguo cerrado con un sello de lacre negro con forma de tachón (garabato) y unas gafas de sol pequeñas dibujadas al lado. Sin letras, direcciones ni números."
+  },
+  "fichero-azul": {
+    "tipo": "objeto",
+    "nombre": "Fichero azul de la agencia",
+    "emoji": "🗄️",
+    "listo": false,
+    "prompt": "Mueble fichero antiguo de madera pintada de azul con cajoncitos con tiradores de latón y etiquetas vacías, uno de los cajones cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
   }
 }

@@ -54,3 +54,5 @@ Claude actualiza este archivo al terminar cada tarea importante.
 **Pablo pide continuar con los casos** → caso 2 «El mercado del revés» (b/v) escrito y jugable; arte pedido en la [issue #3](https://github.com/pablojm89/multiplicopolis/issues/3).
 
 **Pablo pide una «Academia de detectives»:** un sitio al que ir a entrenar al terminar un caso, con «miles de propuestas» de actividades del estilo del juego. Que no sea solo hacer actividades, sino también explicación y aprendizaje. Con una estética muy currada y distinta según la actividad: un pupitre visto desde arriba con un documento delante, un ordenador con estética retro, una pizarra… Pidió que un subagente Fable imaginara las actividades → `docs/investigacion/academia-actividades.md`.
+
+- Caso 3 «La carta sin haches» (h) escrito y jugable. Sus 6 imágenes se añaden al encargo de la issue #3.

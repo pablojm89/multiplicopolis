@@ -25,7 +25,8 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Gancho de El Tachón al final del caso 1
 - [ ] **Trama de temporada**: pasar los ganchos a `datos/temporada-1.json` por número de episodio (`TEMPORADA-1.md`)
 - [x] Caso 2 «El mercado del revés» (b/v): primera foto de El Tachón. Arte pendiente (issue #3)
-- [ ] Caso 3 (h)
+- [x] Caso 3 «La carta sin haches» (h): El Tachón conoce la agencia por dentro; desaparece su ficha de aspirante; Bruno cuenta que suspendió la prueba. Arte pendiente (issue #3)
+- [ ] Caso 4 (c/z/s)
 - [ ] **Academia de detectives**: zona de entrenamiento con muchas actividades generadas desde bancos de datos, con explicación y aprendizaje, y salas con estéticas distintas (pupitre en vista cenital, ordenador retro, pizarra…). Lluvia de ideas en `docs/investigacion/academia-actividades.md`
 - [ ] Pablo prueba la v2 y la da por buena → **consolidar el procedimiento para crear casos** (`CLAUDE.md` § Cómo crear un caso nuevo)
 - [ ] Más casos de 5.º según `datos/programacion.json`

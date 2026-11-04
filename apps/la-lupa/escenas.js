@@ -260,7 +260,7 @@ const ESCENAS = {
       <div class="partitura hoja-huecos">${e.palabras.map((w, k) => `
         <div class="manchada" data-k="${k}">
           <span class="palabra-mancha">${esc(w.p.slice(0, w.pos))}<span class="hueco-letra">?</span>${esc(w.p.slice(w.pos + w.letra.length))}</span>
-          <span class="si-no">${w.opciones.map(o => `<button data-v="${esc(o)}">${esc(o)}</button>`).join("")}</span>
+          <span class="si-no">${w.opciones.map(o => `<button data-v="${esc(o)}">${esc(o || "sin letra")}</button>`).join("")}</span>
           <small class="expl"></small>
         </div>`).join("")}</div>
       <button class="boton-sello comprobar" id="comprobar">Comprobar</button>
