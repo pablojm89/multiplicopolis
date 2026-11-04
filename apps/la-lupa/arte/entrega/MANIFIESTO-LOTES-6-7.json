@@ -1,0 +1,259 @@
+{
+  "imagenes": [
+    {
+      "nombre": "foto-tribunal.png",
+      "ruta": "apps/la-lupa/arte/entrega/foto-tribunal.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "63c0c6417f4de5b39d807523722ecfa40fdcb3531bb0137ccfb5b186caf25477",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "robles-agotado.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-agotado.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "ddebdb97910dfee33b708f282d2b7db018d70d3168affe918d2c33a2089bc8e8",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "robles-contento.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-contento.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "2defb801893513dbba87f19f62697416d30acbb8952b49155ee965166f013495",
+      "correccion_mascara": true
+    },
+    {
+      "nombre": "robles-deporte-contento.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-deporte-contento.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "f9477f8f6b86a27559a1d3bf21c521583b6ee8cf69d1a588c40becd7776eb524",
+      "correccion_mascara": true
+    },
+    {
+      "nombre": "robles-deporte.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-deporte.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "0256f5db1e718f85e97e4cc7a4db50c28b76e8f60e3c03b3499d02bd2ed308cb",
+      "correccion_mascara": true
+    },
+    {
+      "nombre": "robles-neutral.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-neutral.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "bfb3b4d83146daebad00914f4f4697e6e5ed7b26995f56640e3ba04a78fcca5d",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "robles-pensativo.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-pensativo.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "7a66ad7528cd5ad747541c2894d729b47b0a960fd3fdfde375143932ec34db9e",
+      "correccion_mascara": true
+    },
+    {
+      "nombre": "robles-sorprendido.png",
+      "ruta": "apps/la-lupa/arte/entrega/robles-sorprendido.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "sha256": "a8df0d691eacb0578898f1ec89f87e3f347235745b97ec51ce2afd27e0e83801",
+      "correccion_mascara": true
+    },
+    {
+      "nombre": "buzon-agencia.png",
+      "ruta": "apps/la-lupa/arte/entrega/buzon-agencia.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha_min": null,
+      "alpha_max": null,
+      "sha256": "bac3e5e2d8829647e5798c2c65860cfea5119b38d9d0e11244aec89bf1f43bee",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "carne-academia.png",
+      "ruta": "apps/la-lupa/arte/entrega/carne-academia.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "4ea83ff399892ca6b1b3f7e7f4793ddcd67ae82b3b9d468223780cbc8d065621",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "cartel-ofertas.png",
+      "ruta": "apps/la-lupa/arte/entrega/cartel-ofertas.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "51ca26d78799d3995493870e4e353f6c6891e287253a4a05483b4290c1a938e4",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "centrifugadora.png",
+      "ruta": "apps/la-lupa/arte/entrega/centrifugadora.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "259909b02ca6063218eb1a5ae3ae5425a1e327a343858bfa0faab94327236bfb",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "fichero-empapado.png",
+      "ruta": "apps/la-lupa/arte/entrega/fichero-empapado.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "8cd5119e979ddfe5e0eb76c440042d8906e8a71634e91f22701d24721c804e89",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "libreta-canciones.png",
+      "ruta": "apps/la-lupa/arte/entrega/libreta-canciones.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "933736e9e5fcc36f8d2af51c7967c34bea5e19b6635dd6172eb8acde2a17032e",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "maquina-sin-tilde.png",
+      "ruta": "apps/la-lupa/arte/entrega/maquina-sin-tilde.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "75652614ffdbde628321de4b3069148f36680a1b5cbbe09b2df8b0d6d83fc460",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "microscopio.png",
+      "ruta": "apps/la-lupa/arte/entrega/microscopio.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "2249c92828b04adc6d70d4fe9b1d0235f2d543f69b1065c508d3fa0e25dcfae5",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "movil-bulo.png",
+      "ruta": "apps/la-lupa/arte/entrega/movil-bulo.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "d3b6a0f13a159191957eb172e6f9f1d19dd876fd0aa777786e946ddb683d5c73",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "postal-antigua.png",
+      "ruta": "apps/la-lupa/arte/entrega/postal-antigua.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "139d230a86a8a71eb9e31fbdd7f7333c19fc37caad34f79a067b4e5f814351dc",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "receta-mojada.png",
+      "ruta": "apps/la-lupa/arte/entrega/receta-mojada.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "3cdc1a20644d68e5f8f264ee5d245a72b97de04f9da32bc52bccd348dcdf233a",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "sobre-oyente.png",
+      "ruta": "apps/la-lupa/arte/entrega/sobre-oyente.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "dbb734e62088cc273c05902f2d9deba7769f6bdc2983f30ce3b07ef952c52f77",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "tarjetas-pregon.png",
+      "ruta": "apps/la-lupa/arte/entrega/tarjetas-pregon.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "a6204c560589c7fa3ee8af0827472eb42d7827719f96b33785ccee8e0694432c",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "tortuga-huerto.png",
+      "ruta": "apps/la-lupa/arte/entrega/tortuga-huerto.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "99a26d91812b10645a79327f152e952595d1e50327732105690f58f9c812037b",
+      "correccion_mascara": false
+    },
+    {
+      "nombre": "walkie.png",
+      "ruta": "apps/la-lupa/arte/entrega/walkie.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "sha256": "2ae08e27e120a9d089c4128fe0455392cf2fdc53311e4a7f3d0593702baee9df",
+      "correccion_mascara": false
+    }
+  ],
+  "total": 23,
+  "revision": "Peinado aprobado y cinco máscaras corregidas; entrega directa PNG sin pérdida"
+}
