@@ -1,0 +1,156 @@
+{
+  "id": "caso-04",
+  "numero": "04",
+  "titulo": "El panel de azulejos",
+  "resumen": "El panel de azulejos de la fuente amanece cambiado… y lleno de faltas.",
+  "reglas": ["c-z-s"],
+  "_nota": "Temporada 1, episodio 4. Pieza del gran misterio: Doña Pilar oyó la voz de El Tachón: habla con seseo, como la gente del barrio → vive en La Alameda. El seseo se trata siempre como forma de hablar andaluza, nunca como error: lo que se trabaja es la diferencia entre cómo se dice y cómo se escribe (criterio 1.3). Faltas sembradas para el expediente: plasa, empesó, trese.",
+  "escenas": [
+    { "tipo": "portada", "fondo": "plaza-azulejos" },
+
+    { "tipo": "relato", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+      "quien": "Directora Robles",
+      "texto": "El panel de azulejos de la fuente de la {plasa|plaza} ha amanecido cambiado: alguien ha quitado piezas y ha puesto otras llenas de faltas. Esos azulejos tienen más de cien años. Hay que encontrar al culpable." },
+
+    { "tipo": "descubre", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "neutral", "lado": "izq" },
+      "quien": "Mateo",
+      "intro": "La c, la z, la s y la qu tienen sus reglas. Y en Andalucía, además, hay que tener en cuenta cómo hablamos. Mira mis fichas.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        { "grupos": [ { "titulo": "Con a, o, u", "palabras": ["casa", "cola", "cuna"] }, { "titulo": "Con e, i", "palabras": ["queso", "quinto", "quieto"] } ],
+          "pregunta": "El sonido /k/ se escribe con c delante de a, o, u. ¿Y delante de e, i?",
+          "opciones": ["Delante de e, i se escribe qu", "Delante de e, i se escribe c", "Delante de e, i se escribe k", "Da igual"], "correcta": 0,
+          "explicacion": "Ca, co, cu, pero que, qui: casa, cola, cuna, queso, quinto." },
+        { "grupos": [ { "titulo": "Con a, o, u", "palabras": ["zapato", "zorro", "zumo"] }, { "titulo": "Con e, i", "palabras": ["cebolla", "cine", "cielo"] } ],
+          "pregunta": "Este sonido se escribe con z delante de a, o, u. ¿Y delante de e, i?",
+          "opciones": ["Delante de e, i se escribe c", "Delante de e, i se escribe z", "Delante de e, i se escribe s", "Da igual"], "correcta": 0,
+          "explicacion": "Za, zo, zu, pero ce, ci: zapato, zorro, zumo, cebolla, cine. (Hay excepciones raras, como zigzag.)" },
+        { "grupos": [ { "titulo": "Singular", "palabras": ["luz", "pez", "lápiz", "nariz"] }, { "titulo": "Plural", "palabras": ["luces", "peces", "lápices", "narices"] } ],
+          "pregunta": "¿Qué le pasa a la z final cuando hacemos el plural?",
+          "opciones": ["Se convierte en c: luz, luces", "Se queda igual", "Se convierte en s", "Desaparece"], "correcta": 0,
+          "explicacion": "Como detrás va una e, la z se convierte en c: luz → luces, pez → peces." },
+        { "grupos": [ { "titulo": "Suenan igual con seseo", "palabras": ["casa", "caza", "cocer", "coser"] } ],
+          "pregunta": "En buena parte de Andalucía, casa y caza suenan igual. ¿Qué es verdad?",
+          "opciones": ["Suenan igual, pero se escriben distinto porque significan cosas distintas", "Pronunciarlas igual está mal", "Se escriben igual", "Solo existe una de las dos"], "correcta": 0,
+          "explicacion": "Con seseo, casa y caza suenan igual. No es hablar mal: es como habla mucha gente en Andalucía. Al escribir se distinguen por su significado: casa (vivienda), caza (cazar); coser (con aguja), cocer (en el horno)." }
+      ],
+      "pistas": ["Fíjate en la vocal que va detrás.", "Abre el Archivo de Mateo (la carpeta de arriba)."] },
+
+    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "mateo", "expresion": "contento", "lado": "izq" },
+      "titulo": "Las reglas, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe las dos reglas: ca, co, cu / que, qui y za, zo, zu / ce, ci.",
+        "Escribe tres plurales de palabras acabadas en z.",
+        "Escribe dos parejas que suenan igual con seseo pero se escriben distinto (por ejemplo, casa y caza)."
+      ] },
+
+    { "tipo": "relato", "fondo": "plaza-azulejos", "personaje": { "id": "lola", "expresion": "sorprendido", "lado": "izq" },
+      "titulo": "La fuente de la plaza", "quien": "Lola",
+      "texto": "Todo {empesó|empezó} anoche. Mira el panel: hay azulejos nuevos con palabras mal escritas. Y en las piezas nuevas alguien ha pintado una pista. Vamos a leerlas bien." },
+
+    { "tipo": "papeles", "fondo": "plaza-azulejos",
+      "titulo": "Los azulejos del panel",
+      "instruccion": "Entre las piezas del panel hay 4 palabras mal escritas. Corrígelas: juntas forman una pista.",
+      "palabras": ["cerámica", "pincel", "cazuela", "taza", "cielo", "zumo", "queso", "cesta", "lápices", "peces", "luces", "zorro", "cine", "plaza"],
+      "faltas": [
+        { "mal": "asulejos", "bien": "azulejos" },
+        { "mal": "cosieron", "bien": "cocieron" },
+        { "mal": "Asucena", "bien": "Azucena" },
+        { "mal": "dies", "bien": "diez" }
+      ],
+      "frase": "Estos {0} se {1} en el taller de {2} hace {3} días.",
+      "pistas": ["Las palabras mal escritas tienen una s donde va una z o una c.", "Cocer (en el horno) y coser (con aguja) suenan igual con seseo. ¿Cuál tiene sentido aquí?", "Son: asulejos, cosieron, Asucena y dies."],
+      "recompensa": { "texto": "Detrás de una pieza hay un número pintado con rotulador negro: el 2.", "digito": "2" } },
+
+    { "tipo": "hipotesis", "fondo": "plaza-azulejos",
+      "titulo": "¿Adónde vamos ahora?",
+      "opciones": ["A la panadería de Julián.", "Al taller de cerámica de Azucena.", "Al mercado de abastos.", "A la biblioteca."],
+      "correcta": 1,
+      "acierto": "La pista lo dice: los azulejos se cocieron en el taller de Azucena hace diez días. Allí nos contarán quién los encargó.",
+      "fallo": "Vuelve a leer la pista que han formado las palabras corregidas." },
+
+    { "tipo": "relato", "fondo": "taller-ceramica", "personaje": { "id": "azucena", "expresion": "sorprendido", "lado": "der" },
+      "quien": "Azucena, la ceramista",
+      "texto": "¿Mis azulejos? Hace diez días un cliente me encargó {trese|trece} piezas con palabras rarísimas. Nunca le vi la cara: llevaba gafas de sol y el cuello de la gabardina subido. Mientras hablamos, se me mezclaron los botes de pintura…" },
+
+    { "tipo": "huecos", "fondo": "taller-ceramica", "regla": "c-z-s",
+      "titulo": "Los botes de pintura",
+      "instruccion": "A las etiquetas de los botes se les ha borrado una letra. Elige la que falta.",
+      "palabras": [
+        { "p": "cereza", "pos": 0, "letra": "c", "opciones": ["c", "z", "s"], "pista": "Delante de e se escribe c." },
+        { "p": "zapato", "pos": 0, "letra": "z", "opciones": ["c", "z", "s"], "pista": "Delante de a se escribe z." },
+        { "p": "queso", "pos": 0, "letra": "qu", "opciones": ["c", "qu", "k"], "pista": "El sonido /k/ delante de e se escribe qu." },
+        { "p": "luces", "pos": 2, "letra": "c", "opciones": ["c", "z", "s"], "pista": "Es el plural de luz: la z se convierte en c." },
+        { "p": "taza", "pos": 2, "letra": "z", "opciones": ["c", "z", "s"], "pista": "Delante de a se escribe z." },
+        { "p": "cine", "pos": 0, "letra": "c", "opciones": ["c", "z", "s"], "pista": "Delante de i se escribe c." },
+        { "p": "pinceles", "pos": 3, "letra": "c", "opciones": ["c", "z", "s"], "pista": "Delante de e se escribe c." },
+        { "p": "empecé", "pos": 4, "letra": "c", "opciones": ["c", "z", "s"], "pista": "Empezar lleva z, pero delante de e se convierte en c: empecé." }
+      ],
+      "pistas": ["Mira la vocal que va justo detrás del hueco.", "Usa tus cartas: que/qui, ce/ci y el plural en -ces."],
+      "recompensa": { "texto": "Debajo del último bote hay una etiqueta con un número: el 7.", "digito": "7" } },
+
+    { "tipo": "relato", "fondo": "plaza-azulejos", "personaje": { "id": "pilar", "expresion": "sorprendido", "lado": "der" },
+      "quien": "Doña Pilar",
+      "texto": "¡Yo lo oí! Estaba en el banco de la plaza cuando ese señor de gafas habló con Azucena. Hablaba como nosotros, con su seseo de toda la vida. Os lo digo yo: ese es de La Alameda." },
+
+    { "tipo": "clasifica", "fondo": "taller-ceramica",
+      "titulo": "Las cajas del taller",
+      "instruccion": "Ayuda a Azucena a ordenar las piezas: cada una a la caja de la regla que la explica.",
+      "categorias": [ { "id": "k", "nombre": "ca · co · cu · que · qui" }, { "id": "z", "nombre": "za · zo · zu · ce · ci" }, { "id": "plural", "nombre": "plural z → ces" } ],
+      "palabras": [
+        { "p": "cuchara", "cat": "k", "pista": "Es el sonido /k/ delante de u." },
+        { "p": "zumo", "cat": "z", "pista": "Es za, zo, zu." },
+        { "p": "peces", "cat": "plural", "pista": "Es el plural de pez." },
+        { "p": "queso", "cat": "k", "pista": "Es el sonido /k/ delante de e: qu." },
+        { "p": "cielo", "cat": "z", "pista": "Es ce, ci." },
+        { "p": "narices", "cat": "plural", "pista": "Es el plural de nariz." },
+        { "p": "quinto", "cat": "k", "pista": "Es el sonido /k/ delante de i: qu." },
+        { "p": "zorro", "cat": "z", "pista": "Es za, zo, zu." },
+        { "p": "luces", "cat": "plural", "pista": "Es el plural de luz." }
+      ],
+      "pistas": ["Mira qué letra va antes de la vocal y si la palabra es un plural."],
+      "recompensa": { "texto": "En el fondo de la última caja hay un número grabado en el barro: el 5.", "digito": "5" } },
+
+    { "tipo": "careo", "fondo": "taller-ceramica", "personaje": { "id": "azucena", "expresion": "neutral", "lado": "der" },
+      "quien": "Azucena, la ceramista",
+      "titulo": "Careo",
+      "instruccion": "Los azulejos salieron de su taller… En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
+      "declaracion": "Yo solo {hise|hice|ce} lo que me pidieron: {catorse|catorce|ce} azulejos con letras. El cliente pagó con monedas que olían a {qeso|queso|qu} y se llevó dos {pezes|peces|plural} de cerámica para su casa.",
+      "aclarado": "Azucena es inocente: el cliente misterioso le encargó los azulejos y se fue sin dejar su nombre. Pero dejó algo en el horno…",
+      "pistas": ["Hay una c delante de e, un qu y un plural de pez.", "Son: hise, catorse, qeso y pezes."] },
+
+    { "tipo": "candado", "fondo": "taller-ceramica", "objeto": "horno-ceramica",
+      "titulo": "El horno de cerámica",
+      "instruccion": "El horno tiene un candado para que nadie lo abra caliente. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "275",
+      "exito": "Dentro del horno queda una pieza del encargo que el cliente olvidó: un azulejo con un tachón negro y unas gafas de sol pintadas.",
+      "pistas": ["Abre tu libreta: ahí están las cifras.", "La primera estaba detrás de un azulejo de la plaza."] },
+
+    { "tipo": "relato", "fondo": "taller-ceramica", "personaje": { "id": "azucena", "expresion": "contento", "lado": "der" },
+      "quien": "Azucena, la ceramista",
+      "texto": "Haré piezas nuevas para la fuente, sin una sola falta. Y os regalo una a cada uno, para la puerta de la agencia." },
+
+    { "tipo": "expediente", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "neutral", "lado": "der" },
+      "quien": "Directora Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de c, z y s. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": ["Hay una en el aviso del caso.", "Revisa lo que dijeron Lola y Azucena."] },
+
+    { "tipo": "relato", "fondo": "agencia", "personaje": { "id": "robles", "expresion": "pensativo", "lado": "der" },
+      "quien": "Directora Robles",
+      "texto": "Conoce la agencia, hizo nuestra prueba de acceso y habla con el seseo de toda la vida. El Tachón no viene de fuera: vive en La Alameda, entre nosotros. Clavad esto en el tablón." },
+
+    { "tipo": "apunta", "fondo": "agencia", "personaje": { "id": "lola", "expresion": "contento", "lado": "izq" },
+      "titulo": "Informe para la directora",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿qué pasó con el panel de azulejos y qué sabemos ya de El Tachón?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta a la directora para que selle tu expediente."
+      ] },
+
+    { "tipo": "final", "fondo": "plaza-azulejos", "equipo": ["lola", "mateo", "azucena", "pilar"],
+      "texto": "La fuente recupera su panel y el tablón de la agencia, una pieza más: El Tachón es del barrio. Cada vez está más cerca." }
+  ]
+}

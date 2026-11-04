@@ -448,5 +448,39 @@
     "listas": [],
     "mira": "der",
     "prompt": "Don Anselmo, conserje y antiguo maestro jubilado de la escuela, unos 75 años, estilo anime: alto y delgado, pelo blanco peinado hacia atrás, bigote blanco, gafas redondas de leer en la punta de la nariz, chaleco de punto gris, pajarita granate, manojo de llaves antiguas en el cinturón y una tiza en la mano; sabio, tranquilo y con humor."
+  },
+  "plaza-azulejos": {
+    "tipo": "fondo",
+    "nombre": "La fuente del panel de azulejos",
+    "color": "#2f3d58",
+    "listo": false,
+    "prompt": "Plaza del barrio de La Alameda al atardecer: fuente de piedra con un gran panel de azulejos antiguos de colores en la pared de detrás (dibujos geométricos y florales, SIN letras), naranjos, bancos de forja, farolas encendiéndose y algunas piezas del panel caídas en el suelo. Sin personas."
+  },
+  "taller-ceramica": {
+    "tipo": "fondo",
+    "nombre": "Taller de cerámica de Azucena",
+    "color": "#3a2c22",
+    "listo": false,
+    "prompt": "Taller de cerámica artesanal: torno de alfarero, estanterías con platos, jarras y azulejos pintados a mano (dibujos, SIN letras), botes de pintura de colores, pinceles en vasos, un horno de cerámica al fondo, luz cálida de tarde por un ventanal con reja. Sin personas."
+  },
+  "azucena": {
+    "tipo": "personaje",
+    "nombre": "Azucena, la ceramista",
+    "color": "#2f6fa8",
+    "expresiones": [
+      "neutral",
+      "sorprendido",
+      "contento"
+    ],
+    "listas": [],
+    "mira": "der",
+    "prompt": "Azucena, ceramista del barrio, unos 35 años, estilo anime: piel morena, pelo negro largo recogido con un lápiz, delantal manchado de pintura azul y de barro, pañuelo verde al cuello, pincel en la mano; creativa y despistada."
+  },
+  "horno-ceramica": {
+    "tipo": "objeto",
+    "nombre": "Horno de cerámica con candado",
+    "emoji": "🔥",
+    "listo": false,
+    "prompt": "Horno de cerámica de taller, de metal con puerta redonda y mirilla con brillo naranja, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
   }
 }

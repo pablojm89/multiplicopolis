@@ -78,6 +78,16 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `anselmo-pensativo.png` | pensativo/a, mano en la barbilla, mirada de lado |
 | `anselmo-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
 
+### Azucena, la ceramista
+
+**Descripción:** Azucena, ceramista del barrio, unos 35 años, estilo anime: piel morena, pelo negro largo recogido con un lápiz, delantal manchado de pintura azul y de barro, pañuelo verde al cuello, pincel en la mano; creativa y despistada.
+
+| Archivo | Expresión |
+|---|---|
+| `azucena-neutral.png` | expresión neutra, atenta |
+| `azucena-sorprendido.png` | sorprendido/a, ojos muy abiertos, cejas arriba |
+| `azucena-contento.png` | contento/a, sonrisa amplia |
+
 ## Fondos (16:9, 1920×1080, sin personajes)
 
 | Archivo | Qué se ve |
@@ -94,6 +104,8 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `sala-interrogatorios.png` | Sala de interrogatorios de detectives: paredes grises, mesa metálica con dos sillas, lámpara colgante que ilumina la mesa, espejo unidireccional grande al fondo (reflejo difuso), grabadora de cinta sobre la mesa, vaso de agua y carpeta cerrada. Ambiente de serie juvenil de misterio, no terrorífico. Sin personas y sin letras. |
 | `sala-centralita.png` | Azotea cubierta de la antigua escuela convertida en centralita de radio: mesa con radio antigua de válvulas, micrófono de sobremesa, auriculares, walkie-talkie, mapa del barrio clavado con chinchetas e hilo rojo (SIN rótulos), antena y cielo nocturno de La Alameda con farolillos a lo lejos. Sin personas. |
 | `sala-imprenta.png` | Redacción e imprenta del periódico del barrio al amanecer: mesa con máquina de escribir antigua y hojas en blanco, taza de café, pequeña rotativa al fondo, bobinas de papel, tablero de corcho con recortes en blanco, luz dorada del amanecer por la ventana. Sin personas y sin letras ni titulares. |
+| `plaza-azulejos.png` | Plaza del barrio de La Alameda al atardecer: fuente de piedra con un gran panel de azulejos antiguos de colores en la pared de detrás (dibujos geométricos y florales, SIN letras), naranjos, bancos de forja, farolas encendiéndose y algunas piezas del panel caídas en el suelo. Sin personas. |
+| `taller-ceramica.png` | Taller de cerámica artesanal: torno de alfarero, estanterías con platos, jarras y azulejos pintados a mano (dibujos, SIN letras), botes de pintura de colores, pinceles en vasos, un horno de cerámica al fondo, luz cálida de tarde por un ventanal con reja. Sin personas. |
 
 ## Objetos (fondo transparente, 1024×1024)
 
@@ -103,10 +115,11 @@ Pablo ha dado el visto bueno a estas imágenes. Mantén exactamente el mismo est
 | `grabadora.png` | Grabadora antigua de cámara de seguridad dentro de una caja metálica gris con un candado de latón de tres ruedas lisas (SIN números visibles), cables saliendo, una lucecita roja encendida. |
 | `sobre-tachon.png` | Sobre de papel antiguo cerrado con un sello de lacre negro con forma de tachón (garabato) y unas gafas de sol pequeñas dibujadas al lado. Sin letras, direcciones ni números. |
 | `fichero-azul.png` | Mueble fichero antiguo de madera pintada de azul con cajoncitos con tiradores de latón y etiquetas vacías, uno de los cajones cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). |
+| `horno-ceramica.png` | Horno de cerámica de taller, de metal con puerta redonda y mirilla con brillo naranja, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles). |
 
 ## Notas del ilustrador
 
 _Si tienes dudas o propuestas (por ejemplo, un cambio de estilo), apúntalas aquí o díselas a Pablo._
 
 ---
-Quedan **29** imágenes por entregar.
+Quedan **35** imágenes por entregar.

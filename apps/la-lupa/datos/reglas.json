@@ -118,8 +118,37 @@
       "LCL.3.B.3.5"
     ],
     "criterios": [
+      "1.3",
       "5.1",
+      "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · c, z, s y qu",
+      "puntos": [
+        "El sonido /k/: ca, co, cu, pero que, qui: casa, cola, cuna, queso, quinto.",
+        "Za, zo, zu, pero ce, ci: zapato, zorro, zumo, cebolla, cine.",
+        "Los plurales de las palabras acabadas en z se escriben con c: luz → luces, pez → peces.",
+        "Los verbos en -zar cambian la z por c delante de e: empezar → empecé, cazar → cacé.",
+        "Con seseo, casa y caza, o coser y cocer, suenan igual. No es hablar mal: al escribir se distinguen por el significado."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "qu",
+        "titulo": "Carta del que y el qui",
+        "texto": "El sonido /k/ delante de e, i se escribe qu: queso, quinto."
+      },
+      {
+        "id": "ce",
+        "titulo": "Carta del ce y el ci",
+        "texto": "Delante de e, i se escribe c, no z: cebolla, cine, hice, catorce."
+      },
+      {
+        "id": "plural",
+        "titulo": "Carta del plural en -ces",
+        "texto": "Las palabras acabadas en z hacen el plural en -ces: pez → peces."
+      }
     ]
   },
   "ll-y": {

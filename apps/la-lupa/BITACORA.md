@@ -60,3 +60,5 @@ Claude actualiza este archivo al terminar cada tarea importante.
 
 **Decisiones de Pablo sobre la Academia:** siempre abierta («tiene mucho más sentido»); que se registre y ya se verá si se usa para la nota; don Anselmo, de acuerdo; el testigo seseante «me encanta»; sin libreta; sí se puede usar en casa.
 **Hecho:** primera versión de la Academia: patio con turno de hoy, cola de repaso espaciado y 3 salas (Archivo, Pupitre, Laboratorio), con bancos de datos y un validador. Arte de la Academia pedido en la issue #4 (9 fondos + don Anselmo).
+
+- Caso 4 «El panel de azulejos» (c/z/s) escrito y jugable. Nuevo `herramientas/validar_casos.py` (encontró una posición de hueco mal puesta). Sus 6 imágenes se añaden a la issue #3.

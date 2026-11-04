@@ -55,7 +55,8 @@
           "titulo": "c, z y s",
           "reglas": [
             "c-z-s"
-          ]
+          ],
+          "caso": "caso-04"
         },
         {
           "id": "5-05",
