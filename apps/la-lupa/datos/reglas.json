@@ -157,8 +157,36 @@
       "LCL.3.B.3.5"
     ],
     "criterios": [
+      "1.3",
       "5.1",
+      "9.1",
       "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · ll e y",
+      "puntos": [
+        "Las palabras terminadas en -illo, -illa se escriben con ll: farolillo, bombilla, pasillo.",
+        "La i final que va detrás de una vocal y no suena fuerte se escribe y: rey, hoy, muy, ley.",
+        "Si un verbo no tiene ll ni y en el infinitivo, sus formas con ese sonido van con y: caer → cayó, oír → oyendo, huir → huyó, leer → leyendo.",
+        "Con yeísmo, la ll y la y suenan igual. Ojo con las parejas: cayó (caer) / calló (callar); haya (haber) / halla (hallar); vaya (ir) / valla (cerca)."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "illo",
+        "titulo": "Carta del -illo y el -illa",
+        "texto": "Las palabras terminadas en -illo, -illa se escriben con ll: bombilla, farolillo."
+      },
+      {
+        "id": "yfinal",
+        "titulo": "Carta de la y final",
+        "texto": "La i final detrás de vocal que no suena fuerte se escribe y: rey, hoy, muy."
+      },
+      {
+        "id": "verbo-y",
+        "titulo": "Carta de caer → cayó",
+        "texto": "Si el infinitivo no tiene ll ni y, sus formas van con y: caer → cayó, huir → huyó."
+      }
     ]
   },
   "g-j-dieresis": {

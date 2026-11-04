@@ -482,5 +482,33 @@
     "emoji": "🔥",
     "listo": false,
     "prompt": "Horno de cerámica de taller, de metal con puerta redonda y mirilla con brillo naranja, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
+  },
+  "feria-apagada": {
+    "tipo": "fondo",
+    "nombre": "La feria a oscuras",
+    "color": "#141a2a",
+    "listo": false,
+    "prompt": "La plaza de La Alameda la noche de la feria con todas las luces APAGADAS: cientos de farolillos de papel colgando sin luz, casetas cerradas, guirnaldas oscuras, solo la luz azul de la luna y alguna linterna lejana; algunos farolillos tienen garabatos negros de rotulador (SIN letras legibles). Inquietante pero apta para niños. Sin personas."
+  },
+  "caseta-feria": {
+    "tipo": "fondo",
+    "nombre": "La caseta de la feria",
+    "color": "#2a1e2e",
+    "listo": false,
+    "prompt": "Interior y trasera de una caseta de feria andaluza de noche: lona de rayas, cajas de cartón con bombillas, rollos de cable, sillas plegables, un escenario pequeño con un micrófono, y al fondo una casilla de feria pintada de amarillo; luz tenue de linternas. Sin personas y sin letras."
+  },
+  "llave-escuela": {
+    "tipo": "objeto",
+    "nombre": "Llave antigua de la escuela",
+    "emoji": "🗝️",
+    "listo": false,
+    "prompt": "Llave antigua grande de hierro forjado, con una etiqueta de cartón atada con cordel en la que hay dibujada una pequeña escuela con campanario (SIN letras)."
+  },
+  "cuadro-electrico": {
+    "tipo": "objeto",
+    "nombre": "Cuadro eléctrico de la feria",
+    "emoji": "⚡",
+    "listo": false,
+    "prompt": "Cuadro eléctrico metálico de feria con palancas e interruptores, con un símbolo de rayo, cerrado con un candado de latón de tres ruedas lisas (SIN números visibles)."
   }
 }

@@ -64,7 +64,8 @@
           "titulo": "ll e y",
           "reglas": [
             "ll-y"
-          ]
+          ],
+          "caso": "caso-05"
         },
         {
           "id": "5-06",

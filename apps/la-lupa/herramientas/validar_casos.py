@@ -17,6 +17,13 @@ reglas = json.loads((RAIZ / "datos" / "reglas.json").read_text(encoding="utf-8")
 arte = json.loads((RAIZ / "datos" / "arte.json").read_text(encoding="utf-8"))
 prog = json.loads((RAIZ / "datos" / "programacion.json").read_text(encoding="utf-8"))
 en_prog = {u.get("caso") for c in prog["cursos"].values() for u in c["unidades"]}
+# Casos en preparación: datos/pendiente/<caso>.json aporta reglas, arte y unidad sin tocar los archivos compartidos
+for f in sorted((RAIZ / "datos" / "pendiente").glob("*.json")) if (RAIZ / "datos" / "pendiente").exists() else []:
+    extra = json.loads(f.read_text(encoding="utf-8"))
+    for k, v in extra.get("reglas", {}).items():
+        reglas.setdefault(k, {}).update(v)
+    arte.update(extra.get("arte", {}))
+    en_prog.add(f.stem)
 TIPOS = {"portada", "relato", "descubre", "apunta", "papeles", "caza", "hipotesis", "clasifica", "huecos",
          "manchas", "careo", "candado", "expediente", "final"}
 SEMILLA = re.compile(r"\{([^{}|]+)\|([^{}|]+)(?:\|([^{}|]+))?\}")
