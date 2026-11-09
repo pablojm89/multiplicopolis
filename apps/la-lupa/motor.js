@@ -225,7 +225,7 @@ function htmlHUD() {
     </div>`;
 }
 function activarHUD() {
-  $("#hudVolver").onclick = () => confirmar("¿Volver al tablón? Se perderá el avance de este caso.", vistaTablon, "Volver al tablón");
+  $("#hudVolver").onclick = () => confirmar("¿Volver al tablón? El caso se queda guardado: podrás continuarlo cuando quieras.", vistaTablon, "Volver al tablón");
   $("#hudLibreta").onclick = verLibreta;
   $("#hudCarpeta").onclick = verArchivo;
   $("#hudLupa")?.addEventListener("click", pedirPista);
@@ -243,7 +243,7 @@ function verLibreta() {
       <p>Los detectives de La Lupa apuntan sus pistas en su libreta. Mírala ahí.</p>
       <p>¿Se te olvidó apuntar algo? Puedes verlo otra vez, pero quedará anotado en tu informe.</p>
       <div class="acciones"><button class="boton-sello" id="verIgual">Ver mis pistas</button></div>`, "ventana-libreta");
-    $("#verIgual").onclick = () => { P.consultas++; P.libretaAbierta = true; verLibreta(); P.libretaAbierta = false; };
+    $("#verIgual").onclick = () => { P.consultas++; guardarPartida(); P.libretaAbierta = true; verLibreta(); P.libretaAbierta = false; };
     return;
   }
   abrirModal(`
@@ -262,6 +262,7 @@ function pedirPista() {
   const usadas = P.pistas[P.i] || 0;
   if (usadas >= (e.pistas || []).length) return;
   P.pistas[P.i] = usadas + 1;
+  guardarPartida();
   abrirModal(`<h3>🔍 Pista ${usadas + 1}</h3><p class="pista grande">${esc(e.pistas[usadas])}</p>`, "ventana-libreta");
   refrescarHUD();
 }

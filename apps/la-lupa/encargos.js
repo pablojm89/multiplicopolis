@@ -38,10 +38,11 @@ function vistaEncargos() {
   const tarjeta = c => {
     const abierto = c.encargo.rango <= n;
     const hecho = mios.filter(r => r.unidad === c.id).at(-1);
+    const medias = abierto && partidaAMedias(c.id, c);
     const estrellas = "★".repeat(c.encargo.dificultad || c.encargo.rango + 1) + "☆".repeat(Math.max(0, 5 - (c.encargo.dificultad || c.encargo.rango + 1)));
     if (!abierto) return `<article class="encargo cerrado"><span class="lacre">🔒</span><small>Sobre cerrado</small><h3>Se abre con el rango</h3><p>${esc(RANGOS[c.encargo.rango].nombre)}</p></article>`;
     return `<button class="encargo ${hecho ? "hecho" : ""}" data-encargo="${esc(c.id)}">
-      <span class="sello-correo">${hecho ? "RESUELTO" : "NUEVO"}</span>
+      <span class="sello-correo">${medias ? "A MEDIAS" : hecho ? "RESUELTO" : "NUEVO"}</span>
       <small>De: ${esc(c.encargo.cliente)}</small>
       <h3>${esc(c.titulo)}</h3>
       <p>${esc(c.encargo.contenido)}</p>
@@ -57,7 +58,11 @@ function vistaEncargos() {
     <p class="aviso-encargos">${siguiente ? `Con el rango <b>${esc(siguiente.nombre)}</b> (${siguiente.min} pts) llegarán encargos nuevos, y más difíciles.` : "Rango máximo: tienes todos los encargos de la agencia."}</p>
     <div class="buzon">${listaEncargos().map(tarjeta).join("") || `<p class="vacio">El buzón está vacío… de momento.</p>`}</div>`, { fondo: arte("buzon-agencia").listo ? "buzon-agencia" : "agencia", clase: "oscurecido" });
   $("#volverTablon").onclick = vistaTablon;
-  $$("[data-encargo]").forEach(b => b.onclick = () => iniciarEncargo(b.dataset.encargo));
+  $$("[data-encargo]").forEach(b => b.onclick = () => {
+    const id = b.dataset.encargo, medias = partidaAMedias(id, D.encargos[id]);
+    if (medias) ofrecerContinuar(D.encargos[id], medias, () => reanudarPartida(id, D.encargos[id], medias), () => iniciarEncargo(id));
+    else iniciarEncargo(id);
+  });
 }
 
 function iniciarEncargo(id) {

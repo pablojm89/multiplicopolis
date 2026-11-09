@@ -619,3 +619,7 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 }
 @keyframes girar-movil { 0%, 20% { transform: rotate(0); } 60%, 100% { transform: rotate(-90deg); } }
 @media (prefers-reduced-motion: reduce) { .gira-ico { animation: none; transform: rotate(-90deg); } }
+/* Caso cerrado hasta resolver el anterior */
+.tarjeta-caso.cerrada { background: #e2d5ba; opacity: .78; }
+.tarjeta-caso.cerrada h3 { color: var(--gris-tinta); }
+.candado-caso { margin-top: auto !important; font: 800 13px var(--f-ui) !important; color: #7a4e12; }

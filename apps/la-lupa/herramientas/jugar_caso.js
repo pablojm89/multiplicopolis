@@ -64,7 +64,7 @@ fs.mkdirSync(DIR, { recursive: true });
 
   await p.goto('http://localhost:4321/apps/la-lupa/');
   // El jugador entra directo al caso (sin la ruta de preparación de la Academia)
-  await p.evaluate(l => { localStorage.setItem('lalupa-ajustes', JSON.stringify({ libreta: l, preparacion: 'no' })); }, LIBRETA);
+  await p.evaluate(l => { localStorage.setItem('lalupa-ajustes', JSON.stringify({ libreta: l, preparacion: 'no', orden: 'libre' })); }, LIBRETA);
   await p.reload();
   if (process.env.PAQUETE) { // PAQUETE=<ruta.lalupa-clase.json>: juega con el avatar del primer alias
     await p.click('#irMaestro'); await p.setInputFiles('#pqArchivo', process.env.PAQUETE); await p.waitForTimeout(600);

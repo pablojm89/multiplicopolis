@@ -21,7 +21,7 @@ function vistaInicio() {
       <p class="etiqueta-clase">¿Eres de la clase? Busca tu ficha de aspirante:</p>
       <div class="fichas-clase">${aliasLibres().map(a => `<button class="ficha-clase" data-alias="${esc(a.alias)}"><img src="${a.avatar}" alt=""><span>${esc(a.alias)}</span></button>`).join("")}</div>` : ""}
       <form id="nuevo" class="nueva-ficha">
-        <input id="nNombre" placeholder="Tu nombre de detective" maxlength="30" required autocomplete="off">
+        <input id="nNombre" placeholder="Tu alias de detective" title="Inventa un alias: no hace falta tu nombre real ni tus apellidos" maxlength="30" required autocomplete="off" autocapitalize="words">
         <select id="nCurso">${Object.entries(cursos).map(([k, c]) => `<option value="${esc(k)}">${esc(c.nombre)}</option>`).join("")}</select>
         <button class="boton-sello">Crear ficha</button>
       </form>
@@ -67,7 +67,10 @@ function vistaTablon() {
   $("#irEncargos")?.addEventListener("click", vistaEncargos);
   $$("[data-unidad]").forEach(b => b.onclick = () => {
     const u = curso.unidades.find(x => x.id === b.dataset.unidad);
-    const ultimo = mios.filter(r => r.unidad === u.id).at(-1);
+    const delCaso = mios.filter(r => r.unidad === u.id);
+    const ultimo = delCaso.find(r => r.libreta) || delCaso.at(-1);   // el sello es del caso, no de cada intento
+    const medias = partidaAMedias(u.id, D.casos[u.caso]);
+    if (medias) return ofrecerContinuar(D.casos[u.caso], medias, () => reanudarPartida(u.id, D.casos[u.caso], medias), () => iniciarCaso(u));
     if (!ultimo && pasosPreparacion(u).length && modoPreparacion() !== "no" && (debePrepararse(u, mios) || modoPreparacion() === "opcional" && !preparacionLista(u))) return vistaPreparacion(u);
     if (!ultimo) return iniciarCaso(u);
     abrirModal(`
@@ -81,19 +84,81 @@ function vistaTablon() {
     $("#sellarYa")?.addEventListener("click", () => sellar(ultimo, vistaTablon));
   });
 }
+/* Puntos de un caso: el mejor intento de juego + el sello de la libreta (que es del caso, no del intento).
+   Así, volver a jugar un caso nunca quita puntos ni el sello. */
+const puntosLibreta = r => (r.libreta ? r.libreta.puntos * 25 + 50 : 0);
+const puntosUnidad = rs => Math.max(...rs.map(r => puntosResultado(r) - puntosLibreta(r))) + Math.max(...rs.map(puntosLibreta));
 const puntosDetective = mios => {
-  const ultimoPorUnidad = {};
-  mios.forEach(r => (ultimoPorUnidad[r.unidad] = r));
-  return Object.values(ultimoPorUnidad).reduce((a, r) => a + puntosResultado(r), 0) + puntosAcademia();
+  const porUnidad = {};
+  mios.forEach(r => (porUnidad[r.unidad] ??= []).push(r));
+  return Object.values(porUnidad).reduce((a, rs) => a + puntosUnidad(rs), 0) + puntosAcademia();
 };
+
+/* Orden de la temporada: cada caso se abre al terminar el anterior, para no destripar la historia.
+   ajustes.orden = "libre" (zona del maestro) los abre todos; el modo revisión, también. */
+const ordenLibre = () => ajustes.orden === "libre" || modoRevision();
+function casoAnteriorPendiente(u, mios) {
+  if (ordenLibre()) return null;
+  const conCaso = D.prog.cursos[perfil.curso].unidades.filter(x => x.caso && D.casos[x.caso]);
+  const k = conCaso.findIndex(x => x.id === u.id);
+  const previa = k > 0 ? conCaso[k - 1] : null;
+  return previa && !mios.some(r => r.unidad === previa.id) ? previa : null;
+}
+
+/* ── Partida a medias: se guarda al entrar en cada escena y se puede continuar otro día ── */
+const clavePartidas = () => `partidas-${perfil.id}`;
+const partidasGuardadas = () => cargar(clavePartidas(), {});
+function guardarPartida() {
+  if (!P || !perfil) return;
+  const todas = partidasGuardadas();
+  todas[P.unidad] = {
+    caso: P.caso.id, nEscenas: P.caso.escenas.length, i: P.i, ...(P.encargo ? { encargo: true } : {}),
+    // Lo de la escena en curso no se guarda: al continuar, esa escena empieza de nuevo
+    eventos: P.eventos.filter(e => e.escena < P.i), piezas: P.piezas.slice(0, P.nPiezas ?? P.piezas.length),
+    notas: P.notas.filter(n => n.escena < P.i), cartas: P.cartas, pistas: P.pistas, consultas: P.consultas,
+    ms: Date.now() - P.inicio, fecha: new Date().toISOString(),
+  };
+  guardar(clavePartidas(), todas);
+}
+function olvidarPartida(unidad) {
+  const todas = partidasGuardadas();
+  if (todas[unidad]) { delete todas[unidad]; guardar(clavePartidas(), todas); }
+}
+/* Solo vale si el caso no ha cambiado desde que se guardó */
+function partidaAMedias(unidad, caso) {
+  const g = perfil && partidasGuardadas()[unidad];
+  return g && caso && g.caso === caso.id && g.nEscenas === caso.escenas.length && g.i > 0 && g.i < caso.escenas.length ? g : null;
+}
+function reanudarPartida(unidad, caso, g) {
+  const eventos = g.eventos || [];
+  P = {
+    caso, unidad, i: g.i, eventos, piezas: g.piezas || [], cartas: !!g.cartas, pistas: g.pistas || {}, consultas: g.consultas || 0, notas: g.notas || [],
+    repasar: new Set(eventos.filter(e => !e.ok && e.palabra && e.detalle !== "falsa alarma").map(e => e.palabra)),
+    inicio: Date.now() - (g.ms || 0), ...(g.encargo ? { encargo: true } : {}),
+  };
+  renderEscena();
+}
+function ofrecerContinuar(caso, g, continuar, deNuevo) {
+  abrirModal(`
+    <h3>${esc(caso.titulo)}</h3>
+    <p>Dejaste este expediente <b>a medias</b>: ibas por la escena ${g.i + 1} de ${g.nEscenas}. Tus pistas y tus aciertos están guardados.</p>
+    <div class="acciones">
+      <button class="boton-papel" id="deNuevo">Empezar de nuevo</button>
+      <button class="boton-sello" id="continuar">Continuar ▸</button>
+    </div>`, "ventana-libreta");
+  $("#continuar").onclick = () => { cerrarModal(); continuar(); };
+  $("#deNuevo").onclick = () => { cerrarModal(); deNuevo(); };
+}
 
 function tarjetaUnidad(u, mios) {
   const reglas = u.reglas.length > 3 ? `Repaso de ${u.reglas.length} reglas` : u.reglas.map(r => D.reglas[r]?.nombre || r).join(" · ");
   const caso = u.caso && D.casos[u.caso];
   const tri = `<span class="trimestre">${u.trimestre}.º trim.</span>`;
   if (!caso) return `<article class="tarjeta-caso bloqueada">${tri}<span class="chincheta"></span><h3>${esc(u.titulo)}</h3>${reglas !== u.titulo ? `<p>${esc(reglas)}</p>` : ""}<span class="sello-mini">PRÓXIMAMENTE</span></article>`;
-  const ultimo = mios.filter(r => r.unidad === u.id).at(-1);
-  const estado = !ultimo ? ["nuevo", "NUEVO"] : ultimo.libreta ? ["resuelto", "SELLADO"] : ["pendiente", "SIN SELLAR"];
+  const previa = casoAnteriorPendiente(u, mios);
+  if (previa) return `<article class="tarjeta-caso cerrada">${tri}<span class="chincheta"></span><small>Expediente ${esc(caso.numero)}</small><h3>${esc(caso.titulo)}</h3><p class="candado-caso">🔒 Antes, resuelve «${esc(D.casos[previa.caso].titulo)}»</p></article>`;
+  const delCaso = mios.filter(r => r.unidad === u.id);
+  const estado = partidaAMedias(u.id, caso) ? ["pendiente", "A MEDIAS"] : !delCaso.length ? ["nuevo", "NUEVO"] : delCaso.some(r => r.libreta) ? ["resuelto", "SELLADO"] : ["pendiente", "SIN SELLAR"];
   return `
     <button class="tarjeta-caso" data-unidad="${esc(u.id)}">${tri}<span class="chincheta"></span>
       <small>Expediente ${esc(caso.numero)}</small>
@@ -112,7 +177,19 @@ function iniciarCaso(unidad) {
 function renderEscena() {
   const e = P.caso.escenas[P.i];
   if (!e) return vistaInforme();
+  P.nPiezas = P.piezas.length;
+  guardarPartida();
+  precargarEscena(P.caso.escenas[P.i + 1]);
   (ESCENAS[e.tipo] || escenaDesconocida)(e);
+}
+/* Descarga ya las imágenes de la escena siguiente, para que no aparezca en blanco con mala conexión */
+function precargarEscena(e) {
+  if (!e) return;
+  const urls = [e.fondo, e.objeto].filter(id => id && arte(id).listo).map(id => `arte/${id}.webp`);
+  const pj = e.personaje, listas = pj ? arte(pj.id).listas || [] : [];
+  const expr = pj && (listas.includes(pj.expresion) ? pj.expresion : listas.includes("neutral") ? "neutral" : null);
+  if (expr) urls.push(`arte/${pj.id}-${expr}.webp`);
+  urls.forEach(u => { new Image().src = u; });
 }
 function siguiente() { P.i++; renderEscena(); }
 
@@ -131,6 +208,7 @@ function vistaInforme() {
   };
   resultados.push(res);
   guardar("resultados", resultados);
+  olvidarPartida(P.unidad);
   res.aCola = actualizarCola(res.eventos, res.caso);
   nubeTrasResultado(res);
   P = null;
@@ -227,7 +305,7 @@ function vistaMaestro() {
   pag.innerHTML = `
     <header class="pag-cabecera"><strong>Agencia La Lupa · Zona maestro/a</strong><button class="boton-papel" id="volver">◂ Volver al juego</button></header>
     <main class="pag-cuerpo">
-      <p class="aviso-maestro">Prototipo: aquí se ven solo los datos guardados <strong>en este dispositivo</strong>. La sincronización con la hoja de cálculo llegará más adelante.</p>
+      <p class="aviso-maestro">Aquí se ven los datos guardados <strong>en este dispositivo</strong>. Si se borran los datos del navegador, se pierden: descarga de vez en cuando una <b>copia de seguridad</b> (más abajo) o activa la nube.</p>
       ${ajustes.pin ? "" : `<p class="aviso-maestro"><b>Sin PIN:</b> cualquier alumno puede entrar aquí. Pon uno en «PIN de esta zona» y guarda los ajustes.</p>`}
       <h2>Ajustes del aula</h2>
       <div class="fila">
@@ -237,6 +315,7 @@ function vistaMaestro() {
         <label><input type="checkbox" id="ajRevision" ${modoRevision() ? "checked" : ""}> <b>Modo revisión</b> (para probarlo tú: abre todos los encargos y las lupas, y la preparación se puede saltar)</label>
         <label><input type="checkbox" id="ajSonido" ${ajustes.sonido === true ? "checked" : ""}> Actividades con sonido (extra: necesitan cascos o altavoz)</label>
         <label>Preparación en la Academia antes de cada caso: <select id="ajPrep"><option value="obligatoria">Obligatoria (el caso se abre al terminarla)</option><option value="opcional">Recomendada (se puede saltar)</option><option value="no">Sin preparación</option></select></label>
+        <label>Orden de los casos: <select id="ajOrden"><option value="temporada">En orden (cada caso se abre al resolver el anterior)</option><option value="libre">Libre (todos abiertos)</option></select></label>
         <button class="boton-sello" id="ajGuardar">Guardar ajustes</button>
       </div>
       ${diags.length ? `
@@ -248,6 +327,7 @@ function vistaMaestro() {
       ${htmlNotasFinales()}
       ${htmlSinInternet()}
       ${htmlNubeMaestro()}
+      ${htmlCopia()}
       <h2>Imprimibles</h2>
       <div class="fila">
         <label>Libreta: <select id="impCaso"><option value="todos">Toda la temporada (con portada)</option>${Object.values(D.casos).sort((a, b) => a.numero.localeCompare(b.numero)).map(c => `<option value="${esc(c.id)}">${esc(c.numero)} · ${esc(c.titulo)}</option>`).join("")}</select></label>
@@ -279,13 +359,14 @@ function vistaMaestro() {
     </main>`;
   $("#ajLibreta").value = ajustes.libreta;
   $("#ajPrep").value = modoPreparacion();
+  $("#ajOrden").value = ajustes.orden === "libre" ? "libre" : "temporada";
   $$(".nf-cuenta").forEach(c => c.onchange = () => {
     ajustes = { ...ajustes, cuentanNota: { ...cuentanNota(), [c.dataset.tipo]: c.checked } };
     guardar("ajustes", ajustes);
     vistaMaestro();
   });
   $("#ajGuardar").onclick = () => {
-    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value, sonido: $("#ajSonido").checked, revision: $("#ajRevision").checked, pin: $("#ajPin").value.trim() };
+    ajustes = { ...ajustes, libreta: $("#ajLibreta").value, codigoSello: $("#ajCodigo").value.trim() || "LUPA", preparacion: $("#ajPrep").value, orden: $("#ajOrden").value, sonido: $("#ajSonido").checked, revision: $("#ajRevision").checked, pin: $("#ajPin").value.trim() };
     marcarRevision();
     guardar("ajustes", ajustes);
     $("#ajGuardar").textContent = "Guardado ✔";
@@ -298,15 +379,16 @@ function vistaMaestro() {
   activarSinInternet();
   activarNotasFinales();
   activarNubeMaestro(vistaMaestro);
+  activarCopia();
   $("#volver").onclick = () => (perfil ? vistaTablon() : vistaInicio());
   $("#csv").onclick = exportarCSV;
   $("#borrar").onclick = () => {
     $("#confirmacion").innerHTML = `<p class="aviso-maestro">Se borrarán todos los detectives y resultados de este dispositivo. <button class="boton-papel peligro" id="borrarSi">Sí, borrar todo</button> <button class="boton-papel" id="borrarNo">Cancelar</button></p>`;
     $("#borrarNo").onclick = () => ($("#confirmacion").innerHTML = "");
     $("#borrarSi").onclick = () => {
-      perfiles = []; resultados = []; perfil = null;
-      guardar("perfiles", perfiles); guardar("resultados", resultados);
-      vistaInicio();
+      // Se borra todo lo de los alumnos (también la Academia, las partidas a medias y la cola de la nube); los ajustes del aula se quedan
+      clavesDelJuego().filter(c => c !== PREFIJO + "ajustes").forEach(c => localStorage.removeItem(c));
+      location.reload();
     };
   };
 }
@@ -434,6 +516,49 @@ function activarSinInternet() {
       (sw || navigator.serviceWorker.controller).postMessage({ tipo: "precargar", urls: archivosDelJuego() });
       msg.textContent = "Empezando la descarga…";
     } catch { msg.textContent = "No se ha podido preparar la descarga (hace falta abrir el juego desde su web, no desde un archivo)."; }
+  };
+}
+
+/* ── Copia de seguridad: todo lo guardado en este dispositivo, en un archivo ── */
+const clavesDelJuego = () => { try { return Object.keys(localStorage).filter(c => c.startsWith(PREFIJO)); } catch { return []; } };
+function htmlCopia() {
+  return `
+      <h2>Copia de seguridad</h2>
+      <p class="aviso-maestro">Guarda en un archivo todos los detectives, resultados, progreso de la Academia y ajustes de este dispositivo, para recuperarlos si se borran o para pasarlos a otro. El archivo lleva los alias y las notas: guárdalo donde solo lo veas tú. Los avatares de la clase van aparte, en su paquete.</p>
+      <div class="fila">
+        <button class="boton-papel" id="copiaBajar">Descargar copia de seguridad</button>
+        <label class="boton-papel" for="copiaSubir">Restaurar una copia…</label><input type="file" id="copiaSubir" accept=".json,application/json" hidden>
+        <span id="copiaEstado"></span>
+      </div>
+      <div id="copiaConfirmar"></div>`;
+}
+function activarCopia() {
+  $("#copiaBajar").onclick = () => {
+    const datos = Object.fromEntries(clavesDelJuego().map(c => [c.slice(PREFIJO.length), localStorage.getItem(c)]));
+    const copia = { app: "lalupa", tipo: "copia", version: 1, fecha: new Date().toISOString(), detectives: perfiles.length, resultados: resultados.length, datos };
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(copia)], { type: "application/json" }));
+    a.download = `la-lupa_copia_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    $("#copiaEstado").textContent = `Copia descargada: ${perfiles.length} detectives y ${resultados.length} resultados.`;
+  };
+  $("#copiaSubir").onchange = async ev => {
+    const f = ev.target.files[0];
+    ev.target.value = "";
+    if (!f) return;
+    let copia;
+    try { copia = JSON.parse(await f.text()); } catch { copia = null; }
+    const valida = copia && copia.app === "lalupa" && copia.tipo === "copia" && copia.datos && typeof copia.datos === "object" && Object.values(copia.datos).every(v => typeof v === "string");
+    if (!valida) { $("#copiaEstado").textContent = "Ese archivo no es una copia de seguridad de La Lupa."; return; }
+    $("#copiaConfirmar").innerHTML = `<p class="aviso-maestro">La copia es del ${esc(new Date(copia.fecha).toLocaleDateString("es-ES"))} y trae ${Number(copia.detectives) || 0} detectives y ${Number(copia.resultados) || 0} resultados. Al restaurarla <b>se sustituye todo lo que hay ahora en este dispositivo</b> (${perfiles.length} detectives y ${resultados.length} resultados). <button class="boton-papel peligro" id="copiaSi">Sí, restaurar</button> <button class="boton-papel" id="copiaNo">Cancelar</button></p>`;
+    $("#copiaNo").onclick = () => ($("#copiaConfirmar").innerHTML = "");
+    $("#copiaSi").onclick = () => {
+      try {
+        clavesDelJuego().forEach(c => localStorage.removeItem(c));
+        Object.entries(copia.datos).forEach(([k, v]) => localStorage.setItem(PREFIJO + k, v));
+        location.reload();
+      } catch { $("#copiaEstado").textContent = "No se ha podido restaurar: el navegador no deja guardar datos."; }
+    };
   };
 }
 

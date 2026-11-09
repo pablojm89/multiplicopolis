@@ -360,7 +360,13 @@ const ESCENAS = {
       ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
     activarHUD();
     const ruedas = $$(".rueda");
-    ruedas.forEach((r, k) => (r.oninput = () => { r.value = r.value.replace(/\D/g, "").slice(-1); if (r.value && ruedas[k + 1]) ruedas[k + 1].focus(); }));
+    ruedas.forEach((r, k) => {
+      r.oninput = () => { r.value = r.value.replace(/\D/g, "").slice(-1); if (r.value && ruedas[k + 1]) ruedas[k + 1].focus(); };
+      r.onkeydown = ev => {
+        if (ev.key === "Enter") $("#abrir").click();
+        if (ev.key === "Backspace" && !r.value && ruedas[k - 1]) { ruedas[k - 1].value = ""; ruedas[k - 1].focus(); ev.preventDefault(); }
+      };
+    });
     ruedas[0].focus();
     $("#abrir").onclick = () => {
       if (ruedas.map(r => r.value).join("") !== e.codigo) {
