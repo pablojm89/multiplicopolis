@@ -176,3 +176,55 @@ Decisiones por defecto, pendientes de que Pablo las confirme:
 - Bruno sigue de aprendiz.
 
 Siguiente sesión: escribir los casos con subagentes.
+
+## 9 de noviembre de 2026
+
+**Repaso general del proyecto** (Pablo: «pégale un repaso completo, aporta ideas, arregla lo que detectes»). Se hizo con seis revisores en paralelo, cada uno con una parte, y después cada uno aplicó sus propias correcciones con las decisiones tomadas aquí:
+
+| Revisor | Qué miró | Resultado |
+|---|---|---|
+| Corrector de los casos 0-5 | Los seis JSON enteros | Ortografía limpia. 65 cambios de fondo |
+| Corrector de los casos 6-10 | Los cinco JSON enteros | Ortografía limpia. Unos 40 cambios de fondo |
+| Corrector de reglas y encargos | `reglas.json`, `apuntes.json` y los 10 encargos | Reglas de letras con «siempre» falsos y excepciones que faltaban |
+| Lingüista de los bancos | Los 12 bancos de la Academia, elemento a elemento | Sin errores de sílabas, tónica ni conjugación. Palabras raras y frases dudosas |
+| Revisor del código de la Academia | `academia.js`, `preparacion.js` y las salas | 13 fallos, casi todos reproducidos |
+| Revisor de nube, sin internet y datos | `nube.js`, el `.gs`, `sw.js`, `clase.js` y la zona del maestro | 20 hallazgos, casi todos reproducidos |
+
+El motor (`motor.js`, `escenas.js`, `app.js`) y la prueba en móvil y tablet se hicieron aparte.
+
+**Lo más importante que salió y ya está arreglado**
+
+- **El tablón se veía mal**: la cabecera se partía en dos líneas, los botones se recortaban, el globo de encargos nuevos flotaba suelto y la etiqueta «Prepárate» se salía de las tarjetas con el título largo.
+- **Un caso a medias se perdía** al salir, recargar o quedarse sin batería. Ahora se guarda al entrar en cada escena y se continúa otro día, también en los encargos.
+- **Volver a jugar un caso quitaba el sello y podía bajar los puntos**, porque contaba el último intento. Ahora cuenta el mejor intento y el sello es del caso.
+- **Todos los casos estaban abiertos desde el principio**, incluido el final que desenmascara al Tachón. Ahora cada caso se abre al resolver el anterior (`ajustes.orden`, se puede dejar libre).
+- **El modo sin internet no guardaba el código**: la copia de cada respuesta se pedía demasiado tarde y fallaba en silencio. Solo funcionaba sin red tras «Descargar todo», y esa copia no se actualizaba nunca.
+- **Si el dispositivo se quedaba sin sitio, el progreso se perdía sin avisar.** Ahora sale un aviso fijo. Hay copia de seguridad en un archivo.
+- **El juego llamaba a Google Fonts** desde los dispositivos del alumnado. Las fuentes van ya en el repo.
+- **En la escena «escribe» de los encargos, el segundo alumno del mismo dispositivo no puntuaba**, porque el primer intento se apuntaba en los datos del caso.
+- **En móvil en vertical no se veía nada.** Ahora pide girarlo.
+- **El botón de sonido tapaba «Zona maestro/a»** en pantallas 16:9 (no se había visto porque el sonido se apaga en las pruebas automáticas).
+- **Reglas mal enunciadas**: «detrás de m va siempre b», «el pasado de los verbos en -ar termina en -aba», «las formas de estar llevan v» (contradecía a «estaba»), «magia» como ejemplo de -gía, «hipopótamo» como ejemplo de hipo- = debajo, -cc- sin sus excepciones (ficción, cocción), bu- sin avisar de vuelo y vuelta, y una ficha de x/s que un alumno no podía aplicar.
+- **Huecos con dos soluciones válidas**: cayó/calló (justo la pareja que enseña el caso), taza/tasa, queso/ceso y peces/peses.
+- **Incoherencias de la historia**: el caso 10 decía «ayer, jueves» y el 9 pasa en viernes; trece y catorce azulejos; la feria empezaba dos veces; el mismo código de candado (386) en los casos 8 y 9.
+- **Respuestas abiertas con listas cortas** en los encargos («inventa una comparación», saludos y despedidas de una carta).
+- **Palabras demasiado raras** para 10-11 años en los niveles altos de los bancos (contumaz, áspid, terraplén…), cambiadas por otras de la misma regla.
+
+**Plan de exploración** (Pablo: «como Monkey Island, que siempre haya algo que descubrir»). Plan en `EXPLORACION.md` y prueba jugable de la oficina de la agencia (26 zonas, una llave, una nota en tinta invisible, una falta escondida y una salamanquesa): https://claude.ai/artifact/STqGPLNLq8qUDzapsa9mZt. Nada está todavía en el juego.
+
+**Pendiente de que Pablo decida**
+
+1. Exploración: cuándo se explora, qué se gana, la mascota escondida y el tono (`EXPLORACION.md`).
+2. Faltas que forman otra palabra válida. Lista completa:
+   - En `palabras.json`: medico, musica, pagina, silaba, domino, lagrima, kilometro, ultimo, arboles, arbitro, futbol, compas, naufrago, beisbol, cuidate, izo (por hizo), peses (por peces) e iva (por iba).
+   - En `galeradas.json`: grito, publico, maquina, musica, arboles, asta, oras, ora, ice, izo, rallo, peses, jamas e iva.
+   - Las más delicadas son «asta» y «rallo», porque el banco de homófonos las enseña como palabras correctas.
+3. «Oquedad» y «orfandad» siguen en la ficha de la h y en los bancos. Son raras, pero son el ejemplo clásico de la familia de hueco y huérfano.
+4. Si «Academia de detectives» pasa a «Academia de Detectives» (es el nombre del sitio y sale 6 veces).
+5. El orden de los casos queda cerrado por defecto. Si prefieres todo abierto, es un ajuste.
+6. Nube: no usarla con alumnado real hasta probarla con un Apps Script de verdad y decidir el código de recuperación por alumno (`NUBE.md`).
+7. Publicar: la rama `claude/educational-repo-system-as2c4u` va muy por delante de `main`, así que GitHub Pages sigue enseñando la versión antigua. Hace falta un pull request cuando Pablo quiera.
+
+**Ideas que dejo apuntadas** (ninguna hecha): letra y tamaño a elegir, con una letra pensada para dislexia; «Anteriormente, en La Lupa…» al empezar cada caso; escenarios con vida (lluvia, farolillos, vapor); insignias; «mi mesa» con lo encontrado; la falta del día; un informe para casa imprimible; un diploma de fin de temporada; modo proyector para jugar un caso con toda la clase; ocultar 6.º en la entrada hasta que tenga casos.
+
+**Encargo para un corrector** (para repetirlo cuando se escriban casos nuevos): leer los archivos enteros; todo lo que está fuera del marcado `{mal|bien}` tiene que estar impecable; comprobar que cada falta responde a la regla del caso, que los huecos solo admiten una solución, que las explicaciones son verdad y que las pistas cuentan bien las faltas; anotar incoherencias de la historia. Primero informa y después aplica lo aprobado; al final, validador y jugador automático.

@@ -46,7 +46,11 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [ ] Academia: más actividades por sala (T1, T3, T4, Z2, Z4, Z5, R2, R4, E1, E2, E4, E5…) y niveles N2/N3
 - [x] Modo revisión (lo abre todo para probar) y PIN de la zona del maestro
 - [x] **Niveles en la Academia**: 4 lupas por ejercicio (bronce, plata, oro y diamante), se gana la siguiente con 2 rondas al 80 %; carné de la Academia con sello de oro por sala
-- [x] Funciona sin internet (service worker; «Descargar todo») y se puede instalar como app
+- [x] Funciona sin internet (service worker; «Descargar todo») y se puede instalar como app. Corregido el 9/11: el código no se guardaba nunca y sin «Descargar todo» no arrancaba sin red
+- [x] **Repaso general del 9/11** (Pablo: «pégale un repaso al proyecto»): seis revisores en paralelo (textos de los casos, reglas y encargos, bancos de la Academia, código de la Academia, nube y datos) más el motor y la prueba en móvil y tablet. Detalle en `BITACORA.md`
+  - Partida a medias (se continúa otro día), puntos y sello por caso (rejugar no resta), orden de la temporada (`ajustes.orden`), copia de seguridad, fuentes propias, aviso de «gira el móvil», aviso si el dispositivo no guarda, alias sin repetir
+  - Reglas, casos, encargos y bancos corregidos por correctores
+- [ ] **Exploración de los escenarios** (Pablo, 9/11: «como en Monkey Island, que siempre haya algo que descubrir»): plan en `EXPLORACION.md` y prueba jugable de la oficina. Pendiente de sus cuatro decisiones (cuándo se explora, qué se gana, la mascota escondida y el tono) para empezar la fase 1
 - [x] Nube opcional (Apps Script + Hojas de Google, `NUBE.md`): falta probarla con un Apps Script de verdad
 - [x] Séneca: investigado (`docs/investigacion/seneca-exportacion.md`); exportación por n.º de lista y botón para copiar cada columna
 - [ ] Arte del lote 7 (issue #7): buzón de encargos, objetos de los encargos y aparatos de la Academia
@@ -72,7 +76,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 
 - [ ] Biblia visual: estilo, paleta, fichas de personajes y escenarios
 - [ ] Generación de imágenes con Gemini y ChatGPT (requiere claves de API en el entorno)
-- [ ] Motor de aventura point-and-click: escenarios, inventario, diálogos y tablero de pistas
+- [ ] Motor de aventura point-and-click: escenarios, inventario, diálogos y tablero de pistas → plan concreto en `EXPLORACION.md` (zonas tocables por lugar, secretos encadenados, álbum, paseo por el barrio)
 
 ## Decisiones
 
