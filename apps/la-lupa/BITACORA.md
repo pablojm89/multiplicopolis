@@ -259,3 +259,9 @@ Sin probar en un dispositivo real: el teclado virtual (por si tapa campos de la 
 - Comprobado en la web ya publicada con un navegador: la raíz lleva a Multiplicópolis; La Lupa carga sin ningún archivo perdido (4 casos escena a escena, las 8 salas, encargos, zona del maestro e imprimibles); el service worker controla solo su carpeta, y tras «Descargar todo» un caso entero se juega sin red.
 - A partir de ahora, lo que se suba a la rama de trabajo no se ve en la web hasta fusionar otro pull request. GitHub guarda los archivos 10 minutos en la caché del navegador.
 - Queda abierto pablojm89/multiplicopolis#8 (la entrega de PNG de GPT hacia la rama de trabajo): ya está integrada a mano, así que se puede cerrar sin fusionar.
+
+**Arte para las propuestas, apuntado para GPT** (Pablo: «todo lo que sea de arte que necesiten tus propuestas, apúntaselo, que lo voy a pedir»). 61 imágenes nuevas en `datos/arte.json`, con `lote`, y `arte/ENCARGO.md` regenerado:
+- **Lote 8 (28 imágenes): exploración y mejoras de lo que ya hay.** La salamanquesa en tres posturas y su retrato, el mapa del barrio, el álbum, la llavecita y la ficha de tinta azul, las cuatro lupas de nivel, las cinco placas de rango, el icono de la app, los azulejos del encargo 4, la mesa del detective y ocho insignias. Detalle en `EXPLORACION.md`.
+- **Lote 9 (33 imágenes): temporada 2, lo que no depende de cómo se escriban los casos.** Los 19 lugares (estación, tren, dos por provincia y el aula antigua), la viajera con cinco expresiones y nueve objetos de la trama. Ids en `TEMPORADA-2.md`. Faltan los personajes locales y los objetos de cada misterio, que se encargan al escribir los casos.
+- Regla nueva para los fondos: de 8 a 12 cosas reconocibles y separadas, porque los escenarios se van a poder registrar.
+- La mascota va como salamanquesa. Las insignias y «mi mesa» son ideas todavía sin decidir; su arte va pedido para no esperar.

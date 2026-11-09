@@ -91,6 +91,26 @@ Y con la Academia y la libreta de siempre: cada caso tiene su preparación en la
 
 Total aproximado: 20 fondos, 19 personajes nuevos y 20 objetos. Se encargan a GPT en una issue por bloque de casos.
 
+**Ya encargado (lote 9, 9/11/2026): lo que no depende de cómo se escriban los casos.** Al escribir cada caso, usa estos ids:
+
+| Caso | Fondos |
+|---|---|
+| Piloto | `estacion-tren` (y los de La Alameda que ya existen) |
+| 1 Cádiz | `caleta-cadiz`, `teatro-falla` |
+| 2 Córdoba | `patio-cordobes`, `teteria-juderia` |
+| 3 Granada | `mirador-granada`, `carmen-albaicin` |
+| 4 Málaga | `puerto-malaga`, `aula-del-mar` |
+| 5 Huelva | `muelle-carabelas`, `marismas-huelva` |
+| 6 Jaén | `olivar-jaen`, `almazara` |
+| 7 Almería | `poblado-oeste`, `cabo-de-gata` |
+| 8 Sevilla | `archivo-indias`, `torre-rio` |
+| 9 Tren | `vagon-nocturno`, `estacion-tren` |
+| 10 Final | `aula-antigua` (y la Academia) |
+
+- Personaje: `viajera` (neutral, contento, pensativo, sorprendido y misteriosa).
+- Objetos de la trama: `billetes-tren`, `maleta-viajera` (la etiqueta va en blanco: las iniciales «V. A.» las pone el juego), `pluma-azul`, `papel-membrete` (el primer logotipo), `acta-fundacion`, `foto-fundadora`, `archivo-portatil`, `postales-viaje` e `insignia-tilde-azul`. La carta de cada caso reutiliza `carta-lejana`.
+- **Falta por encargar**, cuando se escriban los casos: los dos personajes locales de cada ciudad, la revisora del tren y los objetos propios de cada misterio.
+
 ## Qué falta después de escribir los casos
 
 1. **Academia para 6.º**:

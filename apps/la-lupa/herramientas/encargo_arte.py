@@ -30,6 +30,7 @@ EXPRESION = {
     "pensativo": "pensativo/a, mano en la barbilla, mirada de lado",
     "sorprendido": "sorprendido/a, ojos muy abiertos, cejas arriba",
     "nervioso": "nervioso/a, sonrisa forzada, gota de sudor, se rasca la nuca",
+    "misteriosa": "SOLO PARA LA VIAJERA: medio de espaldas, mirando por encima del hombro, con el pañuelo azul subido tapándole media cara; solo se le ven los ojos, con un brillo cómplice",
     "burlon": "sonrisa chulesca de medio lado, se baja un poco las gafas, superioridad cómica",
     "deporte": "SOLO PARA ROBLES: con la ropa de deporte, de pie, tranquilo, silbato al cuello y cronómetro en la mano, como recién llegado de dar clase de Educación Física",
     "deporte-contento": "SOLO PARA ROBLES: con la ropa de deporte, sonrisa amplia y pulgar arriba, toalla al hombro, lleno de energía",
@@ -57,21 +58,31 @@ lineas = [
     "2. **Personajes coherentes**: dibuja primero la expresión `neutral` de cada personaje y úsala como referencia para sus demás expresiones (misma cara, ropa, colores y proporciones).",
     "3. Personajes **de cuerpo entero o de rodillas para arriba, de pie, mirando un poco hacia el centro, sobre fondo transparente** (PNG con transparencia). Si no puedes hacer transparencia, usa un fondo blanco liso.",
     "4. Fondos **16:9, sin personajes**, con la parte inferior central algo despejada (ahí va el bocadillo de texto).",
-    "5. Objetos **aislados sobre fondo transparente**, centrados.",
+    "5. Objetos **aislados sobre fondo transparente**, centrados. El fondo, **totalmente transparente**: sin halo, sin brillo alrededor y sin sombras sueltas.",
     "6. Nada de personas reales, marcas, logotipos ni referencias a Sherlock Holmes.",
     "7. **Nombra cada archivo exactamente** como se indica (`nombre.png`). Si no, el juego no lo encuentra.",
+    "8. **Fondos para registrar**: el juego va a dejar tocar los objetos de cada escenario, como en una aventura gráfica. En los fondos nuevos, pon de 8 a 12 cosas reconocibles y separadas (una lámpara, un cajón, una ventana, una maceta, un cuadro…), sin amontonarlas.",
     "",
     "### Entrega",
     "",
-    "Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el nombre exacto de cada uno. Claude los convierte e integra en el juego.",
-    "",
-    "## Orden recomendado",
-    "",
-    "1. Personajes principales: Lola, Mateo y la directora Robles (aparecen en todos los casos).",
-    "2. Fondos del caso 1.",
-    "3. Personajes del caso 1 y objetos.",
+    "Sube los PNG a la carpeta `apps/la-lupa/arte/entrega/` del repositorio, con el nombre exacto de cada uno, en una rama tuya `gpt/<lote>` (nunca en `main`) y con un manifiesto de SHA-256. Toca solo esa carpeta: Claude los convierte e integra en el juego.",
     "",
 ]
+
+# Lo pendiente, por lotes (cada lote tiene su issue en GitHub)
+LOTES = {
+    8: "Lote 8 · Exploración de los escenarios y mejoras de lo que ya hay (salamanquesa, mapa, álbum, lupas, placas de rango, icono, insignias)",
+    9: "Lote 9 · Temporada 2, «La Tilde Azul»: los lugares, la viajera y los objetos de la trama",
+}
+pend = {}
+for id_, a in fondos + objetos:
+    pend.setdefault(a.get("lote"), []).append(f"`{id_}.png`")
+for id_, a, faltan in personajes:
+    pend.setdefault(a.get("lote"), []).extend(f"`{id_}-{e}.png`" for e in faltan)
+if pend:
+    lineas += ["## Lotes pendientes", ""]
+    for lote in sorted(pend, key=lambda x: (x is None, x)):
+        lineas += [f"- **{LOTES.get(lote, 'Sin lote')}** ({len(pend[lote])} imágenes): " + ", ".join(pend[lote]) + ".", ""]
 
 aprobadas = [f"`{i}.png`" for i, a in arte.items() if not i.startswith("_") and a.get("listo")]
 aprobadas += [f"`{i}-{e}.png`" for i, a in arte.items() if not i.startswith("_") and a.get("tipo") == "personaje" for e in a.get("listas", [])]

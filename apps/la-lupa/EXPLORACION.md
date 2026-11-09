@@ -86,6 +86,19 @@ Un archivo por lugar: `datos/lugares/<fondo>.json`. Las zonas van en px del esce
 
 Las zonas de cada lugar se pueden escribir con subagentes en paralelo (uno por grupo de fondos), con el editor para comprobar las coordenadas y un corrector al final, como se hizo con los casos.
 
+## Arte encargado (lote 8, 9/11/2026)
+
+| Para qué | Imágenes |
+|---|---|
+| La mascota escondida | `salamanquesa-recta`, `salamanquesa-curva`, `salamanquesa-asomada` (vistas desde arriba, para pegarlas en las paredes de cualquier fondo) y `salamanquesa-retrato` (para el álbum) |
+| El paseo por el barrio (fase 3) | `mapa-alameda`: mapa ilustrado con quince edificios separados. Las zonas tocables se marcan cuando llegue |
+| El álbum | `album-abierto`: páginas vacías vistas desde arriba |
+| Secretos de la oficina | `llavecita` y `ficha-tinta-azul` |
+| Mi mesa (idea) | `mesa-detective`: mesa casi vacía vista desde arriba |
+| Insignias (idea) | ocho `insignia-…` con el mismo aro y un símbolo distinto |
+
+En el mismo lote van mejoras de lo que ya existe: las cuatro lupas de nivel de la Academia (`lupa-bronce`, `lupa-plata`, `lupa-oro`, `lupa-diamante`, hoy emojis), las cinco placas de rango (`rango-1` a `rango-5`), el icono de la app (`icono-app`) y el objeto que le faltaba al encargo 4 (`azulejos-parejas`).
+
 ## Más ideas para que apetezca
 
 | Idea | Qué aporta | Coste |
