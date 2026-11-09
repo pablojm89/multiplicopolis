@@ -9,6 +9,10 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#16243a" />
   <link rel="apple-touch-icon" href="icono-192.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="La Lupa" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="salas/centralita.css" />
   <link rel="stylesheet" href="salas/terminal.css" />
@@ -21,7 +25,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='78' font-size='78'>🔍</text></svg>" />
 </head>
 <body>
-  <div id="marco" class="marco"><div id="escenario" class="escenario"><p class="cargando">Abriendo la agencia…</p></div><div class="gira" role="status"><span class="gira-ico" aria-hidden="true">📱</span><b>Gira el móvil</b><span>La agencia se ve mejor en horizontal.</span></div></div>
+  <div id="marco" class="marco"><div id="escenario" class="escenario"><p class="cargando">Abriendo la agencia…</p></div><div class="gira" role="status"><span class="gira-ico" aria-hidden="true">📱</span><b>Gira el móvil</b><span>La agencia se ve mejor en horizontal.</span><button class="boton-gira" id="giraCompleta" hidden>Girar y ver a pantalla completa</button></div></div>
   <div id="pagina" class="pagina" hidden></div>
   <script src="motor.js"></script>
   <script src="escenas.js"></script>

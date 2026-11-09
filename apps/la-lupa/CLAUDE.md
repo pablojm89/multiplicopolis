@@ -87,6 +87,8 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 
 `node .claude/serve.js` → `http://localhost:4321/apps/la-lupa/`.
 
+**Web publicada (GitHub Pages, rama `main`):** `https://pablojm89.github.io/multiplicopolis/apps/la-lupa/`. Todo va con rutas relativas y sin compilación (`.nojekyll` en la raíz del repo). Se puede instalar como app (manifiesto + service worker) y tiene botón de pantalla completa en la entrada. GitHub guarda los archivos 10 minutos en la caché del navegador: tras publicar, puede tardar ese rato en verse lo nuevo.
+
 ## Pendiente / conocido
 
 - Arte de la temporada 1 completo (lotes 1-7), con Robles corregido por GPT.

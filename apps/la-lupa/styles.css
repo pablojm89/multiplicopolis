@@ -629,3 +629,6 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 .enlace-maestro.enlace-nube { left: auto; right: 170px; }
 /* Táctil: sin zoom por doble toque (los niños tocan deprisa) ni retraso en los botones */
 html { touch-action: manipulation; }
+/* Pantalla completa: enlace arriba a la derecha en la entrada, y botón en el aviso de girar */
+.enlace-maestro.enlace-completa { top: 16px; bottom: auto; right: 20px; }
+.boton-gira { margin-top: 8px; font: 800 17px var(--f-ui); background: var(--rojo); color: #fff; border: 0; border-radius: 10px; padding: 10px 18px; }

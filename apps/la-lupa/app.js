@@ -6,6 +6,23 @@
    ============================================================ */
 "use strict";
 
+/* ── Pantalla completa: en la web sin instalar, quita las barras del navegador (y en Android, gira la pantalla) ── */
+const raizDoc = document.documentElement;
+const enCompleta = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+const comoApp = () => matchMedia("(display-mode: fullscreen), (display-mode: standalone)").matches || navigator.standalone === true;
+const puedeCompleta = () => !!(raizDoc.requestFullscreen || raizDoc.webkitRequestFullscreen) && !comoApp();
+async function pantallaCompleta() {
+  try {
+    if (enCompleta()) { await (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    await (raizDoc.requestFullscreen || raizDoc.webkitRequestFullscreen).call(raizDoc);
+    try { await screen.orientation?.lock?.("landscape"); } catch { /* no todos los dispositivos dejan fijar el giro */ }
+  } catch { aviso("Este navegador no permite la pantalla completa."); }
+}
+/* ── Instalar como app: el navegador avisa cuando se puede (Chrome, Edge, Android) ── */
+let avisoInstalar = null;
+addEventListener("beforeinstallprompt", ev => { ev.preventDefault(); avisoInstalar = ev; });
+addEventListener("appinstalled", () => { avisoInstalar = null; });
+
 /* ── Entrada: puerta de la agencia y fichas de detective ────── */
 function vistaInicio() {
   const cursos = D.prog.cursos;
@@ -27,7 +44,9 @@ function vistaInicio() {
       </form>
     </div>
     ${nubeActiva() ? `<button class="enlace-maestro enlace-nube" id="irRecuperar">☁️ Recuperar mi detective</button>` : ""}
+    ${puedeCompleta() ? `<button class="enlace-maestro enlace-completa" id="irCompleta">⛶ Pantalla completa</button>` : ""}
     <button class="enlace-maestro" id="irMaestro">Zona maestro/a</button>`, { fondo: "fachada-agencia", clase: "oscurecido" });
+  $("#irCompleta")?.addEventListener("click", pantallaCompleta);
   $$(".ficha-detective").forEach(b => b.onclick = () => { perfil = perfiles.find(p => p.id === b.dataset.id); vistaTablon(); });
   const crear = (nombre, avatar) => {
     nombre = nombre.replace(/^[\s=+\-@]+/, "").trim();
@@ -513,9 +532,15 @@ function htmlSinInternet() {
       <h2>Jugar sin internet</h2>
       <p class="aviso-maestro">Descarga el juego completo en este dispositivo (unos 25 MB, sobre todo las imágenes). Después funciona aunque falle el wifi. En tablets se puede «Añadir a la pantalla de inicio» y se abre como una app.</p>
       <p class="aviso-maestro"><b>En iPad:</b> la app de la pantalla de inicio guarda sus datos aparte de Safari, así que instálala primero y configura y descarga todo <b>dentro de la app</b>. Y si el juego se usa desde Safari sin instalar, el iPad borra los datos tras 7 días sin abrirlo: antes de unas vacaciones, descarga una copia de seguridad.</p>
-      <div class="fila"><button class="boton-papel" id="precargar">Descargar todo para usar sin internet</button><span id="precargaMsg"></span></div>`;
+      <div class="fila"><button class="boton-papel" id="precargar">Descargar todo para usar sin internet</button><button class="boton-papel" id="instalarApp" ${avisoInstalar ? "" : "hidden"}>Instalar como app</button><span id="precargaMsg"></span></div>`;
 }
 function activarSinInternet() {
+  $("#instalarApp").onclick = async () => {
+    if (!avisoInstalar) return;
+    avisoInstalar.prompt();
+    try { await avisoInstalar.userChoice; } catch { /* cancelado */ }
+    avisoInstalar = null; $("#instalarApp").hidden = true;
+  };
   $("#precargar").onclick = async () => {
     const msg = $("#precargaMsg");
     if (!("serviceWorker" in navigator)) { msg.textContent = "Este navegador no permite guardar el juego sin conexión."; return; }
@@ -596,6 +621,8 @@ async function init() {
   // Un perfil de un curso que ya no existe pasa al primero, para que su tablón se abra
   perfiles.forEach(p => { if (!D.prog.cursos[p.curso]) p.curso = Object.keys(D.prog.cursos)[0]; });
   try { navigator.storage?.persist?.(); } catch { /* el navegador decide */ }
+  // En el aviso de «gira el móvil»: si el dispositivo deja fijar el giro (Android), un botón lo hace todo
+  if (puedeCompleta() && screen.orientation?.lock && $("#giraCompleta")) { $("#giraCompleta").hidden = false; $("#giraCompleta").onclick = pantallaCompleta; }
   marcarRevision();
   registrarSinInternet();
   await cargarEncargos();
