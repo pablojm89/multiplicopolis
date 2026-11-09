@@ -49,24 +49,24 @@
     "ficha": {
       "titulo": "Archivo de Mateo · b y v",
       "puntos": [
-        "El pasado de los verbos en -ar se escribe con -aba: cantaba, jugábamos. Y el verbo ir: iba, íbamos.",
-        "Antes de b va siempre m: hombre, tambor. Y se escriben con b los grupos bl y br: blanco, brazo.",
-        "Los verbos acabados en -bir se escriben con b: escribir, recibir, subir. Excepciones: hervir, servir y vivir.",
-        "Después de n va siempre v: invierno, enviar.",
+        "Las formas en -aba, -abas, -ábamos… de los verbos en -ar (el pretérito imperfecto) se escriben con b: cantaba, jugábamos. Y las del verbo ir: iba, íbamos.",
+        "Delante de b se escribe m, nunca n: hombre, tambor. Y se escriben con b los grupos bl y br: blanco, brazo.",
+        "Los verbos acabados en -bir se escriben con b: escribir, recibir, subir. Excepciones: hervir, servir, vivir y sus compuestos (convivir, sobrevivir).",
+        "Detrás de n se escribe v, nunca b: invierno, enviar.",
         "Con v los adjetivos en -avo, -ave, -evo, -eve, -ivo, -iva: octavo, suave, nuevo, breve, activo.",
-        "Con v las formas de estar, andar y tener: estuve, anduvo, tuvimos."
+        "Con v los pasados en -uve, -uviste, -uvo… de estar, andar y tener: estuve, anduvo, tuvimos. (Pero estaba y andaba, con b: son formas en -aba.)"
       ]
     },
     "cartas": [
       {
         "id": "aba",
         "titulo": "Carta del -aba",
-        "texto": "El pasado de los verbos en -ar (cantaba, trabajaba) y el verbo ir (iba) se escriben con b."
+        "texto": "Las formas en -aba de los verbos en -ar (cantaba, trabajaba) y las del verbo ir (iba) se escriben con b."
       },
       {
         "id": "mb-nv",
         "titulo": "Carta de mb y nv",
-        "texto": "Antes de b va siempre m (hombre). Después de n va siempre v (enviar)."
+        "texto": "Delante de b se escribe m, nunca n (hombre). Detrás de n se escribe v, nunca b (enviar)."
       },
       {
         "id": "bir",
@@ -89,7 +89,7 @@
       "titulo": "Archivo de Mateo · La h",
       "puntos": [
         "Llevan h las palabras que empiezan por ie-, ue-, ui-: hielo, huevo, hueso, huida.",
-        "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y por hum- + vocal: hermano, hormiga, horrible, hospital, humo.",
+        "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y por hum- + vocal: hermano, hormiga, horrible, hospital, humo. Excepciones: ermita y ermitaño.",
         "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h: había, hizo, hablábamos, hallé, habitan.",
         "Ojo con la familia de hueso, huevo, hueco y huérfano: si desaparece el ue, desaparece la h (óseo, óvalo, oquedad, orfandad)."
       ]
@@ -108,7 +108,7 @@
       {
         "id": "herm",
         "titulo": "Carta del herm- horm- hum-",
-        "texto": "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y hum- + vocal."
+        "texto": "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y hum- + vocal (salvo ermita y ermitaño)."
       }
     ]
   },
@@ -203,9 +203,9 @@
       "titulo": "Archivo de Mateo · g, j y diéresis",
       "puntos": [
         "Gen-, -gen, -gente y -gencia se escriben con g: general, imagen, gente, urgencia.",
-        "Geo-, -logía y -gía también van con g: geografía, biología, magia.",
+        "Geo-, -logía, -gia y -gía también van con g: geografía, biología, magia, energía. Excepciones: lejía y bujía.",
         "Los verbos en -ger y -gir se escriben con g: coger, proteger, elegir, dirigir. Excepciones: tejer y crujir. Delante de a y o, la g se cambia por j: cojo, elijo.",
-        "Con j: las palabras en -aje, -eje (viaje, garaje, hereje) y en -jero, -jera, -jería (relojero, cajera, conserjería). Excepción: ligero.",
+        "Con j: las palabras en -aje, -eje (viaje, garaje, hereje) y en -jero, -jera, -jería (relojero, cajera, conserjería). Excepción: ligero. Y ojo: las formas de los verbos en -ger y -gir conservan la g (protege, recoge).",
         "Si el verbo no tiene g ni j en el infinitivo, sus formas con je, ji van con j: decir → dije, traer → traje, conducir → conduje.",
         "En gue, gui la u no suena: guerra, guitarra. Si la u suena, lleva diéresis: pingüino, cigüeña, vergüenza."
       ]
@@ -214,7 +214,7 @@
       {
         "id": "gen-geo",
         "titulo": "Carta de gen- y geo-",
-        "texto": "Gen-, -gen, -gente, -gencia, geo-, -logía y -gía van con g: imagen, gente, geografía, biología."
+        "texto": "Gen-, -gen, -gente, -gencia, geo-, -logía, -gia y -gía van con g: imagen, gente, geografía, biología, magia. Excepciones: lejía y bujía."
       },
       {
         "id": "ger-gir",
@@ -363,11 +363,12 @@
     "ficha": {
       "titulo": "Archivo de Mateo · El hiato",
       "puntos": [
-        "Un hiato son dos vocales seguidas que se pronuncian en sílabas distintas: po-E-ta, le-ÓN, dí-a, ba-úl.",
+        "Un hiato son dos vocales seguidas que se pronuncian en sílabas distintas: po-E-ta, le-ÓN, DÍ-a, ba-ÚL.",
         "Dos vocales abiertas (a, e, o) siempre forman hiato y siguen las reglas de siempre: león (aguda en -n), poeta (llana en vocal, sin tilde), océano (esdrújula).",
         "Si una vocal cerrada (i, u) suena fuerte al lado de una abierta, hay hiato y la cerrada lleva tilde SIEMPRE, aunque las reglas generales digan lo contrario: día, país, baúl, maíz, oído, reír, Raúl.",
         "La h en medio no impide la tilde del hiato: bú-ho, pro-hí-be, re-hú-sa.",
-        "Truco del detective: separa la palabra en voz alta. Si la i o la u «se lleva» la fuerza y se separa de la otra vocal, ponle tilde: frí-o, ac-tú-a, pa-ís."
+        "Truco del detective: separa la palabra en voz alta. Si la i o la u «se lleva» la fuerza y se separa de la otra vocal, ponle tilde: frí-o, ac-tú-a, pa-ís.",
+        "Ojo: dos vocales cerradas distintas (ui, iu) van siempre en la misma sílaba, así que no hay hiato: huida, construido y ruido se escriben sin tilde."
       ]
     },
     "cartas": [
@@ -443,7 +444,7 @@
         "También cuando la pregunta va «escondida», sin signos: No sé quién ha sido. Dime cuándo llega el tren. Me preguntó qué pasaba.",
         "Sin pregunta ni exclamación, van sin tilde: El chico que vino. Iré cuando pueda. Lo dejé donde siempre. Hazlo como quieras.",
         "Las preguntas y las exclamaciones llevan dos signos: el de apertura (¿ ¡) y el de cierre (? !). No te olvides nunca del primero.",
-        "Truco del detective: si puedes añadir delante «¿…?» o «me pregunto», es interrogativo y lleva tilde."
+        "Truco del detective: si puedes convertirla en una pregunta directa (No sé quién ha sido → ¿Quién ha sido?), es interrogativo y lleva tilde. Y ojo: no todo lo que va entre signos lleva tilde: ¿Vienes cuando acabes?"
       ]
     },
     "cartas": [
@@ -477,7 +478,7 @@
     "ficha": {
       "titulo": "Archivo de Mateo · b y v (II)",
       "puntos": [
-        "Con b: las palabras que empiezan por bibl- (biblioteca), bu-, bur- y bus- (buzo, burbuja, buscar), y las acabadas en -bilidad (amabilidad) y -bundo, -bunda (vagabundo, meditabunda). Excepciones: movilidad y civilidad.",
+        "Con b: las palabras que empiezan por bibl- (biblioteca) y por las sílabas bu-, bur- y bus- (bu-zo, bur-bu-ja, bus-car), y las acabadas en -bilidad (amabilidad) y -bundo, -bunda (vagabundo, meditabunda). Excepciones: movilidad y civilidad. Ojo: vuelo, vuelta y vuestro empiezan por la sílaba vue-, no por bu-.",
         "Con b: los verbos acabados en -buir (atribuir, contribuir, distribuir) en todas sus formas: distribuyó, contribuimos.",
         "Con v: los adjetivos acabados en -avo, -ava, -evo, -eva, -ivo, -iva (octavo, nueva, activo, deportiva) y las palabras acabadas en -ívoro, -ívora (herbívoro, carnívora). Excepción: víbora.",
         "Con v: después de ad-, sub- y ob- (adverbio, subvención, obvio), y las que empiezan por eva-, eve-, evi- y evo- (evaporar, evento, evitar, evolución). Excepciones: ébano y ebanista."
@@ -487,7 +488,7 @@
       {
         "id": "b-bibl-bu",
         "titulo": "Carta del bibl-, bu-, bur-, bus-",
-        "texto": "Con b las que empiezan por bibl-, bu-, bur- y bus- y las acabadas en -bilidad y -bundo (salvo movilidad y civilidad)."
+        "texto": "Con b las que empiezan por bibl- y por las sílabas bu-, bur- y bus- (buzo, burbuja, buscar) y las acabadas en -bilidad y -bundo (salvo movilidad y civilidad)."
       },
       {
         "id": "b-buir",
@@ -514,17 +515,17 @@
     "ficha": {
       "titulo": "Archivo de Mateo · La h (II)",
       "puntos": [
-        "Llevan h las palabras que empiezan por estas partes griegas: hidr- (agua: hidratar), hiper- (exceso: hipermercado), hipo- (debajo: hipopótamo), hemi- (mitad: hemisferio), hepta- (siete), hexa- (seis), hecto- (cien), helio- (sol) y hema-, hemo- (sangre).",
+        "Llevan h las palabras que empiezan por estas partes griegas: hidr- (agua: hidratar), hiper- (exceso: hipermercado), hipo- (debajo: hipotermia; caballo: hipopótamo), hemi- (mitad: hemisferio), hepta- (siete), hexa- (seis), hecto- (cien), helio- (sol) y hema-, hemo- (sangre). Solo si significan eso: examen, exacto, emigrar y emoción van sin h.",
         "Homófonos con h y sin h: hecho (de hacer) / echo (de echar); hola (saludo) / ola (del mar); hasta (límite) / asta (del toro o de la bandera); haya (de haber o árbol) / halla (de hallar) / aya (niñera).",
         "hay (de haber) / ahí (lugar) / ¡ay! (queja): Ahí hay un barco. ¡Ay, qué frío! · a ver (mirar) / haber (verbo): Vamos a ver si va a haber tormenta.",
-        "Truco del detective: si la palabra es del verbo hacer, haber, hallar o hablar, lleva h. Si es de echar, mirar o del mar, no."
+        "Truco del detective: si la palabra es del verbo hacer, haber, hallar o hablar, lleva h. Si es de echar (echo), de ver (a ver) o del mar (ola), no."
       ]
     },
     "cartas": [
       {
         "id": "h-griegas",
         "titulo": "Carta de las partes griegas",
-        "texto": "Llevan h las que empiezan por hidr-, hiper-, hipo-, hemi-, hepta-, hexa-, hecto-, helio-, hema- y hemo-."
+        "texto": "Llevan h las que empiezan por hidr- (agua), hiper- (exceso), hipo- (debajo), hemi- (mitad), hepta- (siete), hexa- (seis), hecto- (cien), helio- (sol) y hemo- (sangre)."
       },
       {
         "id": "h-hecho-echo",
@@ -552,9 +553,9 @@
       "titulo": "Archivo de Mateo · -cc- y -c-",
       "puntos": [
         "Muchas palabras acaban en -ción. Unas llevan -cc- (acción) y otras una sola c (canción). Para saberlo, busca en la familia de la palabra.",
-        "Se escribe -cc- si en la familia aparece el grupo -ct-: acción (acto, actor), dirección (director), colección (colectivo), corrección (correcto), protección (protector), producción (producto), construcción (constructor).",
+        "Se escribe -cc- si en la familia aparece el grupo -ct-: acción (acto, actor), dirección (director), colección (colectivo), corrección (correcto), protección (protector), producción (producto), construcción (constructor). Excepciones que hay que aprender: ficción, cocción, fricción y succión llevan -cc- aunque en su familia no haya -ct-.",
         "Se escribe una sola c si en la familia aparece una -t- sola o no aparece ninguna: canción (cantar), relación (relato), atención (atento), invitación (invitar), posición.",
-        "Truco del detective: di la palabra despacio. En -cc- se oyen dos sonidos: ac-ción (primero «k», luego «z»)."
+        "Truco del detective: di la palabra despacio. En -cc- se oyen dos sonidos: ac-ción (primero «k», luego «z», o «s» si seseas). Si al hablar no lo notas, usa el truco de la familia."
       ]
     },
     "cartas": [
@@ -566,12 +567,12 @@
       {
         "id": "c-t-sola",
         "titulo": "Carta de la -t- sola",
-        "texto": "Si en la familia hay una -t- sola o ninguna, va una sola c: canción (cantar), relación (relato), atención (atento)."
+        "texto": "Si en la familia hay una -t- sola o ninguna, va una sola c: canción (cantar), relación (relato), atención (atento). Salvo ficción, cocción, fricción y succión."
       },
       {
         "id": "cc-dos-sonidos",
         "titulo": "Carta de los dos sonidos",
-        "texto": "En -cc- se oyen dos sonidos, «k» y «z»: ac-ción, lec-ción. En -c- solo uno: can-ción."
+        "texto": "Dicha despacio, en -cc- se oyen dos sonidos: ac-ción, lec-ción. En -c- solo uno: can-ción. Si no lo notas, busca la familia."
       }
     ]
   },
@@ -590,9 +591,9 @@
       "puntos": [
         "Con x: las palabras que empiezan por ex- cuando significa «fuera» o «que ya no es»: exportar, extraer, exalumno, expresidenta.",
         "Con x: las que empiezan por extra- (fuera de: extraordinario, extraterrestre) y casi todas las que empiezan por ex- + pl o pr: explicar, explorar, explosión, expresar, exprimir. Excepciones: esplendor, espliego.",
-        "Con x: las acabadas en -xión cuando en la familia hay x: conexión (conexo), reflexión (reflexivo), flexión (flexible).",
-        "Con s: muchas palabras que empiezan por es- + consonante y no significan «fuera»: escalera, espada, estupendo, espléndido, estrategia, espontáneo.",
-        "Homófonos: espiar (vigilar) / expiar (pagar una culpa); contexto, texto y sexto llevan x."
+        "Con x: las acabadas en -xión cuando en la familia hay x o j: conexión (conexo), reflexión (reflejo), flexión (flexible), crucifixión (crucifijo).",
+        "Con s: muchas palabras que empiezan por es- + consonante: escalera, espada, estupendo, espléndido, estrategia, espontáneo. Si dudas entre es- y ex-, busca una palabra de su familia o consulta el diccionario.",
+        "Parejas que suenan parecido: espiar (vigilar) / expiar (pagar una culpa); contesto (de contestar) / contexto. Y recuerda que texto, sexto, experto y excelente llevan x."
       ]
     },
     "cartas": [
@@ -609,7 +610,7 @@
       {
         "id": "s-es-consonante",
         "titulo": "Carta del es- de siempre",
-        "texto": "Si no significa «fuera», muchas palabras empiezan por es- + consonante: escalera, estupendo, espléndido."
+        "texto": "Muchas palabras empiezan por es- + consonante: escalera, espada, estupendo, espléndido. Si dudas entre es- y ex-, busca su familia."
       }
     ]
   },
@@ -636,7 +637,7 @@
       {
         "id": "coma-vocativo",
         "titulo": "Carta de la coma que llama",
-        "texto": "Se separa con coma el nombre de a quien hablamos (Lola, mira esto) y las aclaraciones: Mateo, el archivero, lo sabía."
+        "texto": "Se separa con coma el nombre de la persona a la que hablamos (Lola, mira esto) y las aclaraciones: Mateo, el archivero, lo sabía."
       },
       {
         "id": "punto-y-coma",

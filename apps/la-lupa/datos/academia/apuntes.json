@@ -27,7 +27,7 @@
         "tipo": "lista",
         "titulo": "Trucos de Mateo",
         "puntos": [
-          "Agudas y llanas son como el día y la noche: cuando una lleva tilde, la otra no la lleva.",
+          "Agudas y llanas son como el día y la noche: con la misma terminación, si la aguda lleva tilde, la llana no (camión / joven).",
           "Las esdrújulas no fallan nunca: todas llevan tilde."
         ]
       }
@@ -43,8 +43,8 @@
         "titulo": "Cuadro de la b",
         "columnas": ["Se escribe con b…", "Ejemplos", "Mis ejemplos"],
         "filas": [
-          ["El pasado de los verbos en -ar (-aba) y el verbo ir (iba)", "cantaba, jugábamos, iba", ""],
-          ["Después de m: mb", "hombre, tambor, cambio", ""],
+          ["Las formas en -aba de los verbos en -ar y las del verbo ir (iba)", "cantaba, jugábamos, iba", ""],
+          ["Detrás de m (delante de b nunca va n)", "hombre, tambor, cambio", ""],
           ["Los grupos bl y br", "blanco, brazo", ""],
           ["Los verbos en -bir", "escribir, recibir, subir", ""]
         ]
@@ -54,9 +54,9 @@
         "titulo": "Cuadro de la v",
         "columnas": ["Se escribe con v…", "Ejemplos", "Mis ejemplos"],
         "filas": [
-          ["Después de n: nv", "invierno, enviar", ""],
+          ["Detrás de n (nunca b)", "invierno, enviar", ""],
           ["Los adjetivos en -avo, -ave, -evo, -eve, -ivo, -iva", "octavo, suave, nuevo, breve, activo", ""],
-          ["Las formas de estar, andar y tener", "estuve, anduvo, tuvimos", ""]
+          ["Los pasados en -uve, -uvo… de estar, andar y tener", "estuve, anduvo, tuvimos", ""]
         ]
       },
       {
@@ -80,7 +80,7 @@
         "columnas": ["Pista", "Ejemplos", "Mis ejemplos"],
         "filas": [
           ["Empieza por ie-, ue-, ui-", "hielo, huevo, hueso, huida", ""],
-          ["Empieza por herm-, horm-, horr-, hosp-", "hermano, hormiga, horrible, hospital", ""],
+          ["Empieza por herm-, horm-, horr-, hosp- (salvo ermita y ermitaño)", "hermano, hormiga, horrible, hospital", ""],
           ["Empieza por hum- + vocal", "humo, humano", ""],
           ["Es una forma de haber, hacer, hablar, hallar o habitar", "había, hizo, hablábamos, hallé, habitan", ""]
         ]
@@ -186,7 +186,7 @@
         "columnas": ["Letra", "Cuándo", "Ejemplos", "Mis ejemplos"],
         "filas": [
           ["g", "gen-, -gen, -gente, -gencia", "general, imagen, gente, urgencia", ""],
-          ["g", "geo-, -logía, -gía", "geografía, biología, magia", ""],
+          ["g", "geo-, -logía, -gia, -gía (salvo lejía y bujía)", "geografía, biología, magia, energía", ""],
           ["g", "Verbos en -ger y -gir", "coger, proteger, elegir, dirigir", ""],
           ["j", "-aje, -eje, -jero, -jera, -jería", "viaje, garaje, relojero, conserjería", ""],
           ["j", "Formas de verbos sin g ni j en el infinitivo", "decir → dije, traer → traje", ""]
@@ -206,7 +206,7 @@
         "titulo": "Ojo con las excepciones",
         "puntos": [
           "Tejer y crujir son la excepción de los verbos en -ger y -gir: van con j.",
-          "Ligero va con g, aunque acabe en -ero.",
+          "Ligero va con g, aunque suene igual que las palabras en -jero.",
           "En los verbos en -ger y -gir, delante de a y o la g se cambia por j: coger → cojo, elegir → elijo."
         ]
       }
