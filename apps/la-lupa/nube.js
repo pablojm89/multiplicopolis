@@ -460,7 +460,7 @@ function htmlNubeMaestro() {
         <button class="boton-papel" id="nubeTodo" ${nubeActiva() ? "" : "disabled"}>Volver a enviar todo</button>
       </div>
       <p id="nubeEstado">${htmlEstadoNube()}</p>
-      <p id="nubePrueba" class="msg"></p>`;
+      <p id="nubePrueba" role="status"></p>`;
 }
 function activarNubeMaestro(repintar) {
   $("#nubeGuardar").onclick = () => {

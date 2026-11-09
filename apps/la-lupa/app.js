@@ -31,8 +31,9 @@ function vistaInicio() {
   $$(".ficha-detective").forEach(b => b.onclick = () => { perfil = perfiles.find(p => p.id === b.dataset.id); vistaTablon(); });
   const crear = (nombre, avatar) => {
     nombre = nombre.replace(/^[\s=+\-@]+/, "").trim();
-    const aviso1 = !/[\p{L}\p{N}]/u.test(nombre) ? "Tu alias tiene que llevar alguna letra o algún número."
-      : perfiles.some(p => claveAlias(p.nombre) === claveAlias(nombre)) ? "Ya hay un detective con ese alias en este dispositivo. Elige otro o entra con tu ficha." : "";
+    const clave = claveAlias(avatar || nombre);
+    const aviso1 = !clave ? "Tu alias tiene que llevar alguna letra o algún número."
+      : perfiles.some(p => idAlumno(p) === clave || claveAlias(p.nombre) === claveAlias(nombre)) ? "Ya hay un detective con ese alias en este dispositivo. Elige otro o entra con tu ficha." : "";
     if (aviso1) { aviso(aviso1, "mal"); return; }
     perfil = { id: uid(), nombre, curso: $("#nCurso").value, creado: new Date().toISOString(), ...(avatar ? { avatar } : {}) };
     perfiles.push(perfil);
@@ -51,8 +52,8 @@ function vistaInicio() {
   $("#irRecuperar")?.addEventListener("click", pedirRecuperar);
 }
 
-/* Dos alias son el mismo si solo cambian las mayúsculas, las tildes o los espacios (así tampoco chocan en la nube) */
-const claveAlias = s => norm(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ");
+/* Dos alias son el mismo si solo cambian las mayúsculas, las tildes, los espacios o los signos: la misma normalización que la nube (nube.js) */
+const claveAlias = s => normAlias(s);
 
 /* ── Tablón de corcho con los casos del curso ───────────────── */
 function vistaTablon() {

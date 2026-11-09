@@ -228,3 +228,12 @@ El motor (`motor.js`, `escenas.js`, `app.js`) y la prueba en móvil y tablet se 
 **Ideas que dejo apuntadas** (ninguna hecha): letra y tamaño a elegir, con una letra pensada para dislexia; «Anteriormente, en La Lupa…» al empezar cada caso; escenarios con vida (lluvia, farolillos, vapor); insignias; «mi mesa» con lo encontrado; la falta del día; un informe para casa imprimible; un diploma de fin de temporada; modo proyector para jugar un caso con toda la clase; ocultar 6.º en la entrada hasta que tenga casos.
 
 **Encargo para un corrector** (para repetirlo cuando se escriban casos nuevos): leer los archivos enteros; todo lo que está fuera del marcado `{mal|bien}` tiene que estar impecable; comprobar que cada falta responde a la regla del caso, que los huecos solo admiten una solución, que las explicaciones son verdad y que las pistas cuentan bien las faltas; anotar incoherencias de la historia. Primero informa y después aplica lo aprobado; al final, validador y jugador automático.
+
+**Nube, rehecha tras el repaso** (cliente `nube.js` y servidor `la-lupa.gs`, protocolo 2). Antes, la cola se vaciaba aunque el servidor no hubiera guardado nada; el progreso de la nube se sustituía entero, así que dos alumnos con el mismo alias se pisaban; y sellar un caso duplicaba filas en la hoja. Ahora:
+- la cola solo se vacía cuando el servidor confirma, y guarda referencias en vez de copias (162 resultados sin conexión ocupan 5 KB, antes unos 4 MB);
+- servidor y «Recuperar» fusionan por `id` y no pierden puntos, lupas ni sellos;
+- la hoja no interpreta fórmulas ni convierte «007» en un número;
+- lo que baja se valida antes de guardarse;
+- del perfil ya no sube el n.º de lista.
+
+Probado con el `.gs` real ejecutado en Node sobre unas hojas simuladas (58 comprobaciones) y con el juego contra ese servidor (44). **No está probado con un Apps Script de verdad**: `NUBE.md` trae la lista de 8 comprobaciones. Sigue pendiente el código de recuperación por alumno, porque hoy con el alias basta para bajarse la ficha de otro.
