@@ -14,7 +14,15 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const norm = s => String(s ?? "").normalize("NFC").trim().toLowerCase();
 const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
-const guardar = (k, v) => { try { localStorage.setItem(PREFIJO + k, JSON.stringify(v)); } catch { /* sin almacenamiento */ } };
+const guardar = (k, v) => { try { localStorage.setItem(PREFIJO + k, JSON.stringify(v)); return true; } catch { avisarSinGuardar(); return false; } };
+/* Almacenamiento lleno o bloqueado: se avisa una vez, con un cartel fijo, para que no se pierda trabajo sin saberlo */
+function avisarSinGuardar() {
+  if (document.getElementById("sinGuardar")) return;
+  const d = document.createElement("div");
+  d.id = "sinGuardar"; d.className = "sin-guardar"; d.setAttribute("role", "alert");
+  d.textContent = "⚠️ Este dispositivo no está guardando el progreso (almacenamiento lleno o bloqueado). Avisa a tu maestro o maestra antes de seguir.";
+  document.body.append(d);
+}
 const cargar = (k, f) => { try { return JSON.parse(localStorage.getItem(PREFIJO + k)) ?? f; } catch { return f; } };
 const movimientoReducido = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 async function leerJSON(ruta) {
@@ -25,11 +33,22 @@ async function leerJSON(ruta) {
 
 /* ── Estado ─────────────────────────────────────────────────── */
 const D = { reglas: {}, prog: null, casos: {}, arte: {} };
-let perfiles = cargar("perfiles", []);
-let resultados = cargar("resultados", []);
+/* Lo guardado puede venir de una versión antigua o estar dañado: se queda solo con lo que tiene forma válida */
+const comoLista = v => (Array.isArray(v) ? v : []);
+const sanearPerfiles = v => comoLista(v).filter(p => p && typeof p.id === "string" && typeof p.nombre === "string");
+const sanearResultados = v => comoLista(v).filter(r => r && typeof r.perfilId === "string" && typeof r.fecha === "string")
+  .map(r => Object.assign(r, { notas: comoLista(r.notas), repasar: comoLista(r.repasar), eventos: comoLista(r.eventos), pistas: Number(r.pistas) || 0, consultas: Number(r.consultas) || 0 }));
+let perfiles = sanearPerfiles(cargar("perfiles", []));
+let resultados = sanearResultados(cargar("resultados", []));
 let ajustes = { libreta: "papel", codigoSello: "LUPA", ...cargar("ajustes", {}) };  // los cambia el maestro
 let perfil = null;   // detective con la sesión abierta
 let P = null;        // partida en curso
+/* Otra pestaña (o la app instalada) ha guardado: se recarga lo suyo para no pisarlo al guardar aquí */
+addEventListener("storage", ev => {
+  if (ev.key === PREFIJO + "perfiles") { perfiles = sanearPerfiles(cargar("perfiles", [])); perfil = perfil && (perfiles.find(p => p.id === perfil.id) || perfil); }
+  if (ev.key === PREFIJO + "resultados") resultados = sanearResultados(cargar("resultados", []));
+  if (ev.key === PREFIJO + "academia-registros" && typeof registrosAca !== "undefined") registrosAca = comoLista(cargar("academia-registros", []));
+});
 
 const NOMBRE_CRITERIO = {
   "1.2": "Respeto las lenguas y sus hablantes",
@@ -58,6 +77,7 @@ document.addEventListener("scroll", ev => { const e = ev.target; if (e?.id === "
 /* Pinta una escena completa: fondo + contenido + capas de ventana y aviso */
 function pintarEscena(html, { fondo = null, clase = "" } = {}) {
   $("#pagina").hidden = true;
+  $("#pagina").innerHTML = "";   // la zona del maestro no deja el PIN ni las notas en la página al salir
   $("#marco").hidden = false;
   const e = $("#escenario");
   e.className = `escenario ${clase}`;

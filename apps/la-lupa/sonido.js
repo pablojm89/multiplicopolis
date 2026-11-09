@@ -203,9 +203,9 @@
 
   /* ── Botón de sonido (abajo a la izquierda, fuera del escenario) ── */
   const css = document.createElement("style");
-  css.textContent = `.snd-control{left:12px;right:auto;bottom:12px}.snd-control .snd-panel{left:0;right:auto}
+  css.textContent = `.snd-control{left:12px;right:auto;bottom:12px;width:max-content}.snd-control .snd-panel{left:0;right:auto}
   .snd-boton{--snd-fondo:#1d1712e0;--snd-tinta:#f1e4c8;width:40px;height:40px;line-height:40px;font-size:19px;border:1px solid #c9a96a66}
   .snd-panel{--snd-fondo:#241c15f5;--snd-tinta:#f1e4c8;--snd-acento:#c9a96a;font-family:'Special Elite',monospace}`;
-  document.head.appendChild(css);
   Sonido.control();
+  document.head.appendChild(css);   // después del estilo del motor, para que mande este
 })();

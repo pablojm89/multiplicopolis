@@ -30,6 +30,10 @@ function vistaInicio() {
     <button class="enlace-maestro" id="irMaestro">Zona maestro/a</button>`, { fondo: "fachada-agencia", clase: "oscurecido" });
   $$(".ficha-detective").forEach(b => b.onclick = () => { perfil = perfiles.find(p => p.id === b.dataset.id); vistaTablon(); });
   const crear = (nombre, avatar) => {
+    nombre = nombre.replace(/^[\s=+\-@]+/, "").trim();
+    const aviso1 = !/[\p{L}\p{N}]/u.test(nombre) ? "Tu alias tiene que llevar alguna letra o algún número."
+      : perfiles.some(p => claveAlias(p.nombre) === claveAlias(nombre)) ? "Ya hay un detective con ese alias en este dispositivo. Elige otro o entra con tu ficha." : "";
+    if (aviso1) { aviso(aviso1, "mal"); return; }
     perfil = { id: uid(), nombre, curso: $("#nCurso").value, creado: new Date().toISOString(), ...(avatar ? { avatar } : {}) };
     perfiles.push(perfil);
     guardar("perfiles", perfiles);
@@ -46,6 +50,9 @@ function vistaInicio() {
   $("#irMaestro").onclick = pedirPin;
   $("#irRecuperar")?.addEventListener("click", pedirRecuperar);
 }
+
+/* Dos alias son el mismo si solo cambian las mayúsculas, las tildes o los espacios (así tampoco chocan en la nube) */
+const claveAlias = s => norm(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ");
 
 /* ── Tablón de corcho con los casos del curso ───────────────── */
 function vistaTablon() {
@@ -254,7 +261,7 @@ function sellar(res, despues) {
     <h3>Sello del director</h3>
     <p>Solo para el maestro/a: marca lo que está bien en la libreta.</p>
     <div class="rubrica">${RUBRICA.map((r, k) => `<label><input type="checkbox" id="rub${k}"> ${esc(r)}</label>`).join("")}</div>
-    <input id="codigoSello" class="entrada" type="password" autocomplete="off" placeholder="Código del director" aria-label="Código del director">
+    <input id="codigoSello" class="entrada" type="password" autocomplete="new-password" placeholder="Código del director" aria-label="Código del director">
     <p id="selloMsg" class="msg"></p>
     <div class="acciones"><button class="boton-sello" id="estampar">Sellar expediente</button></div>`, "ventana-libreta");
   $("#estampar").onclick = () => {
@@ -275,7 +282,7 @@ function pedirPin() {
   abrirModal(`
     <h3>Zona del maestro</h3>
     <p>Escribe el PIN para entrar.</p>
-    <input id="pinIn" class="entrada" type="password" inputmode="numeric" autocomplete="off" aria-label="PIN">
+    <input id="pinIn" class="entrada" type="password" inputmode="numeric" autocomplete="new-password" aria-label="PIN">
     <p id="pinMsg" class="msg"></p>
     <div class="acciones"><button class="boton-sello" id="pinOk">Entrar</button></div>`, "ventana-libreta");
   const inp = $("#pinIn");
@@ -307,11 +314,12 @@ function vistaMaestro() {
     <main class="pag-cuerpo">
       <p class="aviso-maestro">Aquí se ven los datos guardados <strong>en este dispositivo</strong>. Si se borran los datos del navegador, se pierden: descarga de vez en cuando una <b>copia de seguridad</b> (más abajo) o activa la nube.</p>
       ${ajustes.pin ? "" : `<p class="aviso-maestro"><b>Sin PIN:</b> cualquier alumno puede entrar aquí. Pon uno en «PIN de esta zona» y guarda los ajustes.</p>`}
+      ${norm(ajustes.codigoSello) === "lupa" ? `<p class="aviso-maestro"><b>Código de sello sin cambiar:</b> el que viene por defecto (LUPA) es público, así que un alumno podría sellarse solo. Cámbialo por uno tuyo.</p>` : ""}
       <h2>Ajustes del aula</h2>
       <div class="fila">
         <label>Libreta: <select id="ajLibreta"><option value="papel">De papel (el juego no guarda las pistas)</option><option value="digital">Digital (el juego guarda las pistas y deja escribir)</option></select></label>
-        <label>Código de sello: <input id="ajCodigo" value="${esc(ajustes.codigoSello)}" maxlength="20"></label>
-        <label>PIN de esta zona: <input id="ajPin" type="password" inputmode="numeric" maxlength="8" value="${esc(ajustes.pin || "")}" placeholder="sin PIN"></label>
+        <label>Código de sello: <input id="ajCodigo" value="${esc(ajustes.codigoSello)}" maxlength="20" autocomplete="off"></label>
+        <label>PIN de esta zona: <input id="ajPin" type="password" inputmode="numeric" maxlength="8" autocomplete="new-password" value="${esc(ajustes.pin || "")}" placeholder="sin PIN"></label>
         <label><input type="checkbox" id="ajRevision" ${modoRevision() ? "checked" : ""}> <b>Modo revisión</b> (para probarlo tú: abre todos los encargos y las lupas, y la preparación se puede saltar)</label>
         <label><input type="checkbox" id="ajSonido" ${ajustes.sonido === true ? "checked" : ""}> Actividades con sonido (extra: necesitan cascos o altavoz)</label>
         <label>Preparación en la Academia antes de cada caso: <select id="ajPrep"><option value="obligatoria">Obligatoria (el caso se abre al terminarla)</option><option value="opcional">Recomendada (se puede saltar)</option><option value="no">Sin preparación</option></select></label>
@@ -352,9 +360,9 @@ function vistaMaestro() {
         <tbody>${filas.map(r => `<tr>
           <td>${esc(r.nombre)}</td><td>${esc(r.curso)}.º</td><td>${r.encargo ? "📬 " : ""}${esc(r.titulo)}</td>
           <td>${esc(new Date(r.fecha).toLocaleDateString("es-ES"))}</td>
-          ${criterios.map(c => { const n = r.notas.find(x => x.criterio === c); return `<td>${n ? `${n.nota} <small>${n.calificacion}</small><br><small>${esc(n.codigo)}</small>` : "—"}</td>`; }).join("")}
-          <td>${r.encargo ? "—" : r.libreta ? `${r.libreta.puntos}/4 ✔` : "sin sellar"}</td>
-          <td>${r.pistas}${r.consultas ? ` (+${r.consultas} consultas)` : ""}</td><td>${esc(r.repasar.join(", "))}</td></tr>`).join("")}
+          ${criterios.map(c => { const n = r.notas.find(x => x.criterio === c); return `<td>${n ? `${esc(n.nota)} <small>${esc(n.calificacion)}</small><br><small>${esc(n.codigo)}</small>` : "—"}</td>`; }).join("")}
+          <td>${r.encargo ? "—" : r.libreta ? `${Number(r.libreta.puntos) || 0}/4 ✔` : "sin sellar"}</td>
+          <td>${Number(r.pistas) || 0}${r.consultas ? ` (+${Number(r.consultas) || 0} consultas)` : ""}</td><td>${esc(r.repasar.join(", "))}</td></tr>`).join("")}
         </tbody></table></div>` : `<p>Todavía no hay casos resueltos en este dispositivo.</p>`}
     </main>`;
   $("#ajLibreta").value = ajustes.libreta;
@@ -452,7 +460,7 @@ function activarNotasFinales() {
     const { filas, crits } = notasPorAlumno();
     const letra = letraCurso(perfiles.find(p => p.id === filas[0]?.id)?.curso || "5");
     const cab = ["n_lista", "alias", ...crits.map(k => `${k}.${letra}`)];
-    const lineas = [cab.join(";"), ...filas.map(p => [p.lista, `"${p.nombre.replaceAll('"', '""')}"`, ...crits.map(k => (p.crit[k] ? notaSeneca(p.crit[k]) : ""))].join(";"))];
+    const lineas = [cab.join(";"), ...filas.map(p => [`"${celdaSegura(p.lista).replaceAll('"', '""')}"`, `"${celdaSegura(p.nombre).replaceAll('"', '""')}"`, ...crits.map(k => (p.crit[k] ? notaSeneca(p.crit[k]) : ""))].join(";"))];
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob(["\ufeff" + lineas.join("\n")], { type: "text/csv;charset=utf-8" }));
     a.download = `la-lupa_seneca_${new Date().toISOString().slice(0, 10)}.csv`;
@@ -460,11 +468,13 @@ function activarNotasFinales() {
   });
 }
 
+/* Un texto que empieza por = + - @ se lee como fórmula en una hoja de cálculo: se le antepone un apóstrofo */
+const celdaSegura = v => { const s = String(v ?? ""); return /^[=+\-@\t\r]/.test(s) ? `'${s}` : s; };
 function exportarCSV() {
   const c = cuentanNota();
   const aca = registrosAca.map(r => ({ ...r, unidad: r.sala, titulo: `Academia · ${sala(r.sala)?.nombre || r.sala}`, notas: r.notas.map(n => ({ ...n, codigo: `${n.criterio}.${letraCurso(r.curso)}` })), pistas: 0, consultas: 0, minutos: "" }));
   const filas = [...resultados, ...aca].flatMap(r => r.notas.map(n => ({
-    alumno: r.nombre, curso: r.curso, tipo: tipoDe(r), cuenta_nota: !r.diagnostico && c[tipoDe(r)] ? "sí" : "no", unidad: r.unidad, caso: r.titulo, criterio: n.codigo,
+    alumno: celdaSegura(r.nombre), curso: r.curso, tipo: tipoDe(r), cuenta_nota: !r.diagnostico && c[tipoDe(r)] ? "sí" : "no", unidad: r.unidad, caso: r.titulo, criterio: n.codigo,
     nota: String(n.nota).replace(".", ","), calificacion: n.calificacion, aciertos: n.aciertos,
     intentos: n.intentos, libreta: r.contexto === "academia" || r.encargo ? "—" : r.libreta ? `${r.libreta.puntos}/4` : "sin sellar",
     pistas: r.pistas, consultas_libreta: r.consultas || 0, minutos: r.minutos, fecha: r.fecha.slice(0, 10),
@@ -494,12 +504,14 @@ function archivosDelJuego() {
     (a.listas || []).forEach(e => u.add(`arte/${id}-${e}.webp`));
   });
   ["apuntes", "libreta", "ficha-aspirante", "autorizacion-familias"].forEach(x => u.add(`imprimibles/${x}.html`));
+  ["bebas-neue", "nunito", "patrick-hand", "special-elite", "vt323"].forEach(f => u.add(`fuentes/${f}.woff2`));
   return [...u].filter(Boolean).map(x => new URL(x, location.href).href);
 }
 function htmlSinInternet() {
   return `
       <h2>Jugar sin internet</h2>
       <p class="aviso-maestro">Descarga el juego completo en este dispositivo (unos 25 MB, sobre todo las imágenes). Después funciona aunque falle el wifi. En tablets se puede «Añadir a la pantalla de inicio» y se abre como una app.</p>
+      <p class="aviso-maestro"><b>En iPad:</b> la app de la pantalla de inicio guarda sus datos aparte de Safari, así que instálala primero y configura y descarga todo <b>dentro de la app</b>. Y si el juego se usa desde Safari sin instalar, el iPad borra los datos tras 7 días sin abrirlo: antes de unas vacaciones, descarga una copia de seguridad.</p>
       <div class="fila"><button class="boton-papel" id="precargar">Descargar todo para usar sin internet</button><span id="precargaMsg"></span></div>`;
 }
 function activarSinInternet() {
@@ -580,10 +592,13 @@ async function init() {
     pintarEscena(`<div class="bocadillo izq"><p>No se pudieron cargar los datos del juego. Ábrelo desde un servidor web (GitHub Pages, o <code>node .claude/serve.js</code> en local), no como archivo suelto.</p></div>`);
     return;
   }
+  // Un perfil de un curso que ya no existe pasa al primero, para que su tablón se abra
+  perfiles.forEach(p => { if (!D.prog.cursos[p.curso]) p.curso = Object.keys(D.prog.cursos)[0]; });
+  try { navigator.storage?.persist?.(); } catch { /* el navegador decide */ }
   marcarRevision();
   registrarSinInternet();
   await cargarEncargos();
-  await cargarPaquete();
+  await Promise.race([cargarPaquete(), new Promise(listo => setTimeout(listo, 2000))]);
   vistaInicio();
 }
 init();
