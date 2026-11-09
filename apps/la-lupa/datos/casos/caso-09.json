@@ -1,0 +1,468 @@
+{
+  "id": "caso-09",
+  "numero": "09",
+  "titulo": "¡Parad las máquinas!",
+  "resumen": "El número especial del periódico del barrio está a punto de imprimirse… lleno de faltas y de mentiras.",
+  "reglas": [
+    "mayusculas-puntuacion-1"
+  ],
+  "_nota": "Temporada 1, episodio 9. Pieza del gran misterio: el Tachón prepara su golpe final. Cambia la portada del número especial de fin de curso de «El Eco de La Alameda» (tres mil ejemplares) por otra llena de faltas y contra la agencia. El equipo para la rotativa a tiempo, pero no lo atrapa. Pistas para los atentos (sin señalar a Bruno): entró con llave del periódico, sabía a qué hora arranca la rotativa y qué paquete va a cada calle, y salió por la puerta del reparto en bicicleta. Bruno aparece en el muelle de reparto: se sabe de memoria los paquetes y de pequeño soñaba con salir en la portada. Último mensaje: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». La puntuación se trabaja en descubre, clasifica (signos tapados por la tinta), hipótesis (una coma que cambia qué palanca para la máquina) y en la libreta; las faltas marcadas son solo de mayúsculas. Faltas sembradas para el expediente: Junio, ramón, luego.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "imprenta-eco"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "agotado",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "¡Uf, uf! Me han avisado justo cuando salía a correr. Perdonad que os llame tan temprano. Aurora, la directora de «El Eco de La Alameda», está muy nerviosa: alguien ha cambiado de madrugada las páginas del número especial de fin de curso. Hoy, último viernes de {Junio|junio}, se reparten tres mil ejemplares por todo el barrio. Si salen llenos de faltas, nadie volverá a fiarse de nosotros. ¡Corred!"
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "Las mayúsculas y los signos de puntuación ordenan un texto. Un periódico sin ellos sería un caos. Mira mis fichas.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "Empiezan con mayúscula",
+              "palabras": [
+                "Hoy sale el periódico. Mañana, no.",
+                "¿Quién ha sido? Nadie lo sabe.",
+                "¡Qué susto! Vámonos."
+              ]
+            }
+          ],
+          "pregunta": "En estas frases, ¿cuándo empieza una palabra con mayúscula aunque no sea un nombre propio?",
+          "opciones": [
+            "Al empezar el texto y después de punto (o de ? y ! cuando cierran la oración)",
+            "Cuando la palabra es importante",
+            "Después de cada coma",
+            "Solo en los nombres de personas"
+          ],
+          "correcta": 0,
+          "explicacion": "La primera palabra de un texto va con mayúscula, y también la que va después de punto. Si la pregunta o la exclamación cierran la oración, la palabra siguiente también empieza con mayúscula: ¿Quién ha sido? Nadie lo sabe."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Con mayúscula",
+              "palabras": [
+                "Aurora",
+                "Sevilla",
+                "La Alameda",
+                "El Eco de La Alameda"
+              ]
+            },
+            {
+              "titulo": "Con minúscula",
+              "palabras": [
+                "lunes",
+                "junio",
+                "verano",
+                "andaluz",
+                "inglés",
+                "el director"
+              ]
+            }
+          ],
+          "pregunta": "¿Por qué las palabras del segundo grupo van en minúscula?",
+          "opciones": [
+            "No son nombres propios: días, meses, estaciones, gentilicios, idiomas y cargos",
+            "Son palabras cortas",
+            "Van siempre después de una coma",
+            "Son palabras poco importantes"
+          ],
+          "correcta": 0,
+          "explicacion": "Los nombres propios de personas, lugares y periódicos van con mayúscula. Los días, los meses, las estaciones, los gentilicios (andaluz, francés), los idiomas (inglés) y los cargos (el director Robles, el alcalde) van en minúscula."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Preguntas y exclamaciones",
+              "palabras": [
+                "¿Quién ha sido?",
+                "¡Qué desastre!"
+              ]
+            },
+            {
+              "titulo": "Una enumeración",
+              "palabras": [
+                "Tinta, papel y cola."
+              ]
+            },
+            {
+              "titulo": "Suspense",
+              "palabras": [
+                "Y entonces…"
+              ]
+            }
+          ],
+          "pregunta": "¿Qué es verdad sobre estos signos?",
+          "opciones": [
+            "¿ ? y ¡ ! se abren y se cierran; la coma separa los elementos de una lista; los puntos suspensivos son tres",
+            "En español basta con el signo del final",
+            "La coma va siempre antes de la y",
+            "Se pueden poner tantos puntos suspensivos como quieras"
+          ],
+          "correcta": 0,
+          "explicacion": "En español, las preguntas y las exclamaciones llevan dos signos, uno al principio y otro al final. En una enumeración, la coma separa los elementos, y el último se une con y, sin coma: tinta, papel y cola. Los puntos suspensivos son siempre tres y dejan la frase en suspense."
+        },
+        {
+          "grupos": [],
+          "pregunta": "Un vecino dice: «En los títulos, todas las palabras importantes van con mayúscula». ¿Qué título demuestra que se equivoca?",
+          "opciones": [
+            "El Eco de La Alameda (un periódico)",
+            "El principito (un libro)",
+            "Agencia La Lupa (una agencia)",
+            "La Alameda (un barrio)"
+          ],
+          "correcta": 1,
+          "explicacion": "En los títulos de libros solo va con mayúscula la primera palabra y los nombres propios que haya: El principito, Platero y yo. Los nombres de periódicos, en cambio, llevan mayúscula en sus palabras importantes: El Eco de La Alameda. ¡Contraejemplo encontrado!"
+        }
+      ],
+      "pistas": [
+        "Fíjate en dónde está cada palabra: al principio, después de un punto, en un nombre…",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Las reglas, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe cuándo va mayúscula: al empezar y después de punto, en los nombres propios y en la primera palabra de los títulos de libros.",
+        "Escribe en minúscula un día, un mes, una estación, un gentilicio y un idioma.",
+        "Escribe una pregunta y una exclamación con sus dos signos, y una lista de cuatro cosas de una imprenta separadas por comas."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "redaccion-eco",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "titulo": "La redacción del periódico",
+      "quien": "Aurora, la directora del periódico",
+      "texto": "¡Menos mal que habéis venido! Anoche dejé el número especial listo para imprimir. Pero mirad la portada: ¡alguien la ha cambiado! Dice que los detectives de La Lupa no saben escribir, y la entrevista a {ramón|Ramón}, el músico, está llena de faltas. ¡Tenéis que ayudarme!"
+    },
+    {
+      "tipo": "caza",
+      "fondo": "redaccion-eco",
+      "objeto": "portada-falsa",
+      "quien": "Portada falsa del periódico",
+      "titulo": "La portada falsa",
+      "intro": "La portada falsa tiene 6 faltas de mayúsculas. Encuéntralas y corrígelas.",
+      "declaracion": "¡Número especial de fin de curso! Desde el {Otoño|otoño}, toda La Alameda quiere saber la verdad: los detectives de La Lupa no saben escribir. Su jefe, el {Director|director} Robles, no distingue el {Lunes|lunes} del martes. {ellos|Ellos} se creen muy listos, pero no encontrarían {huelva|Huelva} ni con un mapa. Hasta los turistas {Franceses|franceses} escriben mejor que esos detectives. Firmado: un vecino con mucha aura.",
+      "pistas": [
+        "Mira las estaciones, los días, los cargos y los gentilicios: van en minúscula.",
+        "Los nombres de ciudades llevan mayúscula. Y después de punto, también.",
+        "Son: Otoño, Director, Lunes, ellos, huelva y Franceses."
+      ],
+      "recompensa": {
+        "texto": "Al pie de la portada falsa, alguien ha escrito un número con rotulador negro: el 3.",
+        "digito": "3"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "redaccion-eco",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "texto": "Ni la puerta ni las ventanas están forzadas: quien cambió las páginas entró con llave. Y mirad el suelo: está lleno de recortes de papel. Entre ellos hay palabras con la mayúscula mal puesta… Seguro que juntas forman otro mensaje."
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "redaccion-eco",
+      "titulo": "Los recortes del suelo",
+      "instruccion": "Entre los recortes hay 4 palabras con la mayúscula mal puesta. Corrígelas: juntas forman una pista.",
+      "palabras": [
+        "Aurora",
+        "Granada",
+        "Málaga",
+        "Ramón",
+        "Cádiz",
+        "lunes",
+        "junio",
+        "otoño",
+        "inglés",
+        "andaluz",
+        "francés",
+        "alcalde",
+        "martes",
+        "invierno"
+      ],
+      "faltas": [
+        {
+          "mal": "sevilla",
+          "bien": "Sevilla"
+        },
+        {
+          "mal": "lola",
+          "bien": "Lola"
+        },
+        {
+          "mal": "mateo",
+          "bien": "Mateo"
+        },
+        {
+          "mal": "Verano",
+          "bien": "verano"
+        }
+      ],
+      "frase": "Las páginas de verdad duermen en el muelle de reparto, en el paquete de la calle {0}. Ni {1} ni {2} las encontrarán en todo el {3}.",
+      "pistas": [
+        "Busca nombres de personas o lugares escritos en minúscula… y un nombre común con mayúscula.",
+        "Las estaciones del año van en minúscula; los nombres de personas y de ciudades, con mayúscula.",
+        "Son: sevilla, lola, mateo y Verano."
+      ],
+      "recompensa": {
+        "texto": "Debajo del último recorte hay un número escrito con rotulador negro: el 8.",
+        "digito": "8"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "imprenta-eco",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "El muelle de reparto",
+      "quien": "Bruno, el repartidor",
+      "texto": "¡Buenos días, detectives! ¿Tan temprano por aquí? ¿El paquete de la calle Sevilla? Es ese, el de la cuerda azul: me sé de memoria qué paquete va a cada calle. De pequeño soñaba con salir en la portada del periódico… Ahora la reparto, ¡ja, ja! Bueno, voy a inflar las ruedas de la bici."
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "imprenta-eco",
+      "titulo": "Las páginas manchadas",
+      "instruccion": "¡Las páginas de verdad! Pero la tinta ha tapado algunos signos (●). Pon cada frase en la caja del signo que falta.",
+      "categorias": [
+        {
+          "id": "coma",
+          "nombre": "Coma ( , )"
+        },
+        {
+          "id": "pregunta",
+          "nombre": "¿ ?"
+        },
+        {
+          "id": "exclamacion",
+          "nombre": "¡ !"
+        },
+        {
+          "id": "suspensivos",
+          "nombre": "Puntos suspensivos ( … )"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "●Quién ha sido●",
+          "cat": "pregunta",
+          "pista": "Es una pregunta: lleva ¿ al principio y ? al final."
+        },
+        {
+          "p": "Tinta● papel y cola",
+          "cat": "coma",
+          "pista": "Es una lista: la coma separa sus elementos."
+        },
+        {
+          "p": "●Qué desastre●",
+          "cat": "exclamacion",
+          "pista": "Es una exclamación: lleva ¡ al principio y ! al final."
+        },
+        {
+          "p": "Y entonces●",
+          "cat": "suspensivos",
+          "pista": "La frase se queda en suspense: faltan tres puntos."
+        },
+        {
+          "p": "Lola● Mateo y yo",
+          "cat": "coma",
+          "pista": "Es una lista: la coma separa sus elementos."
+        },
+        {
+          "p": "●A qué hora sale●",
+          "cat": "pregunta",
+          "pista": "Es una pregunta: lleva ¿ al principio y ? al final."
+        },
+        {
+          "p": "●Viva la feria●",
+          "cat": "exclamacion",
+          "pista": "Es una exclamación: lleva ¡ al principio y ! al final."
+        },
+        {
+          "p": "Abrí la puerta y●",
+          "cat": "suspensivos",
+          "pista": "La frase se queda en suspense: faltan tres puntos."
+        }
+      ],
+      "pistas": [
+        "Lee la frase en voz alta: ¿pregunta, exclama, enumera o se queda a medias?"
+      ],
+      "recompensa": {
+        "texto": "En el cartón del paquete hay un número escrito con rotulador negro: el 2.",
+        "digito": "2"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "imprenta-eco",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Aurora, la directora del periódico",
+      "texto": "¡Son las cinco y media! A las seis en punto la rotativa arrancará sola e imprimirá la portada falsa. El Tachón ha cerrado el cuadro de mandos con un candado. ¿Cómo sabía a qué hora arranca? Eso solo lo sabemos los del periódico… Para pararla hay que bajar una palanca. Al maquinista le tengo dejada esta nota: «Roja no, la verde»."
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "imprenta-eco",
+      "titulo": "«Roja no, la verde»: ¿qué palanca para la rotativa?",
+      "opciones": [
+        "La roja.",
+        "La verde.",
+        "Las dos a la vez.",
+        "Ninguna: hay que desenchufarla."
+      ],
+      "correcta": 1,
+      "acierto": "La coma lo dice todo: «Roja no, la verde». Si la coma fuera detrás de roja («Roja, no la verde»), sería al revés. ¡Una coma puede parar una máquina!",
+      "fallo": "Lee otra vez la nota de Aurora y fíjate bien en dónde está la coma."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "calle-alameda",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Doña Pilar",
+      "texto": "¡Detectives! A mi edad se duerme poco, y desde mi balcón se ve la puerta de atrás del periódico, la del reparto. A las tres de la madrugada salió por ahí alguien con gabardina negra y gafas de sol. Cerró con su propia llave, tan tranquilo. {luego|Luego} se montó en una bicicleta y se fue silbando."
+    },
+    {
+      "tipo": "careo",
+      "fondo": "imprenta-eco",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Aurora, la directora del periódico",
+      "titulo": "Careo",
+      "instruccion": "Aurora también tiene llave. En su declaración hay 3 faltas: señálalas, presenta la carta que lo demuestra y escríbelas bien.",
+      "declaracion": "Yo no he sido, de verdad. Anoche cerré la redacción a las diez, como cada {Jueves|jueves|minuscula}. Las llaves solo las tiene el personal de «El Eco de La {alameda|Alameda|nombre-propio}». Me fui a casa, pero no podía dormir. {a|A|mayuscula-inicio} las cuatro volví para revisarlo todo… y me encontré la portada cambiada.",
+      "aclarado": "Aurora es inocente: se fue a las diez y volvió a las cuatro. Quien cambió las páginas entró entre medias, con una llave del periódico… y sabía qué paquete va a cada calle.",
+      "pistas": [
+        "Hay un día de la semana, el nombre de un periódico y una palabra después de punto.",
+        "Son: Jueves, alameda y a."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "imprenta-eco",
+      "objeto": "cuadro-rotativa",
+      "titulo": "El cuadro de mandos",
+      "instruccion": "¡Quedan dos minutos! El Tachón cerró el cuadro de mandos de la rotativa con un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "382",
+      "exito": "El cuadro se abre. Roja no, la verde: bajo la palanca verde y la rotativa se para a las seis menos un minuto. En la bandeja de salida queda un solo papel: una nota con un tachón.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba al pie de la portada falsa."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "imprenta-eco",
+      "personaje": {
+        "id": "aurora",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "quien": "Aurora, la directora del periódico",
+      "texto": "¡La habéis parado a tiempo! Imprimiremos las páginas de verdad, sin una sola falta. Y pienso cambiar la portada: «Los detectives de La Lupa salvan el número especial». ¡Eso sí que es una noticia!"
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de mayúsculas. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": [
+        "Hay una en el aviso del caso.",
+        "Revisa lo que dijeron Aurora y doña Pilar."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "nota-tachon",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "La nota de la rotativa dice: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». Tenía llave del periódico, sabía a qué hora arranca la rotativa y qué paquete va a cada calle… Si es quien yo creo, aquel chico de la prueba, mañana le debo algo más que un careo: le debo una disculpa. Clavad la nota en el tablón."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe para el director",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿qué pasó en el periódico y qué pistas nuevas tenemos? Cuida las mayúsculas y los signos.",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta al director para que selle tu expediente."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "calle-alameda",
+      "equipo": [
+        "lola",
+        "mateo",
+        "aurora",
+        "pilar"
+      ],
+      "texto": "Al amanecer, tres mil ejemplares sin una sola falta salen hacia todos los buzones de La Alameda. El Tachón se ha escapado otra vez… pero mañana, en la plaza, ya no habrá máscaras."
+    }
+  ]
+}

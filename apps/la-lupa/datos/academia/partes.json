@@ -1,0 +1,2099 @@
+{
+  "_nota": "Datos de «Rellena el parte» (Pupitre, salas/pupitre-extra.js). partes: plantillas de formulario de la agencia; cada apartado tiene una etiqueta y un campo, o una lista de campos (cosa, lugar, ser = persona, animal, tiempo, accion = verbo conjugado, verbo = infinitivo, como) que se rellena con una pista de ese campo; «otros» es la etiqueta de las casillas que no encajan en ningún apartado. pistas: p (palabra correcta), regla (una de las 9 de 5.º), nivel (1: pista fácil, un contrario o una frase con hueco, para la lupa de bronce; 2: definición normal; 3: definición difícil o adivinanza, para el diamante; al menos 7 de cada nivel por regla), campo (o «dato», que solo va en «otros»), pista (lo que lee el alumno; nunca contiene la palabra) y porque (la explicación de la regla que se ve al corregir). Validador: herramientas/validar_partes.py",
+  "declarantes": [
+    "Manolo, el frutero",
+    "Julián, el panadero",
+    "Herminia, la bibliotecaria",
+    "Ramón, el músico",
+    "Azucena, la alfarera",
+    "Bruno, el repartidor",
+    "Doña Pilar, del segundo B",
+    "Remedios, del mercado"
+  ],
+  "partes": [
+    {
+      "id": "objeto-perdido",
+      "titulo": "Parte de objeto perdido",
+      "negociado": "Oficina de objetos perdidos",
+      "codigo": "OP",
+      "apartados": [
+        {
+          "etiqueta": "Objeto perdido",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Visto por última vez en",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Cuándo se perdió",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Señas del objeto",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Quién lo encontró",
+          "campo": [
+            "ser",
+            "animal"
+          ]
+        },
+        {
+          "etiqueta": "Qué pasó",
+          "campo": "accion"
+        }
+      ],
+      "otros": "Otros datos",
+      "letra_pequena": "La agencia no se hace responsable de paraguas, calcetines desparejados ni bocadillos a medio comer."
+    },
+    {
+      "id": "averia",
+      "titulo": "Parte de avería",
+      "negociado": "Taller de la agencia",
+      "codigo": "AV",
+      "apartados": [
+        {
+          "etiqueta": "Aparato o cosa averiada",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Dónde está",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Desde cuándo falla",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Qué pasó",
+          "campo": "accion"
+        },
+        {
+          "etiqueta": "Cómo ha quedado",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Quién dio el aviso",
+          "campo": "ser"
+        },
+        {
+          "etiqueta": "Qué hay que hacer",
+          "campo": "verbo"
+        }
+      ],
+      "otros": "Observaciones del mecánico",
+      "letra_pequena": "Antes de dar un golpe a la máquina, rellene este parte. Después, también."
+    },
+    {
+      "id": "testigo",
+      "titulo": "Declaración de testigo",
+      "negociado": "Sala de interrogatorios",
+      "codigo": "DT",
+      "apartados": [
+        {
+          "etiqueta": "Lugar de los hechos",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Momento",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Qué vio el testigo",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Lo que hizo el sospechoso",
+          "campo": "accion"
+        },
+        {
+          "etiqueta": "Cómo era",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Quién más estaba allí",
+          "campo": [
+            "ser",
+            "animal"
+          ]
+        }
+      ],
+      "otros": "Detalle importante",
+      "letra_pequena": "El testigo jura decir la verdad, toda la verdad y nada más que la verdad (y no exagerar el tamaño del ladrón)."
+    },
+    {
+      "id": "torneo",
+      "titulo": "Inscripción en el torneo del barrio",
+      "negociado": "Comisión de fiestas de La Alameda",
+      "codigo": "TB",
+      "apartados": [
+        {
+          "etiqueta": "Campo de juego",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Día del partido",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Material que traerás",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Lo que mejor sabes hacer",
+          "campo": "verbo"
+        },
+        {
+          "etiqueta": "Cómo es tu equipo",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Mascota del equipo",
+          "campo": "animal"
+        },
+        {
+          "etiqueta": "Capitán o capitana",
+          "campo": "ser"
+        }
+      ],
+      "otros": "Datos del equipo",
+      "letra_pequena": "Prohibido sobornar al árbitro con croquetas. Sí, Manolo, va por ti."
+    },
+    {
+      "id": "animal",
+      "titulo": "Parte de animal extraviado",
+      "negociado": "Brigada de bigotes y colas",
+      "codigo": "AE",
+      "apartados": [
+        {
+          "etiqueta": "Animal",
+          "campo": "animal"
+        },
+        {
+          "etiqueta": "Visto por última vez en",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Cuándo",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Qué hizo",
+          "campo": "accion"
+        },
+        {
+          "etiqueta": "Señas",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Lleva consigo",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Quién lo vio",
+          "campo": "ser"
+        }
+      ],
+      "otros": "Otras señas",
+      "letra_pequena": "Si el animal aparece solo y se sienta en el sofá como si nada, avise igualmente a la agencia."
+    },
+    {
+      "id": "biblioteca",
+      "titulo": "Ficha de préstamo de la biblioteca",
+      "negociado": "Biblioteca del barrio (mostrador de Herminia)",
+      "codigo": "BB",
+      "apartados": [
+        {
+          "etiqueta": "Material que se presta",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Sección",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Fecha de devolución",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Para qué lo quieres",
+          "campo": "verbo"
+        },
+        {
+          "etiqueta": "Estado del libro",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Personaje favorito",
+          "campo": [
+            "ser",
+            "animal"
+          ]
+        }
+      ],
+      "otros": "Notas de Herminia",
+      "letra_pequena": "Herminia lo apunta todo. Absolutamente todo."
+    },
+    {
+      "id": "azotea",
+      "titulo": "Parte meteorológico de la azotea",
+      "negociado": "Observatorio de la Centralita",
+      "codigo": "PM",
+      "apartados": [
+        {
+          "etiqueta": "Zona observada",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Día y hora",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Fenómeno observado",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Qué hizo la gente",
+          "campo": "accion"
+        },
+        {
+          "etiqueta": "Cómo estaba el cielo",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Quién lo observó",
+          "campo": "ser"
+        },
+        {
+          "etiqueta": "Animal que se refugió",
+          "campo": "animal"
+        }
+      ],
+      "otros": "Anotaciones del observador",
+      "letra_pequena": "Este parte no sirve para saber si mañana hay recreo en el patio. Pregunte a Robles."
+    },
+    {
+      "id": "mercado",
+      "titulo": "Hoja de encargo al mercado",
+      "negociado": "Puestos del mercado de abastos",
+      "codigo": "EM",
+      "apartados": [
+        {
+          "etiqueta": "Producto",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Puesto o lugar de recogida",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Día de recogida",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Qué hay que hacer con él",
+          "campo": "verbo"
+        },
+        {
+          "etiqueta": "Cómo lo quieres",
+          "campo": "como"
+        },
+        {
+          "etiqueta": "Quién lo recoge",
+          "campo": "ser"
+        }
+      ],
+      "otros": "Encargo extra",
+      "letra_pequena": "Los encargos no recogidos antes del cierre se los come el gato del mercado. Avisados quedan."
+    },
+    {
+      "id": "disfraces",
+      "titulo": "Inscripción en el concurso de disfraces",
+      "negociado": "Caseta de la feria",
+      "codigo": "CD",
+      "apartados": [
+        {
+          "etiqueta": "Disfraz de",
+          "campo": [
+            "ser",
+            "animal"
+          ]
+        },
+        {
+          "etiqueta": "Complemento",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Lugar del desfile",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Día del desfile",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Qué harás en el escenario",
+          "campo": "verbo"
+        },
+        {
+          "etiqueta": "Cómo será tu disfraz",
+          "campo": "como"
+        }
+      ],
+      "otros": "Ideas para el jurado",
+      "letra_pequena": "El jurado no acepta disfraces de detective: dicen que en esta agencia ya hay demasiados."
+    },
+    {
+      "id": "ruido",
+      "titulo": "Queja vecinal por ruido",
+      "negociado": "Comunidad de vecinos de la calle Mayor",
+      "codigo": "QR",
+      "apartados": [
+        {
+          "etiqueta": "Qué hace ruido",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Dónde",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "A qué hora o qué día",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Quién lo provoca",
+          "campo": [
+            "ser",
+            "animal"
+          ]
+        },
+        {
+          "etiqueta": "Qué pasó",
+          "campo": "accion"
+        },
+        {
+          "etiqueta": "Cómo es el ruido",
+          "campo": "como"
+        }
+      ],
+      "otros": "Más quejas",
+      "letra_pequena": "Las quejas sobre la guitarra de Ramón se atienden por orden de llegada. Hay cola."
+    },
+    {
+      "id": "vigilancia",
+      "titulo": "Parte de vigilancia nocturna",
+      "negociado": "Turno de noche de la agencia",
+      "codigo": "VN",
+      "apartados": [
+        {
+          "etiqueta": "Lugar vigilado",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Hora o día",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Lo que se movió en la oscuridad",
+          "campo": [
+            "animal",
+            "ser"
+          ]
+        },
+        {
+          "etiqueta": "Objeto encontrado",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Qué hizo el vigilante",
+          "campo": "accion"
+        },
+        {
+          "etiqueta": "Cómo estaba la calle",
+          "campo": "como"
+        }
+      ],
+      "otros": "Incidencias",
+      "letra_pequena": "Dormirse durante la guardia no cuenta como «vigilancia con los ojos cerrados»."
+    },
+    {
+      "id": "material",
+      "titulo": "Solicitud de material de la agencia",
+      "negociado": "Almacén del sótano",
+      "codigo": "SM",
+      "apartados": [
+        {
+          "etiqueta": "Material pedido",
+          "campo": "cosa"
+        },
+        {
+          "etiqueta": "Para qué se necesita",
+          "campo": "verbo"
+        },
+        {
+          "etiqueta": "Quién lo usará",
+          "campo": "ser"
+        },
+        {
+          "etiqueta": "Dónde se guardará",
+          "campo": "lugar"
+        },
+        {
+          "etiqueta": "Cuándo hace falta",
+          "campo": "tiempo"
+        },
+        {
+          "etiqueta": "Cómo debe ser",
+          "campo": "como"
+        }
+      ],
+      "otros": "Material adicional",
+      "letra_pequena": "Las lupas se devuelven limpias. Las galletas del almacén no son material de la agencia."
+    }
+  ],
+  "pistas": [
+    {
+      "p": "sábado",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "El día que va justo después del viernes",
+      "porque": "sábado es esdrújula (SÁ-ba-do): lleva tilde siempre."
+    },
+    {
+      "p": "fácil",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "como",
+      "pista": "Lo contrario de difícil",
+      "porque": "fácil es llana (FÁ-cil) y termina en -l: lleva tilde."
+    },
+    {
+      "p": "corrió",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de correr: ayer el ladrón ___ como un rayo",
+      "porque": "corrió es aguda (co-RRIÓ) y termina en vocal: lleva tilde."
+    },
+    {
+      "p": "café",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Por la mañana, mi padre toma un ___ con leche",
+      "porque": "café es aguda (ca-FÉ) y termina en vocal: lleva tilde."
+    },
+    {
+      "p": "difícil",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "como",
+      "pista": "Lo contrario de fácil",
+      "porque": "difícil es llana (di-FÍ-cil) y termina en -l: lleva tilde."
+    },
+    {
+      "p": "detrás",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de delante",
+      "porque": "detrás es aguda (de-TRÁS) y termina en -s: lleva tilde."
+    },
+    {
+      "p": "sofá",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "En el salón, el gato duerme la siesta en el ___",
+      "porque": "sofá es aguda (so-FÁ) y termina en vocal: lleva tilde."
+    },
+    {
+      "p": "camión",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Vehículo grande que reparte mercancías o recoge la basura",
+      "porque": "camión es aguda (ca-MIÓN) y termina en -n: lleva tilde."
+    },
+    {
+      "p": "lápiz",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Sirve para escribir, y lo que escribe se borra con goma",
+      "porque": "lápiz es llana (LÁ-piz) y termina en -z, que no es vocal, -n ni -s: lleva tilde."
+    },
+    {
+      "p": "teléfono",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Aparato que suena cuando alguien te llama",
+      "porque": "teléfono es esdrújula (te-LÉ-fo-no): las esdrújulas llevan tilde siempre."
+    },
+    {
+      "p": "reloj",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Aparato que marca la hora y se lleva en la muñeca",
+      "porque": "reloj es aguda (re-LOJ) y termina en -j: las agudas que no terminan en vocal, -n o -s no llevan tilde."
+    },
+    {
+      "p": "azúcar",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Polvo blanco y dulce que se echa al café",
+      "porque": "azúcar es llana (a-ZÚ-car) y termina en -r: lleva tilde."
+    },
+    {
+      "p": "pájaro",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Animal con plumas y pico que vuela de rama en rama",
+      "porque": "pájaro es esdrújula (PÁ-ja-ro): las esdrújulas llevan tilde siempre."
+    },
+    {
+      "p": "médico",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Persona que te cura cuando estás enfermo",
+      "porque": "médico es esdrújula (MÉ-di-co): lleva tilde siempre."
+    },
+    {
+      "p": "miércoles",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "tiempo",
+      "pista": "El día de en medio de la semana, después del martes",
+      "porque": "miércoles es esdrújula (MIÉR-co-les): lleva tilde siempre."
+    },
+    {
+      "p": "feliz",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "como",
+      "pista": "Muy contento y alegre",
+      "porque": "feliz es aguda (fe-LIZ) y termina en -z: las agudas que no terminan en vocal, -n o -s no llevan tilde."
+    },
+    {
+      "p": "césped",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Hierba corta y cuidada de los jardines y de los campos de fútbol",
+      "porque": "césped es llana (CÉS-ped) y termina en -d: lleva tilde."
+    },
+    {
+      "p": "cárcel",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Edificio donde encierran a los ladrones cuando los atrapan",
+      "porque": "cárcel es llana (CÁR-cel) y termina en -l: lleva tilde."
+    },
+    {
+      "p": "árbitro",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "En un partido, quien pita las faltas y enseña las tarjetas",
+      "porque": "árbitro es esdrújula (ÁR-bi-tro): las esdrújulas llevan tilde siempre."
+    },
+    {
+      "p": "brújula",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Instrumento con una aguja que siempre señala el norte",
+      "porque": "brújula es esdrújula (BRÚ-ju-la): las esdrújulas llevan tilde siempre."
+    },
+    {
+      "p": "fósil",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Resto de un animal antiquísimo que se ha convertido en piedra",
+      "porque": "fósil es llana (FÓ-sil) y termina en -l: lleva tilde."
+    },
+    {
+      "p": "cómic",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Historia contada con viñetas y bocadillos",
+      "porque": "cómic es llana (CÓ-mic) y termina en -c: lleva tilde."
+    },
+    {
+      "p": "mármol",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Piedra dura y brillante con la que se hacen estatuas y escaleras",
+      "porque": "mármol es llana (MÁR-mol) y termina en -l: lleva tilde."
+    },
+    {
+      "p": "sílaba",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Cada uno de los golpes de voz en que se divide una palabra",
+      "porque": "sílaba es esdrújula (SÍ-la-ba): las esdrújulas llevan tilde siempre."
+    },
+    {
+      "p": "volcán",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "Montaña que a veces escupe fuego y lava",
+      "porque": "volcán es aguda (vol-CÁN) y termina en -n: lleva tilde."
+    },
+    {
+      "p": "útil",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Que sirve para algo y presta un buen servicio",
+      "porque": "útil es llana (Ú-til) y termina en -l: lleva tilde."
+    },
+    {
+      "p": "cantaba",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de cantar: cada noche, la abuela ___ coplas",
+      "porque": "cantaba: el pasado de los verbos en -ar se escribe con -aba."
+    },
+    {
+      "p": "iba",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de ir: cada mañana Bruno ___ al kiosco en bici",
+      "porque": "iba: el pasado del verbo ir se escribe con b (iba, íbamos)."
+    },
+    {
+      "p": "subir",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "verbo",
+      "pista": "Lo contrario de bajar",
+      "porque": "subir: es un verbo terminado en -bir, así que va con b."
+    },
+    {
+      "p": "recibir",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "verbo",
+      "pista": "Lo contrario de enviar: ___ una carta",
+      "porque": "recibir: verbo terminado en -bir, con b."
+    },
+    {
+      "p": "estuve",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de estar, que rima con «tuve»: ayer yo ___ en casa",
+      "porque": "estuve: las formas de estar, andar y tener con ese sonido se escriben con v."
+    },
+    {
+      "p": "hombre",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "ser",
+      "pista": "Persona adulta; lo contrario de mujer",
+      "porque": "hombre: antes de b se escribe m, nunca n."
+    },
+    {
+      "p": "blanco",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "como",
+      "pista": "El color de la nieve y de la leche",
+      "porque": "blanco: el grupo bl se escribe siempre con b."
+    },
+    {
+      "p": "nuevo",
+      "regla": "b-v-1",
+      "nivel": 1,
+      "campo": "como",
+      "pista": "Lo contrario de viejo",
+      "porque": "nuevo: los adjetivos terminados en -evo se escriben con v."
+    },
+    {
+      "p": "escribir",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "verbo",
+      "pista": "Lo que haces con un bolígrafo para dejar un mensaje en un papel",
+      "porque": "escribir: los verbos terminados en -bir se escriben con b (menos hervir, servir y vivir)."
+    },
+    {
+      "p": "invierno",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "tiempo",
+      "pista": "La estación más fría del año",
+      "porque": "invierno: después de n se escribe siempre v."
+    },
+    {
+      "p": "suave",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "como",
+      "pista": "Lo contrario de áspero, como el pelo de un gato",
+      "porque": "suave: los adjetivos terminados en -ave se escriben con v."
+    },
+    {
+      "p": "brazo",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Parte del cuerpo que va del hombro a la mano",
+      "porque": "brazo: el grupo br se escribe siempre con b."
+    },
+    {
+      "p": "ambulancia",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Vehículo con sirena que lleva a los enfermos al hospital",
+      "porque": "ambulancia: antes de b se escribe m."
+    },
+    {
+      "p": "octavo",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "dato",
+      "pista": "El que llega justo detrás del séptimo",
+      "porque": "octavo: los adjetivos terminados en -avo se escriben con v."
+    },
+    {
+      "p": "bombero",
+      "regla": "b-v-1",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Persona que apaga incendios con una manguera",
+      "porque": "bombero: detrás de m se escribe siempre b."
+    },
+    {
+      "p": "hervir",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "verbo",
+      "pista": "Lo que hace el agua en la olla cuando llega a cien grados",
+      "porque": "hervir es una de las pocas excepciones de los verbos en -bir: va con v (como servir y vivir)."
+    },
+    {
+      "p": "obligatorio",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Que hay que hacerlo sí o sí, aunque no apetezca",
+      "porque": "obligatorio: el grupo bl se escribe siempre con b."
+    },
+    {
+      "p": "activo",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Que no para quieto y siempre está haciendo algo",
+      "porque": "activo: los adjetivos terminados en -ivo, -iva se escriben con v."
+    },
+    {
+      "p": "abogado",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Persona que defiende a otra en un juicio",
+      "porque": "abogado: las palabras que empiezan por abo- y abu- se escriben con b."
+    },
+    {
+      "p": "bucear",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "verbo",
+      "pista": "Nadar por debajo del agua con gafas y tubo",
+      "porque": "bucear: las palabras que empiezan por bu-, bur- y bus- se escriben con b."
+    },
+    {
+      "p": "envidia",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Lo que siente quien quiere para sí lo que tiene otro",
+      "porque": "envidia: después de n se escribe siempre v."
+    },
+    {
+      "p": "submarino",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Barco que navega por debajo del agua",
+      "porque": "submarino: las palabras que empiezan por sub- se escriben con b."
+    },
+    {
+      "p": "burbuja",
+      "regla": "b-v-1",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Bolita de aire que flota en el agua con jabón",
+      "porque": "burbuja: las palabras que empiezan por bu-, bur- y bus- se escriben con b."
+    },
+    {
+      "p": "huevo",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Lo pone la gallina y sirve para hacer tortilla",
+      "porque": "huevo: las palabras que empiezan por ue- llevan h."
+    },
+    {
+      "p": "hueso",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Lo que el perro entierra en el jardín",
+      "porque": "hueso: empieza por ue-, así que lleva h."
+    },
+    {
+      "p": "humo",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Lo que sale por la chimenea cuando hay fuego",
+      "porque": "humo: empieza por hum- más vocal, así que lleva h."
+    },
+    {
+      "p": "hizo",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de hacer: ayer Julián ___ un bizcocho",
+      "porque": "hizo: todas las formas del verbo hacer llevan h."
+    },
+    {
+      "p": "hablaba",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de hablar: el testigo siempre ___ sin parar",
+      "porque": "hablaba: todas las formas de hablar llevan h (y el pasado en -aba, b)."
+    },
+    {
+      "p": "hablar",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "verbo",
+      "pista": "Lo contrario de callar",
+      "porque": "hablar: todas las formas del verbo hablar llevan h."
+    },
+    {
+      "p": "hacer",
+      "regla": "h-1",
+      "nivel": 1,
+      "campo": "verbo",
+      "pista": "Lo contrario de deshacer: ___ la cama",
+      "porque": "hacer: todas las formas del verbo hacer llevan h (hago, hice, hecho)."
+    },
+    {
+      "p": "hielo",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Agua tan fría que se ha puesto dura",
+      "porque": "hielo: las palabras que empiezan por ie- llevan h."
+    },
+    {
+      "p": "hermano",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Hijo de tus mismos padres",
+      "porque": "hermano: las palabras que empiezan por herm- llevan h."
+    },
+    {
+      "p": "hormiga",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Insecto pequeñito que camina en fila y guarda comida para el invierno",
+      "porque": "hormiga: las palabras que empiezan por horm- llevan h."
+    },
+    {
+      "p": "hospital",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Edificio donde curan a los enfermos y adonde llegan las ambulancias",
+      "porque": "hospital: las palabras que empiezan por hosp- llevan h."
+    },
+    {
+      "p": "huerto",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Terreno donde se plantan tomates y lechugas",
+      "porque": "huerto: empieza por ue-, así que lleva h."
+    },
+    {
+      "p": "horrible",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "como",
+      "pista": "Muy feo; tanto que da miedo o asco",
+      "porque": "horrible: las palabras que empiezan por horr- llevan h."
+    },
+    {
+      "p": "humano",
+      "regla": "h-1",
+      "nivel": 2,
+      "campo": "como",
+      "pista": "Propio de las personas: el cuerpo ___ tiene más de doscientos huesos",
+      "porque": "humano: empieza por hum- más vocal, así que lleva h."
+    },
+    {
+      "p": "huérfano",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Niño que se ha quedado sin padre ni madre",
+      "porque": "huérfano: las palabras que empiezan por ue- llevan h delante."
+    },
+    {
+      "p": "hiena",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Animal de la sabana que parece reírse a carcajadas",
+      "porque": "hiena: las palabras que empiezan por ie- llevan h delante."
+    },
+    {
+      "p": "humilde",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Que no presume de lo que tiene ni de lo que sabe",
+      "porque": "humilde: empieza por hum- seguido de vocal, así que lleva h."
+    },
+    {
+      "p": "hormiguero",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "Casa bajo tierra de unos insectos que caminan en fila",
+      "porque": "hormiguero: las palabras que empiezan por horm- llevan h."
+    },
+    {
+      "p": "habitante",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Persona que vive en un pueblo o en una ciudad",
+      "porque": "habitante: toda la familia del verbo habitar lleva h."
+    },
+    {
+      "p": "hallar",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "verbo",
+      "pista": "Encontrar por fin algo que se andaba buscando",
+      "porque": "hallar: todas las formas del verbo hallar llevan h."
+    },
+    {
+      "p": "hierro",
+      "regla": "h-1",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Metal duro y gris con el que se hacen rejas y clavos",
+      "porque": "hierro: las palabras que empiezan por ie- llevan h delante."
+    },
+    {
+      "p": "queso",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Alimento que se hace con leche y que vuelve locos a los ratones",
+      "porque": "queso: el sonido /k/ delante de e se escribe qu."
+    },
+    {
+      "p": "luces",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "El plural de luz: en la feria se encienden mil ___",
+      "porque": "luces: el plural de las palabras acabadas en z se escribe con c (luz, luces)."
+    },
+    {
+      "p": "empecé",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de empezar: ayer yo ___ un libro de misterio",
+      "porque": "empecé: los verbos en -zar cambian la z por c delante de e."
+    },
+    {
+      "p": "zumo",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "De tres naranjas exprimidas sale un vaso de ___",
+      "porque": "zumo: delante de u, ese sonido se escribe con z (za, zo, zu)."
+    },
+    {
+      "p": "cerca",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de lejos",
+      "porque": "cerca: delante de e se escribe c, no z (ce, ci)."
+    },
+    {
+      "p": "cine",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "lugar",
+      "pista": "Lugar donde se ven películas en una pantalla gigante",
+      "porque": "cine: delante de i se escribe c, no z (ce, ci)."
+    },
+    {
+      "p": "cinco",
+      "regla": "c-z-s",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "El número que va después del cuatro",
+      "porque": "cinco: delante de i se escribe c, no z (ce, ci)."
+    },
+    {
+      "p": "zapato",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Calzado que se ata con cordones",
+      "porque": "zapato: el sonido za se escribe con z."
+    },
+    {
+      "p": "cazuela",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Recipiente de barro para guisar",
+      "porque": "cazuela: delante de u se escribe z (za, zo, zu)."
+    },
+    {
+      "p": "cebolla",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Hortaliza que te hace llorar cuando la cortas",
+      "porque": "cebolla: el sonido ce se escribe con c (ce, ci)."
+    },
+    {
+      "p": "cereza",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Fruta pequeña, roja y redonda que suele crecer de dos en dos",
+      "porque": "cereza: ce se escribe con c, y za, con z."
+    },
+    {
+      "p": "plaza",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Espacio abierto del barrio, con fuente y bancos",
+      "porque": "plaza: za se escribe con z."
+    },
+    {
+      "p": "cocina",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Habitación de la casa donde se preparan las comidas",
+      "porque": "cocina: co se escribe con c, y ci también."
+    },
+    {
+      "p": "cielo",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Lo que hay sobre nuestras cabezas, donde flotan las nubes",
+      "porque": "cielo: ci se escribe con c."
+    },
+    {
+      "p": "peces",
+      "regla": "c-z-s",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Animales que nadan en la fuente (en plural)",
+      "porque": "peces: el plural de pez se escribe con c (pez, peces)."
+    },
+    {
+      "p": "azulejo",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Pieza de cerámica pintada que decora las fuentes andaluzas",
+      "porque": "azulejo: zu se escribe con z."
+    },
+    {
+      "p": "calabaza",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Hortaliza grande y naranja que se convirtió en la carroza de Cenicienta",
+      "porque": "calabaza: delante de a, ese sonido se escribe con z (za, zo, zu)."
+    },
+    {
+      "p": "pozo",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "Agujero muy hondo del que se saca agua con un cubo",
+      "porque": "pozo: delante de o, ese sonido se escribe con z (za, zo, zu)."
+    },
+    {
+      "p": "ceniza",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Polvo gris que queda después de quemarse la leña",
+      "porque": "ceniza: delante de e e i se escribe c; delante de a, z."
+    },
+    {
+      "p": "lechuza",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Ave nocturna de cara blanca y redonda, prima del búho",
+      "porque": "lechuza: delante de u, ese sonido se escribe con z (za, zo, zu)."
+    },
+    {
+      "p": "receta",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Lista de ingredientes y pasos para preparar un plato",
+      "porque": "receta: delante de e se escribe c, no z (ce, ci)."
+    },
+    {
+      "p": "corazón",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Órgano que late en el pecho y bombea la sangre",
+      "porque": "corazón: delante de o, ese sonido se escribe con z (za, zo, zu)."
+    },
+    {
+      "p": "tropezar",
+      "regla": "c-z-s",
+      "nivel": 3,
+      "campo": "verbo",
+      "pista": "Dar con el pie en algo y casi caerse",
+      "porque": "tropezar: delante de a, ese sonido se escribe con z (za, zo, zu)."
+    },
+    {
+      "p": "lluvia",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Agua que cae de las nubes",
+      "porque": "lluvia: con ll, como su familia: llover, llueve, lluvioso."
+    },
+    {
+      "p": "llave",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Sirve para abrir y cerrar una puerta",
+      "porque": "llave: con ll, como su familia: llavero."
+    },
+    {
+      "p": "ayer",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "El día anterior a hoy",
+      "porque": "ayer: se escribe con y, como anteayer."
+    },
+    {
+      "p": "hoy",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "Este mismo día",
+      "porque": "hoy: la i final que va detrás de una vocal y no suena fuerte se escribe y."
+    },
+    {
+      "p": "cayó",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de caer: el jarrón se ___ al suelo",
+      "porque": "cayó: caer no tiene ll ni y, así que sus formas con ese sonido van con y."
+    },
+    {
+      "p": "amarillo",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "como",
+      "pista": "El color del limón y del sol",
+      "porque": "amarillo: terminada en -illo, con ll."
+    },
+    {
+      "p": "llorar",
+      "regla": "ll-y",
+      "nivel": 1,
+      "campo": "verbo",
+      "pista": "Lo contrario de reír",
+      "porque": "llorar se escribe con ll, como lloro y llorón."
+    },
+    {
+      "p": "silla",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Asiento con respaldo para una sola persona",
+      "porque": "silla: las palabras terminadas en -illa se escriben con ll."
+    },
+    {
+      "p": "bombilla",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Da luz cuando la enciendes en una lámpara",
+      "porque": "bombilla: terminada en -illa, con ll."
+    },
+    {
+      "p": "calle",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Camino entre casas por donde pasan coches y gente",
+      "porque": "calle: con ll, como su familia: callejón, callejero."
+    },
+    {
+      "p": "pasillo",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Parte larga y estrecha de una casa que une las habitaciones",
+      "porque": "pasillo: las palabras terminadas en -illo se escriben con ll."
+    },
+    {
+      "p": "caballo",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Animal de crines largas que galopa y relincha",
+      "porque": "caballo: con ll, como su familia: caballero, caballería."
+    },
+    {
+      "p": "rey",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Lleva corona y manda en un reino",
+      "porque": "rey: la i final que va detrás de una vocal y no suena fuerte se escribe y."
+    },
+    {
+      "p": "playa",
+      "regla": "ll-y",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Lugar con arena junto al mar donde se pone la sombrilla",
+      "porque": "playa se escribe con y, como playero."
+    },
+    {
+      "p": "ardilla",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Animal pequeño de cola peluda que trepa a los árboles y come nueces",
+      "porque": "ardilla: las palabras terminadas en -illa se escriben con ll."
+    },
+    {
+      "p": "mantequilla",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Se unta en las tostadas y se hace con la nata de la leche",
+      "porque": "mantequilla: las palabras terminadas en -illa se escriben con ll."
+    },
+    {
+      "p": "zapatilla",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Calzado cómodo para correr o para andar por casa",
+      "porque": "zapatilla: las palabras terminadas en -illa se escriben con ll."
+    },
+    {
+      "p": "bocadillo",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Pan partido por la mitad y relleno de jamón o de tortilla",
+      "porque": "bocadillo: las palabras terminadas en -illo se escriben con ll."
+    },
+    {
+      "p": "castillo",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "Edificio de piedra con torres y murallas donde vivían los reyes",
+      "porque": "castillo: las palabras terminadas en -illo se escriben con ll."
+    },
+    {
+      "p": "rodilla",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Parte de la pierna que se dobla y que te raspas al caerte",
+      "porque": "rodilla: las palabras terminadas en -illa se escriben con ll."
+    },
+    {
+      "p": "tobillo",
+      "regla": "ll-y",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Articulación entre la pierna y el pie que se tuerce al pisar mal",
+      "porque": "tobillo: las palabras terminadas en -illo se escriben con ll."
+    },
+    {
+      "p": "gente",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "ser",
+      "pista": "Muchas personas juntas: en la plaza había mucha ___",
+      "porque": "gente: -gente se escribe con g."
+    },
+    {
+      "p": "dije",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de decir: ayer yo te lo ___",
+      "porque": "dije: decir no tiene g ni j, así que sus formas con je van con j."
+    },
+    {
+      "p": "jirafa",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "animal",
+      "pista": "El animal de cuello más largo de la sabana",
+      "porque": "jirafa se escribe con j; con g, gi suena igual, así que hay que aprendérsela."
+    },
+    {
+      "p": "guerra",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de paz",
+      "porque": "guerra: en gue la u no suena y no lleva diéresis."
+    },
+    {
+      "p": "juguete",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "cosa",
+      "pista": "Los Reyes Magos te traen un ___ si te portas bien",
+      "porque": "juguete: en gue la u no suena y no lleva diéresis."
+    },
+    {
+      "p": "dijo",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de decir: el testigo ___ toda la verdad",
+      "porque": "dijo viene de decir, que no tiene g ni j: sus formas van con j (dije, dijo)."
+    },
+    {
+      "p": "trajo",
+      "regla": "g-j-dieresis",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de traer: el cartero ___ un paquete",
+      "porque": "trajo viene de traer, que no tiene g ni j: sus formas van con j (traje, trajo)."
+    },
+    {
+      "p": "pingüino",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Ave blanca y negra que no vuela y vive donde hace mucho frío",
+      "porque": "pingüino: en güi la u suena, así que lleva diéresis."
+    },
+    {
+      "p": "cigüeña",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Ave de patas largas que hace su nido en los campanarios",
+      "porque": "cigüeña: en güe la u suena, así que lleva diéresis."
+    },
+    {
+      "p": "relojero",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Persona que arregla relojes",
+      "porque": "relojero: las palabras terminadas en -jero se escriben con j."
+    },
+    {
+      "p": "garaje",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Lugar de la casa donde se guarda el coche",
+      "porque": "garaje: las palabras terminadas en -aje se escriben con j."
+    },
+    {
+      "p": "imagen",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Dibujo, foto o pintura de algo",
+      "porque": "imagen: las palabras terminadas en -gen se escriben con g."
+    },
+    {
+      "p": "elegir",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "verbo",
+      "pista": "Escoger una cosa entre varias",
+      "porque": "elegir: los verbos terminados en -gir se escriben con g."
+    },
+    {
+      "p": "proteger",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "verbo",
+      "pista": "Cuidar a alguien para que no le pase nada malo",
+      "porque": "proteger: los verbos terminados en -ger se escriben con g."
+    },
+    {
+      "p": "ligero",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "como",
+      "pista": "Que pesa muy poco, como una pluma",
+      "porque": "ligero: es la excepción: termina en -gero, pero se escribe con g."
+    },
+    {
+      "p": "viaje",
+      "regla": "g-j-dieresis",
+      "nivel": 2,
+      "campo": "dato",
+      "pista": "Lo que haces cuando te vas de vacaciones a otro sitio",
+      "porque": "viaje: las palabras terminadas en -aje se escriben con j."
+    },
+    {
+      "p": "vergüenza",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Lo que sientes cuando te pones rojo porque todos te miran",
+      "porque": "vergüenza: en güe la u suena, así que lleva diéresis."
+    },
+    {
+      "p": "paraguas",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Se abre como una flor negra cuando empieza a llover",
+      "porque": "paraguas: en gua la u siempre suena, así que no necesita diéresis."
+    },
+    {
+      "p": "ingeniero",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Persona que diseña puentes, máquinas y carreteras",
+      "porque": "ingeniero: el grupo gen se escribe con g, como gente o ingenio."
+    },
+    {
+      "p": "bilingüe",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Que habla dos idiomas desde pequeño",
+      "porque": "bilingüe: en gue la u no suena; aquí sí suena, así que lleva diéresis (güe)."
+    },
+    {
+      "p": "dirigir",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "verbo",
+      "pista": "Mandar en una orquesta o en un equipo",
+      "porque": "dirigir: los verbos acabados en -gir se escriben con g."
+    },
+    {
+      "p": "personaje",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Cada uno de los que aparecen en un cuento o en una película",
+      "porque": "personaje: las palabras terminadas en -aje se escriben con j."
+    },
+    {
+      "p": "extranjero",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Persona que viene de otro país",
+      "porque": "extranjero: las palabras terminadas en -jero, -jera se escriben con j."
+    },
+    {
+      "p": "agujero",
+      "regla": "g-j-dieresis",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Hueco redondo que se hace en una pared o en un calcetín viejo",
+      "porque": "agujero: las palabras terminadas en -jero se escriben con j."
+    },
+    {
+      "p": "después",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "Lo contrario de antes",
+      "porque": "después: des-PUÉS es aguda en -s, con el diptongo ue: lleva tilde en la e."
+    },
+    {
+      "p": "fue",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de ir: ayer Lola ___ al mercado",
+      "porque": "fue: es monosílabo (una sola sílaba), así que no lleva tilde."
+    },
+    {
+      "p": "dio",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de dar: Robles nos ___ un caso nuevo",
+      "porque": "dio: es monosílabo, así que no lleva tilde."
+    },
+    {
+      "p": "vio",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de ver: el testigo lo ___ todo desde el balcón",
+      "porque": "vio: es monosílabo, así que no lleva tilde."
+    },
+    {
+      "p": "también",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo mismo que «además»: yo ___ quiero ir",
+      "porque": "también: tam-BIÉN es aguda en -n, con el diptongo ie: lleva tilde en la e."
+    },
+    {
+      "p": "ti",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Este regalo no es para mí: es para ___",
+      "porque": "ti tiene una sola sílaba: los monosílabos no llevan tilde."
+    },
+    {
+      "p": "fui",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "campo": "accion",
+      "pista": "Pasado de ir: ayer yo ___ al cine con Lola",
+      "porque": "fui tiene una sola sílaba (el diptongo ui no se separa): no lleva tilde."
+    },
+    {
+      "p": "canción",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Música con letra que se puede cantar",
+      "porque": "canción: can-CIÓN es aguda en -n, con el diptongo io: lleva tilde, y va en la vocal abierta, la o."
+    },
+    {
+      "p": "avión",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Vehículo con alas que vuela muy alto",
+      "porque": "avión: a-VIÓN es aguda en -n, con el diptongo io: lleva tilde en la o."
+    },
+    {
+      "p": "pie",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Parte del cuerpo con la que andas, al final de la pierna",
+      "porque": "pie: tiene una sola sílaba, porque el diptongo ie no se separa. Los monosílabos no llevan tilde."
+    },
+    {
+      "p": "cuento",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Historia corta e inventada, como la de Caperucita",
+      "porque": "cuento: CUEN-to es llana terminada en vocal: no lleva tilde, aunque tenga diptongo."
+    },
+    {
+      "p": "guion",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Texto con lo que dice cada actor en una obra de teatro",
+      "porque": "guion: para la ortografía tiene una sola sílaba, así que no lleva tilde."
+    },
+    {
+      "p": "ruido",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Sonido fuerte y molesto, como el de una moto vieja",
+      "porque": "ruido: RUI-do es llana terminada en vocal: no lleva tilde."
+    },
+    {
+      "p": "huésped",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Persona que se aloja en un hotel o en casa de otro",
+      "porque": "huésped: HUÉS-ped es llana en -d, con el diptongo ue: lleva tilde en la e."
+    },
+    {
+      "p": "murciélago",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Mamífero que vuela de noche y duerme cabeza abajo",
+      "porque": "murciélago: mur-CIÉ-la-go es esdrújula: lleva tilde siempre, en la e del diptongo ie."
+    },
+    {
+      "p": "náufrago",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Persona que se salva de un barco hundido y llega nadando a una isla",
+      "porque": "náufrago es esdrújula (NÁU-fra-go): lleva tilde, en la a del diptongo au."
+    },
+    {
+      "p": "acuático",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Que vive en el agua o tiene que ver con ella",
+      "porque": "acuático es esdrújula (a-CUÁ-ti-co): lleva tilde, en la a del diptongo ua."
+    },
+    {
+      "p": "farmacéutico",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "ser",
+      "pista": "Persona que te vende las medicinas que receta el médico",
+      "porque": "farmacéutico es esdrújula (far-ma-CÉU-ti-co): lleva tilde, en la e del diptongo eu."
+    },
+    {
+      "p": "cien",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Diez veces diez",
+      "porque": "cien tiene una sola sílaba (el diptongo ie no se separa): no lleva tilde."
+    },
+    {
+      "p": "ciempiés",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Bicho alargado con muchísimas patas",
+      "porque": "ciempiés es aguda (ciem-PIÉS) y termina en -s: lleva tilde, en la e del diptongo ie."
+    },
+    {
+      "p": "veintiséis",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Dos decenas y seis unidades",
+      "porque": "veintiséis es aguda (vein-ti-SÉIS) y termina en -s: lleva tilde, en la e del diptongo ei."
+    },
+    {
+      "p": "béisbol",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Deporte con bate, guante y una pelota pequeña",
+      "porque": "béisbol es llana (BÉIS-bol) y termina en -l: lleva tilde, en la e del diptongo ei."
+    },
+    {
+      "p": "verdad",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de mentira",
+      "porque": "verdad: termina en -dad, que siempre lleva d (plural: verdades)."
+    },
+    {
+      "p": "salud",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo que tienes cuando no estás enfermo",
+      "porque": "salud termina en d, aunque casi no se oiga: piensa en saludable y saludar."
+    },
+    {
+      "p": "edad",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Los años que tienes",
+      "porque": "edad: su plural es edades, así que termina en d."
+    },
+    {
+      "p": "paz",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de guerra",
+      "porque": "paz: su plural es paces, con -ces, así que termina en z."
+    },
+    {
+      "p": "maldad",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de bondad",
+      "porque": "maldad termina en -dad, que se escribe con d. Plural: maldades."
+    },
+    {
+      "p": "sed",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo que tienes cuando necesitas beber agua",
+      "porque": "sed termina en d, aunque casi no se oiga."
+    },
+    {
+      "p": "bondad",
+      "regla": "d-z-finales",
+      "nivel": 1,
+      "campo": "dato",
+      "pista": "Lo contrario de maldad",
+      "porque": "bondad termina en -dad, que se escribe con d. Plural: bondades."
+    },
+    {
+      "p": "pared",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "Muro de una habitación donde se cuelgan los cuadros",
+      "porque": "pared: su plural es paredes, así que termina en d."
+    },
+    {
+      "p": "red",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "La malla de la portería de fútbol",
+      "porque": "red: su plural es redes, así que termina en d."
+    },
+    {
+      "p": "luz",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Lo que da una bombilla encendida",
+      "porque": "luz: su plural es luces, así que termina en z."
+    },
+    {
+      "p": "voz",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Lo que sale de tu garganta cuando hablas o cantas",
+      "porque": "voz: su plural es voces, así que termina en z."
+    },
+    {
+      "p": "nariz",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "cosa",
+      "pista": "Parte de la cara con la que hueles",
+      "porque": "nariz: su plural es narices, así que termina en z."
+    },
+    {
+      "p": "pez",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "animal",
+      "pista": "Animal que nada y respira por branquias",
+      "porque": "pez: su plural es peces, así que termina en z."
+    },
+    {
+      "p": "actriz",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "Mujer que actúa en el teatro o en el cine",
+      "porque": "actriz: su plural es actrices, así que termina en z."
+    },
+    {
+      "p": "amistad",
+      "regla": "d-z-finales",
+      "nivel": 2,
+      "campo": "dato",
+      "pista": "Lo que une a dos buenos amigos",
+      "porque": "amistad: las palabras terminadas en -tad llevan d."
+    },
+    {
+      "p": "juventud",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "tiempo",
+      "pista": "La época de la vida en la que se es joven",
+      "porque": "juventud: las palabras terminadas en -tud llevan d."
+    },
+    {
+      "p": "cruz",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "La de las farmacias es verde y se enciende de noche",
+      "porque": "cruz: su plural es cruces, con -ces, así que termina en z."
+    },
+    {
+      "p": "codorniz",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Pájaro pequeño de campo, parecido a una perdiz",
+      "porque": "codorniz: su plural es codornices, con -ces, así que termina en z."
+    },
+    {
+      "p": "lombriz",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "animal",
+      "pista": "Gusano que vive bajo la tierra del huerto",
+      "porque": "lombriz: su plural es lombrices, con -ces, así que termina en z."
+    },
+    {
+      "p": "tempestad",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Tormenta muy fuerte en el mar, con olas enormes",
+      "porque": "tempestad termina en -tad, que se escribe con d. Plural: tempestades."
+    },
+    {
+      "p": "ajedrez",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Juego de mesa con reyes, torres, caballos y peones",
+      "porque": "ajedrez termina en z, aunque al final casi no se distinga de la d."
+    },
+    {
+      "p": "humedad",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "Lo que hay en el aire cuando todo está mojado y pegajoso",
+      "porque": "humedad termina en -dad, que se escribe con d. Plural: humedades."
+    },
+    {
+      "p": "altavoz",
+      "regla": "d-z-finales",
+      "nivel": 3,
+      "campo": "cosa",
+      "pista": "Aparato por el que sale el sonido de la radio",
+      "porque": "altavoz: su plural es altavoces, con -ces, así que termina en z."
+    },
+    {
+      "p": "Lola",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "ser",
+      "pista": "La detective de la agencia que trabaja con Mateo",
+      "porque": "Lola: es un nombre de persona, así que va con mayúscula."
+    },
+    {
+      "p": "martes",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "El día que va justo después del lunes",
+      "porque": "martes: los días de la semana se escriben con minúscula."
+    },
+    {
+      "p": "julio",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "El mes que va justo después de junio",
+      "porque": "julio: los meses se escriben con minúscula."
+    },
+    {
+      "p": "enero",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "El primer mes del año",
+      "porque": "enero: los meses se escriben con minúscula."
+    },
+    {
+      "p": "verano",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "La estación más calurosa del año",
+      "porque": "verano: las estaciones se escriben con minúscula."
+    },
+    {
+      "p": "viernes",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "tiempo",
+      "pista": "El último día de la semana en que hay colegio",
+      "porque": "viernes va en minúscula: los días de la semana se escriben con minúscula."
+    },
+    {
+      "p": "Mateo",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 1,
+      "campo": "ser",
+      "pista": "El compañero de Lola en la agencia",
+      "porque": "Mateo va con mayúscula: es el nombre propio de una persona."
+    },
+    {
+      "p": "Sevilla",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "La capital de Andalucía, la ciudad de la Giralda",
+      "porque": "Sevilla: es el nombre propio de una ciudad, así que va con mayúscula."
+    },
+    {
+      "p": "Granada",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "La ciudad andaluza de la Alhambra",
+      "porque": "Granada: nombre propio de ciudad, con mayúscula."
+    },
+    {
+      "p": "Guadalquivir",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "El gran río que pasa por Sevilla y Córdoba",
+      "porque": "Guadalquivir: nombre propio de río, con mayúscula."
+    },
+    {
+      "p": "Robles",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "ser",
+      "pista": "El apellido del director de la agencia La Lupa",
+      "porque": "Robles: es un apellido, un nombre propio: con mayúscula."
+    },
+    {
+      "p": "andaluz",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "como",
+      "pista": "Así se llama al que ha nacido en Andalucía (en masculino)",
+      "porque": "andaluz: los gentilicios se escriben con minúscula."
+    },
+    {
+      "p": "inglés",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "dato",
+      "pista": "El idioma que se habla en Inglaterra",
+      "porque": "inglés: los idiomas van con minúscula (y es aguda en -s: lleva tilde)."
+    },
+    {
+      "p": "Córdoba",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 2,
+      "campo": "lugar",
+      "pista": "La ciudad andaluza de la Mezquita",
+      "porque": "Córdoba va con mayúscula: es el nombre propio de una ciudad."
+    },
+    {
+      "p": "Cádiz",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "La ciudad andaluza más antigua, rodeada casi toda por el mar",
+      "porque": "Cádiz va con mayúscula: es el nombre propio de una ciudad."
+    },
+    {
+      "p": "Málaga",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "La ciudad de la Costa del Sol donde nació Picasso",
+      "porque": "Málaga va con mayúscula: es el nombre propio de una ciudad."
+    },
+    {
+      "p": "Andalucía",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "La comunidad autónoma donde están Sevilla, Jaén y Almería",
+      "porque": "Andalucía va con mayúscula: es el nombre propio de una comunidad autónoma."
+    },
+    {
+      "p": "francés",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "dato",
+      "pista": "El idioma que se habla en París",
+      "porque": "francés va en minúscula: los idiomas se escriben con minúscula."
+    },
+    {
+      "p": "sevillano",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "como",
+      "pista": "Así se llama al que ha nacido en la ciudad de la Giralda",
+      "porque": "sevillano va en minúscula: los gentilicios se escriben con minúscula."
+    },
+    {
+      "p": "otoño",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "tiempo",
+      "pista": "La estación en que se caen las hojas de los árboles",
+      "porque": "otoño va en minúscula: las estaciones del año se escriben con minúscula."
+    },
+    {
+      "p": "Atlántico",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "lugar",
+      "pista": "El océano que baña las playas de Huelva y de Cádiz",
+      "porque": "Atlántico va con mayúscula: es el nombre propio de un océano."
+    },
+    {
+      "p": "diciembre",
+      "regla": "mayusculas-puntuacion-1",
+      "nivel": 3,
+      "campo": "tiempo",
+      "pista": "El mes de la Navidad y de las uvas de fin de año",
+      "porque": "diciembre va en minúscula: los meses se escriben con minúscula."
+    }
+  ]
+}

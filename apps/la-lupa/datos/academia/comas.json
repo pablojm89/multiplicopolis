@@ -1,0 +1,1313 @@
+{
+  "_nota": "Z3 · La coma que cambia el culpable (Pizarra). Cada frase tiene dos lecturas con las MISMAS palabras; solo cambian los signos (y la mayúscula que va detrás de punto, que el juego pone sola). lecturas[].frase es la forma de referencia; tambien[] son otras puntuaciones válidas para esa misma lectura (nunca coinciden con la otra). tipo: vocativo, si-no, pregunta, pregunta-exclamacion, enumeracion, dos-puntos, punto o inciso. nivel 1 (bronce: vocativo, sí/no, ¿? ¡!, frases cortas), 2 (plata: enumeración, dos puntos y punto) o 3 (oro: incisos y frases largas; el diamante usa las de nivel 3 con tres signos o más en cada lectura). Signos permitidos: , . : ¿ ? ¡ ! (los dos puntos, desde el nivel 2). Validador: herramientas/validar_comas.py.",
+  "frases": [
+    {
+      "id": "comer-ninos",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "👵🍲",
+          "situacion": "La abuela avisa a sus nietos: la comida ya está en la mesa.",
+          "frase": "Vamos a comer, niños.",
+          "explicacion": "La coma separa a quien llamamos: los niños son los invitados, no el menú.",
+          "tambien": ["¡Vamos a comer, niños!"]
+        },
+        {
+          "emoji": "👹🍴",
+          "situacion": "El ogro del cuento se ata la servilleta y lee su menú favorito.",
+          "frase": "Vamos a comer niños.",
+          "explicacion": "Sin coma, «niños» es lo que se va a comer el ogro. ¡Socorro!",
+          "tambien": ["¡Vamos a comer niños!"]
+        }
+      ]
+    },
+    {
+      "id": "no-quiero-mas",
+      "tipo": "si-no",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🍰😋",
+          "situacion": "Te preguntan si ya estás lleno, pero todavía te cabe otro trozo de tarta.",
+          "frase": "No, quiero más.",
+          "explicacion": "La coma separa la respuesta («no, no estoy lleno») de lo que quieres: ¡más tarta!",
+          "tambien": ["¡No, quiero más!"]
+        },
+        {
+          "emoji": "🥦🙅",
+          "situacion": "Ya no puedes con el plato de brócoli y lo apartas despacito.",
+          "frase": "No quiero más.",
+          "explicacion": "Sin coma, el «no» va con el verbo: no quieres ni una cucharada más.",
+          "tambien": ["¡No quiero más!"]
+        }
+      ]
+    },
+    {
+      "id": "no-quiero-ir",
+      "tipo": "si-no",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🚌🤩",
+          "situacion": "Le preguntan a Mateo si prefiere quedarse en la agencia. ¡Está deseando ir de excursión!",
+          "frase": "No, quiero ir.",
+          "explicacion": "La coma separa la respuesta (no me quedo) de lo que Mateo quiere: ir.",
+          "tambien": ["¡No, quiero ir!"]
+        },
+        {
+          "emoji": "🦷😱",
+          "situacion": "Mateo tiene cita en el dentista y se agarra a la silla con las dos manos.",
+          "frase": "No quiero ir.",
+          "explicacion": "Sin coma, Mateo dice que no quiere ir. Ni con caramelos.",
+          "tambien": ["¡No quiero ir!"]
+        }
+      ]
+    },
+    {
+      "id": "lola-pipas",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🗣️🌻",
+          "situacion": "Mateo le pasa la bolsa a Lola y la invita a coger un puñado.",
+          "frase": "Lola, come pipas.",
+          "explicacion": "Coma de vocativo: Mateo habla con Lola y le pide algo.",
+          "tambien": ["¡Lola, come pipas!"]
+        },
+        {
+          "emoji": "🔭🌻",
+          "situacion": "Mateo vigila el parque con los prismáticos y apunta lo que hace Lola en el banco.",
+          "frase": "Lola come pipas.",
+          "explicacion": "Sin coma, Lola es de quien se habla: Mateo cuenta lo que hace."
+        }
+      ]
+    },
+    {
+      "id": "ramon-flamenco",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🎤👏",
+          "situacion": "En la fiesta del barrio, todos le piden a Ramón, el músico, que se arranque.",
+          "frase": "Ramón, canta flamenco.",
+          "explicacion": "La coma separa a Ramón, a quien hablamos, de lo que le pedimos.",
+          "tambien": ["¡Ramón, canta flamenco!"]
+        },
+        {
+          "emoji": "📰🎶",
+          "situacion": "El periódico del barrio presenta a Ramón y explica qué música toca.",
+          "frase": "Ramón canta flamenco.",
+          "explicacion": "Sin coma, se cuenta algo de Ramón: a qué se dedica."
+        }
+      ]
+    },
+    {
+      "id": "robles-corre",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "📣🏃",
+          "situacion": "Animas al director Robles en la carrera del barrio: ¡le están adelantando!",
+          "frase": "¡Robles, corre más!",
+          "explicacion": "Coma de vocativo: le gritas a Robles para animarlo.",
+          "tambien": ["Robles, corre más."]
+        },
+        {
+          "emoji": "🏃🐢",
+          "situacion": "Comparas a Robles con Mateo en la carrera: el director es mucho más rápido.",
+          "frase": "Robles corre más.",
+          "explicacion": "Sin coma, cuentas algo de Robles: es el más rápido de los dos.",
+          "tambien": ["¡Robles corre más!"]
+        }
+      ]
+    },
+    {
+      "id": "mateo-llama",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "📞🙏",
+          "situacion": "Necesitas que alguien avise a Lola y se lo pides a Mateo.",
+          "frase": "Mateo, llama a Lola.",
+          "explicacion": "Coma de vocativo: hablas con Mateo y le pides que llame.",
+          "tambien": ["¡Mateo, llama a Lola!"]
+        },
+        {
+          "emoji": "📞👀",
+          "situacion": "Desde la ventana ves que Mateo está hablando por teléfono con Lola.",
+          "frase": "Mateo llama a Lola.",
+          "explicacion": "Sin coma, cuentas lo que hace Mateo."
+        }
+      ]
+    },
+    {
+      "id": "hecho-mateo",
+      "tipo": "pregunta",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🤔🧁",
+          "situacion": "Alguien se ha comido las magdalenas de Robles. Lola no sabe quién ha sido y lo pregunta.",
+          "frase": "¿Lo ha hecho Mateo?",
+          "explicacion": "Es una pregunta: lleva ¿ al principio y ? al final."
+        },
+        {
+          "emoji": "☝️🧁",
+          "situacion": "Lola ha visto migas en el jersey de Mateo y lo dice muy segura.",
+          "frase": "Lo ha hecho Mateo.",
+          "explicacion": "Es una afirmación: se cierra con punto.",
+          "tambien": ["¡Lo ha hecho Mateo!"]
+        }
+      ]
+    },
+    {
+      "id": "culpable-loro",
+      "tipo": "pregunta",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🦜❓",
+          "situacion": "Han desaparecido las llaves y alguien sospecha del loro de doña Pilar, pero no está seguro.",
+          "frase": "¿El culpable es el loro?",
+          "explicacion": "Es una duda: va entre ¿ y ?."
+        },
+        {
+          "emoji": "🦜🔍",
+          "situacion": "Lola enseña la prueba: una pluma verde junto al llavero vacío.",
+          "frase": "El culpable es el loro.",
+          "explicacion": "Es una afirmación: lo dices segura y cierras con punto.",
+          "tambien": ["¡El culpable es el loro!"]
+        }
+      ]
+    },
+    {
+      "id": "robles-llaves",
+      "tipo": "pregunta",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🔑🤨",
+          "situacion": "Ves a Robles rebuscando en todos los bolsillos y quieres saber qué le pasa.",
+          "frase": "¿Robles ha perdido las llaves?",
+          "explicacion": "Es una pregunta: lleva ¿ al principio y ? al final."
+        },
+        {
+          "emoji": "🔑📝",
+          "situacion": "Escribes en el informe lo que ha pasado esta mañana en la agencia.",
+          "frase": "Robles ha perdido las llaves.",
+          "explicacion": "Es una afirmación de informe: se cierra con punto."
+        }
+      ]
+    },
+    {
+      "id": "manana-examen",
+      "tipo": "pregunta",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "😰📅",
+          "situacion": "Vuelves de vacaciones y no sabes si mañana toca examen.",
+          "frase": "¿Mañana hay examen?",
+          "explicacion": "Es una pregunta: lleva ¿ al principio y ? al final."
+        },
+        {
+          "emoji": "📝📅",
+          "situacion": "Don Anselmo lo apunta en la pizarra para que no se le olvide a nadie.",
+          "frase": "Mañana hay examen.",
+          "explicacion": "Es un aviso: se cierra con punto.",
+          "tambien": ["¡Mañana hay examen!"]
+        }
+      ]
+    },
+    {
+      "id": "no-deberes",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🤨📚",
+          "situacion": "Un compañero no se lo cree y se lo pregunta a don Anselmo.",
+          "frase": "¿Hoy no hay deberes?",
+          "explicacion": "Es una pregunta: lleva ¿ y ?."
+        },
+        {
+          "emoji": "🥳📚",
+          "situacion": "Don Anselmo da la noticia y la clase entera lo celebra.",
+          "frase": "¡Hoy no hay deberes!",
+          "explicacion": "Es una alegría: va entre ¡ y !.",
+          "tambien": ["Hoy no hay deberes."]
+        }
+      ]
+    },
+    {
+      "id": "como-canta",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🤔🎤",
+          "situacion": "Vas a cantar a dúo con Robles y quieres saber si canta flojito o a pleno pulmón.",
+          "frase": "¿Cómo canta Robles?",
+          "explicacion": "Preguntas de qué manera canta: ¿ al principio y ? al final."
+        },
+        {
+          "emoji": "😵🎤",
+          "situacion": "Robles canta en la fiesta y a todo el barrio se le pone la piel de gallina.",
+          "frase": "¡Cómo canta Robles!",
+          "explicacion": "Te asombras: es una exclamación, entre ¡ y !."
+        }
+      ]
+    },
+    {
+      "id": "cuanto-come",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🐶❓",
+          "situacion": "Vas a cuidar al perro de Julián y necesitas saber cuánta comida ponerle.",
+          "frase": "¿Cuánto come este perro?",
+          "explicacion": "Quieres saber la cantidad: es una pregunta, entre ¿ y ?."
+        },
+        {
+          "emoji": "🐶🌭",
+          "situacion": "El perro se ha zampado tres salchichas, dos magdalenas y un calcetín.",
+          "frase": "¡Cuánto come este perro!",
+          "explicacion": "Te asombras: es una exclamación, entre ¡ y !."
+        }
+      ]
+    },
+    {
+      "id": "tarta-mateo",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🎂❓",
+          "situacion": "Falta un trozo de tarta y Lola mira a Mateo con cara de sospecha.",
+          "frase": "¿Mateo se ha comido la tarta?",
+          "explicacion": "Lola sospecha, pero no lo sabe: lo pregunta entre ¿ y ?."
+        },
+        {
+          "emoji": "🎂😲",
+          "situacion": "Lola lo pilla con la boca llena de nata y no se lo puede creer.",
+          "frase": "¡Mateo se ha comido la tarta!",
+          "explicacion": "Lola se sorprende: es una exclamación, entre ¡ y !.",
+          "tambien": ["Mateo se ha comido la tarta."]
+        }
+      ]
+    },
+    {
+      "id": "fantasma",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "👻❓",
+          "situacion": "Has oído ruidos raros y preguntas a los demás si alguien sabe algo.",
+          "frase": "¿Hay un fantasma en el sótano?",
+          "explicacion": "Preguntas lo que no sabes: entre ¿ y ?."
+        },
+        {
+          "emoji": "👻😱",
+          "situacion": "Bajas al sótano, ves una sábana flotando y sales corriendo escaleras arriba.",
+          "frase": "¡Hay un fantasma en el sótano!",
+          "explicacion": "Lo gritas del susto: es una exclamación, entre ¡ y !.",
+          "tambien": ["Hay un fantasma en el sótano."]
+        }
+      ]
+    },
+    {
+      "id": "anselmo-baila",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "💃❓",
+          "situacion": "Hay baile en la Academia y quieres saber si don Anselmo se animará.",
+          "frase": "¿Don Anselmo sabe bailar?",
+          "explicacion": "Lo preguntas: entre ¿ y ?."
+        },
+        {
+          "emoji": "💃🤩",
+          "situacion": "Don Anselmo sale a la pista y deja a todo el mundo con la boca abierta.",
+          "frase": "¡Don Anselmo sabe bailar!",
+          "explicacion": "Te asombras: es una exclamación, entre ¡ y !.",
+          "tambien": ["Don Anselmo sabe bailar."]
+        }
+      ]
+    },
+    {
+      "id": "foto-tia",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "📸👩👩🐕",
+          "situacion": "En la foto hay tres: tu tía, la alcaldesa del pueblo y el perro.",
+          "frase": "En la foto salen mi tía, la alcaldesa y el perro.",
+          "explicacion": "Coma de enumeración: separa a los tres de la lista; el último va con «y», sin coma."
+        },
+        {
+          "emoji": "📸👩🐕",
+          "situacion": "En la foto hay dos: tu tía, que es la alcaldesa, y el perro.",
+          "frase": "En la foto salen mi tía la alcaldesa y el perro.",
+          "explicacion": "Sin coma, «la alcaldesa» dice quién es tu tía: en la foto salen dos."
+        }
+      ]
+    },
+    {
+      "id": "rocio-cartera",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "👩✉️👦",
+          "situacion": "A la fiesta llegan tres: Rocío, la señora que reparte las cartas y Mateo.",
+          "frase": "Han venido Rocío, la cartera y Mateo.",
+          "explicacion": "Coma de enumeración: tres invitados en la lista; el último va con «y»."
+        },
+        {
+          "emoji": "👩📮👦",
+          "situacion": "A la fiesta llegan dos: Rocío, que reparte las cartas del barrio, y Mateo.",
+          "frase": "Han venido Rocío la cartera y Mateo.",
+          "explicacion": "Sin coma, «la cartera» dice quién es Rocío: han venido dos."
+        }
+      ]
+    },
+    {
+      "id": "perro-toby",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🐕🧒🙋",
+          "situacion": "Fuisteis tres al parque: tu perro, tu amigo Toby y tú.",
+          "frase": "Mi perro, Toby y yo fuimos al parque.",
+          "explicacion": "Coma de enumeración: tres en la lista; el último va con «y»."
+        },
+        {
+          "emoji": "🐕🙋",
+          "situacion": "Fuisteis dos al parque: tú y tu perro, que se llama Toby.",
+          "frase": "Mi perro Toby y yo fuimos al parque.",
+          "explicacion": "Sin coma, «Toby» es el nombre del perro: fuisteis dos."
+        }
+      ]
+    },
+    {
+      "id": "primo-futbolista",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🚌🧑⚽👵",
+          "situacion": "En el autobús iban tres: tu primo, un futbolista famoso y tu abuela.",
+          "frase": "En el autobús iban mi primo, el futbolista y mi abuela.",
+          "explicacion": "Coma de enumeración: tres pasajeros; el último va con «y»."
+        },
+        {
+          "emoji": "🚌⚽👵",
+          "situacion": "En el autobús iban dos: tu primo, que juega al fútbol, y tu abuela.",
+          "frase": "En el autobús iban mi primo el futbolista y mi abuela.",
+          "explicacion": "Sin coma, «el futbolista» dice qué primo es: iban dos."
+        }
+      ]
+    },
+    {
+      "id": "jarron",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🏺💥",
+          "situacion": "Le cuentas a Mateo quién ha roto el jarrón de la agencia: ha sido Lola.",
+          "frase": "Mateo, Lola ha roto el jarrón.",
+          "explicacion": "Una coma: Mateo es a quien hablas, y la culpable es Lola."
+        },
+        {
+          "emoji": "🏺💥",
+          "situacion": "Le cuentas a Lola quién ha roto el jarrón de la agencia: ha sido Mateo.",
+          "frase": "Mateo, Lola, ha roto el jarrón.",
+          "explicacion": "Dos comas: Lola, entre comas, es a quien hablas, y el culpable es Mateo. ¡La coma cambia el culpable!"
+        }
+      ]
+    },
+    {
+      "id": "jefe-llegado",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🕵️🚪",
+          "situacion": "Avisas a Mateo de que Robles, el jefe, acaba de entrar. ¡Que esconda los tebeos!",
+          "frase": "Mateo, el jefe ha llegado.",
+          "explicacion": "Una coma, la del vocativo: hablas con Mateo y le avisas de que ha llegado el jefe."
+        },
+        {
+          "emoji": "👑🚪",
+          "situacion": "Hoy Mateo es el jefe de la misión, y por fin aparece por la puerta.",
+          "frase": "Mateo, el jefe, ha llegado.",
+          "explicacion": "Dos comas: «el jefe» es un inciso que explica quién es Mateo."
+        }
+      ]
+    },
+    {
+      "id": "julian-pan",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🗣️🥖",
+          "situacion": "Lola tiene prisa y le pide a Julián, el panadero, que saque ya la hornada.",
+          "frase": "Julián, saca el pan.",
+          "explicacion": "Coma de vocativo: Lola habla con Julián y le pide que lo haga.",
+          "tambien": ["¡Julián, saca el pan!"]
+        },
+        {
+          "emoji": "👨‍🍳🔥",
+          "situacion": "Mateo le cuenta a Lola lo que hace Julián cada mañana a las seis.",
+          "frase": "Julián saca el pan.",
+          "explicacion": "Sin coma, Julián es de quien se habla: cuenta lo que hace él cada mañana."
+        }
+      ]
+    },
+    {
+      "id": "ines-flores",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🗣️🌷",
+          "situacion": "Las macetas de la floristería están secas y Lola se lo recuerda a Inés.",
+          "frase": "Inés, riega las flores.",
+          "explicacion": "Coma de vocativo: Lola le habla a Inés y le pide que riegue.",
+          "tambien": ["¡Inés, riega las flores!"]
+        },
+        {
+          "emoji": "🚿🌷",
+          "situacion": "Desde la ventana, Mateo ve a la florista con su regadera verde.",
+          "frase": "Inés riega las flores.",
+          "explicacion": "Sin coma, se cuenta lo que hace Inés: es ella la que riega."
+        }
+      ]
+    },
+    {
+      "id": "paco-foto",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🗣️📷",
+          "situacion": "Todo el equipo posa sonriendo y Robles se impacienta con el fotógrafo.",
+          "frase": "Paco, saca la foto.",
+          "explicacion": "Coma de vocativo: Robles le habla a Paco y le pide que dispare.",
+          "tambien": ["¡Paco, saca la foto!"]
+        },
+        {
+          "emoji": "📷✨",
+          "situacion": "Lola explica quién se encarga de las fotos en la fiesta del barrio.",
+          "frase": "Paco saca la foto.",
+          "explicacion": "Sin coma, se cuenta lo que hace Paco: él es el fotógrafo de la fiesta."
+        }
+      ]
+    },
+    {
+      "id": "mateo-loro",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🗣️🦜",
+          "situacion": "Lola quiere que Mateo vea al loro, que está bailando en la jaula.",
+          "frase": "Mateo, mira el loro.",
+          "explicacion": "Coma de vocativo: Lola le habla a Mateo y le pide que mire.",
+          "tambien": ["¡Mateo, mira el loro!"]
+        },
+        {
+          "emoji": "👀🦜",
+          "situacion": "Lola cuenta qué está haciendo Mateo, embobado delante de la jaula.",
+          "frase": "Mateo mira el loro.",
+          "explicacion": "Sin coma, se cuenta lo que hace Mateo: está mirando al loro."
+        }
+      ]
+    },
+    {
+      "id": "herminia-cuento",
+      "tipo": "vocativo",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🗣️📖",
+          "situacion": "Los niños de la biblioteca piden a Herminia que empiece ya la hora del cuento.",
+          "frase": "Herminia, lee el cuento.",
+          "explicacion": "Coma de vocativo: los niños le hablan a Herminia y le piden que lea.",
+          "tambien": ["¡Herminia, lee el cuento!"]
+        },
+        {
+          "emoji": "📖🤫",
+          "situacion": "Lola explica por qué hay tanto silencio en la biblioteca esta tarde.",
+          "frase": "Herminia lee el cuento.",
+          "explicacion": "Sin coma, se cuenta lo que hace Herminia: está leyendo el cuento."
+        }
+      ]
+    },
+    {
+      "id": "no-es-tarde",
+      "tipo": "si-no",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🌙🏠",
+          "situacion": "Le preguntan a Mateo si se queda en la plaza, pero ya ha oscurecido.",
+          "frase": "No, es tarde.",
+          "explicacion": "La coma separa la respuesta («no me quedo») del motivo: ya es tarde."
+        },
+        {
+          "emoji": "🕰️😌",
+          "situacion": "Mateo quiere irse corriendo, pero Lola mira el reloj de la plaza: aún hay tiempo.",
+          "frase": "No es tarde.",
+          "explicacion": "Sin coma, el «no» va con el verbo: todavía no es tarde."
+        }
+      ]
+    },
+    {
+      "id": "no-esta-rico",
+      "tipo": "si-no",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🍅😋",
+          "situacion": "Le preguntan a Mateo si el gazpacho de su abuela está malo. ¡Qué va!",
+          "frase": "No, está rico.",
+          "explicacion": "La coma separa la respuesta («no, no está malo») de lo que piensa: está rico.",
+          "tambien": ["¡No, está rico!"]
+        },
+        {
+          "emoji": "🥣🤢",
+          "situacion": "Mateo prueba la sopa de sobre de la agencia y arruga la nariz.",
+          "frase": "No está rico.",
+          "explicacion": "Sin coma, el «no» va con el verbo: no le gusta nada.",
+          "tambien": ["¡No está rico!"]
+        }
+      ]
+    },
+    {
+      "id": "bruno-paquete",
+      "tipo": "pregunta",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "📦❓",
+          "situacion": "Robles no sabe si ha llegado el paquete y se lo pregunta a Lola.",
+          "frase": "¿Bruno ha traído el paquete?",
+          "explicacion": "Es una pregunta: Robles no lo sabe y la escribe entre ¿ y ?."
+        },
+        {
+          "emoji": "📦✅",
+          "situacion": "Lola lo ha visto con sus propios ojos y se lo cuenta a Robles.",
+          "frase": "Bruno ha traído el paquete.",
+          "explicacion": "Lola lo afirma: lo cuenta y lo cierra con un punto.",
+          "tambien": ["¡Bruno ha traído el paquete!"]
+        }
+      ]
+    },
+    {
+      "id": "cuanto-pesa",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "🍉⚖️",
+          "situacion": "Lola quiere saber los kilos de la sandía antes de pagársela a Manolo.",
+          "frase": "¿Cuánto pesa la sandía?",
+          "explicacion": "Lola pregunta para saberlo: ¿ y ?."
+        },
+        {
+          "emoji": "🍉😵",
+          "situacion": "Mateo intenta levantar la sandía de Manolo y casi se cae de espaldas.",
+          "frase": "¡Cuánto pesa la sandía!",
+          "explicacion": "Mateo no pregunta: se sorprende de lo que pesa. Es una exclamación: ¡ y !."
+        }
+      ]
+    },
+    {
+      "id": "como-baila",
+      "tipo": "pregunta-exclamacion",
+      "nivel": 1,
+      "lecturas": [
+        {
+          "emoji": "💃❓",
+          "situacion": "Mateo no ha ido a la feria y le pregunta a Lola qué tal baila doña Pilar.",
+          "frase": "¿Cómo baila doña Pilar?",
+          "explicacion": "Mateo pregunta porque no lo sabe: ¿ y ?."
+        },
+        {
+          "emoji": "💃🤩",
+          "situacion": "Lola ve a doña Pilar en la caseta y se queda con la boca abierta.",
+          "frase": "¡Cómo baila doña Pilar!",
+          "explicacion": "Lola se admira de lo bien que baila: es una exclamación, ¡ y !."
+        }
+      ]
+    },
+    {
+      "id": "no-entres",
+      "tipo": "dos-puntos",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🚪😴",
+          "situacion": "Mateo va a abrir la puerta del cuarto. Le avisas: dentro está Lola echando la siesta.",
+          "frase": "No entres: Lola está dormida.",
+          "explicacion": "Los dos puntos anuncian el motivo. Hablas con otra persona, y la que duerme es Lola.",
+          "tambien": ["No entres. Lola está dormida."]
+        },
+        {
+          "emoji": "🤫👵",
+          "situacion": "Lola va a abrir la puerta del cuarto. Le avisas a ella: la abuela se ha quedado dormida.",
+          "frase": "No entres, Lola: está dormida.",
+          "explicacion": "La coma separa a Lola, a quien hablas. La que duerme es otra: la abuela.",
+          "tambien": ["No entres, Lola. Está dormida.", "No entres, Lola, está dormida."]
+        }
+      ]
+    },
+    {
+      "id": "corre-toby",
+      "tipo": "dos-puntos",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🏃🐕",
+          "situacion": "Toby, tu perro, ha saltado la valla del parque. Pides ayuda a Lola para alcanzarlo.",
+          "frase": "Corre: Toby se escapa.",
+          "explicacion": "Los dos puntos anuncian el motivo. Hablas con otra persona, y el que se escapa es Toby.",
+          "tambien": ["Corre. Toby se escapa.", "¡Corre! Toby se escapa."]
+        },
+        {
+          "emoji": "🐕🐈",
+          "situacion": "Juegas con Toby, tu perro, y el gato del vecino sale disparado. Animas a Toby a seguirlo.",
+          "frase": "Corre, Toby: se escapa.",
+          "explicacion": "La coma separa a Toby, a quien hablas. El que se escapa es otro: el gato.",
+          "tambien": ["Corre, Toby. Se escapa.", "Corre, Toby, se escapa.", "¡Corre, Toby! Se escapa."]
+        }
+      ]
+    },
+    {
+      "id": "mira-robles",
+      "tipo": "dos-puntos",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "👀🕺",
+          "situacion": "En la fiesta del barrio, el director Robles se ha lanzado a la pista. Avisas a Lola.",
+          "frase": "Mira: Robles está bailando.",
+          "explicacion": "Los dos puntos anuncian lo que hay que mirar. Hablas con otra persona, y el que baila es Robles.",
+          "tambien": ["Mira. Robles está bailando.", "¡Mira! Robles está bailando."]
+        },
+        {
+          "emoji": "🤖🕺",
+          "situacion": "Mateo ha arreglado el robot de la agencia y se lo enseñas al director Robles.",
+          "frase": "Mira, Robles: está bailando.",
+          "explicacion": "La coma separa a Robles, a quien hablas. El que baila es otro: el robot.",
+          "tambien": ["Mira, Robles. Está bailando.", "Mira, Robles, está bailando.", "¡Mira, Robles! Está bailando."]
+        }
+      ]
+    },
+    {
+      "id": "silencio-herminia",
+      "tipo": "dos-puntos",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🤫📖",
+          "situacion": "Herminia ha empezado la hora del cuento en la biblioteca. Pides a los niños que se callen.",
+          "frase": "Silencio: Herminia está leyendo.",
+          "explicacion": "Los dos puntos anuncian el motivo del silencio. La que lee es Herminia.",
+          "tambien": ["Silencio. Herminia está leyendo.", "¡Silencio! Herminia está leyendo."]
+        },
+        {
+          "emoji": "🤫🎶",
+          "situacion": "Herminia canturrea entre las estanterías y Mateo intenta leer. Se lo pides a ella bajito.",
+          "frase": "Silencio, Herminia: está leyendo.",
+          "explicacion": "La coma separa a Herminia, a quien hablas. El que lee es otro: Mateo.",
+          "tambien": ["Silencio, Herminia. Está leyendo.", "Silencio, Herminia, está leyendo.", "¡Silencio, Herminia! Está leyendo."]
+        }
+      ]
+    },
+    {
+      "id": "espera-paco",
+      "tipo": "dos-puntos",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "⏳📷",
+          "situacion": "Lola quiere empezar la foto sin el fotógrafo. Le pides paciencia: Paco dobla ya la esquina.",
+          "frase": "Espera: Paco ya viene.",
+          "explicacion": "Los dos puntos anuncian el motivo. Hablas con otra persona, y el que viene es Paco.",
+          "tambien": ["Espera. Paco ya viene.", "¡Espera! Paco ya viene."]
+        },
+        {
+          "emoji": "⏳🚌",
+          "situacion": "Paco quiere irse andando. Le pides paciencia a él: el autobús ya asoma por la calle.",
+          "frase": "Espera, Paco: ya viene.",
+          "explicacion": "La coma separa a Paco, a quien hablas. El que viene es otro: el autobús.",
+          "tambien": ["Espera, Paco. Ya viene.", "Espera, Paco, ya viene.", "¡Espera, Paco! Ya viene."]
+        }
+      ]
+    },
+    {
+      "id": "cuidado-julian",
+      "tipo": "dos-puntos",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "😱🪜",
+          "situacion": "Julián, el panadero, se tambalea en lo alto de la escalera. Avisas a Mateo para que la sujete.",
+          "frase": "Cuidado: Julián se cae.",
+          "explicacion": "Los dos puntos anuncian el peligro. Hablas con otra persona, y el que se cae es Julián.",
+          "tambien": ["Cuidado. Julián se cae.", "¡Cuidado! Julián se cae."]
+        },
+        {
+          "emoji": "😱🍞",
+          "situacion": "Julián lleva una torre de panes que se inclina peligrosamente. Le avisas a él.",
+          "frase": "Cuidado, Julián: se cae.",
+          "explicacion": "La coma separa a Julián, a quien hablas. Lo que se cae es otra cosa: el pan.",
+          "tambien": ["Cuidado, Julián. Se cae.", "Cuidado, Julián, se cae.", "¡Cuidado, Julián! Se cae."]
+        }
+      ]
+    },
+    {
+      "id": "vecina-florista",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "👩👩‍🌾📮",
+          "situacion": "Al cumpleaños vinieron tres: tu vecina, Inés la florista y el cartero.",
+          "frase": "Han venido mi vecina, la florista y el cartero.",
+          "explicacion": "Coma de enumeración: separa a los tres de la lista; el último va con «y»."
+        },
+        {
+          "emoji": "👩‍🌾📮",
+          "situacion": "Vinieron dos: tu vecina, que es la florista, y el cartero.",
+          "frase": "Han venido mi vecina la florista y el cartero.",
+          "explicacion": "Sin coma, «la florista» dice quién es tu vecina: han venido dos."
+        }
+      ]
+    },
+    {
+      "id": "abuela-remedios",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "👵🐟🧒",
+          "situacion": "Vais tres al mercado: tu abuela, Remedios la pescadera y tú.",
+          "frase": "Mi abuela, Remedios y yo vamos al mercado.",
+          "explicacion": "Coma de enumeración: tu abuela y Remedios son dos personas distintas. Vais tres."
+        },
+        {
+          "emoji": "👵🧒",
+          "situacion": "Tu abuela se llama Remedios, y vais las dos juntas al mercado.",
+          "frase": "Mi abuela Remedios y yo vamos al mercado.",
+          "explicacion": "Sin coma, «Remedios» es el nombre de tu abuela: vais dos."
+        }
+      ]
+    },
+    {
+      "id": "pintor-gregorio",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🎨👨‍🎨🐈",
+          "situacion": "En el desván había tres: un pintor desconocido, Gregorio y el gato.",
+          "frase": "En el desván estaban el pintor, Gregorio y el gato.",
+          "explicacion": "Coma de enumeración: el pintor y Gregorio son dos personas distintas."
+        },
+        {
+          "emoji": "👨‍🎨🐈",
+          "situacion": "Gregorio es el pintor del barrio, y estaba en el desván con el gato.",
+          "frase": "En el desván estaban el pintor Gregorio y el gato.",
+          "explicacion": "Sin coma, «Gregorio» dice cómo se llama el pintor: estaban dos y el gato."
+        }
+      ]
+    },
+    {
+      "id": "ramon-musico",
+      "tipo": "enumeracion",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "📞🎻🐶",
+          "situacion": "Llamaron tres a la agencia: Ramón, un músico de la banda y su perro, que ladró.",
+          "frase": "Llamaron Ramón, el músico y su perro.",
+          "explicacion": "Coma de enumeración: Ramón y el músico son dos personas distintas."
+        },
+        {
+          "emoji": "📞🎻",
+          "situacion": "Llamó Ramón, que es el músico del barrio, y su perro ladró al teléfono.",
+          "frase": "Llamaron Ramón el músico y su perro.",
+          "explicacion": "Sin coma, «el músico» dice quién es Ramón: llamaron él y su perro."
+        }
+      ]
+    },
+    {
+      "id": "no-lo-ha-roto",
+      "tipo": "punto",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🏮👉",
+          "situacion": "Robles pregunta si Lola ha roto el farolillo. Ella dice que no y señala al culpable.",
+          "frase": "No. Lo ha roto Mateo.",
+          "explicacion": "Con punto, el «no» responde a la pregunta, y la oración siguiente dice quién fue: Mateo.",
+          "tambien": ["No, lo ha roto Mateo."]
+        },
+        {
+          "emoji": "🏮😇",
+          "situacion": "Mateo jura que es inocente: el farolillo ya estaba roto cuando llegó.",
+          "frase": "No lo ha roto Mateo.",
+          "explicacion": "Sin punto, el «no» va con el verbo: Mateo no lo ha roto.",
+          "tambien": ["¡No lo ha roto Mateo!"]
+        }
+      ]
+    },
+    {
+      "id": "no-hay-pan",
+      "tipo": "punto",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🥖✅",
+          "situacion": "Mateo pregunta si tiene que ir a comprar pan. Lola abre la panera: está llena.",
+          "frase": "No. Hay pan.",
+          "explicacion": "Con punto, el «no» responde (no hace falta ir) y la oración siguiente dice por qué: hay pan.",
+          "tambien": ["No, hay pan."]
+        },
+        {
+          "emoji": "🥖❌",
+          "situacion": "Julián ha vendido toda la hornada y cuelga un cartel en la puerta.",
+          "frase": "No hay pan.",
+          "explicacion": "Sin punto, el «no» va con el verbo: no queda ni una barra.",
+          "tambien": ["¡No hay pan!"]
+        }
+      ]
+    },
+    {
+      "id": "no-viene-lola",
+      "tipo": "punto",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "🚪👧",
+          "situacion": "Robles pregunta si Mateo viene a la reunión. No: es Lola quien viene.",
+          "frase": "No. Viene Lola.",
+          "explicacion": "Con punto, el «no» responde a la pregunta, y la oración siguiente dice quién viene.",
+          "tambien": ["No, viene Lola."]
+        },
+        {
+          "emoji": "🤒🛏️",
+          "situacion": "Lola está en la cama con fiebre y hoy no puede ir a la agencia.",
+          "frase": "No viene Lola.",
+          "explicacion": "Sin punto, el «no» va con el verbo: Lola no viene hoy."
+        }
+      ]
+    },
+    {
+      "id": "no-sale-sol",
+      "tipo": "punto",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "☀️😎",
+          "situacion": "Mateo pregunta si va a llover en la feria. Lola mira al cielo: está despejado.",
+          "frase": "No. Sale el sol.",
+          "explicacion": "Con punto, el «no» responde (no va a llover) y la oración siguiente lo explica.",
+          "tambien": ["No, sale el sol."]
+        },
+        {
+          "emoji": "☁️☁️",
+          "situacion": "Lleva tres días nublado en La Alameda y las sombrillas siguen cerradas.",
+          "frase": "No sale el sol.",
+          "explicacion": "Sin punto, el «no» va con el verbo: el sol no aparece."
+        }
+      ]
+    },
+    {
+      "id": "no-funciona",
+      "tipo": "punto",
+      "nivel": 2,
+      "lecturas": [
+        {
+          "emoji": "📻🎶",
+          "situacion": "Robles pregunta si se ha roto la radio. Lola la enciende y suena flamenco.",
+          "frase": "No. Funciona la radio.",
+          "explicacion": "Con punto, el «no» responde (no está rota) y la oración siguiente lo demuestra.",
+          "tambien": ["No, funciona la radio."]
+        },
+        {
+          "emoji": "📻🔇",
+          "situacion": "Radio Alameda lleva toda la mañana sin sonar y nadie sabe por qué.",
+          "frase": "No funciona la radio.",
+          "explicacion": "Sin punto, el «no» va con el verbo: la radio está estropeada.",
+          "tambien": ["¡No funciona la radio!"]
+        }
+      ]
+    },
+    {
+      "id": "robles-dice",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🗣️👉",
+          "situacion": "Mateo acusa al director: según él, el culpable es Robles.",
+          "frase": "Robles, dice Mateo, es el culpable.",
+          "explicacion": "«Dice Mateo» es un inciso entre comas: Mateo habla, y el acusado es Robles."
+        },
+        {
+          "emoji": "🗣️👈",
+          "situacion": "Es Robles quien habla, y acusa a Mateo.",
+          "frase": "Robles dice: Mateo es el culpable.",
+          "explicacion": "Los dos puntos anuncian lo que dice Robles: el acusado es Mateo. ¡Cambia el culpable!"
+        }
+      ]
+    },
+    {
+      "id": "loro-julian",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🦜🗣️",
+          "situacion": "Julián se queja de su loro: según él, no hay quien lo haga callar.",
+          "frase": "El loro, dice Julián, habla más que nadie.",
+          "explicacion": "«Dice Julián» es un inciso entre comas: Julián opina, y el parlanchín es el loro."
+        },
+        {
+          "emoji": "🦜👨‍🍳",
+          "situacion": "El loro ha aprendido una frase nueva y la repite sin parar.",
+          "frase": "El loro dice: Julián habla más que nadie.",
+          "explicacion": "Los dos puntos anuncian lo que dice el loro: el parlanchín es Julián. ¡Menudo chivato!"
+        }
+      ]
+    },
+    {
+      "id": "abuelo-hermano",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "👴🧒",
+          "situacion": "El abuelo opina sobre tu hermano, que lo deja todo tirado.",
+          "frase": "Mi hermano, dice el abuelo, es un desastre.",
+          "explicacion": "«Dice el abuelo» es un inciso entre comas: el abuelo habla, y el desastre es tu hermano."
+        },
+        {
+          "emoji": "🧒👴",
+          "situacion": "Tu hermano se queja del abuelo, que pierde siempre las gafas.",
+          "frase": "Mi hermano dice: el abuelo es un desastre.",
+          "explicacion": "Los dos puntos anuncian lo que dice tu hermano: el desastre es el abuelo."
+        }
+      ]
+    },
+    {
+      "id": "anselmo-canta",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🎤🙉",
+          "situacion": "Robles cuenta en la agencia lo que opina del karaoke de don Anselmo.",
+          "frase": "Don Anselmo, dice Robles, canta fatal.",
+          "explicacion": "«Dice Robles» es un inciso entre comas: Robles opina, y el que canta mal es don Anselmo."
+        },
+        {
+          "emoji": "🎤🙈",
+          "situacion": "Don Anselmo se venga en la fiesta y opina sobre el director.",
+          "frase": "Don Anselmo dice: Robles canta fatal.",
+          "explicacion": "Los dos puntos anuncian lo que dice don Anselmo: el que canta mal es Robles."
+        }
+      ]
+    },
+    {
+      "id": "perro-lola",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🐕☝️",
+          "situacion": "En la plaza solo hay un perro, que ladra sin parar. Por cierto, es de Lola.",
+          "frase": "El perro, que es de Lola, ladra.",
+          "explicacion": "Entre comas, «que es de Lola» es un inciso: añade un dato del único perro que hay."
+        },
+        {
+          "emoji": "🐕🐕🐕",
+          "situacion": "En la plaza hay muchos perros, pero el que ladra es justo el de Lola.",
+          "frase": "El perro que es de Lola ladra.",
+          "explicacion": "Sin comas, «que es de Lola» dice cuál de todos los perros es el que ladra."
+        }
+      ]
+    },
+    {
+      "id": "ninos-frio",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🧒🧒🧒🥶",
+          "situacion": "Hacía frío en el patio y todos los niños tenían frío, así que entraron todos.",
+          "frase": "Los niños, que tenían frío, entraron.",
+          "explicacion": "Entre comas, «que tenían frío» es un inciso: se habla de todos los niños."
+        },
+        {
+          "emoji": "🥶🏃☀️",
+          "situacion": "Solo entraron los niños que tenían frío; los demás siguieron jugando al sol.",
+          "frase": "Los niños que tenían frío entraron.",
+          "explicacion": "Sin comas, «que tenían frío» dice qué niños entraron: solo algunos."
+        }
+      ]
+    },
+    {
+      "id": "vecinos-feria",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🎡👥",
+          "situacion": "Todos los vecinos estaban en la feria, y por eso nadie vio al ladrón.",
+          "frase": "Los vecinos, que estaban en la feria, no vieron nada.",
+          "explicacion": "Entre comas, el inciso habla de todos los vecinos: ninguno vio nada."
+        },
+        {
+          "emoji": "🎡👀",
+          "situacion": "Los que estaban en la feria no vieron nada, pero los que se quedaron en casa, sí.",
+          "frase": "Los vecinos que estaban en la feria no vieron nada.",
+          "explicacion": "Sin comas, se dice qué vecinos no vieron nada: solo los de la feria. ¡Hay testigos!"
+        }
+      ]
+    },
+    {
+      "id": "roto-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🏮👧",
+          "situacion": "Mateo cree que lo ha roto él sin querer. Lo tranquilizas: ha sido Lola.",
+          "frase": "No, Mateo, lo ha roto Lola.",
+          "explicacion": "Mateo va entre comas: es a quien hablas. La que ha roto el farolillo es Lola.",
+          "tambien": ["No, Mateo. Lo ha roto Lola."]
+        },
+        {
+          "emoji": "🏮👦",
+          "situacion": "Lola cree que lo ha roto ella. Le cuentas la verdad: ha sido Mateo.",
+          "frase": "No. Mateo lo ha roto, Lola.",
+          "explicacion": "Lola, al final y tras la coma, es a quien hablas. El culpable es Mateo. ¡La coma cambia el culpable!",
+          "tambien": ["No, Mateo lo ha roto, Lola."]
+        }
+      ]
+    },
+    {
+      "id": "pintado-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🎨👧",
+          "situacion": "Lola pregunta quién ha pintado el mural de la plaza. Ha sido Gregorio.",
+          "frase": "Sí, Lola, lo ha pintado Gregorio.",
+          "explicacion": "Lola va entre comas: es a quien hablas. El pintor es Gregorio.",
+          "tambien": ["Sí, Lola. Lo ha pintado Gregorio."]
+        },
+        {
+          "emoji": "🎨👨‍🎨",
+          "situacion": "Gregorio no se cree que el mural sea de una niña. ¡Pues sí!",
+          "frase": "Sí. Lola lo ha pintado, Gregorio.",
+          "explicacion": "Gregorio, tras la coma final, es a quien hablas. La pintora es Lola.",
+          "tambien": ["Sí, Lola lo ha pintado, Gregorio."]
+        }
+      ]
+    },
+    {
+      "id": "paquete-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "📦👩",
+          "situacion": "Bruno cree que el paquete lo trajo él. Le dices que no: lo trajo Rocío.",
+          "frase": "No, Bruno, lo ha traído Rocío.",
+          "explicacion": "Bruno va entre comas: es a quien hablas. Quien ha traído el paquete es Rocío.",
+          "tambien": ["No, Bruno. Lo ha traído Rocío."]
+        },
+        {
+          "emoji": "📦👨",
+          "situacion": "Rocío pregunta si el paquete lo trajo otra cartera. No: lo trajo Bruno.",
+          "frase": "No. Bruno lo ha traído, Rocío.",
+          "explicacion": "Rocío, tras la coma final, es a quien hablas. Quien ha traído el paquete es Bruno.",
+          "tambien": ["No, Bruno lo ha traído, Rocío."]
+        }
+      ]
+    },
+    {
+      "id": "visto-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "👀👦",
+          "situacion": "Paco pregunta si alguien vio al ladrón de las fotos. Sí: lo vio Mateo.",
+          "frase": "Sí, Paco, lo ha visto Mateo.",
+          "explicacion": "Paco va entre comas: es a quien hablas. El testigo es Mateo.",
+          "tambien": ["Sí, Paco. Lo ha visto Mateo."]
+        },
+        {
+          "emoji": "👀📷",
+          "situacion": "Mateo pregunta si alguien más vio al ladrón. Sí: también lo vio Paco.",
+          "frase": "Sí. Paco lo ha visto, Mateo.",
+          "explicacion": "Mateo, tras la coma final, es a quien hablas. El testigo es Paco.",
+          "tambien": ["Sí, Paco lo ha visto, Mateo."]
+        }
+      ]
+    },
+    {
+      "id": "llave-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🔑👧",
+          "situacion": "Le preguntas a Mateo si es Lola quien tiene la llave del archivo.",
+          "frase": "Mateo, ¿Lola tiene la llave?",
+          "explicacion": "Mateo, con su coma, es a quien hablas. La pregunta es si la llave la tiene Lola."
+        },
+        {
+          "emoji": "🔑👦",
+          "situacion": "Le preguntas a Lola si es Mateo quien tiene la llave del archivo.",
+          "frase": "Mateo, Lola, ¿tiene la llave?",
+          "explicacion": "Lola, entre comas, es a quien hablas. La pregunta es si la tiene Mateo."
+        }
+      ]
+    },
+    {
+      "id": "tarta-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🎂👧",
+          "situacion": "Le preguntas a Mateo si ha sido Lola quien se ha zampado la tarta.",
+          "frase": "Mateo, ¿Lola se ha comido la tarta?",
+          "explicacion": "Mateo, con su coma, es a quien hablas. La sospechosa es Lola."
+        },
+        {
+          "emoji": "🎂👦",
+          "situacion": "Le preguntas a Lola si ha sido Mateo quien se ha zampado la tarta.",
+          "frase": "Mateo, Lola, ¿se ha comido la tarta?",
+          "explicacion": "Lola, entre comas, es a quien hablas. El sospechoso es Mateo. ¡La coma cambia el culpable!"
+        }
+      ]
+    },
+    {
+      "id": "gato-quien",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🐈👨‍🍳",
+          "situacion": "Le preguntas a Inés si Julián ha visto al gato perdido del mercado.",
+          "frase": "Inés, ¿Julián ha visto al gato?",
+          "explicacion": "Inés, con su coma, es a quien hablas. Preguntas por lo que ha visto Julián."
+        },
+        {
+          "emoji": "🐈👩‍🌾",
+          "situacion": "Le preguntas a Julián si Inés ha visto al gato perdido del mercado.",
+          "frase": "Inés, Julián, ¿ha visto al gato?",
+          "explicacion": "Julián, entre comas, es a quien hablas. Preguntas por lo que ha visto Inés."
+        }
+      ]
+    },
+    {
+      "id": "quien-ha-sido",
+      "tipo": "vocativo",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "❓👧",
+          "situacion": "Lola lo ha visto todo, así que le preguntas a ella quién ha sido.",
+          "frase": "¿Quién ha sido, Lola?",
+          "explicacion": "Lola, tras la coma, es a quien hablas: no sabes quién ha sido y se lo preguntas."
+        },
+        {
+          "emoji": "❓🤔",
+          "situacion": "Alguien ha sido, y sospechas de Lola: lo preguntas dos veces.",
+          "frase": "¿Quién? ¿Ha sido Lola?",
+          "explicacion": "Son dos preguntas: «¿Quién?» y «¿Ha sido Lola?». Aquí Lola es la sospechosa."
+        }
+      ]
+    },
+    {
+      "id": "lucia-nueva",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "🎒🚪",
+          "situacion": "Lucía es la alumna nueva. Preguntas a la clase si ya ha llegado.",
+          "frase": "Lucía, la nueva, ¿ha llegado?",
+          "explicacion": "«La nueva», entre comas, explica quién es Lucía: preguntas si ella ha llegado."
+        },
+        {
+          "emoji": "🗣️🎒",
+          "situacion": "Le preguntas a Lucía si ha llegado ya la alumna nueva de la clase.",
+          "frase": "Lucía, ¿la nueva ha llegado?",
+          "explicacion": "Lucía, con su coma, es a quien hablas: preguntas por otra niña, la nueva."
+        }
+      ]
+    },
+    {
+      "id": "curro-portero",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "⚽🧤",
+          "situacion": "Curro es el portero del equipo. Robles pregunta por él al médico.",
+          "frase": "Curro, el portero, ¿se ha lesionado?",
+          "explicacion": "«El portero», entre comas, explica quién es Curro: preguntas si se ha lesionado él."
+        },
+        {
+          "emoji": "🗣️⚽",
+          "situacion": "Robles le pregunta a Curro, el capitán, si el portero se ha hecho daño.",
+          "frase": "Curro, ¿el portero se ha lesionado?",
+          "explicacion": "Curro, con su coma, es a quien hablas: preguntas por otro jugador, el portero."
+        }
+      ]
+    },
+    {
+      "id": "tachon-genio",
+      "tipo": "inciso",
+      "nivel": 3,
+      "lecturas": [
+        {
+          "emoji": "✒️😏",
+          "situacion": "Mateo admira al villano: según él, el Tachón es un genio del disfraz.",
+          "frase": "¡El Tachón, dice Mateo, es un genio!",
+          "explicacion": "«Dice Mateo» es un inciso entre comas: el que opina es Mateo, y el genio es el Tachón."
+        },
+        {
+          "emoji": "✒️🤣",
+          "situacion": "El Tachón deja una nota burlona: se ríe de Mateo llamándolo genio.",
+          "frase": "El Tachón dice: ¡Mateo es un genio!",
+          "explicacion": "Los dos puntos anuncian lo que dice el Tachón: el «genio» es Mateo."
+        }
+      ]
+    }
+  ]
+}

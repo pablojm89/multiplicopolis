@@ -1,0 +1,205 @@
+{
+  "id": "enc-02",
+  "numero": "E02",
+  "titulo": "El cartel mudo",
+  "resumen": "Se ha colado agua en el puesto de Manolo, el frutero, y ha borrado media pizarra de ofertas. Abre en una hora y solo le quedan unas palabras sueltas, todas revueltas.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Manolo, el frutero",
+    "rango": 0,
+    "contenido": "El sustantivo y el adjetivo; el cartel de anuncios",
+    "dificultad": 1
+  },
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "mercado"
+    },
+    {
+      "tipo": "relato", "objeto": "cartel-ofertas",
+      "fondo": "mercado",
+      "quien": "Manolo, el frutero",
+      "personaje": {
+        "id": "manolo",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "texto": "¡Detectives, menos mal que madrugáis! Anoche pinté la pizarra de ofertas, pero se ha colado agua por el toldo y se ha borrado media. Por suerte, apunté las palabras en un papel… que ahora es un lío: unas nombran la fruta y otras dicen cómo es. ¡Y abro el puesto en una hora!"
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "mercado",
+      "titulo": "Las palabras revueltas",
+      "instruccion": "Los sustantivos nombran personas, animales o cosas (la pera). Los adjetivos dicen cómo son (pera blanda). Pon cada palabra en su cubo.",
+      "categorias": [
+        {
+          "id": "sustantivo",
+          "nombre": "Sustantivos"
+        },
+        {
+          "id": "adjetivo",
+          "nombre": "Adjetivos"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "sandía",
+          "cat": "sustantivo",
+          "pista": "Puedes decir «la sandía»: nombra una fruta."
+        },
+        {
+          "p": "jugosas",
+          "cat": "adjetivo",
+          "pista": "Piensa en «uvas jugosas». ¿Nombra algo o dice cómo es?"
+        },
+        {
+          "p": "melón",
+          "cat": "sustantivo",
+          "pista": "Puedes decir «el melón»: nombra una fruta."
+        },
+        {
+          "p": "enormes",
+          "cat": "adjetivo",
+          "pista": "Piensa en «sandías enormes». ¿Nombra algo o dice cómo es?"
+        },
+        {
+          "p": "tomates",
+          "cat": "sustantivo",
+          "pista": "Puedes decir «los tomates»: nombra algo que se vende en el puesto."
+        },
+        {
+          "p": "sabrosa",
+          "cat": "adjetivo",
+          "pista": "Piensa en «fruta sabrosa». ¿Nombra algo o dice cómo es?"
+        },
+        {
+          "p": "maduros",
+          "cat": "adjetivo",
+          "pista": "Piensa en «melones maduros». ¿Nombra algo o dice cómo son?"
+        },
+        {
+          "p": "uvas",
+          "cat": "sustantivo",
+          "pista": "Puedes decir «las uvas»: nombra una fruta."
+        }
+      ],
+      "recompensa": {
+        "texto": "Palabras separadas: los sustantivos nombran lo que se vende (sandía, melón, tomates, uvas) y los adjetivos dicen cómo es (jugosas, enormes, sabrosa, maduros)."
+      },
+      "contador": "Palabra"
+    },
+    {
+      "tipo": "escribe",
+      "fondo": "mercado",
+      "titulo": "Adjetivos a juego",
+      "instruccion": "Manolo apuntó los adjetivos en masculino singular. Cámbialos para que concuerden con la fruta: mismo género y mismo número.",
+      "personaje": {
+        "id": "manolo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "items": [
+        {
+          "enunciado": "Uvas ___ (jugoso)",
+          "respuestas": [
+            "jugosas"
+          ],
+          "criterio": "9.1",
+          "pista": "Mira la fruta: ¿es masculino o femenino? ¿Hay una o muchas?",
+          "explicacion": "«Uvas» es femenino y plural, así que el adjetivo también: uvas jugosas. Sustantivo y adjetivo concuerdan en género y número."
+        },
+        {
+          "enunciado": "Melones ___ (maduro)",
+          "respuestas": [
+            "maduros"
+          ],
+          "criterio": "9.1",
+          "pista": "Mira la fruta: ¿es masculino o femenino? ¿Hay uno o muchos?",
+          "explicacion": "«Melones» es masculino y plural: melones maduros."
+        },
+        {
+          "enunciado": "Sandía ___ (fresco)",
+          "respuestas": [
+            "fresca"
+          ],
+          "criterio": "9.1",
+          "pista": "Decimos «la sandía»: es femenino y singular.",
+          "explicacion": "«Sandía» es femenino y singular: sandía fresca."
+        },
+        {
+          "enunciado": "Naranjas ___ (grande)",
+          "respuestas": [
+            "grandes"
+          ],
+          "criterio": "9.1",
+          "pista": "«Grande» es igual en masculino y en femenino. ¿Qué cambia, entonces?",
+          "explicacion": "«Grande» sirve para el masculino y el femenino (un melón grande, una pera grande). Solo cambia el número: naranjas grandes."
+        }
+      ]
+    },
+    {
+      "tipo": "pregunta",
+      "fondo": "mercado",
+      "titulo": "El cartel, como nuevo",
+      "quien": "Pizarra del puesto de Manolo",
+      "documento": "¡OFERTAS DE HOY!\nUvas jugosas: 2 € el kilo\nMelones maduros: 1,50 € la pieza\nSandía fresca: 0,80 € el kilo\nNaranjas grandes: 3 kilos por 2 €\n¡Fruta recién llegada de la vega!",
+      "preguntas": [
+        {
+          "pregunta": "¿Para qué sirve un cartel de ofertas como este?",
+          "opciones": [
+            "Para contar una historia sobre la fruta",
+            "Para que la gente se fije y compre",
+            "Para explicar cómo se cultiva un melón"
+          ],
+          "correcta": 1,
+          "criterio": "4.2",
+          "explicacion": "Es un anuncio: quiere llamar la atención y convencer a la gente para que compre. Por eso tiene pocas palabras, letras grandes y se lee de un vistazo."
+        },
+        {
+          "pregunta": "¿Por qué Manolo pone adjetivos como «jugosas» o «fresca»?",
+          "opciones": [
+            "Para que la fruta parezca más apetecible",
+            "Para que el cartel sea más largo",
+            "Porque los carteles tienen que rimar"
+          ],
+          "correcta": 0,
+          "criterio": "4.2",
+          "explicacion": "Los anuncios eligen adjetivos que hacen el producto más atractivo. ¡Nadie compra unas uvas «normalitas»!"
+        },
+        {
+          "pregunta": "¿Qué fruta se vende por piezas y no por kilos?",
+          "opciones": [
+            "La sandía",
+            "Los melones",
+            "Las uvas"
+          ],
+          "correcta": 1,
+          "criterio": "4.1",
+          "pista": "Busca en el cartel las palabras «la pieza»."
+        }
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "mercado",
+      "quien": "Manolo, el frutero",
+      "personaje": {
+        "id": "manolo",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "texto": "¡Mirad qué cola! La gente se para, lee el cartel y… ¡a comprar! Las uvas jugosas han volado en media hora. Llevaos este melón para la agencia, que está en su punto. Y si se me vuelve a borrar la pizarra, ya sé a quién llamar."
+    },
+    {
+      "tipo": "final",
+      "fondo": "mercado",
+      "sello": "¡ENCARGO CUMPLIDO!",
+      "equipo": [
+        "lola",
+        "mateo",
+        "manolo"
+      ],
+      "texto": "El cartel de Manolo vuelve a hablar: los sustantivos nombran la fruta y los adjetivos, bien concordados, dicen cómo es. El puesto vende más que nunca."
+    }
+  ]
+}

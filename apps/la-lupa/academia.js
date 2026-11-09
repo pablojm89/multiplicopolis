@@ -1,0 +1,720 @@
+/* ============================================================
+   AGENCIA LA LUPA · Academia de detectives
+   La antigua escuela de La Alameda, reabierta por Robles para entrenar.
+   Patio (hub) con el «turno de hoy», cola de repaso espaciado por alumno
+   y salas con estética propia. Salas activas: Archivo (fichas pendientes),
+   Pupitre (corrección del documento) y Laboratorio (sismógrafo de sílabas).
+   Decisiones de Pablo (4/11/2026): siempre abierta desde el tablón; se registra
+   aparte de los casos (contexto «academia»); sin libreta; se puede usar en casa.
+   Diseño completo: docs/investigacion/academia-actividades.md
+   ============================================================ */
+"use strict";
+
+const ACA = { palabras: [], textos: [], testigos: [], alTerminar: null, nivel: 1 };
+
+/* ── Niveles de cada ejercicio (Pablo, 4/11): lupas de bronce, plata, oro y diamante ──
+   Cada actividad tiene su propio nivel por alumno. Se sube con 2 rondas seguidas con ≥ 80 % de aciertos.
+   Las actividades leen el nivel con nivelAca() y adaptan su dificultad con porNivel() y segunNivel(). */
+const NIVELES_ACA = [
+  { n: 1, nombre: "Lupa de bronce", corto: "Bronce", icono: "🥉", puntos: 1 },
+  { n: 2, nombre: "Lupa de plata", corto: "Plata", icono: "🥈", puntos: 1.25 },
+  { n: 3, nombre: "Lupa de oro", corto: "Oro", icono: "🥇", puntos: 1.5 },
+  { n: 4, nombre: "Lupa de diamante · Maestro detective", corto: "Diamante", icono: "💎", puntos: 2 },
+];
+const UMBRAL_NIVEL = 0.8, RONDAS_NIVEL = 2;
+const nivelAca = () => Math.min(4, Math.max(1, ACA.nivel || 1));
+/* Valor según el nivel: segunNivel([3, 4, 5, 6]) → 3 en bronce… 6 en diamante */
+const segunNivel = valores => valores[Math.min(nivelAca(), valores.length) - 1];
+/* Filtra una lista de palabras o textos con campo «nivel» (1-3) según la lupa; si quedan pocas, amplía */
+function porNivel(lista, minimo = 4, n = nivelAca()) {
+  const nv = x => x.nivel || 1;
+  const filtros = { 1: x => nv(x) === 1, 2: x => nv(x) <= 2, 3: x => nv(x) >= 2, 4: x => nv(x) === 3 };
+  const res = lista.filter(filtros[n] || (() => true));
+  if (res.length >= minimo) return res;
+  const amplio = lista.filter(n >= 3 ? x => nv(x) >= 2 : x => nv(x) <= 2);
+  return amplio.length >= minimo ? amplio : lista;
+}
+function progresoNivel(actId, s = estadoAca()) {
+  s.niveles ??= {};
+  return (s.niveles[actId] ??= { max: 1, racha: 0 });
+}
+const nivelMaximo = actId => (modoRevisionAca() ? 4 : progresoNivel(actId).max);
+const modoRevisionAca = () => ajustes.revision === true;
+function htmlElegirNivel(actId, elegido) {
+  const max = nivelMaximo(actId);
+  return `<div class="aca-niveles" role="radiogroup" aria-label="Nivel">${NIVELES_ACA.map(l => `
+    <button class="aca-nivel ${l.n === elegido ? "activo" : ""}" data-nivel="${l.n}" ${l.n > max ? "disabled" : ""} role="radio" aria-checked="${l.n === elegido}">
+      <span>${l.n > max ? "🔒" : l.icono}</span><b>${esc(l.corto)}</b></button>`).join("")}</div>`;
+}   // bancos de datos (datos/academia/)
+const INTERVALOS = [1, 3, 7, 15, 30];              // sesiones hasta el siguiente repaso
+const TOPE_DIARIO = 150;                           // puntos de entrenamiento por día
+let registrosAca = cargar("academia-registros", []);
+if (!Array.isArray(registrosAca)) registrosAca = [];
+
+const SALAS = [
+  { id: "archivo", nombre: "El Archivo", lugar: "Sótano", fondo: "sala-archivo", instructor: "mateo", activa: true, actividad: "fichas", gancho: "Tus palabras falladas te esperan en las fichas." },
+  { id: "pupitre", nombre: "El Pupitre", lugar: "Aula 1", fondo: "sala-pupitre", instructor: "anselmo", activa: true, actividad: "documento", gancho: "El Simulador del Tachón ha colado faltas en un documento." },
+  { id: "laboratorio", nombre: "El Laboratorio", lugar: "Aula de ciencias", fondo: "sala-laboratorio", instructor: "mateo", activa: true, actividad: "sismografo", gancho: "Analiza la palabra: sílabas, golpe de voz y tilde." },
+  { id: "terminal", nombre: "La Terminal ORTO-3000", lugar: "Informática", fondo: "sala-terminal", activa: false },
+  { id: "pizarra", nombre: "La Pizarra", lugar: "Aula de gramática", fondo: "sala-pizarra", activa: false },
+  { id: "interrogatorios", nombre: "Interrogatorios", lugar: "Planta baja", fondo: "sala-interrogatorios", instructor: "lola", activa: true, actividad: "testigo", gancho: "El testigo seseante: así se dice, así se escribe." },
+  { id: "centralita", nombre: "La Centralita", lugar: "Azotea", fondo: "sala-centralita", activa: false },
+  { id: "imprenta", nombre: "La Imprenta del Eco", lugar: "Antigua imprenta", fondo: "sala-imprenta", activa: false },
+];
+const sala = id => SALAS.find(s => s.id === id);
+const azarElem = a => a[Math.floor(Math.random() * a.length)];
+const barajar = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+const hoy = () => new Date().toISOString().slice(0, 10);
+const enBanco = p => ACA.palabras.find(w => norm(w.p) === norm(p));
+const reglasBanco = () => [...new Set(ACA.palabras.map(w => w.regla))];
+
+/* ── Estado del alumno en la Academia (por perfil) ───────────── */
+const claveAca = () => `academia-${perfil.id}`;
+function estadoAca() {
+  return { sesion: 0, ultimoDia: null, cola: {}, archivadas: [], puntos: 0, puntosDia: {}, turno: { dia: null, hechas: [] }, leccionVista: {}, ...cargar(claveAca(), {}) };
+}
+const guardarAca = s => guardar(claveAca(), s);
+function puntosAcademia(p = perfil) { return p ? (cargar(`academia-${p.id}`, {}).puntos || 0) : 0; }
+
+/* ── Pistas de las fichas ────────────────────────────────────────
+   Una palabra fallada vuelve en una ficha del Archivo. Si no está en el banco (formas verbales, palabras de un
+   dictado, de una galerada, de un caso…), no tiene frase de pista: por eso la pista se guarda en la cola al fallar. */
+const escRx = t => String(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const frasesDe = texto => String(texto ?? "").match(/[^.!?…]+[.!?…]*/g) || [];
+/* La frase del texto en la que sale la palabra, con la palabra cambiada por un hueco (___); null si no sale */
+function pistaEnTexto(texto, palabra) {
+  if (!texto || !palabra) return null;
+  const rx = new RegExp(`(^|[^\\p{L}\\p{N}])${escRx(palabra)}(?![\\p{L}\\p{N}])`, "iu");
+  const frase = frasesDe(texto).find(f => rx.test(f));
+  return frase ? frase.replace(rx, "$1___").trim().slice(0, 220) : null;
+}
+/* Lo mismo en los textos de un caso, que llevan las faltas marcadas como {mal|bien|…} */
+function pistaDeCaso(caso, palabra) {
+  const MARCA = "\u0001";
+  let hallada = null;
+  const mirar = x => {
+    if (hallada || x == null) return;
+    if (Array.isArray(x)) return x.forEach(mirar);
+    if (typeof x === "object") return Object.values(x).forEach(mirar);
+    if (typeof x !== "string" || !x.includes("{")) return;
+    for (const m of x.matchAll(SEMILLA)) {
+      if (norm(m[2]) !== norm(palabra)) continue;
+      const plano = (x.slice(0, m.index) + MARCA + x.slice(m.index + m[0].length)).replace(SEMILLA, (_, mal, bien) => bien);
+      const frase = frasesDe(plano).find(f => f.includes(MARCA));
+      if (frase) { hallada = frase.replace(MARCA, "___").trim().slice(0, 220); return; }
+    }
+  };
+  try { mirar(caso?.escenas); } catch { /* sin pista */ }
+  return hallada;
+}
+/* Tras registrar() un fallo: la pista (y el porqué) con que esa palabra volverá en su ficha */
+function pistaFicha(ok, pista, por) {
+  const e = P?.eventos.at(-1);
+  if (ok || !e) return;
+  if (pista) e.pista = String(pista).slice(0, 220);
+  if (por) e.por = String(por).slice(0, 220);
+}
+/* Un temporizador de una actividad no debe sobrevivir a su partida (salir al patio, terminar, otra actividad) */
+function luegoAca(ms, fn) { const mia = P; return setTimeout(() => { if (mia && P === mia) fn(); }, ms); }
+
+/* Cola de repaso espaciado: las palabras falladas entran; acertarlas cuando toca las hace avanzar */
+function actualizarCola(eventos, origen) {
+  if (!perfil) return 0;
+  const s = estadoAca();
+  let nuevas = 0;
+  eventos.filter(e => e.criterio === "5.1" && e.palabra).forEach(e => {
+    const f = s.cola[e.palabra];
+    if (e.ok) {
+      if (!f || s.sesion < f.proximo) return;
+      f.nivel++;
+      if (f.nivel >= INTERVALOS.length) { delete s.cola[e.palabra]; if (!s.archivadas.includes(e.palabra)) s.archivadas.push(e.palabra); }
+      else f.proximo = s.sesion + INTERVALOS[f.nivel];
+    } else {
+      if (!f) nuevas++;
+      // La pista de la ficha: la del ejercicio, la del texto de la actividad o del caso, o la que ya tenía (las del banco usan su frase)
+      const b = enBanco(e.palabra);
+      const pista = b?.frase && !b.origen ? null : e.pista || P?.pistaDe?.(e.palabra) || (P && !P.academia ? pistaDeCaso(P.caso, e.palabra) : null) || f?.pista || null;
+      const por = e.por || f?.por || null;
+      s.cola[e.palabra] = { regla: e.regla || f?.regla || b?.regla || null, nivel: 0, proximo: s.sesion + INTERVALOS[0], fallos: (f?.fallos || 0) + 1, origen,
+        ...(pista ? { pista } : {}), ...(por ? { por } : {}) };
+      s.archivadas = s.archivadas.filter(w => w !== e.palabra);
+    }
+  });
+  guardarAca(s);
+  return nuevas;
+}
+const fichasVencidas = s => Object.entries(s.cola).filter(([, f]) => f.proximo <= s.sesion).map(([p, f]) => ({ p, ...f }));
+
+/* ── El turno de hoy: repaso + último caso + sorpresa ────────── */
+function turnoDeHoy(s) {
+  const mios = resultados.filter(r => r.perfilId === perfil.id && !r.diagnostico);
+  const ultimaRegla = mios.at(-1)?.reglas?.find(r => reglasBanco().includes(r));
+  const vencidas = fichasVencidas(s).length;
+  const otra = azarElem(reglasBanco().filter(r => r !== ultimaRegla)) || reglasBanco()[0];
+  const delCaso = ultimaRegla || "tildes-generales";
+  return [
+    vencidas ? { clave: "repaso", sala: "archivo", texto: `Repaso: ${vencidas} ficha${vencidas > 1 ? "s" : ""} vencida${vencidas > 1 ? "s" : ""}` }
+             : { clave: "repaso", sala: "archivo", texto: "Repaso: palabras de riesgo" },
+    { clave: "caso", sala: delCaso === "tildes-generales" ? "laboratorio" : "pupitre", regla: delCaso, texto: `Del último caso: ${D.reglas[delCaso]?.nombre || delCaso}` },
+    s.sesion % 2 && ACA.testigos.length
+      ? { clave: "sorpresa", sala: "interrogatorios", texto: "Sorpresa: el testigo seseante" }
+      : { clave: "sorpresa", sala: "pupitre", regla: otra, texto: `Sorpresa: ${D.reglas[otra]?.nombre || otra}` },
+  ];
+}
+
+/* ── Patio de la Academia (hub) ──────────────────────────────── */
+function vistaPatio() {
+  P = null;
+  ACA.alTerminar = null;
+  const s = estadoAca();
+  if (s.ultimoDia !== hoy()) { s.sesion++; s.ultimoDia = hoy(); s.turno = { dia: hoy(), hechas: [] }; guardarAca(s); }
+  const turno = turnoDeHoy(s);
+  pintarEscena(`
+    <div class="aca-cabecera">
+      <button class="hud-volver" id="acaVolver">◂ Tablón</button>
+      <h1 class="cartel">Academia de detectives</h1>
+      <span class="placa">Fichas en cola: <b>${Object.keys(s.cola).length}</b> · Archivadas: <b>${s.archivadas.length}</b> · ${s.puntos || 0} pts</span>
+      <button class="boton-papel" id="verCarne">🎫 Mi carné</button>
+    </div>
+    <div class="aca-turno">
+      <h2 class="cartel">Turno de hoy</h2>
+      ${turno.map(t => `<button class="aca-tarea ${s.turno.hechas.includes(t.clave) ? "hecha" : ""}" data-clave="${t.clave}" data-sala="${t.sala}" data-regla="${esc(t.regla || "")}">
+        <small>${esc(sala(t.sala).nombre)}</small><b>${esc(t.texto)}</b><span>${s.turno.hechas.includes(t.clave) ? "✔ Hecho" : "Empezar ▸"}</span></button>`).join("")}
+      <p class="aca-anselmo">Don Anselmo: «Un buen detective entrena un poco cada día. Empieza por tu turno… o elige una puerta».</p>
+    </div>
+    <div class="aca-puertas">${SALAS.map(sl => `
+      <button class="aca-puerta ${sl.activa ? "" : "cerrada"}" data-sala="${sl.id}" ${sl.activa ? "" : "disabled"}>
+        <small>${esc(sl.lugar)}</small><b>${esc(sl.nombre)}</b><span>${sl.activa ? esc(sl.gancho) : "Próximamente"}</span></button>`).join("")}</div>`,
+    { fondo: "patio-academia", clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaTablon;
+  $("#verCarne").onclick = vistaCarne;
+  $$(".aca-tarea").forEach(b => b.onclick = () => entrarSala(b.dataset.sala, { regla: b.dataset.regla || null, turno: b.dataset.clave }));
+  $$(".aca-puerta:not(.cerrada)").forEach(b => b.onclick = () => entrarSala(b.dataset.sala, {}));
+}
+
+/* ── El carné de la Academia: las lupas de cada ejercicio y un sello por sala (oro en todos sus ejercicios) ── */
+const actividadesDe = sl => sl.actividades || [{ id: sl.actividad, nombre: sl.nombreActividad || NOMBRE_BASE[sl.actividad] || sl.nombre }];
+const CARNE_CIRCULOS = [11.9, 23.0, 33.8, 44.6, 55.4, 66.2, 77.1, 88.0];   // centro (en % del ancho) de los ocho círculos de carne-academia.webp
+const selloSala = sl => sl.activa && actividadesDe(sl).every(a => nivelMaximo(a.id) >= 3);
+function vistaCarne() {
+  const salas = SALAS.filter(sl => sl.activa);
+  const lupas = salas.flatMap(actividadesDe).reduce((n, a) => n + nivelMaximo(a.id) - 1, 0);
+  const sellos = salas.filter(selloSala).length;
+  pintarEscena(`
+    <div class="carne">
+      <header class="carne-cab ${arte("carne-academia").listo ? "con-tarjeta" : ""}">
+        ${arte("carne-academia").listo ? `
+        <figure class="carne-tarjeta">
+          <img src="arte/carne-academia.webp" alt="">
+          <span class="carne-marco">${htmlAvatar(perfil, "carne-avatar") || "🕵️"}</span>
+          ${CARNE_CIRCULOS.map((x, i) => { const sl = salas[i]; const ok = sl && selloSala(sl);
+            return `<span class="carne-hueco ${ok ? "sellado" : ""}" style="left:${x}%" title="${esc(sl ? sl.nombre : "")}${ok ? ": sello de oro" : ""}">${ok ? "★" : ""}</span>`; }).join("")}
+        </figure>` : `<div class="carne-escudo">🔍</div>`}
+        <div><small>ACADEMIA DE DETECTIVES · LA ALAMEDA</small><h1 class="cartel">Carné de ${esc(perfil.nombre)}</h1>
+          <p>${lupas} lupas ganadas · ${sellos} de ${salas.length} sellos de sala</p></div>
+        ${arte("carne-academia").listo ? "" : htmlAvatar(perfil, "carne-foto") || `<div class="carne-foto vacia">🕵️</div>`}
+      </header>
+      <div class="carne-salas">${salas.map(sl => `
+        <section class="carne-sala ${selloSala(sl) ? "sellada" : ""}">
+          <h3>${esc(sl.nombre)}</h3>
+          ${selloSala(sl) ? `<span class="carne-sello">SELLO DE ORO</span>` : ""}
+          <ul>${actividadesDe(sl).map(a => `<li><span>${esc(a.nombre)}</span><b>${NIVELES_ACA.map(l => `<i class="${l.n <= nivelMaximo(a.id) ? "si" : ""}" title="${esc(l.nombre)}">${l.n <= nivelMaximo(a.id) ? l.icono : "·"}</i>`).join("")}</b></li>`).join("")}</ul>
+        </section>`).join("")}</div>
+      <p class="carne-pie">El sello de una sala se consigue con la lupa de oro en todos sus ejercicios. La de diamante es para los Maestros detectives.</p>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: "patio-academia", clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaPatio;
+}
+
+/* ── Entrada a una sala: el instructor explica antes de practicar ── */
+/* Varias actividades por sala: salas/<sala>-extra.js llama a nuevaActividad(...).
+   La primera de la lista es la original de la sala. Al entrar, si hay más de una, se elige en un menú. */
+/* Nombre de la actividad original de cada sala (para el menú y el carné) */
+const NOMBRE_BASE = { fichas: "Fichas pendientes", documento: "Corrige el documento", sismografo: "El sismógrafo de sílabas", testigo: "El testigo seseante", conjugar: "La máquina del tiempo verbal", "descubre-regla": "Descubre la regla", dictado: "Dictado relámpago", pruebas: "Pruebas de imprenta" };
+function nuevaActividad(salaId, meta, fn) {
+  const sl = sala(salaId);
+  sl.actividades ??= [{ id: sl.actividad, nombre: sl.nombreActividad || NOMBRE_BASE[sl.actividad] || "Entrenamiento principal", desc: sl.gancho, reglas: sl.reglas, leccionFija: sl.leccionFija }];
+  sl.actividades.push(meta);
+  ACTIVIDADES[meta.id] = fn;
+}
+function usarActividad(sl, id) {
+  const m = (sl.actividades || []).find(a => a.id === id);
+  if (!m) return;
+  sl.actividad = m.id; sl.reglas = m.reglas; sl.leccionFija = m.leccionFija;
+}
+/* ¿Con qué reglas trabaja un ejercicio? (null: no depende de la regla) */
+const reglasDeActividad = a => a.reglas || (a.id === "sismografo" ? ["tildes-generales"] : a.id === "documento" ? reglasBanco() : null);
+const admiteRegla = (a, regla) => !regla || regla === "mezcla" || (reglasDeActividad(a) ? reglasDeActividad(a).includes(regla) : !a.leccionFija);
+function menuActividades(sl, opts) {
+  // Si se viene del turno con una regla, solo se ofrecen los ejercicios que la entrenan
+  const admiten = sl.actividades.filter(a => admiteRegla(a, opts.regla));
+  if (opts.regla && admiten.length === 1) return entrarSala(sl.id, { ...opts, actividad: admiten[0].id });
+  const lista = admiten.length ? admiten : sl.actividades;
+  pintarEscena(`
+    <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+    ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
+    <div class="aca-panel der">
+      <p class="apuntalo">${opts.regla && admiten.length ? `¿Con qué ejercicio entrenamos «${esc(D.reglas[opts.regla]?.nombre || opts.regla)}»?` : "¿Qué ejercicio hacemos hoy?"}</p>
+      <div class="opciones">${lista.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaPatio;
+  $$(".aca-act").forEach(b => b.onclick = () => entrarSala(sl.id, { ...opts, actividad: b.dataset.act }));
+}
+
+function entrarSala(id, { regla = null, turno = null, actividad = null }) {
+  const sl = sala(id);
+  if (sl.actividades?.length > 1 && !actividad) return menuActividades(sl, { regla, turno });
+  if (actividad) usarActividad(sl, actividad);
+  // Una regla que el ejercicio no entrena no se le pasa, y la tarea del turno no se da por hecha con otra cosa
+  const sinRegla = sl.leccionFija && !sl.reglas;   // el ejercicio no depende de la regla (Pizarra, Terminal, Imprenta)
+  if (regla && !sinRegla && !admiteRegla({ id: sl.actividad, reglas: sl.reglas }, regla)) { regla = null; turno = null; }
+  const s = estadoAca();
+  if (sl.actividad === "fichas") return leccion(sl, null, turno, `Este es el fichero de tus palabras falladas. Cada ficha vuelve cuando toca: si la escribes bien, se va alejando; si fallas, vuelve al principio. ${fichasVencidas(s).length ? `Hoy tienes ${fichasVencidas(s).length} pendientes.` : "Hoy no tienes fichas vencidas: entrenaremos palabras de riesgo."}`);
+  if (sl.actividad === "testigo") return leccion(sl, null, turno, "En La Alameda muchos hablamos con seseo: decimos «casuela» y se escribe cazuela. También decimos «caye» por calle (yeísmo) y nos comemos la d del final: «verdá». Hablar así no es un error: es nuestra forma de hablar, y está muy bien. Lo que tiene que saber un detective es cómo se ESCRIBE. Yo lo digo así… y lo escribo así.");
+  // Salas sin elección de regla (salas/<id>.js define sl.leccionFija con el texto del instructor)
+  if (sl.leccionFija) return leccion(sl, null, turno, sl.leccionFija);
+  if (!regla) return elegirRegla(sl, turno);
+  leccion(sl, regla, turno);
+}
+
+function elegirRegla(sl, turno) {
+  const reglas = sl.reglas || (sl.actividad === "sismografo" ? ["tildes-generales"] : reglasBanco());
+  if (reglas.length === 1) return leccion(sl, reglas[0], turno);
+  pintarEscena(`
+    <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+    ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
+    <div class="aca-panel der">
+      <p class="apuntalo">¿Qué quieres entrenar?</p>
+      <div class="opciones">${reglas.map(r => `<button class="opcion" data-regla="${esc(r)}">${esc(D.reglas[r]?.nombre || r)}</button>`).join("")}
+        <button class="opcion" data-regla="mezcla">Todo mezclado (modo inspector)</button></div>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaPatio;
+  $$(".opcion").forEach(b => b.onclick = () => leccion(sl, b.dataset.regla, turno));
+}
+
+function leccion(sl, regla, turno, texto) {
+  const s = estadoAca();
+  const ficha = regla && regla !== "mezcla" ? D.reglas[regla]?.ficha : null;
+  const yaVista = s.leccionVista[regla] === s.sesion;
+  const intro = texto || (regla === "mezcla" ? "Modo inspector: reglas mezcladas y sin avisar de cuál toca. Como en la calle." : `Hoy entrenamos: ${D.reglas[regla]?.nombre || regla}.`);
+  pintarEscena(`
+    <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+    ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" })}
+    <div class="aca-panel der leccion">
+      <span class="quien">${esc(nombreInstructor(sl))}</span>
+      <p class="maquina-fija">${esc(intro)}</p>
+      ${ficha && !yaVista ? `<p class="etiqueta">Lección rápida</p><ul class="ficha">${ficha.puntos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      <p class="etiqueta">Nivel del ejercicio</p>
+      ${htmlElegirNivel(sl.actividad, ACA.nivel = Math.min(nivelMaximo(sl.actividad), cargar(`nivel-${perfil.id}-${sl.actividad}`, nivelMaximo(sl.actividad))))}
+      <p class="aca-nivel-ayuda">${nivelMaximo(sl.actividad) < 4 ? `Consigue ${RONDAS_NIVEL} rondas seguidas con un ${UMBRAL_NIVEL * 100} % de aciertos para ganar la siguiente lupa.` : "¡Tienes todas las lupas de este ejercicio!"}</p>
+      <div class="acciones izquierda"><button class="boton-sello" id="empezar">Empezar entrenamiento ▸</button>${ficha && yaVista ? `<button class="boton-papel" id="repasar">Ver la lección</button>` : ""}</div>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+  $("#acaVolver").onclick = vistaPatio;
+  $("#repasar")?.addEventListener("click", () => abrirModal(`<h3>${esc(ficha.titulo)}</h3><ul class="ficha">${ficha.puntos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`, "ventana-archivo"));
+  $$(".aca-nivel:not([disabled])").forEach(b => b.onclick = () => {
+    ACA.nivel = Number(b.dataset.nivel);
+    guardar(`nivel-${perfil.id}-${sl.actividad}`, ACA.nivel);
+    $$(".aca-nivel").forEach(x => { x.classList.toggle("activo", x === b); x.setAttribute("aria-checked", x === b); });
+  });
+  $("#empezar").onclick = () => {
+    if (regla) { s.leccionVista[regla] = s.sesion; guardarAca(s); }
+    ACTIVIDADES[sl.actividad](sl, regla, turno);
+  };
+}
+const nombreInstructor = sl => arte(sl.instructor).nombre || "Instructor";
+
+/* Partida «ligera» para reutilizar registrar() y los componentes del motor */
+function partidaAca(sl, reglas) {
+  P = { caso: { id: `academia-${sl.id}`, numero: "A", titulo: sl.nombre, reglas, escenas: [{ tipo: sl.actividad, regla: reglas.length === 1 ? reglas[0] : null }] },
+        unidad: null, i: 0, eventos: [], piezas: [], cartas: false, pistas: {}, repasar: new Set(), consultas: 0, notas: [], inicio: Date.now(), academia: true };
+}
+
+/* Los eventos detallados pesan: solo se conservan en los últimos registros de cada perfil (el resto guarda sus notas y su resumen) */
+const REGISTROS_CON_EVENTOS = 20;
+function podarRegistrosAca() {
+  const vistos = {};
+  for (let i = registrosAca.length - 1; i >= 0; i--) {
+    const r = registrosAca[i];
+    if (!r) continue;
+    vistos[r.perfilId] = (vistos[r.perfilId] || 0) + 1;
+    if (vistos[r.perfilId] > REGISTROS_CON_EVENTOS && r.eventos?.length) r.eventos = [];
+  }
+}
+/* ¿Cuenta la ronda para la lupa? Sin las faltas «detectadas» (encontrarlas es condición para corregirlas, no un acierto más)
+   y con un margen de fallos de la quinta parte (al menos uno, para que una ronda corta no exija el pleno) */
+function rondaSuperada(ev) {
+  const evaluables = ev.filter(e => e.detalle !== "detectada");
+  const fallos = evaluables.filter(e => !e.ok).length;
+  return { n: evaluables.length, ok: evaluables.length > 0 && fallos * 2 < evaluables.length && fallos <= Math.max(1, Math.floor(evaluables.length / 5)) };
+}
+
+/* trabajo: lo hecho que no deja evento (fichas copiadas); sin eventos ni trabajo, la ronda no cuenta para nada */
+function terminarActividad(sl, turno, { trabajo = 0, nota = "" } = {}) {
+  if (!P || !P.academia) return;   // ya se cerró (doble pulsación, temporizador tardío) o se salió al patio
+  const ev = P.eventos;
+  if (!ev.length) {
+    const volver0 = ACA.alTerminar;
+    ACA.alTerminar = null;
+    P = null;
+    if (trabajo) {
+      const s0 = estadoAca();
+      if (turno && !s0.turno.hechas.includes(turno)) { s0.turno.hechas.push(turno); guardarAca(s0); }
+      volver0?.marcar?.(0, 0);
+    }
+    momento({ titulo: trabajo ? "¡Repaso hecho!" : "Ronda vacía", personaje: { id: sl.instructor, expresion: trabajo ? "contento" : "neutral", lado: "izq" }, boton: volver0 ? volver0.boton : "Volver al patio",
+      texto: nota || "En esta ronda no había nada que entrenar: no cuenta. Prueba con otro ejercicio.", alSeguir: volver0 ? volver0.ir : vistaPatio });
+    return;
+  }
+  const aciertos = ev.filter(e => e.ok).length;
+  actualizarCola(ev, "academia");
+  const s = estadoAca();
+  const dia = hoy();
+  const nivel = nivelAca();
+  const lupa = NIVELES_ACA[nivel - 1];
+  const posibles = Math.round((aciertos * 5 + (aciertos === ev.length && ev.length ? 20 : 0)) * lupa.puntos);
+  const ganados = Math.max(0, Math.min(posibles, TOPE_DIARIO - (s.puntosDia[dia] || 0)));
+  s.puntosDia[dia] = (s.puntosDia[dia] || 0) + ganados;
+  s.puntos = (s.puntos || 0) + ganados;
+  if (turno && !s.turno.hechas.includes(turno)) s.turno.hechas.push(turno);
+  // Progreso de nivel: solo cuenta jugar en la lupa más alta que se tiene
+  let nuevaLupa = null;
+  const pg = progresoNivel(sl.actividad, s);
+  const ronda = rondaSuperada(ev);
+  if (nivel === pg.max && ronda.n) {
+    pg.racha = ronda.ok ? pg.racha + 1 : 0;
+    if (pg.racha >= RONDAS_NIVEL && pg.max < 4) { pg.max++; pg.racha = 0; nuevaLupa = NIVELES_ACA[pg.max - 1]; guardar(`nivel-${perfil.id}-${sl.actividad}`, pg.max); }
+  }
+  guardarAca(s);
+  registrosAca.push({ id: uid(), contexto: "academia", perfilId: perfil.id, nombre: perfil.nombre, curso: perfil.curso, sala: sl.id,
+    reglas: P.caso.reglas, actividad: sl.actividad, nivel, fecha: new Date().toISOString(), aciertos, intentos: ev.length, notas: calcularNotas(ev), repasar: [...P.repasar], eventos: ev });
+  podarRegistrosAca();
+  guardar("academia-registros", registrosAca);
+  if (typeof nubeTrasResultado === "function") nubeTrasResultado(registrosAca.at(-1));
+  P = null;
+  const aura = aciertos === ev.length && ev.length ? " ¡Ronda perfecta: +aura!" : "";
+  // Si la actividad se lanzó desde otra pantalla (la ruta de preparación de un caso), se vuelve allí
+  const volver = ACA.alTerminar;
+  ACA.alTerminar = null;
+  volver?.marcar?.(aciertos, ev.length);
+  momento({ titulo: "¡Entrenamiento completado!", personaje: { id: sl.instructor, expresion: "contento", lado: "izq" }, boton: volver ? volver.boton : "Volver al patio",
+    texto: `${lupa.icono} ${lupa.corto} · ${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}${nuevaLupa ? ` ¡NUEVA LUPA: ${nuevaLupa.icono} ${nuevaLupa.nombre}!` : nivel === pg.max && pg.max < 4 && pg.racha ? ` Una ronda más así y ganas la ${NIVELES_ACA[pg.max].nombre.toLowerCase()}.` : ""}${nota ? ` ${nota}` : ""}`, alSeguir: volver ? volver.ir : vistaPatio });
+}
+
+/* Leer en voz alta (si el navegador tiene voz en español; si no, no pasa nada) */
+/* El sonido es un extra opcional (Pablo, 4/11): necesita cascos o altavoz. Se activa en la zona del maestro (ajustes.sonido) */
+const sonidoActivo = () => ajustes.sonido === true;
+function hablar(texto) {
+  if (!sonidoActivo()) return;
+  try { const u = new SpeechSynthesisUtterance(texto); u.lang = "es-ES"; u.rate = .9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch { /* sin voz */ }
+}
+const hayVoz = () => sonidoActivo() && typeof speechSynthesis !== "undefined";
+
+/* ── Actividades ─────────────────────────────────────────────── */
+const ACTIVIDADES = {
+  /* A1 · Fichas pendientes: escribir de memoria a partir de una pista (5.1).
+     La pista es la frase del banco o la que se guardó en la cola al fallar; con voz, además se puede escuchar.
+     Una ficha sin pista ni voz (colas antiguas, palabras sueltas de un caso) se enseña para copiarla y no puntúa. */
+  fichas(sl, _regla, turno) {
+    const s = estadoAca();
+    let fichas = barajar(fichasVencidas(s)).slice(0, segunNivel([6, 6, 8, 10]));
+    const riesgo = !fichas.length;
+    if (riesgo) fichas = barajar(porNivel(ACA.palabras.filter(w => w.mal), 8)).slice(0, segunNivel([5, 6, 8, 10])).map(w => ({ p: w.p, regla: w.regla }));
+    partidaAca(sl, [...new Set(fichas.map(f => f.regla).filter(Boolean))]);
+    const voz = hayVoz();
+    const copiadas = [];   // fichas sin pista, bien copiadas: avanzan de cajón sin puntuar
+    let k = 0;
+    const terminar = () => {
+      const n = copiadas.length;
+      if (n) actualizarCola(copiadas.map(p => ({ criterio: "5.1", ok: true, palabra: p })), "academia");
+      terminarActividad(sl, turno, { trabajo: n, nota: n ? `Has repasado ${n} ficha${n > 1 ? "s" : ""} sin pista copiándola${n > 1 ? "s" : ""}: pasa${n > 1 ? "n" : ""} al cajón siguiente, sin puntuar.` : "" });
+    };
+    const pintar = () => {
+      const f = fichas[k];
+      if (!f) return terminar();
+      const w = enBanco(f.p);
+      const letras = [...f.p].length;
+      const guardada = f.pista ? `${String(f.pista).includes("___") ? `«${f.pista}»` : f.pista} (${letras} letras)` : null;
+      const frase = w?.frase ? `«${w.frase}»` : guardada;
+      // En diamante, con voz, no hay frase: se escucha y se escribe. Sin voz, la frase se queda (si no, sería adivinar)
+      const deOido = voz && (nivelAca() >= 4 || !frase);
+      const copia = !frase && !voz;
+      const pista = copia ? "Esta ficha no tiene pista: mírala bien y cópiala para repasarla." : deOido ? `Escúchala. Empieza por «${[...f.p][0]}» y tiene ${letras} letras.` : frase;
+      pintarEscena(`
+        <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+        <p class="instruccion">${riesgo ? "Sin fichas vencidas: entrena estas palabras de riesgo." : "Escribe la palabra de la ficha. Si aciertas, pasa al cajón siguiente."}</p>
+        <div class="aca-ficha">
+          <small>Ficha ${k + 1} de ${fichas.length} · ${esc(D.reglas[f.regla]?.nombre || "Repaso")}</small>
+          <p class="aca-pista">${esc(pista)}</p>
+          ${voz ? `<button class="boton-papel" id="oir">🔊 Escuchar la palabra</button>` : ""}
+          <input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra">
+          <p id="msg" class="msg"></p>
+          <div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>
+        </div>
+        <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      $("#oir")?.addEventListener("click", () => hablar(f.p));
+      const inp = $("#resp"); inp.focus();
+      let intentada = copia, copiando = copia, otras = 0, cerrada = false;
+      if (copia) $("#msg").innerHTML = `Se escribe <strong>${esc(f.p)}</strong>. Escríbela tú.`;
+      const comprobar = () => {
+        if (cerrada || !inp.value.trim()) return;   // cerrada: un segundo Enter (o toque) no se salta la ficha siguiente
+        // Las fichas de mayúsculas se comparan respetando la mayúscula
+        const ok = f.regla === "mayusculas-puntuacion-1" ? inp.value.normalize("NFC").trim() === f.p : norm(inp.value) === norm(f.p);
+        // Otra palabra (no la buscada con una falta): la pista no bastaba. Dos ayudas antes de contarlo como fallo
+        if (!ok && !intentada && !deOido && otras < 2 && typeof pupVariante === "function" && !pupVariante(inp.value, f.p)) {
+          otras++;
+          const ayudas = [w?.frase ? `tiene ${letras} letras` : null, `empieza por «${[...f.p][0]}»`, `sus dos primeras letras son «${[...f.p].slice(0, 2).join("")}»`].filter(Boolean);
+          $("#msg").textContent = otras === 1 ? `Esa no es la palabra de esta ficha. Otra pista: ${ayudas[0]}.` : `Tampoco. Última pista: ${ayudas[1]}.`;
+          inp.select();
+          return;
+        }
+        if (!intentada) { intentada = true; registrar("5.1", ok, f.p, "ficha", f.regla); }
+        if (ok) {
+          cerrada = true;
+          if (copia && !riesgo) copiadas.push(f.p);
+          $(".aca-ficha").classList.add(copiando ? "copiada" : "sellada");
+          aviso(copia ? "Bien copiada. La ficha pasa al cajón siguiente." : copiando ? "Bien copiada. La ficha vuelve al primer cajón." : `¡Bien! «${f.p}» pasa al cajón siguiente.`, "bien");
+          k++; luegoAca(900, pintar); return;
+        }
+        copiando = true;
+        $("#msg").innerHTML = `Se escribe <strong>${esc(f.p)}</strong>. ${esc(f.por || PISTA_REGLA[f.regla] || "")} Escríbela tú para cerrar la ficha.`;
+        inp.value = ""; inp.focus();
+      };
+      $("#ok").onclick = comprobar;
+      inp.onkeydown = ev => { if (ev.key === "Enter") comprobar(); };
+    };
+    pintar();
+  },
+
+  /* P1 · La corrección del documento: faltas sembradas en un documento del barrio (9.2 + 5.1) */
+  documento(sl, regla, turno) {
+    const activas = regla && regla !== "mezcla" ? [regla] : reglasBanco();
+    const s = estadoAca();
+    const enCola = new Set(Object.keys(s.cola));
+    const rondas = segunNivel([2, 2, 3, 3]);
+    let r = 0;
+    partidaAca(sl, activas);
+    const generar = () => {
+      // Textos con al menos 2 palabras de la regla; si no los hay, con 1; y si tampoco, con cualquier regla
+      const textosNivel = porNivel(ACA.textos, 6);
+      const conReglas = rs => textosNivel.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => { const w = enBanco(m); return w?.mal && rs.includes(w.regla); }) }));
+      let candidatos = conReglas(activas).filter(c => c.marcas.length >= 2);
+      if (!candidatos.length) candidatos = conReglas(activas).filter(c => c.marcas.length >= 1);
+      if (!candidatos.length) candidatos = conReglas(reglasBanco()).filter(c => c.marcas.length >= 2);
+      if (!candidatos.length) candidatos = ACA.textos.map(t => ({ t, marcas: [...t.texto.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(m => enBanco(m)?.mal && activas.includes(enBanco(m).regla)) })).filter(c => c.marcas.length);
+      const { t, marcas } = azarElem(candidatos);
+      const n = Math.min(marcas.length, segunNivel([2, 3, 4, 5]) + (regla === "mezcla" ? 1 : 0));
+      const elegidas = new Set([...marcas.filter(m => enCola.has(norm(m))), ...barajar(marcas)].slice(0, n));
+      const decl = t.texto.replace(/\[([^\]]+)\]/g, (_, m) => {
+        if (!elegidas.has(m)) return m;
+        const w = enBanco(m);
+        const may = m[0] !== m[0].toLowerCase();
+        // En las faltas de mayúsculas, la forma va tal cual (si no, «sevilla» pasaría a «Sevilla» y desaparecería la falta)
+        const cap = x => (may && w.regla !== "mayusculas-puntuacion-1" ? x[0].toUpperCase() + x.slice(1) : x);
+        return `{${cap(w.mal)}|${cap(w.p)}|${w.regla}}`;
+      });
+      return { tipo: t.tipo, decl, n: elegidas.size };
+    };
+    const pintar = () => {
+      if (r >= rondas) return terminarActividad(sl, turno);
+      const doc = generar();
+      const tokens = tokenizar(doc.decl);
+      pintarEscena(`
+        <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+        <p class="instruccion">El Simulador del Tachón ha colado ${doc.n} faltas en este documento. Tócalas y escríbelas bien.</p>
+        <article class="documento pupitre"><small>${esc(doc.tipo)} · documento ${r + 1} de ${rondas}</small><div id="decl"></div></article>
+        <p class="contador centro-abajo" id="cont"></p>
+        <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo });
+      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      const total = tokens.filter(x => x.error).length;
+      const contador = () => ($("#cont").textContent = `Faltas corregidas: ${total - ctx.pendientes} de ${total}`);
+      const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => { aviso("¡Documento limpio!", "bien"); r++; luegoAca(1000, pintar); } };
+      $("#decl").append(textoInteractivo(tokens, ctx));
+      contador();
+    };
+    pintar();
+  },
+
+  /* I5 · El testigo seseante: así se dice, así se escribe (5.1 y 1.3, sin tratar el habla como error) */
+  testigo(sl, _regla, turno) {
+    const lista = barajar(ACA.testigos).slice(0, segunNivel([3, 4, 5, 6]));
+    partidaAca(sl, ["c-z-s", "ll-y", "d-z-finales"]);
+    let k = 0;
+    const pintar = () => {
+      const t = lista[k];
+      if (!t) return terminarActividad(sl, turno);
+      const objetivos = [...t.frase.matchAll(/\[([^\]]+)\]/g)].map(m => m[1]).filter(w => pronunciar(w) !== w.toLowerCase());
+      const dicho = t.frase.split(/(\[[^\]]+\])/).map(trozo => {
+        const m = trozo.match(/^\[(.+)\]$/);
+        if (!m) return esc(trozo);
+        return pronunciar(m[1]) !== m[1].toLowerCase() ? `<b>${esc(pronunciar(m[1]))}</b>` : esc(m[1]);
+      }).join("");
+      pintarEscena(`
+        <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+        ${htmlPersonaje({ id: t.quien, expresion: "neutral", lado: "der" })}
+        <div class="acta">
+          <small>Acta de declaración · Testigo ${k + 1} de ${lista.length}: ${esc(arte(t.quien).nombre || t.quien)}</small>
+          <p class="etiqueta">Así lo ha dicho</p>
+          <p class="oral">[ ${dicho} ]</p>
+          <p class="etiqueta">Escríbelo como se escribe</p>
+          ${objetivos.map((w, i) => `<label class="campo-acta"><span class="oral">[${esc(pronunciar(w))}]</span> → <input data-i="${i}" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe ${esc(pronunciar(w))} como se escribe"><small class="corr"></small></label>`).join("")}
+          <p id="msg" class="msg"></p>
+          <div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar el acta</button></div>
+        </div>
+        <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      const intentadas = new Set(), bien = new Set();
+      $$(".campo-acta input")[0]?.focus();
+      $$(".campo-acta input").forEach(inp => inp.onkeydown = ev => { if (ev.key === "Enter") $("#ok")?.click(); });
+      $("#ok").onclick = () => {
+        $$(".campo-acta input").forEach(inp => {
+          const i = Number(inp.dataset.i), w = objetivos[i];
+          if (bien.has(i) || !inp.value.trim()) return;
+          const ok = norm(inp.value) === norm(w);
+          if (!intentadas.has(i)) { intentadas.add(i); registrar("5.1", ok, w, "testigo", enBanco(w)?.regla); pistaFicha(ok, pistaEnTexto(t.frase.replace(/[[\]]/g, ""), w)); }
+          const nota = inp.parentElement.querySelector(".corr");
+          if (ok) { bien.add(i); inp.disabled = true; inp.classList.add("acierto"); nota.textContent = ""; }
+          else { nota.textContent = `Se escribe: ${w}. Escríbela tú.`; inp.value = ""; }
+        });
+        if (bien.size < objetivos.length) { $("#msg").textContent = bien.size ? "Revisa las que faltan." : "Escribe todas las palabras marcadas."; return; }
+        $("#msg").textContent = "";
+        $(".acta .acciones").innerHTML = `<div class="explicacion">${objetivos.map(w => `Se dice «${esc(pronunciar(w))}» y se escribe <b>${esc(w)}</b>: ${esc(porQueSeEscribe(w))}`).join("<br>")}</div><button class="flecha" id="sig">Siguiente testigo ▸</button>`;
+        $("#sig").onclick = () => { k++; pintar(); };
+        $(".acta").scrollTop = $(".acta").scrollHeight;
+      };
+    };
+    pintar();
+  },
+
+  /* L1 · El sismógrafo de sílabas: sílaba fuerte (9.1) → tipo (9.1) → escribir con o sin tilde (5.1) */
+  sismografo(sl, _regla, turno) {
+    const s = estadoAca();
+    // Desde la lupa de oro entran también las palabras de diptongos
+    const banco = porNivel(ACA.palabras.filter(w => (w.regla === "tildes-generales" || (nivelAca() >= 3 && w.regla === "diptongo-monosilabos")) && w.silabas), 8);
+    const conT = barajar(banco.filter(w => w.p !== quitarTildes(w.p)));
+    const sinT = barajar(banco.filter(w => w.p === quitarTildes(w.p)));
+    const cola = banco.filter(w => s.cola[w.p]);
+    const mitad = Math.ceil(segunNivel([5, 6, 8, 10]) / 2);
+    const lista = barajar([...new Set([...cola, ...conT.slice(0, mitad), ...sinT.slice(0, mitad)])]).slice(0, segunNivel([5, 6, 8, 10]));
+    partidaAca(sl, [...new Set(["tildes-generales", ...lista.map(w => w.regla)])]);
+    let k = 0;
+    const TIPOS = { 1: "aguda", 2: "llana", 3: "esdrujula" };
+    const NOMBRE = { aguda: "aguda", llana: "llana", esdrujula: "esdrújula" };
+    const REGLA = { aguda: "Las agudas llevan tilde si terminan en vocal, -n o -s.", llana: "Las llanas llevan tilde si NO terminan en vocal, -n ni -s.", esdrujula: "Las esdrújulas llevan tilde siempre." };
+    const pintar = () => {
+      const w = lista[k];
+      if (!w) return terminarActividad(sl, turno);
+      const desdeFinal = w.silabas.length - w.tonica;
+      const tipo = TIPOS[Math.min(desdeFinal, 3)];
+      const lleva = w.p !== quitarTildes(w.p);
+      const mono = w.silabas.length === 1;
+      let paso = 1;
+      const muestra = w.silabas.map((sil, i) => `<button class="silaba" data-i="${i}">${[...sil].map(ch => (/[aeiouáéíóú]/i.test(ch) ? `<span class="bajo-mancha gota">${esc(quitarTilde(ch))}</span>` : esc(ch))).join("")}</button>`).join("");
+      pintarEscena(`
+        <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+        <p class="instruccion" id="instr">${mono ? "Paso 1 · Esta palabra tiene una sola sílaba: tócala para analizarla." : "Paso 1 · Toca la sílaba que suena más fuerte."}</p>
+        <div class="sismo">
+          <small>Muestra ${k + 1} de ${lista.length} · las gotas tapan las posibles tildes</small>
+          <div class="muestra">${muestra}</div>
+          <svg class="onda" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true"><polyline id="onda" points="0,40 600,40" fill="none" stroke="#9be2ae" stroke-width="3"/></svg>
+          ${hayVoz() ? `<button class="boton-papel" id="oir">🔊 Escuchar</button>` : ""}
+          <div id="zona"></div>
+          <p id="msg" class="msg"></p>
+        </div>
+        <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      $("#oir")?.addEventListener("click", () => hablar(w.p));
+      const pico = i => {
+        const n = w.silabas.length, x = (i + .5) / n * 600;
+        $("#onda").setAttribute("points", `0,40 ${x - 40},40 ${x - 20},10 ${x},75 ${x + 20},5 ${x + 40},40 600,40`);
+      };
+      /* Último paso: escribir la palabra, con tilde o sin ella */
+      const escribir = () => {
+        $("#msg").textContent = ""; paso = 3;
+        $("#instr").textContent = `Paso ${mono ? 2 : 3} · Escribe la palabra, con tilde o sin ella.`;
+        $("#zona").innerHTML = `<input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra"><div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>`;
+        const inp = $("#resp"); inp.focus();
+        let intentada = false;
+        const comprobar = () => {
+          if (!inp.value.trim()) return;
+          const ok3 = norm(inp.value) === norm(w.p);
+          if (!intentada) { intentada = true; registrar("5.1", ok3, w.p, "sismógrafo", w.regla); }
+          if (!ok3) { $("#msg").innerHTML = `Se escribe <strong>${esc(w.p)}</strong>. Escríbela tú.`; inp.value = ""; inp.focus(); return; }
+          const ultima = w.p.slice(-1);
+          const fin = /[aeiouáéíóú]/i.test(ultima) ? "vocal" : `-${ultima}`;
+          // Los monosílabos no son agudas, llanas ni esdrújulas: tienen su propia regla
+          const porque = mono
+            ? (lleva ? `${w.p} tiene una sola sílaba y, aun así, lleva tilde: es una tilde diacrítica, para no confundirla con otra palabra que se escribe igual.`
+                     : `${w.p} tiene una sola sílaba: los monosílabos no llevan tilde.`)
+            : `${w.p} es ${NOMBRE[tipo]}: la fuerza está en «${w.silabas[w.tonica]}» y termina en ${fin}. ${REGLA[tipo]} ${lleva ? "Por eso lleva tilde." : "Por eso no lleva tilde."}`;
+          $("#zona").innerHTML = `<div class="explicacion">✔️ ${esc(porque)}</div><button class="flecha" id="sig">Siguiente ▸</button>`;
+          $(".muestra").innerHTML = w.silabas.map((sil, i) => `<span class="silaba ${i === w.tonica ? "tonica" : ""}">${esc(sil)}</span>`).join("");
+          $("#sig").onclick = () => { k++; pintar(); };
+        };
+        $("#ok").onclick = comprobar;
+        inp.onkeydown = ev => { if (ev.key === "Enter") comprobar(); };
+      };
+      let primera = true;
+      $$(".silaba").forEach(b => b.onclick = () => {
+        if (paso !== 1) return;
+        const ok = Number(b.dataset.i) === w.tonica;
+        // En un monosílabo no hay nada que elegir: tocarlo no puntúa
+        if (primera && !mono) registrar("9.1", ok, w.p, "sílaba tónica", w.regla);
+        primera = false;
+        if (!ok) { $("#msg").textContent = "Esa no. Di la palabra en voz alta dando una palmada en la sílaba que suena más fuerte."; return; }
+        b.classList.add("tonica"); pico(w.tonica); $("#msg").textContent = ""; paso = 2;
+        if (mono) return escribir();   // sin «¿aguda, llana o esdrújula?»: no es ninguna de las tres
+        $("#instr").textContent = "Paso 2 · ¿Qué tipo de palabra es?";
+        let primera2 = true;
+        $("#zona").innerHTML = `<div class="si-no">${Object.entries(NOMBRE).map(([id, nom]) => `<button data-t="${id}">${nom}</button>`).join("")}</div>`;
+        $$("#zona button").forEach(t => t.onclick = () => {
+          const ok2 = t.dataset.t === tipo;
+          if (primera2) { registrar("9.1", ok2, w.p, "tipo de palabra", w.regla); primera2 = false; }
+          if (!ok2) { $("#msg").textContent = "Cuenta desde el final: última sílaba → aguda; penúltima → llana; antepenúltima → esdrújula."; return; }
+          escribir();
+        });
+      });
+    };
+    pintar();
+  },
+};
+const quitarTildes = p => [...p].map(quitarTilde).join("");
+
+/* Cómo suena en buena parte de Andalucía: seseo, yeísmo y -d final (solo para mostrarlo como habla, entre corchetes) */
+const CON_TILDE = { a: "á", e: "é", i: "í", o: "ó", u: "ú" };
+function pronunciar(w) {
+  let s = w.toLowerCase().replace(/z/g, "s").replace(/c(?=[eiéí])/g, "s").replace(/ll/g, "y");
+  if (s.endsWith("d")) {
+    s = s.slice(0, -1);
+    const i = s.search(/[aeiou][^aeiouáéíóú]*$/);
+    if (i >= 0 && !/[áéíóú]/.test(s)) s = s.slice(0, i) + CON_TILDE[s[i]] + s.slice(i + 1);
+  }
+  return s;
+}
+function porQueSeEscribe(w) {
+  const partes = [];
+  if (/z/.test(w)) partes.push("lleva z (za, zo, zu, o z al final, como en arroz o diez)");
+  if (/c(?=[eiéí])/.test(w)) partes.push("lleva c porque va delante de e, i (ce, ci)");
+  if (/ll/.test(w)) partes.push("lleva ll, que con yeísmo suena igual que la y");
+  if (/d$/.test(w)) partes.push("lleva d al final aunque no la pronunciemos (piensa en el plural: verdades, paredes)");
+  return partes.join("; y ") + ".";
+}
+
+/* ── Resumen para la zona del maestro ────────────────────────── */
+function resumenAcademiaHTML() {
+  if (!registrosAca.length) return "";
+  const por = {};
+  registrosAca.forEach(r => {
+    por[r.perfilId] ??= { nombre: r.nombre, sesiones: 0, aciertos: 0, intentos: 0, salas: new Set() };
+    const x = por[r.perfilId]; x.sesiones++; x.aciertos += r.aciertos; x.intentos += r.intentos; x.salas.add(sala(r.sala)?.nombre || r.sala);
+  });
+  return `
+    <h2>Academia (entrenamiento, aparte de los casos)</h2>
+    <div class="tabla-scroll"><table>
+      <thead><tr><th>Detective</th><th>Actividades</th><th>Acierto</th><th>Fichas en cola</th><th>Archivadas</th><th>Salas</th></tr></thead>
+      <tbody>${Object.entries(por).map(([id, x]) => { const est = cargar(`academia-${id}`, {}); return `<tr><td>${esc(x.nombre)}</td><td>${x.sesiones}</td><td>${x.intentos ? Math.round(x.aciertos / x.intentos * 100) : 0} %</td><td>${Object.keys(est.cola || {}).length}</td><td>${(est.archivadas || []).length}</td><td>${esc([...x.salas].join(", "))}</td></tr>`; }).join("")}</tbody>
+    </table></div>`;
+}

@@ -1,0 +1,446 @@
+{
+  "_nota": "Hojas de «La máquina sin tilde» (Pupitre, salas/pupitre-extra.js). Cada hoja se escribe con la vieja máquina de la agencia, que no tiene tecla de tilde: el juego quita todas las tildes y el alumno toca y escribe las palabras que la necesitan. Las frases se guardan CORRECTAS; la lista de palabras con tilde se calcula sola. Solo tildes de las reglas generales y de diptongos; nada de hiatos (día, había), tildes diacríticas (él, tú, más) ni interrogativos (qué, cómo), que son de 6.º. El título va sin palabras con tilde. nivel: el de la lupa (1 bronce: 3 tildes, agudas y llanas claras; 2 plata: 4-5; 3 oro: 6, con alguna esdrújula y al menos 2 trampas; 4 diamante: 7-8, con alguna mayúscula con tilde, algún monosílabo trampa y algún diptongo con tilde). trampas: palabras del texto que no llevan tilde aunque lo parezcan (examen, joven, fue…). nombres_propios: los que llevan mayúscula aunque no empiecen frase (para guardarlos bien en la cola de repaso). Validador: herramientas/validar_sintilde.py",
+  "nombres_propios": [
+    "Julián",
+    "Ramón",
+    "Mateo",
+    "Lola",
+    "Robles",
+    "Herminia",
+    "Anselmo",
+    "Alameda",
+    "Lengua",
+    "Ángel",
+    "Úbeda",
+    "Óscar",
+    "Álvaro",
+    "Málaga",
+    "Iván",
+    "Écija",
+    "África"
+  ],
+  "hojas": [
+    {
+      "id": "gato-vecina",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "titulo": "Recado de la vecina",
+      "frases": [
+        "Mi gato se ha perdido esta mañana en el jardín.",
+        "Es gris y tiene una mancha blanca en la cola.",
+        "Si lo veis, dejad una nota en el buzón de Ramón."
+      ]
+    },
+    {
+      "id": "lista-compra",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "titulo": "Lista de la compra",
+      "frases": [
+        "Para la merienda hace falta pan, leche y azúcar.",
+        "Mateo quiere un bocadillo de jamón con queso.",
+        "Lola prefiere un zumo de limón con hielo."
+      ]
+    },
+    {
+      "id": "cine-verano",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "titulo": "Cartel del cine de verano",
+      "frases": [
+        "El viernes hay cine al aire libre en la plaza.",
+        "Cada vecino trae su silla y un cojín.",
+        "Habrá palomitas y es fácil encontrar sitio."
+      ]
+    },
+    {
+      "id": "nota-director",
+      "regla": "tildes-generales",
+      "nivel": 1,
+      "titulo": "Nota del director",
+      "frases": [
+        "Mañana no estaré en la oficina.",
+        "Lola tiene la llave del archivo y del cajón.",
+        "Mateo debe regar el árbol del patio."
+      ]
+    },
+    {
+      "id": "kiosco",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "titulo": "Aviso del kiosco",
+      "frases": [
+        "El kiosco de la plaza cierra después de comer.",
+        "Ayer el dueño fue a la estación a por revistas.",
+        "También vende cromos y tebeos."
+      ]
+    },
+    {
+      "id": "huerto",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "titulo": "Nota del huerto",
+      "frases": [
+        "Hoy vi un gusano gordo junto al melón.",
+        "Lo puse en un cubo con tierra y le di una hoja.",
+        "Después lo solté en el huerto de la escuela."
+      ]
+    },
+    {
+      "id": "coro",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "titulo": "Ensayo del coro",
+      "frases": [
+        "La canción nueva es muy bonita.",
+        "Cien voces cantarán en la plaza el jueves.",
+        "Lola dio la nota y el coro empezó a cantar."
+      ]
+    },
+    {
+      "id": "guion-radio",
+      "regla": "diptongo-monosilabos",
+      "nivel": 1,
+      "titulo": "Recado de la radio",
+      "frases": [
+        "El guion del programa está en la mesa.",
+        "Lo escribió Mateo anoche.",
+        "Si tienes dudas, pregunta a Ramón."
+      ]
+    },
+    {
+      "id": "corcho",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "titulo": "Aviso para el corcho",
+      "frases": [
+        "El camión de la basura se ha llevado el sofá viejo de la oficina.",
+        "Robles sospecha que dentro estaba su lápiz de la suerte.",
+        "Si alguien lo encuentra, que llame a la agencia antes del miércoles."
+      ]
+    },
+    {
+      "id": "nota-lola",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "titulo": "Nota de Lola para Mateo",
+      "frases": [
+        "Mateo: he dejado tu brújula y un plátano encima de la mesa del archivo.",
+        "Lo he puesto junto al árbol de la entrada.",
+        "Por cierto, el examen de Lengua es el lunes y no es nada difícil."
+      ]
+    },
+    {
+      "id": "laboratorio",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "titulo": "Parte del laboratorio",
+      "frases": [
+        "El ratón del laboratorio se escapó anoche por la ventana del jardín.",
+        "Mateo lo encontró en la cocina, junto a un trozo de queso.",
+        "El animal estaba tan feliz que nadie tuvo valor para regañarlo."
+      ]
+    },
+    {
+      "id": "feria",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "titulo": "Programa de la feria",
+      "frases": [
+        "A las siete, Ramón tocará la guitarra en la plaza.",
+        "Luego habrá bocadillos de jamón para todo el barrio.",
+        "El último en irse recoge las sillas."
+      ]
+    },
+    {
+      "id": "panadero",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "titulo": "Recado del panadero",
+      "frases": [
+        "Julián ha preparado un pastel de limón para la fiesta del jueves.",
+        "Lleva azúcar, huevos, harina y un poquito de canela.",
+        "Advierte que es muy fácil de comer y muy difícil de compartir."
+      ]
+    },
+    {
+      "id": "diario-mateo",
+      "regla": "tildes-generales",
+      "nivel": 2,
+      "titulo": "Diario de Mateo",
+      "frases": [
+        "Hoy he visto un pájaro rarísimo en el balcón de la biblioteca.",
+        "Llevaba un lazo rojo en la pata, como un reloj de pulsera.",
+        "Herminia dice que es el canario del médico."
+      ]
+    },
+    {
+      "id": "autobuses",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "titulo": "Aviso de la parada de autobuses",
+      "frases": [
+        "El autobús de las nueve fue cancelado por la lluvia.",
+        "Ningún viajero se quedó en tierra: el conductor les dio un billete para después.",
+        "La estación cierra a las diez."
+      ]
+    },
+    {
+      "id": "anselmo",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "titulo": "Nota de don Anselmo",
+      "frases": [
+        "Fui a la biblioteca y vi un murciélago colgado de la lámpara.",
+        "Herminia lo espantó con el plumero y salió volando por la ventana.",
+        "Desde entonces, nadie quiere entrar en la sección de misterio."
+      ]
+    },
+    {
+      "id": "recado-lola",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "titulo": "Recado de Lola",
+      "frases": [
+        "Este cuento es para ti: lo escribió mi abuela cuando era joven.",
+        "Trata de un huésped misterioso que nunca se quitaba el sombrero.",
+        "Cuídalo bien, que es el único que tengo."
+      ]
+    },
+    {
+      "id": "teatro",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "titulo": "Ensayo del grupo de teatro",
+      "frases": [
+        "El guion de la obra se perdió el miércoles en el camerino.",
+        "Apareció debajo del pie de una silla, aplastado como una tortilla.",
+        "El próximo ensayo será el jueves por la tarde."
+      ]
+    },
+    {
+      "id": "partido",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "titulo": "Resultado del partido",
+      "frases": [
+        "El equipo de La Alameda jugó un partido de béisbol contra el del colegio.",
+        "Mateo bateó tan fuerte que la pelota fue a parar al tejado.",
+        "Nadie vio la pelota caer, pero el gato del vecino apareció con ella en la boca."
+      ]
+    },
+    {
+      "id": "radio",
+      "regla": "diptongo-monosilabos",
+      "nivel": 2,
+      "titulo": "Mensaje de la radio",
+      "frases": [
+        "Atención, detectives: el camión de los helados se ha averiado en la plaza.",
+        "El conductor pide ayuda: cien cucuruchos se derriten al sol, y también los polos.",
+        "El primero que llegue podrá comerse uno gratis."
+      ]
+    },
+    {
+      "id": "examen",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "titulo": "Aviso de la academia",
+      "frases": [
+        "El examen de Lengua será el miércoles a primera hora.",
+        "Hay que repasar las páginas del resumen y estudiar las palabras esdrújulas.",
+        "Don Anselmo es joven de espíritu y muy simpático."
+      ],
+      "trampas": [
+        "examen",
+        "resumen",
+        "joven"
+      ]
+    },
+    {
+      "id": "fotos",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "titulo": "Informe de las fotos",
+      "frases": [
+        "Mateo sacó treinta fotos con la cámara del laboratorio.",
+        "En una se ve al ladrón saltando el muro del almacén.",
+        "Tiene una cicatriz en la nariz y lleva un reloj enorme.",
+        "Es un tipo rápido y bastante ágil."
+      ],
+      "trampas": [
+        "cicatriz",
+        "nariz",
+        "reloj"
+      ]
+    },
+    {
+      "id": "museo",
+      "regla": "tildes-generales",
+      "nivel": 3,
+      "titulo": "Visita al museo",
+      "frases": [
+        "El jueves visitamos el museo de ciencias del barrio.",
+        "Vimos un fósil de dinosaurio y un volcán de cartón.",
+        "El monitor nos habló del origen de los planetas y de su volumen.",
+        "Al final compramos un imán y una brújula."
+      ],
+      "trampas": [
+        "origen",
+        "volumen",
+        "monitor"
+      ]
+    },
+    {
+      "id": "farmacia",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "titulo": "Recado de la farmacia",
+      "frases": [
+        "El farmacéutico del barrio fue a ver a la abuela de Lola.",
+        "Le dio un jarabe para la tos y le recomendó descanso.",
+        "Dice que mañana estará mejor y podrá salir al balcón.",
+        "Que tome agua con limón y miel."
+      ],
+      "trampas": [
+        "fue",
+        "dio",
+        "mejor"
+      ]
+    },
+    {
+      "id": "salida-campo",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "titulo": "Salida al campo",
+      "frases": [
+        "El miércoles fuimos de excursión a la sierra con la escuela.",
+        "Vimos un águila enorme encima de un pino.",
+        "Mateo se cayó en un charco y se le mojó un pie.",
+        "Volvimos en autobús, cansados pero muy contentos."
+      ],
+      "trampas": [
+        "fuimos",
+        "pie"
+      ]
+    },
+    {
+      "id": "concierto",
+      "regla": "diptongo-monosilabos",
+      "nivel": 3,
+      "titulo": "Concierto en la plaza",
+      "frases": [
+        "Ramón tocará el piano y su sobrina cantará una canción.",
+        "Habrá cien sillas para el público.",
+        "Si llueve, el concierto pasa al viernes."
+      ],
+      "trampas": [
+        "cien",
+        "piano"
+      ]
+    },
+    {
+      "id": "carta-abuelo",
+      "regla": "tildes-generales",
+      "nivel": 4,
+      "titulo": "Carta del abuelo",
+      "frases": [
+        "Ángel, el abuelo de Lola, nació en Úbeda hace muchos años.",
+        "Fue relojero y arreglaba relojes en un taller pequeño.",
+        "Hoy le regaló a Mateo una brújula, un imán y un reloj de bolsillo.",
+        "También le contó un truco para no perder nunca la paciencia."
+      ],
+      "trampas": [
+        "Fue",
+        "reloj",
+        "relojero"
+      ]
+    },
+    {
+      "id": "carrera",
+      "regla": "tildes-generales",
+      "nivel": 4,
+      "titulo": "Gran carrera del barrio",
+      "frases": [
+        "Óscar ganó la carrera del sábado por delante de Lola.",
+        "Corrió tanto que el árbitro no vio la llegada.",
+        "Le dieron una medalla y un diploma.",
+        "El próximo año correrá también Mateo."
+      ],
+      "trampas": [
+        "vio",
+        "dieron",
+        "diploma"
+      ]
+    },
+    {
+      "id": "mudanza",
+      "regla": "tildes-generales",
+      "nivel": 4,
+      "titulo": "Aviso de mudanza",
+      "frases": [
+        "Álvaro, el músico del segundo, se muda el miércoles a Málaga.",
+        "Deja en el portal un sofá, una lámpara y dos sillones.",
+        "Quien los quiera, que se los lleve antes del jueves, a pie o en carrito.",
+        "Dice que fue muy feliz en La Alameda y que su camión saldrá muy temprano."
+      ],
+      "trampas": [
+        "Quien",
+        "pie",
+        "fue",
+        "feliz"
+      ]
+    },
+    {
+      "id": "postal",
+      "regla": "diptongo-monosilabos",
+      "nivel": 4,
+      "titulo": "Postal de viaje",
+      "frases": [
+        "África es enorme: ayer vi un león dormido bajo un árbol.",
+        "Aquí hace tanto calor que el conductor del camión nos dio sombreros.",
+        "Anoche escuché un murciélago encima de la tienda.",
+        "Mañana iremos en autobús a un oasis. Besos, Lola."
+      ],
+      "trampas": [
+        "vi",
+        "dio",
+        "oasis"
+      ]
+    },
+    {
+      "id": "posada",
+      "regla": "diptongo-monosilabos",
+      "nivel": 4,
+      "titulo": "Libro de la posada",
+      "frases": [
+        "Última hora: el huésped de la habitación seis se fue sin pagar.",
+        "Dejó en la cama un guion de teatro y un pañuelo azul.",
+        "Dice que se llama Iván y lleva siempre un periódico bajo el brazo.",
+        "La dueña cree que volverá, porque es actor y le encanta el público."
+      ],
+      "trampas": [
+        "seis",
+        "fue",
+        "guion",
+        "actor"
+      ]
+    },
+    {
+      "id": "trenes",
+      "regla": "diptongo-monosilabos",
+      "nivel": 4,
+      "titulo": "Aviso de los trenes",
+      "frases": [
+        "Atención, viajeros: el tren de Écija saldrá con retraso.",
+        "Un árbol enorme bloquea el paso a nivel.",
+        "Pueden esperar en el bar de la estación o en el andén.",
+        "Quien tenga prisa puede ir a pie hasta el autobús."
+      ],
+      "trampas": [
+        "Quien",
+        "pie",
+        "tren"
+      ]
+    }
+  ]
+}

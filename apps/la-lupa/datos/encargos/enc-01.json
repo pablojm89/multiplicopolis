@@ -1,0 +1,62 @@
+{
+  "id": "enc-01",
+  "numero": "E01",
+  "titulo": "La receta perdida",
+  "resumen": "Julián, el panadero, presenta mañana sus tortas de aceite al concurso del barrio… y la receta de su abuela se ha mojado. Los pasos se han desordenado.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Julián, el panadero",
+    "rango": 0,
+    "contenido": "La receta: un texto que da instrucciones",
+    "dificultad": 1
+  },
+  "escenas": [
+    { "tipo": "portada", "fondo": "panaderia" },
+    {
+      "tipo": "relato", "objeto": "receta-mojada", "fondo": "panaderia", "quien": "Julián, el panadero",
+      "personaje": { "id": "julian", "expresion": "sorprendido", "lado": "der" },
+      "texto": "¡Detectives, una urgencia de harina! Mañana es el concurso de tortas de aceite y se me ha caído el café encima de la receta de mi abuela. Se lee casi todo, pero los pasos se han despegado del cuaderno y ya no sé en qué orden van. ¿Me ayudáis?"
+    },
+    {
+      "tipo": "pregunta", "fondo": "panaderia", "titulo": "La receta de la abuela",
+      "quien": "Tortas de aceite de la abuela Carmen",
+      "documento": "Ingredientes (para 12 tortas):\n· 500 gramos de harina\n· 200 mililitros de aceite de oliva\n· 150 mililitros de agua templada\n· 1 sobre de levadura\n· 100 gramos de azúcar\n· Anís en grano y una pizca de sal",
+      "preguntas": [
+        { "pregunta": "¿Para qué sirve un texto como este?", "opciones": ["Para contar lo que le pasó a la abuela Carmen", "Para explicar cómo se hace algo, paso a paso", "Para convencernos de que compremos tortas"], "correcta": 1, "criterio": "4.2", "explicacion": "Es un texto instructivo: explica cómo se hace algo. Las recetas, las instrucciones de un juego o las normas de clase son textos instructivos." },
+        { "pregunta": "Esta parte de la receta es una lista. ¿Cómo se llama?", "opciones": ["Los ingredientes", "La preparación", "El título"], "correcta": 0, "criterio": "4.2", "explicacion": "Primero van los ingredientes (lo que necesitas) y después la preparación (lo que tienes que hacer, en orden)." },
+        { "pregunta": "¿Cuántas tortas salen con esta receta?", "opciones": ["Cinco", "Doce", "Quinientas"], "correcta": 1, "criterio": "4.1", "pista": "Mira lo que pone entre paréntesis, al lado de «Ingredientes».", "explicacion": "«Para 12 tortas»: ese dato suele ir al principio de la receta." }
+      ]
+    },
+    {
+      "tipo": "ordena", "fondo": "panaderia", "titulo": "Los pasos despegados",
+      "instruccion": "Toca los pasos de la preparación en el orden correcto. Las palabras como «primero», «después» o «por último» son tus pistas.",
+      "criterio": "4.1",
+      "fragmentos": [
+        "Primero, mezcla la harina con la levadura, el azúcar y la sal en un cuenco grande.",
+        "Después, añade el aceite, el agua templada y el anís, y amasa hasta que la masa no se pegue.",
+        "Deja reposar la masa tapada con un paño durante una hora.",
+        "A continuación, con la masa ya reposada, haz doce bolitas y aplástalas con los dedos hasta que queden finas.",
+        "Por último, hornea las tortas a 180 grados durante quince minutos."
+      ]
+    },
+    {
+      "tipo": "escribe", "fondo": "panaderia", "titulo": "Órdenes de panadero",
+      "instruccion": "En las recetas, los verbos dan órdenes. Escribe la orden que falta, como en la receta de la abuela.",
+      "personaje": { "id": "mateo", "expresion": "neutral", "lado": "izq" },
+      "items": [
+        { "enunciado": "(mezclar) ___ la harina con la levadura.", "respuestas": ["mezcla"], "criterio": "9.1", "explicacion": "«Mezcla»: el verbo da una orden a la persona que cocina (tú)." },
+        { "enunciado": "(añadir) ___ el aceite poco a poco.", "respuestas": ["añade"], "criterio": "9.1", "explicacion": "«Añade», sin tilde: es llana y termina en vocal." },
+        { "enunciado": "(hornear) ___ las tortas quince minutos.", "respuestas": ["hornea"], "criterio": "9.1", "explicacion": "«Hornea»: de horno, hornear… ¡con h, como toda su familia!" }
+      ]
+    },
+    {
+      "tipo": "relato", "fondo": "panaderia", "quien": "Julián, el panadero",
+      "personaje": { "id": "julian", "expresion": "contento", "lado": "der" },
+      "texto": "¡Ya huele a anís en toda la calle! Con los pasos en su sitio, las tortas me han salido igualitas que las de mi abuela. Tomad, las dos primeras son para la agencia: un detective con hambre no resuelve nada."
+    },
+    {
+      "tipo": "final", "fondo": "panaderia", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "julian"],
+      "texto": "Julián gana el concurso de tortas y cuelga la receta de la abuela Carmen en el escaparate de la panadería, con los pasos bien ordenados."
+    }
+  ]
+}

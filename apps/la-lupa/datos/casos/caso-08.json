@@ -1,0 +1,492 @@
+{
+  "id": "caso-08",
+  "numero": "08",
+  "titulo": "La foto que faltaba",
+  "resumen": "La víspera de la exposición de fotos del barrio, alguien cambia los carteles… y se lleva una foto.",
+  "reglas": [
+    "d-z-finales"
+  ],
+  "_nota": "Temporada 1, episodio 8. Pieza del gran misterio: la foto robada es la del día de la prueba de acceso; al verla, el director Robles confiesa que formaba parte del tribunal el día en que un chico suspendió y algunos aspirantes se rieron de él, y que no lo defendió. Se arrepiente. No recuerda su nombre (la ficha desapareció en el caso 3). Bruno aparece de fondo y dice que sale «movido» en todas las fotos; en la foto, uno de los aspirantes sale movido y no se le ve la cara (pista para los atentos, sin señalarla). La -d final que se pierde al hablar en Andalucía se trata como diferencia entre hablar y escribir, nunca como error al hablar. Faltas sembradas para el expediente: parez, barbaridá, casualidá.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "centro-vecinal"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Mañana se inaugura en el centro vecinal «La Alameda, ayer y hoy»: cincuenta años de fotos del barrio colgadas en una sola {parez|pared}. Esta noche alguien ha cambiado todos los carteles y doña Pilar dice que falta una foto antigua de nuestra agencia… Id ahora mismo."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "La d y la z del final de palabra a veces casi no se oyen, sobre todo aquí, en Andalucía. Por eso hay que conocer un buen truco. Mira mis fichas.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "Singular",
+              "palabras": [
+                "pared",
+                "red",
+                "césped",
+                "ciudad"
+              ]
+            },
+            {
+              "titulo": "Plural",
+              "palabras": [
+                "paredes",
+                "redes",
+                "céspedes",
+                "ciudades"
+              ]
+            }
+          ],
+          "pregunta": "Estas palabras terminan en d. ¿Qué tienen en común sus plurales?",
+          "opciones": [
+            "Terminan en -des",
+            "Terminan en -ces",
+            "Se quedan igual que el singular",
+            "No tienen plural"
+          ],
+          "correcta": 0,
+          "explicacion": "Pared → paredes, red → redes, césped → céspedes. Si el plural termina en -des, la palabra termina en d. ¡Ese es el truco para no dudar!"
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Singular",
+              "palabras": [
+                "luz",
+                "pez",
+                "lápiz",
+                "voz"
+              ]
+            },
+            {
+              "titulo": "Plural",
+              "palabras": [
+                "luces",
+                "peces",
+                "lápices",
+                "voces"
+              ]
+            }
+          ],
+          "pregunta": "Y estas terminan en z. ¿Cómo es su plural?",
+          "opciones": [
+            "Termina en -ces: la z se convierte en c",
+            "Termina en -des",
+            "Se queda igual que el singular",
+            "Pierde la última letra"
+          ],
+          "correcta": 0,
+          "explicacion": "Luz → luces, pez → peces, lápiz → lápices. Si el plural termina en -ces, la palabra termina en z."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Terminan en -dad, -tad, -tud",
+              "palabras": [
+                "amistad",
+                "ciudad",
+                "libertad",
+                "juventud",
+                "virtud"
+              ]
+            }
+          ],
+          "pregunta": "¿Cómo terminan siempre las palabras acabadas en -dad, -tad y -tud?",
+          "opciones": [
+            "Con d",
+            "Con z",
+            "Unas con d y otras con z",
+            "Sin ninguna letra al final"
+          ],
+          "correcta": 0,
+          "explicacion": "Amistad, ciudad, libertad, juventud, virtud: todas con d. Y el plural lo confirma: amistades, ciudades, libertades, virtudes."
+        },
+        {
+          "grupos": [],
+          "pregunta": "Un vecino dice: «Si al hablar no se oye nada al final de una palabra, es que al escribirla tampoco va nada». ¿Qué palabra demuestra que se equivoca?",
+          "opciones": [
+            "mesa",
+            "pared",
+            "silla",
+            "casa"
+          ],
+          "correcta": 1,
+          "explicacion": "En buena parte de Andalucía decimos pared sin pronunciar la d. No es hablar mal: es nuestra forma de hablar. Pero al escribir la d está, y su plural lo demuestra: paredes. ¡Contraejemplo encontrado!"
+        }
+      ],
+      "pistas": [
+        "Fíjate en cómo es el plural de cada palabra.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Las reglas, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe el truco del plural: si el plural termina en -des, la palabra acaba en d; si termina en -ces, acaba en z.",
+        "Escribe tres parejas de cada tipo, como pared → paredes y luz → luces.",
+        "Escribe tres palabras tuyas terminadas en -dad, -tad o -tud."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "centro-vecinal",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "titulo": "El centro vecinal",
+      "quien": "Doña Pilar",
+      "texto": "¡Detectives, qué {barbaridá|barbaridad}! Cincuenta años de fotos del barrio, y esta noche alguien ha cambiado los carteles por otros llenos de faltas. Y mirad ese hueco en la pared: ahí estaba la foto antigua de vuestra agencia."
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "centro-vecinal",
+      "titulo": "Los carteles de las fotos",
+      "instruccion": "En los carteles de la exposición hay 4 palabras mal escritas. Corrígelas: juntas forman una pista.",
+      "palabras": [
+        "pared",
+        "red",
+        "césped",
+        "luz",
+        "pez",
+        "lápiz",
+        "voz",
+        "salud",
+        "libertad",
+        "nariz",
+        "cruz",
+        "bondad",
+        "edad",
+        "vez"
+      ],
+      "faltas": [
+        {
+          "mal": "Amistá",
+          "bien": "Amistad"
+        },
+        {
+          "mal": "mitaz",
+          "bien": "mitad"
+        },
+        {
+          "mal": "ciudá",
+          "bien": "ciudad"
+        },
+        {
+          "mal": "verdaz",
+          "bien": "verdad"
+        }
+      ],
+      "frase": "Fotos cedidas por el estudio de la calle de la {0}. La otra {1} del archivo de la {2} sigue allí, y con ella, toda la {3}.",
+      "pistas": [
+        "Las cuatro faltas son palabras que deberían terminar en d.",
+        "Piensa en sus plurales: amistades, mitades, ciudades, verdades.",
+        "Son: Amistá, mitaz, ciudá y verdaz."
+      ],
+      "recompensa": {
+        "texto": "Detrás del último cartel hay un número escrito con rotulador negro: el 3.",
+        "digito": "3"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "centro-vecinal",
+      "titulo": "¿Adónde vamos ahora?",
+      "opciones": [
+        "A la biblioteca del barrio.",
+        "Al estudio de fotos de la calle de la Amistad.",
+        "Al mercado de abastos.",
+        "A la antigua escuela."
+      ],
+      "correcta": 1,
+      "acierto": "Los carteles lo dicen: la otra mitad del archivo sigue en el estudio de la calle de la Amistad. Allí sabrán de dónde salió la foto robada.",
+      "fallo": "Vuelve a leer la pista que han formado las palabras corregidas."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "estudio-fotos",
+      "personaje": {
+        "id": "paco",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "titulo": "El estudio de fotos",
+      "quien": "Paco, el fotógrafo",
+      "texto": "¿La foto de la agencia? ¡Qué {casualidá|casualidad}! La hice yo, hace muchos años, el día de vuestra prueba de acceso. Y esta mañana me he encontrado el cuarto oscuro revuelto: alguien buscaba el negativo. ¡Me ha mezclado todos los sobres!"
+    },
+    {
+      "tipo": "huecos",
+      "fondo": "estudio-fotos",
+      "regla": "d-z-finales",
+      "titulo": "Los sobres de negativos",
+      "instruccion": "A las etiquetas de los sobres se les ha borrado la última letra. ¿Va d o z? Piensa en el plural.",
+      "palabras": [
+        {
+          "p": "pared",
+          "pos": 4,
+          "letra": "d",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es paredes: termina en d."
+        },
+        {
+          "p": "luz",
+          "pos": 2,
+          "letra": "z",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es luces: termina en z."
+        },
+        {
+          "p": "amistad",
+          "pos": 6,
+          "letra": "d",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Termina en -tad: con d. Su plural es amistades."
+        },
+        {
+          "p": "lápiz",
+          "pos": 4,
+          "letra": "z",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es lápices: termina en z."
+        },
+        {
+          "p": "red",
+          "pos": 2,
+          "letra": "d",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es redes: termina en d."
+        },
+        {
+          "p": "voz",
+          "pos": 2,
+          "letra": "z",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es voces: termina en z."
+        },
+        {
+          "p": "juventud",
+          "pos": 7,
+          "letra": "d",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Termina en -tud: con d."
+        },
+        {
+          "p": "nariz",
+          "pos": 4,
+          "letra": "z",
+          "opciones": [
+            "d",
+            "z"
+          ],
+          "pista": "Su plural es narices: termina en z."
+        }
+      ],
+      "pistas": [
+        "Di el plural en voz alta: ¿termina en -des o en -ces?",
+        "Usa tus cartas: plural en -des, plural en -ces y -dad, -tad, -tud."
+      ],
+      "recompensa": {
+        "texto": "Dentro del último sobre hay un trocito de papel con un número: el 8.",
+        "digito": "8"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "estudio-fotos",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Bruno, el repartidor",
+      "texto": "¡Buenas, detectives! Le traigo el periódico a Paco, como cada mañana. ¿Fotos antiguas? Ni me las enseñéis: yo salgo movido en todas, nunca me estoy quieto. ¡Bueno, me voy, que el periódico no se reparte solo!"
+    },
+    {
+      "tipo": "caza",
+      "fondo": "estudio-fotos",
+      "objeto": "nota-tachon",
+      "regla": "d-z-finales",
+      "quien": "La nota del Tachón",
+      "titulo": "La nota del cuarto oscuro",
+      "intro": "Colgada de la cuerda donde se secan las fotos hay una nota con 4 faltas. Encuéntralas y escríbelas bien.",
+      "declaracion": "Novatos: en {realidaz|realidad}, la foto de la exposición ya es mía, y ni el detective más {audad|audaz} encontrará el negativo. Nadie verá cómo era yo a vuestra {edaz|edad}. La {juventú|juventud} se pasa, pero el aura es para siempre. —T.",
+      "pistas": [
+        "Busca palabras que terminen en -dad o en -tud… y una que hace el plural en -ces.",
+        "Son: realidaz, audad, edaz y juventú."
+      ],
+      "recompensa": {
+        "texto": "En el reverso de la nota se adivina un número marcado con fuerza: el 6.",
+        "digito": "6"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "estudio-fotos",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "quien": "Lola",
+      "texto": "Un momento. Paco tiene la llave del centro vecinal, la foto la hizo él y el negativo también es suyo… Antes de seguir, hay que hacerle unas preguntas."
+    },
+    {
+      "tipo": "careo",
+      "fondo": "estudio-fotos",
+      "personaje": {
+        "id": "paco",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Paco, el fotógrafo",
+      "titulo": "Careo",
+      "instruccion": "La foto y el negativo son suyos… En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
+      "declaracion": "Os lo digo con toda {sinceridaz|sinceridad|dad-tud}: anoche cerré el centro vecinal a las diez y la foto seguía colgada. Al salir vi a alguien con gabardina cruzando el {céspez|césped|plural-des} del patio, pero no le vi la cara: ya no quedaba ni una {lud|luz|plural-ces} encendida.",
+      "aclarado": "Paco es inocente: a él también le han revuelto el cuarto oscuro para buscar el negativo, y la nota la firma el Tachón. Y ahora se acuerda de algo: el negativo está a salvo en su vieja caja de negativos, cerrada con candado.",
+      "pistas": [
+        "Hay una palabra en -dad, otra que hace el plural en -des y otra que lo hace en -ces.",
+        "Son: sinceridaz, céspez y lud."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "estudio-fotos",
+      "objeto": "caja-negativos",
+      "titulo": "La caja de negativos",
+      "instruccion": "Paco ya no se acuerda de la combinación de su vieja caja. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "386",
+      "exito": "Dentro está el negativo. Paco lo revela en el cuarto oscuro y aparece la foto: el tribunal de la prueba de acceso y una fila de aspirantes. Uno de ellos salió movido: no se le ve la cara.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba detrás de un cartel de la exposición."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "centro-vecinal",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "quien": "Doña Pilar",
+      "texto": "¡Mi exposición está salvada! Carteles nuevos, sin una sola falta, y Paco nos ha hecho una copia de la foto. Mañana, en la inauguración, os quiero ver en primera fila."
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de -d y -z finales. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": [
+        "Hay una en el aviso del caso.",
+        "Revisa lo que dijeron doña Pilar y Paco."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "foto-tribunal",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Dejadme ver esa foto… El del centro de la mesa soy yo, hace muchos años. Formaba parte del tribunal de la prueba de acceso. Recuerdo aquel día: un chico suspendió por sus faltas y algunos aspirantes se rieron de él delante de todos."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "foto-tribunal",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Y yo no lo defendí como debía. Me quedé callado, y me he arrepentido muchas veces. No recuerdo su nombre, y su ficha desapareció del archivo azul. Si el Tachón se llevó esta foto, es porque sale en ella. Y si es aquel chico, le debo una disculpa. Clavad la foto en el tablón."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "titulo": "Informe para el director",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿qué pasó en la exposición y qué nos ha contado el director Robles?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta al director para que selle tu expediente."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "centro-vecinal",
+      "equipo": [
+        "lola",
+        "mateo",
+        "pilar",
+        "paco"
+      ],
+      "texto": "La exposición abre con todos sus carteles bien escritos. Y en el tablón de la agencia hay una pieza nueva: el director Robles conoció al Tachón hace años… y quiere pedirle perdón."
+    }
+  ]
+}

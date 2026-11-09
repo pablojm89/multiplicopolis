@@ -1,0 +1,730 @@
+{
+  "_nota": "L2 · El microscopio de homófonos (salas/laboratorio-extra.js). Cada grupo: palabras que suenan igual (en buena parte de Andalucía, también con seseo y yeísmo) y se escriben distinto. Todas las formas están bien escritas: el alumno elige por el significado. «___» marca el hueco (una vez por frase). «regla» es la regla de 5.º que trabaja el grupo; «tambien», otras que toca. «nivel» (1-3) gradúa las lupas: 1 parejas muy frecuentes (bronce), 2 tríos y parejas algo menos frecuentes (plata), 3 parejas poco frecuentes con frases largas (oro). «dobles» son las frases del diamante: dos huecos de dos grupos distintos, con la forma de cada hueco en «p». Validador: herramientas/validar_homofonos.py",
+  "grupos": [
+    {
+      "id": "tubo-tuvo", "regla": "b-v-1", "nivel": 1,
+      "truco": "Si puedes cambiarlo por «tenía», es del verbo tener y va con v, como estuve o anduvo.",
+      "formas": [
+        { "p": "tubo", "significado": "Pieza hueca y alargada por la que pasa el agua, el aire o el gas.",
+          "frases": ["El fontanero cambió el ___ del lavabo.", "Mateo guardó el plano enrollado en un ___ de cartón.", "La pasta de dientes viene en un ___ de plástico."] },
+        { "p": "tuvo", "significado": "Forma del verbo tener en pasado: él o ella tuvo.",
+          "frases": ["Ayer Lola ___ que salir corriendo del colegio.", "El testigo ___ miedo y no dijo nada.", "Mateo ___ una idea genial para atrapar al ladrón."] }
+      ]
+    },
+    {
+      "id": "botar-votar", "regla": "b-v-1", "nivel": 3,
+      "truco": "Votar va con v, como voto. Botar va con b, como bote: la pelota da botes.",
+      "formas": [
+        { "p": "botar", "significado": "Hacer que una pelota dé botes contra el suelo. También, echar al agua un barco por primera vez.",
+          "frases": ["En el recreo, Lola sabe ___ el balón sin mirarlo.", "Mañana van a ___ al agua el barco nuevo del puerto.", "Cuando el entrenador se dio la vuelta, Lola empezó a ___ la pelota de baloncesto con las dos manos a la vez."] },
+        { "p": "votar", "significado": "Dar tu voto para elegir algo o a alguien.",
+          "frases": ["Mañana la clase va a ___ quién será el delegado.", "Los vecinos van a ___ el nombre de la nueva plaza.", "Antes de ___ en la asamblea del barrio, los vecinos escucharon con atención todas las propuestas."] }
+      ]
+    },
+    {
+      "id": "bello-vello", "regla": "b-v-1", "nivel": 2,
+      "truco": "Bello es «bonito» (y su familia: belleza). Vello es pelo fino del cuerpo.",
+      "formas": [
+        { "p": "bello", "significado": "Muy bonito, hermoso.",
+          "frases": ["El atardecer desde la azotea es muy ___.", "Lola encontró un jarrón muy ___ en el mercado.", "Desde el mirador se veía un paisaje muy ___."] },
+        { "p": "vello", "significado": "Pelo corto y suave que tenemos en los brazos, las piernas y otras partes del cuerpo.",
+          "frases": ["Con el frío se me pone de punta el ___ de los brazos.", "Mi abuelo tiene el ___ de los brazos completamente blanco.", "El ___ de los brazos de Mateo es tan fino que casi no se ve."] }
+      ]
+    },
+    {
+      "id": "baca-vaca", "regla": "b-v-1", "nivel": 1,
+      "truco": "La vaca, con v, da leche. La baca, con b, va arriba del coche y lleva bultos.",
+      "formas": [
+        { "p": "baca", "significado": "Rejilla que se pone en el techo del coche para llevar maletas o bicicletas.",
+          "frases": ["Atamos las maletas en la ___ del coche.", "La bicicleta viajó en la ___ de la furgoneta.", "Mi tío subió la tienda de campaña a la ___."] },
+        { "p": "vaca", "significado": "Hembra del toro. Da leche.",
+          "frases": ["La ___ del establo da leche todas las mañanas.", "En la granja, una ___ mugía junto al abrevadero.", "La ___ pastaba tranquila en el prado."] }
+      ]
+    },
+    {
+      "id": "baya-vaya-valla", "regla": "b-v-1", "tambien": ["ll-y"], "nivel": 2,
+      "truco": "Vaya es del verbo ir (que yo vaya) o una exclamación. Valla, con ll, es una cerca. Baya, con b, es un fruto pequeño.",
+      "formas": [
+        { "p": "baya", "significado": "Fruto pequeño y jugoso, como el arándano o la uva.",
+          "frases": ["El arándano es una ___ pequeña de color azul oscuro.", "El mirlo picoteó una ___ roja del arbusto.", "La uva es una ___ que crece en racimos."] },
+        { "p": "vaya", "significado": "Forma del verbo ir: que yo vaya, que él vaya. También es una exclamación de sorpresa.",
+          "frases": ["Robles quiere que Mateo ___ al mercado esta tarde.", "¡___ lío has montado con los papeles!", "Mamá no quiere que mi hermano ___ solo al parque."] },
+        { "p": "valla", "significado": "Cerca de madera, metal o alambre que rodea o separa un terreno.",
+          "frases": ["El perro saltó la ___ del jardín.", "Pintaron de verde la ___ del colegio.", "Un gato negro caminaba por encima de la ___."] }
+      ]
+    },
+    {
+      "id": "cabo-cavo", "regla": "b-v-1", "nivel": 2,
+      "truco": "Cavo es del verbo cavar, con v. Cabo, con b, es una punta de tierra o el extremo de una cuerda.",
+      "formas": [
+        { "p": "cabo", "significado": "Punta de tierra que entra en el mar. También, el extremo de una cuerda.",
+          "frases": ["El faro está en un ___ que entra en el mar.", "Ata bien un ___ de la cuerda al tronco del árbol.", "El marinero sujetó el ___ de la cuerda para que no se soltara la barca."] },
+        { "p": "cavo", "significado": "Forma del verbo cavar (hacer un hoyo en la tierra): yo cavo.",
+          "frases": ["Cuando ___ en la arena de la playa, siempre encuentro conchas.", "Yo ___ un hoyo en el huerto para plantar el limonero.", "Si ___ un poco más, llegaré a las raíces del árbol."] }
+      ]
+    },
+    {
+      "id": "sabia-savia", "regla": "b-v-1", "nivel": 2,
+      "truco": "Sabia viene de saber, con b. La savia, con v, es la «sangre» de las plantas.",
+      "formas": [
+        { "p": "sabia", "significado": "Que sabe mucho y da buenos consejos.",
+          "frases": ["Mi abuela es muy ___: siempre da buenos consejos.", "En la fábula, la lechuza ___ resolvía todos los acertijos del bosque.", "Pedir ayuda a Robles fue una decisión muy ___."] },
+        { "p": "savia", "significado": "Líquido que circula por dentro de las plantas y las alimenta.",
+          "frases": ["La ___ sube por el tronco hasta las hojas.", "Las plantas se alimentan de la ___ que corre por sus tallos.", "Cuando cortas una rama, a veces sale un poco de ___."] }
+      ]
+    },
+    {
+      "id": "bienes-vienes", "regla": "b-v-1", "nivel": 2,
+      "truco": "Vienes es del verbo venir, con v. Los bienes, con b, son las cosas que alguien tiene.",
+      "formas": [
+        { "p": "bienes", "significado": "Cosas que tiene una persona: una casa, un terreno, dinero…",
+          "frases": ["El conde repartió sus ___ entre sus tres sobrinos.", "Una casa y un huerto eran todos los ___ de la familia.", "El pirata del cuento escondió todos sus ___ en una isla."] },
+        { "p": "vienes", "significado": "Forma del verbo venir: tú vienes.",
+          "frases": ["Si ___ mañana, te enseño el laboratorio.", "¿De dónde ___ tan mojado?", "¿___ conmigo a la biblioteca esta tarde?"] }
+      ]
+    },
+    {
+      "id": "hierba-hierva", "regla": "b-v-1", "tambien": ["h-1"], "nivel": 3,
+      "truco": "Hierva es del verbo hervir: hervir es una de las excepciones de los verbos en -bir y va con v. La hierba del campo va con b.",
+      "formas": [
+        { "p": "hierba", "significado": "Planta pequeña y verde que cubre el campo y los jardines.",
+          "frases": ["Las ovejas pastan ___ fresca en el prado.", "Me tumbé en la ___ del parque a mirar las nubes.", "Después de tres días de lluvia, la ___ del campo de fútbol estaba tan alta que no se veían las líneas."] },
+        { "p": "hierva", "significado": "Forma del verbo hervir: que el agua hierva (que burbujee por el calor).",
+          "frases": ["Espera a que el agua ___ para echar los macarrones.", "Apaga el fuego antes de que la leche ___ y se salga.", "La receta de la abuela dice que hay que esperar a que el caldo ___ antes de echar los fideos."] }
+      ]
+    },
+    {
+      "id": "hecho-echo", "regla": "h-1", "nivel": 1,
+      "truco": "Si viene de hacer, lleva h: he hecho. Si viene de echar, va sin h: yo echo, tú echas.",
+      "formas": [
+        { "p": "hecho", "significado": "Forma del verbo hacer: he hecho. También, algo que ha pasado: un hecho extraño.",
+          "frases": ["Ya he ___ los deberes de Lengua.", "La policía investiga un ___ muy extraño.", "¿Has ___ ya la cama?"] },
+        { "p": "echo", "significado": "Forma del verbo echar (lanzar, poner, tirar): yo echo.",
+          "frases": ["Cada mañana ___ de comer a los peces de la agencia.", "Si ___ más sal al guiso, mi abuela se enfada.", "Yo siempre ___ las cartas al buzón de la esquina."] }
+      ]
+    },
+    {
+      "id": "hola-ola", "regla": "h-1", "nivel": 1,
+      "truco": "Hola, con h, es el saludo. La ola del mar va sin h.",
+      "formas": [
+        { "p": "hola", "significado": "Saludo que decimos al encontrarnos con alguien.",
+          "frases": ["Siempre digo ___ al conserje cuando llego al colegio.", "Lola entró en la agencia y dijo: «¡___ a todos!».", "Al coger el teléfono, mi abuelo dice: «___, ¿quién es?»."] },
+        { "p": "ola", "significado": "Onda grande que se forma en el mar.",
+          "frases": ["Una ___ enorme mojó nuestras toallas.", "El surfista esperaba la ___ perfecta.", "La ___ se llevó el castillo de arena."] }
+      ]
+    },
+    {
+      "id": "hasta-asta", "regla": "h-1", "nivel": 2,
+      "truco": "Hasta, con h, marca el final de un camino o de un tiempo: hasta mañana. El asta es el palo de la bandera o el cuerno del toro.",
+      "formas": [
+        { "p": "hasta", "significado": "Palabra que indica dónde o cuándo termina algo: hasta la plaza, hasta mañana.",
+          "frases": ["Caminamos ___ la plaza de los azulejos.", "No me voy ___ que resuelva el caso.", "Esperamos en la puerta ___ que llegó el autobús."] },
+        { "p": "asta", "significado": "Palo largo donde se cuelga una bandera. También, el cuerno de un toro o de un ciervo.",
+          "frases": ["La bandera ondeaba en lo alto del ___.", "El toro tenía la punta de un ___ rota.", "En la fiesta del colegio izaron la bandera en el ___ del patio."] }
+      ]
+    },
+    {
+      "id": "ahi-hay-ay", "regla": "h-1", "nivel": 2,
+      "truco": "Hay es del verbo haber: hay tres cajas. Ahí es un lugar: ahí, en ese sitio. ¡Ay! es un quejido.",
+      "formas": [
+        { "p": "ahí", "significado": "En ese lugar.",
+          "frases": ["Deja la lupa ___, encima de la mesa.", "Mira ___, detrás de la puerta.", "No te sientes ___, que esa silla está rota."] },
+        { "p": "hay", "significado": "Forma del verbo haber: indica que algo existe o está en un sitio.",
+          "frases": ["En el armario ___ tres cajas de pruebas.", "Hoy no ___ entrenamiento de baloncesto.", "¿___ alguien en la sala de pruebas?"] },
+        { "p": "ay", "significado": "Exclamación de dolor, de susto o de pena.",
+          "frases": ["¡___, qué susto me has dado!", "Al pisar la chincheta, Mateo gritó: «¡___!».", "¡___, cómo me duele la muela!"] }
+      ]
+    },
+    {
+      "id": "haya-halla-aya", "regla": "h-1", "tambien": ["ll-y"], "nivel": 3,
+      "truco": "Haya es del verbo haber (que haya) o un árbol. Halla es del verbo hallar, encontrar: con ll. El aya era una niñera de las de antes.",
+      "formas": [
+        { "p": "haya", "significado": "Forma del verbo haber: que haya, haya terminado. También, un árbol grande de tronco gris.",
+          "frases": ["Espero que ___ chocolate para merendar.", "En el bosque crece un ___ enorme de tronco gris.", "Cuando ___ terminado el examen, puedes salir al patio."] },
+        { "p": "halla", "significado": "Forma del verbo hallar (encontrar): él o ella halla.",
+          "frases": ["El buen detective siempre ___ la pista que falta.", "Mateo nunca ___ sus llaves por la mañana.", "Si alguien ___ el gato perdido, que llame a este número."] },
+        { "p": "aya", "significado": "Antiguamente, mujer que cuidaba y educaba a los niños de una familia rica.",
+          "frases": ["La princesa del cuento tenía un ___ que le contaba historias antes de dormir.", "Cada tarde, el ___ llevaba de paseo a los niños del palacio.", "En la novela, el ___ del príncipe le enseñó a leer."] }
+      ]
+    },
+    {
+      "id": "honda-onda", "regla": "h-1", "nivel": 2,
+      "truco": "Honda, con h, es «profunda». La onda, sin h, es una curva en el agua, en el pelo o la señal de la radio.",
+      "formas": [
+        { "p": "honda", "significado": "Profunda: que tiene mucho fondo.",
+          "frases": ["El agua del pozo está muy ___.", "El río tiene una zona ___ donde no se puede nadar.", "Cavamos una zanja muy ___ para plantar el olivo."] },
+        { "p": "onda", "significado": "Curva que se forma en el agua o en el pelo. También, la señal que viaja por el aire, como la de la radio.",
+          "frases": ["Al tirar una piedra al estanque se formó una ___.", "La antena de la azotea capta la ___ de la radio del barrio.", "Mi hermana tiene el pelo con una ___ muy bonita."] }
+      ]
+    },
+    {
+      "id": "ha-a", "regla": "h-1", "nivel": 1,
+      "truco": "Si detrás viene un verbo como llegado, visto o encontrado, es ha, del verbo haber. Si puedes decir «hacia» o «para», es a.",
+      "formas": [
+        { "p": "ha", "significado": "Forma del verbo haber: ha llegado, ha visto.",
+          "frases": ["Hoy Lola ___ llegado tarde.", "Mateo ___ encontrado una huella en la ventana.", "El cartero ___ traído un paquete para ti."] },
+        { "p": "a", "significado": "Palabra pequeña que une otras e indica adónde o a quién: voy a casa, se lo di a Lola.",
+          "frases": ["Mañana vamos ___ la biblioteca.", "Le presté el libro ___ mi hermano.", "Robles saludó ___ todos los detectives."] }
+      ]
+    },
+    {
+      "id": "has-haz-as", "regla": "h-1", "tambien": ["c-z-s"], "nivel": 2,
+      "truco": "Has va con un verbo detrás: has visto. Haz es una orden de hacer: ¡haz la cama! El as es una carta o un campeón.",
+      "formas": [
+        { "p": "has", "significado": "Forma del verbo haber: tú has visto, tú has terminado.",
+          "frases": ["¿___ visto mi lupa por algún sitio?", "Todavía no ___ terminado el dibujo.", "¿Ya ___ leído el libro de misterio?"] },
+        { "p": "haz", "significado": "Forma del verbo hacer para dar una orden: ¡haz la cama! También, un rayo de luz: un haz de luz.",
+          "frases": ["___ la cama antes de bajar a desayunar.", "Un ___ de luz entraba por la ventana del sótano.", "___ los deberes antes de cenar, por favor."] },
+        { "p": "as", "significado": "Carta de la baraja que vale uno. También, alguien que es muy bueno en algo.",
+          "frases": ["Saqué un ___ y gané la partida de cartas.", "Lola es un ___ resolviendo acertijos.", "Mi primo es un ___ del ajedrez."] }
+      ]
+    },
+    {
+      "id": "habria-abria", "regla": "h-1", "nivel": 2,
+      "truco": "Habría, con h, va con otro verbo detrás: habría ido. Abría, sin h, es del verbo abrir.",
+      "formas": [
+        { "p": "habría", "significado": "Forma del verbo haber: habría ido, habría hecho (si hubiera pasado algo).",
+          "frases": ["Sin tu ayuda, no ___ resuelto el caso.", "Si me hubieras avisado, ___ llegado antes.", "Con más tiempo, ___ terminado la maqueta."] },
+        { "p": "abría", "significado": "Forma del verbo abrir en pasado: yo abría, él abría.",
+          "frases": ["Cada mañana, el panadero ___ la tienda a las siete.", "Mientras yo ___ la caja, Mateo vigilaba la puerta.", "Mi abuela siempre ___ las ventanas para que entrara el aire."] }
+      ]
+    },
+    {
+      "id": "callo-cayo", "regla": "ll-y", "nivel": 1,
+      "truco": "Pregúntate de qué verbo viene: de callar (silencio), calló con ll; de caer, cayó con y.",
+      "formas": [
+        { "p": "calló", "significado": "Forma del verbo callar: se calló (se quedó en silencio).",
+          "frases": ["Cuando entró Robles, toda la clase se ___.", "El testigo se ___ y no volvió a decir ni una palabra.", "El perro se ___ cuando le dimos su comida."] },
+        { "p": "cayó", "significado": "Forma del verbo caer: se cayó al suelo.",
+          "frases": ["El jarrón se ___ al suelo y se rompió.", "Una hoja seca ___ sobre mi libreta.", "Lola resbaló y se ___ en el barro."] }
+      ]
+    },
+    {
+      "id": "rallar-rayar", "regla": "ll-y", "nivel": 3,
+      "truco": "Rallar, con ll, se hace con el rallador. Rayar, con y, es hacer rayas.",
+      "formas": [
+        { "p": "rallar", "significado": "Desmenuzar un alimento frotándolo contra el rallador: rallar queso, rallar pan.",
+          "frases": ["Mi padre va a ___ queso para la pasta.", "Para empanar el pescado hay que ___ pan duro.", "Antes de meter la pizza en el horno, la cocinera tuvo que ___ un buen trozo de queso."] },
+        { "p": "rayar", "significado": "Hacer rayas o marcas en una superficie.",
+          "frases": ["Si arrastras la silla, vas a ___ el suelo.", "No uses el cúter encima de la mesa, que la puedes ___.", "Ten mucho cuidado al guardar las gafas, porque si las metes sin funda se pueden ___ los cristales."] }
+      ]
+    },
+    {
+      "id": "pollo-poyo", "regla": "ll-y", "nivel": 2,
+      "truco": "El pollo, con ll, pía o se come asado. El poyo, con y, es el banco de piedra de la puerta.",
+      "formas": [
+        { "p": "pollo", "significado": "Cría de la gallina. También, su carne, que se come.",
+          "frases": ["Hoy comemos ___ asado con patatas.", "El ___ seguía a la gallina por todo el corral.", "El ___ acababa de salir del huevo y estaba mojado."] },
+        { "p": "poyo", "significado": "Banco de piedra o de obra pegado a la pared, típico de las puertas y los patios de los pueblos.",
+          "frases": ["El abuelo se sienta en el ___ de la puerta a tomar el fresco.", "Dejamos las mochilas en el ___ de piedra del patio.", "En verano, los vecinos charlan sentados en el ___ de la calle."] }
+      ]
+    },
+    {
+      "id": "arrollo-arroyo", "regla": "ll-y", "nivel": 2,
+      "truco": "El arroyo, con y, es un río pequeño. Arrollo, con ll, es del verbo arrollar (atropellar).",
+      "formas": [
+        { "p": "arroyo", "significado": "Río pequeño, con poca agua.",
+          "frases": ["Cruzamos el ___ saltando de piedra en piedra.", "En primavera, el ___ baja lleno de agua.", "Las ranas cantaban junto al ___."] },
+        { "p": "arrollo", "significado": "Forma del verbo arrollar (atropellar, llevarse algo por delante): yo arrollo.",
+          "frases": ["Si no freno a tiempo, ___ a la paloma con la bici.", "Cuando corro sin mirar por el pasillo, siempre ___ alguna papelera.", "Si salgo corriendo sin mirar, ___ a mi hermano pequeño."] }
+      ]
+    },
+    {
+      "id": "malla-maya", "regla": "ll-y", "nivel": 2,
+      "truco": "La malla, con ll, es un tejido de red o ropa de gimnasia. Maya, con y, es del pueblo maya de América.",
+      "formas": [
+        { "p": "malla", "significado": "Tejido de red, como el de las bolsas de naranjas. También, ropa elástica y ajustada para hacer gimnasia o baile.",
+          "frases": ["Las naranjas venían en una bolsa de ___.", "Para la clase de baile me pongo la ___ azul.", "El portero se enganchó la mano en la ___ de la portería."] },
+        { "p": "maya", "significado": "Del pueblo maya, un pueblo antiguo de América que construyó grandes pirámides.",
+          "frases": ["En México visitamos una pirámide ___ en medio de la selva.", "En clase leímos una leyenda ___ sobre el maíz.", "El calendario ___ es muy famoso."] }
+      ]
+    },
+    {
+      "id": "casa-caza", "regla": "c-z-s", "nivel": 1,
+      "truco": "Con seseo suenan igual. La casa es donde vives; la caza, con z, viene de cazar.",
+      "formas": [
+        { "p": "casa", "significado": "Edificio o lugar donde vive una persona o una familia.",
+          "frases": ["Esta tarde iremos a ___ de mi abuela.", "Vivo en una ___ blanca con macetas en la reja.", "Mi ___ tiene un patio con macetas."] },
+        { "p": "caza", "significado": "Acción de cazar: perseguir animales para atraparlos.",
+          "frases": ["El gato está de ___ detrás de un ratón.", "En primavera está prohibida la ___ de aves.", "El águila salió de ___ al amanecer."] }
+      ]
+    },
+    {
+      "id": "cocer-coser", "regla": "c-z-s", "nivel": 1,
+      "truco": "Cocer, con c, es cosa de la cocina (las dos con c). Coser, con s, se hace con aguja e hilo.",
+      "formas": [
+        { "p": "cocer", "significado": "Cocinar un alimento en agua hirviendo.",
+          "frases": ["Hay que ___ las lentejas durante una hora.", "Pon el agua al fuego para ___ los huevos.", "La cocinera pone la olla al fuego para ___ las patatas."] },
+        { "p": "coser", "significado": "Unir telas con aguja e hilo.",
+          "frases": ["Mi abuela me enseñó a ___ botones.", "Necesito aguja e hilo para ___ el bolsillo roto.", "Mi tío sabe ___ a máquina."] }
+      ]
+    },
+    {
+      "id": "cien-sien", "regla": "c-z-s", "nivel": 2,
+      "truco": "Cien es el número 100, con c, como ciento. La sien es una parte de la cabeza.",
+      "formas": [
+        { "p": "cien", "significado": "El número 100.",
+          "frases": ["El libro de misterio tiene ___ páginas.", "Mi bisabuela va a cumplir ___ años.", "Corrí los ___ metros en la clase de Educación Física."] },
+        { "p": "sien", "significado": "Cada una de las dos partes de la cabeza que están entre la frente y la oreja.",
+          "frases": ["Me duele la ___ derecha cuando estudio mucho.", "El detective se tocó la ___ con un dedo mientras pensaba.", "La pelota le dio en la ___ y se mareó un poco."] }
+      ]
+    },
+    {
+      "id": "cima-sima", "regla": "c-z-s", "nivel": 3,
+      "truco": "La cima, con c, está arriba del todo. La sima, con s, es un agujero muy hondo.",
+      "formas": [
+        { "p": "cima", "significado": "La parte más alta de una montaña.",
+          "frases": ["Subimos hasta la ___ de la montaña.", "Desde la ___ del cerro se ve todo el barrio.", "La bandera estaba clavada en la ___."] },
+        { "p": "sima", "significado": "Agujero muy profundo en la tierra.",
+          "frases": ["Los espeleólogos bajaron con cuerdas a una ___ muy oscura.", "No te acerques a la ___: es un agujero sin fondo.", "En la excursión vimos una ___ tan honda que no se veía el fondo."] }
+      ]
+    },
+    {
+      "id": "vez-ves", "regla": "c-z-s", "tambien": ["d-z-finales"], "nivel": 1,
+      "truco": "Ves es del verbo ver: tú ves. Vez es una ocasión, y su plural lo confirma: veces, con c, así que termina en z.",
+      "formas": [
+        { "p": "vez", "significado": "Cada ocasión en que pasa algo: esta vez, una vez.",
+          "frases": ["Esta ___ ganaremos el partido.", "Érase una ___ un detective muy despistado.", "Por última ___, recoge tu cuarto."] },
+        { "p": "ves", "significado": "Forma del verbo ver: tú ves.",
+          "frases": ["¿___ aquel farol encendido?", "Si ___ a Lola, dale este sobre.", "Si no ___ bien la pizarra, siéntate delante."] }
+      ]
+    },
+    {
+      "id": "caso-cazo", "regla": "c-z-s", "nivel": 1,
+      "truco": "El caso, con s, es lo que investigamos en la agencia. El cazo, con z, es un recipiente de cocina.",
+      "formas": [
+        { "p": "caso", "significado": "Asunto o suceso que hay que investigar o resolver.",
+          "frases": ["Robles nos ha dado un ___ nuevo.", "El ___ del cuadro robado sigue sin resolver.", "Lola apuntó en su libreta las pistas del ___."] },
+        { "p": "cazo", "significado": "Recipiente de cocina, con mango, para calentar o servir.",
+          "frases": ["Calienta la leche en el ___ pequeño.", "Mi madre sirvió la sopa con un ___.", "Mi padre echó el chocolate en el ___ para calentarlo."] }
+      ]
+    },
+    {
+      "id": "abrazar-abrasar", "regla": "c-z-s", "nivel": 2,
+      "truco": "Abrazar, con z, viene de brazo. Abrasar, con s, es quemar como las brasas.",
+      "formas": [
+        { "p": "abrazar", "significado": "Rodear con los brazos a alguien en señal de cariño.",
+          "frases": ["Me encanta ___ a mi perro cuando llego a casa.", "Corrió a ___ a su abuela en la estación.", "Al ganar el partido, todos corrimos a ___ a la portera."] },
+        { "p": "abrasar", "significado": "Quemar mucho, dar muchísimo calor.",
+          "frases": ["El sol de agosto puede ___ la piel.", "La sartén está tan caliente que te puede ___ la mano.", "El fuego llegó a ___ los matorrales del monte."] }
+      ]
+    },
+    {
+      "id": "zumo-sumo", "regla": "c-z-s", "nivel": 1,
+      "truco": "El zumo, con z, se bebe. Sumo, con s, es del verbo sumar.",
+      "formas": [
+        { "p": "zumo", "significado": "Líquido que se saca de una fruta al exprimirla.",
+          "frases": ["Cada mañana bebo un ___ de naranja.", "El ___ de limón es muy ácido.", "El ___ de melocotón es mi favorito."] },
+        { "p": "sumo", "significado": "Forma del verbo sumar: yo sumo.",
+          "frases": ["Si ___ dos y tres, me da cinco.", "Cuando ___ todos mis puntos, me salen cuarenta.", "Si ___ todas las monedas, tengo tres euros."] }
+      ]
+    },
+    {
+      "id": "meses-meces", "regla": "c-z-s", "nivel": 2,
+      "truco": "Meses es el plural de mes, con s. Meces, con c, es del verbo mecer: mover suavemente.",
+      "formas": [
+        { "p": "meses", "significado": "Plural de mes: enero, febrero, marzo…",
+          "frases": ["El año tiene doce ___.", "Faltan dos ___ para las vacaciones.", "Mi hermano pequeño tiene nueve ___."] },
+        { "p": "meces", "significado": "Forma del verbo mecer (mover suavemente de un lado a otro): tú meces.",
+          "frases": ["Si ___ la cuna despacio, el bebé se duerme.", "Cuando te ___ en el columpio, parece que vuelas.", "Si ___ la hamaca muy fuerte, me mareo."] }
+      ]
+    },
+    {
+      "id": "cerrar-serrar", "regla": "c-z-s", "nivel": 2,
+      "truco": "Cerrar, con c, es lo contrario de abrir. Serrar, con s, se hace con una sierra.",
+      "formas": [
+        { "p": "cerrar", "significado": "Lo contrario de abrir.",
+          "frases": ["No olvides ___ la puerta con llave.", "Hay que ___ la ventana, que entra frío.", "Al salir, hay que ___ el grifo."] },
+        { "p": "serrar", "significado": "Cortar madera u otro material con una sierra.",
+          "frases": ["El carpintero va a ___ la tabla en dos.", "Para la casita del pájaro tuvimos que ___ cuatro listones.", "Mi abuelo tuvo que ___ la rama seca del naranjo."] }
+      ]
+    },
+    {
+      "id": "segar-cegar", "regla": "c-z-s", "nivel": 3,
+      "truco": "Segar, con s, es cortar la hierba o el trigo. Cegar, con c, es dejar sin ver, como ciego.",
+      "formas": [
+        { "p": "segar", "significado": "Cortar la hierba o los cereales, como el trigo.",
+          "frases": ["En junio, los agricultores salen a ___ el trigo.", "Mi tío usa una máquina para ___ la hierba del campo.", "A principios de verano, los agricultores del pueblo se levantan muy temprano para ___ el trigo antes del calor."] },
+        { "p": "cegar", "significado": "Dejar sin ver a alguien, aunque sea un momento.",
+          "frases": ["Una luz tan fuerte puede ___ a quien la mire.", "El flash de la cámara llegó a ___ al gato un momento.", "Al salir del túnel, el sol de la tarde estuvo a punto de ___ al conductor del autobús."] }
+      ]
+    },
+    {
+      "id": "ciento-siento", "regla": "c-z-s", "nivel": 1,
+      "truco": "Ciento es un número, con c, como cien. Siento, con s, es del verbo sentir.",
+      "formas": [
+        { "p": "ciento", "significado": "El número 100 cuando le sigue otro número: ciento veinte.",
+          "frases": ["En la plaza había ___ veinte personas.", "Mi colegio tiene ___ cincuenta alumnos.", "El edificio de la agencia tiene ___ treinta años."] },
+        { "p": "siento", "significado": "Forma del verbo sentir: yo siento.",
+          "frases": ["Lo ___ mucho, he llegado tarde.", "Cuando ___ frío, me pongo la bufanda.", "Me ___ muy contento cuando resuelvo un caso."] }
+      ]
+    },
+    {
+      "id": "bota-vota", "regla": "b-v-1", "nivel": 1,
+      "truco": "Vota es del verbo votar, con v, como voto. La bota, con b, se pone en el pie.",
+      "formas": [
+        { "p": "bota", "significado": "Calzado que cubre el pie y parte de la pierna.",
+          "frases": ["Se me ha metido una piedra en la ___ derecha.", "Mateo perdió una ___ en el barro del camino.", "Mi abuelo limpia su ___ de montaña después de cada excursión."] },
+        { "p": "vota", "significado": "Forma del verbo votar: él o ella vota.",
+          "frases": ["Cada alumno ___ al compañero que quiere de delegado.", "Mi madre siempre ___ en las elecciones.", "Si nadie más ___, ganará la propuesta de Lola."] }
+      ]
+    },
+    {
+      "id": "grabar-gravar", "regla": "b-v-1", "nivel": 3,
+      "truco": "Grabar, con b, es guardar un sonido o una imagen, o marcar algo en una superficie. Gravar, con v, es poner un impuesto: algo que «pesa», como grave.",
+      "formas": [
+        { "p": "grabar", "significado": "Guardar sonidos o imágenes para verlos u oírlos después. También, marcar letras o dibujos en una superficie dura.",
+          "frases": ["Para el proyecto de Ciencias, vamos a ___ un vídeo que explique cómo crecen las plantas.", "En cada medalla del campeonato, el joyero mandó ___ el nombre de una jugadora.", "La periodista del barrio pidió permiso para ___ la entrevista con su teléfono móvil."] },
+        { "p": "gravar", "significado": "Poner un impuesto: hacer que se pague dinero por algo.",
+          "frases": ["El gobierno ha decidido ___ con un impuesto especial las bebidas que llevan mucho azúcar.", "Algunos ayuntamientos quieren ___ los coches que más contaminan para cuidar el aire.", "Los vecinos se quejaron porque el ayuntamiento quería ___ con un impuesto nuevo el aparcamiento."] }
+      ]
+    },
+    {
+      "id": "rebelo-revelo", "regla": "b-v-1", "nivel": 3,
+      "truco": "Reveló, con v, viene de revelar: descubrir un secreto (velar es tapar; re-velar, destapar). Se rebeló, con b, viene de rebelarse: no obedecer, como un rebelde.",
+      "formas": [
+        { "p": "rebeló", "significado": "Forma del verbo rebelarse (negarse a obedecer, enfrentarse a quien manda): se rebeló.",
+          "frases": ["Cansado de pagar tantos impuestos, el pueblo del cuento se ___ contra el rey.", "En la película, la tripulación se ___ contra el capitán y se quedó con el barco.", "El caballo salvaje se ___ y no dejó que nadie se subiera a su lomo."] },
+        { "p": "reveló", "significado": "Forma del verbo revelar (descubrir algo que estaba secreto o escondido): reveló.",
+          "frases": ["Al final de la reunión, el testigo por fin ___ el nombre de la persona que vio en el callejón.", "La carta escondida en el libro ___ dónde guardaba el tesoro el antiguo dueño de la casa.", "El fotógrafo ___ las fotos en un cuarto oscuro, como se hacía antes de las cámaras digitales."] }
+      ]
+    },
+    {
+      "id": "basto-vasto", "regla": "b-v-1", "nivel": 3,
+      "truco": "Vasto, con v, es muy extenso, enorme. Basto, con b, es poco fino o áspero; y los bastos son un palo de la baraja.",
+      "formas": [
+        { "p": "basto", "significado": "Poco fino, áspero al tacto. Los bastos también son uno de los palos de la baraja española.",
+          "frases": ["El saco de arpillera era tan ___ que picaba al tocarlo con las manos.", "El papel de lija es tan ___ que sirve para dejar lisa la madera antes de pintarla.", "Ese jersey de lana es tan ___ que mi hermano se niega a ponérselo."] },
+        { "p": "vasto", "significado": "Muy extenso, muy grande.",
+          "frases": ["Desde el avión se veía un ___ desierto de arena que parecía no tener fin.", "El Imperio romano llegó a ser tan ___ que iba desde Hispania hasta Asia.", "Los exploradores tardaron meses en cruzar el ___ territorio helado del Polo Sur."] }
+      ]
+    },
+    {
+      "id": "baron-varon", "regla": "b-v-1", "nivel": 3,
+      "truco": "Varón, con v, es un hombre o un niño. Barón, con b, es un título de nobleza, como conde o marqués.",
+      "formas": [
+        { "p": "barón", "significado": "Título de nobleza, como conde o marqués.",
+          "frases": ["En la novela de misterio, el ___ desaparece de su propio castillo una noche de tormenta.", "El ___ invitó a todos los vecinos del pueblo a la gran fiesta de su palacio.", "Según la leyenda, el viejo ___ escondió sus joyas en un pasadizo secreto del sótano."] },
+        { "p": "varón", "significado": "Persona de sexo masculino: un hombre o un niño.",
+          "frases": ["En la familia de mi madre nacieron cuatro niñas y un solo ___.", "En la ficha de inscripción había que marcar si el deportista era mujer o ___.", "El primer hijo de mis tíos fue un ___ y le pusieron el nombre de su abuelo."] }
+      ]
+    },
+    {
+      "id": "bobina-bovina", "regla": "b-v-1", "nivel": 3,
+      "truco": "Bovina, con v, viene de vaca y de buey: el ganado bovino. La bobina, con b, es un carrete donde se enrolla hilo, cable o película.",
+      "formas": [
+        { "p": "bobina", "significado": "Carrete en el que se enrolla hilo, cable o película.",
+          "frases": ["La costurera cambió la ___ de hilo azul de la máquina de coser por una de hilo rojo.", "En el desván de los abuelos encontramos una ___ con una película antigua de la familia.", "El electricista desenrolló la ___ de cable para llevar la luz hasta el fondo del jardín."] },
+        { "p": "bovina", "significado": "De las vacas, los bueyes y los toros: el ganado bovino.",
+          "frases": ["En las dehesas de Andalucía pasta mucho ganado de raza ___ entre las encinas.", "En la granja escuela hay una zona ___ donde los niños aprenden a ordeñar.", "El veterinario explicó que la carne ___ es la que procede de las vacas y los toros."] }
+      ]
+    },
+    {
+      "id": "he-e-eh", "regla": "h-1", "nivel": 2,
+      "truco": "He, con h, va con otro verbo detrás: he visto, he comido. E es «y» delante de una palabra que empieza por i o hi: agujas e hilo. ¡Eh! sirve para llamar la atención.",
+      "formas": [
+        { "p": "he", "significado": "Forma del verbo haber: yo he visto, yo he comido.",
+          "frases": ["Hoy ___ desayunado tostadas con aceite.", "Ya ___ encontrado la pista que faltaba.", "Nunca ___ visto un gato tan grande."] },
+        { "p": "e", "significado": "Palabra que une dos cosas, como «y». Se usa delante de palabras que empiezan por i o por hi.",
+          "frases": ["En la caja de costura había agujas ___ hilo.", "Mateo ___ Inés llegaron juntos a la agencia.", "Para merendar compramos pan ___ higos."] },
+        { "p": "eh", "significado": "Exclamación para llamar la atención de alguien o para preguntar si está de acuerdo.",
+          "frases": ["¡___, que te dejas la mochila!", "Mañana nos vemos a las nueve, ¿___?", "¡___, tú, devuelve esa pelota!"] }
+      ]
+    },
+    {
+      "id": "hojear-ojear", "regla": "h-1", "nivel": 3,
+      "truco": "Hojear, con h, es pasar las hojas de un libro (hoja). Ojear, sin h, es echar un vistazo con los ojos (ojo).",
+      "formas": [
+        { "p": "hojear", "significado": "Pasar las hojas de un libro o de una revista leyendo solo un poco.",
+          "frases": ["Mientras esperaba su turno en la consulta del dentista, Lola se puso a ___ una revista de animales.", "Antes de comprar un libro en la feria, me gusta ___ sus páginas para ver si tiene ilustraciones.", "Mi abuelo se sienta cada mañana en el sillón a ___ el periódico mientras se toma el café."] },
+        { "p": "ojear", "significado": "Mirar algo deprisa, echar un vistazo.",
+          "frases": ["Antes de cruzar la plaza, el detective volvió a ___ a su alrededor por si alguien lo seguía.", "Desde la ventana del laboratorio, Mateo se entretenía en ___ a la gente que pasaba por la calle.", "Al entrar en la sala, Robles se paró un momento a ___ las caras de todos los sospechosos."] }
+      ]
+    },
+    {
+      "id": "haces-ases", "regla": "h-1", "tambien": ["c-z-s"], "nivel": 2,
+      "truco": "Haces, con h y con c, es del verbo hacer: tú haces. Los ases, con s, son las cartas que valen uno o las personas que son campeonas en algo.",
+      "formas": [
+        { "p": "haces", "significado": "Forma del verbo hacer: tú haces.",
+          "frases": ["¿Qué ___ esta tarde después del colegio?", "Si ___ los deberes ahora, luego podrás jugar.", "Siempre ___ unos dibujos preciosos."] },
+        { "p": "ases", "significado": "Plural de as: las cartas que valen uno, o las personas que son muy buenas en algo.",
+          "frases": ["En la baraja española hay cuatro ___.", "Los jugadores de ese equipo son unos ___ del baloncesto.", "Gané la partida porque tenía dos ___."] }
+      ]
+    },
+    {
+      "id": "ala-hala", "regla": "h-1", "nivel": 2,
+      "truco": "El ala, sin h, es la de los pájaros y los aviones. ¡Hala!, con h, es una exclamación de sorpresa o para meter prisa.",
+      "formas": [
+        { "p": "ala", "significado": "Parte del cuerpo de las aves y de los insectos que les sirve para volar. También, cada lado de un avión.",
+          "frases": ["La paloma tenía un ___ herida.", "Desde la ventanilla del avión se veía el ___ plateada.", "El pájaro escondió la cabeza debajo del ___."] },
+        { "p": "hala", "significado": "Exclamación de sorpresa, o para dar ánimo o prisa.",
+          "frases": ["¡___, qué castillo de arena tan grande!", "¡___, a la cama, que ya es tarde!", "¡___, has marcado un gol desde el centro del campo!"] }
+      ]
+    },
+    {
+      "id": "huso-uso", "regla": "h-1", "nivel": 3,
+      "truco": "Uso, sin h, viene de usar. El huso, con h, es el palo para hilar… y también el huso horario de cada zona del planeta.",
+      "formas": [
+        { "p": "huso", "significado": "Palo redondeado en el que se enrolla el hilo al hilar. También, cada franja en que se divide la Tierra para fijar la hora: el huso horario.",
+          "frases": ["Cuando viajamos a Canarias cambiamos de ___ horario y tuvimos que retrasar una hora el reloj.", "En el museo del pueblo vimos un ___ de madera con el que las abuelas hilaban la lana.", "La princesa del cuento se pinchó el dedo con un ___ y se quedó dormida durante muchísimos años."] },
+        { "p": "uso", "significado": "Forma del verbo usar: yo uso. También, la acción de usar algo.",
+          "frases": ["Siempre ___ el lápiz rojo para subrayar las palabras más importantes de los apuntes.", "Las tabletas de la biblioteca del barrio son solo para el ___ de los alumnos que hacen trabajos.", "Cuando ___ las tijeras de la clase, después las devuelvo a su sitio en el armario."] }
+      ]
+    },
+    {
+      "id": "deshecho-desecho", "regla": "h-1", "nivel": 3,
+      "truco": "Deshecho, con h, viene de deshacer (hacer): he deshecho la maleta. Desecho, sin h, viene de desechar: lo que se tira porque ya no sirve.",
+      "formas": [
+        { "p": "deshecho", "significado": "Forma del verbo deshacer: he deshecho; también, que está deshecho, roto o desmontado.",
+          "frases": ["Al volver de las vacaciones, mi madre ya había ___ todas las maletas antes de la cena.", "Después del chaparrón, el castillo de arena que construimos por la mañana estaba completamente ___.", "El nudo de los cordones estaba tan apretado que tardé un buen rato en dejarlo ___."] },
+        { "p": "desecho", "significado": "Lo que se tira porque ya no sirve. También, forma del verbo desechar: yo desecho.",
+          "frases": ["En el punto limpio del barrio recogen cualquier ___ que no se pueda tirar al contenedor normal.", "El cartón de la caja no es un ___: todavía podemos usarlo para hacer una maqueta.", "Cuando ordeno mi escritorio, ___ los papeles viejos y guardo solo los apuntes que sirven."] }
+      ]
+    },
+    {
+      "id": "herrar-errar", "regla": "h-1", "nivel": 3,
+      "truco": "Herrar, con h, es poner herraduras de hierro: toda la familia de hierro lleva h. Errar, sin h, es equivocarse, como error.",
+      "formas": [
+        { "p": "herrar", "significado": "Poner herraduras a un caballo, a un burro o a una mula.",
+          "frases": ["Antes de la romería, el herrero del pueblo tuvo que ___ a los caballos de la carreta.", "Para ___ bien a una mula hay que saber levantarle la pata sin que se asuste.", "Mi bisabuelo aprendió de joven a ___ caballos en la fragua de su padre."] },
+        { "p": "errar", "significado": "Equivocarse, cometer un error.",
+          "frases": ["Un buen detective puede ___ alguna vez, pero siempre revisa sus pistas para corregirse.", "Dice el refrán que ___ es de humanos, así que no te preocupes tanto por un fallo.", "El arquero estaba tan nervioso que temía ___ el tiro delante de todo el público."] }
+      ]
+    },
+    {
+      "id": "rayo-rallo", "regla": "ll-y", "nivel": 1,
+      "truco": "Rallo, con ll, es del verbo rallar, como el rallador. El rayo, con y, sale en las tormentas.",
+      "formas": [
+        { "p": "rayo", "significado": "Chispa enorme de luz que sale de las nubes en una tormenta. También, línea de luz: un rayo de sol.",
+          "frases": ["Durante la tormenta, un ___ iluminó todo el cielo.", "Un ___ de sol entraba por la ventana.", "El ___ cayó sobre el pararrayos de la torre."] },
+        { "p": "rallo", "significado": "Forma del verbo rallar (desmenuzar con el rallador): yo rallo.",
+          "frases": ["Yo ___ el queso y tú pones la mesa.", "Cuando ___ zanahoria, se me manchan los dedos de naranja.", "Si ___ el pan duro, podremos empanar el pescado."] }
+      ]
+    },
+    {
+      "id": "callado-cayado", "regla": "ll-y", "nivel": 3,
+      "truco": "Callado, con ll, viene de callar: en silencio. El cayado, con y, es el bastón curvo del pastor.",
+      "formas": [
+        { "p": "callado", "significado": "Que no habla, que está en silencio.",
+          "frases": ["Durante toda la reunión, el testigo se quedó ___ mirando fijamente la ventana del despacho.", "Mi hermano está muy ___ desde que volvió del colegio, así que algo le habrá pasado.", "El público se quedó ___ en cuanto el mago sacó una paloma de su sombrero."] },
+        { "p": "cayado", "significado": "Bastón con la punta curva que usan los pastores.",
+          "frases": ["El pastor guiaba a las ovejas por el camino del monte apoyándose en su ___ de madera.", "En el belén de mi abuela, el pastor lleva un ___ en la mano y un cordero sobre los hombros.", "Al bajar por la ladera, el anciano se agarraba con fuerza a su ___ para no resbalar."] }
+      ]
+    },
+    {
+      "id": "hallamos-hayamos", "regla": "ll-y", "tambien": ["h-1"], "nivel": 3,
+      "truco": "Hallamos, con ll, es del verbo hallar (encontrar): nosotros hallamos. Hayamos, con y, es del verbo haber: cuando hayamos terminado.",
+      "formas": [
+        { "p": "hallamos", "significado": "Forma del verbo hallar (encontrar): nosotros hallamos.",
+          "frases": ["Después de buscar durante toda la tarde, por fin ___ la llave escondida debajo de una maceta.", "Si no ___ pronto una pista nueva, el caso del cuadro robado se quedará sin resolver.", "En la excursión al río ___ una piedra con forma de corazón y se la regalamos a Robles."] },
+        { "p": "hayamos", "significado": "Forma del verbo haber: que nosotros hayamos, cuando hayamos terminado.",
+          "frases": ["Cuando ___ terminado de recoger la clase, podremos salir al patio a jugar.", "Robles no se irá a casa mientras no ___ revisado todas las pruebas del caso.", "Es posible que nos ___ dejado la mochila en el autobús del colegio."] }
+      ]
+    },
+    {
+      "id": "olla-hoya", "regla": "ll-y", "tambien": ["h-1"], "nivel": 3,
+      "truco": "La olla, sin h y con ll, es para cocinar. La hoya, con h y con y, es un hoyo grande en la tierra (como hoyo).",
+      "formas": [
+        { "p": "olla", "significado": "Recipiente hondo de cocina para guisar.",
+          "frases": ["Mi abuela prepara el puchero de los domingos en una ___ enorme que heredó de su madre.", "Ten cuidado al levantar la tapa de la ___, porque sale un vapor muy caliente.", "Echamos los garbanzos en la ___ con agua la noche antes para que se ablanden."] },
+        { "p": "hoya", "significado": "Hoyo grande en la tierra. También, llanura rodeada de montañas.",
+          "frases": ["Los excursionistas bajaron a una ___ rodeada de montañas donde había un pequeño lago.", "Con las lluvias del invierno, la ___ que había junto al camino se llenó de agua.", "Desde lo alto del cerro se veía la ___ entera, con sus huertos y sus casas blancas."] }
+      ]
+    },
+    {
+      "id": "sierra-cierra", "regla": "c-z-s", "nivel": 1,
+      "truco": "Cierra, con c, es del verbo cerrar. La sierra, con s, corta madera o es una cadena de montañas, como Sierra Nevada.",
+      "formas": [
+        { "p": "sierra", "significado": "Herramienta con dientes para cortar madera. También, una cadena de montañas.",
+          "frases": ["El carpintero corta la tabla con una ___.", "En invierno, la ___ se cubre de nieve.", "Este verano iremos de acampada a la ___."] },
+        { "p": "cierra", "significado": "Forma del verbo cerrar: él o ella cierra.",
+          "frases": ["La biblioteca ___ a las ocho de la tarde.", "Mi madre siempre ___ la puerta con llave.", "___ los ojos y pide un deseo."] }
+      ]
+    },
+    {
+      "id": "seta-zeta", "regla": "c-z-s", "nivel": 2,
+      "truco": "La seta, con s, es un hongo. La zeta es el nombre de la letra z, ¡y empieza por ella!",
+      "formas": [
+        { "p": "seta", "significado": "Hongo con forma de sombrilla que crece en el bosque. Algunas se comen y otras son venenosas.",
+          "frases": ["En otoño fuimos al bosque a buscar alguna ___.", "Nunca cojas una ___ si no sabes si es venenosa.", "El gnomo del cuento vivía debajo de una ___ roja."] },
+        { "p": "zeta", "significado": "Nombre de la letra z.",
+          "frases": ["La palabra zapato empieza por ___.", "Mi apellido se escribe con ___ al final.", "La ___ es la última letra del abecedario."] }
+      ]
+    },
+    {
+      "id": "casar-cazar", "regla": "c-z-s", "nivel": 2,
+      "truco": "Cazar, con z, como caza. Casar, con s, como casa: los recién casados forman una casa nueva.",
+      "formas": [
+        { "p": "casar", "significado": "Unir en matrimonio. Casarse es celebrar una boda.",
+          "frases": ["Mi tía se va a ___ en primavera.", "En el cuento, el príncipe se quería ___ con la pastora.", "Los abuelos se fueron a ___ a la ermita del pueblo."] },
+        { "p": "cazar", "significado": "Perseguir a un animal para atraparlo.",
+          "frases": ["El gato intentaba ___ una mosca.", "Las lechuzas salen de noche a ___ ratones.", "La araña teje su tela para ___ insectos."] }
+      ]
+    },
+    {
+      "id": "cocido-cosido", "regla": "c-z-s", "nivel": 2,
+      "truco": "Cocido, con c, viene de cocer (la cocina). Cosido, con s, viene de coser (aguja e hilo).",
+      "formas": [
+        { "p": "cocido", "significado": "Guiso de garbanzos con carne y verduras. También, forma del verbo cocer: he cocido.",
+          "frases": ["Los domingos mi abuela prepara un ___ con garbanzos.", "El arroz ya está ___: apaga el fuego.", "Hemos ___ las patatas para hacer la ensalada."] },
+        { "p": "cosido", "significado": "Forma del verbo coser: he cosido, está cosido.",
+          "frases": ["Mi madre ha ___ el botón de mi camisa.", "El parche está ___ a la mochila.", "La abuela ha ___ un vestido para la muñeca."] }
+      ]
+    },
+    {
+      "id": "rosa-roza", "regla": "c-z-s", "nivel": 2,
+      "truco": "La rosa, con s, es la flor. Roza, con z, es del verbo rozar: tocar un poco al pasar, como un roce.",
+      "formas": [
+        { "p": "rosa", "significado": "Flor de jardín, muy perfumada, con espinas en el tallo. También, el color rosa.",
+          "frases": ["Mi abuelo cortó una ___ roja del jardín.", "Cuidado con la ___, que tiene espinas en el tallo.", "Lola pintó la puerta de color ___."] },
+        { "p": "roza", "significado": "Forma del verbo rozar (tocar algo un poco al pasar): él o ella roza.",
+          "frases": ["El zapato nuevo me ___ el talón.", "Cuando el gato pasa, me ___ las piernas con la cola.", "La rama del árbol ___ la ventana cuando hace viento."] }
+      ]
+    },
+    {
+      "id": "asar-azar", "regla": "c-z-s", "nivel": 2,
+      "truco": "Asar, con s, es cocinar al fuego, como en las brasas. El azar, con z, es la suerte: un juego de azar.",
+      "formas": [
+        { "p": "asar", "significado": "Cocinar un alimento al fuego o en el horno, sin agua.",
+          "frases": ["En la fiesta del barrio vamos a ___ sardinas.", "Mi padre va a ___ un pollo en el horno.", "En otoño, mi abuela suele ___ castañas en la chimenea."] },
+        { "p": "azar", "significado": "La casualidad o la suerte.",
+          "frases": ["El orden de los equipos se decidió al ___.", "Encontré la pista por puro ___.", "En el parchís, lo que sale en el dado depende del ___."] }
+      ]
+    },
+    {
+      "id": "taza-tasa", "regla": "c-z-s", "nivel": 3,
+      "truco": "La taza, con z, es para el café o la leche. La tasa, con s, es lo que se paga por un servicio, o una medida de cuántas veces pasa algo.",
+      "formas": [
+        { "p": "taza", "significado": "Recipiente pequeño con asa para beber.",
+          "frases": ["Cada mañana, antes de salir hacia la agencia, Robles se toma una ___ de café bien caliente.", "Al recoger la mesa del desayuno, se me cayó la ___ y se rompió el asa en dos trozos.", "Para merendar, la abuela nos preparó una ___ de chocolate con churros recién hechos."] },
+        { "p": "tasa", "significado": "Cantidad de dinero que se paga por un servicio. También, medida de cuántas veces pasa algo.",
+          "frases": ["Para sacarse el pasaporte, mi madre tuvo que pagar una ___ en la comisaría.", "El ayuntamiento cobra una ___ a los vecinos por recoger la basura de las calles.", "Este curso, la ___ de alumnos que vienen al colegio en bicicleta ha subido muchísimo."] }
+      ]
+    },
+    {
+      "id": "sebo-cebo", "regla": "c-z-s", "nivel": 3,
+      "truco": "El cebo, con c, es la comida que se pone para atraer a un animal (cebar). El sebo, con s, es la grasa de algunos animales.",
+      "formas": [
+        { "p": "sebo", "significado": "Grasa sólida de algunos animales, que antes se usaba para hacer velas y jabón.",
+          "frases": ["Antiguamente, en muchas casas del pueblo se fabricaban velas con ___ de oveja.", "Para que las botas de cuero no se estropearan, el pastor las untaba con ___.", "El jabón que hacía mi bisabuela llevaba ___, ceniza y mucha paciencia."] },
+        { "p": "cebo", "significado": "Comida que se pone para atraer a un animal y atraparlo, como en la pesca.",
+          "frases": ["Mi tío pone una lombriz en el anzuelo como ___ para pescar en el pantano.", "Para atrapar al ratón del almacén, Mateo puso un trozo de queso como ___ en la trampa.", "Los peces del río no picaban, así que el pescador cambió de ___ a media tarde."] }
+      ]
+    },
+    {
+      "id": "losa-loza", "regla": "c-z-s", "nivel": 3,
+      "truco": "La losa, con s, es una piedra plana del suelo. La loza, con z, es el material de los platos y de las tazas.",
+      "formas": [
+        { "p": "losa", "significado": "Piedra plana y lisa que se pone en el suelo o que cubre algo.",
+          "frases": ["Bajo una ___ del patio de la iglesia, los detectives encontraron una caja de hierro oxidada.", "Al levantar una ___ del suelo de la cocina, el fontanero descubrió una tubería rota.", "Para cruzar el arroyo, pusimos una ___ grande de piedra encima de dos rocas."] },
+        { "p": "loza", "significado": "Barro fino y cocido con el que se hacen platos, tazas y otras piezas de la vajilla.",
+          "frases": ["En la alacena de la abuela hay una vajilla de ___ blanca con dibujos azules.", "En Sevilla hay una fábrica antigua donde se hacía ___ pintada a mano.", "Los platos de ___ son muy bonitos, pero se rompen si se caen al suelo."] }
+      ]
+    },
+    {
+      "id": "pozo-poso", "regla": "c-z-s", "nivel": 3,
+      "truco": "El pozo, con z, es un agujero hondo para sacar agua. El poso, con s, es lo que queda en el fondo de un vaso; y poso también es del verbo posar.",
+      "formas": [
+        { "p": "pozo", "significado": "Agujero profundo en la tierra para sacar agua.",
+          "frases": ["En el patio de la casa de campo hay un ___ antiguo con una polea para subir el agua.", "Cuando era pequeña, mi abuela sacaba agua del ___ con un cubo atado a una cuerda.", "Lola tiró una moneda al ___ de los deseos y escuchó cuánto tardaba en llegar al agua."] },
+        { "p": "poso", "significado": "Restos que quedan en el fondo de un líquido, como el café. También, forma del verbo posar: yo poso.",
+          "frases": ["Cuando terminó el café, Robles se quedó mirando el ___ que había quedado en el fondo.", "Si no remueves bien el cacao, se queda un ___ marrón en el fondo del vaso.", "Cuando nos hacen la foto de clase, yo siempre ___ con una sonrisa enorme."] }
+      ]
+    },
+    {
+      "id": "concejo-consejo", "regla": "c-z-s", "nivel": 3,
+      "truco": "Consejo, con s, es lo que te dicen para ayudarte (aconsejar). Concejo, con c, es el ayuntamiento, el de los concejales.",
+      "formas": [
+        { "p": "consejo", "significado": "Opinión que se da a alguien para ayudarle a decidir.",
+          "frases": ["Antes de elegir el regalo para su hermano, Lola le pidió ___ a su abuela.", "El mejor ___ que me dio mi entrenador fue que no dejara nunca de practicar.", "Si sigues mi ___, repasarás las palabras difíciles un poco cada día."] },
+        { "p": "concejo", "significado": "Ayuntamiento: grupo de personas que gobierna un pueblo o una ciudad.",
+          "frases": ["Los vecinos del barrio presentaron al ___ su propuesta para construir un parque nuevo.", "El ___ del pueblo se reúne todos los lunes en la sala grande del ayuntamiento.", "La alcaldesa explicó en el ___ cuánto costaría arreglar la fuente de la plaza."] }
+      ]
+    },
+    {
+      "id": "cesion-sesion", "regla": "c-z-s", "nivel": 3,
+      "truco": "Sesión, con s, es cada vez que se hace una actividad: una sesión de cine. Cesión, con c, viene de ceder: dar algo a otro.",
+      "formas": [
+        { "p": "sesión", "significado": "Tiempo que dura una actividad: una sesión de cine, una sesión de fotos.",
+          "frases": ["Fuimos al cine del barrio a la ___ de las cinco para ver una película de detectives.", "En la ___ de fotos para el periódico del colegio, Mateo no paraba de poner caras raras.", "La ___ de entrenamiento terminó con una carrera alrededor de todo el campo de fútbol."] },
+        { "p": "cesión", "significado": "Acción de ceder: dar algo a otro o dejar que lo use.",
+          "frases": ["Gracias a la ___ de un local por parte del ayuntamiento, el barrio tiene una biblioteca nueva.", "El club firmó la ___ del campo de fútbol al colegio para que los alumnos entrenaran allí.", "La ___ de los cuadros al museo permitió que todo el mundo pudiera verlos gratis."] }
+      ]
+    },
+    {
+      "id": "ciervo-siervo", "regla": "c-z-s", "nivel": 3,
+      "truco": "El ciervo, con c, es el animal del bosque. El siervo, con s, era la persona que servía a un señor (servir, con s).",
+      "formas": [
+        { "p": "ciervo", "significado": "Animal salvaje del bosque; el macho tiene grandes cuernos con ramas.",
+          "frases": ["Al amanecer, en la sierra de Cazorla, vimos un ___ enorme bebiendo agua en el río.", "El ___ levantó la cabeza al oír nuestros pasos y salió corriendo entre los árboles.", "En otoño se oye por el monte la berrea del ___, un bramido largo y muy fuerte."] },
+        { "p": "siervo", "significado": "En la Edad Media, campesino que trabajaba las tierras de un señor y le debía obediencia.",
+          "frases": ["En la Edad Media, el ___ trabajaba de sol a sol las tierras de su señor.", "El ___ del cuento soñaba con tener algún día su propio huerto y ser libre.", "En clase de Historia aprendimos que un ___ no podía marcharse de las tierras del castillo."] }
+      ]
+    }
+  ],
+  "dobles": [
+    { "frase": "Lola ___ que subir hasta la ___ del cerro para ver el faro.", "p": ["tuvo", "cima"] },
+    { "frase": "Si ___ a la playa conmigo, verás cómo rompe la ___ en las rocas.", "p": ["vienes", "ola"] },
+    { "frase": "Yo ___ un hoyo junto a la ___ del corral para plantar un rosal.", "p": ["cavo", "valla"] },
+    { "frase": "Espero que ___ leche fresca, porque la ___ de la granja ha dado mucha.", "p": ["haya", "vaca"] },
+    { "frase": "Pon el agua en el ___ y espera a que ___ antes de echar el arroz.", "p": ["cazo", "hierva"] },
+    { "frase": "El abuelo se sienta en el ___ de la puerta mientras yo ___ queso para la cena.", "p": ["poyo", "rallo"] },
+    { "frase": "Robles se ___ de golpe cuando vio la ___ del jardín rota.", "p": ["calló", "valla"] },
+    { "frase": "Lo ___ mucho, pero esta ___ no puedo acompañarte.", "p": ["siento", "vez"] },
+    { "frase": "¿___ ese ___ de luz que entra por la rendija?", "p": ["ves", "haz"] },
+    { "frase": "Mi abuela, que es muy ___, dice que hay que ___ las lentejas a fuego lento.", "p": ["sabia", "cocer"] },
+    { "frase": "Ya he ___ la mochila: solo falta ___ el bolsillo roto.", "p": ["hecho", "coser"] },
+    { "frase": "El testigo ___ miedo cuando oyó un ruido al fondo de la ___.", "p": ["tuvo", "sima"] },
+    { "frase": "En la ___ de mis abuelos hay un ___ de cobre para calentar la leche.", "p": ["casa", "cazo"] },
+    { "frase": "Cada mañana ___ de comer a la gallina y a su ___ más pequeño.", "p": ["echo", "pollo"] },
+    { "frase": "Si te pones a ___ el balón junto a la pared, la vas a ___.", "p": ["botar", "rayar"] },
+    { "frase": "Mañana la clase va a ___ el nombre del ___ que pasa junto al colegio.", "p": ["votar", "arroyo"] },
+    { "frase": "Las ovejas comían ___ fresca a la orilla del ___.", "p": ["hierba", "arroyo"] },
+    { "frase": "Mientras la sopa se calentaba en el ___, la abuela empezó a ___ el dobladillo.", "p": ["cazo", "coser"] },
+    { "frase": "Desde la ___ de la torre, el ___ de la bandera parecía un palillo.", "p": ["cima", "asta"] },
+    { "frase": "El agua del pozo es tan ___ que nunca ___ el fondo con la linterna.", "p": ["honda", "ves"] },
+    { "frase": "Con un ___ de cartón, Mateo hizo un catalejo para ver la ___ del monte.", "p": ["tubo", "cima"] },
+    { "frase": "La ___ sube por el tronco del ___ cuando llega la primavera.", "p": ["savia", "haya"] },
+    { "frase": "Lola ___ siempre la pista que falta, aunque esté en el fondo de una ___.", "p": ["halla", "sima"] },
+    { "frase": "Al morir el conde, sus ___ pasaron a su sobrina, que se fue a vivir a su ___.", "p": ["bienes", "casa"] },
+    { "frase": "Dentro de la bolsa de ___ venía una ___ roja muy pequeña.", "p": ["malla", "baya"] },
+    { "frase": "¡___, qué susto! Una ___ me ha mojado los pies.", "p": ["ay", "ola"] },
+    { "frase": "Mira ___, junto al ___ de piedra de la puerta.", "p": ["ahí", "poyo"] },
+    { "frase": "Mi abuela me pide que ___ a la tienda antes de ___ la sopa.", "p": ["vaya", "cocer"] },
+    { "frase": "El faro del ___ se ve desde la ___ de mi abuela.", "p": ["cabo", "casa"] },
+    { "frase": "En el ___ de Lola, la pista estaba escondida dentro de un ___ de cartón.", "p": ["caso", "tubo"] },
+    { "frase": "Corrí a ___ a mi tía, que me había esperado ___ las diez de la noche.", "p": ["abrazar", "hasta"] },
+    { "frase": "En la granja, la ___ se tumbó sobre la ___ del prado.", "p": ["vaca", "hierba"] },
+    { "frase": "Cuando el testigo ___ el secreto, la sala entera se ___.", "p": ["reveló", "calló"] },
+    { "frase": "Mateo quiere ___ un vídeo para pedir ___ a los vecinos del barrio.", "p": ["grabar", "consejo"] },
+    { "frase": "El ___ apareció en el bosque junto a una ___ de piedra muy antigua.", "p": ["ciervo", "losa"] },
+    { "frase": "En el fondo de la ___ quedó un ___ marrón de cacao.", "p": ["taza", "poso"] },
+    { "frase": "El pescador puso ___ en el anzuelo y se sentó a la orilla del ___.", "p": ["cebo", "arroyo"] },
+    { "frase": "El terreno era tan ___ que el abuelo tardó una semana entera en ___ el trigo.", "p": ["vasto", "segar"] },
+    { "frase": "El herrero tuvo que ___ al caballo antes de ___ la cuadra.", "p": ["herrar", "cerrar"] },
+    { "frase": "Para ___ las sardinas, el abuelo saca una fuente de ___ de la alacena.", "p": ["asar", "loza"] },
+    { "frase": "Pon el ___ en el fuego y, mientras tanto, ponte a ___ el periódico.", "p": ["cazo", "hojear"] },
+    { "frase": "Cada mañana, el conserje ___ la puerta del colegio y luego se sentaba en el ___ del patio.", "p": ["abría", "poyo"] },
+    { "frase": "Sin tu ayuda, nunca ___ visto la huella junto al ___.", "p": ["habría", "arroyo"] },
+    { "frase": "En el armario ___ un ___ de cartón lleno de planos.", "p": ["hay", "tubo"] },
+    { "frase": "Lola es un ___ resolviendo acertijos: en un momento ___ la solución.", "p": ["as", "halla"] },
+    { "frase": "___ la cama y luego baja a tomarte el ___ de naranja.", "p": ["haz", "zumo"] },
+    { "frase": "¿___ visto el ___ de la bandera? Se ha doblado con el viento.", "p": ["has", "asta"] },
+    { "frase": "Junto a la pirámide ___ se abre una ___ tan profunda que da miedo asomarse.", "p": ["maya", "sima"] },
+    { "frase": "El paisaje desde el ___ es tan ___ que parece una postal.", "p": ["cabo", "bello"] },
+    { "frase": "Ayer la ___ se escapó del establo y saltó la ___ del vecino.", "p": ["vaca", "valla"] },
+    { "frase": "Lola se puso la ___ de baile y salió corriendo a ___ a sus amigas.", "p": ["malla", "abrazar"] },
+    { "frase": "Si ___ a cenar, te preparo ___ asado con patatas.", "p": ["vienes", "pollo"] },
+    { "frase": "La ___ del prado estaba tan alta que el abuelo la tuvo que ___.", "p": ["hierba", "segar"] },
+    { "frase": "Si el sol te llega a ___, no ___ la curva de la carretera.", "p": ["cegar", "ves"] },
+    { "frase": "Dentro de dos ___ volveremos a la ___ de mi abuela en el pueblo.", "p": ["meses", "casa"] },
+    { "frase": "Me duele la ___ cada vez que ___ tantos números de cabeza.", "p": ["sien", "sumo"] },
+    { "frase": "Esta ___ el ___ del cuadro robado lo resolverá Lola.", "p": ["vez", "caso"] },
+    { "frase": "No te olvides de ___ la puerta, que el gato está de ___ por el pasillo.", "p": ["cerrar", "caza"] },
+    { "frase": "Espero que ___ tarta de cumpleaños, porque mi bisabuela cumple ___ años.", "p": ["haya", "cien"] },
+    { "frase": "Mi madre ___ la ventana cada vez que cae un ___ cerca de casa.", "p": ["cierra", "rayo"] },
+    { "frase": "Se me ha metido una piedra en la ___ y ahora me ___ el talón al andar.", "p": ["bota", "roza"] },
+    { "frase": "Mi tío se va a ___ en la ermita, y en el banquete habrá ___ con garbanzos.", "p": ["casar", "cocido"] },
+    { "frase": "Al ___ eligieron quién subía a la ___ de la montaña con el guía.", "p": ["azar", "cima"] }
+  ]
+}

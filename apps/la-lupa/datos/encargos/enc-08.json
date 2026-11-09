@@ -1,0 +1,76 @@
+{
+  "id": "enc-08",
+  "numero": "E08",
+  "titulo": "El oyente madrugador",
+  "resumen": "Cada semana llega a Radio Alameda un poema firmado solo como «Un oyente madrugador». Su autor asegura que, si sabemos leer sus versos, descubriremos quién es. Charo no duerme de la intriga.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Charo, la locutora",
+    "rango": 3,
+    "contenido": "El lenguaje figurado: comparación, metáfora, personificación e hipérbole",
+    "dificultad": 4
+  },
+  "escenas": [
+    { "tipo": "portada", "fondo": "radio-alameda" },
+    {
+      "tipo": "relato", "objeto": "sobre-oyente", "fondo": "radio-alameda", "quien": "Charo, la locutora",
+      "personaje": { "id": "charo", "expresion": "sorprendido", "lado": "der" },
+      "texto": "¡Detectives, salgo en antena en diez minutos! Desde hace semanas llegan al buzón de la radio poemas firmados por «Un oyente madrugador». Dice que sus versos esconden pistas sobre quién es. Medio barrio llama para preguntarlo… y yo ya no duermo. ¿Me ayudáis a leerlos como se leen los poemas?"
+    },
+    {
+      "tipo": "pregunta", "fondo": "radio-alameda", "titulo": "El poema del lunes",
+      "personaje": { "id": "charo", "expresion": "contento", "lado": "izq" },
+      "quien": "Poema del lunes · Un oyente madrugador",
+      "documento": "(1) Me despierto cuando la luna todavía bosteza,\n(2) con el bigote blanco como la espuma del mar.\n(3) Mis naranjas son pequeños soles de invierno\n(4) y cargo un millón de cajas antes de desayunar.",
+      "preguntas": [
+        { "pregunta": "Verso 1: «la luna todavía bosteza». ¿Qué recurso es?", "opciones": ["Comparación", "Metáfora", "Personificación", "Hipérbole"], "correcta": 2, "criterio": "8.1", "pista": "¿Puede bostezar la luna de verdad? ¿Quién bosteza normalmente?", "explicacion": "Personificación: la luna hace algo propio de las personas, bostezar. Así imaginamos que hasta el cielo tiene sueño de lo temprano que es." },
+        { "pregunta": "Verso 2: «el bigote blanco como la espuma del mar». ¿Qué recurso es?", "opciones": ["Comparación", "Metáfora", "Personificación", "Hipérbole"], "correcta": 0, "criterio": "8.1", "pista": "Busca la palabrita que une dos cosas que se parecen.", "explicacion": "Comparación: une dos cosas con «como». El bigote y la espuma se parecen en lo blanco." },
+        { "pregunta": "Verso 3: «Mis naranjas son pequeños soles de invierno». ¿Qué recurso es?", "opciones": ["Comparación", "Metáfora", "Personificación", "Hipérbole"], "correcta": 1, "criterio": "8.1", "pista": "Aquí no hay «como»: el poeta no dice que se parezcan, dice que LO SON.", "explicacion": "Metáfora: dice que una cosa es otra, sin «como». Las naranjas y el sol comparten el color y la forma redonda." },
+        { "pregunta": "Verso 4: «cargo un millón de cajas antes de desayunar». ¿Qué recurso es?", "opciones": ["Comparación", "Metáfora", "Personificación", "Hipérbole"], "correcta": 3, "criterio": "8.1", "pista": "¿Alguien puede cargar un millón de cajas en una mañana?", "explicacion": "Hipérbole: una exageración que nadie se cree al pie de la letra. Es una forma graciosa de decir «muchísimas cajas»." }
+      ]
+    },
+    {
+      "tipo": "pregunta", "fondo": "radio-alameda", "titulo": "El poema del miércoles",
+      "personaje": { "id": "mateo", "expresion": "contento", "lado": "izq" },
+      "quien": "Poema del miércoles · Un oyente madrugador",
+      "documento": "Mi puesto es un jardín que huele a mandarina;\nlas sandías, panzudas, se ríen al pasar,\ny mi voz, cuando pregona las fresas de Huelva,\nretumba como un trueno de la plaza hasta el mar.",
+      "preguntas": [
+        { "pregunta": "«Mi puesto es un jardín». ¿Qué dos cosas une esta metáfora?", "opciones": ["El puesto del poeta y un jardín", "Las mandarinas y un jardín", "El poeta y un jardinero"], "correcta": 0, "criterio": "8.1", "pista": "Una metáfora tiene dos partes: lo real y lo imaginado. ¿Qué cosa «es» un jardín?", "explicacion": "Lo real es el puesto; lo imaginado, un jardín. El poeta lo dice porque su puesto está lleno de colores y de olores, como un jardín." },
+        { "pregunta": "«Mi voz retumba como un trueno». ¿En qué se parecen su voz y un trueno?", "opciones": ["En que dan miedo a los niños", "En que suenan muy fuerte", "En que solo se oyen cuando llueve"], "correcta": 1, "criterio": "8.1", "pista": "Fíjate en el verbo: ¿cómo suena algo que «retumba»?", "explicacion": "En una comparación hay que buscar lo que tienen en común las dos cosas. Aquí es el ruido: el poeta pregona a voz en grito." },
+        { "pregunta": "«De la plaza hasta el mar». ¿Qué quiere decir de verdad el poeta?", "opciones": ["Que su puesto está junto a la playa", "Que pregona subido a un barco", "Que su voz se oye desde muy lejos"], "correcta": 2, "criterio": "8.1", "pista": "¿Hay mar en La Alameda? Piensa si el poeta exagera.", "explicacion": "Es una hipérbole: exagera para que imaginemos lo lejos que llega su voz. Al leer poesía, no todo se entiende al pie de la letra." }
+      ]
+    },
+    {
+      "tipo": "escribe", "fondo": "radio-alameda", "titulo": "Respuesta en antena",
+      "instruccion": "Charo quiere contestar al oyente con sus mismas armas. Completa los versos.",
+      "personaje": { "id": "charo", "expresion": "neutral", "lado": "izq" },
+      "items": [
+        { "enunciado": "Escribe la palabra que forma la comparación: «Tu poema es dulce ___ una fresa».", "respuestas": ["como", "igual que"], "criterio": "8.1", "pista": "Es la palabra que aparece en casi todas las comparaciones del oyente.", "explicacion": "«Como» une las dos cosas que se parecen. Otras comparaciones usan «igual que», «parece» o «tan… como»." },
+        { "enunciado": "Inventa una comparación con una sola palabra: «El oyente madruga tanto como un ___».", "respuestas": ["gallo", "despertador", "panadero", "pájaro", "gorrión", "jilguero", "mirlo", "reloj", "barrendero", "lechero", "pescador", "pastor", "granjero", "agricultor", "labrador", "campesino", "frutero", "sol", "gallito", "pollo", "pollito", "pato", "ganso", "pajarito", "pajarillo", "ruiseñor", "canario", "petirrojo", "periquito", "loro", "ave", "lucero", "amanecer", "pastelero", "churrero", "pescadero", "carnicero", "tendero", "vendedor", "quiosquero", "kiosquero", "cartero", "repartidor", "camionero", "conductor", "taxista", "maquinista", "basurero", "albañil", "obrero", "trabajador", "minero", "jornalero", "hortelano", "ganadero", "marinero", "maestro", "profesor", "médico", "enfermero", "bombero", "policía", "guardia", "vigilante", "sereno", "soldado", "monje", "fraile", "deportista", "atleta", "corredor", "ciclista", "bebé", "abuelo"], "criterio": "8.1", "pista": "Piensa en un animal que canta al amanecer, en un oficio que empieza muy temprano o en un aparato que suena por la mañana. Tiene que ser un nombre masculino: «un…».", "explicacion": "«Tanto como» compara cuánto madruga el oyente con algo que se levanta temprano. ¡Comparación inventada!" },
+        { "enunciado": "Convierte la comparación en metáfora: «Tus versos son como caramelos» → «Tus versos son ___».", "respuestas": ["caramelos"], "criterio": "8.1", "pista": "Solo tienes que quitar la palabra «como». ¿Qué queda?", "explicacion": "Sin «como» ya no dices que se parecen: dices que lo son. Eso es una metáfora." },
+        { "enunciado": "Inventa una metáfora con una sola palabra: «La luna es una ___ de plata».", "respuestas": ["moneda", "bandeja", "lámpara", "perla", "pelota", "bola", "galleta", "medalla", "linterna", "bombilla", "farola", "rueda", "sonrisa", "uña", "barca", "naranja", "tortilla", "luz", "estrella", "joya", "corona", "campana", "taza", "cuchara", "sartén", "ventana", "puerta", "flor", "rosa", "manzana", "almendra", "concha", "hoja", "pluma", "canica", "piruleta", "tarta", "pizza", "rodaja", "cara", "reina", "dama", "vela", "hoz", "ceja", "monedita", "peseta", "ficha", "chapa", "placa", "tapa", "tapadera", "lata", "fuente", "copa", "olla", "cazuela", "cucharilla", "pandereta", "lamparita", "lucecita", "antorcha", "esfera", "bolita", "pelotita", "burbuja", "pompa", "gota", "gotita", "lágrima", "piedra", "piedrecita", "roca", "pepita", "gema", "lentejuela", "lenteja", "lupa", "lente", "pupila", "diadema", "tiara", "pulsera", "sortija", "alianza", "campanilla", "margarita", "mandarina", "sandía", "uva", "cereza", "aceituna", "nuez", "avellana", "castaña", "calabaza", "cebolla", "caracola", "torta", "hogaza", "magdalena", "rosquilla", "oblea", "raja", "tajada", "carita", "princesa", "hada", "paloma", "mariposa", "barquita", "canoa", "góndola", "nave", "cuna", "hamaca", "guadaña", "cuchilla", "ruedecita", "nube", "isla"], "criterio": "8.1", "pista": "Piensa en algo redondo (o con forma de media luna) que brille. ¡Usa un nombre femenino!", "explicacion": "La luna y lo que has elegido comparten la forma o el brillo. Has escrito una metáfora." }
+      ]
+    },
+    {
+      "tipo": "hipotesis", "fondo": "radio-alameda", "titulo": "¿Quién es el oyente?",
+      "opciones": [
+        "Remedios, la pescadera, que madruga para ir al mercado.",
+        "Julián, el panadero, que madruga para encender el horno.",
+        "Manolo, el frutero, que madruga para montar su puesto.",
+        "Ramón, el músico, que escribe canciones de madrugada."
+      ],
+      "correcta": 2,
+      "acierto": "¡Todo encaja! Madruga, carga cajas, tiene un puesto con naranjas, mandarinas, sandías y fresas… y pregona como un trueno. Y su bigote es blanco como la espuma. ¡Es el frutero del mercado!",
+      "fallo": "Todos madrugan, así que esa pista no basta. Repasa los poemas: ¿qué vende el oyente en su puesto?"
+    },
+    {
+      "tipo": "relato", "fondo": "radio-alameda", "quien": "Manolo, el frutero",
+      "personaje": { "id": "manolo", "expresion": "contento", "lado": "der" },
+      "texto": "Bueno… sí, era yo. Mientras coloco la fruta de madrugada, los versos me salen solos. No me atrevía a firmar: ¿quién se cree a un frutero poeta? Pero si la radio me deja, el lunes traigo uno nuevo sobre los pimientos. Os aviso: son muy dramáticos."
+    },
+    {
+      "tipo": "final", "fondo": "radio-alameda", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "charo", "manolo"],
+      "texto": "Radio Alameda estrena sección: «Versos de mercado», con Manolo, el frutero. Los lunes, el barrio desayuna con metáforas y naranjas."
+    }
+  ]
+}

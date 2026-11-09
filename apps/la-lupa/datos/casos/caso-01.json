@@ -1,0 +1,497 @@
+{
+  "id": "caso-01",
+  "numero": "01",
+  "titulo": "El pregón desaparecido",
+  "reglas": [
+    "tildes-generales"
+  ],
+  "resumen": "El pregón de la Feria de La Alameda ha desaparecido la víspera de la fiesta.",
+  "_marcado": "En los textos, {mal|bien} es una falta sembrada (se muestra 'mal'). En los careos, {mal|bien|carta}. Las faltas de los campos 'texto' e 'intro' se repasan en la escena 'expediente'.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "agencia"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "agotado",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "¡Urgente! Uf… perdonad, vengo corriendo desde las pistas. Doña Pilar, la pregonera de la Feria de La Alameda, ha perdido su {pregon|pregón}. Lo dejó ayer en la Casa de la Feria y esta mañana ya no estaba. La feria empieza mañana: hay que actuar {rapido|rápido}."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "Un buen detective descubre las reglas por sí mismo. Mira mis fichas y dime qué ves.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "Agudas CON tilde",
+              "palabras": [
+                "camión",
+                "sofá",
+                "compás",
+                "café"
+              ]
+            },
+            {
+              "titulo": "Agudas SIN tilde",
+              "palabras": [
+                "reloj",
+                "papel",
+                "ciudad",
+                "feliz"
+              ]
+            }
+          ],
+          "pregunta": "Todas son agudas: la fuerza está en la última sílaba. ¿Cuándo llevan tilde?",
+          "opciones": [
+            "Cuando terminan en vocal, -n o -s",
+            "Cuando tienen más de dos sílabas",
+            "Cuando terminan en cualquier consonante",
+            "Nunca llevan tilde"
+          ],
+          "correcta": 0,
+          "explicacion": "Las agudas llevan tilde si terminan en vocal, -n o -s: ca-MIÓN, so-FÁ, com-PÁS. Re-LOJ termina en -j: sin tilde."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Llanas CON tilde",
+              "palabras": [
+                "árbol",
+                "lápiz",
+                "fácil",
+                "azúcar"
+              ]
+            },
+            {
+              "titulo": "Llanas SIN tilde",
+              "palabras": [
+                "mesa",
+                "joven",
+                "lunes",
+                "casa"
+              ]
+            }
+          ],
+          "pregunta": "Estas son llanas: la fuerza está en la penúltima sílaba. ¿Cuándo llevan tilde?",
+          "opciones": [
+            "Cuando terminan en vocal, -n o -s",
+            "Cuando NO terminan en vocal, -n ni -s",
+            "Siempre",
+            "Nunca"
+          ],
+          "correcta": 1,
+          "explicacion": "¡Justo al revés que las agudas! Las llanas llevan tilde si NO terminan en vocal, -n ni -s: ÁR-bol, LÁ-piz. JO-ven termina en -n: sin tilde."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Esdrújulas",
+              "palabras": [
+                "música",
+                "pájaro",
+                "teléfono",
+                "sábado"
+              ]
+            }
+          ],
+          "pregunta": "Estas son esdrújulas: la fuerza está en la antepenúltima sílaba. ¿Qué pasa con su tilde?",
+          "opciones": [
+            "Solo la llevan si terminan en -s",
+            "La llevan siempre",
+            "No la llevan nunca",
+            "Solo la llevan si son largas"
+          ],
+          "correcta": 1,
+          "explicacion": "Las esdrújulas llevan tilde siempre: MÚ-si-ca, PÁ-ja-ro, te-LÉ-fo-no."
+        },
+        {
+          "grupos": [],
+          "pregunta": "Un vecino dice: «Todas las palabras que terminan en -n llevan tilde». ¿Qué palabra demuestra que se equivoca?",
+          "opciones": [
+            "camión",
+            "canción",
+            "joven",
+            "jamón"
+          ],
+          "correcta": 2,
+          "explicacion": "«Joven» termina en -n y no lleva tilde, porque es llana (JO-ven). La regla de la -n solo vale para las agudas. ¡Has encontrado un contraejemplo!"
+        }
+      ],
+      "pistas": [
+        "Fíjate en la última letra de cada palabra.",
+        "Compara cómo terminan las palabras CON tilde y las SIN tilde.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "La regla, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe la regla de las agudas, las llanas y las esdrújulas con tus propias palabras.",
+        "Inventa un ejemplo de cada tipo que lleve tilde.",
+        "Busca un contraejemplo: una palabra acabada en -n que no lleve tilde."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "casa-feria",
+      "objeto": "carpeta-vacia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "titulo": "La Casa de la Feria",
+      "quien": "Lola",
+      "texto": "Aquí estaba el pregón, dentro de una carpeta azul. Ahora la mesa está vacía… salvo por unas migas de pan. Y estas migas huelen a la panadería de Julián."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "panaderia",
+      "personaje": {
+        "id": "julian",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Julián, el panadero",
+      "texto": "¡Menudo lío! Esta mañana alguien entró corriendo, pidió un bollo y me tiró todos los papeles del mostrador. Entre tanto pedido ya no encuentro nada. ¿Me ayudáis a revisarlos?"
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "panaderia",
+      "titulo": "Los papeles del mostrador",
+      "instruccion": "Entre los papeles hay 4 palabras mal escritas. Tócalas y corrígelas: juntas forman una pista.",
+      "palabras": [
+        "pan",
+        "harina",
+        "azúcar",
+        "levadura",
+        "magdalena",
+        "café",
+        "limón",
+        "miércoles",
+        "jamón",
+        "teléfono",
+        "pedido",
+        "bizcocho",
+        "almíbar",
+        "horno",
+        "cliente",
+        "mantequilla"
+      ],
+      "faltas": [
+        {
+          "mal": "Ramon",
+          "bien": "Ramón"
+        },
+        {
+          "mal": "cogio",
+          "bien": "cogió"
+        },
+        {
+          "mal": "carpéta",
+          "bien": "carpeta"
+        },
+        {
+          "mal": "musica",
+          "bien": "música"
+        }
+      ],
+      "frase": "{0} {1} la {2} y se fue al kiosco de la {3}.",
+      "pistas": [
+        "Las palabras mal escritas no tienen nada que ver con el pan.",
+        "Hay un nombre de persona sin tilde y una palabra con una tilde que sobra.",
+        "Busca: Ramon, cogio, carpéta y musica."
+      ],
+      "recompensa": {
+        "texto": "En el reverso de un pedido hay una hora apuntada: las 7.",
+        "digito": "7"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "panaderia",
+      "titulo": "Y la conclusión es…",
+      "opciones": [
+        "Julián usó el pregón para envolver pan.",
+        "Ramón cogió la carpeta y se la llevó al kiosco de la música.",
+        "Doña Pilar se lo dejó olvidado en la panadería.",
+        "El viento se llevó el pregón por la ventana."
+      ],
+      "correcta": 1,
+      "acierto": "Las palabras corregidas lo dicen claro: Ramón cogió la carpeta y se fue al kiosco de la música. Pero antes, Lola quiere pasar por la floristería: Ramón suele comprar allí.",
+      "fallo": "Esa conclusión no encaja con las pistas. Vuelve a leer las palabras que has corregido."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "floristeria",
+      "personaje": {
+        "id": "ines",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Inés, la florista",
+      "texto": "¿Ramón? Sí, pasó por aquí esta mañana con mucha prisa. Os cuento más, pero antes, ¿me {ayudais|ayudáis} a ordenar los ramos de la feria? ¡Están todos revueltos!"
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "floristeria",
+      "titulo": "Los ramos revueltos",
+      "instruccion": "Lee cada etiqueta y pon el ramo en su cubo.",
+      "categorias": [
+        {
+          "id": "aguda",
+          "nombre": "Agudas"
+        },
+        {
+          "id": "llana",
+          "nombre": "Llanas"
+        },
+        {
+          "id": "esdrujula",
+          "nombre": "Esdrújulas"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "clavel",
+          "cat": "aguda",
+          "silabas": "cla-VEL"
+        },
+        {
+          "p": "rosa",
+          "cat": "llana",
+          "silabas": "RO-sa"
+        },
+        {
+          "p": "pétalo",
+          "cat": "esdrujula",
+          "silabas": "PÉ-ta-lo"
+        },
+        {
+          "p": "jazmín",
+          "cat": "aguda",
+          "silabas": "jaz-MÍN"
+        },
+        {
+          "p": "azucena",
+          "cat": "llana",
+          "silabas": "a-zu-CE-na"
+        },
+        {
+          "p": "orquídea",
+          "cat": "esdrujula",
+          "silabas": "or-QUÍ-de-a"
+        },
+        {
+          "p": "girasol",
+          "cat": "aguda",
+          "silabas": "gi-ra-SOL"
+        },
+        {
+          "p": "lirio",
+          "cat": "llana",
+          "silabas": "LI-rio"
+        }
+      ],
+      "pistas": [
+        "Di la palabra en voz alta y da una palmada en la sílaba que suena más fuerte.",
+        "Cuenta las sílabas desde el final: última → aguda, penúltima → llana, antepenúltima → esdrújula."
+      ],
+      "recompensa": {
+        "texto": "Inés recuerda: «Ramón llevaba una caja de música con un candado de 3 cifras».",
+        "digito": "3"
+      },
+      "contador": "Ramo"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "kiosco",
+      "objeto": "partitura",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "titulo": "El kiosco de la música",
+      "quien": "Lola",
+      "texto": "Aquí no hay nadie… pero en el atril hay una partitura llena de manchas de {cafe|café}. Alguien ha escrito encima: «El número de tildes abre la caja»."
+    },
+    {
+      "tipo": "manchas",
+      "fondo": "kiosco",
+      "titulo": "La partitura manchada",
+      "instruccion": "¿Hay una tilde debajo de cada mancha? Decide en cada palabra.",
+      "palabras": [
+        {
+          "p": "música",
+          "pos": 1,
+          "silabas": "MÚ-si-ca"
+        },
+        {
+          "p": "ritmo",
+          "pos": 1,
+          "silabas": "RIT-mo"
+        },
+        {
+          "p": "canción",
+          "pos": 5,
+          "silabas": "can-CIÓN"
+        },
+        {
+          "p": "tambor",
+          "pos": 4,
+          "silabas": "tam-BOR"
+        },
+        {
+          "p": "compás",
+          "pos": 4,
+          "silabas": "com-PÁS"
+        },
+        {
+          "p": "guitarra",
+          "pos": 4,
+          "silabas": "gui-TA-rra"
+        },
+        {
+          "p": "violín",
+          "pos": 4,
+          "silabas": "vio-LÍN"
+        }
+      ],
+      "pistas": [
+        "Primero busca la sílaba fuerte. Después mira cómo termina la palabra.",
+        "Usa las cartas de tu libreta: agudas en vocal, -n o -s; llanas en lo demás; esdrújulas siempre."
+      ],
+      "recompensa": {
+        "texto": "Debajo de las manchas había 4 tildes. «El número de tildes abre la caja».",
+        "digito": "4"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "kiosco",
+      "personaje": {
+        "id": "ramon",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Ramón, el músico",
+      "texto": "¡Eh! ¿Qué hacéis con mi partitura? ¡Yo no he hecho nada malo! Bueno… dejadme que os lo explique."
+    },
+    {
+      "tipo": "careo",
+      "fondo": "kiosco",
+      "personaje": {
+        "id": "ramon",
+        "expresion": "nervioso",
+        "lado": "der"
+      },
+      "quien": "Ramón, el músico",
+      "titulo": "Careo",
+      "instruccion": "En su declaración hay 3 faltas. Señálalas, presenta la carta que lo demuestra y escríbelas bien.",
+      "declaracion": "Es verdad que cogí la carpeta, pero solo para leer el pregón. Me pareció tan bonito que quise convertirlo en una {cancion|canción|aguda} para la feria. Lo guardé en la caja de {musica|música|esdrujula}, que tiene un candado. ¡Era un texto tan {facil|fácil|llana} de cantar!",
+      "pistas": [
+        "Las tres palabras con faltas tienen que ver con la música.",
+        "Una es aguda, otra llana y otra esdrújula.",
+        "Son: cancion, musica y facil."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "kiosco",
+      "objeto": "caja-musica",
+      "titulo": "La caja de música",
+      "instruccion": "Ramón no recuerda la clave… pero tú tienes tu libreta. Las cifras van en el orden en que las encontraste.",
+      "codigo": "734",
+      "exito": "La caja se abre y suena una melodía. Dentro está el pregón de doña Pilar, junto a la canción que Ramón estaba escribiendo como sorpresa.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera es la hora del pedido de la panadería."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "objeto": "pregon",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "quien": "Doña Pilar",
+      "texto": "¡Mi pregón! Muchas gracias, detective. Y tú, Ramón, la próxima vez pide permiso… aunque esa canción me ha encantado. ¡Mañana la cantamos juntos en la feria!"
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de tildes. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": [
+        "Hay dos faltas en lo primero que dijo el director… y alguna más.",
+        "Revisa lo que dijo Inés en la floristería y lo que dijo Lola en el kiosco."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "nota-tachon",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Una última cosa. Entre los papeles que alguien tiró en la panadería apareció esto: un tachón y unas gafas de sol. El mismo dibujo de la noche del sabotaje. Esto no ha terminado."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe para el director",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿quién se llevó el pregón, dónde estaba y por qué?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta al director para que selle tu expediente."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "plaza-feria",
+      "texto": "El pregón vuelve a su dueña y la feria empieza a tiempo. El director Robles cuelga tu primer expediente en el tablón de la agencia."
+    }
+  ]
+}

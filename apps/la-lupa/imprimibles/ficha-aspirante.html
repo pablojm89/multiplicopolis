@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha de aspirante · Agencia La Lupa</title>
+<link rel="stylesheet" href="../fuentes/fuentes.css">
+<style>
+  /* Ficha imprimible A4 a dos caras. Pensada para gastar poca tinta: líneas finas, sin fondos oscuros. */
+  :root { --tinta: #1d1a16; --gris: #6b645a; --linea: #b9b1a3; --acento: #a8322d; }
+  * { box-sizing: border-box; }
+  html { background: #8a8378; }
+  body { margin: 0; font: 15px/1.4 "Nunito", sans-serif; color: var(--tinta); }
+  .hoja { width: 210mm; height: 297mm; margin: 10mm auto; padding: 13mm 14mm 11mm; background: #fff; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 4mm; box-shadow: 0 4px 18px rgba(0,0,0,.35); }
+  .cabecera { display: flex; align-items: center; gap: 4mm; border-bottom: 2.5px solid var(--tinta); padding-bottom: 3mm; }
+  .lupa { width: 15mm; height: 15mm; border: 2.5px solid var(--tinta); border-radius: 50%; position: relative; flex: none; }
+  .lupa::after { content: ""; position: absolute; width: 8mm; height: 2.5px; background: var(--tinta); right: -6.5mm; bottom: -1.5mm; transform: rotate(45deg); }
+  .titulos { flex: 1; margin-left: 3mm; }
+  .agencia { font: 13px "Special Elite", monospace; letter-spacing: .12em; color: var(--gris); }
+  h1 { margin: 0; font: 40px/1 "Bebas Neue", sans-serif; letter-spacing: .04em; }
+  .num { font: 15px "Special Elite", monospace; border: 1.5px solid var(--tinta); padding: 2mm 3mm; white-space: nowrap; }
+  .confidencial { display: inline-block; vertical-align: 2mm; margin-left: 4mm; transform: rotate(-6deg); border: 2px solid var(--acento); color: var(--acento); font: 18px "Bebas Neue"; letter-spacing: .1em; padding: 0 2mm; opacity: .8; }
+  h2 { margin: 0; font: 22px "Bebas Neue", sans-serif; letter-spacing: .05em; }
+  h2 small { font: 700 12px "Nunito"; color: var(--gris); letter-spacing: 0; margin-left: 2mm; }
+  .campo { display: flex; align-items: flex-end; gap: 3mm; font: 800 14px "Nunito"; }
+  .campo .raya { flex: 1; border-bottom: 1.5px solid var(--tinta); height: 8mm; }
+  .ayuda { font-size: 12.5px; color: var(--gris); margin: 0; }
+  .dibujo { flex: 1; border: 2px dashed var(--tinta); border-radius: 3mm; position: relative; min-height: 120mm; }
+  .dibujo span { position: absolute; left: 4mm; top: 3mm; font: 12px "Special Elite"; color: var(--gris); }
+  .esquinas::before, .esquinas::after { content: "FOTO DE FICHA"; position: absolute; right: 4mm; bottom: 3mm; font: 11px "Special Elite"; color: var(--linea); }
+  .esquinas::after { content: ""; }
+  .lineas { display: grid; gap: 0; }
+  .lineas i { display: block; height: 7.6mm; border-bottom: 1px solid var(--linea); }
+  .bloque { display: grid; gap: 1.5mm; }
+  .banco { border: 1px solid var(--linea); border-radius: 2mm; padding: 2mm 3mm; font-size: 12.5px; line-height: 1.5; }
+  .banco b { font: 800 11px "Nunito"; text-transform: uppercase; letter-spacing: .06em; color: var(--gris); margin-right: 1.5mm; }
+  .opciones { display: flex; flex-wrap: wrap; gap: 2mm 5mm; font-size: 13.5px; }
+  .opciones label::before { content: ""; display: inline-block; width: 3.6mm; height: 3.6mm; border: 1.5px solid var(--tinta); margin-right: 1.5mm; vertical-align: -0.5mm; }
+  .pie { display: grid; grid-template-columns: 1fr 36mm; gap: 4mm; align-items: center; }
+  .revisa { border: 1.5px solid var(--tinta); border-radius: 2mm; padding: 2.5mm 3.5mm; font-size: 13px; }
+  .revisa h3 { margin: 0 0 1mm; font: 18px "Bebas Neue"; letter-spacing: .05em; }
+  .revisa ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .8mm; }
+  .revisa li::before { content: "☐ "; }
+  .sello { border: 2px dashed var(--acento); border-radius: 50%; aspect-ratio: 1; display: grid; place-items: center; text-align: center; color: var(--acento); font: 14px "Bebas Neue"; letter-spacing: .06em; padding: 4mm; }
+  .recorte { margin-top: auto; border-top: 2px dashed var(--gris); padding-top: 2.5mm; display: flex; align-items: flex-end; gap: 3mm; font-size: 12.5px; }
+  .recorte .tijera { font-size: 16px; }
+  .recorte .raya { flex: 1; border-bottom: 1.5px solid var(--tinta); height: 7mm; }
+  .nota-maestro { position: fixed; left: 12px; bottom: 12px; max-width: 360px; background: #fff7d6; border: 1px solid #c9b26a; border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+  .nota-maestro button { margin-top: 6px; font: 800 14px "Nunito"; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--tinta); background: #fff; cursor: pointer; }
+  @page { size: A4; margin: 0; }
+  @media print {
+    html { background: none; }
+    .hoja { margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
+    .nota-maestro { display: none; }
+  }
+  @media screen and (max-width: 820px) {
+    .hoja { transform-origin: top left; zoom: .45; margin: 4mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═════════ CARA 1 ═════════ -->
+<section class="hoja">
+  <header class="cabecera">
+    <div class="lupa" aria-hidden="true"></div>
+    <div class="titulos">
+      <div class="agencia">AGENCIA LA LUPA · BARRIO DE LA ALAMEDA</div>
+      <h1>Ficha de aspirante <span class="confidencial">Confidencial</span></h1>
+    </div>
+    <div class="num">N.º de aspirante: ____</div>
+  </header>
+
+  <p class="ayuda">Has superado la prueba de acceso. Para entrar en la agencia, el director Robles necesita tu ficha. Con ella haremos tu retrato de detective para el juego. <b>No escribas tu nombre en esta cara:</b> en la agencia todos usamos un alias.</p>
+
+  <div class="bloque">
+    <h2>1. Mi alias de detective <small>Inventa un nombre secreto: «Agente Relámpago», «Detective Sombra»…</small></h2>
+    <div class="campo">Alias:<span class="raya"></span></div>
+  </div>
+
+  <div class="bloque" style="flex:1; display:flex; flex-direction:column;">
+    <h2>2. Así soy yo de detective <small>Dibújate de cuerpo entero: tu cara, tu peinado, tu ropa de detective y tu objeto favorito.</small></h2>
+    <div class="dibujo esquinas"><span>Dibuja aquí</span></div>
+  </div>
+
+  <div class="bloque">
+    <h2>3. Mi especialidad <small>Marca una (o inventa la tuya).</small></h2>
+    <div class="opciones">
+      <label>Ojo de lince (lo veo todo)</label><label>Oído fino</label><label>Memoria de elefante</label>
+      <label>Rapidez</label><label>Paciencia infinita</label><label>Buen olfato para las pistas</label>
+      <label>Otra: ______________</label>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <h2>4. Mi objeto de detective <small>Lupa, libreta, linterna, gorra, gafas, mochila, silbato…</small></h2>
+    <div class="campo">Mi objeto es<span class="raya"></span></div>
+  </div>
+</section>
+
+<!-- ═════════ CARA 2 ═════════ -->
+<section class="hoja">
+  <header class="cabecera">
+    <div class="lupa" aria-hidden="true"></div>
+    <div class="titulos">
+      <div class="agencia">FICHA DE ASPIRANTE · CARA 2</div>
+      <h1>Mi descripción</h1>
+    </div>
+    <div class="num">Alias: ________________</div>
+  </header>
+
+  <p class="ayuda">Un buen detective sabe <b>describir</b>. Escribe frases completas, con mayúscula al empezar y punto al terminar. Usa adjetivos del banco de palabras (¡o mejores!). Recuerda: es tu personaje de detective, así que puedes exagerar un poco, como en una serie.</p>
+
+  <div class="banco">
+    <b>Pelo</b>liso, rizado, ondulado, largo, corto, castaño, moreno, rubio, pelirrojo, recogido, con flequillo, con trenzas, de punta ·
+    <b>Ojos</b>grandes, rasgados, oscuros, claros, verdes, azules, marrones, con gafas ·
+    <b>Carácter</b>curioso, valiente, observador, tranquilo, alegre, despistado, paciente, divertido, ordenado, cabezota, generoso, tímido
+  </div>
+
+  <div class="bloque">
+    <h2>5. Mi aspecto <small>¿Cómo es tu pelo? ¿Y tus ojos? ¿Tienes algo especial (gafas, pecas, una sonrisa enorme…)?</small></h2>
+    <div class="lineas"><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="bloque">
+    <h2>6. Mi ropa de detective <small>¿Qué llevas para investigar? Prendas y colores.</small></h2>
+    <div class="lineas"><i></i><i></i></div>
+  </div>
+
+  <div class="bloque">
+    <h2>7. Mi carácter <small>Tres adjetivos que te describan y un ejemplo de por qué.</small></h2>
+    <div class="lineas"><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="bloque">
+    <h2>8. Mis gustos y aficiones <small>¿Qué te gusta hacer? ¿Qué te encanta comer, leer, jugar…?</small></h2>
+    <div class="lineas"><i></i><i></i></div>
+  </div>
+
+  <div class="bloque">
+    <h2>9. Mi lema de detective <small>Una frase corta para cuando resuelves un caso.</small></h2>
+    <div class="lineas"><i></i></div>
+  </div>
+
+  <div class="pie">
+    <div class="revisa">
+      <h3>Antes de entregarla, revísala como un detective</h3>
+      <ul>
+        <li>Cada frase empieza con mayúscula y termina con punto.</li>
+        <li>He usado adjetivos para describir (no solo «guay» o «bonito»).</li>
+        <li>He revisado las tildes y las letras dudosas (b/v, g/j, h…).</li>
+        <li>Mi alias está en las dos caras.</li>
+      </ul>
+    </div>
+    <div class="sello">Sello del director</div>
+  </div>
+
+  <div class="recorte">
+    <span class="tijera" aria-hidden="true">✂</span>
+    <span>Solo para el director (se recorta antes de escanear):</span>
+    <span>Nombre</span><span class="raya"></span><span>N.º</span><span class="raya" style="flex:.25"></span>
+  </div>
+</section>
+
+<aside class="nota-maestro">
+  <b>Para el maestro.</b> Imprime a doble cara (2 páginas). Antes de escanear, <b>recorta la tira del nombre</b>: a la IA solo llegan el alias, el dibujo y la descripción. Ver <code>arte/AVATARES-ALUMNADO.md</code>.<br>
+  <button onclick="print()">Imprimir</button>
+</aside>
+</body>
+</html>

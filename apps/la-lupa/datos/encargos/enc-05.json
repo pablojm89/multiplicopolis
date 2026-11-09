@@ -1,0 +1,78 @@
+{
+  "id": "enc-05",
+  "numero": "E05",
+  "titulo": "La noticia revuelta",
+  "resumen": "Paco, el fotógrafo, ha escrito por primera vez la noticia de portada de «El Eco de La Alameda». Una corriente de aire la ha revuelto… y el periódico se imprime a medianoche.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Paco, el fotógrafo",
+    "rango": 1,
+    "contenido": "La noticia: titular, entradilla, cuerpo y las seis preguntas",
+    "dificultad": 2
+  },
+  "escenas": [
+    { "tipo": "portada", "fondo": "estudio-fotos" },
+    {
+      "tipo": "relato", "objeto": "tortuga-huerto", "fondo": "estudio-fotos", "quien": "Paco, el fotógrafo",
+      "personaje": { "id": "paco", "expresion": "sorprendido", "lado": "der" },
+      "texto": "¡Detectives, qué desastre! Aurora me pidió que, por una vez, escribiera yo la noticia de portada y no me limitara a hacer las fotos. Tenía los párrafos recortados en la mesa, pero abrí la puerta del cuarto oscuro, entró una corriente… y se revolvió todo. Y el titular se me cayó en la cubeta del revelador. ¡El Eco se imprime a las doce!"
+    },
+    {
+      "tipo": "ordena", "fondo": "estudio-fotos", "titulo": "Los párrafos revueltos",
+      "instruccion": "Toca los párrafos en orden. Primero va la entradilla, que resume lo más importante. Después, el cuerpo, que cuenta los detalles.",
+      "criterio": "4.2",
+      "pista": "La entradilla resume toda la noticia y va la primera. Después, el cuerpo cuenta lo que pasó en orden: del miércoles al sábado.",
+      "fragmentos": [
+        "La tortuga Matilde, mascota del colegio Las Moreras, apareció el sábado en el huerto tras pasar tres días perdida.",
+        "Todo empezó el miércoles, cuando la clase de 5.º encontró el terrario vacío.",
+        "Durante tres días, el alumnado la buscó por los pasillos, el gimnasio y el patio.",
+        "El sábado, dos alumnas siguieron un rastro de lechugas mordisqueadas y la hallaron dormida bajo una tomatera.",
+        "Según la veterinaria del barrio, Matilde se escapó buscando sombra por el calor. «Está perfecta, solo un poco empachada», aseguró."
+      ]
+    },
+    {
+      "tipo": "pregunta", "fondo": "estudio-fotos", "titulo": "Las seis preguntas",
+      "quien": "Noticia de Paco (todavía sin titular)",
+      "documento": "La tortuga Matilde, mascota del colegio Las Moreras, apareció el sábado en el huerto tras pasar tres días perdida.\nTodo empezó el miércoles, cuando la clase de 5.º encontró el terrario vacío.\nDurante tres días, el alumnado la buscó por los pasillos, el gimnasio y el patio.\nEl sábado, dos alumnas siguieron un rastro de lechugas mordisqueadas y la hallaron dormida bajo una tomatera.\nSegún la veterinaria del barrio, Matilde se escapó buscando sombra por el calor. «Está perfecta, solo un poco empachada», aseguró.",
+      "preguntas": [
+        { "pregunta": "¿Qué ha pasado?", "opciones": ["Unas alumnas han plantado tomateras", "La tortuga del colegio ha aparecido tras perderse", "La veterinaria ha abierto una consulta"], "correcta": 1, "criterio": "4.1", "explicacion": "Una buena noticia responde a seis preguntas: qué, quién, cuándo, dónde, cómo y por qué. Las más importantes ya aparecen en la entradilla." },
+        { "pregunta": "¿Quién es la protagonista?", "opciones": ["La veterinaria del barrio", "Una de las alumnas del huerto", "Matilde, la tortuga del colegio"], "correcta": 2, "criterio": "4.1" },
+        { "pregunta": "¿Cuándo desapareció Matilde?", "opciones": ["El miércoles", "El sábado", "Hace tres semanas"], "correcta": 0, "criterio": "4.1", "pista": "El sábado apareció. Busca el párrafo que empieza por «Todo empezó…»." },
+        { "pregunta": "¿Dónde la encontraron?", "opciones": ["En el gimnasio", "En el huerto, bajo una tomatera", "En el terrario de 5.º"], "correcta": 1, "criterio": "4.1" },
+        { "pregunta": "¿Cómo la encontraron?", "opciones": ["Siguiendo un rastro de lechugas mordisqueadas", "Gracias a la veterinaria del barrio", "Buscando por los pasillos y el patio"], "correcta": 0, "criterio": "4.1", "pista": "Por los pasillos la buscaron, pero allí no estaba. ¿Qué siguieron las dos alumnas?", "explicacion": "El «cómo» cuenta de qué manera ocurrió algo: siguiendo el rastro de lechugas." },
+        { "pregunta": "Según la veterinaria, ¿por qué se escapó?", "opciones": ["Porque estaba empachada", "Porque buscaba sombra por el calor", "Porque quería conocer el huerto"], "correcta": 1, "criterio": "4.1", "pista": "Cuidado: el empacho llegó después, de tanta lechuga. ¿Qué buscaba al escaparse?", "explicacion": "El «por qué» es la causa: el calor. El empacho fue una consecuencia… de comerse medio huerto." }
+      ]
+    },
+    {
+      "tipo": "escribe", "fondo": "redaccion-eco", "titulo": "Las partes de la noticia",
+      "instruccion": "Aurora repasa la noticia antes de llevarla a la imprenta. Escribe el nombre de cada parte.",
+      "personaje": { "id": "aurora", "expresion": "neutral", "lado": "izq" },
+      "items": [
+        { "enunciado": "El primer párrafo, que resume lo más importante, se llama ___.", "respuestas": ["entradilla", "la entradilla"], "criterio": "4.2", "pista": "Lo leíste al ordenar los párrafos. Empieza por «entra-»: es por donde entras en la noticia.", "explicacion": "La entradilla: si alguien solo lee ese párrafo, ya sabe lo esencial." },
+        { "enunciado": "Los párrafos que cuentan los detalles forman el ___ de la noticia.", "respuestas": ["cuerpo", "el cuerpo"], "criterio": "4.2", "pista": "Es una palabra que también usamos para hablar de nuestro organismo." },
+        { "enunciado": "La frase corta y llamativa que va arriba, en letras grandes, se llama ___.", "respuestas": ["titular", "el titular"], "criterio": "4.2", "explicacion": "El titular es lo primero que se lee. ¡Y el de Paco está en la cubeta! Hay que elegir otro." }
+      ]
+    },
+    {
+      "tipo": "hipotesis", "fondo": "redaccion-eco", "titulo": "¿Cuál es el mejor titular?",
+      "opciones": [
+        "Cosas que pasan en el colegio",
+        "La tortuga del colegio aparece en el huerto tras tres días perdida",
+        "¡¡¡INCREÍBLE!!! No te vas a creer lo que pasó con la tortuga",
+        "Las tomateras del huerto escolar crecen mucho este año"
+      ],
+      "correcta": 1,
+      "acierto": "Un buen titular es corto, dice lo más importante y no engaña. «Cosas que pasan» no cuenta nada, y el de las exclamaciones solo quiere llamar la atención sin informar.",
+      "fallo": "Ese titular no sirve: o no dice qué ha pasado, o exagera, o habla de otra cosa. Busca el que resuma la noticia en una línea."
+    },
+    {
+      "tipo": "relato", "fondo": "redaccion-eco", "quien": "Aurora, la directora del periódico",
+      "personaje": { "id": "aurora", "expresion": "contento", "lado": "der" },
+      "texto": "¡A las doce menos cinco! Titular, entradilla y cuerpo, cada cosa en su sitio y respondiendo a las seis preguntas. Paco, la próxima noticia la escribes lejos de las cubetas, ¿eh? Y vosotros, detectives: si algún día os cansáis de investigar, aquí tenéis una mesa."
+    },
+    {
+      "tipo": "final", "fondo": "redaccion-eco", "sello": "¡ENCARGO CUMPLIDO!", "equipo": ["lola", "mateo", "paco", "aurora"],
+      "texto": "«El Eco de La Alameda» sale a la calle con Matilde en portada. En el colegio Las Moreras cuelgan la noticia junto al terrario, que ahora tiene una tapa nueva… bien cerrada."
+    }
+  ]
+}

@@ -1,0 +1,2653 @@
+{
+  "_nota": "Sala de la Pizarra (Z1 · Descubre la regla). Por regla de 5.º, varias «subreglas» (al menos 4): ejemplos (cumplen; cada uno es {p, nivel}, nivel 1 fácil, 2 medio, 3 difícil), relleno (correctas que no cumplen), contraejemplos (excepciones reales), hipótesis (una buena, una demasiado amplia, una demasiado estrecha y una «otra» que habla de otra cosa, para la lupa de bronce). «nivel» de la subregla (1-3): bronce solo usa las de nivel 1; plata, las de nivel 1-2; diamante, las de nivel 3 (o 2-3). «rivales»: ids de la misma regla con las que se juega a la vez en la lupa de oro (dos círculos de tiza); la relación es mutua y ningún ejemplo de una cumple el patrón de la otra. «porque» puede llevar {p}: se cambia por la palabra de «prueba» que esté en la pizarra (la de la amplia sale del relleno; la de la estrecha, de los ejemplos). «punto» es el índice del punto de la ficha de Mateo que confirma la regla. «patron» (expresión regular, válida en JS y en Python) lo cumplen todos los ejemplos y ningún relleno; en «si» y «excepcion», {plural} se cambia por el plural de la palabra. Valídalo con python3 herramientas/validar_pizarra.py",
+  "reglas": {
+    "tildes-generales": [
+      {
+        "id": "agudas",
+        "nombre": "Las agudas con tilde",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["llanas"],
+        "patron": "[áéíóú][iu]?[ns]?$",
+        "pista": "Di cada palabra en voz alta: ¿dónde cae la fuerza? Y fíjate en la tilde.",
+        "ejemplos": [
+          {"p": "sofá", "nivel": 1},
+          {"p": "camión", "nivel": 1},
+          {"p": "café", "nivel": 1},
+          {"p": "jabón", "nivel": 1},
+          {"p": "ratón", "nivel": 1},
+          {"p": "menú", "nivel": 1},
+          {"p": "sillón", "nivel": 1},
+          {"p": "balcón", "nivel": 1},
+          {"p": "bebé", "nivel": 1},
+          {"p": "mamá", "nivel": 1},
+          {"p": "papá", "nivel": 1},
+          {"p": "limón", "nivel": 1},
+          {"p": "sartén", "nivel": 1},
+          {"p": "botón", "nivel": 1},
+          {"p": "melón", "nivel": 1},
+          {"p": "compás", "nivel": 2},
+          {"p": "autobús", "nivel": 2},
+          {"p": "francés", "nivel": 2},
+          {"p": "colibrí", "nivel": 2},
+          {"p": "anís", "nivel": 2},
+          {"p": "champú", "nivel": 2},
+          {"p": "inglés", "nivel": 2},
+          {"p": "jamás", "nivel": 2},
+          {"p": "también", "nivel": 2},
+          {"p": "después", "nivel": 2},
+          {"p": "cajón", "nivel": 2},
+          {"p": "esquí", "nivel": 2},
+          {"p": "bambú", "nivel": 2},
+          {"p": "cojín", "nivel": 2},
+          {"p": "corazón", "nivel": 2},
+          {"p": "dieciséis", "nivel": 3},
+          {"p": "chimpancé", "nivel": 3},
+          {"p": "huracán", "nivel": 3},
+          {"p": "almacén", "nivel": 2},
+          {"p": "jabalí", "nivel": 3},
+          {"p": "puré", "nivel": 2},
+          {"p": "parchís", "nivel": 3},
+          {"p": "habitación", "nivel": 3},
+          {"p": "televisión", "nivel": 3},
+          {"p": "japonés", "nivel": 3},
+          {"p": "alemán", "nivel": 3},
+          {"p": "puntapié", "nivel": 3}
+        ],
+        "relleno": ["reloj", "papel", "ciudad", "mesa", "lunes", "árbol", "ventana", "feliz", "comer", "pared", "nariz", "salir", "azul", "señor"],
+        "contraejemplos": ["tren", "pan", "mes", "pie", "dos", "flan", "fue", "tres", "bien", "gris"],
+        "si": "es aguda (la fuerza va en la última sílaba) y termina en vocal, -n o -s.",
+        "excepcion": "tiene una sola sílaba, y los monosílabos no llevan tilde, aunque terminen en vocal, -n o -s.",
+        "hipotesis": [
+          {
+            "texto": "Las palabras agudas llevan tilde cuando terminan en vocal, en -n o en -s.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las palabras agudas llevan tilde.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es aguda y no lleva tilde, porque no termina en vocal, -n ni -s.",
+            "prueba": ["reloj", "papel", "ciudad", "feliz"]
+          },
+          {
+            "texto": "Las palabras agudas llevan tilde cuando terminan en -n.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» también lleva tilde y no termina en -n.",
+            "prueba": ["sofá", "compás", "café", "autobús", "francés", "menú", "colibrí", "anís", "champú", "bebé", "inglés"]
+          },
+          {
+            "texto": "Llevan tilde las palabras que tienen más de dos sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: el número de sílabas no tiene nada que ver (sofá tiene dos y lleva tilde; ventana tiene tres y no). Fíjate en dónde cae la fuerza y en la última letra."
+          }
+        ]
+      },
+      {
+        "id": "llanas",
+        "nombre": "Las llanas con tilde",
+        "nivel": 1,
+        "punto": 2,
+        "rivales": ["agudas"],
+        "patron": "[áéíóú][^aeiouáéíóú]*[aeiou][^aeiouáéíóúns]$",
+        "pista": "Busca la sílaba fuerte de cada una y mira con qué letra terminan.",
+        "ejemplos": [
+          {"p": "árbol", "nivel": 1},
+          {"p": "lápiz", "nivel": 1},
+          {"p": "fácil", "nivel": 1},
+          {"p": "césped", "nivel": 1},
+          {"p": "cárcel", "nivel": 1},
+          {"p": "azúcar", "nivel": 1},
+          {"p": "móvil", "nivel": 1},
+          {"p": "útil", "nivel": 1},
+          {"p": "débil", "nivel": 1},
+          {"p": "ángel", "nivel": 1},
+          {"p": "dólar", "nivel": 1},
+          {"p": "túnel", "nivel": 1},
+          {"p": "fútbol", "nivel": 1},
+          {"p": "cómic", "nivel": 1},
+          {"p": "difícil", "nivel": 2},
+          {"p": "mármol", "nivel": 2},
+          {"p": "néctar", "nivel": 2},
+          {"p": "huésped", "nivel": 2},
+          {"p": "frágil", "nivel": 2},
+          {"p": "ágil", "nivel": 2},
+          {"p": "hábil", "nivel": 2},
+          {"p": "trébol", "nivel": 2},
+          {"p": "cráter", "nivel": 2},
+          {"p": "álbum", "nivel": 2},
+          {"p": "revólver", "nivel": 2},
+          {"p": "carácter", "nivel": 3},
+          {"p": "mástil", "nivel": 2},
+          {"p": "inmóvil", "nivel": 3},
+          {"p": "automóvil", "nivel": 3},
+          {"p": "portátil", "nivel": 3},
+          {"p": "cadáver", "nivel": 3},
+          {"p": "póster", "nivel": 2},
+          {"p": "cóndor", "nivel": 2},
+          {"p": "fértil", "nivel": 3},
+          {"p": "estéril", "nivel": 3}
+        ],
+        "relleno": ["mesa", "joven", "lunes", "camión", "reloj", "casa", "examen", "libro", "virus", "volumen", "papel", "comer"],
+        "contraejemplos": ["bíceps", "cómics", "récords", "tríceps"],
+        "si": "es llana (la fuerza va en la penúltima sílaba) y no termina en vocal, -n ni -s.",
+        "excepcion": "es llana y termina en -s, pero lleva tilde: cuando esa -s va detrás de otra consonante, la llana se acentúa (bíceps, cómics, récords).",
+        "hipotesis": [
+          {
+            "texto": "Las palabras llanas llevan tilde cuando no terminan en vocal, en -n ni en -s.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las palabras llanas llevan tilde.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es llana y no lleva tilde, porque termina en vocal, -n o -s.",
+            "prueba": ["mesa", "joven", "lunes", "casa", "examen", "libro"]
+          },
+          {
+            "texto": "Las palabras llanas llevan tilde cuando terminan en -l.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» también lleva tilde y no termina en -l.",
+            "prueba": ["lápiz", "césped", "azúcar", "dólar", "néctar", "carácter", "huésped"]
+          },
+          {
+            "texto": "Llevan tilde las palabras que tienen dos sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas (difícil tiene tres y lleva tilde; mesa tiene dos y no). Fíjate en la sílaba fuerte y en cómo termina."
+          }
+        ]
+      },
+      {
+        "id": "esdrujulas",
+        "nombre": "Las esdrújulas",
+        "nivel": 1,
+        "punto": 3,
+        "rivales": ["llanas-sin"],
+        "patron": "[áéíóú][^aeiouáéíóú]*[aeiou]+[^aeiouáéíóú]+[aeiou]+[^aeiouáéíóú]*$",
+        "pista": "Cuenta las sílabas desde el final y busca dónde cae la fuerza.",
+        "ejemplos": [
+          {"p": "música", "nivel": 1},
+          {"p": "pájaro", "nivel": 1},
+          {"p": "médico", "nivel": 1},
+          {"p": "sábado", "nivel": 1},
+          {"p": "plátano", "nivel": 1},
+          {"p": "lámpara", "nivel": 1},
+          {"p": "rápido", "nivel": 1},
+          {"p": "número", "nivel": 1},
+          {"p": "página", "nivel": 1},
+          {"p": "árboles", "nivel": 1},
+          {"p": "cáscara", "nivel": 1},
+          {"p": "sílaba", "nivel": 1},
+          {"p": "brújula", "nivel": 1},
+          {"p": "teléfono", "nivel": 1},
+          {"p": "miércoles", "nivel": 2},
+          {"p": "murciélago", "nivel": 2},
+          {"p": "jóvenes", "nivel": 2},
+          {"p": "exámenes", "nivel": 2},
+          {"p": "mamífero", "nivel": 2},
+          {"p": "pirámide", "nivel": 2},
+          {"p": "fantástico", "nivel": 2},
+          {"p": "bolígrafo", "nivel": 2},
+          {"p": "gramática", "nivel": 2},
+          {"p": "triángulo", "nivel": 2},
+          {"p": "círculo", "nivel": 2},
+          {"p": "músculo", "nivel": 2},
+          {"p": "matemáticas", "nivel": 3},
+          {"p": "helicóptero", "nivel": 3},
+          {"p": "hipopótamo", "nivel": 3},
+          {"p": "kilómetro", "nivel": 3},
+          {"p": "termómetro", "nivel": 3},
+          {"p": "jeroglífico", "nivel": 3},
+          {"p": "esdrújula", "nivel": 3},
+          {"p": "característica", "nivel": 3},
+          {"p": "ortográfico", "nivel": 3}
+        ],
+        "relleno": ["camión", "árbol", "ventana", "reloj", "lápiz", "cuaderno", "pizarra", "chocolate", "sofá", "mochila", "papel", "tortuga"],
+        "si": "es esdrújula: la fuerza va en la antepenúltima sílaba, y las esdrújulas llevan tilde siempre.",
+        "hipotesis": [
+          {"texto": "Las palabras esdrújulas llevan tilde siempre.", "valor": "buena"},
+          {
+            "texto": "Las palabras llanas y las esdrújulas llevan tilde siempre.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es llana y no lleva tilde.",
+            "prueba": ["ventana", "cuaderno", "pizarra", "chocolate"]
+          },
+          {
+            "texto": "Las palabras esdrújulas llevan tilde cuando terminan en vocal.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» es esdrújula, no termina en vocal y también lleva tilde.",
+            "prueba": ["miércoles", "matemáticas", "jóvenes", "exámenes", "árboles"]
+          },
+          {
+            "texto": "Llevan tilde las palabras que terminan en -a.",
+            "valor": "otra",
+            "porque": "No encaja: sábado termina en -o y lleva tilde, y ventana termina en -a y no la lleva. Cuenta las sílabas y busca la fuerte."
+          }
+        ]
+      },
+      {
+        "id": "llanas-sin",
+        "nombre": "Las llanas sin tilde",
+        "nivel": 2,
+        "punto": 2,
+        "rivales": ["esdrujulas"],
+        "patron": "^[^áéíóú]*[aeiou][^aeiouáéíóú]+[aeiou]+[ns]?$",
+        "pista": "Busca la sílaba fuerte de cada una y mira con qué letra terminan. ¿Alguna lleva tilde?",
+        "ejemplos": [
+          {"p": "mesa", "nivel": 1},
+          {"p": "casa", "nivel": 1},
+          {"p": "libro", "nivel": 1},
+          {"p": "joven", "nivel": 1},
+          {"p": "lunes", "nivel": 1},
+          {"p": "examen", "nivel": 1},
+          {"p": "mochila", "nivel": 1},
+          {"p": "ventana", "nivel": 1},
+          {"p": "zapato", "nivel": 1},
+          {"p": "galleta", "nivel": 1},
+          {"p": "cuento", "nivel": 1},
+          {"p": "tortuga", "nivel": 1},
+          {"p": "cuaderno", "nivel": 2},
+          {"p": "imagen", "nivel": 2},
+          {"p": "origen", "nivel": 2},
+          {"p": "virus", "nivel": 2},
+          {"p": "crisis", "nivel": 2},
+          {"p": "martes", "nivel": 2},
+          {"p": "resumen", "nivel": 2},
+          {"p": "volumen", "nivel": 2},
+          {"p": "dibujos", "nivel": 2},
+          {"p": "margen", "nivel": 2},
+          {"p": "chocolate", "nivel": 2},
+          {"p": "bicicleta", "nivel": 2},
+          {"p": "paraguas", "nivel": 3},
+          {"p": "cumpleaños", "nivel": 3},
+          {"p": "sacapuntas", "nivel": 3},
+          {"p": "saltamontes", "nivel": 3},
+          {"p": "crucigrama", "nivel": 3},
+          {"p": "rompecabezas", "nivel": 3},
+          {"p": "trabalenguas", "nivel": 3},
+          {"p": "abrelatas", "nivel": 3}
+        ],
+        "relleno": ["árbol", "lápiz", "camión", "sofá", "reloj", "papel", "ciudad", "música", "fácil", "pared", "café"],
+        "contraejemplos": ["día", "tía", "río", "frío", "búho", "grúa", "sandía", "panadería", "alegría"],
+        "si": "es llana (la fuerza va en la penúltima sílaba) y termina en vocal, -n o -s: por eso no lleva tilde.",
+        "excepcion": "es llana y termina en vocal, pero lleva tilde: la í (o la ú) suena fuerte al lado de otra vocal, y la tilde avisa de que van en sílabas distintas (dí-a, rí-o).",
+        "hipotesis": [
+          {
+            "texto": "Las palabras llanas que terminan en vocal, en -n o en -s no llevan tilde.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Las palabras llanas no llevan tilde nunca.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es llana y sí lleva tilde, porque no termina en vocal, -n ni -s.",
+            "prueba": ["árbol", "lápiz", "fácil"]
+          },
+          {
+            "texto": "Las palabras llanas que terminan en -a no llevan tilde.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no termina en -a y tampoco lleva tilde.",
+            "prueba": ["libro", "joven", "lunes", "examen", "zapato", "cuento", "cuaderno", "imagen", "origen", "virus", "crisis", "martes", "resumen", "volumen", "dibujos", "margen", "paraguas", "cumpleaños", "sacapuntas", "saltamontes", "rompecabezas", "trabalenguas", "abrelatas"]
+          },
+          {
+            "texto": "No llevan tilde las palabras que empiezan por consonante.",
+            "valor": "otra",
+            "porque": "No encaja: lápiz empieza por consonante y lleva tilde. Fíjate en la sílaba fuerte y en cómo termina."
+          }
+        ],
+        "contra": "día, tía, río, frío, búho, grúa, sandía, panadería, alegría"
+      }
+    ],
+    "b-v-1": [
+      {
+        "id": "aba",
+        "nombre": "El pretérito imperfecto en -aba",
+        "nivel": 1,
+        "punto": 0,
+        "rivales": ["ivo"],
+        "patron": "(aba|abas|ábamos|abais|aban)$",
+        "pista": "Son verbos en pasado. Fíjate en cómo terminan.",
+        "ejemplos": [
+          {"p": "cantaba", "nivel": 1},
+          {"p": "jugaba", "nivel": 1},
+          {"p": "saltaba", "nivel": 1},
+          {"p": "miraba", "nivel": 1},
+          {"p": "jugaban", "nivel": 1},
+          {"p": "bailabas", "nivel": 1},
+          {"p": "nadaban", "nivel": 1},
+          {"p": "buscaba", "nivel": 1},
+          {"p": "llegaban", "nivel": 1},
+          {"p": "soñaba", "nivel": 1},
+          {"p": "pintaba", "nivel": 1},
+          {"p": "hablaba", "nivel": 1},
+          {"p": "tomaba", "nivel": 1},
+          {"p": "andaba", "nivel": 1},
+          {"p": "estaba", "nivel": 1},
+          {"p": "lavaba", "nivel": 1},
+          {"p": "saltábamos", "nivel": 2},
+          {"p": "pintábamos", "nivel": 2},
+          {"p": "estudiabas", "nivel": 2},
+          {"p": "mirabais", "nivel": 2},
+          {"p": "pensábamos", "nivel": 2},
+          {"p": "cocinaban", "nivel": 2},
+          {"p": "dibujaba", "nivel": 2},
+          {"p": "paseábamos", "nivel": 2},
+          {"p": "preguntaba", "nivel": 2},
+          {"p": "escuchabas", "nivel": 2},
+          {"p": "ayudaban", "nivel": 2},
+          {"p": "trabajaba", "nivel": 2},
+          {"p": "investigábamos", "nivel": 3},
+          {"p": "desayunabais", "nivel": 3},
+          {"p": "acompañaban", "nivel": 3},
+          {"p": "organizábamos", "nivel": 3},
+          {"p": "interrogaban", "nivel": 3},
+          {"p": "sospechábamos", "nivel": 3},
+          {"p": "adivinabais", "nivel": 3},
+          {"p": "patinábamos", "nivel": 3},
+          {"p": "merendábamos", "nivel": 3},
+          {"p": "madrugabais", "nivel": 3}
+        ],
+        "relleno": ["comía", "vivía", "salía", "corría", "tenía", "leía", "dormía", "quería", "escribía", "sabía", "hacía", "veía"],
+        "contraejemplos": ["iba", "ibas", "íbamos", "iban", "ibais"],
+        "si": "es pretérito imperfecto de un verbo terminado en -ar: lleva -aba.",
+        "excepcion": "es del verbo ir, que no termina en -ar, y aun así lleva b: iba, ibas, íbamos, iban.",
+        "hipotesis": [
+          {
+            "texto": "El pretérito imperfecto de los verbos terminados en -ar se escribe con b: -aba.",
+            "valor": "buena"
+          },
+          {
+            "texto": "El pretérito imperfecto de todos los verbos se escribe con b.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» también es pretérito imperfecto y no lleva b, porque su verbo no termina en -ar.",
+            "prueba": ["comía", "vivía", "salía", "corría", "tenía", "leía", "dormía", "quería"]
+          },
+          {
+            "texto": "Con el sujeto yo, el pretérito imperfecto de los verbos en -ar se escribe con b.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no va con yo y también lleva b.",
+            "prueba": ["jugaban", "saltábamos", "bailabas", "nadaban", "pintábamos", "estudiabas", "llegaban", "mirabais", "pensábamos", "cocinaban"]
+          },
+          {
+            "texto": "Los verbos en pasado se escriben con b cuando tienen más de dos sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: lo que tienen en común las rodeadas no es el número de sílabas, sino cómo terminan."
+          }
+        ]
+      },
+      {
+        "id": "mb",
+        "nombre": "mb: delante de b, m",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["nv"],
+        "patron": "mb",
+        "pista": "Mira qué letra va justo delante de la b.",
+        "ejemplos": [
+          {"p": "hombre", "nivel": 1},
+          {"p": "tambor", "nivel": 1},
+          {"p": "también", "nivel": 1},
+          {"p": "cambio", "nivel": 1},
+          {"p": "nombre", "nivel": 1},
+          {"p": "hambre", "nivel": 1},
+          {"p": "sombra", "nivel": 1},
+          {"p": "tumba", "nivel": 1},
+          {"p": "timbre", "nivel": 1},
+          {"p": "bombilla", "nivel": 1},
+          {"p": "sombrero", "nivel": 1},
+          {"p": "bombero", "nivel": 1},
+          {"p": "bombón", "nivel": 1},
+          {"p": "rumbo", "nivel": 1},
+          {"p": "alambre", "nivel": 2},
+          {"p": "embudo", "nivel": 2},
+          {"p": "ambulancia", "nivel": 2},
+          {"p": "lombriz", "nivel": 2},
+          {"p": "temblor", "nivel": 2},
+          {"p": "combate", "nivel": 2},
+          {"p": "zambomba", "nivel": 2},
+          {"p": "embarcar", "nivel": 2},
+          {"p": "costumbre", "nivel": 2},
+          {"p": "miembro", "nivel": 2},
+          {"p": "noviembre", "nivel": 2},
+          {"p": "diciembre", "nivel": 2},
+          {"p": "embajador", "nivel": 3},
+          {"p": "embotellamiento", "nivel": 3},
+          {"p": "hambriento", "nivel": 3},
+          {"p": "asombroso", "nivel": 3},
+          {"p": "membrillo", "nivel": 3},
+          {"p": "calambre", "nivel": 3},
+          {"p": "ambiental", "nivel": 3},
+          {"p": "combustible", "nivel": 3}
+        ],
+        "relleno": ["invierno", "enviar", "banco", "mundo", "ventana", "cabeza", "lobo", "sabor", "campo", "tiempo", "limpio", "compra"],
+        "si": "lleva m justo delante de la b.",
+        "hipotesis": [
+          {"texto": "Delante de b se escribe m, nunca n.", "valor": "buena"},
+          {
+            "texto": "Delante de cualquier consonante se escribe m, nunca n.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» lleva n delante de otra consonante.",
+            "prueba": ["invierno", "enviar", "banco", "mundo", "ventana"]
+          },
+          {
+            "texto": "Delante de b se escribe m en las palabras que terminan en -bre.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no termina en -bre y también lleva m delante de b.",
+            "prueba": ["tambor", "también", "cambio", "sombra", "bombilla", "tumba", "embudo", "sombrero", "ambulancia"]
+          },
+          {
+            "texto": "Se escribe m en las palabras que tienen tres sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Mira qué letra va justo detrás de la m."
+          }
+        ]
+      },
+      {
+        "id": "nv",
+        "nombre": "nv: después de n, v",
+        "nivel": 1,
+        "punto": 3,
+        "rivales": ["mb"],
+        "patron": "nv",
+        "pista": "Mira qué letra va justo antes de la v.",
+        "ejemplos": [
+          {"p": "invierno", "nivel": 1},
+          {"p": "enviar", "nivel": 1},
+          {"p": "invitar", "nivel": 1},
+          {"p": "envase", "nivel": 1},
+          {"p": "invento", "nivel": 1},
+          {"p": "envidia", "nivel": 1},
+          {"p": "invisible", "nivel": 1},
+          {"p": "envolver", "nivel": 1},
+          {"p": "inventar", "nivel": 1},
+          {"p": "envío", "nivel": 1},
+          {"p": "convertir", "nivel": 2},
+          {"p": "conversación", "nivel": 2},
+          {"p": "convocar", "nivel": 2},
+          {"p": "convencer", "nivel": 2},
+          {"p": "invasión", "nivel": 2},
+          {"p": "invadir", "nivel": 2},
+          {"p": "convivir", "nivel": 2},
+          {"p": "inventor", "nivel": 2},
+          {"p": "invitado", "nivel": 2},
+          {"p": "envoltorio", "nivel": 2},
+          {"p": "invencible", "nivel": 2},
+          {"p": "sinvergüenza", "nivel": 3},
+          {"p": "invernadero", "nivel": 3},
+          {"p": "envejecer", "nivel": 3},
+          {"p": "convincente", "nivel": 3},
+          {"p": "invertebrado", "nivel": 3},
+          {"p": "conveniente", "nivel": 3},
+          {"p": "convivencia", "nivel": 3}
+        ],
+        "relleno": ["hombre", "tambor", "también", "sombra", "vaso", "uva", "nuevo", "cantar", "bando", "conejo", "lavar", "ciervo"],
+        "si": "lleva v justo después de la n.",
+        "hipotesis": [
+          {"texto": "Después de n se escribe siempre v, nunca b.", "valor": "buena"},
+          {
+            "texto": "Después de n o de m se escribe siempre v.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» va una m, y después de m se escribe b.",
+            "prueba": ["hombre", "tambor", "también", "sombra"]
+          },
+          {
+            "texto": "Después de n se escribe v en las palabras que empiezan por in-.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no empieza por in- y también lleva v después de n.",
+            "prueba": ["enviar", "convertir", "envase", "conversación", "envidia", "convocar", "convencer", "envolver"]
+          },
+          {
+            "texto": "Se escribe v en las palabras que empiezan por vocal.",
+            "valor": "otra",
+            "porque": "No encaja: no importa por qué letra empiezan. Mira qué letra va justo delante de la v."
+          }
+        ]
+      },
+      {
+        "id": "bir",
+        "nombre": "Los verbos en -bir",
+        "nivel": 2,
+        "punto": 2,
+        "rivales": ["uv"],
+        "patron": "bir$",
+        "pista": "Son verbos en infinitivo. Fíjate en cómo suenan al final.",
+        "ejemplos": [
+          {"p": "escribir", "nivel": 1},
+          {"p": "recibir", "nivel": 1},
+          {"p": "subir", "nivel": 1},
+          {"p": "describir", "nivel": 1},
+          {"p": "prohibir", "nivel": 2},
+          {"p": "percibir", "nivel": 2},
+          {"p": "inscribir", "nivel": 2},
+          {"p": "exhibir", "nivel": 2},
+          {"p": "reescribir", "nivel": 2},
+          {"p": "suscribir", "nivel": 2},
+          {"p": "concebir", "nivel": 3},
+          {"p": "transcribir", "nivel": 3},
+          {"p": "sobrescribir", "nivel": 3}
+        ],
+        "relleno": ["partir", "salir", "dormir", "decidir", "pedir", "sufrir", "repetir", "morir", "abrir", "cubrir", "reír", "elegir"],
+        "contraejemplos": ["hervir", "servir", "vivir", "convivir", "sobrevivir", "revivir"],
+        "si": "es un verbo que termina sonando «bir», y se escribe con b.",
+        "excepcion": "suena «bir» al final, pero se escribe con v. Las excepciones son hervir, servir y vivir (y su familia, como convivir).",
+        "hipotesis": [
+          {
+            "texto": "Los verbos que terminan con el sonido «bir» se escriben con b.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todos los verbos terminados en -ir llevan b.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» termina en -ir y no lleva b.",
+            "prueba": ["partir", "salir", "dormir", "decidir", "pedir", "sufrir", "repetir", "morir"]
+          },
+          {
+            "texto": "Los verbos terminados en -cribir se escriben con b.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no termina en -cribir y también lleva b.",
+            "prueba": ["recibir", "subir", "prohibir", "percibir", "exhibir", "concebir"]
+          },
+          {
+            "texto": "Los verbos se escriben con b cuando tienen una r.",
+            "valor": "otra",
+            "porque": "No encaja: partir también tiene r y no lleva b. Fíjate en cómo terminan."
+          }
+        ]
+      },
+      {
+        "id": "ivo",
+        "nombre": "Los adjetivos en -avo, -ave, -evo, -eve, -ivo",
+        "nivel": 2,
+        "punto": 4,
+        "rivales": ["aba"],
+        "patron": "(avo|ava|ave|evo|eva|eve|ivo|iva)s?$",
+        "pista": "Todas describen cómo es algo. Fíjate en cómo terminan.",
+        "ejemplos": [
+          {"p": "octavo", "nivel": 1},
+          {"p": "suave", "nivel": 1},
+          {"p": "nuevo", "nivel": 1},
+          {"p": "breve", "nivel": 1},
+          {"p": "activo", "nivel": 1},
+          {"p": "grave", "nivel": 1},
+          {"p": "leve", "nivel": 1},
+          {"p": "nueva", "nivel": 1},
+          {"p": "octava", "nivel": 1},
+          {"p": "bravo", "nivel": 1},
+          {"p": "activa", "nivel": 1},
+          {"p": "nuevos", "nivel": 1},
+          {"p": "decisivo", "nivel": 2},
+          {"p": "deportiva", "nivel": 2},
+          {"p": "creativo", "nivel": 2},
+          {"p": "positivo", "nivel": 2},
+          {"p": "atractiva", "nivel": 2},
+          {"p": "negativo", "nivel": 2},
+          {"p": "llamativo", "nivel": 2},
+          {"p": "pasivo", "nivel": 2},
+          {"p": "educativo", "nivel": 2},
+          {"p": "curativo", "nivel": 2},
+          {"p": "comunicativo", "nivel": 3},
+          {"p": "imaginativa", "nivel": 3},
+          {"p": "competitivo", "nivel": 3},
+          {"p": "festivo", "nivel": 2},
+          {"p": "explosivo", "nivel": 3},
+          {"p": "defensiva", "nivel": 3},
+          {"p": "informativo", "nivel": 3},
+          {"p": "onceavo", "nivel": 3}
+        ],
+        "relleno": ["rápido", "alegre", "cansado", "tranquilo", "feliz", "amable", "sabroso", "simpático", "árabe", "barato", "lento", "dorado"],
+        "contraejemplos": ["monosílabo", "bisílabo", "trisílabo", "polisílabo"],
+        "si": "es un adjetivo terminado en -avo, -ave, -evo, -eve, -ivo o en sus femeninos.",
+        "excepcion": "es un adjetivo que termina en «-abo» y se escribe con b, porque viene de sílaba (monosílabo, bisílabo, trisílabo).",
+        "hipotesis": [
+          {
+            "texto": "Los adjetivos que terminan en -avo, -ave, -evo, -eve o -ivo (y sus femeninos) se escriben con v.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todos los adjetivos se escriben con v.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es un adjetivo y no lleva v.",
+            "prueba": ["rápido", "alegre", "cansado", "tranquilo", "feliz", "amable", "sabroso", "simpático"]
+          },
+          {
+            "texto": "Los adjetivos que terminan en -ivo se escriben con v.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no termina en -ivo y también lleva v.",
+            "prueba": ["octavo", "suave", "nuevo", "breve", "grave", "leve", "nueva", "octava"]
+          },
+          {
+            "texto": "Los adjetivos que tienen más de cuatro letras se escriben con v.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de cuántas letras tengan. Mira cómo terminan."
+          }
+        ]
+      },
+      {
+        "id": "uv",
+        "nombre": "estuve, anduve, tuve",
+        "nivel": 2,
+        "punto": 5,
+        "rivales": ["bir"],
+        "patron": "uv",
+        "pista": "Todas son de tres verbos (y de sus compuestos). Busca qué letras se repiten en todas.",
+        "ejemplos": [
+          {"p": "estuve", "nivel": 1},
+          {"p": "estuvo", "nivel": 1},
+          {"p": "tuve", "nivel": 1},
+          {"p": "tuvo", "nivel": 1},
+          {"p": "anduve", "nivel": 1},
+          {"p": "anduvo", "nivel": 1},
+          {"p": "estuvimos", "nivel": 1},
+          {"p": "tuvimos", "nivel": 1},
+          {"p": "tuviste", "nivel": 1},
+          {"p": "estuviste", "nivel": 1},
+          {"p": "anduvimos", "nivel": 1},
+          {"p": "estuvieron", "nivel": 2},
+          {"p": "anduviste", "nivel": 2},
+          {"p": "anduvieron", "nivel": 2},
+          {"p": "tuvieron", "nivel": 2},
+          {"p": "estuvisteis", "nivel": 2},
+          {"p": "tuvisteis", "nivel": 2},
+          {"p": "retuve", "nivel": 2},
+          {"p": "contuvo", "nivel": 2},
+          {"p": "obtuve", "nivel": 2},
+          {"p": "mantuvo", "nivel": 2},
+          {"p": "detuvo", "nivel": 2},
+          {"p": "sostuvieron", "nivel": 3},
+          {"p": "entretuvimos", "nivel": 3},
+          {"p": "anduvisteis", "nivel": 3},
+          {"p": "obtuvieron", "nivel": 3},
+          {"p": "contuvisteis", "nivel": 3},
+          {"p": "retuvieron", "nivel": 3},
+          {"p": "mantuvimos", "nivel": 3},
+          {"p": "detuvisteis", "nivel": 3}
+        ],
+        "relleno": ["estaba", "andaba", "tenía", "tengo", "estoy", "ando", "tienes", "andamos", "estaré", "tendrá", "estemos", "tenga"],
+        "si": "es pretérito perfecto simple de estar, andar o tener: lleva -uv-.",
+        "hipotesis": [
+          {
+            "texto": "El pretérito perfecto simple de estar, andar y tener (y de sus compuestos, como mantener) se escribe con v.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las formas de estar, andar y tener se escriben con v.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es de uno de esos verbos y no lleva v.",
+            "prueba": ["estaba", "andaba", "tenía", "tengo", "estoy", "ando", "tienes", "andamos"]
+          },
+          {
+            "texto": "El pretérito perfecto simple de tener se escribe con v.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es de tener y también lleva v.",
+            "prueba": ["estuve", "estuviste", "estuvo", "estuvimos", "estuvieron", "anduve", "anduviste", "anduvo", "anduvimos", "anduvieron"]
+          },
+          {
+            "texto": "Los verbos que terminan en -o se escriben con v.",
+            "valor": "otra",
+            "porque": "No encaja: tengo termina en -o y no lleva v. Fíjate en el tiempo del verbo: todos cuentan algo que ya pasó."
+          }
+        ]
+      }
+    ],
+    "h-1": [
+      {
+        "id": "hue",
+        "nombre": "hie-, hue-, hui-",
+        "nivel": 1,
+        "punto": 0,
+        "rivales": ["familia-hue", "herm"],
+        "patron": "^h(i[eé]|u[eé]|u[ií])",
+        "pista": "Fíjate en cómo empiezan y en cómo suenan al principio.",
+        "ejemplos": [
+          {"p": "hielo", "nivel": 1},
+          {"p": "huevo", "nivel": 1},
+          {"p": "hueso", "nivel": 1},
+          {"p": "hierba", "nivel": 1},
+          {"p": "hueco", "nivel": 1},
+          {"p": "huerto", "nivel": 1},
+          {"p": "huella", "nivel": 1},
+          {"p": "hiena", "nivel": 1},
+          {"p": "hierro", "nivel": 1},
+          {"p": "huerta", "nivel": 1},
+          {"p": "huevos", "nivel": 1},
+          {"p": "huele", "nivel": 1},
+          {"p": "huida", "nivel": 1},
+          {"p": "huelga", "nivel": 2},
+          {"p": "huésped", "nivel": 2},
+          {"p": "hiedra", "nivel": 2},
+          {"p": "huérfano", "nivel": 2},
+          {"p": "huevera", "nivel": 2},
+          {"p": "huesudo", "nivel": 2},
+          {"p": "huir", "nivel": 2},
+          {"p": "huelen", "nivel": 2},
+          {"p": "huidizo", "nivel": 3},
+          {"p": "hierbabuena", "nivel": 3},
+          {"p": "huelguista", "nivel": 3},
+          {"p": "huesecillo", "nivel": 3},
+          {"p": "huesito", "nivel": 2},
+          {"p": "huevería", "nivel": 3}
+        ],
+        "relleno": ["oso", "árbol", "isla", "uva", "espejo", "ola", "invierno", "agua", "uña", "iglesia", "ocho", "ojo"],
+        "si": "empieza por el sonido ie, ue o ui, y por eso lleva una h delante.",
+        "hipotesis": [
+          {
+            "texto": "Las palabras que empiezan por los sonidos ie, ue y ui llevan una h delante.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las palabras que empiezan por vocal llevan una h delante.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» empieza por vocal y no lleva h.",
+            "prueba": ["oso", "árbol", "isla", "uva", "espejo", "ola", "invierno", "agua"]
+          },
+          {
+            "texto": "Las palabras que empiezan por el sonido ue llevan una h delante.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no empieza por ue y también lleva h.",
+            "prueba": ["hielo", "huida", "hierba", "hiena", "hierro"]
+          },
+          {
+            "texto": "Llevan h las palabras que tienen dos sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Fíjate en cómo empiezan."
+          }
+        ]
+      },
+      {
+        "id": "herm",
+        "nombre": "herm-, horm-, horr-, hosp-, hum-",
+        "nivel": 2,
+        "punto": 1,
+        "rivales": ["hue", "haber"],
+        "patron": "^(herm|horm|horr|hosp|h[uú]m[aeiouáéíóú])",
+        "pista": "Fíjate en las tres o cuatro primeras letras de cada palabra.",
+        "ejemplos": [
+          {"p": "hermano", "nivel": 1},
+          {"p": "hermana", "nivel": 1},
+          {"p": "hormiga", "nivel": 1},
+          {"p": "horrible", "nivel": 1},
+          {"p": "hospital", "nivel": 1},
+          {"p": "humo", "nivel": 1},
+          {"p": "humano", "nivel": 1},
+          {"p": "humor", "nivel": 1},
+          {"p": "hermoso", "nivel": 1},
+          {"p": "horror", "nivel": 1},
+          {"p": "húmedo", "nivel": 2},
+          {"p": "humilde", "nivel": 2},
+          {"p": "hormigón", "nivel": 2},
+          {"p": "hospedaje", "nivel": 2},
+          {"p": "humedad", "nivel": 2},
+          {"p": "hormiguero", "nivel": 2},
+          {"p": "horrorizar", "nivel": 2},
+          {"p": "hospitalario", "nivel": 2},
+          {"p": "humareda", "nivel": 2},
+          {"p": "hermandad", "nivel": 2},
+          {"p": "humanidad", "nivel": 3},
+          {"p": "hermanastro", "nivel": 3},
+          {"p": "hormigueo", "nivel": 3},
+          {"p": "horripilante", "nivel": 3},
+          {"p": "hospitalizar", "nivel": 3},
+          {"p": "humillación", "nivel": 3},
+          {"p": "humanitario", "nivel": 3}
+        ],
+        "relleno": ["oso", "orden", "umbral", "ocho", "uña", "orilla", "enorme", "olor", "oruga", "último", "ostra", "untar"],
+        "contraejemplos": ["ermita", "ermitaño"],
+        "si": "empieza por herm-, horm-, horr-, hosp- o hum- seguido de vocal: lleva h.",
+        "excepcion": "empieza por el sonido erm y no lleva h: es la excepción de esta regla (ermita, ermitaño).",
+        "hipotesis": [
+          {
+            "texto": "Las palabras que empiezan por los sonidos erm, orm, orr, osp y um seguido de vocal llevan una h delante.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las palabras que empiezan por e-, por o- o por u- llevan una h delante.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» empieza así y no lleva h.",
+            "prueba": ["oso", "orden", "umbral", "ocho", "uña", "orilla", "enorme", "olor"]
+          },
+          {
+            "texto": "Las palabras que empiezan por el sonido um seguido de vocal llevan una h delante.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no empieza por hum- y también lleva h.",
+            "prueba": ["hermano", "hormiga", "horrible", "hospital", "hermoso", "hormigón", "horror", "hospedaje"]
+          },
+          {
+            "texto": "Llevan h las palabras que tienen una r.",
+            "valor": "otra",
+            "porque": "No encaja: orden tiene r y no lleva h. Fíjate en cómo empiezan."
+          }
+        ]
+      },
+      {
+        "id": "haber",
+        "nombre": "haber, hacer, hablar, hallar y habitar",
+        "nivel": 1,
+        "punto": 2,
+        "rivales": ["herm"],
+        "patron": "^h(ab|ag|ac|ay|all|ech|ic|iz|ub|ar(é|á|ía|emos|án|ás)|an$|as$|a$|e$|emos$)",
+        "pista": "Todas son formas de verbos. ¿Qué letra tienen todas al principio?",
+        "ejemplos": [
+          {"p": "había", "nivel": 1},
+          {"p": "hizo", "nivel": 1},
+          {"p": "hecho", "nivel": 1},
+          {"p": "hacemos", "nivel": 1},
+          {"p": "habla", "nivel": 1},
+          {"p": "hay", "nivel": 1},
+          {"p": "hubo", "nivel": 1},
+          {"p": "hice", "nivel": 1},
+          {"p": "hago", "nivel": 1},
+          {"p": "habrá", "nivel": 1},
+          {"p": "hablo", "nivel": 1},
+          {"p": "hablábamos", "nivel": 2},
+          {"p": "hallé", "nivel": 2},
+          {"p": "habitan", "nivel": 2},
+          {"p": "hablaron", "nivel": 2},
+          {"p": "hallaste", "nivel": 2},
+          {"p": "habita", "nivel": 2},
+          {"p": "hagamos", "nivel": 2},
+          {"p": "hallamos", "nivel": 2},
+          {"p": "habitaba", "nivel": 2},
+          {"p": "haremos", "nivel": 2},
+          {"p": "haría", "nivel": 2},
+          {"p": "hablaste", "nivel": 2},
+          {"p": "hubiéramos", "nivel": 3},
+          {"p": "hallaríamos", "nivel": 3},
+          {"p": "hiciéramos", "nivel": 3},
+          {"p": "hablaríamos", "nivel": 3},
+          {"p": "hallasteis", "nivel": 3},
+          {"p": "habitaríais", "nivel": 3},
+          {"p": "hicisteis", "nivel": 3}
+        ],
+        "relleno": ["echar", "echo", "abrir", "alto", "ojo", "oír", "iba", "ama", "abuelo", "orilla", "aire", "eco"],
+        "si": "es una forma de haber, hacer, hablar, hallar o habitar: lleva h.",
+        "hipotesis": [
+          {
+            "texto": "Todas las formas de los verbos haber, hacer, hablar, hallar y habitar llevan h.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las formas verbales que empiezan por vocal llevan una h delante.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es una forma verbal que empieza por vocal y no lleva h.",
+            "prueba": ["echar", "echo", "abrir", "oír", "iba", "ama"]
+          },
+          {
+            "texto": "Todas las formas del verbo hablar llevan h.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es del verbo hablar y también lleva h.",
+            "prueba": ["había", "hizo", "hallé", "habitan", "hecho", "hacemos", "hallaste", "habrá", "hice", "habita", "hubo", "hagamos", "hallamos", "habitaba"]
+          },
+          {
+            "texto": "Llevan h las palabras que terminan en vocal.",
+            "valor": "otra",
+            "porque": "No encaja: ojo termina en vocal y no lleva h. Piensa de qué verbo viene cada palabra."
+          }
+        ]
+      },
+      {
+        "id": "familia-hue",
+        "nombre": "La familia de hueso y huevo sin h",
+        "nivel": 3,
+        "punto": 3,
+        "rivales": ["hue"],
+        "patron": "^(óse|osam|osar|óv|ova|ovíp|oque|orfa)",
+        "pista": "Piensa de qué palabra viene cada una: ¿hueso, huevo, hueco, huérfano? ¿Sigue teniendo ue?",
+        "ejemplos": [
+          {"p": "óvalo", "nivel": 1},
+          {"p": "ovalado", "nivel": 1},
+          {"p": "óseo", "nivel": 1},
+          {"p": "ósea", "nivel": 2},
+          {"p": "ovalada", "nivel": 2},
+          {"p": "orfanato", "nivel": 2},
+          {"p": "óseos", "nivel": 2},
+          {"p": "ovalados", "nivel": 2},
+          {"p": "óvalos", "nivel": 2},
+          {"p": "osamenta", "nivel": 3},
+          {"p": "óseas", "nivel": 3},
+          {"p": "oquedad", "nivel": 3},
+          {"p": "orfandad", "nivel": 3},
+          {"p": "ovíparo", "nivel": 3},
+          {"p": "ovípara", "nivel": 3},
+          {"p": "ovíparos", "nivel": 3},
+          {"p": "oquedades", "nivel": 3}
+        ],
+        "relleno": ["hueso", "huevo", "hueco", "huérfano", "huesudo", "huevera", "huecos", "huesos"],
+        "si": "es de la familia de hueso, huevo, hueco o huérfano, pero ya no tiene ue: por eso no lleva h.",
+        "hipotesis": [
+          {
+            "texto": "En la familia de hueso, huevo, hueco y huérfano, si desaparece el ue, desaparece también la h.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Las palabras de la familia de hueso, huevo, hueco y huérfano no llevan h.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es de la familia y sí lleva h, porque conserva el ue.",
+            "prueba": ["hueso", "huevo", "hueco", "huérfano", "huesudo", "huevera", "huecos", "huesos"]
+          },
+          {
+            "texto": "En la familia de hueso, si desaparece el ue, desaparece también la h.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es de la familia de hueso y tampoco lleva h.",
+            "prueba": ["óvalo", "ovalado", "ovalada", "orfanato", "ovalados", "óvalos", "oquedad", "orfandad", "ovíparo", "ovípara", "ovíparos", "oquedades"]
+          },
+          {
+            "texto": "No llevan h las palabras que empiezan por o.",
+            "valor": "otra",
+            "porque": "No encaja: muchas palabras empiezan por o y no tienen nada que ver. Piensa de qué palabra viene cada una."
+          }
+        ],
+        "contra": ""
+      }
+    ],
+    "c-z-s": [
+      {
+        "id": "ce-ci",
+        "nombre": "ce, ci (y za, zo, zu)",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["za", "que-qui"],
+        "patron": "c[eiéí]",
+        "pista": "Busca la letra que suena como la z y mira qué vocal lleva detrás.",
+        "ejemplos": [
+          {"p": "cebolla", "nivel": 1},
+          {"p": "cine", "nivel": 1},
+          {"p": "cielo", "nivel": 1},
+          {"p": "cerdo", "nivel": 1},
+          {"p": "cepillo", "nivel": 1},
+          {"p": "cocina", "nivel": 1},
+          {"p": "ciudad", "nivel": 1},
+          {"p": "cenar", "nivel": 1},
+          {"p": "cesta", "nivel": 1},
+          {"p": "cifra", "nivel": 1},
+          {"p": "cierto", "nivel": 1},
+          {"p": "circo", "nivel": 1},
+          {"p": "vecino", "nivel": 1},
+          {"p": "cien", "nivel": 1},
+          {"p": "cera", "nivel": 1},
+          {"p": "cemento", "nivel": 2},
+          {"p": "cigüeña", "nivel": 2},
+          {"p": "cinturón", "nivel": 2},
+          {"p": "decimal", "nivel": 2},
+          {"p": "cereal", "nivel": 2},
+          {"p": "aceite", "nivel": 2},
+          {"p": "docena", "nivel": 2},
+          {"p": "receta", "nivel": 2},
+          {"p": "bicicleta", "nivel": 2},
+          {"p": "cinco", "nivel": 2},
+          {"p": "cerilla", "nivel": 2},
+          {"p": "celeste", "nivel": 2},
+          {"p": "ceremonia", "nivel": 3},
+          {"p": "cicatriz", "nivel": 3},
+          {"p": "acelerar", "nivel": 3},
+          {"p": "medicina", "nivel": 3},
+          {"p": "circunferencia", "nivel": 3},
+          {"p": "felicitación", "nivel": 3},
+          {"p": "excelente", "nivel": 3},
+          {"p": "ciruela", "nivel": 3},
+          {"p": "anciano", "nivel": 3}
+        ],
+        "relleno": ["zapato", "zorro", "zumo", "pozo", "taza", "azul", "buzón", "lazo", "cosa", "barco", "seta", "silla", "sopa"],
+        "contraejemplos": ["zeta", "zepelín", "zinc"],
+        "si": "lleva c delante de e o de i, donde no se escribe z.",
+        "excepcion": "lleva z delante de e o de i. Son muy pocas palabras: zeta, zepelín, zinc.",
+        "hipotesis": [
+          {"texto": "Delante de e y de i se escribe c, no z: ce, ci.", "valor": "buena"},
+          {
+            "texto": "En lugar de z, se escribe siempre c.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» se escribe con z, porque ese sonido va delante de a, o, u o al final.",
+            "prueba": ["zapato", "zorro", "zumo", "pozo", "taza", "azul", "buzón", "lazo"]
+          },
+          {
+            "texto": "Delante de e se escribe c, no z.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» también lleva c delante de i.",
+            "prueba": ["cine", "cielo", "cocina", "ciudad", "cifra", "cierto", "circo", "vecino"]
+          },
+          {
+            "texto": "Se escribe c en las palabras que tienen dos sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Mira qué vocal va detrás de la c."
+          }
+        ]
+      },
+      {
+        "id": "que-qui",
+        "nombre": "que, qui (y ca, co, cu)",
+        "nivel": 1,
+        "punto": 0,
+        "rivales": ["ce-ci"],
+        "patron": "qu[eiéí]",
+        "pista": "Busca el sonido de la k y mira qué vocal lleva detrás.",
+        "ejemplos": [
+          {"p": "queso", "nivel": 1},
+          {"p": "quinto", "nivel": 1},
+          {"p": "quemar", "nivel": 1},
+          {"p": "quieto", "nivel": 1},
+          {"p": "máquina", "nivel": 1},
+          {"p": "pequeño", "nivel": 1},
+          {"p": "parque", "nivel": 1},
+          {"p": "raqueta", "nivel": 1},
+          {"p": "mosquito", "nivel": 1},
+          {"p": "esquina", "nivel": 1},
+          {"p": "bosque", "nivel": 1},
+          {"p": "etiqueta", "nivel": 1},
+          {"p": "chaqueta", "nivel": 1},
+          {"p": "querer", "nivel": 1},
+          {"p": "paquete", "nivel": 1},
+          {"p": "equipo", "nivel": 2},
+          {"p": "mantequilla", "nivel": 2},
+          {"p": "quitar", "nivel": 2},
+          {"p": "tranquilo", "nivel": 2},
+          {"p": "aquí", "nivel": 2},
+          {"p": "orquesta", "nivel": 2},
+          {"p": "esquiar", "nivel": 2},
+          {"p": "querido", "nivel": 2},
+          {"p": "banqueta", "nivel": 2},
+          {"p": "mezquita", "nivel": 2},
+          {"p": "arquitecto", "nivel": 3},
+          {"p": "química", "nivel": 3},
+          {"p": "quisquilloso", "nivel": 3},
+          {"p": "esquimal", "nivel": 3},
+          {"p": "quirófano", "nivel": 3},
+          {"p": "maquinista", "nivel": 3},
+          {"p": "alquiler", "nivel": 3},
+          {"p": "quinientos", "nivel": 3}
+        ],
+        "relleno": ["casa", "cola", "cuna", "cubo", "cama", "foca", "cosa", "barco", "cuchara", "coche", "loco"],
+        "contraejemplos": ["kilo", "kiwi", "kilómetro"],
+        "si": "tiene el sonido de la k delante de e o de i, y por eso se escribe con qu.",
+        "excepcion": "suena «ki», pero se escribe con k. Pasa en unas pocas palabras: kilo, kilómetro, kiwi.",
+        "hipotesis": [
+          {
+            "texto": "Delante de e y de i, el sonido de la k se escribe con qu: que, qui.",
+            "valor": "buena"
+          },
+          {
+            "texto": "El sonido de la k se escribe siempre con qu.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» suena igual y se escribe con c, porque va delante de a, o o u.",
+            "prueba": ["casa", "cola", "cuna", "cubo", "cama", "foca", "cosa", "barco"]
+          },
+          {
+            "texto": "Delante de e, el sonido de la k se escribe con qu.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» también lleva qu delante de i.",
+            "prueba": ["quinto", "quieto", "máquina", "mosquito", "esquina"]
+          },
+          {
+            "texto": "El sonido de la k se escribe con qu en las palabras largas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de lo larga que sea la palabra. Mira qué vocal va detrás del sonido de la k."
+          }
+        ]
+      },
+      {
+        "id": "ces",
+        "nombre": "Los plurales en -ces",
+        "nivel": 2,
+        "punto": 2,
+        "patron": "ces$",
+        "pista": "Todas son plurales. Fíjate en cómo terminan.",
+        "ejemplos": [
+          {"p": "luces", "nivel": 1},
+          {"p": "peces", "nivel": 1},
+          {"p": "voces", "nivel": 1},
+          {"p": "nueces", "nivel": 1},
+          {"p": "cruces", "nivel": 1},
+          {"p": "veces", "nivel": 1},
+          {"p": "felices", "nivel": 1},
+          {"p": "narices", "nivel": 1},
+          {"p": "lápices", "nivel": 2},
+          {"p": "raíces", "nivel": 2},
+          {"p": "perdices", "nivel": 2},
+          {"p": "actrices", "nivel": 2},
+          {"p": "capaces", "nivel": 2},
+          {"p": "disfraces", "nivel": 2},
+          {"p": "tapices", "nivel": 2},
+          {"p": "cicatrices", "nivel": 2},
+          {"p": "codornices", "nivel": 3},
+          {"p": "avestruces", "nivel": 3},
+          {"p": "matices", "nivel": 3},
+          {"p": "emperatrices", "nivel": 3},
+          {"p": "regalices", "nivel": 3},
+          {"p": "andaluces", "nivel": 3},
+          {"p": "aprendices", "nivel": 3},
+          {"p": "albornoces", "nivel": 3}
+        ],
+        "relleno": ["mesas", "casas", "árboles", "paredes", "flores", "relojes", "botones", "leones", "redes", "ciudades"],
+        "si": "es el plural de una palabra terminada en -z, que cambia la z por c: -ces.",
+        "hipotesis": [
+          {"texto": "Las palabras que terminan en -z hacen el plural en -ces.", "valor": "buena"},
+          {
+            "texto": "Todos los plurales terminan en -ces.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es un plural y no termina en -ces.",
+            "prueba": ["mesas", "casas", "árboles", "paredes", "flores", "relojes", "botones", "leones"]
+          },
+          {
+            "texto": "Las palabras de una sola sílaba que terminan en -z hacen el plural en -ces.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» viene de una palabra de más de una sílaba y también termina en -ces.",
+            "prueba": ["lápices", "raíces", "narices", "perdices", "actrices", "felices", "capaces", "disfraces"]
+          },
+          {
+            "texto": "Los plurales de las palabras que tienen tilde terminan en -ces.",
+            "valor": "otra",
+            "porque": "No encaja: luces no tiene tilde y termina en -ces. Fíjate en cómo termina la palabra en singular."
+          }
+        ]
+      },
+      {
+        "id": "zar",
+        "nombre": "Los verbos en -zar: empecé, cacé",
+        "nivel": 3,
+        "punto": 3,
+        "patron": "c(é|e|es|emos|éis|en)$",
+        "pista": "Son formas de verbos que terminan en -zar. ¿Qué pasa con la z?",
+        "ejemplos": [
+          {"p": "empecé", "nivel": 1},
+          {"p": "cacé", "nivel": 1},
+          {"p": "gocé", "nivel": 1},
+          {"p": "lancé", "nivel": 1},
+          {"p": "recé", "nivel": 1},
+          {"p": "crucé", "nivel": 1},
+          {"p": "almorcé", "nivel": 2},
+          {"p": "alcancé", "nivel": 2},
+          {"p": "avancé", "nivel": 2},
+          {"p": "abracé", "nivel": 2},
+          {"p": "empiece", "nivel": 2},
+          {"p": "almuerce", "nivel": 2},
+          {"p": "comencé", "nivel": 2},
+          {"p": "tropecé", "nivel": 2},
+          {"p": "adelgacé", "nivel": 2},
+          {"p": "empecemos", "nivel": 3},
+          {"p": "almorcéis", "nivel": 3},
+          {"p": "avancen", "nivel": 3},
+          {"p": "abracemos", "nivel": 3},
+          {"p": "organicé", "nivel": 3},
+          {"p": "utilicé", "nivel": 3},
+          {"p": "aterricé", "nivel": 3},
+          {"p": "memoricé", "nivel": 3},
+          {"p": "gocemos", "nivel": 3}
+        ],
+        "relleno": ["empezó", "cazamos", "gozaba", "almorzar", "lanzo", "rezas", "cruzaron", "abrazo", "organizar", "utilizamos", "aterrizó", "comenzaba"],
+        "si": "es de un verbo terminado en -zar, y la z cambia a c porque va delante de e.",
+        "hipotesis": [
+          {
+            "texto": "En los verbos terminados en -zar, la z cambia a c delante de e.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Los verbos terminados en -zar cambian siempre la z por c.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es de un verbo en -zar y mantiene la z, porque detrás no va una e.",
+            "prueba": ["empezó", "cazamos", "gozaba", "almorzar", "lanzo", "rezas", "cruzaron", "abrazo"]
+          },
+          {
+            "texto": "El verbo empezar cambia la z por c delante de e.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es de empezar y también cambia la z por c.",
+            "prueba": ["cacé", "gocé", "almorcé", "lancé", "recé", "crucé", "alcancé", "avancé", "abracé", "almuerce"]
+          },
+          {
+            "texto": "Los verbos se escriben con c cuando están en pasado.",
+            "valor": "otra",
+            "porque": "No encaja: empezó está en pasado y lleva z. Mira qué vocal va detrás."
+          }
+        ]
+      },
+      {
+        "id": "za",
+        "nombre": "za, zo, zu (y ce, ci)",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["ce-ci"],
+        "patron": "z[aouáóú]",
+        "pista": "Fíjate en qué vocal va detrás del sonido de la z.",
+        "ejemplos": [
+          {"p": "zapato", "nivel": 1},
+          {"p": "zorro", "nivel": 1},
+          {"p": "zumo", "nivel": 1},
+          {"p": "pozo", "nivel": 1},
+          {"p": "taza", "nivel": 1},
+          {"p": "azul", "nivel": 1},
+          {"p": "buzón", "nivel": 1},
+          {"p": "lazo", "nivel": 1},
+          {"p": "plaza", "nivel": 1},
+          {"p": "manzana", "nivel": 1},
+          {"p": "pizarra", "nivel": 1},
+          {"p": "brazo", "nivel": 1},
+          {"p": "trozo", "nivel": 1},
+          {"p": "corazón", "nivel": 1},
+          {"p": "zanahoria", "nivel": 2},
+          {"p": "zapatilla", "nivel": 2},
+          {"p": "cazuela", "nivel": 2},
+          {"p": "azúcar", "nivel": 2},
+          {"p": "garbanzo", "nivel": 2},
+          {"p": "zurdo", "nivel": 2},
+          {"p": "almuerzo", "nivel": 2},
+          {"p": "azotea", "nivel": 2},
+          {"p": "abrazo", "nivel": 2},
+          {"p": "zoológico", "nivel": 2},
+          {"p": "razón", "nivel": 2},
+          {"p": "mazorca", "nivel": 2},
+          {"p": "zambomba", "nivel": 3},
+          {"p": "zarzuela", "nivel": 3},
+          {"p": "zumbido", "nivel": 3},
+          {"p": "azulejo", "nivel": 3},
+          {"p": "calabaza", "nivel": 3},
+          {"p": "esperanza", "nivel": 3},
+          {"p": "chorizo", "nivel": 3},
+          {"p": "carroza", "nivel": 3}
+        ],
+        "relleno": ["cebolla", "cine", "cielo", "cerdo", "cocina", "cesta", "circo", "vecino", "casa", "sopa", "mesa"],
+        "si": "tiene el sonido de la z delante de a, o o u: se escribe con z.",
+        "hipotesis": [
+          {
+            "texto": "Delante de a, o y u, el sonido de la z se escribe con z: za, zo, zu.",
+            "valor": "buena"
+          },
+          {
+            "texto": "El sonido de la z se escribe siempre con z.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene el sonido de la z y se escribe con c.",
+            "prueba": ["cebolla", "cine", "cielo", "cerdo", "cocina", "cesta", "circo", "vecino"]
+          },
+          {
+            "texto": "Delante de a, el sonido de la z se escribe con z.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: en «{p}», la z no va delante de a, y también se escribe con z.",
+            "prueba": ["zorro", "zumo", "pozo", "azul", "buzón", "lazo", "brazo", "trozo", "corazón", "zurdo", "almuerzo", "azotea", "abrazo", "zoológico", "razón", "zumbido", "azulejo", "chorizo"]
+          },
+          {
+            "texto": "Se escribe z en las palabras que terminan en -o.",
+            "valor": "otra",
+            "porque": "No encaja: taza termina en -a y lleva z. Mira qué vocal va detrás de la z."
+          }
+        ],
+        "contra": ""
+      }
+    ],
+    "ll-y": [
+      {
+        "id": "illo",
+        "nombre": "-illo, -illa",
+        "nivel": 1,
+        "punto": 0,
+        "rivales": ["y-final"],
+        "patron": "ill[oa]s?$",
+        "pista": "Fíjate en cómo terminan.",
+        "ejemplos": [
+          {"p": "farolillo", "nivel": 1},
+          {"p": "bombilla", "nivel": 1},
+          {"p": "pasillo", "nivel": 1},
+          {"p": "ardilla", "nivel": 1},
+          {"p": "tortilla", "nivel": 1},
+          {"p": "cuchillo", "nivel": 1},
+          {"p": "martillo", "nivel": 1},
+          {"p": "rodilla", "nivel": 1},
+          {"p": "pastilla", "nivel": 1},
+          {"p": "bolsillo", "nivel": 1},
+          {"p": "zapatilla", "nivel": 1},
+          {"p": "semilla", "nivel": 1},
+          {"p": "camilla", "nivel": 1},
+          {"p": "silla", "nivel": 1},
+          {"p": "ladrillo", "nivel": 1},
+          {"p": "castillo", "nivel": 1},
+          {"p": "mantequilla", "nivel": 2},
+          {"p": "ventanilla", "nivel": 2},
+          {"p": "pajarillo", "nivel": 2},
+          {"p": "panecillo", "nivel": 2},
+          {"p": "bocadillo", "nivel": 2},
+          {"p": "mejilla", "nivel": 2},
+          {"p": "cerilla", "nivel": 2},
+          {"p": "palillo", "nivel": 2},
+          {"p": "membrillo", "nivel": 2},
+          {"p": "sencillo", "nivel": 2},
+          {"p": "amarillo", "nivel": 2},
+          {"p": "colmillo", "nivel": 2},
+          {"p": "cuadernillo", "nivel": 3},
+          {"p": "monaguillo", "nivel": 3},
+          {"p": "pesadilla", "nivel": 3},
+          {"p": "maravilla", "nivel": 3},
+          {"p": "alcantarilla", "nivel": 3},
+          {"p": "campanilla", "nivel": 3},
+          {"p": "espinilla", "nivel": 3}
+        ],
+        "relleno": ["playa", "rayo", "joya", "payaso", "raya", "ensayo", "mayo", "desayuno", "yema", "ayer", "llave", "lluvia", "calle"],
+        "si": "termina en -illo o en -illa: se escribe con ll.",
+        "hipotesis": [
+          {
+            "texto": "Las palabras que terminan en -illo o en -illa se escriben con ll.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Si suena como la ll de silla, se escribe siempre con ll.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene ese mismo sonido y se escribe con y.",
+            "prueba": ["playa", "rayo", "joya", "payaso", "raya", "ensayo", "mayo", "desayuno"]
+          },
+          {
+            "texto": "Las palabras que terminan en -illo se escriben con ll.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» termina en -illa y también lleva ll.",
+            "prueba": ["bombilla", "ardilla", "tortilla", "mantequilla", "rodilla", "ventanilla", "pastilla", "zapatilla", "semilla", "camilla"]
+          },
+          {
+            "texto": "Se escriben con ll las palabras que tienen tres sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Fíjate en cómo terminan."
+          }
+        ]
+      },
+      {
+        "id": "y-final",
+        "nombre": "La y al final: rey, hoy, muy",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["illo"],
+        "patron": "[aeiou]y$",
+        "pista": "Fíjate en la última letra y en la que va justo antes.",
+        "ejemplos": [
+          {"p": "rey", "nivel": 1},
+          {"p": "hoy", "nivel": 1},
+          {"p": "muy", "nivel": 1},
+          {"p": "ley", "nivel": 1},
+          {"p": "estoy", "nivel": 1},
+          {"p": "voy", "nivel": 1},
+          {"p": "soy", "nivel": 1},
+          {"p": "doy", "nivel": 1},
+          {"p": "hay", "nivel": 1},
+          {"p": "buey", "nivel": 2},
+          {"p": "jersey", "nivel": 2},
+          {"p": "convoy", "nivel": 2},
+          {"p": "virrey", "nivel": 2},
+          {"p": "caray", "nivel": 2},
+          {"p": "carey", "nivel": 2},
+          {"p": "ay", "nivel": 2},
+          {"p": "guirigay", "nivel": 3},
+          {"p": "espray", "nivel": 3},
+          {"p": "mamey", "nivel": 3}
+        ],
+        "relleno": ["caí", "leí", "oí", "reí", "taxi", "jabalí", "rubí", "casi", "esquí", "maní", "colibrí"],
+        "contraejemplos": ["bonsái", "saharaui", "samurái"],
+        "si": "termina en una i que va detrás de vocal y no suena fuerte: se escribe y.",
+        "excepcion": "termina en una i detrás de vocal que no suena fuerte, y aun así se escribe con i. Pasa en muy pocas palabras: bonsái, saharaui.",
+        "hipotesis": [
+          {
+            "texto": "Al final de palabra, la i que va detrás de una vocal y no suena fuerte se escribe y.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Al final de palabra, el sonido de la i se escribe siempre y.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» termina con el sonido de la i y se escribe con i: o suena fuerte, o no va detrás de vocal.",
+            "prueba": ["caí", "leí", "oí", "reí", "taxi", "jabalí", "rubí", "casi"]
+          },
+          {
+            "texto": "En las palabras de una sola sílaba, la i final que va detrás de vocal y no suena fuerte se escribe y.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» tiene más de una sílaba y también termina en y.",
+            "prueba": ["estoy", "jersey", "convoy", "virrey", "caray"]
+          },
+          {
+            "texto": "Las palabras cortas terminan en y.",
+            "valor": "otra",
+            "porque": "No encaja: casi es corta y termina en i. Fíjate en qué letra va justo antes."
+          }
+        ]
+      },
+      {
+        "id": "cayo",
+        "nombre": "cayó, oyendo, huyó",
+        "nivel": 2,
+        "punto": 2,
+        "rivales": ["callo"],
+        "patron": "y",
+        "pista": "Todas son formas de verbos. Piensa en su infinitivo.",
+        "ejemplos": [
+          {"p": "cayó", "nivel": 1},
+          {"p": "oyendo", "nivel": 1},
+          {"p": "huyó", "nivel": 1},
+          {"p": "leyendo", "nivel": 1},
+          {"p": "creyó", "nivel": 1},
+          {"p": "leyó", "nivel": 1},
+          {"p": "oyó", "nivel": 1},
+          {"p": "cayendo", "nivel": 1},
+          {"p": "construyó", "nivel": 2},
+          {"p": "oyeron", "nivel": 2},
+          {"p": "cayeron", "nivel": 2},
+          {"p": "huyendo", "nivel": 2},
+          {"p": "incluyó", "nivel": 2},
+          {"p": "destruyó", "nivel": 2},
+          {"p": "creyendo", "nivel": 2},
+          {"p": "leyeron", "nivel": 2},
+          {"p": "huyeron", "nivel": 2},
+          {"p": "concluyó", "nivel": 2},
+          {"p": "distribuyó", "nivel": 3},
+          {"p": "contribuyeron", "nivel": 3},
+          {"p": "sustituyendo", "nivel": 3},
+          {"p": "atribuyó", "nivel": 3},
+          {"p": "poseyendo", "nivel": 3},
+          {"p": "releyendo", "nivel": 3},
+          {"p": "recayó", "nivel": 3},
+          {"p": "instruyeron", "nivel": 3},
+          {"p": "disminuyó", "nivel": 3}
+        ],
+        "relleno": ["calló", "halló", "llevó", "lloró", "brilló", "chilló", "falló", "llegó", "comió", "salió", "bebió", "subieron", "corrió"],
+        "si": "su infinitivo no tiene ll ni y, así que ese sonido se escribe con y.",
+        "hipotesis": [
+          {
+            "texto": "Si el infinitivo de un verbo no tiene ll ni y, sus formas con ese sonido se escriben con y.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las formas verbales con el sonido de la y se escriben con y.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» se escribe con ll, porque su infinitivo ya la lleva.",
+            "prueba": ["calló", "halló", "llevó", "lloró", "brilló", "chilló", "falló", "llegó"]
+          },
+          {
+            "texto": "Las formas del verbo caer con ese sonido se escriben con y.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es del verbo caer y también se escribe con y.",
+            "prueba": ["oyendo", "huyó", "leyendo", "creyó", "construyó", "oyeron", "huyendo", "leyó", "incluyó", "destruyó", "creyendo", "distribuyó"]
+          },
+          {
+            "texto": "Se escriben con y los verbos en pasado.",
+            "valor": "otra",
+            "porque": "No encaja: llegó está en pasado y no lleva y. Piensa en el infinitivo de cada verbo."
+          }
+        ]
+      },
+      {
+        "id": "callo",
+        "nombre": "calló, halló, llevó: el infinitivo con ll",
+        "nivel": 2,
+        "punto": 3,
+        "rivales": ["cayo"],
+        "patron": "ll",
+        "pista": "Piensa en el infinitivo de cada verbo: ¿qué letra tiene?",
+        "ejemplos": [
+          {"p": "calló", "nivel": 1},
+          {"p": "halló", "nivel": 1},
+          {"p": "llevó", "nivel": 1},
+          {"p": "lloró", "nivel": 1},
+          {"p": "brilló", "nivel": 1},
+          {"p": "chilló", "nivel": 1},
+          {"p": "llegó", "nivel": 1},
+          {"p": "llenó", "nivel": 1},
+          {"p": "llamó", "nivel": 1},
+          {"p": "falló", "nivel": 1},
+          {"p": "callaban", "nivel": 2},
+          {"p": "hallamos", "nivel": 2},
+          {"p": "llevaron", "nivel": 2},
+          {"p": "rellenó", "nivel": 2},
+          {"p": "sellé", "nivel": 2},
+          {"p": "pillé", "nivel": 2},
+          {"p": "desarrolló", "nivel": 2},
+          {"p": "atropelló", "nivel": 2},
+          {"p": "estrellaron", "nivel": 2},
+          {"p": "maquillé", "nivel": 2},
+          {"p": "desarrollaron", "nivel": 3},
+          {"p": "patrullaban", "nivel": 3},
+          {"p": "atornilló", "nivel": 3},
+          {"p": "zambulló", "nivel": 3},
+          {"p": "embotelló", "nivel": 3},
+          {"p": "arrodilló", "nivel": 3},
+          {"p": "aulló", "nivel": 3},
+          {"p": "cepilló", "nivel": 3}
+        ],
+        "relleno": ["cayó", "oyendo", "huyó", "leyendo", "creyó", "construyó", "leyó", "oyó", "comió", "salió"],
+        "si": "viene de un verbo con ll en el infinitivo (callar, hallar, llevar…): conserva la ll.",
+        "hipotesis": [
+          {
+            "texto": "Si el infinitivo de un verbo lleva ll, sus formas también se escriben con ll.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las formas verbales con ese sonido se escriben con ll.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene ese sonido y se escribe con y, porque su infinitivo no tiene ll.",
+            "prueba": ["cayó", "oyendo", "huyó", "leyendo", "creyó", "construyó", "leyó", "oyó"]
+          },
+          {
+            "texto": "Las formas del verbo callar se escriben con ll.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es del verbo callar y también lleva ll.",
+            "prueba": ["halló", "llevó", "lloró", "brilló", "chilló", "llegó", "llenó", "llamó", "falló", "hallamos", "llevaron", "rellenó", "sellé", "pillé", "desarrolló", "atropelló", "estrellaron", "maquillé", "desarrollaron", "patrullaban", "atornilló", "zambulló", "embotelló", "arrodilló", "aulló", "cepilló"]
+          },
+          {
+            "texto": "Se escriben con ll los verbos que terminan en -ó.",
+            "valor": "otra",
+            "porque": "No encaja: cayó termina en -ó y va con y. Piensa en el infinitivo."
+          }
+        ],
+        "contra": ""
+      }
+    ],
+    "g-j-dieresis": [
+      {
+        "id": "ger-gir",
+        "nombre": "Los verbos en -ger y -gir",
+        "nivel": 2,
+        "punto": 2,
+        "rivales": ["dije"],
+        "patron": "g(er|ir)$",
+        "pista": "Son verbos en infinitivo. Escucha cómo suenan al final.",
+        "ejemplos": [
+          {"p": "coger", "nivel": 1},
+          {"p": "proteger", "nivel": 1},
+          {"p": "elegir", "nivel": 1},
+          {"p": "dirigir", "nivel": 1},
+          {"p": "recoger", "nivel": 1},
+          {"p": "escoger", "nivel": 1},
+          {"p": "exigir", "nivel": 1},
+          {"p": "corregir", "nivel": 1},
+          {"p": "fingir", "nivel": 1},
+          {"p": "surgir", "nivel": 1},
+          {"p": "encoger", "nivel": 1},
+          {"p": "sumergir", "nivel": 2},
+          {"p": "rugir", "nivel": 2},
+          {"p": "emerger", "nivel": 2},
+          {"p": "acoger", "nivel": 2},
+          {"p": "mugir", "nivel": 2},
+          {"p": "urgir", "nivel": 2},
+          {"p": "resurgir", "nivel": 3},
+          {"p": "sobrecoger", "nivel": 3},
+          {"p": "reelegir", "nivel": 3},
+          {"p": "redirigir", "nivel": 3},
+          {"p": "desproteger", "nivel": 3}
+        ],
+        "relleno": ["bajar", "mojar", "dibujar", "empujar", "trabajar", "jugar", "cocinar", "pagar", "pegar", "llegar", "colgar", "regar"],
+        "contraejemplos": ["tejer", "crujir", "destejer"],
+        "si": "es un verbo que termina sonando «jer» o «jir»: se escribe -ger o -gir.",
+        "excepcion": "termina sonando «jer» o «jir» y se escribe con j. Es una de las dos excepciones: tejer y crujir.",
+        "hipotesis": [
+          {
+            "texto": "Los infinitivos que terminan con el sonido «jer» o «jir» se escriben con g.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Los verbos que tienen el sonido de la j se escriben siempre con g.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene el sonido de la j y se escribe con j.",
+            "prueba": ["bajar", "mojar", "dibujar", "empujar", "trabajar", "jugar"]
+          },
+          {
+            "texto": "Los infinitivos que terminan con el sonido «jir» se escriben con g.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» termina sonando «jer» y también se escribe con g.",
+            "prueba": ["coger", "proteger", "recoger", "escoger", "encoger"]
+          },
+          {
+            "texto": "Los verbos que terminan en -r se escriben con g.",
+            "valor": "otra",
+            "porque": "No encaja: bajar termina en -r y no tiene g. Fíjate en las dos últimas letras."
+          }
+        ]
+      },
+      {
+        "id": "aje",
+        "nombre": "-aje y -eje",
+        "nivel": 1,
+        "punto": 3,
+        "rivales": ["gen"],
+        "patron": "(aje|eje)s?$",
+        "pista": "Escucha cómo suenan al final.",
+        "ejemplos": [
+          {"p": "viaje", "nivel": 1},
+          {"p": "garaje", "nivel": 1},
+          {"p": "paisaje", "nivel": 1},
+          {"p": "equipaje", "nivel": 1},
+          {"p": "mensaje", "nivel": 1},
+          {"p": "personaje", "nivel": 1},
+          {"p": "oleaje", "nivel": 1},
+          {"p": "homenaje", "nivel": 1},
+          {"p": "lenguaje", "nivel": 1},
+          {"p": "eje", "nivel": 1},
+          {"p": "coraje", "nivel": 1},
+          {"p": "salvaje", "nivel": 1},
+          {"p": "hereje", "nivel": 2},
+          {"p": "aterrizaje", "nivel": 2},
+          {"p": "maquillaje", "nivel": 2},
+          {"p": "esqueje", "nivel": 2},
+          {"p": "abordaje", "nivel": 2},
+          {"p": "aprendizaje", "nivel": 2},
+          {"p": "kilometraje", "nivel": 2},
+          {"p": "vendaje", "nivel": 2},
+          {"p": "plumaje", "nivel": 2},
+          {"p": "follaje", "nivel": 2},
+          {"p": "peaje", "nivel": 2},
+          {"p": "espionaje", "nivel": 3},
+          {"p": "almacenaje", "nivel": 3},
+          {"p": "porcentaje", "nivel": 3},
+          {"p": "reportaje", "nivel": 3},
+          {"p": "sabotaje", "nivel": 3},
+          {"p": "alunizaje", "nivel": 3},
+          {"p": "doblaje", "nivel": 3},
+          {"p": "engranaje", "nivel": 3}
+        ],
+        "relleno": ["imagen", "gente", "ángel", "general", "origen", "agente", "urgente", "girasol", "página", "mágico", "colegio"],
+        "contraejemplos": ["protege", "proteges"],
+        "si": "termina con el sonido «aje» o «eje»: se escribe con j.",
+        "excepcion": "termina con el sonido «eje», pero es una forma del verbo proteger: los verbos en -ger y -gir conservan su g.",
+        "hipotesis": [
+          {
+            "texto": "Las palabras que terminan con el sonido «aje» o «eje» se escriben con j.",
+            "valor": "buena"
+          },
+          {
+            "texto": "El sonido de la j delante de e se escribe siempre con j.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» ese sonido va delante de e y se escribe con g.",
+            "prueba": ["imagen", "gente", "ángel", "general", "origen", "agente", "urgente"]
+          },
+          {
+            "texto": "Las palabras que terminan con el sonido «aje» se escriben con j.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» termina sonando «eje» y también se escribe con j.",
+            "prueba": ["hereje", "eje", "esqueje"]
+          },
+          {
+            "texto": "Se escriben con j las palabras que tienen tres sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Fíjate en cómo terminan."
+          }
+        ]
+      },
+      {
+        "id": "dieresis",
+        "nombre": "La diéresis: güe, güi",
+        "nivel": 2,
+        "punto": 5,
+        "rivales": ["gue-gui"],
+        "patron": "gü[eiéí]",
+        "pista": "Busca la g y mira la letra que va detrás.",
+        "ejemplos": [
+          {"p": "pingüino", "nivel": 1},
+          {"p": "cigüeña", "nivel": 1},
+          {"p": "vergüenza", "nivel": 1},
+          {"p": "agüita", "nivel": 1},
+          {"p": "desagüe", "nivel": 2},
+          {"p": "bilingüe", "nivel": 2},
+          {"p": "antigüedad", "nivel": 2},
+          {"p": "paragüero", "nivel": 2},
+          {"p": "lengüeta", "nivel": 2},
+          {"p": "piragüista", "nivel": 2},
+          {"p": "averigüé", "nivel": 2},
+          {"p": "lengüetazo", "nivel": 2},
+          {"p": "paragüitas", "nivel": 2},
+          {"p": "pingüinos", "nivel": 2},
+          {"p": "lingüística", "nivel": 3},
+          {"p": "nicaragüense", "nivel": 3},
+          {"p": "averigüemos", "nivel": 3},
+          {"p": "sinvergüenza", "nivel": 3},
+          {"p": "avergüenza", "nivel": 3}
+        ],
+        "relleno": ["guerra", "guitarra", "guiso", "juguete", "hoguera", "águila", "guepardo", "manguera", "agua", "guante", "antiguo"],
+        "si": "en esa sílaba la u se pronuncia, y por eso lleva diéresis.",
+        "hipotesis": [
+          {
+            "texto": "Cuando la u de gue o de gui se pronuncia, lleva diéresis: güe, güi.",
+            "valor": "buena"
+          },
+          {
+            "texto": "La u de gue y de gui lleva siempre diéresis.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» la u no se pronuncia, y por eso no lleva diéresis.",
+            "prueba": ["guerra", "guitarra", "guiso", "juguete", "hoguera", "águila", "guepardo", "manguera"]
+          },
+          {
+            "texto": "Cuando la u de gue se pronuncia, lleva diéresis.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: en «{p}» la u de gui también suena y lleva diéresis.",
+            "prueba": ["pingüino", "agüita", "piragüista"]
+          },
+          {
+            "texto": "Llevan diéresis las palabras que tienen una ñ.",
+            "valor": "otra",
+            "porque": "No encaja: pingüino no tiene ñ y lleva diéresis. Escucha si la u suena."
+          }
+        ]
+      },
+      {
+        "id": "dije",
+        "nombre": "dije, traje, conduje",
+        "nivel": 3,
+        "punto": 4,
+        "rivales": ["ger-gir"],
+        "patron": "j",
+        "pista": "Todas son formas de verbos. Piensa en su infinitivo.",
+        "ejemplos": [
+          {"p": "dije", "nivel": 1},
+          {"p": "traje", "nivel": 1},
+          {"p": "conduje", "nivel": 1},
+          {"p": "dijeron", "nivel": 1},
+          {"p": "trajimos", "nivel": 1},
+          {"p": "condujo", "nivel": 1},
+          {"p": "dijo", "nivel": 1},
+          {"p": "trajo", "nivel": 1},
+          {"p": "produje", "nivel": 2},
+          {"p": "dijiste", "nivel": 2},
+          {"p": "trajeron", "nivel": 2},
+          {"p": "tradujo", "nivel": 2},
+          {"p": "redujo", "nivel": 2},
+          {"p": "introdujo", "nivel": 2},
+          {"p": "predije", "nivel": 2},
+          {"p": "deduje", "nivel": 2},
+          {"p": "dijimos", "nivel": 2},
+          {"p": "contradijeron", "nivel": 3},
+          {"p": "introdujisteis", "nivel": 3},
+          {"p": "reprodujeron", "nivel": 3},
+          {"p": "maldijo", "nivel": 3},
+          {"p": "bendijeron", "nivel": 3},
+          {"p": "distrajo", "nivel": 3},
+          {"p": "atrajeron", "nivel": 3},
+          {"p": "sustrajo", "nivel": 3}
+        ],
+        "relleno": ["cogió", "elegí", "protegemos", "recogiste", "dirigió", "corrigió", "escogí", "exigimos", "cogimos", "eligió"],
+        "si": "su infinitivo no tiene g ni j, así que sus formas con el sonido de la j (je, ji, jo) se escriben con j.",
+        "hipotesis": [
+          {
+            "texto": "Si un verbo no tiene g ni j en el infinitivo, sus formas con el sonido de la j se escriben con j: dije, dijiste, dijo.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Las formas verbales con el sonido «je» o «ji» se escriben siempre con j.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» se escribe con g, porque su infinitivo ya la lleva.",
+            "prueba": ["cogió", "elegí", "protegemos", "recogiste", "dirigió", "corrigió", "escogí", "exigimos"]
+          },
+          {
+            "texto": "Las formas del verbo decir con el sonido de la j se escriben con j.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es del verbo decir y también se escribe con j.",
+            "prueba": ["traje", "conduje", "trajimos", "condujo", "produje", "trajeron", "tradujo", "redujo", "introdujo"]
+          },
+          {
+            "texto": "Se escriben con j los verbos que tienen dos sílabas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Piensa en el infinitivo de cada verbo."
+          }
+        ]
+      },
+      {
+        "id": "gen",
+        "nombre": "gen, gente, gencia",
+        "nivel": 1,
+        "punto": 0,
+        "rivales": ["aje"],
+        "patron": "gen",
+        "pista": "Busca dentro de cada palabra el sonido «jen». ¿Con qué letra va?",
+        "ejemplos": [
+          {"p": "gente", "nivel": 1},
+          {"p": "imagen", "nivel": 1},
+          {"p": "general", "nivel": 1},
+          {"p": "origen", "nivel": 1},
+          {"p": "agente", "nivel": 1},
+          {"p": "urgente", "nivel": 1},
+          {"p": "genio", "nivel": 1},
+          {"p": "genial", "nivel": 1},
+          {"p": "margen", "nivel": 1},
+          {"p": "gentío", "nivel": 1},
+          {"p": "agencia", "nivel": 1},
+          {"p": "urgencia", "nivel": 2},
+          {"p": "inteligente", "nivel": 2},
+          {"p": "oxígeno", "nivel": 2},
+          {"p": "ingeniero", "nivel": 2},
+          {"p": "generoso", "nivel": 2},
+          {"p": "exigente", "nivel": 2},
+          {"p": "emergencia", "nivel": 2},
+          {"p": "indígena", "nivel": 2},
+          {"p": "generación", "nivel": 2},
+          {"p": "inteligencia", "nivel": 3},
+          {"p": "detergente", "nivel": 3},
+          {"p": "regenerar", "nivel": 3},
+          {"p": "generador", "nivel": 3},
+          {"p": "agenda", "nivel": 3},
+          {"p": "ingenioso", "nivel": 3}
+        ],
+        "relleno": ["viaje", "garaje", "paisaje", "mensaje", "jefe", "jirafa", "jinete", "cajero", "tejado"],
+        "contraejemplos": ["ajeno", "berenjena", "jengibre", "ajenjo"],
+        "si": "tiene el sonido «jen» (gen, gente, gencia): se escribe con g.",
+        "excepcion": "tiene el sonido «jen» y se escribe con j: es una de las pocas excepciones (ajeno, berenjena, jengibre).",
+        "hipotesis": [
+          {
+            "texto": "Las palabras con el sonido «jen», como gente, imagen o urgencia, se escriben con g.",
+            "valor": "buena"
+          },
+          {
+            "texto": "El sonido de la j se escribe siempre con g.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene el sonido de la j y se escribe con j.",
+            "prueba": ["viaje", "garaje", "paisaje", "mensaje", "jefe", "jirafa", "jinete", "cajero", "tejado"]
+          },
+          {
+            "texto": "Las palabras que empiezan por gen- se escriben con g.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no empieza por gen- y también lleva g.",
+            "prueba": ["imagen", "origen", "agente", "urgente", "margen", "agencia", "urgencia", "inteligente", "oxígeno", "ingeniero", "exigente", "emergencia", "indígena", "inteligencia", "detergente", "regenerar", "agenda", "ingenioso"]
+          },
+          {
+            "texto": "Se escriben con g las palabras que terminan en -e.",
+            "valor": "otra",
+            "porque": "No encaja: viaje termina en -e y va con j. Busca el sonido «jen»."
+          }
+        ],
+        "contra": "ajeno, berenjena, jengibre, ajenjo"
+      },
+      {
+        "id": "gue-gui",
+        "nombre": "gue, gui: la u que no suena",
+        "nivel": 1,
+        "punto": 5,
+        "rivales": ["dieresis"],
+        "patron": "gu[eiéí]",
+        "pista": "Lee cada palabra en voz alta. ¿Suena la u?",
+        "ejemplos": [
+          {"p": "guerra", "nivel": 1},
+          {"p": "guitarra", "nivel": 1},
+          {"p": "guiso", "nivel": 1},
+          {"p": "juguete", "nivel": 1},
+          {"p": "hoguera", "nivel": 1},
+          {"p": "águila", "nivel": 1},
+          {"p": "manguera", "nivel": 1},
+          {"p": "guisante", "nivel": 1},
+          {"p": "merengue", "nivel": 1},
+          {"p": "guinda", "nivel": 1},
+          {"p": "guía", "nivel": 1},
+          {"p": "seguir", "nivel": 1},
+          {"p": "guepardo", "nivel": 2},
+          {"p": "guerrero", "nivel": 2},
+          {"p": "guiñol", "nivel": 2},
+          {"p": "anguila", "nivel": 2},
+          {"p": "hormiguero", "nivel": 2},
+          {"p": "hamburguesa", "nivel": 2},
+          {"p": "portugués", "nivel": 2},
+          {"p": "jugué", "nivel": 2},
+          {"p": "pagué", "nivel": 2},
+          {"p": "conseguir", "nivel": 2},
+          {"p": "alguien", "nivel": 2},
+          {"p": "guirnalda", "nivel": 3},
+          {"p": "guillotina", "nivel": 3},
+          {"p": "aguijón", "nivel": 3},
+          {"p": "aguerrido", "nivel": 3},
+          {"p": "albergue", "nivel": 3},
+          {"p": "distinguir", "nivel": 3},
+          {"p": "extinguir", "nivel": 3},
+          {"p": "guerrillero", "nivel": 3}
+        ],
+        "relleno": ["pingüino", "cigüeña", "vergüenza", "agüita", "desagüe", "bilingüe", "agua", "gato", "goma"],
+        "si": "lleva gue o gui, y la u no suena: no necesita diéresis.",
+        "hipotesis": [
+          {
+            "texto": "En gue y en gui, la u no suena: sirve para que la g suene como en gato.",
+            "valor": "buena"
+          },
+          {
+            "texto": "En todas las palabras con gu, la u no suena.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}», la u sí suena.",
+            "prueba": ["pingüino", "cigüeña", "vergüenza", "agüita", "desagüe", "bilingüe", "agua"]
+          },
+          {
+            "texto": "En gue, la u no suena.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» lleva gui y la u tampoco suena.",
+            "prueba": ["guitarra", "guiso", "águila", "guisante", "guinda", "guía", "seguir", "guiñol", "anguila", "conseguir", "guirnalda", "guillotina", "aguijón", "distinguir", "extinguir"]
+          },
+          {
+            "texto": "La u no suena en las palabras que empiezan por g.",
+            "valor": "otra",
+            "porque": "No encaja: águila no empieza por g y su u tampoco suena. Fíjate en la letra que va detrás de la u."
+          }
+        ],
+        "contra": ""
+      }
+    ],
+    "diptongo-monosilabos": [
+      {
+        "id": "monosilabos",
+        "nombre": "Los monosílabos no llevan tilde",
+        "nivel": 1,
+        "punto": 4,
+        "rivales": ["tilde-diptongo"],
+        "patron": "^[^áéíóú]+$",
+        "pista": "Cuenta las sílabas de cada palabra.",
+        "ejemplos": [
+          {"p": "fue", "nivel": 1},
+          {"p": "fui", "nivel": 1},
+          {"p": "dio", "nivel": 1},
+          {"p": "vio", "nivel": 1},
+          {"p": "pie", "nivel": 1},
+          {"p": "sol", "nivel": 1},
+          {"p": "mar", "nivel": 1},
+          {"p": "pan", "nivel": 1},
+          {"p": "tren", "nivel": 1},
+          {"p": "luz", "nivel": 1},
+          {"p": "gris", "nivel": 1},
+          {"p": "mes", "nivel": 1},
+          {"p": "dos", "nivel": 1},
+          {"p": "tres", "nivel": 1},
+          {"p": "flor", "nivel": 1},
+          {"p": "pez", "nivel": 1},
+          {"p": "ti", "nivel": 2},
+          {"p": "fe", "nivel": 2},
+          {"p": "di", "nivel": 2},
+          {"p": "ve", "nivel": 2},
+          {"p": "sois", "nivel": 2},
+          {"p": "dais", "nivel": 2},
+          {"p": "veis", "nivel": 2},
+          {"p": "pies", "nivel": 2},
+          {"p": "bien", "nivel": 2},
+          {"p": "cien", "nivel": 2},
+          {"p": "guion", "nivel": 3},
+          {"p": "ruin", "nivel": 3},
+          {"p": "hui", "nivel": 3},
+          {"p": "lie", "nivel": 3},
+          {"p": "crie", "nivel": 3},
+          {"p": "guio", "nivel": 3}
+        ],
+        "relleno": ["café", "sofá", "camión", "ratón", "compás", "también", "francés", "jamás"],
+        "contraejemplos": ["él", "tú", "mí", "sí", "té", "más", "dé", "sé"],
+        "si": "tiene una sola sílaba, y los monosílabos no llevan tilde.",
+        "excepcion": "es un monosílabo con tilde diacrítica, la que lo distingue de su pareja: él/el, tú/tu, mí/mi, sí/si, té/te, más/mas. La estudiarás a fondo en 6.º.",
+        "hipotesis": [
+          {
+            "texto": "Por regla general, las palabras de una sola sílaba no llevan tilde.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Las palabras de una o de dos sílabas no llevan tilde.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene dos sílabas y lleva tilde.",
+            "prueba": ["café", "sofá", "camión", "ratón", "compás", "también", "francés", "jamás"]
+          },
+          {
+            "texto": "Las formas verbales de una sola sílaba no llevan tilde.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es un verbo, tiene una sola sílaba y tampoco lleva tilde.",
+            "prueba": ["pie", "sol", "mar", "pan", "tren", "luz", "gris", "mes", "dos", "tres", "flor", "pez"]
+          },
+          {
+            "texto": "Las palabras que tienen r no llevan tilde.",
+            "valor": "otra",
+            "porque": "No encaja: la r no tiene nada que ver. Cuenta las sílabas de cada una."
+          }
+        ]
+      },
+      {
+        "id": "diptongo",
+        "nombre": "El diptongo",
+        "nivel": 1,
+        "punto": 0,
+        "patron": "[aeiou][iu]|[iu][aeiou]",
+        "pista": "Busca dos vocales seguidas y sepáralas en sílabas: ¿van juntas o separadas?",
+        "ejemplos": [
+          {"p": "cielo", "nivel": 1},
+          {"p": "puerta", "nivel": 1},
+          {"p": "aire", "nivel": 1},
+          {"p": "ciudad", "nivel": 1},
+          {"p": "ruido", "nivel": 1},
+          {"p": "peine", "nivel": 1},
+          {"p": "causa", "nivel": 1},
+          {"p": "nieve", "nivel": 1},
+          {"p": "suelo", "nivel": 1},
+          {"p": "auto", "nivel": 1},
+          {"p": "piano", "nivel": 1},
+          {"p": "agua", "nivel": 1},
+          {"p": "cuidado", "nivel": 1},
+          {"p": "viaje", "nivel": 1},
+          {"p": "siete", "nivel": 1},
+          {"p": "nueve", "nivel": 1},
+          {"p": "bueno", "nivel": 1},
+          {"p": "cuaderno", "nivel": 2},
+          {"p": "ciencia", "nivel": 2},
+          {"p": "aceite", "nivel": 2},
+          {"p": "jaula", "nivel": 2},
+          {"p": "reina", "nivel": 2},
+          {"p": "fuego", "nivel": 2},
+          {"p": "muela", "nivel": 2},
+          {"p": "pausa", "nivel": 2},
+          {"p": "violín", "nivel": 2},
+          {"p": "triunfo", "nivel": 2},
+          {"p": "diccionario", "nivel": 3},
+          {"p": "estadounidense", "nivel": 3},
+          {"p": "ruiseñor", "nivel": 3},
+          {"p": "cuidadoso", "nivel": 3},
+          {"p": "aeropuerto", "nivel": 3},
+          {"p": "ciempiés", "nivel": 3},
+          {"p": "veinticinco", "nivel": 3}
+        ],
+        "relleno": ["teatro", "poeta", "león", "río", "baúl", "maíz", "oeste", "héroe", "museo", "canoa", "cacao"],
+        "si": "tiene dos vocales seguidas que se pronuncian en la misma sílaba: es un diptongo.",
+        "hipotesis": [
+          {
+            "texto": "Hay diptongo cuando dos vocales seguidas se pronuncian en la misma sílaba.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Dos vocales seguidas forman siempre un diptongo.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» las dos vocales van en sílabas distintas: es un hiato.",
+            "prueba": ["teatro", "poeta", "león", "río", "baúl", "maíz", "oeste", "héroe"]
+          },
+          {
+            "texto": "Hay diptongo cuando una i y una e van juntas en la misma sílaba.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» también tiene diptongo, y no es de i con e.",
+            "prueba": ["puerta", "aire", "ciudad", "ruido", "causa", "suelo", "auto", "piano", "agua", "cuidado", "viaje"]
+          },
+          {
+            "texto": "Hay diptongo en las palabras que terminan en -o.",
+            "valor": "otra",
+            "porque": "No encaja: aire termina en -e y tiene diptongo. Busca dos vocales seguidas en la misma sílaba."
+          }
+        ]
+      },
+      {
+        "id": "tilde-diptongo",
+        "nombre": "La tilde en el diptongo",
+        "nivel": 2,
+        "punto": 3,
+        "rivales": ["monosilabos"],
+        "patron": "[iu][áéó]|[áéó][iu]",
+        "pista": "Mira dónde está la tilde y qué vocal tiene al lado.",
+        "ejemplos": [
+          {"p": "canción", "nivel": 1},
+          {"p": "después", "nivel": 1},
+          {"p": "avión", "nivel": 1},
+          {"p": "también", "nivel": 1},
+          {"p": "camión", "nivel": 1},
+          {"p": "estación", "nivel": 1},
+          {"p": "adiós", "nivel": 1},
+          {"p": "salió", "nivel": 1},
+          {"p": "comió", "nivel": 1},
+          {"p": "pensión", "nivel": 1},
+          {"p": "lección", "nivel": 1},
+          {"p": "murciélago", "nivel": 2},
+          {"p": "huésped", "nivel": 2},
+          {"p": "náutico", "nivel": 2},
+          {"p": "acuático", "nivel": 2},
+          {"p": "béisbol", "nivel": 2},
+          {"p": "miércoles", "nivel": 2},
+          {"p": "cuéntame", "nivel": 2},
+          {"p": "huérfano", "nivel": 2},
+          {"p": "farmacéutico", "nivel": 3},
+          {"p": "terapéutico", "nivel": 3},
+          {"p": "dieciséis", "nivel": 3},
+          {"p": "averiguó", "nivel": 3},
+          {"p": "náufrago", "nivel": 3},
+          {"p": "ciempiés", "nivel": 3}
+        ],
+        "relleno": ["cuídate", "construí", "cielo", "puerta", "aire", "ruido", "ciudad", "cuento", "árbol", "lápiz"],
+        "si": "tiene un diptongo de vocal abierta y cerrada, y la tilde va en la abierta.",
+        "hipotesis": [
+          {
+            "texto": "Si la sílaba de un diptongo de vocal abierta y cerrada lleva tilde, la tilde va en la abierta (a, e, o).",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las palabras con diptongo llevan tilde en la vocal abierta.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene diptongo y no lleva tilde, porque sigue las reglas de siempre.",
+            "prueba": ["cielo", "puerta", "aire", "cuento"]
+          },
+          {
+            "texto": "Si la sílaba de un diptongo lleva tilde, la tilde va en la o.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: en «{p}» la tilde va en otra vocal abierta.",
+            "prueba": ["después", "también", "murciélago", "huésped", "náutico", "ciempiés", "acuático", "béisbol"]
+          },
+          {
+            "texto": "Llevan tilde las palabras que terminan en -n.",
+            "valor": "otra",
+            "porque": "No encaja: adiós no termina en -n y lleva tilde. Fíjate en qué vocal del diptongo lleva la tilde."
+          }
+        ]
+      },
+      {
+        "id": "triptongo",
+        "nombre": "El triptongo: buey, estudiáis",
+        "nivel": 3,
+        "punto": 1,
+        "patron": "[iuü][aeoáéó][iuy]",
+        "pista": "Busca tres vocales seguidas que se dicen de un solo golpe de voz.",
+        "ejemplos": [
+          {"p": "buey", "nivel": 1},
+          {"p": "miau", "nivel": 1},
+          {"p": "guau", "nivel": 1},
+          {"p": "estudiáis", "nivel": 2},
+          {"p": "limpiáis", "nivel": 2},
+          {"p": "cambiáis", "nivel": 2},
+          {"p": "copiáis", "nivel": 2},
+          {"p": "cambiéis", "nivel": 2},
+          {"p": "estudiéis", "nivel": 2},
+          {"p": "limpiéis", "nivel": 2},
+          {"p": "copiéis", "nivel": 2},
+          {"p": "averiguáis", "nivel": 3},
+          {"p": "averigüéis", "nivel": 3},
+          {"p": "despreciáis", "nivel": 3},
+          {"p": "anunciáis", "nivel": 3},
+          {"p": "pronunciáis", "nivel": 3},
+          {"p": "acariciáis", "nivel": 3},
+          {"p": "apreciéis", "nivel": 3},
+          {"p": "negociáis", "nivel": 3}
+        ],
+        "relleno": ["cielo", "puerta", "aire", "ruido", "causa", "piano", "agua", "reina", "estudiamos", "limpiamos"],
+        "si": "tiene tres vocales seguidas en la misma sílaba: una cerrada, una abierta y otra cerrada.",
+        "hipotesis": [
+          {
+            "texto": "Hay triptongo cuando tres vocales seguidas (cerrada, abierta y cerrada) se pronuncian en la misma sílaba.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Hay triptongo siempre que en una palabra hay tres vocales.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» tiene tres vocales y no tiene triptongo, porque no van seguidas en la misma sílaba.",
+            "prueba": ["cielo", "puerta", "ruido", "causa", "piano", "reina", "aire", "estudiamos", "limpiamos"]
+          },
+          {
+            "texto": "Hay triptongo en las formas verbales que terminan en -áis.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no termina en -áis y también tiene triptongo.",
+            "prueba": ["buey", "miau", "guau", "cambiéis", "estudiéis", "limpiéis", "copiéis", "averigüéis", "apreciéis"]
+          },
+          {
+            "texto": "Hay triptongo en las palabras que terminan en -s.",
+            "valor": "otra",
+            "porque": "No encaja: buey no termina en -s y tiene triptongo. Busca tres vocales seguidas."
+          }
+        ],
+        "contra": ""
+      }
+    ],
+    "d-z-finales": [
+      {
+        "id": "dad",
+        "nombre": "-dad, -tad, -tud",
+        "nivel": 1,
+        "punto": 2,
+        "rivales": ["adj-z"],
+        "patron": "(dad|tad|tud)$",
+        "pista": "Fíjate en las tres últimas letras.",
+        "ejemplos": [
+          {"p": "ciudad", "nivel": 1},
+          {"p": "amistad", "nivel": 1},
+          {"p": "libertad", "nivel": 1},
+          {"p": "verdad", "nivel": 1},
+          {"p": "bondad", "nivel": 1},
+          {"p": "mitad", "nivel": 1},
+          {"p": "edad", "nivel": 1},
+          {"p": "virtud", "nivel": 1},
+          {"p": "juventud", "nivel": 1},
+          {"p": "maldad", "nivel": 1},
+          {"p": "actitud", "nivel": 2},
+          {"p": "felicidad", "nivel": 2},
+          {"p": "voluntad", "nivel": 2},
+          {"p": "lealtad", "nivel": 2},
+          {"p": "gratitud", "nivel": 2},
+          {"p": "multitud", "nivel": 2},
+          {"p": "humildad", "nivel": 2},
+          {"p": "novedad", "nivel": 2},
+          {"p": "enfermedad", "nivel": 2},
+          {"p": "oscuridad", "nivel": 2},
+          {"p": "curiosidad", "nivel": 2},
+          {"p": "solidaridad", "nivel": 3},
+          {"p": "responsabilidad", "nivel": 3},
+          {"p": "electricidad", "nivel": 3},
+          {"p": "velocidad", "nivel": 3},
+          {"p": "generosidad", "nivel": 3},
+          {"p": "inquietud", "nivel": 3},
+          {"p": "esclavitud", "nivel": 3},
+          {"p": "longitud", "nivel": 3},
+          {"p": "publicidad", "nivel": 3},
+          {"p": "honestidad", "nivel": 3}
+        ],
+        "relleno": ["luz", "paz", "nariz", "voz", "cruz", "disfraz", "capaz", "feliz", "reloj", "pared", "césped"],
+        "si": "termina en -dad, -tad o -tud: lleva d final.",
+        "hipotesis": [
+          {
+            "texto": "Las terminaciones -dad, -tad y -tud se escriben siempre con d final, aunque al hablar no suene.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Si una palabra aguda termina en consonante, esa consonante es una d.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es aguda y termina en z; lo sabemos por su plural en -ces.",
+            "prueba": ["nariz", "disfraz", "capaz", "feliz"]
+          },
+          {
+            "texto": "La terminación -dad se escribe con d final.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» termina en -tad o en -tud y también lleva d final.",
+            "prueba": ["amistad", "libertad", "juventud", "virtud", "mitad", "actitud", "voluntad", "lealtad", "gratitud", "multitud"]
+          },
+          {
+            "texto": "Las palabras que tienen tres sílabas terminan en d.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Fíjate en las tres últimas letras."
+          }
+        ]
+      },
+      {
+        "id": "plural-d",
+        "nombre": "El truco del plural: -des",
+        "nivel": 1,
+        "punto": 0,
+        "rivales": ["plural-z"],
+        "patron": "d$",
+        "pista": "Piensa en el plural de cada palabra.",
+        "ejemplos": [
+          {"p": "pared", "nivel": 1},
+          {"p": "red", "nivel": 1},
+          {"p": "césped", "nivel": 1},
+          {"p": "usted", "nivel": 1},
+          {"p": "ciudad", "nivel": 1},
+          {"p": "verdad", "nivel": 1},
+          {"p": "amistad", "nivel": 1},
+          {"p": "mitad", "nivel": 1},
+          {"p": "bondad", "nivel": 1},
+          {"p": "virtud", "nivel": 1},
+          {"p": "edad", "nivel": 1},
+          {"p": "huésped", "nivel": 2},
+          {"p": "ataúd", "nivel": 2},
+          {"p": "multitud", "nivel": 2},
+          {"p": "soledad", "nivel": 2},
+          {"p": "actitud", "nivel": 2},
+          {"p": "juventud", "nivel": 2},
+          {"p": "novedad", "nivel": 2},
+          {"p": "habilidad", "nivel": 3},
+          {"p": "oportunidad", "nivel": 3},
+          {"p": "electricidad", "nivel": 3},
+          {"p": "universidad", "nivel": 3},
+          {"p": "tempestad", "nivel": 3},
+          {"p": "dificultad", "nivel": 3},
+          {"p": "comunidad", "nivel": 3}
+        ],
+        "relleno": ["luz", "pez", "lápiz", "voz", "nariz", "cruz", "raíz", "actriz", "reloj", "papel", "mesa", "árbol", "flor", "sofá"],
+        "si": "su plural es «{plural}»: termina en -des, así que acaba en d.",
+        "hipotesis": [
+          {
+            "texto": "Si el plural de una palabra termina en -des, la palabra acaba en d.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Si el plural de una palabra termina en -es, la palabra acaba en d.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: el plural de «{p}» termina en -ces, no en -des: acaba en z.",
+            "prueba": ["luz", "pez", "lápiz", "voz", "nariz", "cruz", "raíz", "actriz"]
+          },
+          {
+            "texto": "Si el plural de una palabra termina en -dades, la palabra acaba en d.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: el plural de «{p}» no termina en -dades, y también acaba en d.",
+            "prueba": ["pared", "red", "césped", "ataúd", "huésped", "usted", "amistad", "juventud", "virtud", "actitud", "multitud"]
+          },
+          {
+            "texto": "Terminan en d las palabras que empiezan por consonante.",
+            "valor": "otra",
+            "porque": "No encaja: no importa por qué letra empiezan. Piensa en su plural."
+          }
+        ]
+      },
+      {
+        "id": "plural-z",
+        "nombre": "El truco del plural: -ces",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["plural-d"],
+        "patron": "z$",
+        "pista": "Piensa en el plural de cada palabra.",
+        "ejemplos": [
+          {"p": "luz", "nivel": 1},
+          {"p": "pez", "nivel": 1},
+          {"p": "lápiz", "nivel": 1},
+          {"p": "voz", "nivel": 1},
+          {"p": "nariz", "nivel": 1},
+          {"p": "cruz", "nivel": 1},
+          {"p": "raíz", "nivel": 1},
+          {"p": "actriz", "nivel": 1},
+          {"p": "disfraz", "nivel": 1},
+          {"p": "nuez", "nivel": 1},
+          {"p": "feliz", "nivel": 1},
+          {"p": "arroz", "nivel": 1},
+          {"p": "maíz", "nivel": 1},
+          {"p": "vez", "nivel": 1},
+          {"p": "paz", "nivel": 1},
+          {"p": "perdiz", "nivel": 2},
+          {"p": "capaz", "nivel": 2},
+          {"p": "tapiz", "nivel": 2},
+          {"p": "codorniz", "nivel": 2},
+          {"p": "avestruz", "nivel": 2},
+          {"p": "juez", "nivel": 2},
+          {"p": "regaliz", "nivel": 2},
+          {"p": "matiz", "nivel": 2},
+          {"p": "aprendiz", "nivel": 2},
+          {"p": "lombriz", "nivel": 2},
+          {"p": "emperatriz", "nivel": 3},
+          {"p": "albornoz", "nivel": 3},
+          {"p": "cicatriz", "nivel": 3},
+          {"p": "altavoz", "nivel": 3},
+          {"p": "portavoz", "nivel": 3},
+          {"p": "antifaz", "nivel": 3},
+          {"p": "barniz", "nivel": 3},
+          {"p": "coz", "nivel": 3},
+          {"p": "andaluz", "nivel": 3},
+          {"p": "veloz", "nivel": 3}
+        ],
+        "relleno": ["pared", "red", "césped", "ataúd", "usted", "ciudad", "verdad", "amistad", "reloj", "papel", "mesa", "árbol", "flor", "sofá"],
+        "si": "su plural es «{plural}»: termina en -ces, así que acaba en z.",
+        "hipotesis": [
+          {
+            "texto": "Si el plural de una palabra termina en -ces, la palabra acaba en z.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Si el plural de una palabra termina en -es, la palabra acaba en z.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: el plural de «{p}» termina en -des, no en -ces: acaba en d.",
+            "prueba": ["pared", "red", "césped", "ataúd", "usted", "ciudad", "verdad", "amistad"]
+          },
+          {
+            "texto": "Si una palabra de una sola sílaba hace el plural en -ces, acaba en z.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» tiene más de una sílaba y también acaba en z.",
+            "prueba": ["lápiz", "nariz", "raíz", "actriz", "disfraz", "perdiz", "capaz", "feliz", "arroz", "maíz", "tapiz"]
+          },
+          {
+            "texto": "Terminan en z las palabras de una sola sílaba.",
+            "valor": "otra",
+            "porque": "No encaja: lápiz tiene dos sílabas y termina en z, y red tiene una y termina en d. Piensa en el plural."
+          }
+        ]
+      },
+      {
+        "id": "adj-z",
+        "nombre": "Los adjetivos en -z: feliz, capaz, veloz",
+        "nivel": 2,
+        "punto": 1,
+        "rivales": ["dad"],
+        "patron": "z$",
+        "pista": "Son palabras que dicen cómo es alguien. Piensa en su plural.",
+        "ejemplos": [
+          {"p": "feliz", "nivel": 1},
+          {"p": "capaz", "nivel": 1},
+          {"p": "veloz", "nivel": 1},
+          {"p": "feroz", "nivel": 1},
+          {"p": "andaluz", "nivel": 1},
+          {"p": "incapaz", "nivel": 1},
+          {"p": "infeliz", "nivel": 1},
+          {"p": "audaz", "nivel": 1},
+          {"p": "eficaz", "nivel": 2},
+          {"p": "tenaz", "nivel": 2},
+          {"p": "voraz", "nivel": 2},
+          {"p": "precoz", "nivel": 2},
+          {"p": "atroz", "nivel": 2},
+          {"p": "sagaz", "nivel": 2},
+          {"p": "fugaz", "nivel": 2},
+          {"p": "perspicaz", "nivel": 3},
+          {"p": "veraz", "nivel": 3},
+          {"p": "vivaz", "nivel": 3},
+          {"p": "rapaz", "nivel": 3},
+          {"p": "suspicaz", "nivel": 3},
+          {"p": "ineficaz", "nivel": 3}
+        ],
+        "relleno": ["alegre", "rápido", "amable", "valiente", "cortés", "débil", "joven", "fiel"],
+        "si": "es un adjetivo terminado en z: su plural lo confirma ({plural}).",
+        "hipotesis": [
+          {
+            "texto": "Los adjetivos que terminan con el sonido de la z se escriben con z, y su plural lleva -ces: feliz, felices.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todos los adjetivos terminan en z.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» es un adjetivo y no termina en z.",
+            "prueba": ["alegre", "rápido", "amable", "valiente", "cortés", "débil", "joven", "fiel"]
+          },
+          {
+            "texto": "Los adjetivos que terminan en -iz se escriben con z.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no termina en -iz y también lleva z.",
+            "prueba": ["capaz", "veloz", "feroz", "andaluz", "incapaz", "audaz", "eficaz", "tenaz", "voraz", "precoz", "atroz", "sagaz", "fugaz", "perspicaz", "veraz", "vivaz", "rapaz", "suspicaz", "ineficaz"]
+          },
+          {
+            "texto": "Los adjetivos de dos sílabas terminan en z.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de sílabas. Piensa en cómo es su plural."
+          }
+        ],
+        "contra": ""
+      }
+    ],
+    "mayusculas-puntuacion-1": [
+      {
+        "id": "nombres-propios",
+        "nombre": "Los nombres propios",
+        "nivel": 1,
+        "punto": 1,
+        "rivales": ["dias-meses"],
+        "frases": true,
+        "patron": "\\S\\s+[A-ZÁÉÍÓÚÑ]",
+        "pista": "Busca las mayúsculas que no están al principio de la frase.",
+        "ejemplos": [
+          {"p": "Mañana viajamos a Sevilla.", "nivel": 1},
+          {"p": "Visitamos la Alhambra.", "nivel": 1},
+          {"p": "El cartero se llama Ramón.", "nivel": 1},
+          {"p": "Compramos pan en Écija.", "nivel": 1},
+          {"p": "El barco salió de Huelva.", "nivel": 1},
+          {"p": "Mi primo Javier vive en Cádiz.", "nivel": 1},
+          {"p": "Ayer llamó la abuela Rosario.", "nivel": 1},
+          {"p": "Esta tarde viene la tía Carmen.", "nivel": 1},
+          {"p": "Lola vive en La Alameda.", "nivel": 1},
+          {"p": "Mi perro se llama Toby.", "nivel": 1},
+          {"p": "Hoy viene Julián.", "nivel": 1},
+          {"p": "El gato de Lucía se llama Bigotes.", "nivel": 2},
+          {"p": "Vivo cerca del río Guadalquivir.", "nivel": 2},
+          {"p": "Nos bañamos en Matalascañas.", "nivel": 2},
+          {"p": "Fuimos de excursión a Doñana.", "nivel": 2},
+          {"p": "Mi vecina Inés vende flores.", "nivel": 2},
+          {"p": "Paco trabaja en Radio Alameda.", "nivel": 2},
+          {"p": "Robles nació en Jerez.", "nivel": 2},
+          {"p": "Leemos El Eco de La Alameda.", "nivel": 3},
+          {"p": "El Guadalquivir pasa por Córdoba.", "nivel": 3},
+          {"p": "Herminia lee a Gloria Fuertes.", "nivel": 3},
+          {"p": "Subimos a Sierra Nevada.", "nivel": 3},
+          {"p": "Remedios viajó a Nueva York.", "nivel": 3}
+        ],
+        "relleno": ["La panadería abre muy temprano.", "El perro duerme en la terraza.", "Mañana lloverá por la tarde.", "Mi hermana toca la guitarra.", "El autobús llega a las nueve.", "La directora ha cerrado el patio.", "Hemos plantado un naranjo.", "El director sale a correr.", "Mi abuela hace churros."],
+        "si": "tiene un nombre propio, y los nombres propios van con mayúscula inicial.",
+        "hipotesis": [
+          {
+            "texto": "Los nombres propios, como los de personas y de lugares, se escriben con mayúscula inicial.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las palabras que nombran personas o lugares se escriben con mayúscula inicial.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» se nombra a una persona o un lugar que no tiene nombre propio, y va en minúscula.",
+            "prueba": ["La panadería abre muy temprano.", "El perro duerme en la terraza.", "Mi hermana toca la guitarra.", "La directora ha cerrado el patio."]
+          },
+          {
+            "texto": "Los nombres propios de personas se escriben con mayúscula inicial.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: en «{p}» también va con mayúscula el nombre de un lugar.",
+            "prueba": ["Mañana viajamos a Sevilla.", "Vivo cerca del río Guadalquivir.", "Mi primo Javier vive en Cádiz.", "Visitamos la Alhambra.", "Compramos pan en Écija.", "Nos bañamos en Matalascañas.", "El barco salió de Huelva."]
+          },
+          {
+            "texto": "Se escriben con mayúscula las palabras largas.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de lo larga que sea la palabra. Fíjate en qué nombran las palabras con mayúscula."
+          }
+        ]
+      },
+      {
+        "id": "dias-meses",
+        "nombre": "Días, meses y estaciones en minúscula",
+        "nivel": 1,
+        "punto": 3,
+        "rivales": ["nombres-propios"],
+        "frases": true,
+        "patron": "(^|\\s)(lunes|martes|miércoles|jueves|viernes|sábado|domingo|enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre|primavera|verano|otoño|invierno)([\\s.,;:!?]|$)",
+        "pista": "Busca en cada frase una palabra que tenga que ver con el calendario.",
+        "ejemplos": [
+          {"p": "El mercado abre los lunes.", "nivel": 1},
+          {"p": "Mi cumpleaños es en marzo.", "nivel": 1},
+          {"p": "En verano hace mucho calor.", "nivel": 1},
+          {"p": "Nos vemos el viernes.", "nivel": 1},
+          {"p": "El sábado vamos a la playa.", "nivel": 1},
+          {"p": "En otoño caen las hojas.", "nivel": 1},
+          {"p": "La feria es en abril.", "nivel": 1},
+          {"p": "Llegó el invierno.", "nivel": 1},
+          {"p": "El jueves hay ensayo.", "nivel": 1},
+          {"p": "Las clases empiezan en septiembre.", "nivel": 2},
+          {"p": "En primavera huele a azahar.", "nivel": 2},
+          {"p": "Las vacaciones empiezan en julio.", "nivel": 2},
+          {"p": "El domingo comemos paella.", "nivel": 2},
+          {"p": "En agosto cierra la panadería.", "nivel": 2},
+          {"p": "El miércoles toca gimnasia.", "nivel": 2},
+          {"p": "En diciembre nieva en la sierra.", "nivel": 2},
+          {"p": "El martes llega mi primo inglés.", "nivel": 3},
+          {"p": "Mi tío andaluz llega en enero.", "nivel": 3},
+          {"p": "El director viene el lunes.", "nivel": 3},
+          {"p": "Cada otoño vuelven las grullas.", "nivel": 3}
+        ],
+        "relleno": ["Mañana viajamos a Sevilla.", "El gato de Lucía duerme.", "Mi primo Javier vive en Cádiz.", "El cartero se llama Ramón.", "Visitamos la Alhambra.", "La tía Carmen hace churros.", "Hace mucho frío en el sótano.", "Mi hermana toca la guitarra.", "Hoy no hay clase."],
+        "si": "tiene un día de la semana, un mes o una estación, y van con minúscula.",
+        "hipotesis": [
+          {
+            "texto": "Los días de la semana, los meses y las estaciones del año se escriben con minúscula.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Dentro de una oración, todas las palabras van con minúscula, menos la primera.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» hay un nombre propio, y los nombres propios llevan mayúscula.",
+            "prueba": ["Mañana viajamos a Sevilla.", "El gato de Lucía duerme.", "Mi primo Javier vive en Cádiz.", "El cartero se llama Ramón.", "Visitamos la Alhambra.", "La tía Carmen hace churros."]
+          },
+          {
+            "texto": "Los días de la semana se escriben con minúscula.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: en «{p}» va en minúscula un mes o una estación, que no son días de la semana.",
+            "prueba": ["Mi cumpleaños es en marzo.", "En verano hace mucho calor.", "Las clases empiezan en septiembre.", "En otoño caen las hojas.", "La feria es en abril.", "Llegó el invierno.", "En primavera huele a azahar.", "Las vacaciones empiezan en julio."]
+          },
+          {
+            "texto": "Se escriben con minúscula las palabras que terminan en -s.",
+            "valor": "otra",
+            "porque": "No encaja: marzo no termina en -s y va con minúscula. Fíjate en qué nombran esas palabras."
+          }
+        ]
+      },
+      {
+        "id": "signos-dobles",
+        "nombre": "Los signos de pregunta y de exclamación",
+        "nivel": 1,
+        "punto": 5,
+        "rivales": ["enumeracion"],
+        "frases": true,
+        "patron": "^(¿[^¿?]+\\?|¡[^¡!]+!)$",
+        "pista": "Mira cómo empiezan y cómo terminan.",
+        "ejemplos": [
+          {"p": "¿Quién ha sido?", "nivel": 1},
+          {"p": "¡Qué susto!", "nivel": 1},
+          {"p": "¿Dónde está la llave?", "nivel": 1},
+          {"p": "¡Socorro!", "nivel": 1},
+          {"p": "¿Has visto al gato?", "nivel": 1},
+          {"p": "¡Qué bien huele!", "nivel": 1},
+          {"p": "¿A qué hora llega?", "nivel": 1},
+          {"p": "¡Menudo lío!", "nivel": 1},
+          {"p": "¿Quién tiene la lupa?", "nivel": 1},
+          {"p": "¡Cuidado con el escalón!", "nivel": 2},
+          {"p": "¿Por qué no contestas?", "nivel": 2},
+          {"p": "¡Lo hemos resuelto!", "nivel": 2},
+          {"p": "¿Cuántos sospechosos hay?", "nivel": 2},
+          {"p": "¡Qué rico está el gazpacho!", "nivel": 2},
+          {"p": "¿Quién se ha comido la tarta?", "nivel": 2},
+          {"p": "¡Han robado el pregón!", "nivel": 2},
+          {"p": "¿Por qué está abierta la ventana?", "nivel": 3},
+          {"p": "¿Alguien ha visto mis gafas?", "nivel": 3},
+          {"p": "¡Nunca había visto algo igual!", "nivel": 3},
+          {"p": "¿Desde cuándo vive aquí Remedios?", "nivel": 3}
+        ],
+        "relleno": ["Nadie lo sabe.", "La puerta estaba abierta.", "Lola lo apunta todo.", "El ladrón huyó por la ventana.", "Mateo lee el periódico.", "Hace frío en el sótano.", "Lola resolvió el caso.", "La radio no funciona."],
+        "si": "es una pregunta o una exclamación: abre y cierra con su signo.",
+        "hipotesis": [
+          {
+            "texto": "Las preguntas y las exclamaciones llevan dos signos: uno al principio y otro al final.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Todas las oraciones llevan un signo al principio y otro al final.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: «{p}» no es una pregunta ni una exclamación, y solo lleva punto al final.",
+            "prueba": ["Nadie lo sabe.", "La puerta estaba abierta.", "Lola lo apunta todo.", "El ladrón huyó por la ventana.", "Mateo lee el periódico.", "Hace frío en el sótano."]
+          },
+          {
+            "texto": "Las preguntas llevan dos signos: uno al principio y otro al final.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» es una exclamación y también lleva dos signos.",
+            "prueba": ["¡Qué susto!", "¡Socorro!", "¡Qué bien huele!", "¡Cuidado con el escalón!", "¡Lo hemos resuelto!", "¡Menudo lío!"]
+          },
+          {
+            "texto": "Las oraciones cortas llevan dos signos.",
+            "valor": "otra",
+            "porque": "No encaja: no es cuestión de lo corta que sea. Fíjate en si pregunta, exclama o cuenta."
+          }
+        ]
+      },
+      {
+        "id": "enumeracion",
+        "nombre": "La coma en las enumeraciones",
+        "nivel": 2,
+        "punto": 4,
+        "rivales": ["signos-dobles"],
+        "frases": true,
+        "patron": "^[^,]+(,[^,]+)+ y [^,]+$",
+        "pista": "Fíjate en las comas y en la palabra y.",
+        "ejemplos": [
+          {"p": "Compré pan, leche y huevos.", "nivel": 1},
+          {"p": "Trae tinta, papel y cola.", "nivel": 1},
+          {"p": "Vimos patos, ocas y cisnes.", "nivel": 1},
+          {"p": "Lola, Mateo y Robles investigan.", "nivel": 1},
+          {"p": "Hay naranjas, limones y fresas.", "nivel": 1},
+          {"p": "Necesito lápiz, goma y regla.", "nivel": 1},
+          {"p": "Pinta el sol, la luna y el mar.", "nivel": 1},
+          {"p": "Hay sol, viento y nubes.", "nivel": 1},
+          {"p": "Corrimos, saltamos y nadamos.", "nivel": 2},
+          {"p": "Tengo un gato, un perro y un loro.", "nivel": 2},
+          {"p": "Llegaron Ana, Pedro, Inés y Luis.", "nivel": 2},
+          {"p": "Julián vende pan, tortas y picos.", "nivel": 2},
+          {"p": "Hay ajo, cebolla, tomate y pan.", "nivel": 2},
+          {"p": "Fuimos a Cádiz, Huelva y Málaga.", "nivel": 3},
+          {"p": "Lola, Mateo, Robles y yo cenamos.", "nivel": 3},
+          {"p": "Buscamos, preguntamos y apuntamos.", "nivel": 3}
+        ],
+        "relleno": ["Compré pan.", "La lupa estaba en el cajón.", "Mateo y Lola llegaron tarde.", "Hoy no hay clase.", "El gato y el perro juegan.", "Me gusta leer.", "Lola, ven aquí.", "Robles corre y salta."],
+        "si": "es una enumeración, con comas entre los elementos y una y sin coma antes del último.",
+        "hipotesis": [
+          {
+            "texto": "En una enumeración, los elementos se separan con comas, y el último se une con y, sin coma.",
+            "valor": "buena"
+          },
+          {
+            "texto": "Cuando se nombran dos cosas o más seguidas, se separan siempre con comas.",
+            "valor": "amplia",
+            "porque": "Demasiado amplia: en «{p}» se nombran dos y se unen con y, sin ninguna coma.",
+            "prueba": ["Mateo y Lola llegaron tarde.", "El gato y el perro juegan."]
+          },
+          {
+            "texto": "En las listas de comida, los elementos se separan con comas, y el último va con y.",
+            "valor": "estrecha",
+            "porque": "Demasiado estrecha: «{p}» no es una lista de comida y también lleva comas.",
+            "prueba": ["Trae tinta, papel y cola.", "Vimos patos, ocas y cisnes.", "Lola, Mateo y Robles investigan.", "Necesito lápiz, goma y regla.", "Corrimos, saltamos y nadamos.", "Tengo un gato, un perro y un loro.", "Pinta el sol, la luna y el mar.", "Llegaron Ana, Pedro, Inés y Luis."]
+          },
+          {
+            "texto": "Las oraciones que tienen la letra y llevan comas.",
+            "valor": "otra",
+            "porque": "No encaja: muchas oraciones llevan y sin una sola coma. Fíjate en si hay una lista de cosas."
+          }
+        ]
+      }
+    ]
+  }
+}

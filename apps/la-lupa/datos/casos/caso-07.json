@@ -1,0 +1,535 @@
+{
+  "id": "caso-07",
+  "numero": "07",
+  "titulo": "El guion de la radio",
+  "resumen": "Alguien cambia el guion de Radio Alameda… y deja un mensaje para burlarse de Mateo.",
+  "reglas": [
+    "diptongo-monosilabos"
+  ],
+  "_nota": "Temporada 1, episodio 7. Pieza del gran misterio (emocional): el Tachón saca del archivo de la agencia el cuaderno de segundo de Mateo y se burla de sus faltas, igual que se burlaron de él en la antigua escuela. Mateo confiesa que de pequeño cometía muchísimas faltas y que se reían de él: por eso se hizo archivero de reglas («los errores se corrigen»). Lola, que sube sola a la azotea y casi acusa a Ramón sin pruebas, aprende a fiarse del equipo. Bruno aparece de fondo con el periódico y suelta que reírse de las faltas de alguien «duele más de lo que parece» (pista para los atentos, sin señalarla). La tilde diacrítica solo se presenta como aviso (se trabaja en 6.º). Faltas sembradas para el expediente: dió, emision, Tambien.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "radio-alameda"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Nos llaman de Radio Alameda. Esta mañana, en pleno programa, Charo, la locutora, empezó a leer las noticias y se {dió|dio} cuenta de que alguien le había cambiado el guion: estaba lleno de faltas. Y al final hay algo escrito para Mateo. Id para allá enseguida."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "¿Algo para mí? Qué raro… Bueno, primero, las reglas. Cuando dos vocales van juntas, hay que contar bien las sílabas. Mira mis fichas.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "Separadas en sílabas",
+              "palabras": [
+                "cie-lo",
+                "puer-ta",
+                "ai-re",
+                "ciu-dad"
+              ]
+            }
+          ],
+          "pregunta": "Fíjate en las vocales que van juntas: ie, ue, ai, iu. ¿Qué les pasa al separar las palabras en sílabas?",
+          "opciones": [
+            "Se quedan juntas en la misma sílaba",
+            "Se separan siempre en dos sílabas",
+            "Solo se quedan juntas si llevan tilde",
+            "Una de las dos no se pronuncia"
+          ],
+          "correcta": 0,
+          "explicacion": "Dos vocales que se pronuncian en la misma sílaba forman un diptongo: una abierta (a, e, o) con una cerrada (i, u) que no suena fuerte, o dos cerradas distintas. CIE-lo, PUER-ta, AI-re, ciu-DAD."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Con diptongo o triptongo y CON tilde",
+              "palabras": [
+                "canción",
+                "huésped",
+                "cuídate",
+                "averiguáis"
+              ]
+            },
+            {
+              "titulo": "Con diptongo y SIN tilde",
+              "palabras": [
+                "cuento",
+                "ciudad",
+                "aceite",
+                "causa"
+              ]
+            }
+          ],
+          "pregunta": "Todas tienen vocales juntas en una sílaba. ¿Cómo sabemos si llevan tilde?",
+          "opciones": [
+            "Con las reglas de siempre: agudas, llanas y esdrújulas",
+            "Las palabras con diptongo llevan tilde siempre",
+            "Las palabras con diptongo no llevan tilde nunca",
+            "Llevan tilde si tienen muchas vocales"
+          ],
+          "correcta": 0,
+          "explicacion": "Siguen las reglas de siempre: can-CIÓN es aguda en -n, HUÉS-ped es llana en -d y CUÍ-da-te es esdrújula. CUEN-to es llana en vocal: sin tilde. A-ve-ri-GUÁIS tiene tres vocales en una sílaba (un triptongo) y es aguda en -s. La tilde va en la vocal abierta; si son dos cerradas, en la segunda: cuídate."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Una sola sílaba",
+              "palabras": [
+                "fue",
+                "fui",
+                "dio",
+                "vio",
+                "pie",
+                "guion"
+              ]
+            }
+          ],
+          "pregunta": "Todas tienen una sola sílaba: son monosílabos. ¿Llevan tilde?",
+          "opciones": [
+            "No: los monosílabos no llevan tilde",
+            "Sí, porque terminan en vocal, como las agudas",
+            "Solo las que son verbos",
+            "Solo las que tienen diptongo"
+          ],
+          "correcta": 0,
+          "explicacion": "Los monosílabos no llevan tilde, aunque terminen en vocal: fue, fui, dio, vio, pie. No son agudas, porque tienen una sola sílaba. Para la ortografía, guion y truhan también tienen una sola sílaba: van sin tilde."
+        },
+        {
+          "grupos": [],
+          "pregunta": "Un vecino dice: «Los monosílabos no llevan tilde nunca jamás». ¿Qué frase demuestra que no siempre es así?",
+          "opciones": [
+            "Él trajo el guion.",
+            "Fue a la radio.",
+            "Dio un salto.",
+            "Vio la antena."
+          ],
+          "correcta": 0,
+          "explicacion": "«Él» lleva tilde para no confundirse con «el»: él es la persona (él trajo) y el acompaña a una palabra (el guion). Es la tilde diacrítica, y solo la llevan unos pocos monosílabos con pareja, como él/el, tú/tu, mí/mi, sí/si, té/te y más/mas. La estudiarás a fondo en 6.º. Por ahora: fue, fui, dio y vio, sin tilde."
+        }
+      ],
+      "pistas": [
+        "Separa las palabras en sílabas dando palmadas.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Las reglas, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe qué es un diptongo y pon tres ejemplos separados en sílabas (como cie-lo o puer-ta).",
+        "Copia las dos reglas: los diptongos siguen las reglas de siempre (canción, huésped, cuídate) y los monosílabos no llevan tilde (fue, dio, vio, guion).",
+        "Apunta el aviso: él, tú, mí y sí llevan tilde para distinguirse de el, tu, mi y si. Lo verás en 6.º."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "radio-alameda",
+      "personaje": {
+        "id": "charo",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "titulo": "Radio Alameda",
+      "quien": "Charo, la locutora",
+      "texto": "¡Qué mal rato, detectives! Empecé a leer las noticias en directo y aquello era un desastre: tildes de más, tildes de menos… Corté la {emision|emisión} y puse música. Luego revisé las hojas: alguien cambió mi guion mientras yo preparaba el café. ¡Y hay un mensaje escondido!"
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "radio-alameda",
+      "titulo": "Las hojas del guion",
+      "instruccion": "Entre las hojas del guion falso hay 4 palabras mal escritas. Tócalas y corrígelas: juntas forman una pista.",
+      "palabras": [
+        "radio",
+        "noticias",
+        "micrófono",
+        "oyentes",
+        "audio",
+        "aire",
+        "cuento",
+        "fue",
+        "vio",
+        "piano",
+        "tiempo",
+        "estudio",
+        "canción",
+        "antena"
+      ],
+      "faltas": [
+        {
+          "mal": "Despues",
+          "bien": "Después"
+        },
+        {
+          "mal": "escondio",
+          "bien": "escondió"
+        },
+        {
+          "mal": "cuárto",
+          "bien": "cuarto"
+        },
+        {
+          "mal": "pié",
+          "bien": "pie"
+        }
+      ],
+      "frase": "{0} de cambiarlo, alguien {1} el guion de verdad en el {2} de la azotea, al {3} de la antena.",
+      "pistas": [
+        "Las palabras mal escritas no tienen nada que ver con la radio.",
+        "A dos palabras con diptongo les falta la tilde, a otra le sobra y hay un monosílabo con tilde.",
+        "Busca las palabras después, escondió, cuarto y pie: están mal escritas."
+      ],
+      "recompensa": {
+        "texto": "Al pie de la última hoja hay un número escrito con rotulador negro: el 5.",
+        "digito": "5"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "radio-alameda",
+      "titulo": "¿Dónde está el guion de verdad?",
+      "opciones": [
+        "En la papelera del estudio.",
+        "En el cuarto de la azotea, al pie de la antena.",
+        "En la panadería de Julián.",
+        "Charo se lo llevó a casa sin darse cuenta."
+      ],
+      "correcta": 1,
+      "acierto": "¡En el cuarto de la azotea, al pie de la antena! Esta vez lo atrapo yo sola. ¡Vosotros quedaos aquí!",
+      "fallo": "Vuelve a leer la pista que han formado las palabras corregidas."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "radio-alameda",
+      "objeto": "cuaderno-mateo",
+      "personaje": {
+        "id": "charo",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Charo, la locutora",
+      "texto": "Lola ha salido escaleras arriba como un rayo… Os enseño lo peor. La última hoja no la leí en antena: es una página de un cuaderno de niño, llena de correcciones en rojo. Y encima han escrito: «Mirad cómo escribía vuestro gran archivero. ¿Y este os enseña reglas? JA, JA. —T.»."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "radio-alameda",
+      "objeto": "cuaderno-mateo",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "texto": "Es mío. Es mi cuaderno de segundo; lo guardaba al fondo de mi archivo para no olvidarme… De pequeño cometía muchísimas faltas, y algunos compañeros se reían de mí. Por eso empecé a hacer fichas de reglas, una a una. Y aprendí algo: los errores se corrigen. ¿Me ayudas con esta página?"
+    },
+    {
+      "tipo": "manchas",
+      "fondo": "radio-alameda",
+      "objeto": "cuaderno-mateo",
+      "titulo": "La página del cuaderno",
+      "instruccion": "El Tachón ha tapado con tachones algunas vocales de la página. ¿Hay una tilde debajo de cada tachón?",
+      "palabras": [
+        {
+          "p": "canción",
+          "pos": 5,
+          "silabas": "can-CIÓN: aguda terminada en -n"
+        },
+        {
+          "p": "fue",
+          "pos": 2,
+          "silabas": "fue: una sola sílaba"
+        },
+        {
+          "p": "huésped",
+          "pos": 2,
+          "silabas": "HUÉS-ped: llana terminada en -d"
+        },
+        {
+          "p": "cuento",
+          "pos": 2,
+          "silabas": "CUEN-to: llana terminada en vocal"
+        },
+        {
+          "p": "cuídate",
+          "pos": 2,
+          "silabas": "CUÍ-da-te: esdrújula"
+        },
+        {
+          "p": "dio",
+          "pos": 2,
+          "silabas": "dio: una sola sílaba"
+        },
+        {
+          "p": "guion",
+          "pos": 3,
+          "silabas": "guion: una sola sílaba para la ortografía"
+        },
+        {
+          "p": "después",
+          "pos": 5,
+          "silabas": "des-PUÉS: aguda terminada en -s"
+        }
+      ],
+      "pistas": [
+        "Separa la palabra en sílabas: si tiene una sola, no lleva tilde.",
+        "Si tiene más de una, usa las reglas de siempre: agudas, llanas y esdrújulas."
+      ],
+      "recompensa": {
+        "texto": "¡Página corregida! Debajo de los tachones había 4 tildes. Mateo sonríe: «El 4 era mi número de la suerte en segundo».",
+        "digito": "4"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "radio-alameda",
+      "personaje": {
+        "id": "bruno",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Bruno, el repartidor",
+      "texto": "¡Buenos días! Traigo el periódico para que Charo lea los titulares. ¿Eso es tuyo, Mateo? Vaya… Reírse de las faltas de alguien duele más de lo que parece, ¿eh? Bueno, ¡qué sabré yo, si solo reparto periódicos! ¡Ánimo, archivero!"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "azotea-radio",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "titulo": "La azotea",
+      "quien": "Lola",
+      "texto": "Subí la primera, sin esperar a nadie. Quería atrapar al Tachón yo sola… y aquí arriba solo he encontrado a Ramón, junto a la taquilla del cuarto. {Tambien|También} hay cajas revueltas por todas partes, y la taquilla tiene candado. Y las cifras… las tienes tú."
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "azotea-radio",
+      "titulo": "Las cajas del cuarto",
+      "instruccion": "Las cajas de discos del cuarto están revueltas. Cuenta las sílabas de cada etiqueta y ponla en su caja.",
+      "categorias": [
+        {
+          "id": "una",
+          "nombre": "1 sílaba"
+        },
+        {
+          "id": "dos",
+          "nombre": "2 sílabas"
+        },
+        {
+          "id": "tres",
+          "nombre": "3 sílabas"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "fue",
+          "cat": "una",
+          "pista": "fue: la ue va junta. Una sola sílaba."
+        },
+        {
+          "p": "radio",
+          "cat": "dos",
+          "pista": "RA-dio: la io va junta. Dos sílabas."
+        },
+        {
+          "p": "estudio",
+          "cat": "tres",
+          "pista": "es-TU-dio: la io va junta. Tres sílabas."
+        },
+        {
+          "p": "pie",
+          "cat": "una",
+          "pista": "pie: la ie va junta. Una sola sílaba."
+        },
+        {
+          "p": "aire",
+          "cat": "dos",
+          "pista": "AI-re: la ai va junta. Dos sílabas."
+        },
+        {
+          "p": "cuaderno",
+          "cat": "tres",
+          "pista": "cua-DER-no: la ua va junta. Tres sílabas."
+        },
+        {
+          "p": "guion",
+          "cat": "una",
+          "pista": "guion: para la ortografía, la io va junta (y la u no suena). Una sola sílaba."
+        },
+        {
+          "p": "piano",
+          "cat": "dos",
+          "pista": "PIA-no: la ia va junta. Dos sílabas."
+        },
+        {
+          "p": "canciones",
+          "cat": "tres",
+          "pista": "can-CIO-nes: la io va junta. Tres sílabas."
+        }
+      ],
+      "pistas": [
+        "Da una palmada por cada sílaba. Las vocales de un diptongo van en la misma palmada."
+      ],
+      "recompensa": {
+        "texto": "En el fondo de la última caja hay un número escrito con rotulador negro: el 8.",
+        "digito": "8"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "azotea-radio",
+      "personaje": {
+        "id": "ramon",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Ramón, el músico",
+      "texto": "¡Eh, eh! ¡Que yo no he sido! Lola dice que estaba junto a la taquilla, pero yo solo subo aquí a ensayar, que abajo molesto. Dejadme que os lo cuente todo."
+    },
+    {
+      "tipo": "careo",
+      "fondo": "azotea-radio",
+      "personaje": {
+        "id": "ramon",
+        "expresion": "nervioso",
+        "lado": "der"
+      },
+      "quien": "Ramón, el músico",
+      "titulo": "Careo",
+      "instruccion": "Lola lo encontró junto a la taquilla… En su declaración hay 3 faltas: señálalas, presenta la carta que lo demuestra y escríbelas bien.",
+      "declaracion": "Esta mañana {fuí|fui|monosilabo} el primero en subir a la azotea, sí, pero solo para ensayar una {cancion|canción|diptongo} nueva con los cascos puestos. No vi ni oí nada. Y si creéis que miento, ¿por qué no {averiguais|averiguáis|triptongo} de quién son esas huellas enormes de la escalera de incendios?",
+      "aclarado": "Ramón dice la verdad: las huellas de la escalera son de unos zapatos enormes, y él va en sandalias. Me pongo colorada: me he precipitado… otra vez.",
+      "pistas": [
+        "Hay un monosílabo con tilde, una aguda con diptongo sin tilde y un triptongo sin tilde.",
+        "Busca las palabras fui, canción y averiguáis: están mal escritas."
+      ]
+    },
+    {
+      "tipo": "candado",
+      "fondo": "azotea-radio",
+      "objeto": "taquilla-radio",
+      "titulo": "La taquilla del cuarto",
+      "instruccion": "La taquilla tiene un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "548",
+      "exito": "La taquilla se abre. Dentro está el guion de verdad de Charo… y el cuaderno de segundo de Mateo, entero, con todas sus correcciones en rojo.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba al pie de una hoja del guion."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "azotea-radio",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Lola",
+      "texto": "Lo siento, equipo. Quería atrapar al Tachón yo sola y casi acuso a Ramón sin pruebas. Sin las reglas de Mateo y sin tu libreta no habría abierto ni la taquilla. A partir de ahora, lo atrapamos juntos."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "radio-alameda",
+      "personaje": {
+        "id": "charo",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "titulo": "En antena",
+      "quien": "Charo, la locutora",
+      "texto": "¡Volvemos a antena, Alameda, y esta vez con el guion de verdad! Antes de las noticias, un invitado especial quiere deciros algo. Adelante, Mateo: el micrófono es tuyo."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "radio-alameda",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "texto": "Buenos días, Alameda. Soy Mateo, de la Agencia La Lupa. De pequeño cometía muchísimas faltas, y hoy alguien ha querido reírse de mí por eso. Pues aquí estoy: los errores se corrigen. Y al que se equivoca se le echa una mano, no se le hace burla."
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de diptongos y monosílabos. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": [
+        "Hay una en el aviso del caso.",
+        "Revisa lo que dijeron Charo y Lola."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "cuaderno-mateo",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "El Tachón ha hecho con Mateo lo mismo que le hicieron a él en la antigua escuela: reírse de sus faltas. Y ha sacado ese cuaderno de nuestro propio archivo… Mateo quiere clavar su página corregida en el tablón, y me parece muy bien. Hay algo que debería haberos contado hace mucho. Mañana, a primera hora, en mi despacho."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe para el director",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿qué pasó en Radio Alameda y qué nos contó Mateo?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta al director para que selle tu expediente."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "radio-alameda",
+      "equipo": [
+        "lola",
+        "mateo",
+        "charo",
+        "ramon"
+      ],
+      "texto": "Radio Alameda vuelve a sonar sin una sola falta y el equipo está más unido que nunca. En el tablón de la agencia hay una pieza nueva: la página del cuaderno de Mateo, corregida."
+    }
+  ]
+}

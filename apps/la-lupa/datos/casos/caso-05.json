@@ -1,0 +1,538 @@
+{
+  "id": "caso-05",
+  "numero": "05",
+  "titulo": "La noche de los farolillos",
+  "resumen": "En la noche grande de la feria se apagan todas las luces… y el Tachón da la cara.",
+  "reglas": [
+    "ll-y"
+  ],
+  "_nota": "Temporada 1, episodio 5: MITAD DE TEMPORADA. Primer careo cara a cara con el Tachón (guiños de aura y sigma), que huye en bicicleta y deja caer una llave antigua de la antigua escuela del barrio (enlaza con el episodio 6). Faltas sembradas para el expediente: faroliyos, Estoi, olló.",
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "feria-apagada"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "deporte",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Hoy es la noche grande de la feria y alguien ha dejado una nota en el ayuntamiento: va a apagar todos los {faroliyos|farolillos}. Está firmada con un tachón. Esta vez quiero que lo pilléis con las manos en la masa. Y si echa a correr, tranquilos: para eso traigo el cronómetro."
+    },
+    {
+      "tipo": "descubre",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "quien": "Mateo",
+      "intro": "La ll y la y suenan igual casi en toda Andalucía (es el yeísmo). Por eso hay que saberse sus reglas.",
+      "desbloquea": "cartas",
+      "preguntas": [
+        {
+          "grupos": [
+            {
+              "titulo": "Terminan en -illo, -illa",
+              "palabras": [
+                "farolillo",
+                "bombilla",
+                "pasillo",
+                "ardilla"
+              ]
+            }
+          ],
+          "pregunta": "¿Cómo se escriben siempre las palabras que terminan en -illo, -illa?",
+          "opciones": [
+            "Con ll",
+            "Con y",
+            "Depende de la palabra",
+            "Con ll solo si son cosas pequeñas"
+          ],
+          "correcta": 0,
+          "explicacion": "Las palabras terminadas en -illo, -illa se escriben con ll: farolillo, bombilla, pasillo, ardilla."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Al final de la palabra",
+              "palabras": [
+                "rey",
+                "hoy",
+                "muy",
+                "ley"
+              ]
+            }
+          ],
+          "pregunta": "Cuando el sonido /i/ va al final, detrás de otra vocal, y no suena fuerte, ¿cómo se escribe?",
+          "opciones": [
+            "Con y",
+            "Con i",
+            "Con ll",
+            "Con hi"
+          ],
+          "correcta": 0,
+          "explicacion": "Rey, hoy, muy, ley: la i al final que no suena fuerte se escribe y. Si suena fuerte, se escribe i con tilde: ahí, leí."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Su infinitivo no tiene ll ni y",
+              "palabras": [
+                "caer → cayó",
+                "oír → oyendo",
+                "huir → huyó",
+                "leer → leyendo"
+              ]
+            }
+          ],
+          "pregunta": "Estos verbos no tienen ll ni y en el infinitivo. ¿Con qué letra aparecen en sus formas?",
+          "opciones": [
+            "Con y",
+            "Con ll",
+            "Con i",
+            "Con j"
+          ],
+          "correcta": 0,
+          "explicacion": "Si el infinitivo no tiene ll ni y, sus formas con ese sonido se escriben con y: cayó, oyendo, huyó, leyendo."
+        },
+        {
+          "grupos": [
+            {
+              "titulo": "Suenan igual con yeísmo",
+              "palabras": [
+                "cayó",
+                "calló",
+                "haya",
+                "halla"
+              ]
+            }
+          ],
+          "pregunta": "Con yeísmo, cayó y calló suenan igual. ¿Qué es verdad?",
+          "opciones": [
+            "Son dos palabras distintas: cayó (de caer) y calló (de callar)",
+            "Una de las dos está mal escrita",
+            "Significan lo mismo",
+            "Solo existe cayó"
+          ],
+          "correcta": 0,
+          "explicacion": "Cayó viene de caer (se cayó un papel) y calló, de callar (se calló de golpe). Suenan igual, pero significan cosas distintas. Igual pasa con haya (de haber) y halla (de hallar)."
+        }
+      ],
+      "pistas": [
+        "Fíjate en cómo termina la palabra o de qué verbo viene.",
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
+      ]
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "mateo",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Las reglas, en tu libreta",
+      "cabecera": "Apúntalo en tu libreta",
+      "apuntar": [
+        "Escribe las tres reglas: -illo/-illa, la y final (rey, hoy) y los verbos como caer → cayó.",
+        "Pon dos ejemplos tuyos de cada una.",
+        "Escribe una frase con cayó y otra con calló."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "feria-apagada",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "titulo": "La feria a oscuras",
+      "quien": "Lola",
+      "texto": "¡Se han apagado todas las luces de golpe! En la calle principal los farolillos tienen mensajes escritos con rotulador negro… y llenos de faltas. {Estoi|Estoy} segura: es su forma de reírse de nosotros."
+    },
+    {
+      "tipo": "papeles",
+      "fondo": "feria-apagada",
+      "titulo": "Los mensajes de los farolillos",
+      "instruccion": "En los farolillos hay 4 palabras mal escritas. Corrígelas: juntas forman una pista.",
+      "palabras": [
+        "feria",
+        "farolillo",
+        "caballo",
+        "rey",
+        "hoy",
+        "muy",
+        "ayer",
+        "lluvia",
+        "calle",
+        "silla",
+        "toalla",
+        "yema",
+        "playa",
+        "pasillo"
+      ],
+      "faltas": [
+        {
+          "mal": "taquiya",
+          "bien": "taquilla"
+        },
+        {
+          "mal": "amariya",
+          "bien": "amarilla"
+        },
+        {
+          "mal": "bombiyas",
+          "bien": "bombillas"
+        },
+        {
+          "mal": "hullendo",
+          "bien": "huyendo"
+        }
+      ],
+      "frase": "Me esconderé en la {0} {1}, entre las {2}, y me iré {3}.",
+      "pistas": [
+        "Las faltas son palabras terminadas en -illa… y un verbo que viene de huir.",
+        "Huir no tiene ll ni y: sus formas van con y.",
+        "Son: taquiya, amariya, bombiyas y hullendo."
+      ],
+      "recompensa": {
+        "texto": "En el farolillo más grande alguien ha pintado un número: el 9.",
+        "digito": "9"
+      }
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "feria-apagada",
+      "titulo": "¿Dónde se esconde?",
+      "opciones": [
+        "En la biblioteca del barrio.",
+        "En la taquilla amarilla de la feria.",
+        "En el mercado de abastos.",
+        "En la agencia."
+      ],
+      "correcta": 1,
+      "acierto": "Él mismo nos lo ha dicho sin querer: se esconde en la taquilla amarilla, entre las bombillas. ¡Vamos, sin hacer ruido!",
+      "fallo": "Vuelve a leer la pista que han formado las palabras corregidas."
+    },
+    {
+      "tipo": "relato",
+      "fondo": "caseta-feria",
+      "personaje": {
+        "id": "ramon",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "Ramón, el músico",
+      "texto": "¡Detectives! Yo iba a tocar esta noche, pero sin luz no hay concierto. Llegué a la caseta y alguien había revuelto todas las cajas de bombillas. Cuando me {olló|oyó}, se fue hacia la taquilla amarilla…"
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "caseta-feria",
+      "titulo": "Las cajas de bombillas",
+      "instruccion": "Para encender la feria hay que ordenar las cajas. Pon cada etiqueta en la caja de su regla.",
+      "categorias": [
+        {
+          "id": "illo",
+          "nombre": "-illo · -illa"
+        },
+        {
+          "id": "yfinal",
+          "nombre": "y final: rey, hoy"
+        },
+        {
+          "id": "verbo",
+          "nombre": "caer → cayó"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "bombilla",
+          "cat": "illo",
+          "pista": "Termina en -illa."
+        },
+        {
+          "p": "rey",
+          "cat": "yfinal",
+          "pista": "La y va al final, detrás de una vocal."
+        },
+        {
+          "p": "cayó",
+          "cat": "verbo",
+          "pista": "Viene de caer, que no tiene ll ni y."
+        },
+        {
+          "p": "pasillo",
+          "cat": "illo",
+          "pista": "Termina en -illo."
+        },
+        {
+          "p": "hoy",
+          "cat": "yfinal",
+          "pista": "La y va al final, detrás de una vocal."
+        },
+        {
+          "p": "leyendo",
+          "cat": "verbo",
+          "pista": "Viene de leer, que no tiene ll ni y."
+        },
+        {
+          "p": "ardilla",
+          "cat": "illo",
+          "pista": "Termina en -illa."
+        },
+        {
+          "p": "muy",
+          "cat": "yfinal",
+          "pista": "La y va al final, detrás de una vocal."
+        },
+        {
+          "p": "huyó",
+          "cat": "verbo",
+          "pista": "Viene de huir, que no tiene ll ni y."
+        }
+      ],
+      "pistas": [
+        "Mira cómo termina la palabra o de qué verbo viene."
+      ],
+      "recompensa": {
+        "texto": "Dentro de la última caja hay un número escrito en el cartón: el 4.",
+        "digito": "4"
+      }
+    },
+    {
+      "tipo": "huecos",
+      "fondo": "caseta-feria",
+      "regla": "ll-y",
+      "titulo": "El cuadro de luces",
+      "instruccion": "A las etiquetas de los interruptores se les ha borrado un trozo. ¿Va ll o y?",
+      "palabras": [
+        {
+          "p": "farolillo",
+          "pos": 6,
+          "letra": "ll",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Termina en -illo: con ll."
+        },
+        {
+          "p": "rey",
+          "pos": 2,
+          "letra": "y",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Y al final, detrás de vocal."
+        },
+        {
+          "p": "cayeron",
+          "pos": 2,
+          "letra": "y",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Viene de caer: con y."
+        },
+        {
+          "p": "amarillo",
+          "pos": 5,
+          "letra": "ll",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Termina en -illo: con ll."
+        },
+        {
+          "p": "oyendo",
+          "pos": 1,
+          "letra": "y",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Viene de oír: con y."
+        },
+        {
+          "p": "hoy",
+          "pos": 2,
+          "letra": "y",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Y al final, detrás de vocal."
+        },
+        {
+          "p": "bombilla",
+          "pos": 5,
+          "letra": "ll",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Termina en -illa: con ll."
+        },
+        {
+          "p": "leyó",
+          "pos": 2,
+          "letra": "y",
+          "opciones": [
+            "ll",
+            "y"
+          ],
+          "pista": "Viene de leer: con y."
+        }
+      ],
+      "pistas": [
+        "Mira cómo termina la palabra o de qué verbo viene.",
+        "Usa tus cartas: -illo, y final y caer → cayó."
+      ],
+      "recompensa": {
+        "texto": "En el último interruptor alguien ha pegado una etiqueta con un número: el 1.",
+        "digito": "1"
+      }
+    },
+    {
+      "tipo": "relato",
+      "fondo": "caseta-feria",
+      "personaje": {
+        "id": "lola",
+        "expresion": "pensativo",
+        "lado": "izq"
+      },
+      "quien": "Lola",
+      "texto": "Shhh… Ahí, junto a la taquilla amarilla. La gabardina negra, las gafas de sol en plena noche… Es él. Esta vez no se nos escapa. ¿Todo listo para el careo?"
+    },
+    {
+      "tipo": "careo",
+      "fondo": "caseta-feria",
+      "personaje": {
+        "id": "tachon",
+        "expresion": "burlon",
+        "lado": "der"
+      },
+      "quien": "El Tachón",
+      "titulo": "Careo con el Tachón",
+      "instruccion": "¡El Tachón en persona! Desmonta su declaración: señala sus 3 faltas, presenta la carta que lo demuestra y escríbelas bien.",
+      "declaracion": "Vaya, vaya… los detectives de La Lupa. Mi aura es infinita y mi mandíbula no se equivoca nunca. Ni el {rei|rey|yfinal} del barrio me atraparía. Esta noche apagué cada {bombiya|bombilla|illo} de la feria y nadie me vio. Ayer se me {calló|cayó|verbo-y} un papel por la calle, pero hoy no cometeré ni un solo error.",
+      "aclarado": "¡Le has corregido tres faltas delante de toda la feria! Al Tachón se le cae la sonrisa… y se le empiezan a escurrir las gafas.",
+      "pistas": [
+        "Hay una y al final de palabra, una palabra en -illa y un verbo que viene de caer.",
+        "Son: rei, bombiya y calló."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "caseta-feria",
+      "personaje": {
+        "id": "tachon",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "quien": "El Tachón",
+      "texto": "¿Qué? ¿Me habéis corregido a mí? ¡Imposible! Esto… esto no ha terminado, novatos. ¡Nos veremos en el sitio donde empezó todo!"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "feria-apagada",
+      "objeto": "llave-escuela",
+      "personaje": {
+        "id": "lola",
+        "expresion": "sorprendido",
+        "lado": "izq"
+      },
+      "quien": "Lola",
+      "texto": "¡Se ha escapado en bicicleta! Pero al huir se le ha caído algo: una llave vieja, con una etiqueta de la antigua escuela del barrio. «El sitio donde empezó todo»… ¿Qué querrá decir?"
+    },
+    {
+      "tipo": "candado",
+      "fondo": "caseta-feria",
+      "objeto": "cuadro-electrico",
+      "titulo": "El cuadro eléctrico",
+      "instruccion": "El Tachón cerró el cuadro eléctrico de la feria con un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
+      "codigo": "941",
+      "exito": "Las luces de la feria se encienden de golpe, cientos de farolillos a la vez, y la plaza entera aplaude.",
+      "pistas": [
+        "Abre tu libreta: ahí están las cifras.",
+        "La primera estaba en el farolillo más grande."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "personaje": {
+        "id": "ramon",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "quien": "Ramón, el músico",
+      "texto": "¡Hay luz! ¡Y hay concierto! Esta primera canción va por los detectives de La Lupa. ¡Que suene la feria!"
+    },
+    {
+      "tipo": "expediente",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "robles",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "titulo": "Revisa el expediente",
+      "instruccion": "En los textos del caso se nos colaron faltas de ll e y. Encuéntralas y corrígelas antes de archivarlo.",
+      "pistas": [
+        "Hay una en lo que dijo el director al empezar.",
+        "Revisa lo que dijeron Lola y Ramón."
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "agencia",
+      "objeto": "llave-escuela",
+      "personaje": {
+        "id": "robles",
+        "expresion": "pensativo",
+        "lado": "der"
+      },
+      "quien": "Director Robles",
+      "texto": "Una llave de la antigua escuela del barrio, cerrada desde hace años. «El sitio donde empezó todo»… Esa escuela la conozco muy bien. Mañana iremos allí. Clavad la llave en el tablón."
+    },
+    {
+      "tipo": "apunta",
+      "fondo": "agencia",
+      "personaje": {
+        "id": "lola",
+        "expresion": "contento",
+        "lado": "izq"
+      },
+      "titulo": "Informe para el director",
+      "cabecera": "Cierra el expediente en tu libreta",
+      "apuntar": [
+        "Escribe 3 o 4 líneas: ¿qué pasó en la feria y cómo se escapó el Tachón?",
+        "Copia bien escritas las palabras que te hayan costado.",
+        "Enseña tu libreta al director para que selle tu expediente."
+      ]
+    },
+    {
+      "tipo": "final",
+      "fondo": "plaza-feria",
+      "equipo": [
+        "lola",
+        "mateo",
+        "ramon",
+        "robles"
+      ],
+      "texto": "La feria brilla otra vez. El Tachón se ha escapado… pero por fin lo hemos tenido cara a cara, y en el tablón hay una llave que nos lleva a la antigua escuela."
+    }
+  ]
+}

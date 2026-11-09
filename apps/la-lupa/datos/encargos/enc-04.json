@@ -1,0 +1,212 @@
+{
+  "id": "enc-04",
+  "numero": "E04",
+  "titulo": "Las parejas del mural",
+  "resumen": "Azucena, la ceramista, restaura el panel de azulejos de la fuente. Cada azulejo lleva una palabra y va con su pareja… pero el viento ha volcado la caja y el viernes es la inauguración.",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Azucena, la ceramista",
+    "rango": 1,
+    "contenido": "Sinónimos, antónimos y familias de palabras",
+    "dificultad": 2
+  },
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "plaza-azulejos"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-azulejos",
+      "quien": "Azucena, la ceramista",
+      "personaje": {
+        "id": "azucena",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "texto": "¡Detectives, qué alivio! Estoy restaurando el panel de la fuente. Cada azulejo lleva una palabra pintada por detrás y van por parejas: unas dicen lo mismo y otras, justo lo contrario. Los desmonté para limpiarlos y anoche el viento me volcó la caja. ¡Y el viernes lo inauguran!"
+    },
+    {
+      "tipo": "clasifica",
+      "fondo": "plaza-azulejos",
+      "titulo": "Azulejos revueltos",
+      "instruccion": "Los sinónimos significan lo mismo (cara, rostro). Los antónimos significan lo contrario (alto, bajo). Pon cada pareja en su cubo.",
+      "categorias": [
+        {
+          "id": "sinonimos",
+          "nombre": "Sinónimos"
+        },
+        {
+          "id": "antonimos",
+          "nombre": "Antónimos"
+        }
+      ],
+      "palabras": [
+        {
+          "p": "alegre · contento",
+          "cat": "sinonimos",
+          "pista": "Prueba con una frase: «Estoy alegre», «Estoy contento». ¿Cambia el sentido?"
+        },
+        {
+          "p": "antiguo · moderno",
+          "cat": "antonimos",
+          "pista": "¿Puede algo ser antiguo y moderno a la vez?"
+        },
+        {
+          "p": "comenzar · empezar",
+          "cat": "sinonimos",
+          "pista": "Prueba con una frase: «La clase va a comenzar», «La clase va a empezar». ¿Cambia el sentido?"
+        },
+        {
+          "p": "encender · apagar",
+          "cat": "antonimos",
+          "pista": "Si enciendes la luz y luego la apagas, ¿has hecho lo mismo dos veces?"
+        },
+        {
+          "p": "hermoso · bonito",
+          "cat": "sinonimos",
+          "pista": "Prueba con una frase: «un panel hermoso», «un panel bonito». ¿Cambia el sentido?"
+        },
+        {
+          "p": "ancho · estrecho",
+          "cat": "antonimos",
+          "pista": "¿Puede una calle ser ancha y estrecha a la vez?"
+        },
+        {
+          "p": "rápido · veloz",
+          "cat": "sinonimos",
+          "pista": "Prueba con una frase: «un coche rápido», «un coche veloz». ¿Cambia el sentido?"
+        },
+        {
+          "p": "sucio · limpio",
+          "cat": "antonimos",
+          "pista": "Si un azulejo está sucio, ¿está limpio?"
+        }
+      ],
+      "recompensa": {
+        "texto": "Parejas en su sitio. Sinónimos: alegre y contento, comenzar y empezar, hermoso y bonito, rápido y veloz. Antónimos: antiguo y moderno, encender y apagar, ancho y estrecho, sucio y limpio."
+      },
+      "contador": "Azulejo"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "taller-ceramica",
+      "quien": "Azucena, la ceramista",
+      "personaje": {
+        "id": "azucena",
+        "expresion": "neutral",
+        "lado": "der"
+      },
+      "texto": "Las parejas, listas. Pero queda la cenefa de abajo, la que pintaron los niños del taller. Cada azulejo tenía una palabra de la familia de «barro», de «mar» o de «pan»… y tres se agrietaron en el horno. Hay que pintarlos otra vez, y yo ya no recuerdo qué palabras eran."
+    },
+    {
+      "tipo": "escribe",
+      "fondo": "taller-ceramica",
+      "titulo": "La cenefa de las familias",
+      "instruccion": "Las palabras de una misma familia comparten la raíz: barr-, mar-, pan-. Escribe la palabra de la familia que completa cada frase.",
+      "personaje": {
+        "id": "azucena",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "items": [
+        {
+          "enunciado": "(barro) Llovió toda la noche y mis zapatillas acabaron ___.",
+          "respuestas": [
+            "embarradas"
+          ],
+          "criterio": "9.1",
+          "pista": "Empieza por «em-», lleva la raíz «barr-» y concuerda con «zapatillas».",
+          "explicacion": "«Embarradas», de la familia de «barro», como barrizal, embarrar o barroso. Todas comparten la raíz barr-."
+        },
+        {
+          "enunciado": "(mar) A las personas que trabajan en un barco las llamamos ___.",
+          "respuestas": [
+            "marineros",
+            "marinos",
+            "marineras"
+          ],
+          "criterio": "9.1",
+          "pista": "Empieza por «mar-» y termina en plural.",
+          "explicacion": "Marinero, marino, marea, marítimo, submarino… Es la gran familia de «mar»."
+        },
+        {
+          "enunciado": "(pan) Un pan pequeño, para el desayuno, es un ___.",
+          "respuestas": [
+            "panecillo",
+            "panecito"
+          ],
+          "criterio": "9.1",
+          "pista": "Empieza por «pan-» y termina en «-illo».",
+          "explicacion": "«Panecillo». Panadero, panadería, empanada… ¡hasta la empanada es de la familia de «pan»!"
+        }
+      ]
+    },
+    {
+      "tipo": "pregunta",
+      "fondo": "plaza-azulejos",
+      "titulo": "La placa de la fuente",
+      "quien": "Placa nueva del panel",
+      "documento": "Este panel de azulejos adorna la fuente de la plaza desde 1931.\nCon los años, el sol y la lluvia lo dejaron desgastado, y muchas piezas se desprendieron.\nHoy, gracias al taller de cerámica del barrio, luce de nuevo con sus colores originales.\nCuídalo: es de todos.",
+      "preguntas": [
+        {
+          "pregunta": "En la placa, «desgastado» quiere decir…",
+          "opciones": [
+            "estropeado por el paso del tiempo",
+            "recién pintado",
+            "muy caro"
+          ],
+          "correcta": 0,
+          "criterio": "9.1",
+          "pista": "Piensa en lo que hacen el sol y la lluvia con las cosas durante muchos años."
+        },
+        {
+          "pregunta": "¿Qué expresión puede ocupar el lugar de «se desprendieron» sin cambiar el sentido?",
+          "opciones": [
+            "se pegaron",
+            "se soltaron",
+            "se pintaron"
+          ],
+          "correcta": 1,
+          "criterio": "9.1",
+          "pista": "Si una pieza se desprende de la pared, ¿sigue pegada?",
+          "explicacion": "«Desprenderse» es soltarse de donde estaba. «Se soltaron» es un sinónimo; «se pegaron» sería su antónimo."
+        },
+        {
+          "pregunta": "Aquí, «luce de nuevo» significa que el panel…",
+          "opciones": [
+            "da luz por la noche",
+            "vuelve a verse bonito",
+            "se ha apagado"
+          ],
+          "correcta": 1,
+          "criterio": "9.1",
+          "pista": "El panel no tiene bombillas. ¿Qué ha cambiado al restaurarlo?",
+          "explicacion": "Aquí «lucir» no es dar luz, sino verse bien, brillar. El contexto te dice qué significa cada palabra."
+        }
+      ]
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-azulejos",
+      "quien": "Azucena, la ceramista",
+      "personaje": {
+        "id": "azucena",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "texto": "¡Ha quedado precioso! Cada pareja en su sitio, la cenefa completa y una placa que entiende todo el mundo. El viernes, en la inauguración, os quiero en primera fila. Y si alguna vez se os rompe una taza, ya sabéis dónde está mi taller."
+    },
+    {
+      "tipo": "final",
+      "fondo": "plaza-azulejos",
+      "sello": "¡ENCARGO CUMPLIDO!",
+      "equipo": [
+        "lola",
+        "mateo",
+        "azucena"
+      ],
+      "texto": "El panel de la fuente vuelve a lucir: cada azulejo junto a su sinónimo o su antónimo y, en la cenefa, tres palabras nuevas de las familias de «barro», «mar» y «pan»."
+    }
+  ]
+}

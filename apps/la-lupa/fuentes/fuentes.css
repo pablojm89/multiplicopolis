@@ -1,0 +1,7 @@
+/* Fuentes del juego, servidas desde el propio repo (sin llamadas a Google: privacidad del alumnado y uso sin internet).
+   Bebas Neue, Patrick Hand, Nunito y VT323: SIL Open Font License 1.1. Special Elite: Apache License 2.0. */
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url(bebas-neue.woff2) format('woff2'); }
+@font-face { font-family: 'Patrick Hand'; font-style: normal; font-weight: 400; font-display: swap; src: url(patrick-hand.woff2) format('woff2'); }
+@font-face { font-family: 'Special Elite'; font-style: normal; font-weight: 400; font-display: swap; src: url(special-elite.woff2) format('woff2'); }
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 400 800; font-display: swap; src: url(nunito.woff2) format('woff2'); }
+@font-face { font-family: 'VT323'; font-style: normal; font-weight: 400; font-display: swap; src: url(vt323.woff2) format('woff2'); }

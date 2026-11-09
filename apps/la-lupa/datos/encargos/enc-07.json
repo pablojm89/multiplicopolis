@@ -1,0 +1,248 @@
+{
+  "id": "enc-07",
+  "numero": "E07",
+  "titulo": "El pregón partido",
+  "resumen": "Doña Pilar prepara el pregón de la Fiesta de Otoño a base de refranes, pero sus tarjetas se han partido por la mitad. ¿Quién recuerda cómo terminan?",
+  "reglas": [],
+  "encargo": {
+    "cliente": "Doña Pilar, la pregonera",
+    "rango": 2,
+    "contenido": "Refranes: forma, sentido figurado y cultura popular",
+    "dificultad": 3
+  },
+  "escenas": [
+    {
+      "tipo": "portada",
+      "fondo": "plaza-azulejos"
+    },
+    {
+      "tipo": "relato", "objeto": "tarjetas-pregon",
+      "fondo": "plaza-azulejos",
+      "quien": "Doña Pilar",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "sorprendido",
+        "lado": "der"
+      },
+      "texto": "¡Ay, criaturas, qué mal rato! Este año el pregón de la Fiesta de Otoño lo hago con refranes, que es como hablaban mis abuelas. Los llevaba apuntados en tarjetas, me senté en el borde de la fuente… y al agua. Las he rescatado, pero se han partido por la mitad. El principio lo tengo; el final, a mis años, se me escapa."
+    },
+    {
+      "tipo": "escribe",
+      "fondo": "plaza-azulejos",
+      "titulo": "Las tarjetas mojadas",
+      "instruccion": "A cada tarjeta le falta el final. Escribe lo que completa el refrán.",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "items": [
+        {
+          "enunciado": "Más vale pájaro en mano que ciento ___.",
+          "respuestas": [
+            "volando"
+          ],
+          "criterio": "8.3",
+          "pista": "Piensa en dónde están los otros cien pájaros: no en tu mano…",
+          "explicacion": "Más vale lo poco y seguro que lo mucho que quizá no llegue nunca."
+        },
+        {
+          "enunciado": "Camarón que se duerme, se lo lleva la ___.",
+          "respuestas": [
+            "corriente"
+          ],
+          "criterio": "8.3",
+          "pista": "Los camarones viven en el agua, que no para de moverse.",
+          "explicacion": "Si te despistas, las oportunidades se te escapan."
+        },
+        {
+          "enunciado": "Quien se fue a Sevilla perdió su ___.",
+          "respuestas": [
+            "silla"
+          ],
+          "criterio": "8.3",
+          "pista": "Busca una palabra que rime con «Sevilla».",
+          "explicacion": "Si dejas tu sitio, otro puede ocuparlo. Fíjate en la rima, Sevilla-silla: así se recuerda mejor."
+        },
+        {
+          "enunciado": "A caballo regalado, no le mires el ___.",
+          "respuestas": [
+            "diente",
+            "dientes",
+            "colmillo"
+          ],
+          "criterio": "8.3",
+          "pista": "Los tratantes miraban la boca de los caballos para saber su edad.",
+          "explicacion": "Si te regalan algo, no le busques defectos. Se dice también «los dientes» o «el colmillo»: los refranes tienen variantes, porque pasan de boca en boca."
+        },
+        {
+          "enunciado": "Dime con quién andas y te diré ___.",
+          "respuestas": [
+            "quién eres"
+          ],
+          "criterio": "8.3",
+          "pista": "Son dos palabras, y la primera lleva tilde: es una pregunta escondida.",
+          "explicacion": "Tus amistades dicen mucho de ti. Y «quién» lleva tilde porque es una pregunta indirecta: te diré… ¿quién eres?"
+        }
+      ]
+    },
+    {
+      "tipo": "pregunta",
+      "fondo": "casa-feria",
+      "titulo": "El borrador del pregón",
+      "quien": "Pregón de la Fiesta de Otoño · Doña Pilar",
+      "documento": "¡Vecinas y vecinos de La Alameda!\nEste año ha costado sacar la fiesta adelante, pero ya se sabe: no por mucho madrugar amanece más temprano.\nMi sobrino es peluquero y va siempre con los pelos de punta: en casa del herrero, cuchillo de palo.\nY a los que solo protestan por la música… perro ladrador, poco mordedor: ¡luego son los primeros en bailar!",
+      "preguntas": [
+        {
+          "pregunta": "«No por mucho madrugar amanece más temprano». ¿Qué quiere decir doña Pilar?",
+          "opciones": [
+            "Que hay que dormir mucho para estar descansado",
+            "Que las cosas llevan su tiempo y no sirve de nada precipitarse",
+            "Que en otoño amanece más tarde que en verano"
+          ],
+          "correcta": 1,
+          "criterio": "8.3",
+          "pista": "Pilar no habla de despertadores. ¿Qué ha costado tanto este año?",
+          "explicacion": "Los refranes tienen sentido figurado: no hablan de madrugar de verdad, sino de tener paciencia."
+        },
+        {
+          "pregunta": "«En casa del herrero, cuchillo de palo». ¿Por qué lo dice de su sobrino?",
+          "opciones": [
+            "Porque es peluquero y, sin embargo, va despeinado",
+            "Porque su sobrino trabaja de herrero",
+            "Porque en su casa no tienen cuchillos"
+          ],
+          "correcta": 0,
+          "criterio": "8.3",
+          "pista": "¿A qué se dedica el sobrino? ¿Y cómo lleva el pelo?",
+          "explicacion": "A veces falta en casa justo aquello a lo que uno se dedica: el herrero, con cuchillo de madera; el peluquero, despeinado."
+        },
+        {
+          "pregunta": "«Perro ladrador, poco mordedor». ¿A quiénes se refiere?",
+          "opciones": [
+            "A los perros del barrio, que ladran con la música",
+            "A quienes muerden cuando se enfadan",
+            "A quienes protestan mucho, pero luego no hacen nada"
+          ],
+          "correcta": 2,
+          "criterio": "8.3",
+          "pista": "En el pregón no sale ningún perro de verdad. ¿Quién «ladra»?"
+        },
+        {
+          "pregunta": "¿Por qué los refranes se recuerdan tan bien, siglos después?",
+          "opciones": [
+            "Porque son cortos, tienen ritmo y muchos riman",
+            "Porque los escribió un autor famoso",
+            "Porque vienen todos en el diccionario"
+          ],
+          "correcta": 0,
+          "criterio": "8.3",
+          "explicacion": "Los refranes son literatura popular: no tienen autor conocido y han pasado de boca en boca. Por eso son cortos, con ritmo y con rima: ladrador-mordedor."
+        }
+      ]
+    },
+    {
+      "tipo": "pregunta",
+      "fondo": "casa-feria",
+      "titulo": "Cada refrán, en su sitio",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "neutral",
+        "lado": "izq"
+      },
+      "preguntas": [
+        {
+          "pregunta": "A Lucía le ofrecen cambiar su cromo por cinco que «a lo mejor» le traen mañana. Ella se queda con el suyo. ¿Qué refrán le va?",
+          "opciones": [
+            "Perro ladrador, poco mordedor",
+            "Más vale pájaro en mano que ciento volando",
+            "Hasta el cuarenta de mayo no te quites el sayo"
+          ],
+          "correcta": 1,
+          "criterio": "8.3"
+        },
+        {
+          "pregunta": "Es mayo, sale el sol y Toni se va sin chaqueta. Por la tarde, tiritando, se arrepiente. ¿Qué refrán le va?",
+          "opciones": [
+            "Hasta el cuarenta de mayo no te quites el sayo",
+            "Dime con quién andas y te diré quién eres",
+            "Camarón que se duerme, se lo lleva la corriente"
+          ],
+          "correcta": 0,
+          "criterio": "8.3",
+          "pista": "Busca el refrán que habla de un mes y de ropa.",
+          "explicacion": "El sayo era una prenda de abrigo. El «cuarenta de mayo» es el 9 de junio: hasta entonces, el tiempo puede engañar."
+        },
+        {
+          "pregunta": "Marta se quedó dormida y, cuando llegó, ya no quedaban plazas en el taller. ¿Qué refrán le va?",
+          "opciones": [
+            "A caballo regalado, no le mires el diente",
+            "Dime con quién andas y te diré quién eres",
+            "Camarón que se duerme, se lo lleva la corriente"
+          ],
+          "correcta": 2,
+          "criterio": "8.3"
+        },
+        {
+          "pregunta": "Andrés se levantó del banco para tirar un papel y, al volver, su hermano se había sentado en su sitio. ¿Qué refrán le va?",
+          "opciones": [
+            "Quien se fue a Sevilla perdió su silla",
+            "Más vale pájaro en mano que ciento volando",
+            "No por mucho madrugar amanece más temprano"
+          ],
+          "correcta": 0,
+          "criterio": "8.3",
+          "pista": "¿Qué ha perdido Andrés por irse un momento?"
+        },
+        {
+          "pregunta": "Doña Pilar quiere cerrar el pregón animando a todos a ayudar, aunque sea un poco. ¿Qué refrán elige?",
+          "opciones": [
+            "Agua que no has de beber, déjala correr",
+            "Un grano no hace granero, pero ayuda al compañero",
+            "Quien se fue a Sevilla perdió su silla"
+          ],
+          "correcta": 1,
+          "criterio": "8.3",
+          "pista": "Busca el refrán en el que algo pequeño ayuda a llenar algo grande.",
+          "explicacion": "Un grano solo no llena el granero, pero cada uno ayuda: lo poco de cada vecino, junto, es mucho."
+        }
+      ]
+    },
+    {
+      "tipo": "hipotesis",
+      "fondo": "casa-feria",
+      "titulo": "Y un refrán es…",
+      "opciones": [
+        "Un poema largo que escribió un autor andaluz famoso.",
+        "Una frase que solo se entiende al pie de la letra.",
+        "Un dicho popular, corto y con ritmo, que da un consejo o una enseñanza.",
+        "Una adivinanza que se dice para que otro la resuelva."
+      ],
+      "correcta": 2,
+      "acierto": "Eso es: un dicho popular, sin autor conocido, que se transmite de boca en boca. Es corto, tiene ritmo y casi siempre se entiende en sentido figurado.",
+      "fallo": "No encaja con los refranes del pregón. Piensa en cómo son: ¿largos o cortos?, ¿con autor o populares?, ¿al pie de la letra o con otro sentido?"
+    },
+    {
+      "tipo": "relato",
+      "fondo": "plaza-feria",
+      "quien": "Doña Pilar",
+      "personaje": {
+        "id": "pilar",
+        "expresion": "contento",
+        "lado": "der"
+      },
+      "texto": "¿Os cuento un secreto, criaturas? Me los sabía todos. Pero quería comprobar si los jóvenes del barrio aún conocéis los refranes de toda la vida. ¡Y vaya si los conocéis! Ya lo dice el refrán: más sabe el diablo por viejo que por diablo… y vosotros, por detectives."
+    },
+    {
+      "tipo": "final",
+      "fondo": "plaza-feria",
+      "sello": "¡ENCARGO CUMPLIDO!",
+      "equipo": [
+        "lola",
+        "mateo",
+        "pilar"
+      ],
+      "texto": "Doña Pilar da el pregón de la Fiesta de Otoño entre aplausos. Al terminar, media plaza grita a coro: «¡Un grano no hace granero…!». Y la otra media contesta: «¡…pero ayuda al compañero!»."
+    }
+  ]
+}

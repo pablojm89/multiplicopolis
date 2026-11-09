@@ -1,0 +1,691 @@
+{
+  "tildes-generales": {
+    "nombre": "La sílaba tónica: agudas, llanas y esdrújulas",
+    "saberes": [
+      "LCL.3.D.6"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Las tildes",
+      "puntos": [
+        "La sílaba tónica es la que suena más fuerte: ca-MIÓN, ÁR-bol, MÚ-si-ca.",
+        "Agudas (fuerza en la última sílaba): llevan tilde si terminan en vocal, -n o -s. Ejemplos: sofá, camión, compás. Sin tilde: reloj, papel, ciudad.",
+        "Llanas (fuerza en la penúltima): llevan tilde si NO terminan en vocal, -n ni -s. Ejemplos: árbol, lápiz, fácil. Sin tilde: mesa, joven, lunes.",
+        "Esdrújulas (fuerza en la antepenúltima): llevan tilde siempre. Ejemplos: música, pájaro, teléfono."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "aguda",
+        "titulo": "Carta de las agudas",
+        "texto": "Fuerza en la última sílaba. Tilde si terminan en vocal, -n o -s."
+      },
+      {
+        "id": "llana",
+        "titulo": "Carta de las llanas",
+        "texto": "Fuerza en la penúltima sílaba. Tilde si NO terminan en vocal, -n ni -s."
+      },
+      {
+        "id": "esdrujula",
+        "titulo": "Carta de las esdrújulas",
+        "texto": "Fuerza en la antepenúltima sílaba. Llevan tilde siempre."
+      }
+    ]
+  },
+  "b-v-1": {
+    "nombre": "b y v (I)",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · b y v",
+      "puntos": [
+        "Las formas en -aba, -abas, -ábamos… de los verbos en -ar (el pretérito imperfecto) se escriben con b: cantaba, jugábamos. Y las del verbo ir: iba, íbamos.",
+        "Delante de b se escribe m, nunca n: hombre, tambor. Y se escriben con b los grupos bl y br: blanco, brazo.",
+        "Los verbos acabados en -bir se escriben con b: escribir, recibir, subir. Excepciones: hervir, servir, vivir y sus compuestos (convivir, sobrevivir).",
+        "Detrás de n se escribe v, nunca b: invierno, enviar.",
+        "Con v los adjetivos en -avo, -ave, -evo, -eve, -ivo, -iva: octavo, suave, nuevo, breve, activo.",
+        "Con v los pasados en -uve, -uviste, -uvo… de estar, andar y tener: estuve, anduvo, tuvimos. (Pero estaba y andaba, con b: son formas en -aba.)"
+      ]
+    },
+    "cartas": [
+      {
+        "id": "aba",
+        "titulo": "Carta del -aba",
+        "texto": "Las formas en -aba de los verbos en -ar (cantaba, trabajaba) y las del verbo ir (iba) se escriben con b."
+      },
+      {
+        "id": "mb-nv",
+        "titulo": "Carta de mb y nv",
+        "texto": "Delante de b se escribe m, nunca n (hombre). Detrás de n se escribe v, nunca b (enviar)."
+      },
+      {
+        "id": "bir",
+        "titulo": "Carta del -bir",
+        "texto": "Los verbos en -bir se escriben con b (escribir, recibir). Excepciones: hervir, servir y vivir."
+      }
+    ]
+  },
+  "h-1": {
+    "nombre": "La h (I)",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · La h",
+      "puntos": [
+        "Llevan h las palabras que empiezan por ie-, ue-, ui-: hielo, huevo, hueso, huida.",
+        "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y por hum- + vocal: hermano, hormiga, horrible, hospital, humo. Excepciones: ermita y ermitaño.",
+        "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h: había, hizo, hablábamos, hallé, habitan.",
+        "Ojo con la familia de hueso, huevo, hueco y huérfano: si desaparece el ue, desaparece la h (óseo, óvalo, oquedad, orfandad)."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "hie",
+        "titulo": "Carta del hie- hue- hui-",
+        "texto": "Las palabras que empiezan por ie-, ue-, ui- llevan h delante: hielo, huevo, huida."
+      },
+      {
+        "id": "verbos-h",
+        "titulo": "Carta de los verbos con h",
+        "texto": "Todas las formas de haber, hacer, hablar, hallar y habitar llevan h."
+      },
+      {
+        "id": "herm",
+        "titulo": "Carta del herm- horm- hum-",
+        "texto": "Llevan h las que empiezan por herm-, horm-, horr-, hosp- y hum- + vocal (salvo ermita y ermitaño)."
+      }
+    ]
+  },
+  "c-z-s": {
+    "nombre": "c, z y s",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "1.3",
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · c, z, s y qu",
+      "puntos": [
+        "El sonido /k/: ca, co, cu, pero que, qui: casa, cola, cuna, queso, quinto.",
+        "Za, zo, zu, pero ce, ci: zapato, zorro, zumo, cebolla, cine.",
+        "Los plurales de las palabras acabadas en z se escriben con c: luz → luces, pez → peces.",
+        "Los verbos en -zar cambian la z por c delante de e: empezar → empecé, cazar → cacé.",
+        "Con seseo, casa y caza, o coser y cocer, suenan igual. No es hablar mal: al escribir se distinguen por el significado."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "qu",
+        "titulo": "Carta del que y el qui",
+        "texto": "El sonido /k/ delante de e, i se escribe qu: queso, quinto."
+      },
+      {
+        "id": "ce",
+        "titulo": "Carta del ce y el ci",
+        "texto": "Delante de e, i se escribe c, no z: cebolla, cine, hice, catorce."
+      },
+      {
+        "id": "plural",
+        "titulo": "Carta del plural en -ces",
+        "texto": "Las palabras acabadas en z hacen el plural en -ces: pez → peces."
+      }
+    ]
+  },
+  "ll-y": {
+    "nombre": "ll e y",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "1.3",
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · ll e y",
+      "puntos": [
+        "Las palabras terminadas en -illo, -illa se escriben con ll: farolillo, bombilla, pasillo.",
+        "La i final que va detrás de una vocal y no suena fuerte se escribe y: rey, hoy, muy, ley.",
+        "Si un verbo no tiene ll ni y en el infinitivo, sus formas con ese sonido van con y: caer → cayó, oír → oyendo, huir → huyó, leer → leyendo.",
+        "Con yeísmo, la ll y la y suenan igual. Ojo con las parejas: cayó (caer) / calló (callar); haya (haber) / halla (hallar); vaya (ir) / valla (cerca)."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "illo",
+        "titulo": "Carta del -illo y el -illa",
+        "texto": "Las palabras terminadas en -illo, -illa se escriben con ll: bombilla, farolillo."
+      },
+      {
+        "id": "yfinal",
+        "titulo": "Carta de la y final",
+        "texto": "La i final detrás de vocal que no suena fuerte se escribe y: rey, hoy, muy."
+      },
+      {
+        "id": "verbo-y",
+        "titulo": "Carta de caer → cayó",
+        "texto": "Si el infinitivo no tiene ll ni y, sus formas van con y: caer → cayó, huir → huyó."
+      }
+    ]
+  },
+  "g-j-dieresis": {
+    "nombre": "g, j y diéresis",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · g, j y diéresis",
+      "puntos": [
+        "Gen-, -gen, -gente y -gencia se escriben con g: general, imagen, gente, urgencia.",
+        "Geo-, -logía, -gia y -gía también van con g: geografía, biología, magia, energía. Excepciones: lejía y bujía.",
+        "Los verbos en -ger y -gir se escriben con g: coger, proteger, elegir, dirigir. Excepciones: tejer y crujir. Delante de a y o, la g se cambia por j: cojo, elijo.",
+        "Con j: las palabras en -aje, -eje (viaje, garaje, hereje) y en -jero, -jera, -jería (relojero, cajera, conserjería). Excepción: ligero. Y ojo: las formas de los verbos en -ger y -gir conservan la g (protege, recoge).",
+        "Si el verbo no tiene g ni j en el infinitivo, sus formas con je, ji van con j: decir → dije, traer → traje, conducir → conduje.",
+        "En gue, gui la u no suena: guerra, guitarra. Si la u suena, lleva diéresis: pingüino, cigüeña, vergüenza."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "gen-geo",
+        "titulo": "Carta de gen- y geo-",
+        "texto": "Gen-, -gen, -gente, -gencia, geo-, -logía, -gia y -gía van con g: imagen, gente, geografía, biología, magia. Excepciones: lejía y bujía."
+      },
+      {
+        "id": "ger-gir",
+        "titulo": "Carta de -ger y -gir",
+        "texto": "Los verbos en -ger y -gir se escriben con g: coger, elegir, dirigir. Excepciones: tejer y crujir."
+      },
+      {
+        "id": "j-aje",
+        "titulo": "Carta de la j",
+        "texto": "Con j: -aje, -eje, -jero, -jería (viaje, relojero) y las formas de verbos sin g ni j (dije, traje, conduje)."
+      },
+      {
+        "id": "dieresis",
+        "titulo": "Carta de la diéresis",
+        "texto": "Si la u de gue, gui suena, lleva diéresis: pingüino, cigüeña, vergüenza."
+      }
+    ]
+  },
+  "diptongo-monosilabos": {
+    "nombre": "Diptongos y monosílabos",
+    "saberes": [
+      "LCL.3.D.6"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Diptongos y monosílabos",
+      "puntos": [
+        "Un diptongo son dos vocales que se pronuncian en la misma sílaba: una abierta (a, e, o) con una cerrada (i, u) que no suena fuerte, o dos cerradas distintas. Ejemplos: CIE-lo, PUER-ta, AI-re, ciu-DAD, RUI-do.",
+        "Un triptongo son tres vocales en la misma sílaba: cerrada + abierta + cerrada. Ejemplos: buey, a-ve-ri-GUÁIS.",
+        "Las palabras con diptongo o triptongo siguen las reglas de siempre: can-CIÓN (aguda en -n), HUÉS-ped (llana en -d), CUÍ-da-te (esdrújula). CUEN-to es llana en vocal: sin tilde.",
+        "Si la sílaba del diptongo lleva tilde, va en la vocal abierta: canción, después. Si son dos cerradas, en la segunda: cuídate, construí.",
+        "Los monosílabos (palabras de una sola sílaba) no llevan tilde: fue, fui, dio, vio, pie. Para la ortografía, guion y truhan también tienen una sola sílaba: sin tilde.",
+        "Aviso: unos pocos monosílabos llevan tilde para no confundirse con su pareja: él/el, tú/tu, mí/mi, sí/si, té/te, más/mas. Es la tilde diacrítica y la estudiarás a fondo en 6.º."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "diptongo",
+        "titulo": "Carta del diptongo",
+        "texto": "Dos vocales en la misma sílaba (abierta + cerrada que no suena fuerte, o dos cerradas). Siguen las reglas de siempre: canción, huésped, cuídate."
+      },
+      {
+        "id": "triptongo",
+        "titulo": "Carta del triptongo",
+        "texto": "Tres vocales en la misma sílaba. También siguen las reglas de siempre: a-ve-ri-GUÁIS es aguda en -s y lleva tilde."
+      },
+      {
+        "id": "monosilabo",
+        "titulo": "Carta de los monosílabos",
+        "texto": "Las palabras de una sola sílaba no llevan tilde: fue, fui, dio, vio, pie, guion. Aviso: él/el, tú/tu… la llevan para distinguirse (en 6.º)."
+      }
+    ]
+  },
+  "d-z-finales": {
+    "nombre": "-d y -z finales",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "1.3",
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · -d y -z finales",
+      "puntos": [
+        "El truco del plural: si el plural termina en -des, la palabra acaba en d: pared → paredes, red → redes, césped → céspedes.",
+        "Si el plural termina en -ces, la palabra acaba en z: luz → luces, pez → peces, lápiz → lápices, voz → voces.",
+        "Las palabras terminadas en -dad, -tad y -tud llevan d: ciudad, amistad, libertad, juventud, virtud.",
+        "En Andalucía, al hablar, la d final se suele perder, y en otras zonas suena parecida a una z. No es hablar mal: al escribir, la d se pone siempre, y el plural te lo recuerda."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "plural-des",
+        "titulo": "Carta del plural en -des",
+        "texto": "Si el plural termina en -des, la palabra acaba en d: pared → paredes, verdad → verdades."
+      },
+      {
+        "id": "plural-ces",
+        "titulo": "Carta del plural en -ces",
+        "texto": "Si el plural termina en -ces, la palabra acaba en z: luz → luces, lápiz → lápices."
+      },
+      {
+        "id": "dad-tud",
+        "titulo": "Carta del -dad, -tad, -tud",
+        "texto": "Las palabras terminadas en -dad, -tad y -tud llevan d: ciudad, amistad, juventud."
+      }
+    ]
+  },
+  "mayusculas-puntuacion-1": {
+    "nombre": "Mayúsculas y puntuación básica",
+    "saberes": [
+      "LCL.3.B.3.5",
+      "LCL.3.D.7"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Mayúsculas y puntuación",
+      "puntos": [
+        "Mayúscula al empezar un texto y después de punto. También después de ? y ! cuando cierran la oración: ¿Quién ha sido? Nadie lo sabe.",
+        "Llevan mayúscula los nombres propios de personas (Aurora), de lugares (Sevilla, La Alameda) y de periódicos (El Eco de La Alameda).",
+        "En los títulos de libros solo va con mayúscula la primera palabra y los nombres propios: El principito, Platero y yo.",
+        "En minúscula: los días (lunes), los meses (junio), las estaciones (verano), los gentilicios (andaluz), los idiomas (inglés) y los cargos (el director Robles, el alcalde).",
+        "El punto cierra una oración. La coma separa los elementos de una enumeración, y el último se une con y, sin coma: tinta, papel y cola.",
+        "Las preguntas y las exclamaciones llevan dos signos, uno al principio y otro al final: ¿Qué hora es? ¡Qué susto! Los puntos suspensivos son siempre tres y dejan la frase en suspense: Y entonces…"
+      ]
+    },
+    "cartas": [
+      {
+        "id": "mayuscula-inicio",
+        "titulo": "Carta de la mayúscula inicial",
+        "texto": "Mayúscula al empezar un texto y después de punto (y después de ? o ! cuando cierran la oración)."
+      },
+      {
+        "id": "nombre-propio",
+        "titulo": "Carta de los nombres propios",
+        "texto": "Los nombres de personas, lugares y periódicos llevan mayúscula: Aurora, Sevilla, El Eco de La Alameda."
+      },
+      {
+        "id": "minuscula",
+        "titulo": "Carta de la minúscula",
+        "texto": "Días, meses, estaciones, gentilicios, idiomas y cargos van en minúscula: lunes, junio, verano, andaluz, inglés, el director."
+      }
+    ]
+  },
+  "hiato": {
+    "nombre": "El hiato",
+    "saberes": [
+      "LCL.3.D.6"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · El hiato",
+      "puntos": [
+        "Un hiato son dos vocales seguidas que se pronuncian en sílabas distintas: po-E-ta, le-ÓN, DÍ-a, ba-ÚL.",
+        "Dos vocales abiertas (a, e, o) siempre forman hiato y siguen las reglas de siempre: león (aguda en -n), poeta (llana en vocal, sin tilde), océano (esdrújula).",
+        "Si una vocal cerrada (i, u) suena fuerte al lado de una abierta, hay hiato y la cerrada lleva tilde SIEMPRE, aunque las reglas generales digan lo contrario: día, país, baúl, maíz, oído, reír, Raúl.",
+        "La h en medio no impide la tilde del hiato: bú-ho, pro-hí-be, re-hú-sa.",
+        "Truco del detective: separa la palabra en voz alta. Si la i o la u «se lleva» la fuerza y se separa de la otra vocal, ponle tilde: frí-o, ac-tú-a, pa-ís.",
+        "Ojo: dos vocales cerradas distintas (ui, iu) van siempre en la misma sílaba, así que no hay hiato: huida, construido y ruido se escriben sin tilde."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "hiato-abiertas",
+        "titulo": "Carta de las dos abiertas",
+        "texto": "Dos vocales abiertas (a, e, o) juntas forman hiato y siguen las reglas generales: león, poeta, océano."
+      },
+      {
+        "id": "hiato-cerrada",
+        "titulo": "Carta de la cerrada fuerte",
+        "texto": "Si la i o la u suenan fuertes junto a una vocal abierta, llevan tilde siempre: día, país, baúl, oído."
+      },
+      {
+        "id": "hiato-h",
+        "titulo": "Carta de la h escondida",
+        "texto": "Una h entre las dos vocales no cambia nada: búho, prohíbe, rehúsa llevan tilde."
+      }
+    ]
+  },
+  "tilde-diacritica": {
+    "nombre": "La tilde diacrítica",
+    "saberes": [
+      "LCL.3.D.6"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · La tilde diacrítica",
+      "puntos": [
+        "Los monosílabos no llevan tilde… salvo unas parejas que se escriben igual y significan cosas distintas. La tilde diacrítica las distingue.",
+        "él (persona) / el (artículo): Él trajo el mapa. · tú (persona) / tu (de ti): Tú tienes tu billete. · mí (persona) / mi (de mí): Es para mí; es mi maleta.",
+        "sí (afirmación o persona) / si (condición): Si vienes, dime que sí. · sé (de saber o de ser) / se: No sé si se ha ido. · dé (de dar) / de: Que te dé la carta de Lola.",
+        "té (bebida) / te (pronombre): ¿Te pongo un té? · más (cantidad) / mas (= pero, casi no se usa): Quiero más.",
+        "Truco del detective: cambia la palabra por otra. Si «él» se puede cambiar por «ella», lleva tilde; si «tu» se puede cambiar por «vuestro», no la lleva."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "diac-el-tu-mi",
+        "titulo": "Carta de él, tú y mí",
+        "texto": "Llevan tilde cuando nombran a la persona (él, tú, mí). Sin tilde, acompañan a un nombre: el mapa, tu billete, mi maleta."
+      },
+      {
+        "id": "diac-si-se-de",
+        "titulo": "Carta de sí, sé y dé",
+        "texto": "sí afirma, sé viene de saber o ser y dé viene de dar. Sin tilde: si (condición), se y de."
+      },
+      {
+        "id": "diac-te-mas",
+        "titulo": "Carta de té y más",
+        "texto": "té es la bebida y más, la cantidad. Sin tilde, te es un pronombre: ¿Te pongo un té?"
+      }
+    ]
+  },
+  "interrogativos-exclamativos": {
+    "nombre": "Interrogativos y exclamativos",
+    "saberes": [
+      "LCL.3.D.6"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Interrogativos y exclamativos",
+      "puntos": [
+        "qué, quién, cuál, cómo, cuándo, cuánto, dónde y adónde llevan tilde cuando preguntan o exclaman: ¿Dónde está? ¡Qué susto! ¡Cuánta gente!",
+        "También cuando la pregunta va «escondida», sin signos: No sé quién ha sido. Dime cuándo llega el tren. Me preguntó qué pasaba.",
+        "Sin pregunta ni exclamación, van sin tilde: El chico que vino. Iré cuando pueda. Lo dejé donde siempre. Hazlo como quieras.",
+        "Las preguntas y las exclamaciones llevan dos signos: el de apertura (¿ ¡) y el de cierre (? !). No te olvides nunca del primero.",
+        "Truco del detective: si puedes convertirla en una pregunta directa (No sé quién ha sido → ¿Quién ha sido?), es interrogativo y lleva tilde. Y ojo: no todo lo que va entre signos lleva tilde: ¿Vienes cuando acabes?"
+      ]
+    },
+    "cartas": [
+      {
+        "id": "interr-directa",
+        "titulo": "Carta de la pregunta directa",
+        "texto": "qué, quién, cuál, cómo, cuándo, cuánto y dónde llevan tilde cuando preguntan o exclaman, entre ¿? o ¡!."
+      },
+      {
+        "id": "interr-indirecta",
+        "titulo": "Carta de la pregunta escondida",
+        "texto": "También llevan tilde en las preguntas sin signos: No sé quién ha sido. Dime dónde está."
+      },
+      {
+        "id": "interr-relativo",
+        "titulo": "Carta del que sin pregunta",
+        "texto": "Si no preguntan ni exclaman, van sin tilde: el chico que vino, iré cuando pueda, donde siempre."
+      }
+    ]
+  },
+  "b-v-2": {
+    "nombre": "b y v (II)",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · b y v (II)",
+      "puntos": [
+        "Con b: las palabras que empiezan por bibl- (biblioteca) y por las sílabas bu-, bur- y bus- (bu-zo, bur-bu-ja, bus-car), y las acabadas en -bilidad (amabilidad) y -bundo, -bunda (vagabundo, meditabunda). Excepciones: movilidad y civilidad. Ojo: vuelo, vuelta y vuestro empiezan por la sílaba vue-, no por bu-.",
+        "Con b: los verbos acabados en -buir (atribuir, contribuir, distribuir) en todas sus formas: distribuyó, contribuimos.",
+        "Con v: los adjetivos acabados en -avo, -ava, -evo, -eva, -ivo, -iva (octavo, nueva, activo, deportiva) y las palabras acabadas en -ívoro, -ívora (herbívoro, carnívora). Excepción: víbora.",
+        "Con v: después de ad-, sub- y ob- (adverbio, subvención, obvio), y las que empiezan por eva-, eve-, evi- y evo- (evaporar, evento, evitar, evolución). Excepciones: ébano y ebanista."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "b-bibl-bu",
+        "titulo": "Carta del bibl-, bu-, bur-, bus-",
+        "texto": "Con b las que empiezan por bibl- y por las sílabas bu-, bur- y bus- (buzo, burbuja, buscar) y las acabadas en -bilidad y -bundo (salvo movilidad y civilidad)."
+      },
+      {
+        "id": "b-buir",
+        "titulo": "Carta del -buir",
+        "texto": "Los verbos acabados en -buir se escriben con b en todas sus formas: distribuir, contribuyó, atribuimos."
+      },
+      {
+        "id": "v-ivo-ivoro",
+        "titulo": "Carta del -ivo y el -ívoro",
+        "texto": "Con v los adjetivos en -avo, -evo, -ivo (octavo, nuevo, activo), las palabras en -ívoro y las que van tras ad-, sub- y ob-."
+      }
+    ]
+  },
+  "h-2": {
+    "nombre": "La h (II)",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · La h (II)",
+      "puntos": [
+        "Llevan h las palabras que empiezan por estas partes griegas: hidr- (agua: hidratar), hiper- (exceso: hipermercado), hipo- (debajo: hipotermia; caballo: hipopótamo), hemi- (mitad: hemisferio), hepta- (siete), hexa- (seis), hecto- (cien), helio- (sol) y hema-, hemo- (sangre). Solo si significan eso: examen, exacto, emigrar y emoción van sin h.",
+        "Homófonos con h y sin h: hecho (de hacer) / echo (de echar); hola (saludo) / ola (del mar); hasta (límite) / asta (del toro o de la bandera); haya (de haber o árbol) / halla (de hallar) / aya (niñera).",
+        "hay (de haber) / ahí (lugar) / ¡ay! (queja): Ahí hay un barco. ¡Ay, qué frío! · a ver (mirar) / haber (verbo): Vamos a ver si va a haber tormenta.",
+        "Truco del detective: si la palabra es del verbo hacer, haber, hallar o hablar, lleva h. Si es de echar (echo), de ver (a ver) o del mar (ola), no."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "h-griegas",
+        "titulo": "Carta de las partes griegas",
+        "texto": "Llevan h las que empiezan por hidr- (agua), hiper- (exceso), hipo- (debajo), hemi- (mitad), hepta- (siete), hexa- (seis), hecto- (cien), helio- (sol) y hemo- (sangre)."
+      },
+      {
+        "id": "h-hecho-echo",
+        "titulo": "Carta del hecho y el echo",
+        "texto": "Con h, las formas de hacer, haber y hallar (hecho, haya, halla). Sin h, las de echar (echo) y el mar (ola)."
+      },
+      {
+        "id": "h-hay-ahi",
+        "titulo": "Carta del hay, ahí, ay",
+        "texto": "hay es de haber, ahí es un lugar y ¡ay! es una queja. Y no confundas «a ver» (mirar) con «haber»."
+      }
+    ]
+  },
+  "cc-c": {
+    "nombre": "-cc- y -c-",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · -cc- y -c-",
+      "puntos": [
+        "Muchas palabras acaban en -ción. Unas llevan -cc- (acción) y otras una sola c (canción). Para saberlo, busca en la familia de la palabra.",
+        "Se escribe -cc- si en la familia aparece el grupo -ct-: acción (acto, actor), dirección (director), colección (colectivo), corrección (correcto), protección (protector), producción (producto), construcción (constructor). Excepciones que hay que aprender: ficción, cocción, fricción y succión llevan -cc- aunque en su familia no haya -ct-.",
+        "Se escribe una sola c si en la familia aparece una -t- sola o no aparece ninguna: canción (cantar), relación (relato), atención (atento), invitación (invitar), posición.",
+        "Truco del detective: di la palabra despacio. En -cc- se oyen dos sonidos: ac-ción (primero «k», luego «z», o «s» si seseas). Si al hablar no lo notas, usa el truco de la familia."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "cc-ct",
+        "titulo": "Carta del -ct- de la familia",
+        "texto": "Si en la familia aparece -ct-, se escribe -cc-: acción (acto), dirección (director), colección (colectivo)."
+      },
+      {
+        "id": "c-t-sola",
+        "titulo": "Carta de la -t- sola",
+        "texto": "Si en la familia hay una -t- sola o ninguna, va una sola c: canción (cantar), relación (relato), atención (atento). Salvo ficción, cocción, fricción y succión."
+      },
+      {
+        "id": "cc-dos-sonidos",
+        "titulo": "Carta de los dos sonidos",
+        "texto": "Dicha despacio, en -cc- se oyen dos sonidos: ac-ción, lec-ción. En -c- solo uno: can-ción. Si no lo notas, busca la familia."
+      }
+    ]
+  },
+  "x-s": {
+    "nombre": "x y s",
+    "saberes": [
+      "LCL.3.B.3.5"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · x y s",
+      "puntos": [
+        "Con x: las palabras que empiezan por ex- cuando significa «fuera» o «que ya no es»: exportar, extraer, exalumno, expresidenta.",
+        "Con x: las que empiezan por extra- (fuera de: extraordinario, extraterrestre) y casi todas las que empiezan por ex- + pl o pr: explicar, explorar, explosión, expresar, exprimir. Excepciones: esplendor, espliego.",
+        "Con x: las acabadas en -xión cuando en la familia hay x o j: conexión (conexo), reflexión (reflejo), flexión (flexible), crucifixión (crucifijo).",
+        "Con s: muchas palabras que empiezan por es- + consonante: escalera, espada, estupendo, espléndido, estrategia, espontáneo. Si dudas entre es- y ex-, busca una palabra de su familia o consulta el diccionario.",
+        "Parejas que suenan parecido: espiar (vigilar) / expiar (pagar una culpa); contesto (de contestar) / contexto. Y recuerda que texto, sexto, experto y excelente llevan x."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "x-ex-fuera",
+        "titulo": "Carta del ex- y el extra-",
+        "texto": "Con x el ex- de «fuera» o «que ya no es» (exportar, exalumno) y el extra- (extraordinario)."
+      },
+      {
+        "id": "x-expl-expr",
+        "titulo": "Carta del expl- y el expr-",
+        "texto": "Casi todas las que empiezan por ex- + pl o pr llevan x: explicar, explorar, expresar. Salvo esplendor y espliego."
+      },
+      {
+        "id": "s-es-consonante",
+        "titulo": "Carta del es- de siempre",
+        "texto": "Muchas palabras empiezan por es- + consonante: escalera, espada, estupendo, espléndido. Si dudas entre es- y ex-, busca su familia."
+      }
+    ]
+  },
+  "puntuacion-2": {
+    "nombre": "Coma, punto y coma, diálogo",
+    "saberes": [
+      "LCL.3.D.7"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · Puntuación: coma, punto y coma y diálogo",
+      "puntos": [
+        "Coma para llamar a alguien (vocativo): Lola, mira esto. Mira esto, Lola. Y para encerrar una aclaración: Mateo, el archivero, lo sabía.",
+        "Coma después de palabras que ordenan o unen ideas, al principio de la oración: Primero, abre el sobre. Sin embargo, no había nadie. Por último, sella el expediente.",
+        "Punto y coma (;) para separar partes largas que ya llevan comas, o dos oraciones muy unidas: Lola trajo el mapa; Mateo, las fichas; Bruno, la bici. Llovía mucho; aun así, salimos.",
+        "En los diálogos, cada intervención empieza en una línea nueva con raya (—). Otra raya separa lo que dice el narrador: —Ya voy —dijo Bruno—. Espérame."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "coma-vocativo",
+        "titulo": "Carta de la coma que llama",
+        "texto": "Se separa con coma el nombre de la persona a la que hablamos (Lola, mira esto) y las aclaraciones: Mateo, el archivero, lo sabía."
+      },
+      {
+        "id": "punto-y-coma",
+        "titulo": "Carta del punto y coma",
+        "texto": "El punto y coma separa partes que ya llevan comas o dos oraciones muy unidas: Lola trajo el mapa; Mateo, las fichas."
+      },
+      {
+        "id": "raya-dialogo",
+        "titulo": "Carta de la raya del diálogo",
+        "texto": "Cada persona habla en una línea nueva, con raya (—). La raya también separa al narrador: —Ya voy —dijo Bruno."
+      }
+    ]
+  },
+  "solo-mente": {
+    "nombre": "«solo» y adverbios en -mente",
+    "saberes": [
+      "LCL.3.D.6"
+    ],
+    "criterios": [
+      "5.1",
+      "9.1",
+      "9.2"
+    ],
+    "ficha": {
+      "titulo": "Archivo de Mateo · «solo» y adverbios en -mente",
+      "puntos": [
+        "«solo» se escribe sin tilde siempre: tanto si significa «solamente» (Solo queda un billete) como si significa «sin compañía» (Viaja solo).",
+        "Lo mismo los demostrativos: este, ese, aquel, esta, esa… van sin tilde aunque no lleven nombre detrás: Quiero este. Aquella es mía.",
+        "Los adverbios en -mente se forman con un adjetivo en femenino + -mente: rápida → rápidamente, tranquila → tranquilamente, feliz → felizmente.",
+        "El adverbio en -mente conserva la tilde del adjetivo, si la tenía: rápido → rápidamente, fácil → fácilmente, cortés → cortésmente. Si no la tenía, no la lleva: lento → lentamente, amable → amablemente."
+      ]
+    },
+    "cartas": [
+      {
+        "id": "solo-sin-tilde",
+        "titulo": "Carta del solo",
+        "texto": "«solo» va sin tilde siempre, signifique «solamente» o «sin compañía». Los demostrativos (este, ese, aquel), tampoco."
+      },
+      {
+        "id": "mente-tilde",
+        "titulo": "Carta del -mente con tilde",
+        "texto": "El adverbio en -mente conserva la tilde del adjetivo: rápido → rápidamente, fácil → fácilmente."
+      },
+      {
+        "id": "mente-sin-tilde",
+        "titulo": "Carta del -mente sin tilde",
+        "texto": "Si el adjetivo no lleva tilde, el adverbio tampoco: lento → lentamente, amable → amablemente."
+      }
+    ]
+  }
+}
