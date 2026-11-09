@@ -15,7 +15,7 @@
     {
       "tipo": "relato", "objeto": "tortuga-huerto", "fondo": "estudio-fotos", "quien": "Paco, el fotógrafo",
       "personaje": { "id": "paco", "expresion": "sorprendido", "lado": "der" },
-      "texto": "¡Detectives, qué desastre! Aurora me pidió que, por una vez, escribiera yo la noticia de portada, y no solo las fotos. Tenía los párrafos recortados en la mesa, pero abrí la puerta del cuarto oscuro, entró una corriente… y se revolvió todo. Y el titular se me cayó en la cubeta del revelador. ¡El Eco se imprime a las doce!"
+      "texto": "¡Detectives, qué desastre! Aurora me pidió que, por una vez, escribiera yo la noticia de portada y no me limitara a hacer las fotos. Tenía los párrafos recortados en la mesa, pero abrí la puerta del cuarto oscuro, entró una corriente… y se revolvió todo. Y el titular se me cayó en la cubeta del revelador. ¡El Eco se imprime a las doce!"
     },
     {
       "tipo": "ordena", "fondo": "estudio-fotos", "titulo": "Los párrafos revueltos",

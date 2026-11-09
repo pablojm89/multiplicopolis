@@ -73,7 +73,7 @@
           ],
           "criterio": "8.3",
           "pista": "Los tratantes miraban la boca de los caballos para saber su edad.",
-          "explicacion": "Si te regalan algo, no le busques defectos. Se dice también «el dentado» o «el colmillo»: los refranes tienen variantes, porque pasan de boca en boca."
+          "explicacion": "Si te regalan algo, no le busques defectos. Se dice también «los dientes» o «el colmillo»: los refranes tienen variantes, porque pasan de boca en boca."
         },
         {
           "enunciado": "Dime con quién andas y te diré ___.",
@@ -94,7 +94,7 @@
       "documento": "¡Vecinas y vecinos de La Alameda!\nEste año ha costado sacar la fiesta adelante, pero ya se sabe: no por mucho madrugar amanece más temprano.\nMi sobrino es peluquero y va siempre con los pelos de punta: en casa del herrero, cuchillo de palo.\nY a los que solo protestan por la música… perro ladrador, poco mordedor: ¡luego son los primeros en bailar!",
       "preguntas": [
         {
-          "pregunta": "«No por mucho madrugar amanece más temprano.» ¿Qué quiere decir doña Pilar?",
+          "pregunta": "«No por mucho madrugar amanece más temprano». ¿Qué quiere decir doña Pilar?",
           "opciones": [
             "Que hay que dormir mucho para estar descansado",
             "Que las cosas llevan su tiempo y no sirve de nada precipitarse",
@@ -106,9 +106,9 @@
           "explicacion": "Los refranes tienen sentido figurado: no hablan de madrugar de verdad, sino de tener paciencia."
         },
         {
-          "pregunta": "«En casa del herrero, cuchillo de palo.» ¿Por qué lo dice de su sobrino?",
+          "pregunta": "«En casa del herrero, cuchillo de palo». ¿Por qué lo dice de su sobrino?",
           "opciones": [
-            "Porque el peluquero que más sabe de peinados va despeinado",
+            "Porque es peluquero y, sin embargo, va despeinado",
             "Porque su sobrino trabaja de herrero",
             "Porque en su casa no tienen cuchillos"
           ],
@@ -118,7 +118,7 @@
           "explicacion": "A veces falta en casa justo aquello a lo que uno se dedica: el herrero, con cuchillo de madera; el peluquero, despeinado."
         },
         {
-          "pregunta": "«Perro ladrador, poco mordedor.» ¿A quiénes se refiere?",
+          "pregunta": "«Perro ladrador, poco mordedor». ¿A quiénes se refiere?",
           "opciones": [
             "A los perros del barrio, que ladran con la música",
             "A quienes muerden cuando se enfadan",
