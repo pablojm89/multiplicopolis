@@ -676,7 +676,7 @@
       "regla": "b-v-1",
       "nivel": 1,
       "campo": "accion",
-      "pista": "Pasado de ir: cada mañana Bruno ___ al quiosco en bici",
+      "pista": "Pasado de ir: cada mañana Bruno ___ al kiosco en bici",
       "porque": "iba: el pasado del verbo ir se escribe con b (iba, íbamos)."
     },
     {
@@ -1749,7 +1749,7 @@
       "nivel": 1,
       "campo": "dato",
       "pista": "Lo que tienes cuando no estás enfermo",
-      "porque": "salud: su plural es saludes, así que termina en d."
+      "porque": "salud termina en d, aunque casi no se oiga: piensa en saludable y saludar."
     },
     {
       "p": "edad",

@@ -37,16 +37,16 @@
           {"p": "también", "nivel": 2},
           {"p": "después", "nivel": 2},
           {"p": "cajón", "nivel": 2},
-          {"p": "maní", "nivel": 2},
+          {"p": "esquí", "nivel": 2},
           {"p": "bambú", "nivel": 2},
           {"p": "cojín", "nivel": 2},
           {"p": "corazón", "nivel": 2},
           {"p": "dieciséis", "nivel": 3},
           {"p": "chimpancé", "nivel": 3},
           {"p": "huracán", "nivel": 3},
-          {"p": "terraplén", "nivel": 3},
+          {"p": "almacén", "nivel": 2},
           {"p": "jabalí", "nivel": 3},
-          {"p": "canapé", "nivel": 3},
+          {"p": "puré", "nivel": 2},
           {"p": "parchís", "nivel": 3},
           {"p": "habitación", "nivel": 3},
           {"p": "televisión", "nivel": 3},
@@ -117,13 +117,13 @@
           {"p": "álbum", "nivel": 2},
           {"p": "revólver", "nivel": 2},
           {"p": "carácter", "nivel": 3},
-          {"p": "versátil", "nivel": 3},
+          {"p": "mástil", "nivel": 2},
           {"p": "inmóvil", "nivel": 3},
           {"p": "automóvil", "nivel": 3},
           {"p": "portátil", "nivel": 3},
           {"p": "cadáver", "nivel": 3},
-          {"p": "tándem", "nivel": 3},
-          {"p": "referéndum", "nivel": 3},
+          {"p": "póster", "nivel": 2},
+          {"p": "cóndor", "nivel": 2},
           {"p": "fértil", "nivel": 3},
           {"p": "estéril", "nivel": 3}
         ],
@@ -468,14 +468,14 @@
           {"p": "inventor", "nivel": 2},
           {"p": "invitado", "nivel": 2},
           {"p": "envoltorio", "nivel": 2},
-          {"p": "convoy", "nivel": 2},
+          {"p": "invencible", "nivel": 2},
           {"p": "sinvergüenza", "nivel": 3},
           {"p": "invernadero", "nivel": 3},
           {"p": "envejecer", "nivel": 3},
           {"p": "convincente", "nivel": 3},
           {"p": "invertebrado", "nivel": 3},
           {"p": "conveniente", "nivel": 3},
-          {"p": "inverosímil", "nivel": 3}
+          {"p": "convivencia", "nivel": 3}
         ],
         "relleno": ["hombre", "tambor", "también", "sombra", "vaso", "uva", "nuevo", "cantar", "bando", "conejo", "lavar", "ciervo"],
         "si": "lleva v justo después de la n.",
@@ -521,11 +521,7 @@
           {"p": "suscribir", "nivel": 2},
           {"p": "concebir", "nivel": 3},
           {"p": "transcribir", "nivel": 3},
-          {"p": "cohibir", "nivel": 3},
-          {"p": "sucumbir", "nivel": 3},
-          {"p": "inhibir", "nivel": 3},
-          {"p": "prescribir", "nivel": 3},
-          {"p": "circunscribir", "nivel": 3}
+          {"p": "sobrescribir", "nivel": 3}
         ],
         "relleno": ["partir", "salir", "dormir", "decidir", "pedir", "sufrir", "repetir", "morir", "abrir", "cubrir", "reír", "elegir"],
         "contraejemplos": ["hervir", "servir", "vivir", "convivir", "sobrevivir", "revivir"],
@@ -589,7 +585,7 @@
           {"p": "comunicativo", "nivel": 3},
           {"p": "imaginativa", "nivel": 3},
           {"p": "competitivo", "nivel": 3},
-          {"p": "longevo", "nivel": 3},
+          {"p": "festivo", "nivel": 2},
           {"p": "explosivo", "nivel": 3},
           {"p": "defensiva", "nivel": 3},
           {"p": "informativo", "nivel": 3},
@@ -630,7 +626,7 @@
         "punto": 5,
         "rivales": ["bir"],
         "patron": "uv",
-        "pista": "Todas son de tres verbos. Busca qué letras se repiten en las cuatro.",
+        "pista": "Todas son de tres verbos (y de sus compuestos). Busca qué letras se repiten en todas.",
         "ejemplos": [
           {"p": "estuve", "nivel": 1},
           {"p": "estuvo", "nivel": 1},
@@ -725,7 +721,7 @@
           {"p": "hierbabuena", "nivel": 3},
           {"p": "huelguista", "nivel": 3},
           {"p": "huesecillo", "nivel": 3},
-          {"p": "huertano", "nivel": 3},
+          {"p": "huesito", "nivel": 2},
           {"p": "huevería", "nivel": 3}
         ],
         "relleno": ["oso", "árbol", "isla", "uva", "espejo", "ola", "invierno", "agua", "uña", "iglesia", "ocho", "ojo"],
@@ -787,7 +783,7 @@
           {"p": "hermanastro", "nivel": 3},
           {"p": "hormigueo", "nivel": 3},
           {"p": "horripilante", "nivel": 3},
-          {"p": "hospicio", "nivel": 3},
+          {"p": "hospitalizar", "nivel": 3},
           {"p": "humillación", "nivel": 3},
           {"p": "humanitario", "nivel": 3}
         ],
@@ -904,7 +900,7 @@
           {"p": "ovalados", "nivel": 2},
           {"p": "óvalos", "nivel": 2},
           {"p": "osamenta", "nivel": 3},
-          {"p": "osario", "nivel": 3},
+          {"p": "óseas", "nivel": 3},
           {"p": "oquedad", "nivel": 3},
           {"p": "orfandad", "nivel": 3},
           {"p": "ovíparo", "nivel": 3},
@@ -990,7 +986,7 @@
         "relleno": ["zapato", "zorro", "zumo", "pozo", "taza", "azul", "buzón", "lazo", "cosa", "barco", "seta", "silla", "sopa"],
         "contraejemplos": ["zeta", "zepelín", "zinc"],
         "si": "lleva c delante de e o de i, donde no se escribe z.",
-        "excepcion": "lleva z delante de e o de i. Son muy pocas palabras: zigzag, zeta, zepelín.",
+        "excepcion": "lleva z delante de e o de i. Son muy pocas palabras: zeta, zepelín, zinc.",
         "hipotesis": [
           {"texto": "Delante de e y de i se escribe c, no z: ce, ci.", "valor": "buena"},
           {
@@ -1036,7 +1032,7 @@
           {"p": "chaqueta", "nivel": 1},
           {"p": "querer", "nivel": 1},
           {"p": "paquete", "nivel": 1},
-          {"p": "quiosco", "nivel": 2},
+          {"p": "equipo", "nivel": 2},
           {"p": "mantequilla", "nivel": 2},
           {"p": "quitar", "nivel": 2},
           {"p": "tranquilo", "nivel": 2},
@@ -1056,7 +1052,7 @@
           {"p": "quinientos", "nivel": 3}
         ],
         "relleno": ["casa", "cola", "cuna", "cubo", "cama", "foca", "cosa", "barco", "cuchara", "coche", "loco"],
-        "contraejemplos": ["kilo", "kiwi", "kilómetro", "kimono"],
+        "contraejemplos": ["kilo", "kiwi", "kilómetro"],
         "si": "tiene el sonido de la k delante de e o de i, y por eso se escribe con qu.",
         "excepcion": "suena «ki», pero se escribe con k. Pasa en unas pocas palabras: kilo, kilómetro, kiwi.",
         "hipotesis": [
@@ -1360,7 +1356,7 @@
           {"p": "soy", "nivel": 1},
           {"p": "doy", "nivel": 1},
           {"p": "hay", "nivel": 1},
-          {"p": "buey", "nivel": 1},
+          {"p": "buey", "nivel": 2},
           {"p": "jersey", "nivel": 2},
           {"p": "convoy", "nivel": 2},
           {"p": "virrey", "nivel": 2},
@@ -1492,13 +1488,13 @@
           {"p": "estrellaron", "nivel": 2},
           {"p": "maquillé", "nivel": 2},
           {"p": "desarrollaron", "nivel": 3},
-          {"p": "acribillaron", "nivel": 3},
-          {"p": "apabulló", "nivel": 3},
+          {"p": "patrullaban", "nivel": 3},
+          {"p": "atornilló", "nivel": 3},
           {"p": "zambulló", "nivel": 3},
           {"p": "embotelló", "nivel": 3},
-          {"p": "engulló", "nivel": 3},
+          {"p": "arrodilló", "nivel": 3},
           {"p": "aulló", "nivel": 3},
-          {"p": "mascullaba", "nivel": 3}
+          {"p": "cepilló", "nivel": 3}
         ],
         "relleno": ["cayó", "oyendo", "huyó", "leyendo", "creyó", "construyó", "leyó", "oyó", "comió", "salió"],
         "si": "viene de un verbo con ll en el infinitivo (callar, hallar, llevar…): conserva la ll.",
@@ -1517,7 +1513,7 @@
             "texto": "Las formas del verbo callar se escriben con ll.",
             "valor": "estrecha",
             "porque": "Demasiado estrecha: «{p}» no es del verbo callar y también lleva ll.",
-            "prueba": ["halló", "llevó", "lloró", "brilló", "chilló", "llegó", "llenó", "llamó", "falló", "hallamos", "llevaron", "rellenó", "sellé", "pillé", "desarrolló", "atropelló", "estrellaron", "maquillé", "desarrollaron", "acribillaron", "apabulló", "zambulló", "embotelló", "engulló", "aulló", "mascullaba"]
+            "prueba": ["halló", "llevó", "lloró", "brilló", "chilló", "llegó", "llenó", "llamó", "falló", "hallamos", "llevaron", "rellenó", "sellé", "pillé", "desarrolló", "atropelló", "estrellaron", "maquillé", "desarrollaron", "patrullaban", "atornilló", "zambulló", "embotelló", "arrodilló", "aulló", "cepilló"]
           },
           {
             "texto": "Se escriben con ll los verbos que terminan en -ó.",
@@ -1553,14 +1549,13 @@
           {"p": "rugir", "nivel": 2},
           {"p": "emerger", "nivel": 2},
           {"p": "acoger", "nivel": 2},
-          {"p": "afligir", "nivel": 2},
+          {"p": "mugir", "nivel": 2},
           {"p": "urgir", "nivel": 2},
           {"p": "resurgir", "nivel": 3},
           {"p": "sobrecoger", "nivel": 3},
-          {"p": "restringir", "nivel": 3},
-          {"p": "infringir", "nivel": 3},
-          {"p": "converger", "nivel": 3},
-          {"p": "transigir", "nivel": 3}
+          {"p": "reelegir", "nivel": 3},
+          {"p": "redirigir", "nivel": 3},
+          {"p": "desproteger", "nivel": 3}
         ],
         "relleno": ["bajar", "mojar", "dibujar", "empujar", "trabajar", "jugar", "cocinar", "pagar", "pegar", "llegar", "colgar", "regar"],
         "contraejemplos": ["tejer", "crujir", "destejer"],
@@ -1632,7 +1627,9 @@
           {"p": "engranaje", "nivel": 3}
         ],
         "relleno": ["imagen", "gente", "ángel", "general", "origen", "agente", "urgente", "girasol", "página", "mágico", "colegio"],
+        "contraejemplos": ["protege", "proteges"],
         "si": "termina con el sonido «aje» o «eje»: se escribe con j.",
+        "excepcion": "termina con el sonido «eje», pero es una forma del verbo proteger: los verbos en -ger y -gir conservan su g.",
         "hipotesis": [
           {
             "texto": "Las palabras que terminan con el sonido «aje» o «eje» se escriben con j.",
@@ -1670,23 +1667,21 @@
           {"p": "cigüeña", "nivel": 1},
           {"p": "vergüenza", "nivel": 1},
           {"p": "agüita", "nivel": 1},
-          {"p": "desagüe", "nivel": 1},
-          {"p": "bilingüe", "nivel": 1},
+          {"p": "desagüe", "nivel": 2},
+          {"p": "bilingüe", "nivel": 2},
           {"p": "antigüedad", "nivel": 2},
           {"p": "paragüero", "nivel": 2},
           {"p": "lengüeta", "nivel": 2},
           {"p": "piragüista", "nivel": 2},
           {"p": "averigüé", "nivel": 2},
-          {"p": "ungüento", "nivel": 2},
-          {"p": "agüero", "nivel": 2},
+          {"p": "lengüetazo", "nivel": 2},
+          {"p": "paragüitas", "nivel": 2},
           {"p": "pingüinos", "nivel": 2},
           {"p": "lingüística", "nivel": 3},
           {"p": "nicaragüense", "nivel": 3},
-          {"p": "halagüeño", "nivel": 3},
-          {"p": "pedigüeño", "nivel": 3},
-          {"p": "apacigüé", "nivel": 3},
-          {"p": "santigüé", "nivel": 3},
-          {"p": "cigüeñal", "nivel": 3}
+          {"p": "averigüemos", "nivel": 3},
+          {"p": "sinvergüenza", "nivel": 3},
+          {"p": "avergüenza", "nivel": 3}
         ],
         "relleno": ["guerra", "guitarra", "guiso", "juguete", "hoguera", "águila", "guepardo", "manguera", "agua", "guante", "antiguo"],
         "si": "en esa sílaba la u se pronuncia, y por eso lleva diéresis.",
@@ -1750,10 +1745,10 @@
           {"p": "sustrajo", "nivel": 3}
         ],
         "relleno": ["cogió", "elegí", "protegemos", "recogiste", "dirigió", "corrigió", "escogí", "exigimos", "cogimos", "eligió"],
-        "si": "su infinitivo no tiene g ni j, así que el sonido «je» o «ji» se escribe con j.",
+        "si": "su infinitivo no tiene g ni j, así que sus formas con el sonido de la j (je, ji, jo) se escriben con j.",
         "hipotesis": [
           {
-            "texto": "Si un verbo no tiene g ni j en el infinitivo, sus formas con el sonido «je» o «ji» se escriben con j.",
+            "texto": "Si un verbo no tiene g ni j en el infinitivo, sus formas con el sonido de la j se escriben con j: dije, dijiste, dijo.",
             "valor": "buena"
           },
           {
@@ -1763,7 +1758,7 @@
             "prueba": ["cogió", "elegí", "protegemos", "recogiste", "dirigió", "corrigió", "escogí", "exigimos"]
           },
           {
-            "texto": "Las formas del verbo decir con el sonido «je» o «ji» se escriben con j.",
+            "texto": "Las formas del verbo decir con el sonido de la j se escriben con j.",
             "valor": "estrecha",
             "porque": "Demasiado estrecha: «{p}» no es del verbo decir y también se escribe con j.",
             "prueba": ["traje", "conduje", "trajimos", "condujo", "produje", "trajeron", "tradujo", "redujo", "introdujo"]
@@ -1805,12 +1800,11 @@
           {"p": "indígena", "nivel": 2},
           {"p": "generación", "nivel": 2},
           {"p": "inteligencia", "nivel": 3},
-          {"p": "diligencia", "nivel": 3},
+          {"p": "detergente", "nivel": 3},
           {"p": "regenerar", "nivel": 3},
-          {"p": "genealógico", "nivel": 3},
-          {"p": "vigente", "nivel": 3},
-          {"p": "indulgente", "nivel": 3},
-          {"p": "divergencia", "nivel": 3}
+          {"p": "generador", "nivel": 3},
+          {"p": "agenda", "nivel": 3},
+          {"p": "ingenioso", "nivel": 3}
         ],
         "relleno": ["viaje", "garaje", "paisaje", "mensaje", "jefe", "jirafa", "jinete", "cajero", "tejado"],
         "contraejemplos": ["ajeno", "berenjena", "jengibre", "ajenjo"],
@@ -1831,7 +1825,7 @@
             "texto": "Las palabras que empiezan por gen- se escriben con g.",
             "valor": "estrecha",
             "porque": "Demasiado estrecha: «{p}» no empieza por gen- y también lleva g.",
-            "prueba": ["imagen", "origen", "agente", "urgente", "margen", "agencia", "urgencia", "inteligente", "oxígeno", "ingeniero", "exigente", "emergencia", "indígena", "inteligencia", "diligencia", "regenerar", "vigente", "indulgente", "divergencia"]
+            "prueba": ["imagen", "origen", "agente", "urgente", "margen", "agencia", "urgencia", "inteligente", "oxígeno", "ingeniero", "exigente", "emergencia", "indígena", "inteligencia", "detergente", "regenerar", "agenda", "ingenioso"]
           },
           {
             "texto": "Se escriben con g las palabras que terminan en -e.",
@@ -1947,7 +1941,7 @@
           {"p": "bien", "nivel": 2},
           {"p": "cien", "nivel": 2},
           {"p": "guion", "nivel": 3},
-          {"p": "truhan", "nivel": 3},
+          {"p": "ruin", "nivel": 3},
           {"p": "hui", "nivel": 3},
           {"p": "lie", "nivel": 3},
           {"p": "crie", "nivel": 3},
@@ -2107,7 +2101,7 @@
           {
             "texto": "Llevan tilde las palabras que terminan en -n.",
             "valor": "otra",
-            "porque": "No encaja: adiós no termina en -n y lleva tilde. Fíjate en en qué vocal del diptongo va la tilde."
+            "porque": "No encaja: adiós no termina en -n y lleva tilde. Fíjate en qué vocal del diptongo lleva la tilde."
           }
         ]
       },
@@ -2194,7 +2188,7 @@
           {"p": "gratitud", "nivel": 2},
           {"p": "multitud", "nivel": 2},
           {"p": "humildad", "nivel": 2},
-          {"p": "navidad", "nivel": 2},
+          {"p": "novedad", "nivel": 2},
           {"p": "enfermedad", "nivel": 2},
           {"p": "oscuridad", "nivel": 2},
           {"p": "curiosidad", "nivel": 2},
@@ -2251,20 +2245,20 @@
           {"p": "ciudad", "nivel": 1},
           {"p": "verdad", "nivel": 1},
           {"p": "amistad", "nivel": 1},
-          {"p": "salud", "nivel": 1},
-          {"p": "sed", "nivel": 1},
+          {"p": "mitad", "nivel": 1},
+          {"p": "bondad", "nivel": 1},
           {"p": "virtud", "nivel": 1},
           {"p": "edad", "nivel": 1},
           {"p": "huésped", "nivel": 2},
           {"p": "ataúd", "nivel": 2},
-          {"p": "alud", "nivel": 2},
-          {"p": "laúd", "nivel": 2},
-          {"p": "abad", "nivel": 2},
+          {"p": "multitud", "nivel": 2},
+          {"p": "soledad", "nivel": 2},
+          {"p": "actitud", "nivel": 2},
           {"p": "juventud", "nivel": 2},
-          {"p": "vid", "nivel": 2},
-          {"p": "ardid", "nivel": 3},
-          {"p": "merced", "nivel": 3},
-          {"p": "áspid", "nivel": 3},
+          {"p": "novedad", "nivel": 2},
+          {"p": "habilidad", "nivel": 3},
+          {"p": "oportunidad", "nivel": 3},
+          {"p": "electricidad", "nivel": 3},
           {"p": "universidad", "nivel": 3},
           {"p": "tempestad", "nivel": 3},
           {"p": "dificultad", "nivel": 3},
@@ -2287,7 +2281,7 @@
             "texto": "Si el plural de una palabra termina en -dades, la palabra acaba en d.",
             "valor": "estrecha",
             "porque": "Demasiado estrecha: el plural de «{p}» no termina en -dades, y también acaba en d.",
-            "prueba": ["pared", "red", "césped", "ataúd", "huésped", "usted", "alud", "laúd", "abad", "amistad", "juventud", "virtud"]
+            "prueba": ["pared", "red", "césped", "ataúd", "huésped", "usted", "amistad", "juventud", "virtud", "actitud", "multitud"]
           },
           {
             "texto": "Terminan en d las palabras que empiezan por consonante.",
@@ -2325,7 +2319,7 @@
           {"p": "tapiz", "nivel": 2},
           {"p": "codorniz", "nivel": 2},
           {"p": "avestruz", "nivel": 2},
-          {"p": "cáliz", "nivel": 2},
+          {"p": "juez", "nivel": 2},
           {"p": "regaliz", "nivel": 2},
           {"p": "matiz", "nivel": 2},
           {"p": "aprendiz", "nivel": 2},
@@ -2337,7 +2331,7 @@
           {"p": "portavoz", "nivel": 3},
           {"p": "antifaz", "nivel": 3},
           {"p": "barniz", "nivel": 3},
-          {"p": "desliz", "nivel": 3},
+          {"p": "coz", "nivel": 3},
           {"p": "andaluz", "nivel": 3},
           {"p": "veloz", "nivel": 3}
         ],
@@ -2390,13 +2384,12 @@
           {"p": "precoz", "nivel": 2},
           {"p": "atroz", "nivel": 2},
           {"p": "sagaz", "nivel": 2},
-          {"p": "locuaz", "nivel": 2},
+          {"p": "fugaz", "nivel": 2},
           {"p": "perspicaz", "nivel": 3},
-          {"p": "montaraz", "nivel": 3},
-          {"p": "contumaz", "nivel": 3},
+          {"p": "veraz", "nivel": 3},
+          {"p": "vivaz", "nivel": 3},
           {"p": "rapaz", "nivel": 3},
-          {"p": "mordaz", "nivel": 3},
-          {"p": "falaz", "nivel": 3},
+          {"p": "suspicaz", "nivel": 3},
           {"p": "ineficaz", "nivel": 3}
         ],
         "relleno": ["alegre", "rápido", "amable", "valiente", "cortés", "débil", "joven", "fiel"],
@@ -2416,7 +2409,7 @@
             "texto": "Los adjetivos que terminan en -iz se escriben con z.",
             "valor": "estrecha",
             "porque": "Demasiado estrecha: «{p}» no termina en -iz y también lleva z.",
-            "prueba": ["capaz", "veloz", "feroz", "andaluz", "incapaz", "audaz", "eficaz", "tenaz", "voraz", "precoz", "atroz", "sagaz", "locuaz", "perspicaz", "montaraz", "contumaz", "rapaz", "mordaz", "falaz", "ineficaz"]
+            "prueba": ["capaz", "veloz", "feroz", "andaluz", "incapaz", "audaz", "eficaz", "tenaz", "voraz", "precoz", "atroz", "sagaz", "fugaz", "perspicaz", "veraz", "vivaz", "rapaz", "suspicaz", "ineficaz"]
           },
           {
             "texto": "Los adjetivos de dos sílabas terminan en z.",
@@ -2514,7 +2507,7 @@
           {"p": "En agosto cierra la panadería.", "nivel": 2},
           {"p": "El miércoles toca gimnasia.", "nivel": 2},
           {"p": "En diciembre nieva en la sierra.", "nivel": 2},
-          {"p": "El martes hay examen de inglés.", "nivel": 3},
+          {"p": "El martes llega mi primo inglés.", "nivel": 3},
           {"p": "Mi tío andaluz llega en enero.", "nivel": 3},
           {"p": "El director viene el lunes.", "nivel": 3},
           {"p": "Cada otoño vuelven las grullas.", "nivel": 3}

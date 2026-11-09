@@ -593,7 +593,7 @@
       "texto": "Hoy Lola ha llegado al kiosco con una llave muy pequeña.",
       "marcas": [
         { "p": "Hoy", "regla": "ll-y", "por": "La i del final que va detrás de una vocal se escribe y: hoy, muy, rey." },
-        { "p": "llave", "regla": "ll-y", "por": "Se escribe con ll, como toda su familia: llavero, llavín." },
+        { "p": "llave", "regla": "ll-y", "por": "Se escribe con ll, como toda su familia: llavero, llavecita." },
         { "p": "muy", "regla": "ll-y", "por": "La i del final que va detrás de una vocal se escribe y: muy." }
       ]
     },
@@ -1174,11 +1174,11 @@
     {
       "regla": "mayusculas-puntuacion-1",
       "nivel": 3,
-      "texto": "El próximo sábado, los alumnos de quinto visitarán un museo de Sevilla con la profesora Herminia.",
+      "texto": "El próximo sábado, los alumnos de quinto visitarán un museo de Sevilla con la bibliotecaria Herminia.",
       "marcas": [
         { "p": "sábado", "regla": "mayusculas-puntuacion-1", "por": "Los días de la semana van en minúscula." },
         { "p": "Sevilla", "regla": "mayusculas-puntuacion-1", "por": "Es el nombre propio de una ciudad: con mayúscula." },
-        { "p": "profesora", "regla": "mayusculas-puntuacion-1", "por": "Los cargos y las profesiones van en minúscula; el nombre, Herminia, con mayúscula." }
+        { "p": "bibliotecaria", "regla": "mayusculas-puntuacion-1", "por": "Los cargos y las profesiones van en minúscula; el nombre, Herminia, con mayúscula." }
       ]
     },
     {

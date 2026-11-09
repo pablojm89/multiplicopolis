@@ -655,116 +655,128 @@
       ]
     },
     {
-      "id": "tres-amigos",
+      "id": "no-entres",
       "tipo": "dos-puntos",
       "nivel": 2,
       "lecturas": [
         {
-          "emoji": "👧👦👩",
-          "situacion": "A la fiesta solo vinieron tres amigos, y eran Lola, Mateo y Rocío.",
-          "frase": "Vinieron tres amigos: Lola, Mateo y Rocío.",
-          "explicacion": "Los dos puntos anuncian quiénes son los tres amigos: en total, vinieron tres."
+          "emoji": "🚪😴",
+          "situacion": "Mateo va a abrir la puerta del cuarto. Le avisas: dentro está Lola echando la siesta.",
+          "frase": "No entres: Lola está dormida.",
+          "explicacion": "Los dos puntos anuncian el motivo. Hablas con otra persona, y la que duerme es Lola.",
+          "tambien": ["No entres. Lola está dormida."]
         },
         {
-          "emoji": "👥👧👦👩",
-          "situacion": "Vinieron tres amigos más, y además Lola, Mateo y Rocío. ¡Seis en total!",
-          "frase": "Vinieron tres amigos, Lola, Mateo y Rocío.",
-          "explicacion": "Con comas, es una enumeración de cuatro: tres amigos más Lola, Mateo y Rocío."
+          "emoji": "🤫👵",
+          "situacion": "Lola va a abrir la puerta del cuarto. Le avisas a ella: la abuela se ha quedado dormida.",
+          "frase": "No entres, Lola: está dormida.",
+          "explicacion": "La coma separa a Lola, a quien hablas. La que duerme es otra: la abuela.",
+          "tambien": ["No entres, Lola. Está dormida.", "No entres, Lola, está dormida."]
         }
       ]
     },
     {
-      "id": "dos-cosas",
+      "id": "corre-toby",
       "tipo": "dos-puntos",
       "nivel": 2,
       "lecturas": [
         {
-          "emoji": "🎒🔍📓",
-          "situacion": "En la mochila de detective solo caben dos cosas, y son la lupa y la libreta.",
-          "frase": "En la mochila llevo dos cosas: la lupa y la libreta.",
-          "explicacion": "Los dos puntos anuncian cuáles son las dos cosas: llevas dos, ni una más."
+          "emoji": "🏃🐕",
+          "situacion": "Toby, tu perro, ha saltado la valla del parque. Pides ayuda a Lola para alcanzarlo.",
+          "frase": "Corre: Toby se escapa.",
+          "explicacion": "Los dos puntos anuncian el motivo. Hablas con otra persona, y el que se escapa es Toby.",
+          "tambien": ["Corre. Toby se escapa.", "¡Corre! Toby se escapa."]
         },
         {
-          "emoji": "🎒🧸🍎🔍📓",
-          "situacion": "En la mochila hay dos cosas sin nombrar, la lupa y la libreta. Cuatro en total.",
-          "frase": "En la mochila llevo dos cosas, la lupa y la libreta.",
-          "explicacion": "Con comas, es una lista: dos cosas, la lupa y la libreta. ¡Cuatro cosas!"
+          "emoji": "🐕🐈",
+          "situacion": "Juegas con Toby, tu perro, y el gato del vecino sale disparado. Animas a Toby a seguirlo.",
+          "frase": "Corre, Toby: se escapa.",
+          "explicacion": "La coma separa a Toby, a quien hablas. El que se escapa es otro: el gato.",
+          "tambien": ["Corre, Toby. Se escapa.", "Corre, Toby, se escapa.", "¡Corre, Toby! Se escapa."]
         }
       ]
     },
     {
-      "id": "tres-sospechosos",
+      "id": "mira-robles",
       "tipo": "dos-puntos",
       "nivel": 2,
       "lecturas": [
         {
-          "emoji": "🕵️‍♀️👤👤👤",
-          "situacion": "Robles tiene la lista: los sospechosos son tres, y tienen nombre.",
-          "frase": "Hay tres sospechosos: Bruno, Paco y Gregorio.",
-          "explicacion": "Los dos puntos anuncian quiénes son los tres sospechosos: Bruno, Paco y Gregorio."
+          "emoji": "👀🕺",
+          "situacion": "En la fiesta del barrio, el director Robles se ha lanzado a la pista. Avisas a Lola.",
+          "frase": "Mira: Robles está bailando.",
+          "explicacion": "Los dos puntos anuncian lo que hay que mirar. Hablas con otra persona, y el que baila es Robles.",
+          "tambien": ["Mira. Robles está bailando.", "¡Mira! Robles está bailando."]
         },
         {
-          "emoji": "🕵️‍♀️👥👥👥",
-          "situacion": "Hay tres sospechosos sin identificar y, además, Bruno, Paco y Gregorio.",
-          "frase": "Hay tres sospechosos, Bruno, Paco y Gregorio.",
-          "explicacion": "Con comas, es una lista: tres sin nombre más Bruno, Paco y Gregorio. ¡Seis sospechosos!"
+          "emoji": "🤖🕺",
+          "situacion": "Mateo ha arreglado el robot de la agencia y se lo enseñas al director Robles.",
+          "frase": "Mira, Robles: está bailando.",
+          "explicacion": "La coma separa a Robles, a quien hablas. El que baila es otro: el robot.",
+          "tambien": ["Mira, Robles. Está bailando.", "Mira, Robles, está bailando.", "¡Mira, Robles! Está bailando."]
         }
       ]
     },
     {
-      "id": "dos-vecinos",
+      "id": "silencio-herminia",
       "tipo": "dos-puntos",
       "nivel": 2,
       "lecturas": [
         {
-          "emoji": "📸👨👩",
-          "situacion": "Para la foto del barrio solo faltan dos vecinos: son Ramón y Remedios.",
-          "frase": "Para la foto faltan dos vecinos: Ramón y Remedios.",
-          "explicacion": "Los dos puntos anuncian quiénes son los dos vecinos que faltan."
+          "emoji": "🤫📖",
+          "situacion": "Herminia ha empezado la hora del cuento en la biblioteca. Pides a los niños que se callen.",
+          "frase": "Silencio: Herminia está leyendo.",
+          "explicacion": "Los dos puntos anuncian el motivo del silencio. La que lee es Herminia.",
+          "tambien": ["Silencio. Herminia está leyendo.", "¡Silencio! Herminia está leyendo."]
         },
         {
-          "emoji": "📸👥👨👩",
-          "situacion": "Faltan dos vecinos que nadie recuerda y también Ramón y Remedios.",
-          "frase": "Para la foto faltan dos vecinos, Ramón y Remedios.",
-          "explicacion": "Con comas, es una lista: dos vecinos más Ramón y Remedios. Faltan cuatro."
+          "emoji": "🤫🎶",
+          "situacion": "Herminia canturrea entre las estanterías y Mateo intenta leer. Se lo pides a ella bajito.",
+          "frase": "Silencio, Herminia: está leyendo.",
+          "explicacion": "La coma separa a Herminia, a quien hablas. El que lee es otro: Mateo.",
+          "tambien": ["Silencio, Herminia. Está leyendo.", "Silencio, Herminia, está leyendo.", "¡Silencio, Herminia! Está leyendo."]
         }
       ]
     },
     {
-      "id": "dos-perros",
+      "id": "espera-paco",
       "tipo": "dos-puntos",
       "nivel": 2,
       "lecturas": [
         {
-          "emoji": "🐕🐕",
-          "situacion": "Mateo tiene dos perros, y se llaman Toby y Lucas.",
-          "frase": "Mateo tiene dos perros: Toby y Lucas.",
-          "explicacion": "Los dos puntos anuncian cómo se llaman los dos perros: Mateo tiene dos."
+          "emoji": "⏳📷",
+          "situacion": "Lola quiere empezar la foto sin el fotógrafo. Le pides paciencia: Paco dobla ya la esquina.",
+          "frase": "Espera: Paco ya viene.",
+          "explicacion": "Los dos puntos anuncian el motivo. Hablas con otra persona, y el que viene es Paco.",
+          "tambien": ["Espera. Paco ya viene.", "¡Espera! Paco ya viene."]
         },
         {
-          "emoji": "🐕🐕🐈🐢",
-          "situacion": "Mateo tiene dos perros y, además, a Toby, un gato, y a Lucas, una tortuga.",
-          "frase": "Mateo tiene dos perros, Toby y Lucas.",
-          "explicacion": "Con comas, es una enumeración: dos perros, Toby y Lucas. ¡Cuatro mascotas!"
+          "emoji": "⏳🚌",
+          "situacion": "Paco quiere irse andando. Le pides paciencia a él: el autobús ya asoma por la calle.",
+          "frase": "Espera, Paco: ya viene.",
+          "explicacion": "La coma separa a Paco, a quien hablas. El que viene es otro: el autobús.",
+          "tambien": ["Espera, Paco. Ya viene.", "Espera, Paco, ya viene.", "¡Espera, Paco! Ya viene."]
         }
       ]
     },
     {
-      "id": "desaparecidas",
+      "id": "cuidado-julian",
       "tipo": "dos-puntos",
       "nivel": 2,
       "lecturas": [
         {
-          "emoji": "🗂️📜🔍",
-          "situacion": "En la agencia han desaparecido dos cosas: el pregón de la feria y la lupa.",
-          "frase": "Han desaparecido dos cosas: el pregón y la lupa.",
-          "explicacion": "Los dos puntos anuncian cuáles son las dos cosas que faltan."
+          "emoji": "😱🪜",
+          "situacion": "Julián, el panadero, se tambalea en lo alto de la escalera. Avisas a Mateo para que la sujete.",
+          "frase": "Cuidado: Julián se cae.",
+          "explicacion": "Los dos puntos anuncian el peligro. Hablas con otra persona, y el que se cae es Julián.",
+          "tambien": ["Cuidado. Julián se cae.", "¡Cuidado! Julián se cae."]
         },
         {
-          "emoji": "🗂️❓❓📜🔍",
-          "situacion": "Faltan dos cosas que nadie sabe qué son y, además, el pregón y la lupa.",
-          "frase": "Han desaparecido dos cosas, el pregón y la lupa.",
-          "explicacion": "Con comas, es una lista: dos cosas más el pregón y la lupa. ¡Faltan cuatro!"
+          "emoji": "😱🍞",
+          "situacion": "Julián lleva una torre de panes que se inclina peligrosamente. Le avisas a él.",
+          "frase": "Cuidado, Julián: se cae.",
+          "explicacion": "La coma separa a Julián, a quien hablas. Lo que se cae es otra cosa: el pan.",
+          "tambien": ["Cuidado, Julián. Se cae.", "Cuidado, Julián, se cae.", "¡Cuidado, Julián! Se cae."]
         }
       ]
     },

@@ -12,11 +12,11 @@
     },
     {
       "id": "hueso", "regla": "h-1", "nivel": 3, "raiz": "hueso", "piezas": ["hues", "o"], "letra": "h", "pos": 0,
-      "nota": "Hueso lleva h porque empieza por ue-. Si en la familia desaparece el ue, desaparece también la h: huesudo, pero óseo y osamenta.",
+      "nota": "Hueso lleva h porque empieza por ue-. Si en la familia desaparece el ue, desaparece también la h: huesudo y deshuesar, pero óseo.",
       "derivadas": [
         { "p": "huesudo", "pista": "Que tiene los huesos muy marcados", "frase": "El perro callejero estaba flaco y ___.", "opciones": ["h", "sin h"], "letra": "h", "pos": 0 },
         { "p": "óseo", "pista": "De los huesos o parecido a un hueso", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Ya no empieza por ue-: sin el diptongo ue, se va la h." },
-        { "p": "osamenta", "pista": "El conjunto de los huesos de un esqueleto", "frase": "En el museo vimos la ___ completa de un dinosaurio.", "opciones": ["h", "sin h"], "letra": "sin h", "pos": 0, "porque": "Ya no empieza por ue-: sin el diptongo ue, se va la h." }
+        { "p": "deshuesar", "pista": "Quitar el hueso a una fruta o a una aceituna", "frase": "Para hacer la mermelada hay que ___ las cerezas una a una.", "opciones": ["h", "sin h"], "letra": "h", "pos": 3 }
       ]
     },
     {
@@ -243,11 +243,11 @@
       ]
     },
     {
-      "id": "cereza", "regla": "c-z-s", "nivel": 1, "raiz": "cereza", "piezas": ["cerez", "a"], "letra": "z", "pos": 4,
-      "nota": "La z de cereza va delante de a y de o en la familia, así que se queda: cerezo, cerezal.",
+      "id": "cereza", "regla": "c-z-s", "nivel": 2, "raiz": "cereza", "piezas": ["cerez", "a"], "letra": "z", "pos": 4,
+      "nota": "La z de cereza se queda delante de o (cerezo) y pasa a c delante de i (cerecita).",
       "derivadas": [
         { "p": "cerezo", "pista": "El árbol que da cerezas", "frase": "En primavera, el ___ se llena de flores blancas.", "opciones": ["z", "c"], "letra": "z", "pos": 4 },
-        { "p": "cerezal", "pista": "Un terreno con muchos cerezos", "frase": "Detrás de la casa del pueblo hay un ___ enorme.", "opciones": ["z", "c"], "letra": "z", "pos": 4 }
+        { "p": "cerecita", "pista": "Una cereza pequeña", "frase": "El pastel lleva una ___ roja en lo más alto.", "opciones": ["z", "c"], "letra": "c", "pos": 4, "porque": "Delante de e o de i, la z se convierte en c: ce, ci." }
       ]
     },
     {
@@ -532,7 +532,7 @@
       "nota": "Raíz termina en z; delante de e se escribe c (raíces), pero delante de a vuelve la z (enraizar).",
       "derivadas": [
         { "p": "raíces", "pista": "Más de una raíz", "frase": "Las ___ del olivo son larguísimas.", "opciones": ["z", "c"], "letra": "c", "pos": 3, "porque": "Delante de e o de i, la z se convierte en c: ce, ci." },
-        { "p": "enraizar", "pista": "Echar raíces una planta", "frase": "El esqueje tardó dos semanas en ___ en la maceta.", "opciones": ["z", "c"], "letra": "z", "pos": 5 }
+        { "p": "enraizar", "pista": "Echar raíces una planta", "frase": "El geranio tardó dos semanas en ___ en la maceta nueva.", "opciones": ["z", "c"], "letra": "z", "pos": 5 }
       ]
     },
     {
@@ -624,32 +624,32 @@
       "id": "playa", "regla": "ll-y", "nivel": 1, "raiz": "playa", "piezas": ["play", "a"], "letra": "y", "pos": 3,
       "nota": "La y de playa se hereda en toda la familia: playita, playero.",
       "derivadas": [
-        { "p": "playita", "pista": "Una playa pequeña", "frase": "Encontramos una ___ escondida entre las rocas.", "opciones": ["y", "i"], "letra": "y", "pos": 3 },
-        { "p": "playero", "pista": "Que se usa en la playa", "frase": "Me compré un sombrero ___ de paja.", "opciones": ["y", "i"], "letra": "y", "pos": 3 }
+        { "p": "playita", "pista": "Una playa pequeña", "frase": "Encontramos una ___ escondida entre las rocas.", "opciones": ["y", "ll"], "letra": "y", "pos": 3 },
+        { "p": "playero", "pista": "Que se usa en la playa", "frase": "Me compré un sombrero ___ de paja.", "opciones": ["y", "ll"], "letra": "y", "pos": 3 }
       ]
     },
     {
       "id": "ayuda", "regla": "ll-y", "nivel": 1, "raiz": "ayuda", "piezas": ["ayud", "a"], "letra": "y", "pos": 1,
       "nota": "La y de ayuda se hereda: ayudar, ayudante.",
       "derivadas": [
-        { "p": "ayudar", "pista": "Echar una mano a alguien", "frase": "¿Me puedes ___ a llevar estas cajas?", "opciones": ["y", "i"], "letra": "y", "pos": 1 },
-        { "p": "ayudante", "pista": "La persona que ayuda a otra en su trabajo", "frase": "Mateo es el ___ del laboratorio.", "opciones": ["y", "i"], "letra": "y", "pos": 1 }
+        { "p": "ayudar", "pista": "Echar una mano a alguien", "frase": "¿Me puedes ___ a llevar estas cajas?", "opciones": ["y", "ll"], "letra": "y", "pos": 1 },
+        { "p": "ayudante", "pista": "La persona que ayuda a otra en su trabajo", "frase": "Mateo es el ___ del laboratorio.", "opciones": ["y", "ll"], "letra": "y", "pos": 1 }
       ]
     },
     {
       "id": "yeso", "regla": "ll-y", "nivel": 2, "raiz": "yeso", "piezas": ["yes", "o"], "letra": "y", "pos": 0,
-      "nota": "La y de yeso se queda en toda su familia, también detrás de en-: yesero, enyesar.",
+      "nota": "La y de yeso se queda en toda su familia, también detrás de en-: enyesar, enyesado.",
       "derivadas": [
-        { "p": "yesero", "pista": "La persona que trabaja con yeso", "frase": "El ___ alisó la pared con mucho cuidado.", "opciones": ["y", "i"], "letra": "y", "pos": 0 },
-        { "p": "enyesar", "pista": "Cubrir algo con yeso, como un brazo roto", "frase": "Al caerse de la bici, le tuvieron que ___ el brazo.", "opciones": ["y", "i"], "letra": "y", "pos": 2 }
+        { "p": "enyesado", "pista": "Cubierto con yeso", "frase": "Mateo vino a clase con el brazo ___ y todos se lo firmaron.", "opciones": ["y", "ll"], "letra": "y", "pos": 2 },
+        { "p": "enyesar", "pista": "Cubrir algo con yeso, como un brazo roto", "frase": "Al caerse de la bici, le tuvieron que ___ el brazo.", "opciones": ["y", "ll"], "letra": "y", "pos": 2 }
       ]
     },
     {
       "id": "cuchillo", "regla": "ll-y", "nivel": 2, "raiz": "cuchillo", "piezas": ["cuchill", "o"], "letra": "ll", "pos": 5,
-      "nota": "La ll de cuchillo se hereda: cuchilla, cuchillería.",
+      "nota": "La ll de cuchillo se hereda: cuchilla, cuchillito.",
       "derivadas": [
         { "p": "cuchilla", "pista": "Una hoja de metal muy afilada", "frase": "El sacapuntas tiene una ___ muy pequeña.", "opciones": ["ll", "y"], "letra": "ll", "pos": 5 },
-        { "p": "cuchillería", "pista": "La tienda donde venden cuchillos y tijeras", "frase": "Mi abuelo afila las tijeras en la ___ del mercado.", "opciones": ["ll", "y"], "letra": "ll", "pos": 5 }
+        { "p": "cuchillito", "pista": "Un cuchillo pequeño", "frase": "Para untar la mantequilla uso un ___ sin punta.", "opciones": ["ll", "y"], "letra": "ll", "pos": 5 }
       ]
     },
     {

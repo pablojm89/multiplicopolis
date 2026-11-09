@@ -130,13 +130,13 @@
         { "p": "ahí", "significado": "En ese lugar.",
           "frases": ["Deja la lupa ___, encima de la mesa.", "Mira ___, detrás de la puerta.", "No te sientes ___, que esa silla está rota."] },
         { "p": "hay", "significado": "Forma del verbo haber: indica que algo existe o está en un sitio.",
-          "frases": ["En el armario ___ tres cajas de pruebas.", "Hoy no ___ clase de música.", "¿___ alguien en la sala de pruebas?"] },
+          "frases": ["En el armario ___ tres cajas de pruebas.", "Hoy no ___ entrenamiento de baloncesto.", "¿___ alguien en la sala de pruebas?"] },
         { "p": "ay", "significado": "Exclamación de dolor, de susto o de pena.",
           "frases": ["¡___, qué susto me has dado!", "Al pisar la chincheta, Mateo gritó: «¡___!».", "¡___, cómo me duele la muela!"] }
       ]
     },
     {
-      "id": "haya-halla-aya", "regla": "h-1", "tambien": ["ll-y"], "nivel": 2,
+      "id": "haya-halla-aya", "regla": "h-1", "tambien": ["ll-y"], "nivel": 3,
       "truco": "Haya es del verbo haber (que haya) o un árbol. Halla es del verbo hallar, encontrar: con ll. El aya era una niñera de las de antes.",
       "formas": [
         { "p": "haya", "significado": "Forma del verbo haber: que haya, haya terminado. También, un árbol grande de tronco gris.",
@@ -270,7 +270,7 @@
       ]
     },
     {
-      "id": "cima-sima", "regla": "c-z-s", "nivel": 2,
+      "id": "cima-sima", "regla": "c-z-s", "nivel": 3,
       "truco": "La cima, con c, está arriba del todo. La sima, con s, es un agujero muy hondo.",
       "formas": [
         { "p": "cima", "significado": "La parte más alta de una montaña.",
@@ -394,7 +394,7 @@
       "truco": "Vasto, con v, es muy extenso, enorme. Basto, con b, es poco fino o áspero; y los bastos son un palo de la baraja.",
       "formas": [
         { "p": "basto", "significado": "Poco fino, áspero al tacto. Los bastos también son uno de los palos de la baraja española.",
-          "frases": ["El saco de arpillera era tan ___ que picaba al tocarlo con las manos.", "En la baraja española, el caballo de ___ lleva en la mano un garrote de madera.", "Ese jersey de lana es tan ___ que mi hermano se niega a ponérselo."] },
+          "frases": ["El saco de arpillera era tan ___ que picaba al tocarlo con las manos.", "El papel de lija es tan ___ que sirve para dejar lisa la madera antes de pintarla.", "Ese jersey de lana es tan ___ que mi hermano se niega a ponérselo."] },
         { "p": "vasto", "significado": "Muy extenso, muy grande.",
           "frases": ["Desde el avión se veía un ___ desierto de arena que parecía no tener fin.", "El Imperio romano llegó a ser tan ___ que iba desde Hispania hasta Asia.", "Los exploradores tardaron meses en cruzar el ___ territorio helado del Polo Sur."] }
       ]
@@ -700,7 +700,7 @@
     { "frase": "El ___ apareció en el bosque junto a una ___ de piedra muy antigua.", "p": ["ciervo", "losa"] },
     { "frase": "En el fondo de la ___ quedó un ___ marrón de cacao.", "p": ["taza", "poso"] },
     { "frase": "El pescador puso ___ en el anzuelo y se sentó a la orilla del ___.", "p": ["cebo", "arroyo"] },
-    { "frase": "La finca era tan ___ que el abuelo tardó una semana entera en ___ el trigo.", "p": ["vasto", "segar"] },
+    { "frase": "El terreno era tan ___ que el abuelo tardó una semana entera en ___ el trigo.", "p": ["vasto", "segar"] },
     { "frase": "El herrero tuvo que ___ al caballo antes de ___ la cuadra.", "p": ["herrar", "cerrar"] },
     { "frase": "Para ___ las sardinas, el abuelo saca una fuente de ___ de la alacena.", "p": ["asar", "loza"] },
     { "frase": "Pon el ___ en el fuego y, mientras tanto, ponte a ___ el periódico.", "p": ["cazo", "hojear"] },

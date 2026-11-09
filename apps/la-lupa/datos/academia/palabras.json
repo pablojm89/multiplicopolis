@@ -725,7 +725,7 @@
         "mos"
       ],
       "tonica": 1,
-      "frase": "___ que correr para llegar a tiempo."
+      "frase": "Ayer ___ que correr para llegar a tiempo."
     },
     {
       "p": "hielo",
@@ -1262,7 +1262,7 @@
         "yer"
       ],
       "tonica": 1,
-      "frase": "___ estuvimos en la biblioteca."
+      "frase": "Hoy vamos al mercado; ___ estuvimos en la biblioteca."
     },
     {
       "p": "verdad",
@@ -1779,7 +1779,7 @@
         "cas"
       ],
       "tonica": 2,
-      "frase": "En clase de ___ estamos aprendiendo las fracciones."
+      "frase": "Las ___ me gustan porque me encantan los números."
     },
     {
       "p": "kilómetro",
@@ -2519,7 +2519,7 @@
         "te"
       ],
       "tonica": 0,
-      "frase": "¿___ tú quien dejó la nota en mi pupitre?"
+      "frase": "Lola, ¿tú ___ ayer a la biblioteca?"
     },
     {
       "p": "sesión",
@@ -2571,7 +2571,7 @@
         "te"
       ],
       "tonica": 1,
-      "frase": "___, que llegamos tarde al colegio."
+      "frase": "Venga, ___, que llegamos tarde al colegio."
     },
     {
       "p": "opinión",
@@ -2604,7 +2604,7 @@
       "p": "vais",
       "regla": "diptongo-monosilabos",
       "mal": "váis",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "vais"
       ],
@@ -2615,12 +2615,12 @@
       "p": "veis",
       "regla": "diptongo-monosilabos",
       "mal": "véis",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "veis"
       ],
       "tonica": 0,
-      "frase": "¿___ aquella luz en lo alto de la torre?"
+      "frase": "Chicos, ¿vosotros ___ aquella luz en lo alto de la torre?"
     },
     {
       "p": "huésped",
@@ -2662,17 +2662,16 @@
       "frase": "En la cueva vimos un ___ colgado del techo."
     },
     {
-      "p": "estiércol",
+      "p": "ciempiés",
       "regla": "diptongo-monosilabos",
-      "mal": "estiercol",
+      "mal": "ciempies",
       "nivel": 3,
       "silabas": [
-        "es",
-        "tiér",
-        "col"
+        "ciem",
+        "piés"
       ],
       "tonica": 1,
-      "frase": "El jardinero abona las rosas con ___."
+      "frase": "El ___ es un bicho alargado con muchísimas patas."
     },
     {
       "p": "béisbol",
@@ -2944,7 +2943,7 @@
       "p": "pingüino",
       "regla": "g-j-dieresis",
       "mal": "pinguino",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "pin",
         "güi",
@@ -3060,7 +3059,7 @@
       "p": "cigüeña",
       "regla": "g-j-dieresis",
       "mal": "cigueña",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "ci",
         "güe",
@@ -3189,7 +3188,7 @@
         "a"
       ],
       "tonica": 3,
-      "frase": "En ___ hemos estudiado los ríos de Andalucía."
+      "frase": "La ___ estudia los ríos, las montañas y los países."
     },
     {
       "p": "alergia",
@@ -3431,7 +3430,7 @@
         "a"
       ],
       "tonica": 3,
-      "frase": "En ___ aprendemos a medir triángulos."
+      "frase": "La ___ es la parte de las matemáticas que estudia las figuras."
     },
     {
       "p": "biología",
@@ -3460,7 +3459,7 @@
         "a"
       ],
       "tonica": 3,
-      "frase": "En clase de ___ montamos un pequeño robot."
+      "frase": "La ___ avanza muy deprisa: cada año hay móviles nuevos."
     },
     {
       "p": "estrategia",
@@ -3705,7 +3704,7 @@
       "p": "bilingüe",
       "regla": "g-j-dieresis",
       "mal": "bilingue",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "bi",
         "lin",
@@ -3732,7 +3731,7 @@
       "p": "desagüe",
       "regla": "g-j-dieresis",
       "mal": "desague",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "de",
         "sa",
@@ -4018,7 +4017,7 @@
         "hoy"
       ],
       "tonica": 0,
-      "frase": "___ es el primer día de la feria."
+      "frase": "Ayer llovió, pero ___ hace un sol espléndido."
     },
     {
       "p": "muy",
@@ -4594,7 +4593,7 @@
       "p": "buey",
       "regla": "ll-y",
       "mal": "buei",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "buey"
       ],
@@ -4822,7 +4821,7 @@
       "p": "oscuridad",
       "regla": "d-z-finales",
       "mal": "oscuridaz",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "os",
         "cu",
@@ -4836,7 +4835,7 @@
       "p": "felicidad",
       "regla": "d-z-finales",
       "mal": "felicidaz",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "fe",
         "li",
@@ -4876,7 +4875,7 @@
       "p": "seguridad",
       "regla": "d-z-finales",
       "mal": "seguridaz",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "se",
         "gu",
@@ -4890,7 +4889,7 @@
       "p": "actividad",
       "regla": "d-z-finales",
       "mal": "actividaz",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "ac",
         "ti",
@@ -4904,7 +4903,7 @@
       "p": "velocidad",
       "regla": "d-z-finales",
       "mal": "velocidaz",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "ve",
         "lo",
@@ -4918,7 +4917,7 @@
       "p": "curiosidad",
       "regla": "d-z-finales",
       "mal": "curiosidaz",
-      "nivel": 1,
+      "nivel": 2,
       "silabas": [
         "cu",
         "rio",
@@ -5306,16 +5305,17 @@
       "frase": "Andalucía es una ___ autónoma."
     },
     {
-      "p": "alud",
+      "p": "longitud",
       "regla": "d-z-finales",
-      "mal": "aluz",
+      "mal": "longituz",
       "nivel": 3,
       "silabas": [
-        "a",
-        "lud"
+        "lon",
+        "gi",
+        "tud"
       ],
-      "tonica": 1,
-      "frase": "Un ___ de nieve bajó por la ladera de la montaña."
+      "tonica": 2,
+      "frase": "La ___ del campo de fútbol es de cien metros."
     },
     {
       "p": "lombriz",
@@ -5359,7 +5359,7 @@
       "p": "veloz",
       "regla": "d-z-finales",
       "mal": "velod",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "ve",
         "loz"
@@ -5397,7 +5397,7 @@
       "p": "niñez",
       "regla": "d-z-finales",
       "mal": "niñed",
-      "nivel": 3,
+      "nivel": 2,
       "silabas": [
         "ni",
         "ñez"
@@ -5432,16 +5432,16 @@
       "frase": "Por ___, Ramón no quería cantar en público."
     },
     {
-      "p": "tapiz",
+      "p": "maíz",
       "regla": "d-z-finales",
-      "mal": "tapid",
-      "nivel": 3,
+      "mal": "maíd",
+      "nivel": 2,
       "silabas": [
-        "ta",
-        "piz"
+        "ma",
+        "íz"
       ],
       "tonica": 1,
-      "frase": "En la pared del palacio cuelga un ___ antiguo."
+      "frase": "Las palomitas se hacen con granos de ___."
     },
     {
       "p": "aprendiz",
@@ -5975,20 +5975,6 @@
       "frase": "El niño del cuento vivía en un ___."
     },
     {
-      "p": "osamenta",
-      "regla": "h-1",
-      "mal": "hosamenta",
-      "nivel": 3,
-      "silabas": [
-        "o",
-        "sa",
-        "men",
-        "ta"
-      ],
-      "tonica": 2,
-      "frase": "En el museo exponen la ___ de una ballena."
-    },
-    {
       "p": "ovíparo",
       "regla": "h-1",
       "mal": "hovíparo",
@@ -6069,7 +6055,7 @@
         "na"
       ],
       "tonica": 3,
-      "frase": "¡___ por ganar el concurso de dibujo!"
+      "frase": "Te doy la ___ por ganar el concurso de dibujo."
     },
     {
       "p": "zorro",
@@ -6545,7 +6531,7 @@
         "cé"
       ],
       "tonica": 1,
-      "frase": "___ la calle por el paso de cebra."
+      "frase": "Ayer ___ la calle por el paso de cebra."
     },
     {
       "p": "lancé",
@@ -6803,7 +6789,7 @@
         "cé"
       ],
       "tonica": 2,
-      "frase": "___ con una piedra y me caí."
+      "frase": "Iba corriendo, ___ con una piedra y me caí."
     },
     {
       "p": "bailaba",
@@ -7754,7 +7740,7 @@
         "glés"
       ],
       "tonica": 1,
-      "frase": "En clase de ___ aprendemos a decir «hello»."
+      "frase": "En Londres se habla ___."
     },
     {
       "p": "director",

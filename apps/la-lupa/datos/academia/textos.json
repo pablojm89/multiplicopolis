@@ -47,7 +47,7 @@
       "texto": "Atención: el [joven] del [brazo] vendado [jugaba] en la plaza a las ocho. Hay que [enviar] a un detective [activo] antes de que caiga el [hielo] de la noche."
     },
     {
-      "tipo": "Receta de Doña Pilar",
+      "tipo": "Receta de doña Pilar",
       "nivel": 1,
       "texto": "Pon la [cazuela] al fuego con aceite. Echa la [cebolla] picada, después el [arroz] y, al final, [diez] [cerezas] para decorar. ¡Y no te olvides del [queso]!"
     },
@@ -159,7 +159,7 @@
     {
       "tipo": "Noticia de «El Eco de La Alameda»",
       "nivel": 3,
-      "texto": "La [ocasión] lo merecía: ayer el barrio celebró los cien años de la panadería de Julián. Hubo música, globos y un enorme pastel de [mazapán]. A las nueve se oyó una [explosión] y todos se asustaron. ¡Eran los fuegos artificiales! Los niños llevaban [narices] rojas y [disfraces] de colores. Julián dijo que abrir la panadería fue la [decisión] más bonita de su vida. Los vecinos se marcharon a casa muy [felices]."
+      "texto": "La [ocasión] lo merecía: ayer el barrio celebró los cincuenta años de la panadería de Julián. Hubo música, globos y un enorme pastel de [mazapán]. A las nueve se oyó una [explosión] y todos se asustaron. ¡Eran los fuegos artificiales! Los niños llevaban [narices] rojas y [disfraces] de colores. Julián dijo que abrir la panadería fue la [decisión] más bonita de su vida. Los vecinos se marcharon a casa muy [felices]."
     },
     {
       "tipo": "Postal de Mateo",
@@ -244,7 +244,7 @@
     {
       "tipo": "Cartel de la feria",
       "nivel": 1,
-      "texto": "¡Este año hay concurso de [disfraz], torneo de [ajedrez] y carrera de [velocidad]! Para apuntarte, solo tienes que decir tu nombre y tu [edad]."
+      "texto": "¡Este año hay premio al mejor [disfraz], torneo de [ajedrez] y carrera de [velocidad]! Para apuntarte, solo tienes que decir tu nombre y tu [edad]."
     },
     {
       "tipo": "Informe de Lola",
@@ -264,7 +264,7 @@
     {
       "tipo": "Nota del colegio",
       "nivel": 1,
-      "texto": "El [martes] hay excursión a Doñana con el [director] Robles. Volveremos el [jueves], antes de la clase de [inglés]."
+      "texto": "El [martes] hay excursión a Doñana con el [director] Robles. Volveremos el [jueves], y el guía nos hablará en [inglés] y en español."
     },
     {
       "tipo": "Calendario de la agencia",
