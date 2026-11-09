@@ -146,7 +146,7 @@
    El ::after agranda la zona que se puede tocar sin mover la maquetación ── */
 .pup-teclas { gap: 7px; }
 .pup-tecla { position: relative; width: 38px; height: 38px; font-size: 22px; }
-.pup-tecla::after { content: ""; position: absolute; inset: -6px -3px; }
+.pup-tecla::after { content: ""; position: absolute; inset: -3px; }
 .pup-ok { position: relative; width: 44px; height: 44px; }
 .pup-ok::after { content: ""; position: absolute; inset: -4px -8px -4px -4px; }
 .pup-hueco { min-height: 44px; }

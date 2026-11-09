@@ -349,7 +349,7 @@ function academiaNube(a) {
   return {
     sesion: enteroNube(a.sesion, 0, 100000), ultimoDia: diaNube(a.ultimoDia) ? a.ultimoDia : null, puntos: enteroNube(a.puntos, 0, 10000000),
     puntosDia: mapaNube(a.puntosDia, diaNube, v => enteroNube(v, 0, 100000)),
-    cola: mapaNube(a.cola, si, f => (esObjeto(f) ? { regla: f.regla == null ? null : textoNube(f.regla, 60), nivel: enteroNube(f.nivel, 0, 10), proximo: enteroNube(f.proximo, 0, 1000000), fallos: enteroNube(f.fallos, 0, 100000), origen: textoNube(f.origen, 60) } : undefined)),
+    cola: mapaNube(a.cola, si, f => (esObjeto(f) ? { regla: f.regla == null ? null : textoNube(f.regla, 60), nivel: enteroNube(f.nivel, 0, 10), proximo: enteroNube(f.proximo, 0, 1000000), fallos: enteroNube(f.fallos, 0, 100000), origen: textoNube(f.origen, 60), ...(f.pista ? { pista: textoNube(f.pista, 300) } : {}), ...(f.por ? { por: textoNube(f.por, 300) } : {}) } : undefined)),
     archivadas: listaNube(a.archivadas, 60, 5000),
     turno: esObjeto(a.turno) ? { dia: diaNube(a.turno.dia) ? a.turno.dia : null, hechas: listaNube(a.turno.hechas, 40, 20) } : { dia: null, hechas: [] },
     leccionVista: mapaNube(a.leccionVista, si, v => enteroNube(v, 0, 100000)),

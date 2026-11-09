@@ -324,7 +324,8 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
         };
         paso();
       }
-      const borrar = () => {
+      // Declaración de función (y no const): con «movimiento reducido», empezarCuenta() la usa antes de llegar a esta línea
+      function borrar() {
         rec.classList.add("borrando");
         $("#cenCuenta").hidden = true;
         cenLuego(gen, 650, () => {
@@ -333,7 +334,7 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
           listoParaEscribir();
           dice(emisiones < EMISIONES ? "¡Borrado! Ahora tecléalo de memoria. Si lo necesitas, puedes verlo otra vez." : "¡Borrado! Ya no hay más destellos: tecléalo de memoria.", "neutral");
         });
-      };
+      }
     };
 
     $("#cenEmitir").onclick = () => {

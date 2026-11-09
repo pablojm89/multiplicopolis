@@ -210,7 +210,13 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
     // La galerada tiene que caber entera: se baja la letra (y, si hace falta, el titular) hasta que quepa
     const cuerpo = $("#impCuerpo");
     // Antes de bajar la letra se aprietan el titular y el interlineado: así las palabras quedan más grandes (y se tocan mejor)
-    const cabe = () => gal.scrollHeight <= gal.clientHeight + 1;
+    // Caber es no salirse de la hoja y que la firma no quede debajo del lápiz de la mesa
+    const lapiz = $(".imp-lapiz"), firma = $(".imp-firma", gal);
+    const bajoLapiz = () => {
+      const f = firma.getBoundingClientRect(), l = lapiz.getBoundingClientRect(), escala = gal.getBoundingClientRect().width / gal.offsetWidth || 1;
+      return f.right > l.left && f.left < l.right && f.bottom > l.top + 12 * escala;
+    };
+    const cabe = () => gal.scrollHeight <= gal.clientHeight + 1 && !bajoLapiz();
     for (let letra = cfg.letra; letra >= 15; letra--) {
       cuerpo.style.setProperty("--imp-letra", `${letra}px`);
       if (cabe()) break;

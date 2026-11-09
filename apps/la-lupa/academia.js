@@ -466,7 +466,8 @@ const ACTIVIDADES = {
         // Otra palabra (no la buscada con una falta): la pista no bastaba. Dos ayudas antes de contarlo como fallo
         if (!ok && !intentada && !deOido && otras < 2 && typeof pupVariante === "function" && !pupVariante(inp.value, f.p)) {
           otras++;
-          $("#msg").textContent = otras === 1 ? `Esa no es la palabra de esta ficha. Otra pista: tiene ${letras} letras.` : `Tampoco. Última pista: empieza por «${[...f.p][0]}».`;
+          const ayudas = [w?.frase ? `tiene ${letras} letras` : null, `empieza por «${[...f.p][0]}»`, `sus dos primeras letras son «${[...f.p].slice(0, 2).join("")}»`].filter(Boolean);
+          $("#msg").textContent = otras === 1 ? `Esa no es la palabra de esta ficha. Otra pista: ${ayudas[0]}.` : `Tampoco. Última pista: ${ayudas[1]}.`;
           inp.select();
           return;
         }

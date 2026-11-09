@@ -237,3 +237,17 @@ El motor (`motor.js`, `escenas.js`, `app.js`) y la prueba en móvil y tablet se 
 - del perfil ya no sube el n.º de lista.
 
 Probado con el `.gs` real ejecutado en Node sobre unas hojas simuladas (58 comprobaciones) y con el juego contra ese servidor (44). **No está probado con un Apps Script de verdad**: `NUBE.md` trae la lista de 8 comprobaciones. Sigue pendiente el código de recuperación por alumno, porque hoy con el alias basta para bajarse la ficha de otro.
+
+**Código de la Academia, arreglado tras el repaso** (13 fallos y dos más que salieron por el camino):
+- Las fichas del Archivo de palabras que no están en el banco (casi la mitad de lo que entra en la cola) no tenían pista y eran imposibles sin sonido. Ahora cada palabra fallada guarda su pista: la frase del dictado, del parte o del caso con un hueco, o «pretérito imperfecto de cantar, yo» en la Terminal.
+- La Terminal perdía la ronda si se salía al patio en la pantalla de cierre, y pedía «saltar» de presente a pasado con formas idénticas (miramos, jugamos).
+- El sismógrafo llamaba «agudas» a los monosílabos, con una explicación que se contradecía.
+- Dobles pulsaciones y temporizadores que pintaban sobre otra pantalla o cerraban la ronda dos veces.
+- Para subir de lupa, el «80 %» exigía rondas perfectas en la Pizarra y regalaba aciertos en la Imprenta. Ahora no cuentan las faltas solo detectadas y se permite un fallo de cada cinco.
+- El turno de hoy podía marcar como entrenada una regla que el ejercicio elegido no trabajaba.
+- «Dame una idea» de la Pizarra daba ejemplos que la propia Pizarra rechazaba; en «La coma», «No,es tarde.» se daba por mala.
+- El dictado relámpago se colgaba con «movimiento reducido» activado.
+- Los registros de la Academia crecían sin límite: se guardan los detalles solo de las últimas 20 rondas de cada alumno.
+- Dianas táctiles más grandes en el parte, la coma y la Terminal. En la Imprenta, en pantallas táctiles, un toque elige la palabra y otro la marca. Quedan pequeñas las galeradas de diamante y el teclado de la Terminal.
+
+Sin probar en un dispositivo real: el teclado virtual (por si tapa campos de la mitad inferior) y el zoom por doble toque de iOS.
