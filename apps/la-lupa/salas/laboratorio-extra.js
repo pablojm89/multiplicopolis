@@ -239,7 +239,7 @@ nuevaActividad("laboratorio", {
       const comprobar = () => {
         if (!inp.value.trim()) return;
         const ok = norm(inp.value) === norm(f.p);
-        if (!intentada) { intentada = true; registrar("5.1", ok, f.p, "homófono", reg); if (!ok) labSembrar([f.p]); }
+        if (!intentada) { intentada = true; registrar("5.1", ok, f.p, "homófono", reg); pistaFicha(ok, frase); if (!ok) labSembrar([f.p]); }
         if (!ok) { $("#msg").innerHTML = `Se escribe <strong>${esc(f.p)}</strong>. Escríbela tú.`; inp.value = ""; inp.focus(); return; }
         informe();
       };
@@ -323,7 +323,14 @@ function labHomDiamante(sl, turno, grupos, activas, mezcla) {
       const comprobar = () => {
         if (!inp.value.trim()) return;
         const ok = norm(inp.value) === norm(objetivo.f.p);
-        if (!intentada) { intentada = true; registrar("5.1", ok, objetivo.f.p, "homófono (doble)", regDe(objetivo)); if (!ok) { labSembrar([objetivo.f.p]); fallar(objetivo.g); } }
+        if (!intentada) {
+          intentada = true;
+          registrar("5.1", ok, objetivo.f.p, "homófono (doble)", regDe(objetivo));
+          // Pista de su ficha: la frase con este hueco vacío y el otro, relleno
+          const trozos = frase.split("___");
+          pistaFicha(ok, trozos.map((t, i) => t + (i < trozos.length - 1 ? (i === j ? "___" : huecos[i]?.f.p || "___") : "")).join(""));
+          if (!ok) { labSembrar([objetivo.f.p]); fallar(objetivo.g); }
+        }
         if (!ok) { $("#msg").innerHTML = `Se escribe <strong>${esc(objetivo.f.p)}</strong>. Escríbela tú.`; inp.value = ""; inp.focus(); return; }
         llenos[j] = objetivo.f.p;
         escribir(j + 1);
@@ -551,7 +558,7 @@ nuevaActividad("laboratorio", {
       const comprobar = () => {
         if (!inp.value.trim()) return;
         const ok = norm(inp.value) === norm(d.p);
-        if (!intentada) { intentada = true; registrar("5.1", ok, d.p, "familia de palabras", reg); if (!ok) labSembrar([d.p]); }
+        if (!intentada) { intentada = true; registrar("5.1", ok, d.p, "familia de palabras", reg); pistaFicha(ok, labFraseDer(d) || d.pista, labPorque(f, d)); if (!ok) labSembrar([d.p]); }
         if (!ok) { $("#msg").innerHTML = `Se escribe <strong>${esc(d.p)}</strong>. Escríbela tú.`; inp.value = ""; inp.focus(); return; }
         const pr = $$(".lab-probeta")[j];
         pr.classList.add("llena"); pr.classList.remove("activa");

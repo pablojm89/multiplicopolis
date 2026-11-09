@@ -485,7 +485,7 @@ function pizRonda(sl, regla, turno) {
         return e ? pizNv(e) : largo(v) >= largoDificil ? 2 : 1;
       };
       const ideas = restoEj[gObj].filter(x => !enPizarra.has(clave(x)) && (!cfg.propioDificil || nivelDe(x, clave(x)) >= 2));
-      let registrado = false, dudas = 0, hecho = false;
+      let registrado = false, dudas = 0, hecho = false, ideaDada = null;
       const anotar = (ok, v, detalle) => { if (!registrado) { registrado = true; anotar9(ok, v, detalle); } };
       // Un ejemplo propio que no está en el banco se guarda siempre para el maestro, aunque antes hubiera un fallo
       const paraRevisar = v => {
@@ -499,6 +499,7 @@ function pizRonda(sl, regla, turno) {
         $("#pizAyuda").onclick = () => {
           anotar(false, null, "ejemplo propio (ayuda)");
           const idea = ideas[0] || pizP(obj.ejemplos.find(x => !enPizarra.has(clave(pizP(x)))) || obj.ejemplos[0]);
+          ideaDada = idea;   // la idea que da Anselmo se acepta siempre (aunque sea corta o fácil)
           pizDecir(`Te doy una del archivo: «${idea}». Escríbela tú en la pizarra.`, "neutral");
           inp.value = ""; inp.focus();
         };
@@ -507,26 +508,30 @@ function pizRonda(sl, regla, turno) {
         if (hecho) return;
         const v = inp.value.trim().replace(/\s+/g, " ");
         if (!v) return;
-        if (!frases && v.includes(" ")) return pizDecir("Una sola palabra, por favor. La pizarra no es tan grande.", "pensativo");
-        if (frases && v.split(" ").length < 3) return pizDecir("Escribe una frase entera, con al menos tres palabras.", "pensativo");
         const k = clave(v);
-        if (enPizarra.has(k)) return pizDecir(`«${v}» ya ha salido en la pizarra. Piensa en ${frases ? "una frase tuya" : "una palabra tuya"}.`, "pensativo");
-        if ((obj.contraejemplos || []).map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`¡Cuidado! «${v}» es justo una excepción: no sirve como ejemplo de la regla. Prueba con otro.`, "sorprendido"); }
-        if (otra && (otra.ejemplos.some(x => clave(pizP(x)) === k) || (rxOtra && rxOtra.test(prep(v))))) {
-          anotar(false, v, "ejemplo propio");
-          return pizDecir(`«${v}» va en el otro círculo, el ${color(1 - gObj).nombre}. Para el ${color(gObj).nombre}, prueba con otro.`, "pensativo");
-        }
-        if (obj.relleno.map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`«${v}» está bien escrita, pero no cumple la regla. Prueba con otro.`, "pensativo"); }
-        const enArchivo = delBanco.has(k);
-        if (!enArchivo && rx && !rx.test(prep(v))) {
-          dudas++;
-          pizDecir(`Mmm… no me cuadra con la regla. Léela otra vez y prueba con otro.${cfg.sinPista ? "" : ` Pista: ${obj.pista}`}`, "pensativo");
-          return darIdea();
-        }
-        if (cfg.propioDificil && nivelDe(v, k) < 2) {
-          dudas++;
-          pizDecir(`«${v}» cumple la regla, pero es demasiado fácil para un maestro detective. Busca ${frases ? "una frase más larga" : "una palabra más larga o menos corriente"}.`, "pensativo");
-          return darIdea();
+        const esIdea = ideaDada !== null && k === clave(ideaDada);
+        const enArchivo = esIdea || delBanco.has(k);
+        if (!esIdea) {
+          if (!frases && v.includes(" ")) return pizDecir("Una sola palabra, por favor. La pizarra no es tan grande.", "pensativo");
+          // Los ejemplos del archivo valen aunque sean cortos («¡Socorro!»)
+          if (frases && !enArchivo && v.split(" ").length < 3) return pizDecir("Escribe una frase entera, con al menos tres palabras.", "pensativo");
+          if (enPizarra.has(k)) return pizDecir(`«${v}» ya ha salido en la pizarra. Piensa en ${frases ? "una frase tuya" : "una palabra tuya"}.`, "pensativo");
+          if ((obj.contraejemplos || []).map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`¡Cuidado! «${v}» es justo una excepción: no sirve como ejemplo de la regla. Prueba con otro.`, "sorprendido"); }
+          if (otra && (otra.ejemplos.some(x => clave(pizP(x)) === k) || (rxOtra && rxOtra.test(prep(v))))) {
+            anotar(false, v, "ejemplo propio");
+            return pizDecir(`«${v}» va en el otro círculo, el ${color(1 - gObj).nombre}. Para el ${color(gObj).nombre}, prueba con otro.`, "pensativo");
+          }
+          if (obj.relleno.map(clave).includes(k)) { anotar(false, v, "ejemplo propio"); return pizDecir(`«${v}» está bien escrita, pero no cumple la regla. Prueba con otro.`, "pensativo"); }
+          if (!enArchivo && rx && !rx.test(prep(v))) {
+            dudas++;
+            pizDecir(`Mmm… no me cuadra con la regla. Léela otra vez y prueba con otro.${cfg.sinPista ? "" : ` Pista: ${obj.pista}`}`, "pensativo");
+            return darIdea();
+          }
+          if (cfg.propioDificil && nivelDe(v, k) < 2) {
+            dudas++;
+            pizDecir(`«${v}» cumple la regla, pero es demasiado fácil para un maestro detective. Busca ${frases ? "una frase más larga" : "una palabra más larga o menos corriente"}.`, "pensativo");
+            return darIdea();
+          }
         }
         hecho = true;
         if (enArchivo) anotar(true, v, "ejemplo propio"); else paraRevisar(v);
@@ -565,11 +570,16 @@ function pizRonda(sl, regla, turno) {
       st2.vistas[regla] = [...new Set([...(st2.vistas[regla] || []), ...subs.map(s => s.id)])];
       guardar(clavePiz(), st2);
       const s = estadoAca(); s.leccionVista[regla] = s.sesion; guardarAca(s);   // ya ha visto la ficha hoy
+      const volver = ACA.alTerminar;   // si se vino de la preparación de un caso, «Otra regla» conserva el camino de vuelta
       terminarActividad(sl, turno);
       const seguir = $("#momentoSeguir");
       if (seguir) {
         seguir.insertAdjacentHTML("afterend", `<button class="boton-papel piz-otra" id="pizOtra">Otra regla ▸</button>`);
-        $("#pizOtra").onclick = () => { cerrarModal(); pizElegir(sl, null); };
+        $("#pizOtra").onclick = () => {
+          cerrarModal();
+          ACA.alTerminar = volver ? { boton: volver.boton, ir: volver.ir } : null;   // el paso ya está marcado: no se vuelve a marcar
+          pizElegir(sl, null);
+        };
       }
     };
   };

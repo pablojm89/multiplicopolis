@@ -38,7 +38,7 @@ const COMA_TIPO = {
   "pregunta-exclamacion": "Pregunta: ¿ y ?. Exclamación (sorpresa, alegría, susto): ¡ y !. Siempre dos signos, uno al principio y otro al final.",
   enumeracion: "Coma de enumeración: separa los elementos de una lista; el último se une con «y», sin coma.",
   inciso: "Un inciso (la explicación que añadimos en medio) va entre dos comas.",
-  "dos-puntos": "Los dos puntos anuncian lo que viene detrás: una lista que explica lo anterior o las palabras de alguien.",
+  "dos-puntos": "Los dos puntos anuncian lo que viene detrás: una lista que explica lo anterior, las palabras de alguien o el motivo.",
   punto: "El punto cierra una oración; lo que viene detrás es otra oración y empieza con mayúscula.",
 };
 /* Signos de una frase (todos, también el del final): el diamante pide frases con tres o más en cada lectura */
@@ -52,8 +52,10 @@ function comaPartir(frase) {
   return { palabras: t.match(/[\p{L}\p{N}]+/gu) || [], huecos: t.split(/[\p{L}\p{N}]+/u).map(comaCanon) };
 }
 const comaIguales = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
-/* Lo escrito, sin espacios de más (ni antes de , . ? ! ni después de ¿ ¡) */
-const comaLimpia = s => String(s ?? "").normalize("NFC").replace(/[“”"]/g, "").trim().replace(/\s+/g, " ").replace(/\s+([,.:?!])/g, "$1").replace(/([¿¡])\s+/g, "$1");
+/* Lo escrito, sin espacios de más (ni antes de , . ? ! ni después de ¿ ¡) y con el espacio de detrás del signo
+   aunque no se haya tecleado («No,es tarde.»): aquí se evalúan los signos y las mayúsculas, no la barra espaciadora */
+const comaLimpia = s => String(s ?? "").normalize("NFC").replace(/[“”"]/g, "").trim().replace(/\s+/g, " ").replace(/\s+([,.:?!])/g, "$1").replace(/([¿¡])\s+/g, "$1")
+  .replace(/([,.:?!])(?=[\p{L}\p{N}¿¡])/gu, "$1 ");
 const comaVer = h => esc(h.replace(/([,.:?!])(?=[¿¡])/, "$1 "));
 const clavecoma = () => `coma-${perfil.id}`;
 /* El emoji de cada situación: con más de dos, van de dos en dos y más pequeños */

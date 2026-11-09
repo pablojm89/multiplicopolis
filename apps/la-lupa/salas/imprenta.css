@@ -168,3 +168,9 @@
 .imp-galerada.n4 ~ .imp-hoja .imp-lista li small { font-size: 11.5px; line-height: 1.1; }
 .imp-galerada.n4 ~ .imp-hoja:not(.imp-tapada) { animation: imp-destapar .5s ease-out; }
 @keyframes imp-destapar { from { transform: rotate(1.2deg) rotateY(90deg); } to { transform: rotate(1.2deg); } }
+
+/* ── Dianas táctiles ── */
+/* Palabras un poco más anchas al tocar (las de una letra), sin mover el texto */
+.imp-cuerpo .w { padding: 0 .12em; margin: 0 -.12em; }
+/* En pantallas táctiles, la palabra se elige con un toque y se marca con otro: un dedo no acierta siempre con la línea */
+.imp-galerada .w.imp-elegida { background: rgba(47, 95, 168, .2); box-shadow: 0 0 0 .1em rgba(47, 95, 168, .35); }

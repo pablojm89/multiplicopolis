@@ -304,7 +304,12 @@ function momento({ titulo, texto, digito, personaje, tipo = "exito", boton = "Se
     </div>`;
   m.classList.add("visible");
   m.onclick = null;
-  $("#momentoSeguir").onclick = () => { cerrarModal(); alSeguir?.(); };
+  const seguir = $("#momentoSeguir");
+  seguir.onclick = () => { cerrarModal(); alSeguir?.(); };
+  // El foco no se queda en el botón de debajo (con teclado, Enter lo volvería a pulsar). Pasa aquí un poco después:
+  // si pasara ya, el mismo Enter que ha traído hasta aquí pulsaría también «Seguir»
+  if (document.activeElement instanceof HTMLElement && document.activeElement !== document.body) document.activeElement.blur();
+  setTimeout(() => { if (seguir.isConnected) seguir.focus({ preventScroll: true }); }, 400);
 }
 function recompensa(e) {
   const r = e.recompensa || {};

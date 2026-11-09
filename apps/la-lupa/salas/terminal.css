@@ -142,3 +142,7 @@
 .ter-tecla.intro { width: 128px; background: linear-gradient(#f08a62, #d9583a); color: #fff; border-color: #a33d24; box-shadow: 0 4px 0 #8c3420, 0 5px 4px rgba(0, 0, 0, .3); }
 .ter-tecla:active, .ter-tecla.pulsada { transform: translateY(3px); box-shadow: 0 1px 0 #9d8f6c; filter: brightness(.95); }
 .ter-hueco-tecla { width: 18px; }
+
+/* ── Dianas táctiles: teclas un poco más grandes (lo que da de sí el mueble del teclado) ── */
+.ter-teclado { top: 554px; height: 164px; }
+.ter-tecla { width: 47px; height: 42px; }

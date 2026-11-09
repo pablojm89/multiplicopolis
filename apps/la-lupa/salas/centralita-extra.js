@@ -344,6 +344,7 @@ nuevaActividad("centralita", {
         estado = "corrigiendo"; boton(); alAire(false);
         const ok = v === w.p;
         registrar("5.1", ok, w.p, `deletreo: de oído (${modo})`, w.regla);
+        pistaFicha(ok, w.frase);
         const { pares, sobran } = delAlinear(U, delLetras(v));
         U.forEach((u, i) => {
           const c = casilla(i);
@@ -428,6 +429,7 @@ nuevaActividad("centralita", {
           if (pos < U.length) { casilla(pos).classList.add("sonando"); return; }
           estado = "hecho";
           registrar("5.1", errores === 0, w.p, "deletreo: con las teclas", w.regla);
+          pistaFicha(errores === 0, w.frase);
           lcd(errores ? "recibido" : "¡perfecto!", "ok");
           b.disabled = true;
           dice(errores ? `Recibido, aunque con ${errores} interferencia${errores > 1 ? "s" : ""}. ${esc(delNota(w, U))}` : `¡Deletreo perfecto! ${esc(delNota(w, U))}`, "contento");

@@ -141,3 +141,17 @@
 .pup-parte.pup-c5 .pup-pie, .pup-parte.pup-c6 .pup-pie { padding-top: 3px; }
 .pup-parte.pup-c5 .pup-lineas, .pup-parte.pup-c6 .pup-lineas { margin-top: 0; }
 .pup-parte.pup-c6 .pup-linea { gap: 8px; }
+
+/* ── Dianas táctiles (en una tablet el escenario se ve al 80 %): teclas de repuesto y ✓ más grandes.
+   El ::after agranda la zona que se puede tocar sin mover la maquetación ── */
+.pup-teclas { gap: 7px; }
+.pup-tecla { position: relative; width: 38px; height: 38px; font-size: 22px; }
+.pup-tecla::after { content: ""; position: absolute; inset: -6px -3px; }
+.pup-ok { position: relative; width: 44px; height: 44px; }
+.pup-ok::after { content: ""; position: absolute; inset: -4px -8px -4px -4px; }
+.pup-hueco { min-height: 44px; }
+.pup-parte.pup-c5 .pup-ok, .pup-parte.pup-c6 .pup-ok { width: 36px; height: 36px; }
+.pup-parte.pup-c5 .pup-hueco, .pup-parte.pup-c6 .pup-hueco { min-height: 36px; }
+.pup-parte.pup-c5 .pup-entrada, .pup-parte.pup-c6 .pup-entrada { height: 36px; }
+/* Palabras que se tocan: un poco más anchas (las de una letra) sin mover el texto */
+.pup-maq-texto .w, .documento.pupitre .w { padding: 0 .14em; margin: 0 -.14em; }

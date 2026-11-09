@@ -295,7 +295,7 @@ nuevaActividad("pupitre", {
         inp.select();
         return;
       }
-      if (!st.intentada) { st.intentada = true; registrar("5.1", false, w.p, "parte", w.regla); }
+      if (!st.intentada) { st.intentada = true; registrar("5.1", false, w.p, "parte", w.regla); pistaFicha(false, w.pista, w.porque); }
       li.classList.add("pup-repaso");
       li.classList.remove("pup-sacude"); void li.offsetWidth; li.classList.add("pup-sacude");
       pupNota(`Se escribe así. ${pupExplica(w)} Escríbela tú en la casilla para tramitar el parte.`, "pensativo", w.p);
@@ -465,7 +465,11 @@ nuevaActividad("pupitre", {
         if (!v) return;
         const ok = norm(v) === norm(tk.bien) && (!mayus || v[0] === tk.bien[0]);
         // En la cola de repaso, en minúscula salvo los nombres propios (Julián, Ramón…)
-        if (!tk.intentada) { tk.intentada = true; registrar("5.1", ok, propios.has(tk.bien) ? tk.bien : tk.bien.toLowerCase(), "sin tilde", tk.regla); }
+        if (!tk.intentada) {
+          tk.intentada = true;
+          registrar("5.1", ok, propios.has(tk.bien) ? tk.bien : tk.bien.toLowerCase(), "sin tilde", tk.regla);
+          pistaFicha(ok, pistaEnTexto(texto, tk.bien), pupPorQueTilde(tk.bien));   // su ficha del Archivo: la frase de la hoja, con hueco
+        }
         if (ok) {
           cerrarModal();
           tk.resuelta = true; hechas++;

@@ -137,7 +137,8 @@ function cenElegir(activas, mezcla) {
   return normales.map((a, i) => {
     const b = cortas[i] || cortas[0];
     const [x, y] = Math.random() < 0.5 ? [a, b] : [b, a];
-    return { regla: a.regla, par: true, texto: `${x.texto} ${y.texto}`, marcas: [...x.marcas, ...y.marcas] };
+    const con = f => f.marcas.map(m => ({ ...m, frase: f.texto }));   // cada marca recuerda su frase (para la pista de su ficha)
+    return { regla: a.regla, par: true, texto: `${x.texto} ${y.texto}`, marcas: [...con(x), ...con(y)] };
   });
 }
 
@@ -156,8 +157,10 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
   catch { aviso("No hay señal: no se han podido cargar los mensajes.", "mal"); return; }
   await cenEsperarVoces();
   CEN.voz = cenBuscarVoz();
-  const activas = regla && regla !== "mezcla" ? [regla] : CEN_REGLAS;
-  const lista = cenElegir(activas, !regla || regla === "mezcla");
+  // Una regla sin mensajes en el banco (las de 6.º, por ahora) se entrena con todas mezcladas, no con una ronda vacía
+  const propia = CEN_REGLAS.includes(regla) && CEN.banco.some(f => f.regla === regla);
+  const activas = propia ? [regla] : CEN_REGLAS;
+  const lista = cenElegir(activas, !propia);
   partidaAca(sl, activas);
   let modo = cenModoInicial();
   let k = 0;
@@ -193,7 +196,7 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
             <div class="cen-canales" aria-label="Mensaje ${k + 1} de ${lista.length}">
               <span class="cen-rotulo">Canal</span>
               ${lista.map((_, i) => `<i class="${i < k ? "hecho" : i === k ? "actual" : ""}"></i>`).join("")}
-              <span class="cen-rotulo cen-msg">Mensaje ${k + 1} de ${lista.length}${regla === "mezcla" || !regla ? "" : ` · ${esc(regNombre || "")}`}</span>
+              <span class="cen-rotulo cen-msg">Mensaje ${k + 1} de ${lista.length}${propia ? ` · ${esc(regNombre || "")}` : ""}</span>
               <span class="cen-nivel" title="${esc(lupa.nombre)}">${lupa.icono} ${esc(lupa.corto)}</span>
             </div>
           </div>
@@ -361,6 +364,7 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
         const primera = E.slice(0, i).every(cenEsSigno);   // «¿Quién…»: la primera palabra va en minúscula a la cola
         registrar("5.1", ok, primera && !mayus ? m.p.toLowerCase() : m.p, "dictado", m.regla);
         Object.assign(P.eventos.at(-1), { modo, emisiones });
+        pistaFicha(ok, pistaEnTexto(m.frase || f.texto, m.p), m.por);   // la ficha del Archivo llevará la frase con hueco
       });
       // En diamante, la puntuación del mensaje cuenta como una pieza más (sin palabra: no va a la cola de repaso)
       if (signos) {

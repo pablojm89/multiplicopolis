@@ -49,6 +49,7 @@ function htmlElegirNivel(actId, elegido) {
 const INTERVALOS = [1, 3, 7, 15, 30];              // sesiones hasta el siguiente repaso
 const TOPE_DIARIO = 150;                           // puntos de entrenamiento por día
 let registrosAca = cargar("academia-registros", []);
+if (!Array.isArray(registrosAca)) registrosAca = [];
 
 const SALAS = [
   { id: "archivo", nombre: "El Archivo", lugar: "Sótano", fondo: "sala-archivo", instructor: "mateo", activa: true, actividad: "fichas", gancho: "Tus palabras falladas te esperan en las fichas." },
@@ -75,6 +76,47 @@ function estadoAca() {
 const guardarAca = s => guardar(claveAca(), s);
 function puntosAcademia(p = perfil) { return p ? (cargar(`academia-${p.id}`, {}).puntos || 0) : 0; }
 
+/* ── Pistas de las fichas ────────────────────────────────────────
+   Una palabra fallada vuelve en una ficha del Archivo. Si no está en el banco (formas verbales, palabras de un
+   dictado, de una galerada, de un caso…), no tiene frase de pista: por eso la pista se guarda en la cola al fallar. */
+const escRx = t => String(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const frasesDe = texto => String(texto ?? "").match(/[^.!?…]+[.!?…]*/g) || [];
+/* La frase del texto en la que sale la palabra, con la palabra cambiada por un hueco (___); null si no sale */
+function pistaEnTexto(texto, palabra) {
+  if (!texto || !palabra) return null;
+  const rx = new RegExp(`(^|[^\\p{L}\\p{N}])${escRx(palabra)}(?![\\p{L}\\p{N}])`, "iu");
+  const frase = frasesDe(texto).find(f => rx.test(f));
+  return frase ? frase.replace(rx, "$1___").trim().slice(0, 220) : null;
+}
+/* Lo mismo en los textos de un caso, que llevan las faltas marcadas como {mal|bien|…} */
+function pistaDeCaso(caso, palabra) {
+  const MARCA = "\u0001";
+  let hallada = null;
+  const mirar = x => {
+    if (hallada || x == null) return;
+    if (Array.isArray(x)) return x.forEach(mirar);
+    if (typeof x === "object") return Object.values(x).forEach(mirar);
+    if (typeof x !== "string" || !x.includes("{")) return;
+    for (const m of x.matchAll(SEMILLA)) {
+      if (norm(m[2]) !== norm(palabra)) continue;
+      const plano = (x.slice(0, m.index) + MARCA + x.slice(m.index + m[0].length)).replace(SEMILLA, (_, mal, bien) => bien);
+      const frase = frasesDe(plano).find(f => f.includes(MARCA));
+      if (frase) { hallada = frase.replace(MARCA, "___").trim().slice(0, 220); return; }
+    }
+  };
+  try { mirar(caso?.escenas); } catch { /* sin pista */ }
+  return hallada;
+}
+/* Tras registrar() un fallo: la pista (y el porqué) con que esa palabra volverá en su ficha */
+function pistaFicha(ok, pista, por) {
+  const e = P?.eventos.at(-1);
+  if (ok || !e) return;
+  if (pista) e.pista = String(pista).slice(0, 220);
+  if (por) e.por = String(por).slice(0, 220);
+}
+/* Un temporizador de una actividad no debe sobrevivir a su partida (salir al patio, terminar, otra actividad) */
+function luegoAca(ms, fn) { const mia = P; return setTimeout(() => { if (mia && P === mia) fn(); }, ms); }
+
 /* Cola de repaso espaciado: las palabras falladas entran; acertarlas cuando toca las hace avanzar */
 function actualizarCola(eventos, origen) {
   if (!perfil) return 0;
@@ -89,7 +131,12 @@ function actualizarCola(eventos, origen) {
       else f.proximo = s.sesion + INTERVALOS[f.nivel];
     } else {
       if (!f) nuevas++;
-      s.cola[e.palabra] = { regla: e.regla || f?.regla || enBanco(e.palabra)?.regla || null, nivel: 0, proximo: s.sesion + INTERVALOS[0], fallos: (f?.fallos || 0) + 1, origen };
+      // La pista de la ficha: la del ejercicio, la del texto de la actividad o del caso, o la que ya tenía (las del banco usan su frase)
+      const b = enBanco(e.palabra);
+      const pista = b?.frase && !b.origen ? null : e.pista || P?.pistaDe?.(e.palabra) || (P && !P.academia ? pistaDeCaso(P.caso, e.palabra) : null) || f?.pista || null;
+      const por = e.por || f?.por || null;
+      s.cola[e.palabra] = { regla: e.regla || f?.regla || b?.regla || null, nivel: 0, proximo: s.sesion + INTERVALOS[0], fallos: (f?.fallos || 0) + 1, origen,
+        ...(pista ? { pista } : {}), ...(por ? { por } : {}) };
       s.archivadas = s.archivadas.filter(w => w !== e.palabra);
     }
   });
@@ -195,13 +242,20 @@ function usarActividad(sl, id) {
   if (!m) return;
   sl.actividad = m.id; sl.reglas = m.reglas; sl.leccionFija = m.leccionFija;
 }
+/* ¿Con qué reglas trabaja un ejercicio? (null: no depende de la regla) */
+const reglasDeActividad = a => a.reglas || (a.id === "sismografo" ? ["tildes-generales"] : a.id === "documento" ? reglasBanco() : null);
+const admiteRegla = (a, regla) => !regla || regla === "mezcla" || (reglasDeActividad(a) ? reglasDeActividad(a).includes(regla) : !a.leccionFija);
 function menuActividades(sl, opts) {
+  // Si se viene del turno con una regla, solo se ofrecen los ejercicios que la entrenan
+  const admiten = sl.actividades.filter(a => admiteRegla(a, opts.regla));
+  if (opts.regla && admiten.length === 1) return entrarSala(sl.id, { ...opts, actividad: admiten[0].id });
+  const lista = admiten.length ? admiten : sl.actividades;
   pintarEscena(`
     <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
     ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
     <div class="aca-panel der">
-      <p class="apuntalo">¿Qué ejercicio hacemos hoy?</p>
-      <div class="opciones">${sl.actividades.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
+      <p class="apuntalo">${opts.regla && admiten.length ? `¿Con qué ejercicio entrenamos «${esc(D.reglas[opts.regla]?.nombre || opts.regla)}»?` : "¿Qué ejercicio hacemos hoy?"}</p>
+      <div class="opciones">${lista.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
   $("#acaVolver").onclick = vistaPatio;
@@ -212,6 +266,9 @@ function entrarSala(id, { regla = null, turno = null, actividad = null }) {
   const sl = sala(id);
   if (sl.actividades?.length > 1 && !actividad) return menuActividades(sl, { regla, turno });
   if (actividad) usarActividad(sl, actividad);
+  // Una regla que el ejercicio no entrena no se le pasa, y la tarea del turno no se da por hecha con otra cosa
+  const sinRegla = sl.leccionFija && !sl.reglas;   // el ejercicio no depende de la regla (Pizarra, Terminal, Imprenta)
+  if (regla && !sinRegla && !admiteRegla({ id: sl.actividad, reglas: sl.reglas }, regla)) { regla = null; turno = null; }
   const s = estadoAca();
   if (sl.actividad === "fichas") return leccion(sl, null, turno, `Este es el fichero de tus palabras falladas. Cada ficha vuelve cuando toca: si la escribes bien, se va alejando; si fallas, vuelve al principio. ${fichasVencidas(s).length ? `Hoy tienes ${fichasVencidas(s).length} pendientes.` : "Hoy no tienes fichas vencidas: entrenaremos palabras de riesgo."}`);
   if (sl.actividad === "testigo") return leccion(sl, null, turno, "En La Alameda muchos hablamos con seseo: decimos «casuela» y se escribe cazuela. También decimos «caye» por calle (yeísmo) y nos comemos la d del final: «verdá». Hablar así no es un error: es nuestra forma de hablar, y está muy bien. Lo que tiene que saber un detective es cómo se ESCRIBE. Yo lo digo así… y lo escribo así.");
@@ -275,8 +332,42 @@ function partidaAca(sl, reglas) {
         unidad: null, i: 0, eventos: [], piezas: [], cartas: false, pistas: {}, repasar: new Set(), consultas: 0, notas: [], inicio: Date.now(), academia: true };
 }
 
-function terminarActividad(sl, turno) {
+/* Los eventos detallados pesan: solo se conservan en los últimos registros de cada perfil (el resto guarda sus notas y su resumen) */
+const REGISTROS_CON_EVENTOS = 20;
+function podarRegistrosAca() {
+  const vistos = {};
+  for (let i = registrosAca.length - 1; i >= 0; i--) {
+    const r = registrosAca[i];
+    if (!r) continue;
+    vistos[r.perfilId] = (vistos[r.perfilId] || 0) + 1;
+    if (vistos[r.perfilId] > REGISTROS_CON_EVENTOS && r.eventos?.length) r.eventos = [];
+  }
+}
+/* ¿Cuenta la ronda para la lupa? Sin las faltas «detectadas» (encontrarlas es condición para corregirlas, no un acierto más)
+   y con un margen de fallos de la quinta parte (al menos uno, para que una ronda corta no exija el pleno) */
+function rondaSuperada(ev) {
+  const evaluables = ev.filter(e => e.detalle !== "detectada");
+  const fallos = evaluables.filter(e => !e.ok).length;
+  return { n: evaluables.length, ok: evaluables.length > 0 && fallos * 2 < evaluables.length && fallos <= Math.max(1, Math.floor(evaluables.length / 5)) };
+}
+
+/* trabajo: lo hecho que no deja evento (fichas copiadas); sin eventos ni trabajo, la ronda no cuenta para nada */
+function terminarActividad(sl, turno, { trabajo = 0, nota = "" } = {}) {
+  if (!P || !P.academia) return;   // ya se cerró (doble pulsación, temporizador tardío) o se salió al patio
   const ev = P.eventos;
+  if (!ev.length) {
+    const volver0 = ACA.alTerminar;
+    ACA.alTerminar = null;
+    P = null;
+    if (trabajo) {
+      const s0 = estadoAca();
+      if (turno && !s0.turno.hechas.includes(turno)) { s0.turno.hechas.push(turno); guardarAca(s0); }
+      volver0?.marcar?.(0, 0);
+    }
+    momento({ titulo: trabajo ? "¡Repaso hecho!" : "Ronda vacía", personaje: { id: sl.instructor, expresion: trabajo ? "contento" : "neutral", lado: "izq" }, boton: volver0 ? volver0.boton : "Volver al patio",
+      texto: nota || "En esta ronda no había nada que entrenar: no cuenta. Prueba con otro ejercicio.", alSeguir: volver0 ? volver0.ir : vistaPatio });
+    return;
+  }
   const aciertos = ev.filter(e => e.ok).length;
   actualizarCola(ev, "academia");
   const s = estadoAca();
@@ -291,13 +382,15 @@ function terminarActividad(sl, turno) {
   // Progreso de nivel: solo cuenta jugar en la lupa más alta que se tiene
   let nuevaLupa = null;
   const pg = progresoNivel(sl.actividad, s);
-  if (nivel === pg.max && ev.length) {
-    pg.racha = aciertos / ev.length >= UMBRAL_NIVEL ? pg.racha + 1 : 0;
+  const ronda = rondaSuperada(ev);
+  if (nivel === pg.max && ronda.n) {
+    pg.racha = ronda.ok ? pg.racha + 1 : 0;
     if (pg.racha >= RONDAS_NIVEL && pg.max < 4) { pg.max++; pg.racha = 0; nuevaLupa = NIVELES_ACA[pg.max - 1]; guardar(`nivel-${perfil.id}-${sl.actividad}`, pg.max); }
   }
   guardarAca(s);
   registrosAca.push({ id: uid(), contexto: "academia", perfilId: perfil.id, nombre: perfil.nombre, curso: perfil.curso, sala: sl.id,
     reglas: P.caso.reglas, actividad: sl.actividad, nivel, fecha: new Date().toISOString(), aciertos, intentos: ev.length, notas: calcularNotas(ev), repasar: [...P.repasar], eventos: ev });
+  podarRegistrosAca();
   guardar("academia-registros", registrosAca);
   if (typeof nubeTrasResultado === "function") nubeTrasResultado(registrosAca.at(-1));
   P = null;
@@ -307,7 +400,7 @@ function terminarActividad(sl, turno) {
   ACA.alTerminar = null;
   volver?.marcar?.(aciertos, ev.length);
   momento({ titulo: "¡Entrenamiento completado!", personaje: { id: sl.instructor, expresion: "contento", lado: "izq" }, boton: volver ? volver.boton : "Volver al patio",
-    texto: `${lupa.icono} ${lupa.corto} · ${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}${nuevaLupa ? ` ¡NUEVA LUPA: ${nuevaLupa.icono} ${nuevaLupa.nombre}!` : nivel === pg.max && pg.max < 4 && pg.racha ? ` Una ronda más así y ganas la ${NIVELES_ACA[pg.max].nombre.toLowerCase()}.` : ""}`, alSeguir: volver ? volver.ir : vistaPatio });
+    texto: `${lupa.icono} ${lupa.corto} · ${aciertos} de ${ev.length} a la primera. +${ganados} puntos${ganados < posibles ? " (has llegado al tope de hoy)" : ""}.${aura}${nuevaLupa ? ` ¡NUEVA LUPA: ${nuevaLupa.icono} ${nuevaLupa.nombre}!` : nivel === pg.max && pg.max < 4 && pg.racha ? ` Una ronda más así y ganas la ${NIVELES_ACA[pg.max].nombre.toLowerCase()}.` : ""}${nota ? ` ${nota}` : ""}`, alSeguir: volver ? volver.ir : vistaPatio });
 }
 
 /* Leer en voz alta (si el navegador tiene voz en español; si no, no pasa nada) */
@@ -321,27 +414,41 @@ const hayVoz = () => sonidoActivo() && typeof speechSynthesis !== "undefined";
 
 /* ── Actividades ─────────────────────────────────────────────── */
 const ACTIVIDADES = {
-  /* A1 · Fichas pendientes: escribir de memoria a partir de una pista (5.1) */
+  /* A1 · Fichas pendientes: escribir de memoria a partir de una pista (5.1).
+     La pista es la frase del banco o la que se guardó en la cola al fallar; con voz, además se puede escuchar.
+     Una ficha sin pista ni voz (colas antiguas, palabras sueltas de un caso) se enseña para copiarla y no puntúa. */
   fichas(sl, _regla, turno) {
     const s = estadoAca();
     let fichas = barajar(fichasVencidas(s)).slice(0, segunNivel([6, 6, 8, 10]));
     const riesgo = !fichas.length;
     if (riesgo) fichas = barajar(porNivel(ACA.palabras.filter(w => w.mal), 8)).slice(0, segunNivel([5, 6, 8, 10])).map(w => ({ p: w.p, regla: w.regla }));
     partidaAca(sl, [...new Set(fichas.map(f => f.regla).filter(Boolean))]);
+    const voz = hayVoz();
+    const copiadas = [];   // fichas sin pista, bien copiadas: avanzan de cajón sin puntuar
     let k = 0;
+    const terminar = () => {
+      const n = copiadas.length;
+      if (n) actualizarCola(copiadas.map(p => ({ criterio: "5.1", ok: true, palabra: p })), "academia");
+      terminarActividad(sl, turno, { trabajo: n, nota: n ? `Has repasado ${n} ficha${n > 1 ? "s" : ""} sin pista copiándola${n > 1 ? "s" : ""}: pasa${n > 1 ? "n" : ""} al cajón siguiente, sin puntuar.` : "" });
+    };
     const pintar = () => {
       const f = fichas[k];
-      if (!f) return terminarActividad(sl, turno);
+      if (!f) return terminar();
       const w = enBanco(f.p);
-      // En diamante no hay frase de pista: solo la primera letra y la longitud
-      const pista = w?.frase && nivelAca() < 4 ? `«${w.frase}»` : `Empieza por «${f.p[0]}» y tiene ${[...f.p].length} letras.`;
+      const letras = [...f.p].length;
+      const guardada = f.pista ? `${String(f.pista).includes("___") ? `«${f.pista}»` : f.pista} (${letras} letras)` : null;
+      const frase = w?.frase ? `«${w.frase}»` : guardada;
+      // En diamante, con voz, no hay frase: se escucha y se escribe. Sin voz, la frase se queda (si no, sería adivinar)
+      const deOido = voz && (nivelAca() >= 4 || !frase);
+      const copia = !frase && !voz;
+      const pista = copia ? "Esta ficha no tiene pista: mírala bien y cópiala para repasarla." : deOido ? `Escúchala. Empieza por «${[...f.p][0]}» y tiene ${letras} letras.` : frase;
       pintarEscena(`
         <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
         <p class="instruccion">${riesgo ? "Sin fichas vencidas: entrena estas palabras de riesgo." : "Escribe la palabra de la ficha. Si aciertas, pasa al cajón siguiente."}</p>
         <div class="aca-ficha">
           <small>Ficha ${k + 1} de ${fichas.length} · ${esc(D.reglas[f.regla]?.nombre || "Repaso")}</small>
           <p class="aca-pista">${esc(pista)}</p>
-          ${hayVoz() ? `<button class="boton-papel" id="oir">🔊 Escuchar la palabra</button>` : ""}
+          ${voz ? `<button class="boton-papel" id="oir">🔊 Escuchar la palabra</button>` : ""}
           <input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra">
           <p id="msg" class="msg"></p>
           <div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>
@@ -350,19 +457,29 @@ const ACTIVIDADES = {
       $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
       $("#oir")?.addEventListener("click", () => hablar(f.p));
       const inp = $("#resp"); inp.focus();
-      let intentada = false, copiando = false;
+      let intentada = copia, copiando = copia, otras = 0, cerrada = false;
+      if (copia) $("#msg").innerHTML = `Se escribe <strong>${esc(f.p)}</strong>. Escríbela tú.`;
       const comprobar = () => {
-        if (!inp.value.trim()) return;
+        if (cerrada || !inp.value.trim()) return;   // cerrada: un segundo Enter (o toque) no se salta la ficha siguiente
         // Las fichas de mayúsculas se comparan respetando la mayúscula
         const ok = f.regla === "mayusculas-puntuacion-1" ? inp.value.normalize("NFC").trim() === f.p : norm(inp.value) === norm(f.p);
+        // Otra palabra (no la buscada con una falta): la pista no bastaba. Dos ayudas antes de contarlo como fallo
+        if (!ok && !intentada && !deOido && otras < 2 && typeof pupVariante === "function" && !pupVariante(inp.value, f.p)) {
+          otras++;
+          $("#msg").textContent = otras === 1 ? `Esa no es la palabra de esta ficha. Otra pista: tiene ${letras} letras.` : `Tampoco. Última pista: empieza por «${[...f.p][0]}».`;
+          inp.select();
+          return;
+        }
         if (!intentada) { intentada = true; registrar("5.1", ok, f.p, "ficha", f.regla); }
         if (ok) {
+          cerrada = true;
+          if (copia && !riesgo) copiadas.push(f.p);
           $(".aca-ficha").classList.add(copiando ? "copiada" : "sellada");
-          aviso(copiando ? "Bien copiada. La ficha vuelve al primer cajón." : `¡Bien! «${f.p}» pasa al cajón siguiente.`, "bien");
-          k++; setTimeout(pintar, 900); return;
+          aviso(copia ? "Bien copiada. La ficha pasa al cajón siguiente." : copiando ? "Bien copiada. La ficha vuelve al primer cajón." : `¡Bien! «${f.p}» pasa al cajón siguiente.`, "bien");
+          k++; luegoAca(900, pintar); return;
         }
         copiando = true;
-        $("#msg").innerHTML = `Se escribe <strong>${esc(f.p)}</strong>. ${esc(PISTA_REGLA[f.regla] || "")} Escríbela tú para cerrar la ficha.`;
+        $("#msg").innerHTML = `Se escribe <strong>${esc(f.p)}</strong>. ${esc(f.por || PISTA_REGLA[f.regla] || "")} Escríbela tú para cerrar la ficha.`;
         inp.value = ""; inp.focus();
       };
       $("#ok").onclick = comprobar;
@@ -413,7 +530,7 @@ const ACTIVIDADES = {
       $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
       const total = tokens.filter(x => x.error).length;
       const contador = () => ($("#cont").textContent = `Faltas corregidas: ${total - ctx.pendientes} de ${total}`);
-      const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => { aviso("¡Documento limpio!", "bien"); r++; setTimeout(pintar, 1000); } };
+      const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => { aviso("¡Documento limpio!", "bien"); r++; luegoAca(1000, pintar); } };
       $("#decl").append(textoInteractivo(tokens, ctx));
       contador();
     };
@@ -450,12 +567,13 @@ const ACTIVIDADES = {
       $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
       const intentadas = new Set(), bien = new Set();
       $$(".campo-acta input")[0]?.focus();
+      $$(".campo-acta input").forEach(inp => inp.onkeydown = ev => { if (ev.key === "Enter") $("#ok")?.click(); });
       $("#ok").onclick = () => {
         $$(".campo-acta input").forEach(inp => {
           const i = Number(inp.dataset.i), w = objetivos[i];
           if (bien.has(i) || !inp.value.trim()) return;
           const ok = norm(inp.value) === norm(w);
-          if (!intentadas.has(i)) { intentadas.add(i); registrar("5.1", ok, w, "testigo", enBanco(w)?.regla); }
+          if (!intentadas.has(i)) { intentadas.add(i); registrar("5.1", ok, w, "testigo", enBanco(w)?.regla); pistaFicha(ok, pistaEnTexto(t.frase.replace(/[[\]]/g, ""), w)); }
           const nota = inp.parentElement.querySelector(".corr");
           if (ok) { bien.add(i); inp.disabled = true; inp.classList.add("acierto"); nota.textContent = ""; }
           else { nota.textContent = `Se escribe: ${w}. Escríbela tú.`; inp.value = ""; }
@@ -480,7 +598,7 @@ const ACTIVIDADES = {
     const cola = banco.filter(w => s.cola[w.p]);
     const mitad = Math.ceil(segunNivel([5, 6, 8, 10]) / 2);
     const lista = barajar([...new Set([...cola, ...conT.slice(0, mitad), ...sinT.slice(0, mitad)])]).slice(0, segunNivel([5, 6, 8, 10]));
-    partidaAca(sl, ["tildes-generales"]);
+    partidaAca(sl, [...new Set(["tildes-generales", ...lista.map(w => w.regla)])]);
     let k = 0;
     const TIPOS = { 1: "aguda", 2: "llana", 3: "esdrujula" };
     const NOMBRE = { aguda: "aguda", llana: "llana", esdrujula: "esdrújula" };
@@ -491,11 +609,12 @@ const ACTIVIDADES = {
       const desdeFinal = w.silabas.length - w.tonica;
       const tipo = TIPOS[Math.min(desdeFinal, 3)];
       const lleva = w.p !== quitarTildes(w.p);
+      const mono = w.silabas.length === 1;
       let paso = 1;
       const muestra = w.silabas.map((sil, i) => `<button class="silaba" data-i="${i}">${[...sil].map(ch => (/[aeiouáéíóú]/i.test(ch) ? `<span class="bajo-mancha gota">${esc(quitarTilde(ch))}</span>` : esc(ch))).join("")}</button>`).join("");
       pintarEscena(`
         <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
-        <p class="instruccion" id="instr">Paso 1 · Toca la sílaba que suena más fuerte.</p>
+        <p class="instruccion" id="instr">${mono ? "Paso 1 · Esta palabra tiene una sola sílaba: tócala para analizarla." : "Paso 1 · Toca la sílaba que suena más fuerte."}</p>
         <div class="sismo">
           <small>Muestra ${k + 1} de ${lista.length} · las gotas tapan las posibles tildes</small>
           <div class="muestra">${muestra}</div>
@@ -511,39 +630,50 @@ const ACTIVIDADES = {
         const n = w.silabas.length, x = (i + .5) / n * 600;
         $("#onda").setAttribute("points", `0,40 ${x - 40},40 ${x - 20},10 ${x},75 ${x + 20},5 ${x + 40},40 600,40`);
       };
+      /* Último paso: escribir la palabra, con tilde o sin ella */
+      const escribir = () => {
+        $("#msg").textContent = ""; paso = 3;
+        $("#instr").textContent = `Paso ${mono ? 2 : 3} · Escribe la palabra, con tilde o sin ella.`;
+        $("#zona").innerHTML = `<input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra"><div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>`;
+        const inp = $("#resp"); inp.focus();
+        let intentada = false;
+        const comprobar = () => {
+          if (!inp.value.trim()) return;
+          const ok3 = norm(inp.value) === norm(w.p);
+          if (!intentada) { intentada = true; registrar("5.1", ok3, w.p, "sismógrafo", w.regla); }
+          if (!ok3) { $("#msg").innerHTML = `Se escribe <strong>${esc(w.p)}</strong>. Escríbela tú.`; inp.value = ""; inp.focus(); return; }
+          const ultima = w.p.slice(-1);
+          const fin = /[aeiouáéíóú]/i.test(ultima) ? "vocal" : `-${ultima}`;
+          // Los monosílabos no son agudas, llanas ni esdrújulas: tienen su propia regla
+          const porque = mono
+            ? (lleva ? `${w.p} tiene una sola sílaba y, aun así, lleva tilde: es una tilde diacrítica, para no confundirla con otra palabra que se escribe igual.`
+                     : `${w.p} tiene una sola sílaba: los monosílabos no llevan tilde.`)
+            : `${w.p} es ${NOMBRE[tipo]}: la fuerza está en «${w.silabas[w.tonica]}» y termina en ${fin}. ${REGLA[tipo]} ${lleva ? "Por eso lleva tilde." : "Por eso no lleva tilde."}`;
+          $("#zona").innerHTML = `<div class="explicacion">✔️ ${esc(porque)}</div><button class="flecha" id="sig">Siguiente ▸</button>`;
+          $(".muestra").innerHTML = w.silabas.map((sil, i) => `<span class="silaba ${i === w.tonica ? "tonica" : ""}">${esc(sil)}</span>`).join("");
+          $("#sig").onclick = () => { k++; pintar(); };
+        };
+        $("#ok").onclick = comprobar;
+        inp.onkeydown = ev => { if (ev.key === "Enter") comprobar(); };
+      };
       let primera = true;
       $$(".silaba").forEach(b => b.onclick = () => {
         if (paso !== 1) return;
         const ok = Number(b.dataset.i) === w.tonica;
-        if (primera) { registrar("9.1", ok, w.p, "sílaba tónica", "tildes-generales"); primera = false; }
+        // En un monosílabo no hay nada que elegir: tocarlo no puntúa
+        if (primera && !mono) registrar("9.1", ok, w.p, "sílaba tónica", w.regla);
+        primera = false;
         if (!ok) { $("#msg").textContent = "Esa no. Di la palabra en voz alta dando una palmada en la sílaba que suena más fuerte."; return; }
         b.classList.add("tonica"); pico(w.tonica); $("#msg").textContent = ""; paso = 2;
+        if (mono) return escribir();   // sin «¿aguda, llana o esdrújula?»: no es ninguna de las tres
         $("#instr").textContent = "Paso 2 · ¿Qué tipo de palabra es?";
         let primera2 = true;
         $("#zona").innerHTML = `<div class="si-no">${Object.entries(NOMBRE).map(([id, nom]) => `<button data-t="${id}">${nom}</button>`).join("")}</div>`;
         $$("#zona button").forEach(t => t.onclick = () => {
           const ok2 = t.dataset.t === tipo;
-          if (primera2) { registrar("9.1", ok2, w.p, "tipo de palabra", "tildes-generales"); primera2 = false; }
+          if (primera2) { registrar("9.1", ok2, w.p, "tipo de palabra", w.regla); primera2 = false; }
           if (!ok2) { $("#msg").textContent = "Cuenta desde el final: última sílaba → aguda; penúltima → llana; antepenúltima → esdrújula."; return; }
-          $("#msg").textContent = ""; paso = 3;
-          $("#instr").textContent = "Paso 3 · Escribe la palabra, con tilde o sin ella.";
-          $("#zona").innerHTML = `<input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra"><div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>`;
-          const inp = $("#resp"); inp.focus();
-          let intentada = false;
-          const comprobar = () => {
-            if (!inp.value.trim()) return;
-            const ok3 = norm(inp.value) === norm(w.p);
-            if (!intentada) { intentada = true; registrar("5.1", ok3, w.p, "sismógrafo", "tildes-generales"); }
-            if (!ok3) { $("#msg").innerHTML = `Se escribe <strong>${esc(w.p)}</strong>. Escríbela tú.`; inp.value = ""; inp.focus(); return; }
-            const ultima = w.p.slice(-1);
-            const fin = /[aeiouáéíóú]/i.test(ultima) ? "vocal" : `-${ultima}`;
-            const porque = `${w.p} es ${NOMBRE[tipo]}: la fuerza está en «${w.silabas[w.tonica]}» y termina en ${fin}. ${REGLA[tipo]} ${lleva ? "Por eso lleva tilde." : "Por eso no lleva tilde."}`;
-            $("#zona").innerHTML = `<div class="explicacion">✔️ ${esc(porque)}</div><button class="flecha" id="sig">Siguiente ▸</button>`;
-            $(".muestra").innerHTML = w.silabas.map((sil, i) => `<span class="silaba ${i === w.tonica ? "tonica" : ""}">${esc(sil)}</span>`).join("");
-            $("#sig").onclick = () => { k++; pintar(); };
-          };
-          $("#ok").onclick = comprobar;
-          inp.onkeydown = ev => { if (ev.key === "Enter") comprobar(); };
+          escribir();
         });
       });
     };

@@ -222,7 +222,14 @@
     else if (nivel >= 2) frases = [...libres.filter(f => vs(f).some(v => v.irregular)), ...libres.filter(f => !vs(f).some(v => v.irregular))].slice(0, nViaje);
     else frases = libres.slice(0, nViaje);
     const destinos = barajar(L.destinos);
-    const viajes = frases.map((f, i) => viaje(f, destinos[i % destinos.length]));
+    // Si en el destino el verbo se escribe igual que el que ya se ve en la frase (nosotros miramos → miramos),
+    // no hay nada que conjugar: se salta al siguiente destino en el que cambie
+    const vistas = f => [...f.texto.matchAll(/\{([^}]+)\}/g)].map(m => norm(m[1]));
+    const repite = q => q.partes.some((x, i) => norm(x.forma) === vistas(q.frase)[i] || x.forma === formaDe(x.v, "presente", x.p));
+    const viajes = frases.map((f, i) => {
+      const opciones = destinos.map((_, d) => viaje(f, destinos[(i + d) % destinos.length]));
+      return opciones.find(q => !repite(q)) || opciones[0];
+    });
     // Los viajes se reparten por la ronda (nunca el primero: primero se calienta)
     const ronda = [...lista];
     viajes.forEach(q => ronda.splice(1 + Math.floor(Math.random() * ronda.length), 0, q));
@@ -359,7 +366,14 @@
     }
     if (!$(".ter-pantalla")) $(".ter-sala").innerHTML = htmlSala();
     let enRonda = false;
-    $("#acaVolver").onclick = () => (enRonda ? confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver") : vistaPatio());
+    let cierre = null;   // la pantalla de «CERRANDO SESIÓN» espera un momento antes de guardar: si se sale antes, se guarda ya
+    const cerrar = () => {
+      if (cierre === null) return;
+      clearTimeout(cierre); cierre = null;
+      $(".ter-mateo")?.remove();
+      terminarActividad(sl, turno);
+    };
+    $("#acaVolver").onclick = () => (cierre !== null ? cerrar() : enRonda ? confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver") : vistaPatio());
     $("#terPantalla").onclick = () => $("#terResp")?.focus({ preventScroll: true });
 
     // Teclado de la pantalla: escribe en la entrada sin quitarle el foco
@@ -457,7 +471,12 @@
           intentada = true;
           intentos++;
           registrar("9.1", ok, x.forma, "conjugación", reglaOrto);
-          if (reglaOrto) registrar("5.1", ok, x.forma, "conjugación", reglaOrto);
+          if (reglaOrto) {
+            registrar("5.1", ok, x.forma, "conjugación", reglaOrto);
+            // Si falla, la forma vuelve en una ficha del Archivo: su pista dice qué forma es, sin escribirla
+            const nombreTiempo = `${tm.nombre}${tm.modo === "subjuntivo" ? " de subjuntivo" : ""}`;
+            pistaFicha(ok, `${nombreTiempo.charAt(0).toUpperCase()}${nombreTiempo.slice(1)} de «${x.v.inf}» · ${per.pronombre}`, x.reglas.find(r => r.regla)?.texto);
+          }
           if (ok) bien++;
         }
         if (ok) {
@@ -502,7 +521,8 @@
         <p class="ter-linea">${lupa.icono} ${esc(lupa.nombre.toUpperCase())}</p>
         <p class="ter-linea">VERBOS BIEN A LA PRIMERA: ${bien} DE ${intentos}</p>
         <p class="ter-linea">${bien === intentos ? "ORTO-3000 NO ENCUENTRA NI UN ERROR. ESTO NO PASABA DESDE 1986." : "DATOS GUARDADOS. LA PRÁCTICA HACE AL DETECTIVE."}</p>`, "ter-destello");
-      setTimeout(() => { $(".ter-mateo")?.remove(); terminarActividad(sl, turno); }, movimientoReducido() ? 300 : 1600);
+      const mia = P;
+      cierre = setTimeout(() => { if (P === mia) cerrar(); }, movimientoReducido() ? 300 : 1600);
     };
 
     arranque();

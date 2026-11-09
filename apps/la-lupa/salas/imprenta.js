@@ -155,6 +155,8 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
   const usadas = new Set();
   const galeradas = arts.map(a => { const g = prepararGalerada(a, elegirFaltas(a, enCola, usadas, cfg)); g.faltas.forEach(f => usadas.add(f.regla)); return g; });
   partidaAca(sl, [...usadas]);
+  // Una palabra mal corregida vuelve en una ficha del Archivo: su pista es la frase del artículo, con hueco
+  P.pistaDe = palabra => arts.flatMap(a => a.parrafos).map(par => pistaEnTexto(limpiarMarcas(par), palabra)).find(Boolean) || null;
   let r = 0;
 
   const pintar = () => {
@@ -207,10 +209,26 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
     });
     // La galerada tiene que caber entera: se baja la letra (y, si hace falta, el titular) hasta que quepa
     const cuerpo = $("#impCuerpo");
+    // Antes de bajar la letra se aprietan el titular y el interlineado: así las palabras quedan más grandes (y se tocan mejor)
+    const cabe = () => gal.scrollHeight <= gal.clientHeight + 1;
     for (let letra = cfg.letra; letra >= 15; letra--) {
       cuerpo.style.setProperty("--imp-letra", `${letra}px`);
-      if (letra <= 19) gal.classList.add("apretada");
-      if (gal.scrollHeight <= gal.clientHeight + 1) break;
+      if (cabe()) break;
+      gal.classList.add("apretada");
+      if (cabe()) break;
+    }
+    // En pantallas táctiles, un toque elige la palabra y otro la marca: con el dedo es fácil dar en la línea de al lado,
+    // y tachar una palabra bien escrita cuenta como falsa alarma
+    if (matchMedia("(pointer: coarse)").matches) {
+      cuerpo.addEventListener("click", ev => {
+        const b = ev.target.closest?.("button.w");
+        if (!b || b.classList.contains("imp-elegida") || b.classList.contains("resuelta") || b.classList.contains("sospechosa")) return;
+        ev.stopPropagation();
+        $$(".imp-elegida", cuerpo).forEach(x => x.classList.remove("imp-elegida"));
+        b.classList.add("imp-elegida");
+        aviso(`«${b.textContent}»: toca otra vez para marcarla.`);
+      }, true);
+      cuerpo.addEventListener("click", () => $$(".imp-elegida", cuerpo).forEach(x => x.classList.remove("imp-elegida")));
     }
 
     const falsasAntes = P.eventos.filter(e => e.detalle === "falsa alarma").length;

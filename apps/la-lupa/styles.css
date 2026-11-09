@@ -627,3 +627,5 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 .sin-guardar { position: fixed; left: 0; right: 0; top: 0; z-index: 10000; background: #7a1d19; color: #fff; font: 800 15px var(--f-ui); padding: 8px 14px; text-align: center; }
 /* «Recuperar mi detective» va junto a «Zona maestro/a», lejos del botón de sonido */
 .enlace-maestro.enlace-nube { left: auto; right: 170px; }
+/* Táctil: sin zoom por doble toque (los niños tocan deprisa) ni retraso en los botones */
+html { touch-action: manipulation; }
