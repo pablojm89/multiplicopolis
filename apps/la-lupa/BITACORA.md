@@ -251,3 +251,11 @@ Probado con el `.gs` real ejecutado en Node sobre unas hojas simuladas (58 compr
 - Dianas táctiles más grandes en el parte, la coma y la Terminal. En la Imprenta, en pantallas táctiles, un toque elige la palabra y otro la marca. Quedan pequeñas las galeradas de diamante y el teclado de la Terminal.
 
 Sin probar en un dispositivo real: el teclado virtual (por si tapa campos de la mitad inferior) y el zoom por doble toque de iOS.
+
+**Publicado en la web de GitHub** (Pablo: «que funcione al 100 % como web o web app cargando desde GitHub, para probarlo todo desde ahí»). Pull request pablojm89/multiplicopolis#9 fusionado en `main` con su visto bueno.
+- La Lupa: https://pablojm89.github.io/multiplicopolis/apps/la-lupa/
+- Multiplicópolis sigue en la dirección de siempre (https://pablojm89.github.io/multiplicopolis/), que ahora redirige a `apps/multiplicopolis/`. Mismo juego, con el sonido añadido.
+- Añadido para la versión web: botón de pantalla completa en la entrada (en Android, además gira la pantalla), «Instalar como app» en la zona del maestro, ajustes para iPad y `.nojekyll`.
+- Comprobado en la web ya publicada con un navegador: la raíz lleva a Multiplicópolis; La Lupa carga sin ningún archivo perdido (4 casos escena a escena, las 8 salas, encargos, zona del maestro e imprimibles); el service worker controla solo su carpeta, y tras «Descargar todo» un caso entero se juega sin red.
+- A partir de ahora, lo que se suba a la rama de trabajo no se ve en la web hasta fusionar otro pull request. GitHub guarda los archivos 10 minutos en la caché del navegador.
+- Queda abierto pablojm89/multiplicopolis#8 (la entrega de PNG de GPT hacia la rama de trabajo): ya está integrada a mano, así que se puede cerrar sin fusionar.
