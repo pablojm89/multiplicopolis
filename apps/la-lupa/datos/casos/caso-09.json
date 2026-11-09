@@ -81,7 +81,7 @@
           ],
           "pregunta": "¿Por qué las palabras del segundo grupo van en minúscula?",
           "opciones": [
-            "Son nombres comunes: días, meses, estaciones, gentilicios, idiomas y cargos",
+            "No son nombres propios: días, meses, estaciones, gentilicios, idiomas y cargos",
             "Son palabras cortas",
             "Van siempre después de una coma",
             "Son palabras poco importantes"
@@ -174,14 +174,14 @@
       "quien": "Portada falsa del periódico",
       "titulo": "La portada falsa",
       "intro": "La portada falsa tiene 6 faltas de mayúsculas. Encuéntralas y corrígelas.",
-      "declaracion": "¡Número especial de fin de curso! Este {Verano|verano}, toda La Alameda debe saber la verdad: los detectives de La Lupa no saben escribir. Su jefe, el {Director|director} Robles, no distingue el {Lunes|lunes} del martes. {ellos|Ellos} se creen muy listos, pero no encontrarían {sevilla|Sevilla} ni con un mapa. Hasta los turistas {Franceses|franceses} escriben mejor que ellos. Firmado: un vecino con mucha aura.",
+      "declaracion": "¡Número especial de fin de curso! Desde el {Otoño|otoño}, toda La Alameda quiere saber la verdad: los detectives de La Lupa no saben escribir. Su jefe, el {Director|director} Robles, no distingue el {Lunes|lunes} del martes. {ellos|Ellos} se creen muy listos, pero no encontrarían {huelva|Huelva} ni con un mapa. Hasta los turistas {Franceses|franceses} escriben mejor que esos detectives. Firmado: un vecino con mucha aura.",
       "pistas": [
         "Mira las estaciones, los días, los cargos y los gentilicios: van en minúscula.",
         "Los nombres de ciudades llevan mayúscula. Y después de punto, también.",
-        "Son: Verano, Director, Lunes, ellos, sevilla y Franceses."
+        "Son: Otoño, Director, Lunes, ellos, huelva y Franceses."
       ],
       "recompensa": {
-        "texto": "Al pie de la portada falsa, alguien ha rodeado con rotulador negro el número de la página: el 3.",
+        "texto": "Al pie de la portada falsa, alguien ha escrito un número con rotulador negro: el 3.",
         "digito": "3"
       }
     },
@@ -194,7 +194,7 @@
         "lado": "izq"
       },
       "quien": "Mateo",
-      "texto": "Ni la puerta ni las ventanas están forzadas: quien cambió las páginas entró con llave. Y mirad el suelo, está lleno de recortes de papel. Entre ellos hay palabras con la mayúscula mal puesta… Seguro que juntas forman otro mensaje."
+      "texto": "Ni la puerta ni las ventanas están forzadas: quien cambió las páginas entró con llave. Y mirad el suelo: está lleno de recortes de papel. Entre ellos hay palabras con la mayúscula mal puesta… Seguro que juntas forman otro mensaje."
     },
     {
       "tipo": "papeles",
@@ -278,7 +278,7 @@
         },
         {
           "id": "suspensivos",
-          "nombre": "Puntos ( … )"
+          "nombre": "Puntos suspensivos ( … )"
         }
       ],
       "palabras": [
@@ -327,8 +327,8 @@
         "Lee la frase en voz alta: ¿pregunta, exclama, enumera o se queda a medias?"
       ],
       "recompensa": {
-        "texto": "En el cartón del paquete hay un número escrito con rotulador negro: el 6.",
-        "digito": "6"
+        "texto": "En el cartón del paquete hay un número escrito con rotulador negro: el 2.",
+        "digito": "2"
       }
     },
     {
@@ -340,7 +340,7 @@
         "lado": "der"
       },
       "quien": "Aurora, la directora del periódico",
-      "texto": "¡Son las cinco y media! A las seis en punto la rotativa arrancará sola e imprimirá la portada falsa. El Tachón ha cerrado el cuadro de mandos con un candado. ¿Cómo sabía a qué hora arranca? Eso solo lo sabemos los del periódico… Para pararla, le dejé al maquinista esta nota: «Roja no, la verde»."
+      "texto": "¡Son las cinco y media! A las seis en punto la rotativa arrancará sola e imprimirá la portada falsa. El Tachón ha cerrado el cuadro de mandos con un candado. ¿Cómo sabía a qué hora arranca? Eso solo lo sabemos los del periódico… Para pararla hay que bajar una palanca. Al maquinista le tengo dejada esta nota: «Roja no, la verde»."
     },
     {
       "tipo": "hipotesis",
@@ -391,8 +391,8 @@
       "objeto": "cuadro-rotativa",
       "titulo": "El cuadro de mandos",
       "instruccion": "¡Quedan dos minutos! El Tachón cerró el cuadro de mandos de la rotativa con un candado. Mira tu libreta: las cifras van en el orden en que las encontraste.",
-      "codigo": "386",
-      "exito": "El cuadro se abre. Roja no, la verde: Lola baja la palanca verde y la rotativa se para a las seis menos un minuto. En la bandeja de salida queda un solo papel: una nota con un tachón.",
+      "codigo": "382",
+      "exito": "El cuadro se abre. Roja no, la verde: bajo la palanca verde y la rotativa se para a las seis menos un minuto. En la bandeja de salida queda un solo papel: una nota con un tachón.",
       "pistas": [
         "Abre tu libreta: ahí están las cifras.",
         "La primera estaba al pie de la portada falsa."

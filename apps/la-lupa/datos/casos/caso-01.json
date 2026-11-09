@@ -135,7 +135,7 @@
       "pistas": [
         "Fíjate en la última letra de cada palabra.",
         "Compara cómo terminan las palabras CON tilde y las SIN tilde.",
-        "Abre el Archivo de Mateo (la carpeta de abajo)."
+        "Abre el Archivo de Mateo (la carpeta de arriba)."
       ]
     },
     {
@@ -321,7 +321,7 @@
         "Cuenta las sílabas desde el final: última → aguda, penúltima → llana, antepenúltima → esdrújula."
       ],
       "recompensa": {
-        "texto": "Inés recuerda: «Ramón me pidió una caja con candado. Eran las 3». ",
+        "texto": "Inés recuerda: «Ramón llevaba una caja de música con un candado de 3 cifras».",
         "digito": "3"
       },
       "contador": "Ramo"
@@ -456,8 +456,8 @@
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de tildes. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
-        "Hay una falta en el aviso del caso… y alguna más.",
-        "Revisa lo que dijeron Inés y Lola en el kiosco."
+        "Hay dos faltas en lo primero que dijo el director… y alguna más.",
+        "Revisa lo que dijo Inés en la floristería y lo que dijo Lola en el kiosco."
       ]
     },
     {

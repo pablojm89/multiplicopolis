@@ -6,7 +6,7 @@
   "reglas": [
     "diptongo-monosilabos"
   ],
-  "_nota": "Temporada 1, episodio 7. Pieza del gran misterio (emocional): el Tachón saca del archivo de la agencia el cuaderno de segundo de Mateo y se burla de sus faltas, igual que se burlaron de él en la antigua escuela. Mateo confiesa que de pequeño cometía muchísimas faltas y que se reían de él: por eso se hizo archivero de reglas («los errores se corrigen»). Lola, que sube sola a la azotea y casi acusa a Ramón sin pruebas, aprende a fiarse del equipo. Bruno aparece de fondo con el periódico y suelta que reírse de las faltas de alguien «duele más de lo que parece» (pista para los atentos, sin señalarla). La tilde diacrítica solo se presenta como aviso (se trabaja en 6.º). Faltas sembradas para el expediente: dió, Despues, Tambien.",
+  "_nota": "Temporada 1, episodio 7. Pieza del gran misterio (emocional): el Tachón saca del archivo de la agencia el cuaderno de segundo de Mateo y se burla de sus faltas, igual que se burlaron de él en la antigua escuela. Mateo confiesa que de pequeño cometía muchísimas faltas y que se reían de él: por eso se hizo archivero de reglas («los errores se corrigen»). Lola, que sube sola a la azotea y casi acusa a Ramón sin pruebas, aprende a fiarse del equipo. Bruno aparece de fondo con el periódico y suelta que reírse de las faltas de alguien «duele más de lo que parece» (pista para los atentos, sin señalarla). La tilde diacrítica solo se presenta como aviso (se trabaja en 6.º). Faltas sembradas para el expediente: dió, emision, Tambien.",
   "escenas": [
     {
       "tipo": "portada",
@@ -60,7 +60,7 @@
         {
           "grupos": [
             {
-              "titulo": "Con diptongo y CON tilde",
+              "titulo": "Con diptongo o triptongo y CON tilde",
               "palabras": [
                 "canción",
                 "huésped",
@@ -122,7 +122,7 @@
             "Vio la antena."
           ],
           "correcta": 0,
-          "explicacion": "«Él» lleva tilde para no confundirse con «el»: él es la persona (él trajo) y el acompaña a una palabra (el guion). Es la tilde diacrítica, y solo la llevan unos pocos monosílabos con pareja: él/el, tú/tu, mí/mi, sí/si, té/te, más/mas. La estudiarás a fondo en 6.º. Por ahora: fue, fui, dio y vio, sin tilde."
+          "explicacion": "«Él» lleva tilde para no confundirse con «el»: él es la persona (él trajo) y el acompaña a una palabra (el guion). Es la tilde diacrítica, y solo la llevan unos pocos monosílabos con pareja, como él/el, tú/tu, mí/mi, sí/si, té/te y más/mas. La estudiarás a fondo en 6.º. Por ahora: fue, fui, dio y vio, sin tilde."
         }
       ],
       "pistas": [
@@ -143,7 +143,7 @@
       "apuntar": [
         "Escribe qué es un diptongo y pon tres ejemplos separados en sílabas (como cie-lo o puer-ta).",
         "Copia las dos reglas: los diptongos siguen las reglas de siempre (canción, huésped, cuídate) y los monosílabos no llevan tilde (fue, dio, vio, guion).",
-        "Apunta el aviso: él/el, tú/tu, mí/mi y sí/si llevan tilde para distinguirse. Lo verás en 6.º."
+        "Apunta el aviso: él, tú, mí y sí llevan tilde para distinguirse de el, tu, mi y si. Lo verás en 6.º."
       ]
     },
     {
@@ -156,7 +156,7 @@
       },
       "titulo": "Radio Alameda",
       "quien": "Charo, la locutora",
-      "texto": "¡Qué mal rato, detectives! Empecé a leer las noticias en directo y aquello era un desastre: tildes de más, tildes de menos… Corté y puse música. {Despues|Después} revisé las hojas: alguien cambió mi guion mientras yo preparaba el café. ¡Y hay un mensaje escondido!"
+      "texto": "¡Qué mal rato, detectives! Empecé a leer las noticias en directo y aquello era un desastre: tildes de más, tildes de menos… Corté la {emision|emisión} y puse música. Luego revisé las hojas: alguien cambió mi guion mientras yo preparaba el café. ¡Y hay un mensaje escondido!"
     },
     {
       "tipo": "papeles",
@@ -232,7 +232,7 @@
         "lado": "der"
       },
       "quien": "Charo, la locutora",
-      "texto": "Lola ha salido escaleras arriba como un rayo… Os enseño lo peor. La última hoja no la leí en antena: es una página de un cuaderno de niño, llena de correcciones en rojo. Y encima han escrito: «Mirad cómo escribía vuestro gran archivero. ¿Y este os enseña reglas? JA, JA. —T.»"
+      "texto": "Lola ha salido escaleras arriba como un rayo… Os enseño lo peor. La última hoja no la leí en antena: es una página de un cuaderno de niño, llena de correcciones en rojo. Y encima han escrito: «Mirad cómo escribía vuestro gran archivero. ¿Y este os enseña reglas? JA, JA. —T.»."
     },
     {
       "tipo": "relato",
@@ -379,7 +379,7 @@
         {
           "p": "guion",
           "cat": "una",
-          "pista": "guion: la u no suena y la io va junta. Una sola sílaba."
+          "pista": "guion: para la ortografía, la io va junta (y la u no suena). Una sola sílaba."
         },
         {
           "p": "piano",
@@ -422,8 +422,8 @@
       "quien": "Ramón, el músico",
       "titulo": "Careo",
       "instruccion": "Lola lo encontró junto a la taquilla… En su declaración hay 3 faltas: señálalas, presenta la carta que lo demuestra y escríbelas bien.",
-      "declaracion": "Esta mañana {fuí|fui|monosilabo} el primero en subir a la azotea, sí, pero solo para ensayar una {cancion|canción|diptongo} nueva con los cascos puestos. No vi ni oí nada. Y si creéis que miento, ¿por qué no {averiguais|averiguáis|triptongo} de quién son esas huellas de zapatos negros de la escalera de incendios?",
-      "aclarado": "Ramón dice la verdad: las huellas de la escalera son de unos zapatos negros enormes, y él va en sandalias. Lola se pone colorada: «Me he precipitado… otra vez».",
+      "declaracion": "Esta mañana {fuí|fui|monosilabo} el primero en subir a la azotea, sí, pero solo para ensayar una {cancion|canción|diptongo} nueva con los cascos puestos. No vi ni oí nada. Y si creéis que miento, ¿por qué no {averiguais|averiguáis|triptongo} de quién son esas huellas enormes de la escalera de incendios?",
+      "aclarado": "Ramón dice la verdad: las huellas de la escalera son de unos zapatos enormes, y él va en sandalias. Me pongo colorada: me he precipitado… otra vez.",
       "pistas": [
         "Hay un monosílabo con tilde, una aguda con diptongo sin tilde y un triptongo sin tilde.",
         "Busca las palabras fui, canción y averiguáis: están mal escritas."

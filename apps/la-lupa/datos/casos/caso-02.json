@@ -38,7 +38,7 @@
         {
           "grupos": [
             {
-              "titulo": "Pasado de verbos en -ar",
+              "titulo": "Imperfecto de verbos en -ar",
               "palabras": [
                 "cantaba",
                 "jugaba",
@@ -47,7 +47,7 @@
               ]
             }
           ],
-          "pregunta": "¿Cómo se escribe siempre el pasado de los verbos en -ar, como cantar o jugar?",
+          "pregunta": "Cantaba, jugaba… son formas del pretérito imperfecto de verbos en -ar. ¿Cómo se escribe siempre su terminación?",
           "opciones": [
             "Con -aba, con b",
             "Con -ava, con v",
@@ -55,7 +55,7 @@
             "Con b solo si el verbo es largo"
           ],
           "correcta": 0,
-          "explicacion": "El pasado de los verbos en -ar termina siempre en -aba: cantaba, jugábamos, saltabais. ¡Y también el verbo ir: iba, íbamos!"
+          "explicacion": "Las formas en -aba, -abas, -ábamos… de los verbos en -ar (el pretérito imperfecto) se escriben siempre con b: cantaba, jugábamos, saltabais. ¡Y también las del verbo ir: iba, íbamos!"
         },
         {
           "grupos": [
@@ -78,7 +78,7 @@
               ]
             }
           ],
-          "pregunta": "¿Qué letra va después de m? ¿Y después de n?",
+          "pregunta": "¿b o v? ¿Cuál se escribe después de m? ¿Y después de n?",
           "opciones": [
             "Después de m, b; después de n, v",
             "Después de m, v; después de n, b",
@@ -86,7 +86,7 @@
             "Después de las dos, b"
           ],
           "correcta": 0,
-          "explicacion": "Detrás de m va siempre b (hombre) y detrás de n va siempre v (invierno). ¡Nunca al revés!"
+          "explicacion": "Delante de b se escribe m, nunca n (hombre). Detrás de n se escribe v, nunca b (invierno). Por eso verás mb y nv, pero nunca nb ni mv."
         },
         {
           "grupos": [
@@ -183,23 +183,23 @@
           "bien": "Llegaba"
         },
         {
-          "mal": "vicicleta",
-          "bien": "bicicleta"
+          "mal": "camviaba",
+          "bien": "cambiaba"
         },
         {
-          "mal": "canviaba",
-          "bien": "cambiaba"
+          "mal": "escrivía",
+          "bien": "escribía"
         },
         {
           "mal": "iva",
           "bien": "iba"
         }
       ],
-      "frase": "{0} en {1} mientras {2} los letreros, y se {3} sin decir nada.",
+      "frase": "{0} en bicicleta, {1} los letreros, {2} faltas y se {3} sin decir nada.",
       "pistas": [
         "Las palabras mal escritas no son nombres de comida.",
-        "Busca un pasado en -aba escrito con v y un m + v.",
-        "Son: Llegava, vicicleta, canviaba e iva."
+        "Busca formas en -aba escritas con v, una m seguida de v y una forma del verbo escribir.",
+        "Son: Llegava, camviaba, escrivía e iva."
       ],
       "recompensa": {
         "texto": "Detrás del puesto de fruta hay un número pintado con rotulador negro: el 8.",
@@ -217,7 +217,7 @@
         "Fue una broma de los niños del barrio por la tarde."
       ],
       "correcta": 1,
-      "acierto": "La pista lo dice claro: alguien llegó en bicicleta de madrugada, cambió los letreros y se fue. Hay que preguntar a los primeros en llegar.",
+      "acierto": "La pista lo dice claro: alguien llegó en bicicleta de madrugada, cambió los letreros, los llenó de faltas y se fue. Hay que preguntar a los primeros en llegar.",
       "fallo": "Esa conclusión no encaja con la pista que has formado. Vuelve a leerla."
     },
     {
@@ -235,7 +235,7 @@
       "tipo": "clasifica",
       "fondo": "almacen-mercado",
       "titulo": "Los sacos del almacén",
-      "instruccion": "Los sacos están revueltos. Pon cada etiqueta en el cubo de la regla que la explica.",
+      "instruccion": "Los sacos están revueltos. Pon cada etiqueta en el saco de la regla que la explica.",
       "categorias": [
         {
           "id": "aba",
@@ -254,7 +254,7 @@
         {
           "p": "cantaba",
           "cat": "aba",
-          "pista": "Es un pasado de un verbo en -ar."
+          "pista": "Es una forma en -aba de un verbo en -ar."
         },
         {
           "p": "tambor",
@@ -269,7 +269,7 @@
         {
           "p": "jugaba",
           "cat": "aba",
-          "pista": "Es un pasado de un verbo en -ar."
+          "pista": "Es una forma en -aba de un verbo en -ar."
         },
         {
           "p": "blusa",
@@ -294,12 +294,12 @@
         {
           "p": "saltaba",
           "cat": "aba",
-          "pista": "Es un pasado de un verbo en -ar."
+          "pista": "Es una forma en -aba de un verbo en -ar."
         }
       ],
       "pistas": [
         "Mira dónde está la b o la v en cada palabra y qué tiene al lado.",
-        "Si es un pasado en -aba, ya sabes."
+        "Si es una forma en -aba, ya sabes."
       ],
       "recompensa": {
         "texto": "En el último saco hay una etiqueta: «Entrega número 4».",
@@ -331,7 +331,7 @@
             "b",
             "v"
           ],
-          "pista": "Pasado de un verbo en -ar: -aba."
+          "pista": "Forma en -aba de un verbo en -ar: con b."
         },
         {
           "p": "invierno",
@@ -341,7 +341,7 @@
             "b",
             "v"
           ],
-          "pista": "Después de n, siempre v."
+          "pista": "Detrás de n se escribe v, nunca b."
         },
         {
           "p": "hombre",
@@ -351,7 +351,7 @@
             "b",
             "v"
           ],
-          "pista": "Después de m, siempre b."
+          "pista": "Es mb: detrás de m se escribe b, nunca v."
         },
         {
           "p": "escribir",
@@ -381,7 +381,7 @@
             "b",
             "v"
           ],
-          "pista": "Las formas de estar llevan v: estuve."
+          "pista": "Los pasados en -uve de estar, andar y tener llevan v: estuve."
         },
         {
           "p": "blanco",
@@ -401,7 +401,7 @@
             "b",
             "v"
           ],
-          "pista": "Después de n, siempre v."
+          "pista": "Detrás de n se escribe v, nunca b."
         }
       ],
       "pistas": [
@@ -424,10 +424,10 @@
       "quien": "Remedios, la pescadera",
       "titulo": "Careo",
       "instruccion": "Su letrero es el único que no cambiaron… sospechoso. En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
-      "declaracion": "¡Yo no he tocado nada! Esta mañana {trabajava|trabajaba|aba} en mi puesto como siempre. Solo salí un momento a {enbiar|enviar|mb-nv} un paquete a mi hermana y a {escrivir|escribir|bir} una nota para el reparto. Si no tocaron mi letrero, sería porque no tenía faltas que poner.",
+      "declaracion": "¡Yo no he tocado nada! Esta mañana {trabajava|trabajaba|aba} en mi puesto como siempre. Solo salí un momento a {enbiar|enviar|mb-nv} un paquete a mi hermana y a {escrivir|escribir|bir} una nota para el reparto. Si no tocaron mi letrero, será porque no lo vieron.",
       "aclarado": "Remedios dice la verdad: a su letrero no le cambiaron nada porque estaba en la pared del fondo. La grabadora de la cámara del mercado lo habrá grabado todo.",
       "pistas": [
-        "Hay un pasado en -aba, una n + v y un verbo en -bir.",
+        "Hay una forma en -aba, una n + v y un verbo en -bir.",
         "Son: trabajava, enbiar y escrivir."
       ]
     },
@@ -454,7 +454,7 @@
         "lado": "izq"
       },
       "quien": "Lola",
-      "texto": "¡Ahí está! Gabardina negra, gafas de sol de noche y esa mandíbula… ¡El Tachón! Y fíjate en la muñeca: una mancha roja. ¿Qué será eso?"
+      "texto": "¡Ahí está! Gabardina negra, gafas de sol en plena noche y esa mandíbula… ¡Es él, el del tachón! Lo llamaremos así: el Tachón. Y fíjate en la muñeca: una mancha roja. ¿Qué será eso?"
     },
     {
       "tipo": "relato",
@@ -479,7 +479,7 @@
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de b y v. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
-        "Hay una en el aviso del caso.",
+        "Hay una en lo que dijo el director al empezar.",
         "Revisa lo que dijeron Lola y Manolo en el mercado."
       ]
     },

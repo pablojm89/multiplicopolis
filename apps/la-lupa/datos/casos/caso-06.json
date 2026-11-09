@@ -48,15 +48,16 @@
               ]
             },
             {
-              "titulo": "geo- · -logía · -gía",
+              "titulo": "geo- · -logía · -gia · -gía",
               "palabras": [
                 "geografía",
                 "biología",
-                "magia"
+                "magia",
+                "energía"
               ]
             }
           ],
-          "pregunta": "¿Con qué letra se escribe el sonido /j/ en todas estas palabras?",
+          "pregunta": "¿Con qué letra se escribe el sonido de la j en todas estas palabras?",
           "opciones": [
             "Con g",
             "Con j",
@@ -64,7 +65,7 @@
             "Unas veces con g y otras con j, sin regla"
           ],
           "correcta": 0,
-          "explicacion": "Gen-, -gen, -gente y -gencia se escriben con g: general, imagen, gente, urgencia. Y también geo-, -logía y -gía: geografía, biología, magia."
+          "explicacion": "Gen-, -gen, -gente y -gencia se escriben con g: general, imagen, gente, urgencia. Y también geo-, -logía, -gia y -gía: geografía, biología, magia, energía. Excepciones: lejía y bujía."
         },
         {
           "grupos": [
@@ -86,7 +87,7 @@
               ]
             }
           ],
-          "pregunta": "¿Y en estas otras? ¿Con qué letra se escribe el sonido /j/?",
+          "pregunta": "¿Y en estas otras? ¿Con qué letra se escribe el sonido de la j?",
           "opciones": [
             "Con j",
             "Con g",
@@ -127,7 +128,7 @@
         },
         {
           "grupos": [],
-          "pregunta": "Un vecino dice: «Todos los verbos que terminan en -ger o en -gir se escriben con g». ¿Qué verbo demuestra que se equivoca?",
+          "pregunta": "Un vecino dice: «Todos los verbos que terminan con el sonido “jer” o “jir” se escriben con g». ¿Qué verbo demuestra que se equivoca?",
           "opciones": [
             "proteger",
             "tejer",
@@ -180,7 +181,7 @@
         "lado": "izq"
       },
       "quien": "Bruno, el repartidor",
-      "texto": "¡Buenos días! Traigo el periódico para don Anselmo. ¡Anda, detectives en mi antigua escuela! Yo estudié aquí de pequeño, ¿sabes? Los dictados se me daban fatal… pero el naranjo del patio era lo mejor. Bueno, ¡me voy, que el reparto no espera!"
+      "texto": "¡Buenos días! Traigo el periódico para don Anselmo. ¡Anda, detectives en mi antigua escuela! Yo estudié aquí de pequeño, ¿sabéis? Los dictados se me daban fatal… pero el naranjo del patio era lo mejor. Bueno, ¡me voy, que el reparto no espera!"
     },
     {
       "tipo": "relato",
@@ -447,7 +448,7 @@
         "lado": "der"
       },
       "quien": "Don Anselmo, el conserje",
-      "texto": "Esta orla es de una de mis últimas clases. No sé de quién es la cara que falta: también han recortado los nombres de abajo. Pero me acuerdo de un niño de aquel curso al que los demás se reían mucho por sus faltas. Yo siempre le decía que los errores se corrigen… y que nadie debe burlarse de nadie."
+      "texto": "Esta orla es de una de mis últimas clases. No sé de quién es la cara que falta: también han recortado los nombres de abajo. Pero me acuerdo de un niño de aquel curso del que los demás se reían mucho por sus faltas. Yo siempre le decía que los errores se corrigen… y que nadie debe burlarse de nadie."
     },
     {
       "tipo": "expediente",

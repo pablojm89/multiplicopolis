@@ -2,11 +2,11 @@
   "id": "caso-05",
   "numero": "05",
   "titulo": "La noche de los farolillos",
-  "resumen": "En la inauguración de la feria se apagan todas las luces… y el Tachón da la cara.",
+  "resumen": "En la noche grande de la feria se apagan todas las luces… y el Tachón da la cara.",
   "reglas": [
     "ll-y"
   ],
-  "_nota": "Temporada 1, episodio 5: MITAD DE TEMPORADA. Primer careo cara a cara con el Tachón (guiños de aura y sigma), que huye en bicicleta y deja caer una llave antigua de la antigua escuela del barrio (enlaza con el episodio 6). Faltas sembradas para el expediente: farolios, caye, Yegué.",
+  "_nota": "Temporada 1, episodio 5: MITAD DE TEMPORADA. Primer careo cara a cara con el Tachón (guiños de aura y sigma), que huye en bicicleta y deja caer una llave antigua de la antigua escuela del barrio (enlaza con el episodio 6). Faltas sembradas para el expediente: faroliyos, Estoi, olló.",
   "escenas": [
     {
       "tipo": "portada",
@@ -21,7 +21,7 @@
         "lado": "der"
       },
       "quien": "Director Robles",
-      "texto": "Esta noche se inaugura la feria y alguien ha dejado una nota en el ayuntamiento: va a apagar todos los {farolios|farolillos}. Está firmada con un tachón. Esta vez quiero que lo pilléis con las manos en la masa. Y si echa a correr, tranquilos: para eso traigo el cronómetro."
+      "texto": "Hoy es la noche grande de la feria y alguien ha dejado una nota en el ayuntamiento: va a apagar todos los {faroliyos|farolillos}. Está firmada con un tachón. Esta vez quiero que lo pilléis con las manos en la masa. Y si echa a correr, tranquilos: para eso traigo el cronómetro."
     },
     {
       "tipo": "descubre",
@@ -77,7 +77,7 @@
             "Con hi"
           ],
           "correcta": 0,
-          "explicacion": "Rey, hoy, muy, ley: la i al final que no suena fuerte se escribe y. Si suena fuerte, va con í y tilde: ahí, leí."
+          "explicacion": "Rey, hoy, muy, ley: la i al final que no suena fuerte se escribe y. Si suena fuerte, se escribe i con tilde: ahí, leí."
         },
         {
           "grupos": [
@@ -155,7 +155,7 @@
       },
       "titulo": "La feria a oscuras",
       "quien": "Lola",
-      "texto": "¡Se han apagado todas las luces de golpe! En la {caye|calle} principal los farolillos tienen mensajes escritos con rotulador negro… y llenos de faltas. Es su forma de reírse de nosotros."
+      "texto": "¡Se han apagado todas las luces de golpe! En la calle principal los farolillos tienen mensajes escritos con rotulador negro… y llenos de faltas. {Estoi|Estoy} segura: es su forma de reírse de nosotros."
     },
     {
       "tipo": "papeles",
@@ -180,8 +180,8 @@
       ],
       "faltas": [
         {
-          "mal": "casiya",
-          "bien": "casilla"
+          "mal": "taquiya",
+          "bien": "taquilla"
         },
         {
           "mal": "amariya",
@@ -200,7 +200,7 @@
       "pistas": [
         "Las faltas son palabras terminadas en -illa… y un verbo que viene de huir.",
         "Huir no tiene ll ni y: sus formas van con y.",
-        "Son: casiya, amariya, bombiyas y hullendo."
+        "Son: taquiya, amariya, bombiyas y hullendo."
       ],
       "recompensa": {
         "texto": "En el farolillo más grande alguien ha pintado un número: el 9.",
@@ -213,12 +213,12 @@
       "titulo": "¿Dónde se esconde?",
       "opciones": [
         "En la biblioteca del barrio.",
-        "En la casilla amarilla de la feria.",
+        "En la taquilla amarilla de la feria.",
         "En el mercado de abastos.",
         "En la agencia."
       ],
       "correcta": 1,
-      "acierto": "Él mismo nos lo ha dicho sin querer: se esconde en la casilla amarilla, entre las bombillas. ¡Vamos, sin hacer ruido!",
+      "acierto": "Él mismo nos lo ha dicho sin querer: se esconde en la taquilla amarilla, entre las bombillas. ¡Vamos, sin hacer ruido!",
       "fallo": "Vuelve a leer la pista que han formado las palabras corregidas."
     },
     {
@@ -230,7 +230,7 @@
         "lado": "der"
       },
       "quien": "Ramón, el músico",
-      "texto": "¡Detectives! Yo iba a tocar esta noche, pero sin luz no hay concierto. {Yegué|Llegué} a la caseta y alguien había revuelto todas las cajas de bombillas. Iba hacia la casilla amarilla…"
+      "texto": "¡Detectives! Yo iba a tocar esta noche, pero sin luz no hay concierto. Llegué a la caseta y alguien había revuelto todas las cajas de bombillas. Cuando me {olló|oyó}, se fue hacia la taquilla amarilla…"
     },
     {
       "tipo": "clasifica",
@@ -334,7 +334,7 @@
           "pista": "Y al final, detrás de vocal."
         },
         {
-          "p": "cayó",
+          "p": "cayeron",
           "pos": 2,
           "letra": "y",
           "opciones": [
@@ -412,7 +412,7 @@
         "lado": "izq"
       },
       "quien": "Lola",
-      "texto": "Shhh… Ahí, junto a la casilla amarilla. La gabardina negra, las gafas de sol de noche… Es él. Esta vez no se nos escapa. ¿Preparado para el careo?"
+      "texto": "Shhh… Ahí, junto a la taquilla amarilla. La gabardina negra, las gafas de sol en plena noche… Es él. Esta vez no se nos escapa. ¿Todo listo para el careo?"
     },
     {
       "tipo": "careo",
@@ -453,7 +453,7 @@
         "lado": "izq"
       },
       "quien": "Lola",
-      "texto": "¡Se ha escapado en bicicleta! Pero al huir se le ha caído algo: una llave antigua, con una etiqueta de la antigua escuela del barrio. «El sitio donde empezó todo»… ¿Qué querrá decir?"
+      "texto": "¡Se ha escapado en bicicleta! Pero al huir se le ha caído algo: una llave vieja, con una etiqueta de la antigua escuela del barrio. «El sitio donde empezó todo»… ¿Qué querrá decir?"
     },
     {
       "tipo": "candado",
@@ -491,7 +491,7 @@
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de ll e y. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
-        "Hay una en el aviso del caso.",
+        "Hay una en lo que dijo el director al empezar.",
         "Revisa lo que dijeron Lola y Ramón."
       ]
     },
@@ -532,7 +532,7 @@
         "ramon",
         "robles"
       ],
-      "texto": "La feria brilla otra vez. El Tachón se ha escapado… pero por fin le hemos visto la cara, y en el tablón hay una llave que nos lleva a la antigua escuela."
+      "texto": "La feria brilla otra vez. El Tachón se ha escapado… pero por fin lo hemos tenido cara a cara, y en el tablón hay una llave que nos lleva a la antigua escuela."
     }
   ]
 }

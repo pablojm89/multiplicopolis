@@ -253,7 +253,7 @@
         "lado": "der"
       },
       "quien": "Azucena, la ceramista",
-      "texto": "¿Mis azulejos? Hace diez días un cliente me encargó {trese|trece} piezas con palabras rarísimas. Nunca le vi la cara: llevaba gafas de sol y el cuello de la gabardina subido. Mientras hablamos, se me mezclaron los botes de pintura…"
+      "texto": "¿Mis azulejos? Hace diez días un cliente me encargó {trese|trece} piezas con palabras rarísimas. Nunca le vi la cara: llevaba gafas de sol y el cuello de la gabardina subido. Mientras hablábamos, se me mezclaron los botes de pintura…"
     },
     {
       "tipo": "huecos",
@@ -285,15 +285,15 @@
           "pista": "Delante de a se escribe z."
         },
         {
-          "p": "queso",
-          "pos": 0,
+          "p": "esquina",
+          "pos": 2,
           "letra": "qu",
           "opciones": [
             "c",
             "qu",
             "k"
           ],
-          "pista": "El sonido /k/ delante de e se escribe qu."
+          "pista": "El sonido /k/ delante de i se escribe qu."
         },
         {
           "p": "luces",
@@ -307,15 +307,15 @@
           "pista": "Es el plural de luz: la z se convierte en c."
         },
         {
-          "p": "taza",
-          "pos": 2,
+          "p": "azulejo",
+          "pos": 1,
           "letra": "z",
           "opciones": [
             "c",
             "z",
             "s"
           ],
-          "pista": "Delante de a se escribe z."
+          "pista": "Delante de u se escribe z."
         },
         {
           "p": "cine",
@@ -369,13 +369,13 @@
         "lado": "der"
       },
       "quien": "Doña Pilar",
-      "texto": "¡Yo lo oí! Estaba en el banco de la plaza cuando ese señor de gafas habló con Azucena. Hablaba como nosotros, con su seseo de toda la vida. Os lo digo yo: ese es de La Alameda."
+      "texto": "¡Yo lo oí! Estaba en el banco que hay frente al taller cuando ese señor de gafas habló con Azucena. Hablaba como nosotros, con su seseo de toda la vida. Os lo digo yo: ese es de La Alameda."
     },
     {
       "tipo": "clasifica",
       "fondo": "taller-ceramica",
       "titulo": "Las cajas del taller",
-      "instruccion": "Ayuda a Azucena a ordenar las piezas: cada una a la caja de la regla que la explica.",
+      "instruccion": "Ayuda a Azucena a ordenar las piezas: cada una a la caja de la regla que la explica. Ojo: los plurales de palabras acabadas en z (luz → luces) van a la caja del plural.",
       "categorias": [
         {
           "id": "k",
@@ -455,11 +455,11 @@
       },
       "quien": "Azucena, la ceramista",
       "titulo": "Careo",
-      "instruccion": "Los azulejos salieron de su taller… En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
-      "declaracion": "Yo solo {hise|hice|ce} lo que me pidieron: {catorse|catorce|ce} azulejos con letras. El cliente pagó con monedas que olían a {qeso|queso|qu} y se llevó dos {pezes|peces|plural} de cerámica para su casa.",
+      "instruccion": "Los azulejos salieron de su taller… En su declaración hay 4 faltas: señálalas, presenta la carta y escríbelas bien.",
+      "declaracion": "Yo solo {hise|hice|ce} lo que me pidieron: trece azulejos con letras. El cliente pagó con {catorse|catorce|ce} monedas que olían a {qeso|queso|qu} y se llevó dos {pezes|peces|plural} de cerámica para su casa.",
       "aclarado": "Azucena es inocente: el cliente misterioso le encargó los azulejos y se fue sin dejar su nombre. Pero dejó algo en el horno…",
       "pistas": [
-        "Hay una c delante de e, un qu y un plural de pez.",
+        "Hay dos c delante de e, un qu y un plural de pez.",
         "Son: hise, catorse, qeso y pezes."
       ]
     },
@@ -499,7 +499,7 @@
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de c, z y s. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
-        "Hay una en el aviso del caso.",
+        "Hay una en lo que dijo el director al empezar.",
         "Revisa lo que dijeron Lola y Azucena."
       ]
     },
@@ -539,7 +539,7 @@
         "azucena",
         "pilar"
       ],
-      "texto": "La fuente recupera su panel y el tablón de la agencia, una pieza más: el Tachón es del barrio. Cada vez está más cerca."
+      "texto": "La fuente recupera su panel y el tablón de la agencia, una pieza más: el Tachón es del barrio. Cada vez estamos más cerca."
     }
   ]
 }

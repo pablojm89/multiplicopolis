@@ -41,7 +41,7 @@
         "lado": "der"
       },
       "quien": "Director Robles",
-      "texto": "Bienvenido a la agencia. O a lo que queda de ella. Alguien entró anoche por la ventana, revolvió los expedientes… y los llenó de faltas de ortografía. Tu prueba de acceso será arreglar este desastre. Sin pistas: quiero ver lo que ya sabes."
+      "texto": "Te doy la bienvenida a la agencia. O a lo que queda de ella. Alguien entró anoche por la ventana, revolvió los expedientes… y los llenó de faltas de ortografía. Tu prueba de acceso será arreglar este desastre. Sin pistas: quiero ver lo que ya sabes."
     },
     {
       "tipo": "apunta",
@@ -97,8 +97,8 @@
           "regla": "b-v-1"
         },
         {
-          "mal": "bolver",
-          "bien": "volver",
+          "mal": "escrivir",
+          "bien": "escribir",
           "regla": "b-v-1"
         },
         {
@@ -147,7 +147,7 @@
       "quien": "El periódico del barrio",
       "titulo": "La portada del periódico",
       "intro": "La noticia de la feria tiene 6 faltas. Encuéntralas y corrígelas.",
-      "declaracion": "¡Feria a la vista! Los vecinos han colgado farolillos en la plaza y han montado {dose|doce|c-z-s} casetas. Si mañana hay {yuvia|lluvia|ll-y}, se taparán con lonas. La {jente|gente|g-j-dieresis} podrá ganar un {pinguino|pingüino|g-j-dieresis} de peluche en la tómbola. Habrá {sapatos|zapatos|c-z-s} de regalo para los bailarines y un {cabayo|caballo|ll-y} de cartón para el desfile.",
+      "declaracion": "¡Feria a la vista! Los vecinos han colgado {faroliyos|farolillos|ll-y} en la plaza y han montado {dose|doce|c-z-s} casetas. Si mañana hay lluvia, se taparán con lonas. La {jente|gente|g-j-dieresis} podrá ganar un {pinguino|pingüino|g-j-dieresis} de peluche en la tómbola. Habrá {sapatos|zapatos|c-z-s} de regalo para los bailarines y un caballo de cartón {mui|muy|ll-y} grande para el desfile.",
       "recompensa": {
         "texto": "Alguien ha rodeado con rotulador negro el número de la página: el 0.",
         "digito": "0"
@@ -181,7 +181,7 @@
       "quien": "Ficha de ingreso",
       "titulo": "Tu ficha de ingreso",
       "intro": "La ficha tiene 6 faltas. Fíjate también en las mayúsculas.",
-      "declaracion": "Barrio: La Alameda, en {andalucía|Andalucía|mayusculas-puntuacion-1}. Día de la prueba: {Lunes|lunes|mayusculas-puntuacion-1}. Quiero ser detective para descubrir la {verdaz|verdad|d-z-finales} y cuidar mi {ciudá|ciudad|d-z-finales}. Quien me {dió|dio|diptongo-monosilabos} esta ficha {fué|fue|diptongo-monosilabos} el director Robles.",
+      "declaracion": "Barrio: La Alameda, en {andalucía|Andalucía|mayusculas-puntuacion-1}. Hago la prueba el {Lunes|lunes|mayusculas-puntuacion-1}. Quiero ser detective para descubrir la {verdaz|verdad|d-z-finales} y cuidar mi {ciudá|ciudad|d-z-finales}. Quien me {dió|dio|diptongo-monosilabos} esta ficha {fué|fue|diptongo-monosilabos} el director Robles.",
       "recompensa": {
         "texto": "Al pie de la ficha, el director ha apuntado su número de la suerte: el 5.",
         "digito": "5"
@@ -206,7 +206,7 @@
         "lado": "der"
       },
       "quien": "Director Robles",
-      "texto": "Prueba superada. Bienvenido a la Agencia La Lupa, detective. Desde hoy, tu libreta y tú sois inseparables. Y ahora… alguien tendrá que explicarme quién ha hecho todo esto."
+      "texto": "Prueba superada. Te doy la bienvenida a la Agencia La Lupa, detective. Desde hoy, tu libreta y tú sois inseparables. Y ahora… alguien tendrá que explicarme quién ha hecho todo esto."
     },
     {
       "tipo": "relato",

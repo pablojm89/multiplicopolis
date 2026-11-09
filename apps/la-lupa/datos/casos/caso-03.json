@@ -6,7 +6,7 @@
   "reglas": [
     "h-1"
   ],
-  "_nota": "Temporada 1, episodio 3. Pieza del gran misterio: el Tachón conoce la agencia por dentro y en el archivo azul había una ficha con su nombre (la de los aspirantes a la prueba de acceso), que ha desaparecido. Bruno suelta que de pequeño suspendió la prueba de acceso: pista para los atentos, sin señalarla. Faltas sembradas para el expediente: abla, Ace, a.",
+  "_nota": "Temporada 1, episodio 3. Pieza del gran misterio: el Tachón conoce la agencia por dentro y en el archivo azul había una ficha con su nombre (la de los aspirantes a la prueba de acceso), que ha desaparecido. Bruno suelta que de pequeño suspendió la prueba de acceso: pista para los atentos, sin señalarla. Faltas sembradas para el expediente: abla, Ace, icieron.",
   "escenas": [
     {
       "tipo": "portada",
@@ -53,7 +53,7 @@
             "Empiezan por ie-, ue- o ui- y llevan h delante",
             "Todas son cosas frías",
             "Llevan h porque son cortas",
-            "Que ninguna lleva h"
+            "Ninguna lleva h"
           ],
           "correcta": 0,
           "explicacion": "Las palabras que empiezan por los sonidos ie-, ue- y ui- llevan h delante: hielo, huevo, hueso, huida."
@@ -101,7 +101,7 @@
             "No tienen nada en común"
           ],
           "correcta": 0,
-          "explicacion": "Las palabras que empiezan por herm-, horm-, horr-, hosp- y hum- seguido de vocal llevan h: hermano, hormiga, horrible, hospital, humo."
+          "explicacion": "Las palabras que empiezan por herm-, horm-, horr-, hosp- y hum- seguido de vocal llevan h: hermano, hormiga, horrible, hospital, humo. Excepciones: ermita y ermitaño."
         },
         {
           "grupos": [],
@@ -254,7 +254,7 @@
         "lado": "izq"
       },
       "quien": "Bruno, el repartidor",
-      "texto": "¡Hola, detective! Traigo el periódico para la biblioteca. Oye, ¿sabes que de pequeño quise entrar en vuestra agencia? Hice la prueba de acceso… y suspendí. Bueno, ¡no pasa nada, eh! ¡Suerte con el caso!"
+      "texto": "¡Hola, detective! Traigo el periódico para la biblioteca. Oye, ¿sabes que hace años quise entrar en vuestra agencia? Hice la prueba de acceso… y suspendí. Bueno, no pasa nada, ¿eh? ¡Suerte con el caso!"
     },
     {
       "tipo": "caza",
@@ -264,10 +264,10 @@
       "quien": "La carta del Tachón",
       "titulo": "La carta sin haches",
       "intro": "A la carta le faltan 5 haches. Encuentra las palabras y escríbelas bien.",
-      "declaracion": "Queridos detectives: {abéis|habéis} ganado dos veces, pero yo conozco vuestra agencia mejor que nadie. Sé dónde guardáis el {ielo|hielo} para el café, sé que el {ermano|hermano} pequeño de Mateo os ayuda los sábados y sé que en el archivo azul {ay|hay} una ficha con mi nombre. {Asta|Hasta} pronto. T.",
+      "declaracion": "Queridos detectives: {Abéis|Habéis} ganado dos veces, pero yo conozco vuestra agencia mejor que nadie. Sé dónde guardáis el {ielo|hielo} para el café, sé que el {ermano|hermano} pequeño de Mateo os ayuda los sábados y sé que en el archivo azul {ay|hay} una ficha con mi nombre. Ya {ablaremos|hablaremos}. T.",
       "pistas": [
-        "Busca formas de haber y palabras que empiecen por ie- o herm-.",
-        "Son: abéis, ielo, ermano, ay y Asta."
+        "Busca formas de haber y de hablar, y palabras que empiecen por ie- o herm-.",
+        "Son: Abéis, ielo, ermano, ay y ablaremos."
       ],
       "recompensa": {
         "texto": "En el sobre, debajo del tachón de lacre, hay un número marcado con la uña: el 1.",
@@ -283,7 +283,7 @@
         "lado": "izq"
       },
       "quien": "Mateo",
-      "texto": "¿Una ficha con su nombre en mi archivo azul? Ahí guardo las fichas de todos los que han hecho la prueba de acceso… Pero el archivo está cerrado y nadie lo {a|ha} tocado. Antes de abrirlo, ayúdame a ordenar las fichas sueltas."
+      "texto": "¿Una ficha con su nombre en mi archivo azul? Ahí guardo las fichas de todos los que {icieron|hicieron} la prueba de acceso… Pero el archivo está cerrado y nadie lo ha tocado. Antes de abrirlo, ayúdame a ordenar las fichas sueltas."
     },
     {
       "tipo": "clasifica",
@@ -409,7 +409,7 @@
       "titulo": "Revisa el expediente",
       "instruccion": "En los textos del caso se nos colaron faltas de h. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
-        "Hay una en el aviso del caso.",
+        "Hay una en lo que dijo el director al empezar.",
         "Revisa lo que dijeron Herminia y Mateo."
       ]
     },

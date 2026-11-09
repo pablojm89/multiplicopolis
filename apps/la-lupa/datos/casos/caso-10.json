@@ -29,7 +29,7 @@
         "lado": "der"
       },
       "quien": "Director Robles",
-      "texto": "Ha llegado el día, detectives. Ayer, {Jueves|jueves|mayusculas-puntuacion-1}, el Tachón dejó su último mensaje: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». {Ace|Hace|h-1} una hora que los vecinos esperan en la plaza. Coged las libretas: esta noche sabremos quién es."
+      "texto": "Ha llegado el día, detectives. Ayer, {Viernes|viernes|mayusculas-puntuacion-1}, el Tachón dejó su último mensaje: «Mañana, en la plaza, delante de todo el barrio. Sin máscaras». {Ace|Hace|h-1} una hora que los vecinos esperan en la plaza. Coged las libretas: esta noche sabremos quién es."
     },
     {
       "tipo": "descubre",
@@ -40,7 +40,7 @@
         "lado": "izq"
       },
       "quien": "Mateo",
-      "intro": "Antes de salir, un repaso relámpago. Hoy vas a necesitar todas las cartas de la temporada.",
+      "intro": "Antes de salir, un repaso relámpago. Hoy vas a necesitar todas las cartas de este curso.",
       "desbloquea": "cartas",
       "preguntas": [
         {
@@ -166,7 +166,7 @@
       "quien": "El pregón del Tachón",
       "titulo": "El pregón del Tachón",
       "intro": "Lola tira de la sábana. El pregón tiene 9 faltas, una de cada regla de la temporada. Encuéntralas y corrígelas.",
-      "declaracion": "¡Vecinos de La {alameda|Alameda|mayusculas-puntuacion-1}! Hoy es el {ultimo|último|tildes-generales} día de vuestras palabras perfectas. Durante meses {cambiava|cambiaba|b-v-1} vuestros carteles y nadie me {vió|vio|diptongo-monosilabos}: ni en el mercado, ni en la biblioteca, ni en la noche de los {faroliyos|farolillos|ll-y}. Mi aura brilla más que mil {luses|luces|c-z-s}. Mañana no {abrá|habrá|h-1} ni una sola tilde en el barrio. Esa es la {verdá|verdad|d-z-finales}. Detectives, os toca {elejir|elegir|g-j-dieresis}: o corregís mi pregón, o La Alameda será mía. Firmado: T.",
+      "declaracion": "¡Vecinos de La {alameda|Alameda|mayusculas-puntuacion-1}! Hoy es el {ultimo|último|tildes-generales} día de vuestras palabras perfectas. Cada noche {cambiava|cambiaba|b-v-1} vuestros carteles y nadie me {vió|vio|diptongo-monosilabos}: ni en el mercado, ni en la biblioteca, ni en la noche de los {faroliyos|farolillos|ll-y}. Mi aura brilla más que mil {luses|luces|c-z-s}. Mañana no {abrá|habrá|h-1} ni una sola tilde en el barrio. Esa es la {verdá|verdad|d-z-finales}. Detectives, os toca {elejir|elegir|g-j-dieresis}: o corregís mi pregón, o La Alameda será mía. —T.",
       "pistas": [
         "Hay una falta de cada regla: tildes, b y v, h, c y z, ll e y, g y j, monosílabos, -d final y mayúsculas.",
         "Empieza por el principio: ¿cómo se escribe el nombre del barrio?"
@@ -227,15 +227,15 @@
           "regla": "h-1"
         },
         {
-          "p": "peces",
-          "pos": 2,
+          "p": "nueces",
+          "pos": 3,
           "letra": "c",
           "opciones": [
             "c",
             "z",
             "s"
           ],
-          "pista": "Es el plural de pez: la z se convierte en c.",
+          "pista": "Es el plural de nuez: la z se convierte en c.",
           "regla": "c-z-s"
         },
         {
@@ -440,7 +440,7 @@
       "frase": "El Tachón {0} una pulsera roja en la muñeca {1}, {2} con seseo, {3} en bicicleta y se coló en el {4} del barrio.",
       "pistas": [
         "Las palabras mal escritas no son objetos del tablón.",
-        "Busca un pasado en -aba, una z, una forma de hablar, un verbo que viene de huir y una esdrújula."
+        "Busca un pasado en -aba, una z, una forma de hablar, una forma del verbo huir y una esdrújula."
       ],
       "recompensa": {
         "texto": "En una esquina del tablón, debajo de la foto borrosa, alguien ha escrito una cifra: el 3.",
@@ -546,7 +546,7 @@
         "lado": "izq"
       },
       "quien": "Lola",
-      "texto": "Yo quería atraparte sola, ¿sabes? Pero esta temporada he aprendido que en equipo se llega más lejos. Bruno, conoces cada calle del barrio y cada falta posible. El director está de acuerdo: ¿quieres entrar en la agencia como aprendiz?"
+      "texto": "Yo quería atraparte sola, ¿sabes? Pero este curso he aprendido que en equipo se llega más lejos. Bruno, conoces cada calle del barrio y cada falta posible. El director está de acuerdo: ¿quieres entrar en la agencia como aprendiz?"
     },
     {
       "tipo": "relato",
@@ -569,7 +569,7 @@
       },
       "quien": "Bruno, el aprendiz",
       "titulo": "Revisa el expediente",
-      "instruccion": "Mi primera tarea como aprendiz: ayudarte con el expediente. En los textos del caso se colaron faltas de todas las reglas. Encuéntralas y corrígelas antes de archivar la temporada.",
+      "instruccion": "Mi primera tarea como aprendiz: ayudarte con el expediente. En los textos del caso se colaron faltas de todas las reglas. Encuéntralas y corrígelas antes de archivarlo.",
       "pistas": [
         "Son nueve, una de cada regla.",
         "Hay faltas en el aviso del director y en lo que dijeron Lola, el Tachón, Herminia y Mateo."
@@ -585,7 +585,7 @@
         "lado": "izq"
       },
       "quien": "Mateo",
-      "texto": "¡Mirad qué ha traído Bruno en su primer reparto como aprendiz! Una carta de fuera del barrio, sin remite. Solo dice: «Detective: {tú|tu|tilde-diacritica} próximo caso te espera lejos de La Alameda». En vez de firma, una tilde dibujada con tinta azul. Y esa tilde de ahí… ¿sobra o no? Esa regla todavía no está en mi archivo."
+      "texto": "¡Mirad qué ha traído Bruno en su primer reparto como aprendiz! Una carta de fuera del barrio, sin remite. Solo dice: «Detective: {tú|tu|tilde-diacritica} próximo caso te espera lejos de La Alameda». En vez de firma, una tilde dibujada con tinta azul. Y esa tilde de ahí… ¿sobra o no? Esa regla solo la tengo apuntada como aviso en mi archivo…"
     },
     {
       "tipo": "apunta",

@@ -6,7 +6,7 @@
   "reglas": [
     "d-z-finales"
   ],
-  "_nota": "Temporada 1, episodio 8. Pieza del gran misterio: la foto robada es la del día de la prueba de acceso; al verla, el director Robles confiesa que formaba parte del tribunal el día en que un chico suspendió y algunos aspirantes se rieron de él, y que no lo defendió. Se arrepiente. No recuerda su nombre (la ficha desapareció en el caso 3). Bruno aparece de fondo y dice que sale «movido» en todas las fotos; en la foto, uno de los aspirantes sale movido y no se le ve la cara (pista para los atentos, sin señalarla). La -d final que se pierde al hablar en Andalucía se trata como diferencia entre hablar y escribir, nunca como error al hablar. Faltas sembradas para el expediente: parez, barbaridá, verdá.",
+  "_nota": "Temporada 1, episodio 8. Pieza del gran misterio: la foto robada es la del día de la prueba de acceso; al verla, el director Robles confiesa que formaba parte del tribunal el día en que un chico suspendió y algunos aspirantes se rieron de él, y que no lo defendió. Se arrepiente. No recuerda su nombre (la ficha desapareció en el caso 3). Bruno aparece de fondo y dice que sale «movido» en todas las fotos; en la foto, uno de los aspirantes sale movido y no se le ve la cara (pista para los atentos, sin señalarla). La -d final que se pierde al hablar en Andalucía se trata como diferencia entre hablar y escribir, nunca como error al hablar. Faltas sembradas para el expediente: parez, barbaridá, casualidá.",
   "escenas": [
     {
       "tipo": "portada",
@@ -240,7 +240,7 @@
       },
       "titulo": "El estudio de fotos",
       "quien": "Paco, el fotógrafo",
-      "texto": "¿La foto de la agencia? La {verdá|verdad} es que la hice yo, hace muchos años, el día de vuestra prueba de acceso. Y esta mañana me he encontrado el cuarto oscuro revuelto: alguien buscaba el negativo. ¡Me ha mezclado todos los sobres!"
+      "texto": "¿La foto de la agencia? ¡Qué {casualidá|casualidad}! La hice yo, hace muchos años, el día de vuestra prueba de acceso. Y esta mañana me he encontrado el cuarto oscuro revuelto: alguien buscaba el negativo. ¡Me ha mezclado todos los sobres!"
     },
     {
       "tipo": "huecos",
@@ -358,10 +358,10 @@
       "quien": "La nota del Tachón",
       "titulo": "La nota del cuarto oscuro",
       "intro": "Colgada de la cuerda donde se secan las fotos hay una nota con 4 faltas. Encuéntralas y escríbelas bien.",
-      "declaracion": "Novatos: en {realidaz|realidad}, la foto de la exposición ya es mía, y nadie es {capad|capaz} de encontrar el negativo. Nadie verá cómo era yo a vuestra {edaz|edad}. La {juventú|juventud} se pasa, pero el aura es para siempre. T.",
+      "declaracion": "Novatos: en {realidaz|realidad}, la foto de la exposición ya es mía, y ni el detective más {audad|audaz} encontrará el negativo. Nadie verá cómo era yo a vuestra {edaz|edad}. La {juventú|juventud} se pasa, pero el aura es para siempre. —T.",
       "pistas": [
         "Busca palabras que terminen en -dad o en -tud… y una que hace el plural en -ces.",
-        "Son: realidaz, capad, edaz y juventú."
+        "Son: realidaz, audad, edaz y juventú."
       ],
       "recompensa": {
         "texto": "En el reverso de la nota se adivina un número marcado con fuerza: el 6.",
@@ -391,7 +391,7 @@
       "titulo": "Careo",
       "instruccion": "La foto y el negativo son suyos… En su declaración hay 3 faltas: señálalas, presenta la carta y escríbelas bien.",
       "declaracion": "Os lo digo con toda {sinceridaz|sinceridad|dad-tud}: anoche cerré el centro vecinal a las diez y la foto seguía colgada. Al salir vi a alguien con gabardina cruzando el {céspez|césped|plural-des} del patio, pero no le vi la cara: ya no quedaba ni una {lud|luz|plural-ces} encendida.",
-      "aclarado": "Paco es inocente: él no se llevó la foto. Y ahora se acuerda de algo: el negativo está a salvo en su vieja caja de negativos, cerrada con candado.",
+      "aclarado": "Paco es inocente: a él también le han revuelto el cuarto oscuro para buscar el negativo, y la nota la firma el Tachón. Y ahora se acuerda de algo: el negativo está a salvo en su vieja caja de negativos, cerrada con candado.",
       "pistas": [
         "Hay una palabra en -dad, otra que hace el plural en -des y otra que lo hace en -ces.",
         "Son: sinceridaz, céspez y lud."
