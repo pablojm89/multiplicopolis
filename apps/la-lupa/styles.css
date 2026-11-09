@@ -594,3 +594,28 @@ body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; t
 .ventana-objeto { width: auto; max-width: 1000px; padding: 20px 24px; text-align: center; background: #241c16; color: #f4e9cf; }
 .objeto-grande { display: block; max-width: 940px; max-height: 560px; margin: 0 auto; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .5)); }
 .ventana-objeto .pie-objeto { font: 20px var(--f-cartel); letter-spacing: .04em; margin-top: 8px; }
+
+/* ── Repaso del 9/11/2026 ── */
+/* Cabecera del tablón: todo en una línea, sin recortes; el globo de encargos nuevos va en la esquina de su botón */
+.tablon-cabecera { gap: 14px; }
+.tablon-cabecera .cartel { font-size: 54px; white-space: nowrap; }
+.tablon-cabecera .boton-sello, .tablon-cabecera .boton-papel { position: relative; flex: none; white-space: nowrap; }
+.tablon-cabecera .boton-sello { font-size: 26px; padding: 8px 18px 6px; }
+.tablon-cabecera .placa { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tablon-cabecera .globo { position: absolute; top: -10px; right: -10px; margin: 0; }
+/* Tarjetas de los casos: la etiqueta de preparación va en la línea del sello, para que no se salga de la tarjeta */
+.corcho.tablon { gap: 20px 22px; padding-top: 24px; }
+.tarjeta-caso { padding: 20px 16px 12px; min-height: 158px; gap: 3px; }
+.tarjeta-caso h3 { font-size: 27px; }
+.tarjeta-caso p { font-size: 15px; line-height: 1.2; }
+.tarjeta-caso .sello-mini { margin-top: auto; }
+.tarjeta-caso .prep-mini { position: absolute; right: 10px; bottom: 11px; margin: 0; }
+/* Móvil en vertical: el juego es apaisado */
+.gira { display: none; }
+@media (orientation: portrait) and (max-width: 700px) {
+  .gira { position: fixed; inset: 0; z-index: 60; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 24px; text-align: center; background: #0e1626; color: #fff4e0; font: 18px var(--f-ui); }
+  .gira b { font: 44px var(--f-cartel); letter-spacing: .04em; font-weight: 400; }
+  .gira-ico { font-size: 64px; animation: girar-movil 2.4s ease-in-out infinite; }
+}
+@keyframes girar-movil { 0%, 20% { transform: rotate(0); } 60%, 100% { transform: rotate(-90deg); } }
+@media (prefers-reduced-motion: reduce) { .gira-ico { animation: none; transform: rotate(-90deg); } }

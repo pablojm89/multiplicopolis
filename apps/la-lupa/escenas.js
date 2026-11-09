@@ -465,7 +465,7 @@ const ESCENAS = {
     let k = 0;
     const pintar = () => {
       const it = e.items[k];
-      let fallos = 0;
+      let fallos = 0, intentado = false;
       pintarEscena(`
         ${tituloEscena(e)}${instruccion(e)}
         ${htmlPersonaje(e.personaje, "pequeno")}
@@ -484,7 +484,7 @@ const ESCENAS = {
         if (!inp.value.trim()) return;
         const dado = norm(inp.value).replace(/\s+/g, " ").replace(/[.!?¡¿]+$/, "");
         const ok = it.respuestas.some(r => norm(r).replace(/[.!?¡¿]+$/, "") === dado);
-        if (!fallos && !it.intentado) { it.intentado = true; registrar(it.criterio || e.criterio || "9.1", ok, it.respuestas[0], "escribe", it.regla || null); }
+        if (!intentado) { intentado = true; registrar(it.criterio || e.criterio || "9.1", ok, it.respuestas[0], "escribe", it.regla || null); }
         if (ok) {
           const fin = () => { k++; k < e.items.length ? pintar() : e.recompensa ? recompensa(e) : siguiente(); };
           if (it.explicacion) momento({ titulo: "¡Correcto!", texto: it.explicacion, personaje: { id: e.personaje?.id || "mateo", expresion: "contento", lado: "izq" }, alSeguir: fin });

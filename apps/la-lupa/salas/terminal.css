@@ -4,7 +4,7 @@
    tipo sintonizador de radio, lupa del nivel (bronce, plata, oro, diamante) y teclado beige.
    Todo en px del escenario de 1280×720. Prefijo .ter-
    ============================================================ */
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+/* La fuente VT323 se sirve desde fuentes/fuentes.css */
 
 .ter-escena { --ter-verde: #8dffa8; --ter-verde-osc: #2fbf62; --ter-ambar: #ffcf5c; --ter-beige: #e7dcc1; --ter-beige-osc: #b9aa86; --f-ter: "VT323", "Courier New", monospace; }
 .escenario.ter-escena .fondo { filter: brightness(.42) saturate(.85); }

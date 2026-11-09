@@ -114,7 +114,10 @@ function maquina(el, texto, alFinal) {
   };
   if (movimientoReducido()) { el.textContent = texto; terminado = true; alFinal?.(); return; }
   el.textContent = "";
-  const t = setInterval(() => { i += 2; el.textContent = texto.slice(0, i); if (i >= texto.length) fin(); }, 30);
+  const t = setInterval(() => {
+    if (!el.isConnected) { terminado = true; clearInterval(t); return; }   // se ha cambiado de escena a medias
+    i += 2; el.textContent = texto.slice(0, i); if (i >= texto.length) fin();
+  }, 30);
   el.addEventListener("click", fin);
   el.title = "Toca para leerlo entero";
 }
