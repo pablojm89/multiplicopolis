@@ -1,0 +1,331 @@
+{
+  "lote": 8,
+  "issue": 10,
+  "encargo_sha": "470255b4a604fb3faa88a55a07d711693f901ed2",
+  "imagenes": [
+    {
+      "nombre": "album-abierto.png",
+      "ruta": "apps/la-lupa/arte/entrega/album-abierto.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "f05158ad847a7aaafc2ff85c6be20105a64018e876d8ab65ecd5306eb24fcd0c"
+    },
+    {
+      "nombre": "azulejos-parejas.png",
+      "ruta": "apps/la-lupa/arte/entrega/azulejos-parejas.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "fc4f8f383cf8b98aa138b92cece755350271e830e51d7a38c1dfd92f6ce398e3"
+    },
+    {
+      "nombre": "ficha-tinta-azul.png",
+      "ruta": "apps/la-lupa/arte/entrega/ficha-tinta-azul.png",
+      "ancho": 1271,
+      "alto": 1238,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "de018542729ae6495608f4e77719e5cb20d75c18dfb06e686c4379baccd15dd4"
+    },
+    {
+      "nombre": "icono-app.png",
+      "ruta": "apps/la-lupa/arte/entrega/icono-app.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "b2c946a36443d3406106818a205ce9ede5ded0b405be1126c32fe00992b5c9b1"
+    },
+    {
+      "nombre": "insignia-palabras.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-palabras.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "30530cb3c8a7dea12b85584949a4a4cb52112a1827f8cf4b461a3c2584f14f56"
+    },
+    {
+      "nombre": "insignia-primer-caso.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-primer-caso.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1c2492b982d2609a87a624b1b07d6c6ed8fcbdd7e556a7e78c20f15fb65dbbe0"
+    },
+    {
+      "nombre": "insignia-primer-secreto.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-primer-secreto.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7b4b2aecfc212d6bf0289b73bf204f575f2c18edba278b9f8f0557e182fb715e"
+    },
+    {
+      "nombre": "insignia-racha.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-racha.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7374a9c43473046ab959583fa98fa4681fa497154806189a6b8d1bfc8beceaf1"
+    },
+    {
+      "nombre": "insignia-sala-oro.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-sala-oro.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "546c2f8360462f74475bcbdea65f090cb7cdb2282ebbef94dd8ee7216b667a64"
+    },
+    {
+      "nombre": "insignia-salamanquesas.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-salamanquesas.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1b28980933e434235a6e313899712ea6c0cdd8591879518f21e438095ad9e527"
+    },
+    {
+      "nombre": "insignia-sin-pistas.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-sin-pistas.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "fa408fce3ddca7c0f7af1ab068cdfc9c6967a877d1b9f0207a330c75777f0fb8"
+    },
+    {
+      "nombre": "insignia-temporada.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-temporada.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f33a8448f9d46d7dfaf23cdb76d6af3ed8a1a97e21a4c03a9ae58148342aab9a"
+    },
+    {
+      "nombre": "llavecita.png",
+      "ruta": "apps/la-lupa/arte/entrega/llavecita.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9bd84dd2bffdcaa499c1bf60f114739b5bd65c48dee1258bb4c96137ae47aa14"
+    },
+    {
+      "nombre": "lupa-bronce.png",
+      "ruta": "apps/la-lupa/arte/entrega/lupa-bronce.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8c8811daa79310f7e2878ca5f043132c205abe3d15a6a275b08b908a97fc7116"
+    },
+    {
+      "nombre": "lupa-diamante.png",
+      "ruta": "apps/la-lupa/arte/entrega/lupa-diamante.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "371890ae965bffc20ba92bf7adfe57ab18fb95f5d4e2cb4c0c13f33333571ea3"
+    },
+    {
+      "nombre": "lupa-oro.png",
+      "ruta": "apps/la-lupa/arte/entrega/lupa-oro.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "17f3eee4aab2696c546cbc2e785ab1a4e48b334abf5876a1c6be9a2d0768c835"
+    },
+    {
+      "nombre": "lupa-plata.png",
+      "ruta": "apps/la-lupa/arte/entrega/lupa-plata.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9436b0de6ba9ff628f2902b765460ad02ce8b2780e59972f239688123983c942"
+    },
+    {
+      "nombre": "mapa-alameda.png",
+      "ruta": "apps/la-lupa/arte/entrega/mapa-alameda.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "54cacd6b88f8414bf34f4434f1b534a9d1ed2baf258dc5ffa3c59ce9fc002e09"
+    },
+    {
+      "nombre": "mesa-detective.png",
+      "ruta": "apps/la-lupa/arte/entrega/mesa-detective.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "f5c58a61912fd14289eac2b68603a6ad8a012ae068e15fcb5cb9ab91437845f9"
+    },
+    {
+      "nombre": "rango-1.png",
+      "ruta": "apps/la-lupa/arte/entrega/rango-1.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f230dfbb67434976d7452ea4fb82943743f7a45d9990409e6c0635593274f968"
+    },
+    {
+      "nombre": "rango-2.png",
+      "ruta": "apps/la-lupa/arte/entrega/rango-2.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1c89171ce8b5fc1d0a7c2121324559de2e935ce9fb1006484c91f2842a65e05a"
+    },
+    {
+      "nombre": "rango-3.png",
+      "ruta": "apps/la-lupa/arte/entrega/rango-3.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2def84aaa715e6b45481235c89852254a93005af67ffc26b20c2e018df886186"
+    },
+    {
+      "nombre": "rango-4.png",
+      "ruta": "apps/la-lupa/arte/entrega/rango-4.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2e16cbc6bb19cb81d8e190b7b0cf4d99697967908347bd4ad851007bbeee86ec"
+    },
+    {
+      "nombre": "rango-5.png",
+      "ruta": "apps/la-lupa/arte/entrega/rango-5.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c14f49afbb90a7a35d5517e181d06dd9613415f42e572b7b2027abae0ca15b47"
+    },
+    {
+      "nombre": "salamanquesa-asomada.png",
+      "ruta": "apps/la-lupa/arte/entrega/salamanquesa-asomada.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a33a6e7a9396b816376f1a598a15795db7ecf22b7e859ae9aa6fe11a8738ce06"
+    },
+    {
+      "nombre": "salamanquesa-curva.png",
+      "ruta": "apps/la-lupa/arte/entrega/salamanquesa-curva.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "febe0d6258869f1c1a8f8a9abf46cfd18b94ebfb11e95d3bf878785f66ceddc9"
+    },
+    {
+      "nombre": "salamanquesa-recta.png",
+      "ruta": "apps/la-lupa/arte/entrega/salamanquesa-recta.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "26ce4dce76187d3792df04419a28778f78eaeea70ab3e96ed96a13bccd2becab"
+    },
+    {
+      "nombre": "salamanquesa-retrato.png",
+      "ruta": "apps/la-lupa/arte/entrega/salamanquesa-retrato.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ae63e4b5bbf63f5c58183d8180601d2593ee11201beff41dbbf19e819c32a60e"
+    }
+  ]
+}
