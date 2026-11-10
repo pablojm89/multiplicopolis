@@ -281,3 +281,5 @@ Guardados para lo que viene (están en `arte/`, pero ninguna pantalla los usa to
 - Temporada 2: los 19 lugares, la viajera (5 expresiones) y los 9 objetos de la trama.
 
 El mapa del barrio ha salido con los quince edificios separados y reconocibles, así que sirve tal cual para el paseo. La descarga completa para jugar sin internet pasa de unos 25 MB a unos 40 MB.
+
+**Publicado** con el pull request pablojm89/multiplicopolis#14. Pablo decide que, a partir de ahora, cada cosa terminada y probada se publica en la web sin preguntarle (anotado en `CLAUDE.md`).

@@ -89,6 +89,8 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 
 **Web publicada (GitHub Pages, rama `main`):** `https://pablojm89.github.io/multiplicopolis/apps/la-lupa/`. Todo va con rutas relativas y sin compilación (`.nojekyll` en la raíz del repo). Se puede instalar como app (manifiesto + service worker) y tiene botón de pantalla completa en la entrada. GitHub guarda los archivos 10 minutos en la caché del navegador: tras publicar, puede tardar ese rato en verse lo nuevo.
 
+**Publicar (decisión de Pablo, 10/11/2026):** Pablo prueba el juego en la web de GitHub. Cada cosa terminada y probada (validadores, jugador automático y la simulación de Pages) se publica sin preguntarle: pull request de la rama de trabajo a `main`, se fusiona y se comprueba en la web publicada. En el resumen se le dice qué se ha publicado. Lo que esté a medias o cambie algo que él tenga que decidir no se publica sin preguntar.
+
 ## Pendiente / conocido
 
 - Arte de la temporada 1 completo (lotes 1-7), con Robles corregido por GPT. Lotes 8 y 9 integrados (10/11): las lupas de nivel (`lupaImg()`), las placas de rango (`placaRango()`) y el icono de la app ya se usan; la salamanquesa, el mapa, el álbum, la mesa, las insignias y todo el arte de la temporada 2 (lugares, `viajera`, objetos de la trama) están en `arte/` a la espera de la exploración (`EXPLORACION.md`) y de los casos de 6.º (`TEMPORADA-2.md`).
