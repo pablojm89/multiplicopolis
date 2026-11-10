@@ -50,6 +50,8 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] **Repaso general del 9/11** (Pablo: «pégale un repaso al proyecto»): seis revisores en paralelo (textos de los casos, reglas y encargos, bancos de la Academia, código de la Academia, nube y datos) más el motor y la prueba en móvil y tablet. Detalle en `BITACORA.md`
   - Partida a medias (se continúa otro día), puntos y sello por caso (rejugar no resta), orden de la temporada (`ajustes.orden`), copia de seguridad, fuentes propias, aviso de «gira el móvil», aviso si el dispositivo no guarda, alias sin repetir
   - Reglas, casos, encargos y bancos corregidos por correctores
+- [x] **Publicado en GitHub Pages** (9/11, pull request pablojm89/multiplicopolis#9): https://pablojm89.github.io/multiplicopolis/apps/la-lupa/. Pantalla completa, instalación como app y modo sin internet comprobados en la web publicada
+- [x] Arte de los lotes 8 (exploración y mejoras, 28 imágenes) y 9 (temporada 2: lugares, viajera y objetos de la trama, 33 imágenes): entregado por GPT e integrado el 10/11. En uso: lupas de nivel, placas de rango, icono de la app y los azulejos del encargo 4. El resto espera a la exploración y a la temporada 2
 - [ ] **Exploración de los escenarios** (Pablo, 9/11: «como en Monkey Island, que siempre haya algo que descubrir»): plan en `EXPLORACION.md` y prueba jugable de la oficina. Pendiente de sus cuatro decisiones (cuándo se explora, qué se gana, la mascota escondida y el tono) para empezar la fase 1
 - [x] Nube opcional (Apps Script + Hojas de Google, `NUBE.md`): falta probarla con un Apps Script de verdad
 - [x] Séneca: investigado (`docs/investigacion/seneca-exportacion.md`); exportación por n.º de lista y botón para copiar cada columna

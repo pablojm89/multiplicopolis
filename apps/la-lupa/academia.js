@@ -16,11 +16,13 @@ const ACA = { palabras: [], textos: [], testigos: [], alTerminar: null, nivel: 1
    Cada actividad tiene su propio nivel por alumno. Se sube con 2 rondas seguidas con ≥ 80 % de aciertos.
    Las actividades leen el nivel con nivelAca() y adaptan su dificultad con porNivel() y segunNivel(). */
 const NIVELES_ACA = [
-  { n: 1, nombre: "Lupa de bronce", corto: "Bronce", icono: "🥉", puntos: 1 },
-  { n: 2, nombre: "Lupa de plata", corto: "Plata", icono: "🥈", puntos: 1.25 },
-  { n: 3, nombre: "Lupa de oro", corto: "Oro", icono: "🥇", puntos: 1.5 },
-  { n: 4, nombre: "Lupa de diamante · Maestro detective", corto: "Diamante", icono: "💎", puntos: 2 },
+  { n: 1, nombre: "Lupa de bronce", corto: "Bronce", icono: "🥉", arte: "lupa-bronce", puntos: 1 },
+  { n: 2, nombre: "Lupa de plata", corto: "Plata", icono: "🥈", arte: "lupa-plata", puntos: 1.25 },
+  { n: 3, nombre: "Lupa de oro", corto: "Oro", icono: "🥇", arte: "lupa-oro", puntos: 1.5 },
+  { n: 4, nombre: "Lupa de diamante · Maestro detective", corto: "Diamante", icono: "💎", arte: "lupa-diamante", puntos: 2 },
 ];
+/* La lupa de un nivel como imagen (para meter en HTML); si aún no está dibujada, su emoji. En textos sin HTML se usa l.icono */
+const lupaImg = l => imgArte(l.arte, "lupa-ico") || l.icono;
 const UMBRAL_NIVEL = 0.8, RONDAS_NIVEL = 2;
 const nivelAca = () => Math.min(4, Math.max(1, ACA.nivel || 1));
 /* Valor según el nivel: segunNivel([3, 4, 5, 6]) → 3 en bronce… 6 en diamante */
@@ -44,7 +46,7 @@ function htmlElegirNivel(actId, elegido) {
   const max = nivelMaximo(actId);
   return `<div class="aca-niveles" role="radiogroup" aria-label="Nivel">${NIVELES_ACA.map(l => `
     <button class="aca-nivel ${l.n === elegido ? "activo" : ""}" data-nivel="${l.n}" ${l.n > max ? "disabled" : ""} role="radio" aria-checked="${l.n === elegido}">
-      <span>${l.n > max ? "🔒" : l.icono}</span><b>${esc(l.corto)}</b></button>`).join("")}</div>`;
+      <span>${l.n > max ? "🔒" : lupaImg(l)}</span><b>${esc(l.corto)}</b></button>`).join("")}</div>`;
 }   // bancos de datos (datos/academia/)
 const INTERVALOS = [1, 3, 7, 15, 30];              // sesiones hasta el siguiente repaso
 const TOPE_DIARIO = 150;                           // puntos de entrenamiento por día
@@ -218,7 +220,7 @@ function vistaCarne() {
         <section class="carne-sala ${selloSala(sl) ? "sellada" : ""}">
           <h3>${esc(sl.nombre)}</h3>
           ${selloSala(sl) ? `<span class="carne-sello">SELLO DE ORO</span>` : ""}
-          <ul>${actividadesDe(sl).map(a => `<li><span>${esc(a.nombre)}</span><b>${NIVELES_ACA.map(l => `<i class="${l.n <= nivelMaximo(a.id) ? "si" : ""}" title="${esc(l.nombre)}">${l.n <= nivelMaximo(a.id) ? l.icono : "·"}</i>`).join("")}</b></li>`).join("")}</ul>
+          <ul>${actividadesDe(sl).map(a => `<li><span>${esc(a.nombre)}</span><b>${NIVELES_ACA.map(l => `<i class="${l.n <= nivelMaximo(a.id) ? "si" : ""}" title="${esc(l.nombre)}">${l.n <= nivelMaximo(a.id) ? lupaImg(l) : "·"}</i>`).join("")}</b></li>`).join("")}</ul>
         </section>`).join("")}</div>
       <p class="carne-pie">El sello de una sala se consigue con la lupa de oro en todos sus ejercicios. La de diamante es para los Maestros detectives.</p>
     </div>
@@ -255,7 +257,7 @@ function menuActividades(sl, opts) {
     ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" }, "pequeno")}
     <div class="aca-panel der">
       <p class="apuntalo">${opts.regla && admiten.length ? `¿Con qué ejercicio entrenamos «${esc(D.reglas[opts.regla]?.nombre || opts.regla)}»?` : "¿Qué ejercicio hacemos hoy?"}</p>
-      <div class="opciones">${lista.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${NIVELES_ACA[nivelMaximo(a.id) - 1].icono}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
+      <div class="opciones">${lista.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${lupaImg(NIVELES_ACA[nivelMaximo(a.id) - 1])}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
   $("#acaVolver").onclick = vistaPatio;

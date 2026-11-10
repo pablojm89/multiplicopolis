@@ -251,3 +251,33 @@ Probado con el `.gs` real ejecutado en Node sobre unas hojas simuladas (58 compr
 - Dianas táctiles más grandes en el parte, la coma y la Terminal. En la Imprenta, en pantallas táctiles, un toque elige la palabra y otro la marca. Quedan pequeñas las galeradas de diamante y el teclado de la Terminal.
 
 Sin probar en un dispositivo real: el teclado virtual (por si tapa campos de la mitad inferior) y el zoom por doble toque de iOS.
+
+**Publicado en la web de GitHub** (Pablo: «que funcione al 100 % como web o web app cargando desde GitHub, para probarlo todo desde ahí»). Pull request pablojm89/multiplicopolis#9 fusionado en `main` con su visto bueno.
+- La Lupa: https://pablojm89.github.io/multiplicopolis/apps/la-lupa/
+- Multiplicópolis sigue en la dirección de siempre (https://pablojm89.github.io/multiplicopolis/), que ahora redirige a `apps/multiplicopolis/`. Mismo juego, con el sonido añadido.
+- Añadido para la versión web: botón de pantalla completa en la entrada (en Android, además gira la pantalla), «Instalar como app» en la zona del maestro, ajustes para iPad y `.nojekyll`.
+- Comprobado en la web ya publicada con un navegador: la raíz lleva a Multiplicópolis; La Lupa carga sin ningún archivo perdido (4 casos escena a escena, las 8 salas, encargos, zona del maestro e imprimibles); el service worker controla solo su carpeta, y tras «Descargar todo» un caso entero se juega sin red.
+- A partir de ahora, lo que se suba a la rama de trabajo no se ve en la web hasta fusionar otro pull request. GitHub guarda los archivos 10 minutos en la caché del navegador.
+- Queda abierto pablojm89/multiplicopolis#8 (la entrega de PNG de GPT hacia la rama de trabajo): ya está integrada a mano, así que se puede cerrar sin fusionar.
+
+**Arte para las propuestas, apuntado para GPT** (Pablo: «todo lo que sea de arte que necesiten tus propuestas, apúntaselo, que lo voy a pedir»). 61 imágenes nuevas en `datos/arte.json`, con `lote`, y `arte/ENCARGO.md` regenerado:
+- **Lote 8 (28 imágenes): exploración y mejoras de lo que ya hay.** La salamanquesa en tres posturas y su retrato, el mapa del barrio, el álbum, la llavecita y la ficha de tinta azul, las cuatro lupas de nivel, las cinco placas de rango, el icono de la app, los azulejos del encargo 4, la mesa del detective y ocho insignias. Detalle en `EXPLORACION.md`.
+- **Lote 9 (33 imágenes): temporada 2, lo que no depende de cómo se escriban los casos.** Los 19 lugares (estación, tren, dos por provincia y el aula antigua), la viajera con cinco expresiones y nueve objetos de la trama. Ids en `TEMPORADA-2.md`. Faltan los personajes locales y los objetos de cada misterio, que se encargan al escribir los casos.
+- Regla nueva para los fondos: de 8 a 12 cosas reconocibles y separadas, porque los escenarios se van a poder registrar.
+- La mascota va como salamanquesa. Las insignias y «mi mesa» son ideas todavía sin decidir; su arte va pedido para no esperar.
+
+## 10 de noviembre de 2026
+
+**Lotes 8 y 9 de arte, integrados.** GPT los entregó en sus ramas `gpt/lote-8` y `gpt/lote-9`: 61 PNG, las 61 firmas SHA-256 correctas, solo en `arte/entrega/`, con las transparencias limpias y sin letras. No queda ninguna imagen pendiente en `arte.json`.
+
+Ya se usan en el juego:
+- **Lupas de nivel de la Academia**: las cuatro lupas dibujadas sustituyen a los emojis en el selector de nivel, el menú de ejercicios, el carné y los rótulos de cada sala (`lupaImg()`; el emoji se queda en los textos sin HTML).
+- **Placas de rango**: junto al nombre del detective en el tablón y en los encargos (`placaRango()`).
+- **Icono de la app**: `icono-192.png` e `icono-512.png` salen del dibujo nuevo, y es también el icono de la pestaña.
+- **Encargo 4**: Azucena enseña los azulejos del mural.
+
+Guardados para lo que viene (están en `arte/`, pero ninguna pantalla los usa todavía):
+- Exploración: la salamanquesa (3 posturas y retrato), el mapa del barrio, el álbum, la mesa del detective, la llavecita, la ficha de tinta azul y las 8 insignias.
+- Temporada 2: los 19 lugares, la viajera (5 expresiones) y los 9 objetos de la trama.
+
+El mapa del barrio ha salido con los quince edificios separados y reconocibles, así que sirve tal cual para el paseo. La descarga completa para jugar sin internet pasa de unos 25 MB a unos 40 MB.

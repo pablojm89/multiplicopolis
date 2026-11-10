@@ -197,7 +197,7 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
               <span class="cen-rotulo">Canal</span>
               ${lista.map((_, i) => `<i class="${i < k ? "hecho" : i === k ? "actual" : ""}"></i>`).join("")}
               <span class="cen-rotulo cen-msg">Mensaje ${k + 1} de ${lista.length}${propia ? ` · ${esc(regNombre || "")}` : ""}</span>
-              <span class="cen-nivel" title="${esc(lupa.nombre)}">${lupa.icono} ${esc(lupa.corto)}</span>
+              <span class="cen-nivel" title="${esc(lupa.nombre)}">${lupaImg(lupa)} ${esc(lupa.corto)}</span>
             </div>
           </div>
           <div class="cen-mandos">

@@ -259,7 +259,7 @@
           </div>
           <div class="ter-nivel" aria-label="Nivel: ${esc(NIVELES_ACA[nivel - 1].nombre)}">
             <small>LUPA</small>
-            <div class="ter-lupa n${nivel}"><span>${NIVELES_ACA[nivel - 1].icono}</span><b>${esc(NIVELES_ACA[nivel - 1].corto)}</b></div>
+            <div class="ter-lupa n${nivel}"><span>${lupaImg(NIVELES_ACA[nivel - 1])}</span><b>${esc(NIVELES_ACA[nivel - 1].corto)}</b></div>
           </div>
           <div class="ter-marca"><b>ORTO-3000</b><i></i><span class="ter-led"></span></div>
         </div>

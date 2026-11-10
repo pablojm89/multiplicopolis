@@ -39,7 +39,7 @@ async function labCargar(que) {
 }
 /* La lupa con la que se juega, a la vista en la pantalla del ejercicio */
 const labLupa = () => NIVELES_ACA[nivelAca() - 1];
-const labInsignia = () => `<span class="lab-insignia n${labLupa().n}" title="${esc(labLupa().nombre)}">${labLupa().icono} ${esc(labLupa().corto)}</span>`;
+const labInsignia = () => `<span class="lab-insignia n${labLupa().n}" title="${esc(labLupa().nombre)}">${lupaImg(labLupa())} ${esc(labLupa().corto)}</span>`;
 const labNv = x => x.nivel || 1;
 /* Evita que dos muestras seguidas sean del mismo grupo (mantiene el orden si puede) */
 function labIntercalar(lista, clave) {

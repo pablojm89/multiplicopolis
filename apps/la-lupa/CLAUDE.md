@@ -91,7 +91,7 @@ Siempre abierta desde el tablón (y desde el informe de cada caso). Se registra 
 
 ## Pendiente / conocido
 
-- Arte de la temporada 1 completo (lotes 1-7), con Robles corregido por GPT.
+- Arte de la temporada 1 completo (lotes 1-7), con Robles corregido por GPT. Lotes 8 y 9 integrados (10/11): las lupas de nivel (`lupaImg()`), las placas de rango (`placaRango()`) y el icono de la app ya se usan; la salamanquesa, el mapa, el álbum, la mesa, las insignias y todo el arte de la temporada 2 (lugares, `viajera`, objetos de la trama) están en `arte/` a la espera de la exploración (`EXPLORACION.md`) y de los casos de 6.º (`TEMPORADA-2.md`).
 - Si una entrega trae la transparencia rota (halo o fondo a medias), se puede rehacer con `rembg` (modelo `isnet-anime`), instalado aparte en el scratchpad (no es dependencia del repo). Lo mejor es pedirle a GPT que la repita con el fondo totalmente transparente.
 - Los datos se guardan solo en `localStorage` (hay PIN opcional para la zona del maestro, un **modo revisión** que lo abre todo para probar y **copia de seguridad** en un archivo). `guardar()` devuelve `false` y muestra un aviso fijo si el dispositivo no puede guardar. Lo guardado se sanea al cargar (`sanearPerfiles`, `sanearResultados`).
 - Los textos se revisan como en un libro de texto: tras escribir o cambiar casos, encargos, reglas o bancos, pásales un corrector (un subagente con el encargo de `BITACORA.md`, 9/11) además de los validadores. Ojo con los huecos que admiten dos palabras válidas y con las reglas enunciadas con «siempre». La nube es opcional (`NUBE.md`): falta probarla con un Apps Script de verdad.

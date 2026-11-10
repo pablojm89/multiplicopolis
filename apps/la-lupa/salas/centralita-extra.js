@@ -244,7 +244,7 @@ nuevaActividad("centralita", {
           <b>${fase === 1 ? "Fase 1 · Lola deletrea" : "Fase 2 · Deletreas tú"}</b>
           <span class="del-progreso" aria-label="Palabra ${k + 1} de ${lista.length}">${lista.map((_, i) => `<i class="${i < k ? "hecho" : i === k ? "actual" : ""} ${i === DEL_RONDA[0] ? "corte" : ""}"></i>`).join("")}</span>
           <small>${mezcla ? "Modo inspector" : esc(D.reglas[regla]?.nombre || "")}</small>
-          <span class="del-nivel" title="${esc(lupa.nombre)}">${lupa.icono} ${esc(lupa.corto)}</span>
+          <span class="del-nivel" title="${esc(lupa.nombre)}">${lupaImg(lupa)} ${esc(lupa.corto)}</span>
         </header>
         <p class="del-dice" id="delDice" aria-live="polite"></p>
         <div class="del-casillas ${U.length > 10 ? "largas muy-largas" : U.length > 8 ? "largas" : ""}" id="delCasillas">${U.map((_, i) => `<span class="del-casilla" data-i="${i}"><b></b><small></small></span>`).join("")}</div>

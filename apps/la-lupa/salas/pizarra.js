@@ -77,7 +77,7 @@ function pizEscena(sl, tema, { volver }) {
       <div class="piz-contenido" id="pizCont"></div>
       <div class="piz-polvo" aria-hidden="true"></div>
     </div>
-    <span class="piz-nivel" title="${esc(lupa.nombre)}">${lupa.icono} ${esc(lupa.corto)}</span>
+    <span class="piz-nivel" title="${esc(lupa.nombre)}">${lupaImg(lupa)} ${esc(lupa.corto)}</span>
     <div class="piz-tizas" aria-hidden="true"><i></i><i class="amarilla"></i></div>
     <div class="piz-borrador" id="pizBorrador" aria-hidden="true"></div>
     ${htmlPersonaje({ id: "anselmo", expresion: "neutral", lado: "izq" }, "pequeno piz-anselmo")}

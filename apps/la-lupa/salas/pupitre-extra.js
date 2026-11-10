@@ -157,7 +157,7 @@ function pupExplica(x) {
   const resto = x.porque.startsWith(x.p) ? x.porque.slice(x.p.length).replace(/^[\s:]+/, "") : x.porque;
   return resto.charAt(0).toUpperCase() + resto.slice(1);
 }
-const pupLupa = () => { const l = NIVELES_ACA[nivelAca() - 1]; return `<span class="pup-nivel" title="${esc(l.nombre)}">${l.icono} ${esc(l.corto)}</span>`; };
+const pupLupa = () => { const l = NIVELES_ACA[nivelAca() - 1]; return `<span class="pup-nivel" title="${esc(l.nombre)}">${lupaImg(l)} ${esc(l.corto)}</span>`; };
 const pupSalir = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
 
 /* ============================================================

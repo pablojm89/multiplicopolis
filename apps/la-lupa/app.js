@@ -83,7 +83,7 @@ function vistaTablon() {
   pintarEscena(`
     <div class="tablon-cabecera">
       <h1 class="cartel">Tablón de casos</h1>
-      <span class="placa">${htmlAvatar(perfil, "mini")}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
+      <span class="placa">${htmlAvatar(perfil, "mini")}${placaRango(puntos)}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
       ${listaEncargos().length ? `<button class="boton-sello" id="irEncargos">📬 Encargos${encargosNuevos(mios, puntos) ? ` <span class="globo">${encargosNuevos(mios, puntos)}</span>` : ""}</button>` : ""}
       <button class="boton-sello" id="irAcademia">🎓 Academia</button>
       <button class="boton-papel" id="salir">Salir</button>
@@ -530,7 +530,7 @@ function archivosDelJuego() {
 function htmlSinInternet() {
   return `
       <h2>Jugar sin internet</h2>
-      <p class="aviso-maestro">Descarga el juego completo en este dispositivo (unos 25 MB, sobre todo las imágenes). Después funciona aunque falle el wifi. En tablets se puede «Añadir a la pantalla de inicio» y se abre como una app.</p>
+      <p class="aviso-maestro">Descarga el juego completo en este dispositivo (unos 40 MB, sobre todo las imágenes). Después funciona aunque falle el wifi. En tablets se puede «Añadir a la pantalla de inicio» y se abre como una app.</p>
       <p class="aviso-maestro"><b>En iPad:</b> la app de la pantalla de inicio guarda sus datos aparte de Safari, así que instálala primero y configura y descarga todo <b>dentro de la app</b>. Y si el juego se usa desde Safari sin instalar, el iPad borra los datos tras 7 días sin abrirlo: antes de unas vacaciones, descarga una copia de seguridad.</p>
       <div class="fila"><button class="boton-papel" id="precargar">Descargar todo para usar sin internet</button><button class="boton-papel" id="instalarApp" ${avisoInstalar ? "" : "hidden"}>Instalar como app</button><span id="precargaMsg"></span></div>`;
 }
