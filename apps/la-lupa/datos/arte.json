@@ -839,7 +839,7 @@
     "tipo": "objeto",
     "nombre": "La salamanquesa, pegada a la pared",
     "emoji": "🦎",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una salamanquesa (el geco pequeño de las paredes andaluzas), estilo anime simpático pero no infantil: cuerpo gris verdoso claro con manchitas más oscuras, dedos anchos con ventosas, ojos grandes y dorados con pupila vertical. Contorno claro y limpio para que se distinga a tamaño muy pequeño sobre fondos oscuros. Sin sombra proyectada ni suelo (el juego la pega sobre las paredes de los escenarios). VISTA DESDE ARRIBA (cenital), cuerpo recto, las cuatro patas abiertas y la cola estirada, como pegada a una pared. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -847,7 +847,7 @@
     "tipo": "objeto",
     "nombre": "La salamanquesa, con la cola enroscada",
     "emoji": "🦎",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una salamanquesa (el geco pequeño de las paredes andaluzas), estilo anime simpático pero no infantil: cuerpo gris verdoso claro con manchitas más oscuras, dedos anchos con ventosas, ojos grandes y dorados con pupila vertical. Contorno claro y limpio para que se distinga a tamaño muy pequeño sobre fondos oscuros. Sin sombra proyectada ni suelo (el juego la pega sobre las paredes de los escenarios). VISTA DESDE ARRIBA (cenital), el cuerpo curvado en forma de S y la cola enroscada, como si acabara de girarse. Misma salamanquesa que «salamanquesa-recta». Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -855,7 +855,7 @@
     "tipo": "objeto",
     "nombre": "La salamanquesa, asomada",
     "emoji": "🦎",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una salamanquesa (el geco pequeño de las paredes andaluzas), estilo anime simpático pero no infantil: cuerpo gris verdoso claro con manchitas más oscuras, dedos anchos con ventosas, ojos grandes y dorados con pupila vertical. Contorno claro y limpio para que se distinga a tamaño muy pequeño sobre fondos oscuros. Sin sombra proyectada ni suelo (el juego la pega sobre las paredes de los escenarios). VISTA DESDE ARRIBA (cenital), SOLO MEDIO CUERPO: la cabeza y las dos patas delanteras, con un corte recto y limpio a la altura de la cintura (el resto queda tapado por un objeto del escenario). Misma salamanquesa que «salamanquesa-recta». Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -863,7 +863,7 @@
     "tipo": "objeto",
     "nombre": "La salamanquesa, mascota del álbum",
     "emoji": "🦎",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una salamanquesa (el geco pequeño de las paredes andaluzas), estilo anime simpático pero no infantil: cuerpo gris verdoso claro con manchitas más oscuras, dedos anchos con ventosas, ojos grandes y dorados con pupila vertical. Contorno claro y limpio para que se distinga a tamaño muy pequeño sobre fondos oscuros. Sin sombra proyectada ni suelo (el juego la pega sobre las paredes de los escenarios). RETRATO de frente, de medio cuerpo, encaramada al borde de una lupa de latón, mirando a cámara con una sonrisilla cómplice. Es la mascota del álbum de curiosidades. Misma salamanquesa que «salamanquesa-recta». Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -871,7 +871,7 @@
     "tipo": "fondo",
     "nombre": "Mapa del barrio de La Alameda",
     "color": "#1b2740",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "MAPA ILUSTRADO del barrio de La Alameda de noche, visto desde arriba en perspectiva inclinada (isométrica), como el mapa de una aventura. Llena toda la imagen. En el centro, una plaza con naranjos, una fuente de azulejos y un templete con farolillos. Alrededor, unidos por calles empedradas con faroles, quince edificios pequeños, BIEN SEPARADOS entre sí y cada uno reconocible por un detalle: la agencia de detectives (casa de esquina con un cartel colgante con una lupa), una panadería (chimenea que humea y cesta de pan), una floristería (toldo y macetas en la acera), un kiosco de prensa, un mercado de abastos (nave con arcos y toldos), una biblioteca (escalinata y columnas), una emisora de radio (antena en la azotea), la imprenta de un periódico (ventanales y rollos de papel), un taller de cerámica (horno y azulejos apilados), la vieja escuela (patio con arcos y campana), un estudio de fotografía (escaparate con cámaras antiguas), un centro vecinal (banderines), la casa de la feria (portada con farolillos), el recinto de la feria (casetas de lona y noria pequeña) y una estación de tren pequeña en un borde del mapa. Luz cálida en las ventanas, azul noche en los tejados. Los edificios, de tamaño parecido, con sitio libre alrededor de cada uno. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -879,7 +879,7 @@
     "tipo": "fondo",
     "nombre": "El álbum de curiosidades",
     "color": "#3a2a1c",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Un álbum grande de recortes de detective, ABIERTO sobre una mesa de madera oscura y visto desde arriba (cenital). Las dos páginas, de papel crema envejecido, ocupan casi toda la imagen y están VACÍAS y lisas (el juego coloca encima los hallazgos): solo llevan en los bordes algunas esquineras de foto, un clip, un trozo de cinta adhesiva y una cinta marcapáginas roja. Alrededor del álbum, en los márgenes, una lupa de latón, un lápiz y la luz de una lámpara verde. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -887,7 +887,7 @@
     "tipo": "objeto",
     "nombre": "La llavecita dorada",
     "emoji": "🗝️",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una llave pequeña y antigua de latón dorado, con la cabeza en forma de trébol, atada con un cordel rojo a una etiqueta de cartón en blanco. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -895,7 +895,7 @@
     "tipo": "objeto",
     "nombre": "La ficha de tinta azul",
     "emoji": "📇",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una ficha de cartulina amarillenta y antigua, con las esquinas gastadas, escrita a mano con TINTA AZUL (renglones de garabatos ilegibles) y, en una esquina, una tilde azul dibujada con trazo de pluma, como una firma."
   },
@@ -903,7 +903,7 @@
     "tipo": "objeto",
     "nombre": "La lupa de bronce (nivel 1 de la Academia)",
     "emoji": "🥉",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una lupa de detective vista de frente, con mango corto y aro grueso, diseño sencillo y rotundo para que se reconozca a tamaño muy pequeño (40 píxeles). Forma parte de una serie de cuatro lupas IGUALES de forma que solo cambian de material: esta es de BRONCE, mate y cobrizo, con el cristal ligeramente ámbar. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -911,7 +911,7 @@
     "tipo": "objeto",
     "nombre": "La lupa de plata (nivel 2 de la Academia)",
     "emoji": "🥈",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una lupa de detective vista de frente, con mango corto y aro grueso, diseño sencillo y rotundo para que se reconozca a tamaño muy pequeño (40 píxeles). Forma parte de una serie de cuatro lupas IGUALES de forma que solo cambian de material: esta es de PLATA, pulida y fría, con el cristal azulado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -919,7 +919,7 @@
     "tipo": "objeto",
     "nombre": "La lupa de oro (nivel 3 de la Academia)",
     "emoji": "🥇",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una lupa de detective vista de frente, con mango corto y aro grueso, diseño sencillo y rotundo para que se reconozca a tamaño muy pequeño (40 píxeles). Forma parte de una serie de cuatro lupas IGUALES de forma que solo cambian de material: esta es de ORO, brillante, con un destello en el aro y el cristal dorado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -927,7 +927,7 @@
     "tipo": "objeto",
     "nombre": "La lupa de diamante (Maestro detective)",
     "emoji": "💎",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una lupa de detective vista de frente, con mango corto y aro grueso, diseño sencillo y rotundo para que se reconozca a tamaño muy pequeño (40 píxeles). Forma parte de una serie de cuatro lupas IGUALES de forma que solo cambian de material: esta es de DIAMANTE: aro de platino con pequeñas gemas talladas de color azul azulejo y un cristal que lanza destellos. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -935,7 +935,7 @@
     "tipo": "objeto",
     "nombre": "Placa de rango 1: Novato",
     "emoji": "🔰",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una placa o insignia de detective de metal, vista de frente, sin texto, de una serie de cinco que van de la más sencilla a la más espectacular (son los rangos del jugador). Diseño rotundo que se reconozca a tamaño pequeño. Todas llevan una lupa como motivo. RANGO 1 (la más sencilla): chapa redonda de latón sin brillo con una lupa pequeña grabada. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -943,7 +943,7 @@
     "tipo": "objeto",
     "nombre": "Placa de rango 2: Agente",
     "emoji": "🎖️",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una placa o insignia de detective de metal, vista de frente, sin texto, de una serie de cinco que van de la más sencilla a la más espectacular (son los rangos del jugador). Diseño rotundo que se reconozca a tamaño pequeño. Todas llevan una lupa como motivo. RANGO 2: escudo pequeño de latón pulido con la lupa en relieve y un ribete azul azulejo. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -951,7 +951,7 @@
     "tipo": "objeto",
     "nombre": "Placa de rango 3: Detective",
     "emoji": "🎖️",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una placa o insignia de detective de metal, vista de frente, sin texto, de una serie de cinco que van de la más sencilla a la más espectacular (son los rangos del jugador). Diseño rotundo que se reconozca a tamaño pequeño. Todas llevan una lupa como motivo. RANGO 3: escudo plateado con la lupa en relieve y dos ramas de laurel a los lados. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -959,7 +959,7 @@
     "tipo": "objeto",
     "nombre": "Placa de rango 4: Inspector/a",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una placa o insignia de detective de metal, vista de frente, sin texto, de una serie de cinco que van de la más sencilla a la más espectacular (son los rangos del jugador). Diseño rotundo que se reconozca a tamaño pequeño. Todas llevan una lupa como motivo. RANGO 4: escudo dorado con la lupa, laureles y una estrella de cinco puntas encima. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -967,7 +967,7 @@
     "tipo": "objeto",
     "nombre": "Placa de rango 5: Detective de élite",
     "emoji": "🏆",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una placa o insignia de detective de metal, vista de frente, sin texto, de una serie de cinco que van de la más sencilla a la más espectacular (son los rangos del jugador). Diseño rotundo que se reconozca a tamaño pequeño. Todas llevan una lupa como motivo. RANGO 5 (la más espectacular): gran escudo dorado con la lupa, laureles, tres estrellas y una gema azul azulejo en el centro, con destellos. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -975,7 +975,7 @@
     "tipo": "objeto",
     "nombre": "Icono de la app",
     "emoji": "🔍",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "ICONO CUADRADO DE APLICACIÓN, 1024×1024, CON FONDO OPACO que llega hasta los cuatro bordes (NO transparente): una lupa de latón grande y centrada sobre un fondo azul noche con una cenefa sutil de azulejo andaluz; dentro del cristal de la lupa, una tilde de color ámbar. Formas muy simples y contrastadas, que se lean a 48 píxeles. Lo importante, dentro del 70 % central (los móviles recortan las esquinas). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -983,7 +983,7 @@
     "tipo": "objeto",
     "nombre": "Los azulejos del mural de Azucena",
     "emoji": "🧩",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Un montón de azulejos andaluces sueltos sobre un paño de trabajo, unos boca arriba (con dibujos de flores, pájaros y estrellas en azul y ocre) y otros boca abajo, con un pincel fino y un cuenco de esmalte al lado. Ningún azulejo lleva letras. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -991,7 +991,7 @@
     "tipo": "fondo",
     "nombre": "Mi mesa de detective",
     "color": "#3b2a1e",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "La mesa de trabajo de un detective joven vista desde arriba (cenital), ocupando toda la imagen: tablero de madera oscura con un vade de fieltro verde en el centro, CASI VACÍA (el juego coloca encima los objetos que el jugador va encontrando). Solo, en las esquinas: una lámpara verde de banquero encendida, un bote de lápices y una taza. Mucho sitio libre y liso en el centro. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -999,7 +999,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: primer caso resuelto",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: una carpeta de expediente con un sello rojo estampado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1007,7 +1007,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: un caso sin pedir pistas",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: un rayo ámbar dentro de una lupa. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1015,7 +1015,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: primer secreto encontrado",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: una llave antigua dorada. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1023,7 +1023,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: diez salamanquesas",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: la silueta de una salamanquesa vista desde arriba. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1031,7 +1031,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: una sala de la Academia en oro",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: un birrete de graduación con una estrella dorada. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1039,7 +1039,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: veinte palabras en el glosario",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: un libro abierto del que salen hojas volando. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1047,7 +1047,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: cinco días seguidos",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: una llama ámbar con cinco chispas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1055,7 +1055,7 @@
     "tipo": "objeto",
     "nombre": "Insignia: temporada resuelta",
     "emoji": "🏅",
-    "listo": false,
+    "listo": true,
     "lote": 8,
     "prompt": "Una insignia esmaltada redonda (tipo pin), sin texto, de una colección de ocho con el mismo aro dorado y cada una con un símbolo distinto en el centro, sobre esmalte azul noche. Símbolo grande y sencillo, que se reconozca a tamaño pequeño. ESTA: un antifaz de gafas de sol partido por la mitad y una lupa encima. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1063,7 +1063,7 @@
     "tipo": "fondo",
     "nombre": "La estación de tren",
     "color": "#22283a",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Andén de una estación de tren andaluza antigua, de noche: marquesina de hierro forjado, azulejos en la pared, un reloj de estación SIN números, bancos de madera, un carro de maletas, una fila de taquillas de consigna y, al fondo, las luces de un tren que llega entre la niebla. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1071,7 +1071,7 @@
     "tipo": "fondo",
     "nombre": "El tren de medianoche",
     "color": "#1f2433",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Interior de un vagón de tren nocturno antiguo: pasillo estrecho de madera barnizada con puertas correderas de compartimentos, cortinillas, lamparitas de latón, redes portaequipajes con maletas y una ventanilla por la que pasa el paisaje de noche con luna. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1079,7 +1079,7 @@
     "tipo": "fondo",
     "nombre": "Cádiz: la playa de La Caleta",
     "color": "#3a3350",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "La playa de La Caleta, en Cádiz, al atardecer: arena con barquitas de colores varadas, el balneario blanco sobre pilares a un lado y, al fondo, un castillo sobre el mar unido a tierra por un largo camino de piedra; cielo naranja y violeta, primeras farolas encendidas. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1087,7 +1087,7 @@
     "tipo": "fondo",
     "nombre": "Cádiz: entre bastidores del teatro",
     "color": "#3b2230",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Entre bastidores de un gran teatro antiguo de ladrillo rojo con arcos de herradura (estilo neomudéjar), la víspera de un concurso de carnaval: baúles abiertos con disfraces, sombreros y pelucas en percheros, un bombo y una caja, guitarras, un espejo con bombillas y, al fondo, el telón rojo entreabierto. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1095,7 +1095,7 @@
     "tipo": "fondo",
     "nombre": "Córdoba: el patio de las flores",
     "color": "#2b3a33",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un patio cordobés de noche, encalado, con las paredes cubiertas de macetas azules llenas de geranios y gitanillas, un pozo en el centro, una escalera con barandilla de forja, una caña larga con un bote para regar, sillas de enea y farolillos. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1103,7 +1103,7 @@
     "tipo": "fondo",
     "nombre": "Córdoba: la tetería de la judería",
     "color": "#3a2a2a",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Interior de una tetería en una callejuela de la judería de Córdoba: arcos de herradura, mesas bajas de latón labrado con teteras y vasos de cristal, cojines, lámparas caladas que proyectan dibujos de luz, una estantería con botes de té y una celosía por la que se ve la calle empedrada. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1111,7 +1111,7 @@
     "tipo": "fondo",
     "nombre": "Granada: el mirador",
     "color": "#2a2c44",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un mirador empedrado del Albaicín, en Granada, al anochecer: un murete, un ciprés, un farol y un caballete de pintor con su taburete; enfrente, sobre una colina boscosa, la gran fortaleza roja de torres cuadradas iluminada (la Alhambra) y, detrás, la sierra con nieve. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1119,7 +1119,7 @@
     "tipo": "fondo",
     "nombre": "Granada: el jardín del carmen",
     "color": "#25382f",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "El jardín de un carmen granadino de noche: tapias blancas, cipreses, un estanque estrecho con surtidores, celosías de madera, un cenador con parra, macetas, un banco de azulejos y un portón entreabierto por el que se ve una cuesta empedrada. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1127,7 +1127,7 @@
     "tipo": "fondo",
     "nombre": "Málaga: el puerto",
     "color": "#1f2f44",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "El puerto de Málaga de noche: un paseo con palmeras y una pérgola blanca ondulada, un faro blanco (la Farola) al fondo, veleros y un barco grande amarrados, un puesto ambulante con ramilletes de jazmines (biznagas) y los arcos de una meta de carrera popular. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1135,7 +1135,7 @@
     "tipo": "fondo",
     "nombre": "Málaga: el aula del mar",
     "color": "#16303a",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Sala de un pequeño museo del mar: grandes acuarios iluminados en azul con peces y un pulpo, el esqueleto de un delfín colgado del techo, vitrinas con conchas, una tortuga marina en un tanque bajo y, junto a cada acuario, un cartel explicativo EN BLANCO. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1143,7 +1143,7 @@
     "tipo": "fondo",
     "nombre": "Huelva: el muelle de las carabelas",
     "color": "#2b2a3c",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un muelle de madera de noche con las réplicas de tres carabelas antiguas amarradas, de velas recogidas y faroles encendidos; barriles, cabos enrollados, un timón de exposición, una pasarela y, al fondo, la ría tranquila. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1151,7 +1151,7 @@
     "tipo": "fondo",
     "nombre": "Huelva: las marismas",
     "color": "#3a2e3a",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Marismas de Huelva al atardecer: una pasarela de madera sobre el agua, juncos, una barca de pescador, una caseta de observación de aves y bandadas de flamencos; a lo lejos, un río de aguas rojizas entre orillas ocres. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1159,7 +1159,7 @@
     "tipo": "fondo",
     "nombre": "Jaén: el mar de olivos",
     "color": "#2b3524",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un mar de olivos en lomas suaves hasta el horizonte, en Jaén, con la luna grande: en primer plano, un camino de tierra con un remolque de aceitunas, mantos extendidos bajo un olivo, varas y cajas; en un cerro lejano, un castillo. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1167,7 +1167,7 @@
     "tipo": "fondo",
     "nombre": "Jaén: la almazara",
     "color": "#3a2e1e",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Interior de una almazara antigua: una gran prensa de madera y hierro, capachos de esparto apilados, tinajas de barro, un molino de piedras cónicas, una mesa de cata con botellas de aceite y copas azules, y estanterías con botellas etiquetadas EN BLANCO. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1175,7 +1175,7 @@
     "tipo": "fondo",
     "nombre": "Almería: el poblado del oeste",
     "color": "#3d2f24",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "La calle principal de un poblado del oeste de cine en el desierto de Almería, de noche, durante un rodaje: saloon con puertas batientes, oficina del sheriff, banco, torre de agua, un carromato, focos de cine encendidos, una cámara sobre raíles y una silla de director. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1183,7 +1183,7 @@
     "tipo": "fondo",
     "nombre": "Almería: el cabo",
     "color": "#2a3040",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Costa volcánica del Cabo de Gata al anochecer: un faro blanco sobre un acantilado oscuro, una cala de arena, pitas y chumberas, una barca varada, una bicicleta de montaña apoyada en una valla y el mar en calma. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1191,7 +1191,7 @@
     "tipo": "fondo",
     "nombre": "Sevilla: el archivo",
     "color": "#3a2a22",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Gran sala de un archivo histórico de Sevilla: estanterías de caoba hasta un techo abovedado de piedra, llenas de legajos atados con cintas, una escalera con ruedas, suelo de mármol ajedrezado, una mesa de consulta con lámpara verde, lupas y guantes blancos, y un globo terráqueo antiguo. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1199,7 +1199,7 @@
     "tipo": "fondo",
     "nombre": "Sevilla: la torre junto al río",
     "color": "#22304a",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "La orilla de un río ancho en Sevilla, de noche: una torre defensiva dorada de doce lados (la Torre del Oro) junto al paseo, farolas, palmeras, una barandilla, barcas amarradas, un puente de hierro al fondo y los reflejos de las luces en el agua. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1207,7 +1207,7 @@
     "tipo": "fondo",
     "nombre": "La Alameda: el aula de la vieja escuela",
     "color": "#2c2a33",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un aula antigua de escuela, vacía y a la luz de la luna y de una lámpara: pupitres dobles de madera con tintero, una pizarra grande VACÍA, la tarima con la mesa de la maestra, un mapa mudo enrollado, un armario con cuadernos, un globo terráqueo y ventanales con arcos que dan a un patio. Escena rica en detalles separados y reconocibles (el juego dejará tocarlos uno a uno). Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles. Sin personas."
   },
@@ -1223,7 +1223,13 @@
       "sorprendido",
       "misteriosa"
     ],
-    "listas": [],
+    "listas": [
+      "contento",
+      "misteriosa",
+      "neutral",
+      "pensativo",
+      "sorprendido"
+    ],
     "mira": "der",
     "prompt": "Una mujer de unos 75 años, elegante y enérgica, estilo anime: pelo blanco recogido en un moño bajo, gafas redondas, ojos vivos y sonrisa serena de quien sabe más de lo que dice. Lleva un abrigo largo gris perla, un PAÑUELO DE SEDA AZUL INTENSO al cuello (su rasgo más reconocible), una pluma estilográfica azul asomando del bolsillo del pecho y una maleta pequeña y antigua de cuero en la mano. Porte de maestra de toda la vida: recta, cercana, con autoridad tranquila. Sin letras ni iniciales en la maleta ni en la ropa."
   },
@@ -1231,7 +1237,7 @@
     "tipo": "objeto",
     "nombre": "Los billetes de tren",
     "emoji": "🎫",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un abanico de cuatro billetes de tren antiguos de cartón, con una esquina perforada por el revisor, sujetos con un clip azul. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1239,7 +1245,7 @@
     "tipo": "objeto",
     "nombre": "La maleta de la viajera",
     "emoji": "🧳",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Una maleta pequeña y antigua de cuero marrón con refuerzos de latón, correas y pegatinas de viaje gastadas (sin texto), con una etiqueta de equipaje de cartón EN BLANCO colgando del asa y un pañuelo de seda azul anudado. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1247,7 +1253,7 @@
     "tipo": "objeto",
     "nombre": "La pluma de tinta azul",
     "emoji": "🖋️",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Una pluma estilográfica elegante de color azul intenso con plumín dorado, junto a un tintero de cristal con tinta azul y una gota de tinta en un papel secante. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1255,7 +1261,7 @@
     "tipo": "objeto",
     "nombre": "El papel con el primer logotipo",
     "emoji": "📄",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Una hoja de papel de carta antigua, color crema, con un membrete impreso arriba que es SOLO un dibujo: una lupa antigua de mango largo dentro de un óvalo (sin letras). El resto de la hoja, con renglones de garabatos en tinta azul."
   },
@@ -1263,7 +1269,7 @@
     "tipo": "objeto",
     "nombre": "El acta de fundación de la agencia",
     "emoji": "📜",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un documento antiguo y solemne sobre papel grueso amarillento, con renglones de garabatos ilegibles, un sello de lacre azul, una cinta y, al pie, una firma ilegible junto a una tilde dibujada con tinta azul."
   },
@@ -1271,7 +1277,7 @@
     "tipo": "objeto",
     "nombre": "La foto de la fundadora",
     "emoji": "🖼️",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Fotografía antigua en tonos sepia con borde blanco: una maestra joven con un pañuelo al cuello, de pie ante el patio con arcos de una escuela, rodeada de un grupo de niños de unos 11 años con carteras; las caras, pequeñas y poco detalladas. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1279,7 +1285,7 @@
     "tipo": "objeto",
     "nombre": "El archivo portátil de Mateo",
     "emoji": "💼",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Una maleta rígida de viaje abierta, convertida en fichero: dentro, filas de fichas de cartulina con separadores de colores, una lupa sujeta con una goma y un termo. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1287,7 +1293,7 @@
     "tipo": "objeto",
     "nombre": "Las postales del viaje",
     "emoji": "🏞️",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Un abanico de ocho postales antiguas, cada una con el dibujo de un lugar distinto de Andalucía (una playa con castillo, un patio de flores, una fortaleza roja, un puerto con faro, tres carabelas, un olivar, un poblado del oeste y una torre junto a un río), con los bordes dentados y gastados. Sin letras, números ni palabras legibles: si hay escritura, garabatos ilegibles."
   },
@@ -1295,7 +1301,7 @@
     "tipo": "objeto",
     "nombre": "La insignia de la Tilde Azul",
     "emoji": "🔵",
-    "listo": false,
+    "listo": true,
     "lote": 9,
     "prompt": "Una insignia esmaltada y antigua, tipo pin de solapa: sobre esmalte blanco nacarado con aro dorado, una única tilde de color azul intenso, como un trazo de pluma. Sobria y valiosa, en una cajita de terciopelo abierta."
   }
