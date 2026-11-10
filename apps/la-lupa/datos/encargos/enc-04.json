@@ -17,6 +17,7 @@
     },
     {
       "tipo": "relato",
+      "objeto": "azulejos-parejas",
       "fondo": "plaza-azulejos",
       "quien": "Azucena, la ceramista",
       "personaje": {

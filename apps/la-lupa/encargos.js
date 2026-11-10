@@ -52,7 +52,7 @@ function vistaEncargos() {
   pintarEscena(`
     <div class="tablon-cabecera">
       <h1 class="cartel">Encargos</h1>
-      <span class="placa">${htmlAvatar(perfil, "mini")}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
+      <span class="placa">${htmlAvatar(perfil, "mini")}${placaRango(puntos)}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
       <button class="boton-papel" id="volverTablon">◂ Tablón</button>
     </div>
     <p class="aviso-encargos">${siguiente ? `Con el rango <b>${esc(siguiente.nombre)}</b> (${siguiente.min} pts) llegarán encargos nuevos, y más difíciles.` : "Rango máximo: tienes todos los encargos de la agencia."}</p>

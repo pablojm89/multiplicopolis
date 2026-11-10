@@ -194,6 +194,8 @@ function puntosResultado(r) {
   return juego + aura + libreta;
 }
 const rangoDe = puntos => [...RANGOS].reverse().find(r => puntos >= r.min);
+/* La placa dibujada de un rango (rango-1 … rango-5), si existe */
+const placaRango = puntos => imgArte(`rango-${RANGOS.indexOf(rangoDe(puntos)) + 1}`, "placa-rango");
 const calificacion = n => (n < 5 ? "IN" : n < 6 ? "SU" : n < 7 ? "BI" : n < 9 ? "NT" : "SB");
 function calcularNotas(eventos) {
   const por = {};

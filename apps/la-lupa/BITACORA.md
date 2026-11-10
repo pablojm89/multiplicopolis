@@ -265,3 +265,19 @@ Sin probar en un dispositivo real: el teclado virtual (por si tapa campos de la 
 - **Lote 9 (33 imágenes): temporada 2, lo que no depende de cómo se escriban los casos.** Los 19 lugares (estación, tren, dos por provincia y el aula antigua), la viajera con cinco expresiones y nueve objetos de la trama. Ids en `TEMPORADA-2.md`. Faltan los personajes locales y los objetos de cada misterio, que se encargan al escribir los casos.
 - Regla nueva para los fondos: de 8 a 12 cosas reconocibles y separadas, porque los escenarios se van a poder registrar.
 - La mascota va como salamanquesa. Las insignias y «mi mesa» son ideas todavía sin decidir; su arte va pedido para no esperar.
+
+## 10 de noviembre de 2026
+
+**Lotes 8 y 9 de arte, integrados.** GPT los entregó en sus ramas `gpt/lote-8` y `gpt/lote-9`: 61 PNG, las 61 firmas SHA-256 correctas, solo en `arte/entrega/`, con las transparencias limpias y sin letras. No queda ninguna imagen pendiente en `arte.json`.
+
+Ya se usan en el juego:
+- **Lupas de nivel de la Academia**: las cuatro lupas dibujadas sustituyen a los emojis en el selector de nivel, el menú de ejercicios, el carné y los rótulos de cada sala (`lupaImg()`; el emoji se queda en los textos sin HTML).
+- **Placas de rango**: junto al nombre del detective en el tablón y en los encargos (`placaRango()`).
+- **Icono de la app**: `icono-192.png` e `icono-512.png` salen del dibujo nuevo, y es también el icono de la pestaña.
+- **Encargo 4**: Azucena enseña los azulejos del mural.
+
+Guardados para lo que viene (están en `arte/`, pero ninguna pantalla los usa todavía):
+- Exploración: la salamanquesa (3 posturas y retrato), el mapa del barrio, el álbum, la mesa del detective, la llavecita, la ficha de tinta azul y las 8 insignias.
+- Temporada 2: los 19 lugares, la viajera (5 expresiones) y los 9 objetos de la trama.
+
+El mapa del barrio ha salido con los quince edificios separados y reconocibles, así que sirve tal cual para el paseo. La descarga completa para jugar sin internet pasa de unos 25 MB a unos 40 MB.

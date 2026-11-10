@@ -167,7 +167,7 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
       <div class="imp-vade" aria-hidden="true"></div>
       <article class="imp-galerada n${nivel} ${nivel === 1 ? "imp-corta" : ""}" id="impGal">
         <span class="imp-reg tl"></span><span class="imp-reg tr"></span><span class="imp-reg bl"></span><span class="imp-reg br"></span>
-        <header class="imp-tira"><span>Prueba de imprenta · Galerada ${r + 1} de ${galeradas.length}</span><span class="imp-lupa">${lupa.icono} ${esc(lupa.corto)}</span><span>Sección: ${esc(art.seccion)}</span><span>Corrector: ${esc(perfil.nombre)}</span></header>
+        <header class="imp-tira"><span>Prueba de imprenta · Galerada ${r + 1} de ${galeradas.length}</span><span class="imp-lupa">${lupaImg(lupa)} ${esc(lupa.corto)}</span><span>Sección: ${esc(art.seccion)}</span><span>Corrector: ${esc(perfil.nombre)}</span></header>
         <div class="imp-cabecera"><small>Año XXIV · N.º ${1250 + r}</small><b>El Eco de La Alameda</b><small>Edición de la mañana</small></div>
         <p class="imp-seccion">${esc(art.seccion)}</p>
         <h2 class="imp-titular">${esc(art.titular)}</h2>
