@@ -1,0 +1,346 @@
+{
+  "lote": 9,
+  "issue": 11,
+  "encargo_sha": "470255b4a604fb3faa88a55a07d711693f901ed2",
+  "imagenes": [
+    {
+      "nombre": "acta-fundacion.png",
+      "ruta": "apps/la-lupa/arte/entrega/acta-fundacion.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "cee343560490b971f7351cbdd93f86dddd73336cb56d76444d820533a6456c9a"
+    },
+    {
+      "nombre": "almazara.png",
+      "ruta": "apps/la-lupa/arte/entrega/almazara.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "cf48cab8d434b74db76fec58ba2f6e4c01aa7d46e388cdddc40cbe41526829b4"
+    },
+    {
+      "nombre": "archivo-indias.png",
+      "ruta": "apps/la-lupa/arte/entrega/archivo-indias.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "8842eb45d3daffaad51286bbf9bc9b2fc4673b4fb04fbfe7fb767a5cd05b46ab"
+    },
+    {
+      "nombre": "archivo-portatil.png",
+      "ruta": "apps/la-lupa/arte/entrega/archivo-portatil.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8d50cdae5bf9e44ca5d348520641a156681c98e60802ac8f77657cc7c3d00f32"
+    },
+    {
+      "nombre": "aula-antigua.png",
+      "ruta": "apps/la-lupa/arte/entrega/aula-antigua.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "8c6133f1c8ce390f21584e7a0e8cf10ab52d4577e49e85318ac768df4110bde6"
+    },
+    {
+      "nombre": "aula-del-mar.png",
+      "ruta": "apps/la-lupa/arte/entrega/aula-del-mar.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "b1f6be7446503f574a948f6b96e71ff896031d6dc8612800faf4d944715b0d48"
+    },
+    {
+      "nombre": "billetes-tren.png",
+      "ruta": "apps/la-lupa/arte/entrega/billetes-tren.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a366901708ef8d5f3f40f98b93ae6ab2050ec2fb53da08827de329c9d0b5ad25"
+    },
+    {
+      "nombre": "cabo-de-gata.png",
+      "ruta": "apps/la-lupa/arte/entrega/cabo-de-gata.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "d5e11cc46d4c76c0ee9b263bf29ccb7f71035701c83c926adfac519ba1e4eea0"
+    },
+    {
+      "nombre": "caleta-cadiz.png",
+      "ruta": "apps/la-lupa/arte/entrega/caleta-cadiz.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "69f3b7d534a187b365d3f937fa608d3d11f35a76b4b6fa32831d4cdc8de4f133"
+    },
+    {
+      "nombre": "carmen-albaicin.png",
+      "ruta": "apps/la-lupa/arte/entrega/carmen-albaicin.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "15ec99044a723403134a078765fa6a5938c157d1032eb7c4057b9cdaa2992b4e"
+    },
+    {
+      "nombre": "estacion-tren.png",
+      "ruta": "apps/la-lupa/arte/entrega/estacion-tren.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "c32211a24366ab34eea7e5a6ae637ca9313cca7bd413de3b864d925b78bfb15f"
+    },
+    {
+      "nombre": "foto-fundadora.png",
+      "ruta": "apps/la-lupa/arte/entrega/foto-fundadora.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6200185269744fb020493ad62ac53958701eb50cc65f6c5fd5e65c5613475338"
+    },
+    {
+      "nombre": "insignia-tilde-azul.png",
+      "ruta": "apps/la-lupa/arte/entrega/insignia-tilde-azul.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "dd4b003d2c4b0049ff9ef81a5e5c18fd86caac4beaa74d4703c7cdd0d3abb07b"
+    },
+    {
+      "nombre": "maleta-viajera.png",
+      "ruta": "apps/la-lupa/arte/entrega/maleta-viajera.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "08571340c9c391451e317e0e8c170d0e48e1fc28d1c2161ba7e185ae30885d47"
+    },
+    {
+      "nombre": "marismas-huelva.png",
+      "ruta": "apps/la-lupa/arte/entrega/marismas-huelva.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "2bf8b701bb92f74ac65455b3b9c460b7ec00550a642cbff218e5b4471c9a63dd"
+    },
+    {
+      "nombre": "mirador-granada.png",
+      "ruta": "apps/la-lupa/arte/entrega/mirador-granada.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "578e5032ae07486fc2dd0fae3af4aabe69d2d71ed664e9e6308666c8b7545b20"
+    },
+    {
+      "nombre": "muelle-carabelas.png",
+      "ruta": "apps/la-lupa/arte/entrega/muelle-carabelas.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "6b4e9be0378fd2fe66e03d5d510cc0dffadfcf61dd1909f7f918da771e554abe"
+    },
+    {
+      "nombre": "olivar-jaen.png",
+      "ruta": "apps/la-lupa/arte/entrega/olivar-jaen.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "95d6fe333e854d43967d84149260c56463c65a459fea3d8b86a2a87f04a31681"
+    },
+    {
+      "nombre": "papel-membrete.png",
+      "ruta": "apps/la-lupa/arte/entrega/papel-membrete.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1204f1e7524171cf3fb53287c0535cfdd9e11f8cae166693ac9106701f55f872"
+    },
+    {
+      "nombre": "patio-cordobes.png",
+      "ruta": "apps/la-lupa/arte/entrega/patio-cordobes.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "e25a2a5e259e8033fca3823e1aa439efada4514e94bf107139766d936b1b3a17"
+    },
+    {
+      "nombre": "pluma-azul.png",
+      "ruta": "apps/la-lupa/arte/entrega/pluma-azul.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "16be2c0773496ed4f680517c303cb3c8e0ebde85a0557a4f41da549a881ad7db"
+    },
+    {
+      "nombre": "poblado-oeste.png",
+      "ruta": "apps/la-lupa/arte/entrega/poblado-oeste.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "c6fd02ca4f342bbe1c23050e9162339a8b5c4aeeef783908f1dd7ededdac50ef"
+    },
+    {
+      "nombre": "postales-viaje.png",
+      "ruta": "apps/la-lupa/arte/entrega/postales-viaje.png",
+      "ancho": 1254,
+      "alto": 1254,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "340f3e6a5a2a0aae17e6ae97b5f224dad6aa288470d4f3572f8794940ecedcc9"
+    },
+    {
+      "nombre": "puerto-malaga.png",
+      "ruta": "apps/la-lupa/arte/entrega/puerto-malaga.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "6ba18ceb2356ad79f661666d473794980ef498006985e509275e92e09feb855a"
+    },
+    {
+      "nombre": "teatro-falla.png",
+      "ruta": "apps/la-lupa/arte/entrega/teatro-falla.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "7be57c90098ce9b9240e7992859aaab4cb22fd8451002bbb8a1557b813bacd4c"
+    },
+    {
+      "nombre": "teteria-juderia.png",
+      "ruta": "apps/la-lupa/arte/entrega/teteria-juderia.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "695a8bdc3c8e3d3a95468b7d8499a00c7157715b499c263ab023be8dbe0c9ecd"
+    },
+    {
+      "nombre": "torre-rio.png",
+      "ruta": "apps/la-lupa/arte/entrega/torre-rio.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "a3655457c3c7f7d091445e7af3be810437d1a066113ace57b940e31e9b870429"
+    },
+    {
+      "nombre": "vagon-nocturno.png",
+      "ruta": "apps/la-lupa/arte/entrega/vagon-nocturno.png",
+      "ancho": 1672,
+      "alto": 941,
+      "modo": "RGB",
+      "alpha": null,
+      "sha256": "3909181e1b56a154bfeca316740c6d1f04c66027fd61c704f100db9ae23e19ae"
+    },
+    {
+      "nombre": "viajera-contento.png",
+      "ruta": "apps/la-lupa/arte/entrega/viajera-contento.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        254
+      ],
+      "sha256": "a4fddb2f501160b31f2684b1660b823fc94efb24bbb60558ca31952ed39c87e9"
+    },
+    {
+      "nombre": "viajera-misteriosa.png",
+      "ruta": "apps/la-lupa/arte/entrega/viajera-misteriosa.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        254
+      ],
+      "sha256": "d02b37495709c693845f0cf5cd1663b6748c7f60c235dca3567d32e7b2ab2df7"
+    },
+    {
+      "nombre": "viajera-neutral.png",
+      "ruta": "apps/la-lupa/arte/entrega/viajera-neutral.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        254
+      ],
+      "sha256": "7bf0c784cd0eb579ad4057661d9dd82b5a9d3696668d4dc91f4f7cf69a4d8e25"
+    },
+    {
+      "nombre": "viajera-pensativo.png",
+      "ruta": "apps/la-lupa/arte/entrega/viajera-pensativo.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        254
+      ],
+      "sha256": "15b5c651193b38c2db50dfe3e4619984bb64c16ad2d21ade003657e5bebf804d"
+    },
+    {
+      "nombre": "viajera-sorprendido.png",
+      "ruta": "apps/la-lupa/arte/entrega/viajera-sorprendido.png",
+      "ancho": 1024,
+      "alto": 1536,
+      "modo": "RGBA",
+      "alpha": [
+        0,
+        254
+      ],
+      "sha256": "e3cae45334e09b39f07a50a2e7ee17ce02a5a21aabaabf82604e5933b0550462"
+    }
+  ]
+}
