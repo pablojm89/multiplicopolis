@@ -190,7 +190,7 @@ function vistaPatio() {
     <div class="aca-puertas">${SALAS.map(sl => `
       <button class="aca-puerta ${sl.activa ? "" : "cerrada"}" data-sala="${sl.id}" ${sl.activa ? "" : "disabled"}>
         <small>${esc(sl.lugar)}</small><b>${esc(sl.nombre)}</b><span>${sl.activa ? esc(sl.gancho) : "Próximamente"}</span></button>`).join("")}</div>`,
-    { fondo: "patio-academia", clase: "oscurecido" });
+    { fondo: "patio-academia", clase: "oscurecido", ayuda: "academia" });
   $("#acaVolver").onclick = vistaTablon;
   $("#verCarne").onclick = vistaCarne;
   $("#verApuntes").onclick = vistaIndiceApuntes;
@@ -228,7 +228,7 @@ function vistaCarne() {
         </section>`).join("")}</div>
       <p class="carne-pie">El sello de una sala se consigue con la lupa de oro en todos sus ejercicios. La de diamante es para los Maestros detectives.</p>
     </div>
-    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: "patio-academia", clase: "oscurecido" });
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: "patio-academia", clase: "oscurecido", ayuda: "carnet" });
   $("#acaVolver").onclick = vistaPatio;
 }
 
@@ -263,7 +263,7 @@ function menuActividades(sl, opts) {
       <p class="apuntalo">${opts.regla && admiten.length ? `¿Con qué ejercicio entrenamos «${esc(D.reglas[opts.regla]?.nombre || opts.regla)}»?` : "¿Qué ejercicio hacemos hoy?"}</p>
       <div class="opciones">${lista.map(a => `<button class="opcion aca-act ${a.objeto && arte(a.objeto).listo ? "con-img" : ""}" data-act="${esc(a.id)}">${imgArte(a.objeto, "aca-act-img")}<b>${esc(a.nombre)} <span class="aca-lupa">${lupaImg(NIVELES_ACA[nivelMaximo(a.id) - 1])}</span></b><small>${esc(a.desc || "")}</small></button>`).join("")}</div>
     </div>
-    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido", ayuda: "elegirActividad" });
   $("#acaVolver").onclick = vistaPatio;
   $$(".aca-act").forEach(b => b.onclick = () => entrarSala(sl.id, { ...opts, actividad: b.dataset.act }));
 }
@@ -295,7 +295,7 @@ function elegirRegla(sl, turno) {
       <div class="opciones">${reglas.map(r => `<button class="opcion" data-regla="${esc(r)}">${esc(D.reglas[r]?.nombre || r)}</button>`).join("")}
         <button class="opcion" data-regla="mezcla">Todo mezclado (modo inspector)</button></div>
     </div>
-    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido", ayuda: "elegirRegla" });
   $("#acaVolver").onclick = vistaPatio;
   $$(".opcion").forEach(b => b.onclick = () => leccion(sl, b.dataset.regla, turno));
 }
@@ -317,7 +317,7 @@ function leccion(sl, regla, turno, texto) {
       <p class="aca-nivel-ayuda">${nivelMaximo(sl.actividad) < 4 ? `Consigue ${RONDAS_NIVEL} rondas seguidas con un ${UMBRAL_NIVEL * 100} % de aciertos para ganar la siguiente lupa.` : "¡Tienes todas las lupas de este ejercicio!"}</p>
       <div class="acciones izquierda"><button class="boton-sello" id="empezar">Empezar entrenamiento ▸</button>${ficha && yaVista ? `<button class="boton-papel" id="repasar">Ver la lección</button>` : ""}</div>
     </div>
-    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
+    <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido", ayuda: "nivel" });
   $("#acaVolver").onclick = vistaPatio;
   $("#repasar")?.addEventListener("click", () => abrirModal(`<h3>${esc(ficha.titulo)}</h3><ul class="ficha">${ficha.puntos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`, "ventana-archivo"));
   $$(".aca-nivel:not([disabled])").forEach(b => b.onclick = () => {
@@ -371,12 +371,33 @@ function lanzarActividadAca(sl, regla, turno) {
       <div class="acciones izquierda"><button class="boton-sello" id="empezarRonda">Ahora tú ▸</button></div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ ${retorno ? "Preparación" : "Patio"}</button>`,
-    { fondo: sl.fondo, clase: "oscurecido" });
+    { fondo: sl.fondo, clase: "oscurecido", ayuda: "ejemplo" });
   $("#acaVolver").onclick = retorno?.ir || vistaPatio;
   $("#empezarRonda").onclick = e => {
     e.currentTarget.disabled = true;
     actividad(sl, regla, turno);
   };
+}
+
+/* Al salir, se regresa al lugar desde el que se lanzó la ronda. */
+const destinoAcademia = () => ACA.alTerminar?.ir || vistaPatio;
+function activarSalidaAca({ abandonar = true, antesSalir, salir } = {}) {
+  const boton = $("#acaVolver");
+  const destino = ACA.alTerminar ? "Preparación" : "Patio";
+  const volver = destinoAcademia();
+  boton.textContent = `◂ ${destino}`;
+  boton.onclick = salir || (() => {
+    const ir = () => { antesSalir?.(); volver(); };
+    const sitio = destino === "Patio" ? "al patio" : "a la preparación";
+    if (abandonar) confirmar(`¿Volver ${sitio}? Si sales, esta ronda empezará de nuevo.`, ir, "Salir de la ronda");
+    else ir();
+  });
+}
+
+function falloCargaAca(escena, mensaje) {
+  if (!escena.isConnected) return;
+  destinoAcademia()();
+  aviso(mensaje, "mal");
 }
 
 /* Partida «ligera» para reutilizar registrar() y los componentes del motor */
@@ -507,7 +528,7 @@ const ACTIVIDADES = {
           <div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>
         </div>
         <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
-      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      activarSalidaAca();
       $("#oir")?.addEventListener("click", () => hablar(f.p));
       const inp = $("#resp"); inp.focus();
       let intentada = copia, copiando = copia, otras = 0, cerrada = false;
@@ -581,7 +602,7 @@ const ACTIVIDADES = {
         <article class="documento pupitre"><small>${esc(doc.tipo)} · documento ${r + 1} de ${rondas}</small><div id="decl"></div></article>
         <p class="contador centro-abajo" id="cont"></p>
         <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo });
-      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      activarSalidaAca();
       const total = tokens.filter(x => x.error).length;
       const contador = () => ($("#cont").textContent = `Faltas corregidas: ${total - ctx.pendientes} de ${total}`);
       const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => { aviso("¡Documento limpio!", "bien"); r++; luegoAca(1000, pintar); } };
@@ -618,7 +639,7 @@ const ACTIVIDADES = {
           <div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar el acta</button></div>
         </div>
         <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
-      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      activarSalidaAca();
       const intentadas = new Set(), bien = new Set();
       $$(".campo-acta input")[0]?.focus();
       $$(".campo-acta input").forEach(inp => inp.onkeydown = ev => { if (ev.key === "Enter") $("#ok")?.click(); });
@@ -678,7 +699,7 @@ const ACTIVIDADES = {
           <p id="msg" class="msg"></p>
         </div>
         <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido" });
-      $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+      activarSalidaAca();
       $("#oir")?.addEventListener("click", () => hablar(w.p));
       const pico = i => {
         const n = w.silabas.length, x = (i + .5) / n * 600;
@@ -688,8 +709,9 @@ const ACTIVIDADES = {
       const escribir = () => {
         $("#msg").textContent = ""; paso = 3;
         $("#instr").textContent = `Paso ${mono ? 2 : 3} · Escribe la palabra, con tilde o sin ella.`;
-        $("#zona").innerHTML = `<input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra"><div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>`;
+        $("#zona").innerHTML = `<input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Escribe la palabra"><div class="teclas-acentos" id="sismoTeclas" role="group" aria-label="Vocales con tilde y otras letras"></div><div class="acciones izquierda"><button class="boton-sello" id="ok">Comprobar</button></div>`;
         const inp = $("#resp"); inp.focus();
+        activarTeclasAcentos($("#sismoTeclas"), inp);
         let intentada = false;
         const comprobar = () => {
           if (!inp.value.trim()) return;

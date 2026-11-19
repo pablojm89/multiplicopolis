@@ -60,12 +60,12 @@ const ESCENAS = {
         </div>
         <p class="toca" id="toca">Toca el precinto para romperlo</p>
       </div>
-      <button class="hud-volver" id="hudVolver2">◂ Tablón</button>`, { fondo: e.fondo, clase: "oscurecido" });
-    $("#hudVolver2").onclick = vistaTablon;
+      <button class="hud-volver" id="hudVolver2">◂ ${nombreDestinoExpediente()}</button>`, { fondo: e.fondo, clase: "oscurecido" });
+    $("#hudVolver2").onclick = destinoExpediente();
     $("#precinto").onclick = () => {
       $("#precinto").classList.add("roto");
       $("#toca").hidden = true;
-      setTimeout(() => { $("#abrir").hidden = false; $("#abrir").focus(); }, movimientoReducido() ? 0 : 650);
+      luegoEnEscena(() => { $("#abrir").hidden = false; $("#abrir").focus(); }, movimientoReducido() ? 0 : 650);
     };
     $("#abrir").onclick = siguiente;
   },
@@ -86,7 +86,10 @@ const ESCENAS = {
     activarHUD();
     $("#sig").onclick = siguiente;
     if (e.objeto) encajarObjeto(e);
-    maquina($("#txt"), visible(e.texto), () => { $("#sig").hidden = false; $("#sig").focus(); });
+    maquina($("#txt"), visible(e.texto), () => {
+      $("#sig").hidden = false;
+      if (!$("#capaModal").classList.contains("visible")) $("#sig").focus();
+    });
   },
 
   /* Descubre la regla en el tablón de corcho de Mateo (criterio 9.1) */
@@ -152,7 +155,7 @@ const ESCENAS = {
         if (h) { h.textContent = tk.bien; h.classList.add("lleno"); }
         if ($("#cont")) $("#cont").textContent = `Faltas corregidas: ${e.faltas.length - ctx.pendientes} de ${e.faltas.length}`;
       },
-      onCompleto: () => setTimeout(() => recompensa(e), 700),
+      onCompleto: () => luegoEnEscena(() => recompensa(e), 700),
     };
     if ($("#cont")) $("#cont").textContent = `Faltas corregidas: 0 de ${e.faltas.length}`;
     items.forEach((tk, i) => {
@@ -182,7 +185,7 @@ const ESCENAS = {
       ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
     activarHUD();
     const contador = () => ($("#cont").textContent = `Faltas corregidas: ${total - ctx.pendientes} de ${total}`);
-    const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => setTimeout(() => recompensa(e), 600) };
+    const ctx = { pendientes: total, conCarta: false, onCambio: contador, onCompleto: () => luegoEnEscena(() => recompensa(e), 600) };
     $("#decl").append(textoInteractivo(tokens, ctx));
     contador();
   },
@@ -229,7 +232,7 @@ const ESCENAS = {
       $(`#cubo-${w.cat}`).insertAdjacentHTML("beforeend", `<span class="flor">${esc(w.p)}</span>`);
       k++;
       pintarActual();
-      if (k >= e.palabras.length) { $$(".cubo").forEach(x => (x.disabled = true)); setTimeout(() => recompensa(e), 600); }
+      if (k >= e.palabras.length) { $$(".cubo").forEach(x => (x.disabled = true)); luegoEnEscena(() => recompensa(e), 600); }
     });
     pintarActual();
   },
@@ -274,7 +277,7 @@ const ESCENAS = {
           $(".expl", caja).textContent = `Pista: ${w.silabas}`;
         }
       });
-      if (resueltas.size === e.palabras.length) { $("#comprobar").remove(); setTimeout(() => recompensa(e), 700); }
+      if (resueltas.size === e.palabras.length) { $("#comprobar").remove(); luegoEnEscena(() => recompensa(e), 700); }
       else aviso("Algunas no son correctas. Mira las pistas y vuelve a decidir.", "mal");
     };
   },
@@ -319,7 +322,7 @@ const ESCENAS = {
           $(".expl", caja).textContent = `Pista: ${w.pista || "fíjate en la regla"}`;
         }
       });
-      if (resueltas.size === e.palabras.length) { $("#comprobar").remove(); setTimeout(() => recompensa(e), 700); }
+      if (resueltas.size === e.palabras.length) { $("#comprobar").remove(); luegoEnEscena(() => recompensa(e), 700); }
       else aviso("Algunas no son correctas. Mira las pistas y vuelve a elegir.", "mal");
     };
   },
@@ -341,7 +344,7 @@ const ESCENAS = {
     const contador = () => ($("#cont").textContent = `Faltas demostradas: ${total - ctx.pendientes} de ${total}`);
     const ctx = {
       pendientes: total, conCarta: true, onCambio: contador,
-      onCompleto: () => setTimeout(() => momento({ titulo: "¡Declaración aclarada!", texto: e.aclarado || "La declaración ya no tiene faltas. Sigamos investigando.", personaje: { id: "lola", expresion: "contento", lado: "izq" }, alSeguir: siguiente }), 600),
+      onCompleto: () => luegoEnEscena(() => momento({ titulo: "¡Declaración aclarada!", texto: e.aclarado || "La declaración ya no tiene faltas. Sigamos investigando.", personaje: { id: "lola", expresion: "contento", lado: "izq" }, alSeguir: siguiente }), 600),
     };
     $("#decl").append(textoInteractivo(tokens, ctx));
     contador();
@@ -355,7 +358,7 @@ const ESCENAS = {
       <div class="panel-candado">
         <div class="ruedas">${[...e.codigo].map((_, k) => `<input class="rueda" maxlength="1" inputmode="numeric" aria-label="Cifra ${k + 1}" data-k="${k}">`).join("")}</div>
         <button class="boton-sello" id="abrir">Abrir</button>
-        <p class="msg" id="cMsg"></p>
+        <p class="msg" id="cMsg" role="status"></p>
       </div>
       ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
     activarHUD();
@@ -369,6 +372,12 @@ const ESCENAS = {
     });
     ruedas[0].focus();
     $("#abrir").onclick = () => {
+      const vacia = ruedas.find(r => !r.value);
+      if (vacia) {
+        $("#cMsg").textContent = "Falta una cifra. Escribe una en cada casilla.";
+        vacia.focus();
+        return;
+      }
       if (ruedas.map(r => r.value).join("") !== e.codigo) {
         $("#cMsg").textContent = "El candado no se abre. Mira las cifras de tu libreta y su orden.";
         $(".panel-candado").classList.remove("sacude"); void $(".panel-candado").offsetWidth; $(".panel-candado").classList.add("sacude");
@@ -478,6 +487,7 @@ const ESCENAS = {
         <div class="panel-escribe">
           <p class="enunciado">${esc(it.enunciado)}</p>
           <input id="resp" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Tu respuesta">
+          <div class="teclas-acentos" id="respTeclas" role="group" aria-label="Vocales con tilde y otras letras"></div>
           <p id="respMsg" class="msg"></p>
           <div class="acciones"><button class="boton-sello" id="respOk">Comprobar</button></div>
           <small class="contador-q">${k + 1} de ${e.items.length}</small>
@@ -485,6 +495,7 @@ const ESCENAS = {
         ${hud()}`, { fondo: e.fondo, clase: "oscurecido" });
       activarHUD();
       const inp = $("#resp");
+      activarTeclasAcentos($("#respTeclas"), inp);
       inp.focus();
       const comprobar = () => {
         if (!inp.value.trim()) return;
@@ -494,7 +505,7 @@ const ESCENAS = {
         if (ok) {
           const fin = () => { k++; k < e.items.length ? pintar() : e.recompensa ? recompensa(e) : siguiente(); };
           if (it.explicacion) momento({ titulo: "¡Correcto!", texto: it.explicacion, personaje: { id: e.personaje?.id || "mateo", expresion: "contento", lado: "izq" }, alSeguir: fin });
-          else { aviso("¡Correcto!", "bien"); setTimeout(fin, 700); }
+          else { aviso("¡Correcto!", "bien"); luegoEnEscena(fin, 700); }
           return;
         }
         fallos++;
@@ -530,9 +541,9 @@ const ESCENAS = {
         const mal = puestos.findIndex((x, i) => x.i !== i);
         if (primera) { registrar(e.criterio || "4.1", mal < 0, null, "ordena", e.regla || null); primera = false; }
         if (mal < 0) return e.recompensa ? recompensa(e) : siguiente();
-        aviso(e.pista || `El fragmento ${mal + 1} no va ahí. Busca las pistas: palabras como «primero», «después» o «al final».`, "mal");
         puestos = puestos.slice(0, mal);
-        setTimeout(pintar, 900);
+        pintar();
+        aviso(e.pista || `Revisa a partir del fragmento ${mal + 1}. Busca palabras como «primero», «después» o «al final».`, "mal");
       });
     };
     pintar();

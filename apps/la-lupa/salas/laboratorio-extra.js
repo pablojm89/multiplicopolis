@@ -115,7 +115,6 @@ function labMarcar(p, pos, letra) {
 const labLuego = (ms, el, fn) => setTimeout(() => { if (el?.isConnected) fn(); }, movimientoReducido() ? Math.min(ms, 60) : ms);
 /* El foco va al botón «Siguiente» un poco después: si no, el mismo Enter que comprueba la palabra lo pulsaría */
 const labFoco = sel => { const b = $(sel); labLuego(400, b, () => b.focus()); };
-const labVolver = () => ($("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver"));
 const labInput = (id, etiqueta) => `<input id="${id}" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="${esc(etiqueta)}">`;
 
 /* ── L2 · El microscopio de homófonos ────────────────────────── */
@@ -189,7 +188,7 @@ function labHomEscena(sl, { k, total, frase, muestras, doble }) {
       <div class="lab-zona" id="labZona"></div>
     </div>
     <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido lab-sala" });
-  labVolver();
+  activarSalidaAca();
 }
 
 nuevaActividad("laboratorio", {
@@ -197,7 +196,10 @@ nuevaActividad("laboratorio", {
   desc: "Suenan igual y se escriben distinto: el significado decide.", reglas: LAB_HOM_REGLAS,
 }, async function (sl, regla, turno) {
   let grupos;
-  try { grupos = await labCargar("hom"); } catch { aviso("El microscopio no enfoca: no se han podido cargar las muestras.", "mal"); return; }
+  const escena = $("#escenario .capa");
+  try { grupos = await labCargar("hom"); }
+  catch { return falloCargaAca(escena, "El microscopio no enfoca: no se han podido cargar las muestras."); }
+  if (!escena.isConnected) return;
   const { activas, mezcla } = labActivas(regla, LAB_HOM_REGLAS, LAB_CERCANA);
   if (nivelAca() === 4) return labHomDiamante(sl, turno, grupos, activas, mezcla);
   const lista = labHomRonda(grupos, activas, mezcla);
@@ -436,7 +438,10 @@ nuevaActividad("laboratorio", {
   desc: "Las familias heredan la letra… casi siempre. Descubre cuándo cambia.", reglas: LAB_FAM_REGLAS,
 }, async function (sl, regla, turno) {
   let fams;
-  try { fams = await labCargar("fam"); } catch { aviso("La centrifugadora no arranca: no se han podido cargar las familias.", "mal"); return; }
+  const escena = $("#escenario .capa");
+  try { fams = await labCargar("fam"); }
+  catch { return falloCargaAca(escena, "La centrifugadora no arranca: no se han podido cargar las familias."); }
+  if (!escena.isConnected) return;
   const { activas, mezcla } = labActivas(regla, LAB_FAM_REGLAS);
   const plan = labFamRonda(fams, activas, mezcla);
   const diamante = nivelAca() === 4;     // sin letra destacada: se escribe la palabra directamente
@@ -478,7 +483,7 @@ nuevaActividad("laboratorio", {
         </div>
       </div>
       <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido lab-sala" });
-    labVolver();
+    activarSalidaAca();
 
     $("#labGirar").onclick = () => {
       $("#labGirar").disabled = true;

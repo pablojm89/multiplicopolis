@@ -358,14 +358,12 @@
   ACTIVIDADES.conjugar = async function (sl, _regla, turno) {
     nivel = nivelAca();
     const lupa = NIVELES_ACA[nivel - 1];
-    pintarEscena(`<div class="ter-sala">${banco ? htmlSala() : ""}</div>`, { fondo: sl.fondo, clase: "oscurecido ter-escena" });
-    try { banco ??= await leerJSON("datos/academia/verbos.json"); } catch {
-      $(".ter-sala").innerHTML = `<p class="instruccion">ORTO-3000 no encuentra su disco de verbos. Vuelve a intentarlo dentro de un rato.</p><button class="hud-volver" id="acaVolver">◂ Patio</button>`;
-      $("#acaVolver").onclick = vistaPatio;
-      return;
-    }
+    pintarEscena(`<div class="ter-sala">${banco ? htmlSala() : ""}</div>`, { fondo: sl.fondo, clase: "oscurecido ter-escena", ayuda: "conjugar" });
+    const escena = $("#escenario .capa");
+    try { banco ??= await leerJSON("datos/academia/verbos.json"); }
+    catch { return falloCargaAca(escena, "La Terminal no encuentra su disco de verbos. Inténtalo otra vez."); }
+    if (!escena.isConnected) return;
     if (!$(".ter-pantalla")) $(".ter-sala").innerHTML = htmlSala();
-    let enRonda = false;
     let cierre = null;   // la pantalla de «CERRANDO SESIÓN» espera un momento antes de guardar: si se sale antes, se guarda ya
     const cerrar = () => {
       if (cierre === null) return;
@@ -373,7 +371,7 @@
       $(".ter-mateo")?.remove();
       terminarActividad(sl, turno);
     };
-    $("#acaVolver").onclick = () => (cierre !== null ? cerrar() : enRonda ? confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver") : vistaPatio());
+    activarSalidaAca({ abandonar: false });
     $("#terPantalla").onclick = () => $("#terResp")?.focus({ preventScroll: true });
 
     // Teclado de la pantalla: escribe en la entrada sin quitarle el foco
@@ -412,7 +410,8 @@
       tecleo?.();
       preguntas = generar();
       partidaAca(sl, []);   // sin regla fija: cada intento lleva la suya (o ninguna)
-      enRonda = true; k = 0; j = 0; bien = 0; intentos = 0;
+      activarSalidaAca();
+      k = 0; j = 0; bien = 0; intentos = 0;
       mostrar();
     };
 
@@ -513,7 +512,6 @@
     const terminar = () => {
       tecleo?.();
       alIntro = null;
-      enRonda = false;
       P.caso.reglas = [...new Set(P.eventos.map(e => e.regla).filter(Boolean))];
       caraMateo(bien === intentos ? "sorprendido" : "contento");
       escribirPantalla(`
@@ -523,6 +521,7 @@
         <p class="ter-linea">${bien === intentos ? "ORTO-3000 NO ENCUENTRA NI UN ERROR. ESTO NO PASABA DESDE 1986." : "DATOS GUARDADOS. LA PRÁCTICA HACE AL DETECTIVE."}</p>`, "ter-destello");
       const mia = P;
       cierre = setTimeout(() => { if (P === mia) cerrar(); }, movimientoReducido() ? 300 : 1600);
+      activarSalidaAca({ salir: cerrar });
     };
 
     arranque();

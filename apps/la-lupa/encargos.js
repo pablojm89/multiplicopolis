@@ -55,8 +55,8 @@ function vistaEncargos() {
       <span class="placa">${htmlAvatar(perfil, "mini")}${placaRango(puntos)}Detective <b>${esc(perfil.nombre)}</b> · ${esc(rangoDe(puntos).nombre)} · ${puntos} pts</span>
       <button class="boton-papel" id="volverTablon">◂ Tablón</button>
     </div>
-    <p class="aviso-encargos">${siguiente ? `Con el rango <b>${esc(siguiente.nombre)}</b> (${siguiente.min} pts) llegarán encargos nuevos, y más difíciles.` : "Rango máximo: tienes todos los encargos de la agencia."}</p>
-    <div class="buzon">${listaEncargos().map(tarjeta).join("") || `<p class="vacio">El buzón está vacío… de momento.</p>`}</div>`, { fondo: arte("buzon-agencia").listo ? "buzon-agencia" : "agencia", clase: "oscurecido" });
+    <p class="aviso-encargos">${siguiente ? `Te faltan <b>${Math.max(0, siguiente.min - puntos)} puntos</b> para el rango <b>${esc(siguiente.nombre)}</b> y nuevos encargos.` : "Tienes abiertos todos los encargos de la agencia."}</p>
+    <div class="buzon">${listaEncargos().map(tarjeta).join("") || `<p class="vacio">El buzón está vacío… de momento.</p>`}</div>`, { fondo: arte("buzon-agencia").listo ? "buzon-agencia" : "agencia", clase: "oscurecido", ayuda: "encargos" });
   $("#volverTablon").onclick = vistaTablon;
   $$("[data-encargo]").forEach(b => b.onclick = () => {
     const id = b.dataset.encargo, medias = partidaAMedias(id, D.encargos[id]);

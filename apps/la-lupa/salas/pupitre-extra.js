@@ -158,7 +158,6 @@ function pupExplica(x) {
   return resto.charAt(0).toUpperCase() + resto.slice(1);
 }
 const pupLupa = () => { const l = NIVELES_ACA[nivelAca() - 1]; return `<span class="pup-nivel" title="${esc(l.nombre)}">${lupaImg(l)} ${esc(l.corto)}</span>`; };
-const pupSalir = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
 
 /* ============================================================
    P2 · Rellena el parte
@@ -200,7 +199,10 @@ nuevaActividad("pupitre", {
   reglas: PUP_REGLAS,
 }, async function (sl, regla, turno) {
   let datos;
-  try { datos = await pupCargar("partes"); } catch { aviso("No se ha podido abrir el archivador de partes. Inténtalo otra vez.", "mal"); return vistaPatio(); }
+  const escena = $("#escenario .capa");
+  try { datos = await pupCargar("partes"); }
+  catch { return falloCargaAca(escena, "No se ha podido abrir el archivador de partes. Inténtalo otra vez."); }
+  if (!escena.isConnected) return;
   const activas = PUP_REGLAS.includes(regla) ? [regla] : PUP_REGLAS;   // null, «mezcla» u otra regla: todo mezclado
   const mezcla = activas.length > 1;
   const enCola = new Set(Object.keys(estadoAca().cola).map(norm));
@@ -255,7 +257,7 @@ nuevaActividad("pupitre", {
         <rect x="140" y="58" width="20" height="40" rx="6" fill="#8a5a33"/><ellipse cx="150" cy="48" rx="26" ry="20" fill="#a06a3a"/><ellipse cx="144" cy="42" rx="10" ry="6" fill="#c98f58" opacity=".7"/></g>
       </svg>
       <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "sala-pup" });
-    $("#acaVolver").onclick = pupSalir;
+    activarSalidaAca();
     let ultimo = null;
     $$(".pup-entrada").forEach(inp => inp.addEventListener("focus", () => (ultimo = inp)));
     pupTeclas($("#pupTeclas"), () => ultimo);
@@ -364,7 +366,10 @@ nuevaActividad("pupitre", {
   reglas: PUP_TILDES,
 }, async function (sl, regla, turno) {
   let datos;
-  try { datos = await pupCargar("sintilde"); } catch { aviso("La máquina de escribir no arranca. Inténtalo otra vez.", "mal"); return vistaPatio(); }
+  const escena = $("#escenario .capa");
+  try { datos = await pupCargar("sintilde"); }
+  catch { return falloCargaAca(escena, "La máquina de escribir no arranca. Inténtalo otra vez."); }
+  if (!escena.isConnected) return;
   const activas = PUP_TILDES.includes(regla) ? [regla] : PUP_TILDES;   // otra regla o «mezcla»: las dos mezcladas
   const enCola = new Set(Object.keys(estadoAca().cola).map(norm));
   const claveVistas = `pupitre-sintilde-${perfil?.id}`;
@@ -412,7 +417,7 @@ nuevaActividad("pupitre", {
       ${pupHTMLNota()}
       ${imgArte("maquina-sin-tilde", "pup-maquina pup-maquina-img") || PUP_MAQUINA}
       <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "sala-pup" });
-    $("#acaVolver").onclick = pupSalir;
+    activarSalidaAca();
     pupNota(r === 0
       ? ["Esta vieja Tipógrafa perdió la tecla de la tilde en 1987 y nadie la ha encontrado. Ojo: no todas las palabras la necesitan. Las de una sola sílaba, como «fue» o «dio», no la llevan.",
          "Esta vieja Tipógrafa perdió la tecla de la tilde en 1987 y nadie la ha encontrado. Ojo: no todas las palabras la necesitan. Las de una sola sílaba, como «fue» o «dio», no la llevan.",

@@ -153,9 +153,11 @@ function cenLuego(gen, ms, fn) { CEN.temporizadores.push(setTimeout(() => { if (
 
 /* ── La actividad ─────────────────────────────────────────────── */
 ACTIVIDADES.dictado = async function (sl, regla, turno) {
+  const escena = $("#escenario .capa");
   try { CEN.banco ??= (await leerJSON("datos/academia/dictados.json")).frases; }
-  catch { aviso("No hay señal: no se han podido cargar los mensajes.", "mal"); return; }
+  catch { return falloCargaAca(escena, "No hay señal. Inténtalo otra vez."); }
   await cenEsperarVoces();
+  if (!escena.isConnected) return;
   CEN.voz = cenBuscarVoz();
   // Una regla sin mensajes en el banco (las de 6.º, por ahora) se entrena con todas mezcladas, no con una ronda vacía
   const propia = CEN_REGLAS.includes(regla) && CEN.banco.some(f => f.regla === regla);
@@ -224,7 +226,7 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
     const dice = (t, cara) => { $("#cenDice").innerHTML = `<b>Lola:</b> ${t}`; if (cara) cenCara(cara); };
     const resp = $("#cenResp");
     requestAnimationFrame(() => { const a = $("#cenAguja"); if (a) a.style.left = `${DIAL[k]}%`; });
-    $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", () => { cenParar(); vistaPatio(); }, "Volver");
+    activarSalidaAca({ antesSalir: cenParar });
 
     /* Selector de modo */
     const marcarModo = () => $$(".cen-modo button").forEach(b => { b.classList.toggle("activo", b.dataset.modo === modo); b.setAttribute("aria-pressed", b.dataset.modo === modo); });
@@ -242,7 +244,11 @@ ACTIVIDADES.dictado = async function (sl, regla, turno) {
       b.innerHTML = `${modo === "radio" ? "▶" : "⚡"} ${verbo}<small>${quedan ? `quedan ${quedan}` : "sin más emisiones"}</small>`;
       b.disabled = !quedan || estado === "emitiendo" || estado === "corrigiendo" || estado === "hecho";
     };
-    const alAire = on => { $("#cenRadio")?.classList.toggle("emitiendo", on); };
+    const alAire = on => {
+      $("#cenRadio")?.classList.toggle("emitiendo", on);
+      const ayuda = $("#ayudaJuego");
+      if (ayuda) ayuda.disabled = on;
+    };
     const listoParaEscribir = () => {
       resp.disabled = false; resp.hidden = false; resp.placeholder = "Teclea aquí el mensaje…";
       $("#cenOk").disabled = false;

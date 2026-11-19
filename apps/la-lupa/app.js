@@ -45,7 +45,7 @@ function vistaInicio() {
     </div>
     ${nubeActiva() ? `<button class="enlace-maestro enlace-nube" id="irRecuperar">☁️ Recuperar mi detective</button>` : ""}
     ${puedeCompleta() ? `<button class="enlace-maestro enlace-completa" id="irCompleta">⛶ Pantalla completa</button>` : ""}
-    <button class="enlace-maestro" id="irMaestro">Zona maestro/a</button>`, { fondo: "fachada-agencia", clase: "oscurecido" });
+    <button class="enlace-maestro" id="irMaestro">Zona maestro/a</button>`, { fondo: "fachada-agencia", clase: "oscurecido", ayuda: "entrada" });
   $("#irCompleta")?.addEventListener("click", pantallaCompleta);
   $$(".ficha-detective").forEach(b => b.onclick = () => { perfil = perfiles.find(p => p.id === b.dataset.id); vistaTablon(); });
   const crear = (nombre, avatar) => {
@@ -80,6 +80,10 @@ function vistaTablon() {
   const curso = D.prog.cursos[perfil.curso];
   const mios = resultados.filter(r => r.perfilId === perfil.id);
   const puntos = puntosDetective(mios);
+  const siguienteCaso = primerCasoPendiente(mios);
+  const hayCasos = curso.unidades.some(u => D.casos[u.caso]);
+  const faltanCasos = curso.unidades.some(u => !u.caso);
+  const avisoCasos = hayCasos ? "Has resuelto los casos disponibles de tu curso. Puedes seguir en la Academia o en Encargos." : "Los casos de tu curso aún se están preparando. Puedes jugar en la Academia o en Encargos.";
   pintarEscena(`
     <div class="tablon-cabecera">
       <h1 class="cartel">Tablón de casos</h1>
@@ -88,28 +92,47 @@ function vistaTablon() {
       <button class="boton-sello" id="irAcademia">🎓 Academia</button>
       <button class="boton-papel" id="salir">Salir</button>
     </div>
-    <div class="corcho tablon">${curso.unidades.map(u => tarjetaUnidad(u, mios)).join("")}</div>`, { fondo: "agencia" });
+    <div class="corcho tablon">
+      ${siguienteCaso ? `<button class="siguiente-caso boton-sello" id="casoPendiente">${esc(etiquetaCasoPendiente(siguienteCaso))} ▸</button>`
+        : faltanCasos ? `<p class="siguiente-caso nota-corcho">${avisoCasos}</p>` : ""}
+      ${curso.unidades.map(u => tarjetaUnidad(u, mios)).join("")}
+    </div>`, { fondo: "agencia", ayuda: !hayCasos ? "sinCasos" : !siguienteCaso && faltanCasos ? "casosAlDia" : "tablon" });
   $("#salir").onclick = () => { perfil = null; vistaInicio(); };
   $("#irAcademia").onclick = vistaPatio;
   $("#irEncargos")?.addEventListener("click", vistaEncargos);
-  $$("[data-unidad]").forEach(b => b.onclick = () => {
-    const u = curso.unidades.find(x => x.id === b.dataset.unidad);
-    const delCaso = mios.filter(r => r.unidad === u.id);
-    const ultimo = delCaso.find(r => r.libreta) || delCaso.at(-1);   // el sello es del caso, no de cada intento
-    const medias = partidaAMedias(u.id, D.casos[u.caso]);
-    if (medias) return ofrecerContinuar(D.casos[u.caso], medias, () => reanudarPartida(u.id, D.casos[u.caso], medias), () => iniciarCaso(u));
-    if (!ultimo && pasosPreparacion(u).length && modoPreparacion() !== "no" && (debePrepararse(u, mios) || modoPreparacion() === "opcional" && !preparacionLista(u))) return vistaPreparacion(u);
-    if (!ultimo) return iniciarCaso(u);
-    abrirModal(`
-      <h3>${esc(D.casos[u.caso].titulo)}</h3>
-      <p>${ultimo.libreta ? `Expediente <b>sellado</b> por el director (${ultimo.libreta.puntos}/4 en la libreta).` : "Tu expediente está <b>pendiente de sello</b>: enseña tu libreta al director."}</p>
-      <div class="acciones">
-        ${ultimo.libreta ? "" : `<button class="boton-papel" id="sellarYa">Sellar (director)</button>`}
-        <button class="boton-sello" id="jugarOtra">Jugar otra vez ▸</button>
-      </div>`, "ventana-libreta");
-    $("#jugarOtra").onclick = () => { cerrarModal(); iniciarCaso(u); };
-    $("#sellarYa")?.addEventListener("click", () => sellar(ultimo, vistaTablon));
-  });
+  $("#casoPendiente")?.addEventListener("click", () => abrirUnidad(siguienteCaso, mios));
+  $$("[data-unidad]").forEach(b => b.onclick = () => abrirUnidad(curso.unidades.find(x => x.id === b.dataset.unidad), mios));
+}
+
+function primerCasoPendiente(mios) {
+  return D.prog.cursos[perfil.curso].unidades.find(u =>
+    D.casos[u.caso] && !mios.some(r => r.unidad === u.id) && !casoAnteriorPendiente(u, mios));
+}
+
+function etiquetaCasoPendiente(u) {
+  const caso = D.casos[u.caso];
+  if (partidaAMedias(u.id, caso)) return `Continuar «${caso.titulo}»`;
+  const preparar = modoPreparacion() !== "no" && !preparacionLista(u);
+  return `${preparar ? "Preparar" : "Abrir"} «${caso.titulo}»`;
+}
+
+function abrirUnidad(u, mios) {
+  const caso = D.casos[u.caso];
+  const delCaso = mios.filter(r => r.unidad === u.id);
+  const ultimo = delCaso.find(r => r.libreta) || delCaso.at(-1);   // el sello es del caso, no de cada intento
+  const medias = partidaAMedias(u.id, caso);
+  if (medias) return ofrecerContinuar(caso, medias, () => reanudarPartida(u.id, caso, medias), () => iniciarCaso(u));
+  if (!ultimo && modoPreparacion() !== "no" && !preparacionLista(u)) return vistaPreparacion(u);
+  if (!ultimo) return iniciarCaso(u);
+  abrirModal(`
+    <h3>${esc(caso.titulo)}</h3>
+    <p>${ultimo.libreta ? `Expediente <b>sellado</b> por el director (${ultimo.libreta.puntos}/4 en la libreta).` : "Tu expediente está <b>pendiente de sello</b>: enseña tu libreta al director cuando puedas. Ya puedes seguir con el siguiente caso."}</p>
+    <div class="acciones">
+      ${ultimo.libreta ? "" : `<button class="boton-papel" id="sellarYa">Sellar (director)</button>`}
+      <button class="boton-sello" id="jugarOtra">Jugar otra vez ▸</button>
+    </div>`, "ventana-libreta");
+  $("#jugarOtra").onclick = () => { cerrarModal(); iniciarCaso(u); };
+  $("#sellarYa")?.addEventListener("click", () => sellar(ultimo, vistaTablon));
 }
 /* Puntos de un caso: el mejor intento de juego + el sello de la libreta (que es del caso, no del intento).
    Así, volver a jugar un caso nunca quita puntos ni el sello. */
@@ -168,13 +191,13 @@ function reanudarPartida(unidad, caso, g) {
 function ofrecerContinuar(caso, g, continuar, deNuevo) {
   abrirModal(`
     <h3>${esc(caso.titulo)}</h3>
-    <p>Dejaste este expediente <b>a medias</b>: ibas por la escena ${g.i + 1} de ${g.nEscenas}. Tus pistas y tus aciertos están guardados.</p>
+    <p>Ibas por la escena ${g.i + 1} de ${g.nEscenas}. Al continuar, repetirás esa escena. Las escenas anteriores y sus pistas están guardadas.</p>
     <div class="acciones">
       <button class="boton-papel" id="deNuevo">Empezar de nuevo</button>
       <button class="boton-sello" id="continuar">Continuar ▸</button>
     </div>`, "ventana-libreta");
   $("#continuar").onclick = () => { cerrarModal(); continuar(); };
-  $("#deNuevo").onclick = () => { cerrarModal(); deNuevo(); };
+  $("#deNuevo").onclick = () => confirmar("¿Empezar desde la portada? Se borrará el avance de esta partida.", deNuevo, "Empezar de nuevo");
 }
 
 function tarjetaUnidad(u, mios) {
@@ -243,6 +266,8 @@ function vistaInforme() {
 }
 
 function pintarInforme(res) {
+  const mios = resultados.filter(r => r.perfilId === perfil.id);
+  const siguienteCaso = !res.encargo && primerCasoPendiente(mios);
   const diag = res.diagnostico ? `
       <p class="etiqueta">Tu punto de partida</p>
       <div class="diagnostico">${res.diagnostico.map(d => `
@@ -256,19 +281,21 @@ function pintarInforme(res) {
       <small>AGENCIA LA LUPA · ${res.encargo ? "INFORME DEL ENCARGO" : "INFORME DEL DETECTIVE"}</small>
       <h1 class="cartel">${esc(res.titulo)}</h1>
       <p class="maquina-fija">${htmlAvatar(perfil, "mini")}Detective: ${esc(res.nombre)} · Pistas pedidas: ${res.pistas}${res.consultas ? ` · Consultas a la libreta: ${res.consultas}` : ""} · Tiempo: ${res.minutos} min</p>
+      ${siguienteCaso ? `<button class="boton-sello" id="siguienteCaso">${esc(etiquetaCasoPendiente(siguienteCaso))} ▸</button>` : ""}
       ${diag}
       <div class="notas">${res.notas.map(n => `
         <div class="nota"><span>${esc(NOMBRE_CRITERIO[n.criterio] || n.criterio)}</span>
           <div class="barra-nota"><i style="width:${n.nota * 10}%"></i></div>
           <small>${n.aciertos} de ${n.intentos} a la primera</small></div>`).join("")}</div>
       ${res.repasar.length ? `<p class="etiqueta">Palabras para repasar</p><div class="repasar">${res.repasar.map(w => `<span class="palabra-ficha">${esc(w)}</span>`).join("")}</div>` : `<p class="maquina-fija">Ni una sola palabra para repasar. ¡Impecable!</p>`}
-      ${res.encargo ? `<p class="maquina-fija sello-aviso">+${puntosResultado(res)} puntos para tu rango.</p>` : `<p class="maquina-fija sello-aviso">${res.libreta ? `El director ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Enseña tu libreta al director Robles para que selle el expediente y ganes puntos extra."}</p>`}
+      ${res.encargo ? `<p class="maquina-fija sello-aviso">+${puntosResultado(res)} puntos para tu rango.</p>` : `<p class="maquina-fija sello-aviso">${res.libreta ? `El director ha sellado tu libreta: ${res.libreta.puntos}/4. +${puntosResultado(res)} puntos.` : "📓 Puedes seguir jugando. Cuando puedas, enseña tu libreta al director Robles para ganar puntos extra."}</p>`}
       <div class="acciones izquierda">
         ${res.libreta || res.encargo ? "" : `<button class="boton-papel" id="sellar">Sellar (director)</button>`}
         <button class="boton-papel" id="academia">🎓 Ir a la Academia${res.aCola ? ` (${res.aCola} fichas nuevas)` : ""}</button>
-        <button class="boton-sello" id="volver">${res.encargo ? "Volver a los encargos" : "Volver al tablón"} ▸</button>
+        <button class="${siguienteCaso ? "boton-papel" : "boton-sello"}" id="volver">${res.encargo ? "Volver a los encargos" : "Volver al tablón"} ▸</button>
       </div>
-    </div>`, { fondo: "agencia", clase: "oscurecido" });
+    </div>`, { fondo: "agencia", clase: "oscurecido", ayuda: res.encargo ? "informeEncargo" : "informe" });
+  $("#siguienteCaso")?.addEventListener("click", () => abrirUnidad(siguienteCaso, mios));
   $("#academia").onclick = vistaPatio;
   $("#volver").onclick = res.encargo ? vistaEncargos : vistaTablon;
   $("#sellar")?.addEventListener("click", () => sellar(res, () => pintarInforme(res)));

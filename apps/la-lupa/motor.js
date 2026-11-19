@@ -75,7 +75,7 @@ addEventListener("resize", ajustarEscenario);
 document.addEventListener("scroll", ev => { const e = ev.target; if (e?.id === "escenario" && (e.scrollTop || e.scrollLeft)) { e.scrollTop = 0; e.scrollLeft = 0; } }, true);
 
 /* Pinta una escena completa: fondo + contenido + capas de ventana y aviso */
-function pintarEscena(html, { fondo = null, clase = "" } = {}) {
+function pintarEscena(html, { fondo = null, clase = "", ayuda = null } = {}) {
   $("#pagina").hidden = true;
   $("#pagina").innerHTML = "";   // la zona del maestro no deja el PIN ni las notas en la página al salir
   $("#marco").hidden = false;
@@ -83,6 +83,13 @@ function pintarEscena(html, { fondo = null, clase = "" } = {}) {
   e.className = `escenario ${clase}`;
   e.innerHTML = `${capaFondo(fondo)}<div class="capa">${html}</div><div id="capaModal" class="capa-modal"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>`;
   ajustarEscenario();
+  if (typeof activarAyudaPantalla === "function") activarAyudaPantalla(ayuda);
+}
+
+/* Una animación o aviso de un reto no debe abrirse en la pantalla siguiente. */
+function luegoEnEscena(fn, ms) {
+  const capa = $("#escenario .capa");
+  return setTimeout(() => { if (capa.isConnected) fn(); }, ms);
 }
 
 /* ── Arte (imagen real o hueco marcado) ─────────────────────── */
@@ -223,7 +230,14 @@ function abrirModal(html, clase = "") {
   $(".cerrar", m).onclick = cerrarModal;
   m.onclick = e => { if (e.target === m) cerrarModal(); };
 }
-function cerrarModal() { const m = $("#capaModal"); if (m) { m.classList.remove("visible"); m.innerHTML = ""; } }
+function cerrarModal() {
+  const m = $("#capaModal");
+  if (!m) return;
+  const ayuda = $(".ventana-ayuda", m);
+  m.classList.remove("visible");
+  m.innerHTML = "";
+  if (ayuda) $("#ayudaJuego")?.focus();
+}
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#capaModal .momento")) cerrarModal(); });
 function confirmar(mensaje, siAcepta, textoSi = "Sí") {
   abrirModal(`<h3>${esc(mensaje)}</h3><div class="acciones"><button class="boton-papel" id="cNo">Cancelar</button><button class="boton-sello" id="cSi">${esc(textoSi)}</button></div>`, "ventana-libreta");
@@ -233,23 +247,28 @@ function confirmar(mensaje, siAcepta, textoSi = "Sí") {
 
 /* ── HUD: objetos del detective ─────────────────────────────── */
 const cartasCaso = () => P.caso.reglas.flatMap(r => D.reglas[r]?.cartas || []);
+const destinoExpediente = () => P.encargo ? vistaEncargos : vistaTablon;
+const nombreDestinoExpediente = () => P.encargo ? "Encargos" : "Tablón";
 function htmlHUD() {
   const e = P.caso.escenas[P.i];
   const pistas = e.pistas || [];
   const usadas = P.pistas[P.i] || 0;
   return `
-    <button class="hud-volver" id="hudVolver" aria-label="Volver al tablón">◂ Tablón</button>
+    <button class="hud-volver" id="hudVolver">◂ ${nombreDestinoExpediente()}</button>
     <div class="hud-expediente">EXPEDIENTE ${esc(P.caso.numero)} · ${P.i + 1}/${P.caso.escenas.length}</div>
     <div class="hud-objetos">
-      <button class="hud-obj libreta" id="hudLibreta" aria-label="Libreta"><span class="ico">📓</span><span>Libreta</span>${P.piezas.length ? `<b class="globo">${P.piezas.length}</b>` : ""}</button>
-      <button class="hud-obj carpeta" id="hudCarpeta" aria-label="Archivo de Mateo"><span class="ico">🗂️</span><span>Archivo</span></button>
+      ${P.encargo ? "" : `<button class="hud-obj libreta" id="hudLibreta" aria-label="Libreta"><span class="ico">📓</span><span>Libreta</span>${P.piezas.length ? `<b class="globo">${P.piezas.length}</b>` : ""}</button>
+      <button class="hud-obj carpeta" id="hudCarpeta" aria-label="Archivo de Mateo"><span class="ico">🗂️</span><span>Archivo</span></button>`}
       ${pistas.length ? `<button class="hud-obj lupa" id="hudLupa" aria-label="Pedir pista" ${usadas >= pistas.length ? "disabled" : ""}><span class="ico">🔍</span><span>Pista ${usadas}/${pistas.length}</span></button>` : ""}
     </div>`;
 }
 function activarHUD() {
-  $("#hudVolver").onclick = () => confirmar("¿Volver al tablón? El caso se queda guardado: podrás continuarlo cuando quieras.", vistaTablon, "Volver al tablón");
-  $("#hudLibreta").onclick = verLibreta;
-  $("#hudCarpeta").onclick = verArchivo;
+  $("#hudVolver").onclick = () => {
+    const destino = P.encargo ? "a los encargos" : "al tablón";
+    confirmar(`¿Volver ${destino}? Las escenas anteriores se guardan. Al volver, repetirás esta escena.`, destinoExpediente(), "Guardar y salir");
+  };
+  $("#hudLibreta")?.addEventListener("click", verLibreta);
+  $("#hudCarpeta")?.addEventListener("click", verArchivo);
   $("#hudLupa")?.addEventListener("click", pedirPista);
 }
 function refrescarHUD() {
@@ -408,15 +427,28 @@ const PISTA_REGLA = {
   "d-z-finales": "Piensa en su plural: ¿termina en -des o en -ces?",
   "mayusculas-puntuacion-1": "Mira las mayúsculas: los nombres propios sí; los días de la semana, no.",
 };
+function activarTeclasAcentos(caja, entrada) {
+  caja.innerHTML = [..."áéíóúüñ"].map(letra => `<button type="button" aria-label="Escribir ${letra}">${letra}</button>`).join("");
+  $$("button", caja).forEach(b => {
+    b.onpointerdown = e => e.preventDefault();
+    b.onclick = () => {
+      entrada.setRangeText(b.textContent, entrada.selectionStart, entrada.selectionEnd, "end");
+      entrada.focus({ preventScroll: true });
+    };
+  });
+}
+
 function pedirCorreccion(tk, hecho) {
   let fallos = 0;
   abrirModal(`
     <h3>¡Falta encontrada!</h3>
     <p>Escribe bien la palabra <strong class="tachada">${esc(tk.t)}</strong>:</p>
     <input id="corr" class="entrada" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Palabra corregida">
+    <div class="teclas-acentos" id="corrTeclas" role="group" aria-label="Vocales con tilde y otras letras"></div>
     <p id="corrMsg" class="msg"></p>
     <div class="acciones"><button class="boton-sello" id="corrOk">Comprobar</button></div>`, "ventana-libreta");
   const inp = $("#corr");
+  activarTeclasAcentos($("#corrTeclas"), inp);
   inp.focus();
   const comprobar = () => {
     if (!inp.value.trim()) return;
