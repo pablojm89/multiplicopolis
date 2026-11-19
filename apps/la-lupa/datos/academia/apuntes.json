@@ -6,11 +6,11 @@
       {
         "tipo": "tabla",
         "titulo": "Agudas, llanas y esdrújulas",
-        "columnas": ["Tipo", "Sílaba tónica", "Lleva tilde…", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Tipo", "Sílaba tónica", "Lleva tilde…", "Ejemplos"],
         "filas": [
-          ["Aguda", "La última: ca-MIÓN", "si termina en vocal, -n o -s", "sofá, compás · sin tilde: reloj, papel", ""],
-          ["Llana", "La penúltima: ÁR-bol", "si NO termina en vocal, -n ni -s", "lápiz, fácil · sin tilde: mesa, joven", ""],
-          ["Esdrújula", "La antepenúltima: MÚ-si-ca", "siempre", "pájaro, teléfono, sábado", ""]
+          ["Aguda", "La última: ca-MIÓN", "si termina en vocal, -n o -s", "sofá, compás · sin tilde: reloj, papel"],
+          ["Llana", "La penúltima: ÁR-bol", "si NO termina en vocal, -n ni -s", "lápiz, fácil · sin tilde: mesa, joven"],
+          ["Esdrújula", "La antepenúltima: MÚ-si-ca", "siempre", "pájaro, teléfono, sábado"]
         ]
       },
       {
@@ -32,7 +32,11 @@
         ]
       }
     ],
-    "completar": "Escribe en «Mis ejemplos» dos palabras tuyas en cada fila: una con tilde y otra sin tilde (en las esdrújulas, dos con tilde). Rodea la sílaba tónica de cada una."
+    "cuaderno": [
+      "Explica con tus palabras cuándo lleva tilde una palabra aguda.",
+      "Escribe dos ejemplos tuyos: una aguda con tilde y otra sin tilde. Rodea la sílaba fuerte en las dos.",
+      "Explica por qué tu primer ejemplo lleva tilde."
+    ]
   },
   "b-v-1": {
     "titulo": "Apuntes de detective · b y v (I)",
@@ -41,22 +45,22 @@
       {
         "tipo": "tabla",
         "titulo": "Cuadro de la b",
-        "columnas": ["Se escribe con b…", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Se escribe con b…", "Ejemplos"],
         "filas": [
-          ["Las formas en -aba de los verbos en -ar y las del verbo ir (iba)", "cantaba, jugábamos, iba", ""],
-          ["Detrás de m (delante de b nunca va n)", "hombre, tambor, cambio", ""],
-          ["Los grupos bl y br", "blanco, brazo", ""],
-          ["Los verbos en -bir", "escribir, recibir, subir", ""]
+          ["Las formas en -aba de los verbos en -ar y las del verbo ir (iba)", "cantaba, jugábamos, iba"],
+          ["Detrás de m (delante de b nunca va n)", "hombre, tambor, cambio"],
+          ["Los grupos bl y br", "blanco, brazo"],
+          ["Los verbos en -bir", "escribir, recibir, subir"]
         ]
       },
       {
         "tipo": "tabla",
         "titulo": "Cuadro de la v",
-        "columnas": ["Se escribe con v…", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Se escribe con v…", "Ejemplos"],
         "filas": [
-          ["Detrás de n (nunca b)", "invierno, enviar", ""],
-          ["Los adjetivos en -avo, -ave, -evo, -eve, -ivo, -iva", "octavo, suave, nuevo, breve, activo", ""],
-          ["Los pasados en -uve, -uvo… de estar, andar y tener", "estuve, anduvo, tuvimos", ""]
+          ["Detrás de n (nunca b)", "invierno, enviar"],
+          ["Los adjetivos en -avo, -ave, -evo, -eve, -ivo, -iva", "octavo, suave, nuevo, breve, activo"],
+          ["Los pasados en -uve, -uvo… de estar, andar y tener", "estuve, anduvo, tuvimos"]
         ]
       },
       {
@@ -68,7 +72,11 @@
         ]
       }
     ],
-    "completar": "Añade una palabra tuya en cada fila de «Mis ejemplos». Después busca en tu libro de lectura una palabra con mb y otra con nv, y cópialas."
+    "cuaderno": [
+      "Explica con tus palabras cuándo escribimos mb y cuándo escribimos nv.",
+      "Escribe una palabra con mb y otra con nv. Rodea esas dos letras en cada palabra.",
+      "Elige una de tus palabras y explica por qué has escrito m o n."
+    ]
   },
   "h-1": {
     "titulo": "Apuntes de detective · La h (I)",
@@ -77,12 +85,12 @@
       {
         "tipo": "tabla",
         "titulo": "¿Dónde se esconde la h?",
-        "columnas": ["Pista", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Pista", "Ejemplos"],
         "filas": [
-          ["Empieza por ie-, ue-, ui-", "hielo, huevo, hueso, huida", ""],
-          ["Empieza por herm-, horm-, horr-, hosp- (salvo ermita y ermitaño)", "hermano, hormiga, horrible, hospital", ""],
-          ["Empieza por hum- + vocal", "humo, humano", ""],
-          ["Es una forma de haber, hacer, hablar, hallar o habitar", "había, hizo, hablábamos, hallé, habitan", ""]
+          ["Empieza por ie-, ue-, ui-", "hielo, huevo, hueso, huida"],
+          ["Empieza por herm-, horm-, horr-, hosp- (salvo ermita y ermitaño)", "hermano, hormiga, horrible, hospital"],
+          ["Empieza por hum- + vocal", "humo, humano"],
+          ["Es una forma de haber, hacer, hablar, hallar o habitar", "había, hizo, hablábamos, hallé, habitan"]
         ]
       },
       {
@@ -103,7 +111,11 @@
         ]
       }
     ],
-    "completar": "Completa «Mis ejemplos» con una palabra tuya en cada fila. Luego escribe una frase que tenga dos formas del verbo hacer."
+    "cuaderno": [
+      "Explica con tus palabras cómo te ayuda el infinitivo hacer a recordar la h.",
+      "Escribe dos frases tuyas con formas distintas de hacer: una en presente y otra en pasado. Rodea la h en cada forma.",
+      "Elige una de esas formas y explica por qué se escribe con h."
+    ]
   },
   "c-z-s": {
     "titulo": "Apuntes de detective · c, z y s",
@@ -115,18 +127,16 @@
         "columnas": ["Sonido", "a", "e", "i", "o", "u"],
         "filas": [
           ["/k/", "ca: casa", "que: queso", "qui: quince", "co: cola", "cu: cuna"],
-          ["Mi ejemplo /k/", "", "", "", "", ""],
-          ["/z/", "za: zapato", "ce: cebolla", "ci: cine", "zo: zorro", "zu: zumo"],
-          ["Mi ejemplo /z/", "", "", "", "", ""]
+          ["/z/", "za: zapato", "ce: cebolla", "ci: cine", "zo: zorro", "zu: zumo"]
         ]
       },
       {
         "tipo": "tabla",
         "titulo": "Cuando la z se convierte en c",
-        "columnas": ["Cambio", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Cambio", "Ejemplos"],
         "filas": [
-          ["Plural de las palabras acabadas en z: -ces", "luz → luces, pez → peces", ""],
-          ["Verbos en -zar: delante de e, la z pasa a c", "empezar → empecé, cazar → cacé", ""]
+          ["Plural de las palabras acabadas en z: -ces", "luz → luces, pez → peces"],
+          ["Verbos en -zar: delante de e, la z pasa a c", "empezar → empecé, cazar → cacé"]
         ]
       },
       {
@@ -138,7 +148,11 @@
         ]
       }
     ],
-    "completar": "Rellena las filas «Mi ejemplo» con una palabra tuya para cada sílaba. En la segunda tabla, añade un plural en -ces y una forma de un verbo en -zar."
+    "cuaderno": [
+      "Explica con tus palabras cómo escribimos el sonido de la c de casa delante de e y de i.",
+      "Escribe una palabra con que y otra con qui. Rodea que o qui en cada una.",
+      "Elige una de tus palabras y explica por qué has usado qu."
+    ]
   },
   "ll-y": {
     "titulo": "Apuntes de detective · ll e y",
@@ -147,21 +161,21 @@
       {
         "tipo": "tabla",
         "titulo": "Cuadro de la ll y la y",
-        "columnas": ["Pista", "Letra", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Pista", "Letra", "Ejemplos"],
         "filas": [
-          ["Palabras terminadas en -illo, -illa", "ll", "farolillo, bombilla, pasillo", ""],
-          ["i final detrás de vocal que no suena fuerte", "y", "rey, hoy, muy, ley", ""],
-          ["Formas de verbos sin ll ni y en el infinitivo", "y", "caer → cayó, oír → oyendo, huir → huyó", ""]
+          ["Palabras terminadas en -illo, -illa", "ll", "farolillo, bombilla, pasillo"],
+          ["i final detrás de vocal que no suena fuerte", "y", "rey, hoy, muy, ley"],
+          ["Formas de verbos sin ll ni y en el infinitivo", "y", "caer → cayó, oír → oyendo, huir → huyó"]
         ]
       },
       {
         "tipo": "tabla",
         "titulo": "Parejas que suenan igual",
-        "columnas": ["Con y", "Con ll", "Mi frase con una de las dos"],
+        "columnas": ["Con y", "Con ll"],
         "filas": [
-          ["cayó (de caer)", "calló (de callar)", ""],
-          ["haya (de haber)", "halla (de hallar)", ""],
-          ["vaya (de ir)", "valla (una cerca)", ""]
+          ["cayó (de caer)", "calló (de callar)"],
+          ["haya (de haber)", "halla (de hallar)"],
+          ["vaya (de ir)", "valla (una cerca)"]
         ]
       },
       {
@@ -174,7 +188,11 @@
         ]
       }
     ],
-    "completar": "Escribe una palabra tuya en cada fila de «Mis ejemplos» y una frase con cada pareja que suena igual."
+    "cuaderno": [
+      "Explica con tus palabras qué significa cayó y qué significa calló.",
+      "Escribe dos frases: una con cayó y otra con calló. Que por el resto de la frase se entienda qué pasó.",
+      "Elige una de tus frases y explica por qué has escrito y o ll."
+    ]
   },
   "g-j-dieresis": {
     "titulo": "Apuntes de detective · g, j y diéresis",
@@ -183,22 +201,22 @@
       {
         "tipo": "tabla",
         "titulo": "¿g o j?",
-        "columnas": ["Letra", "Cuándo", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Letra", "Cuándo", "Ejemplos"],
         "filas": [
-          ["g", "gen-, -gen, -gente, -gencia", "general, imagen, gente, urgencia", ""],
-          ["g", "geo-, -logía, -gia, -gía (salvo lejía y bujía)", "geografía, biología, magia, energía", ""],
-          ["g", "Verbos en -ger y -gir", "coger, proteger, elegir, dirigir", ""],
-          ["j", "-aje, -eje, -jero, -jera, -jería", "viaje, garaje, relojero, conserjería", ""],
-          ["j", "Formas de verbos sin g ni j en el infinitivo", "decir → dije, traer → traje", ""]
+          ["g", "gen-, -gen, -gente, -gencia", "general, imagen, gente, urgencia"],
+          ["g", "geo-, -logía, -gia, -gía (salvo lejía y bujía)", "geografía, biología, magia, energía"],
+          ["g", "Verbos en -ger y -gir", "coger, proteger, elegir, dirigir"],
+          ["j", "-aje, -eje, -jero, -jera, -jería", "viaje, garaje, relojero, conserjería"],
+          ["j", "Formas de verbos sin g ni j en el infinitivo", "decir → dije, traer → traje"]
         ]
       },
       {
         "tipo": "tabla",
         "titulo": "La u de gue y gui",
-        "columnas": ["¿La u suena?", "Se escribe", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["¿La u suena?", "Se escribe", "Ejemplos"],
         "filas": [
-          ["No", "gue, gui", "guerra, guitarra", ""],
-          ["Sí", "güe, güi (con diéresis)", "cigüeña, pingüino, vergüenza", ""]
+          ["No", "gue, gui", "guerra, guitarra"],
+          ["Sí", "güe, güi (con diéresis)", "cigüeña, pingüino, vergüenza"]
         ]
       },
       {
@@ -211,7 +229,11 @@
         ]
       }
     ],
-    "completar": "Añade una palabra tuya en cada fila de «Mis ejemplos». En la tabla de la diéresis, busca otra palabra con güe o güi."
+    "cuaderno": [
+      "Explica con tus palabras para qué sirven los dos puntitos de la diéresis en güe y güi.",
+      "Escribe una palabra con gue o gui y otra con güe o güi. Rodea la u en las dos.",
+      "Señala en cuál suena la u y explica cómo lo indica la escritura."
+    ]
   },
   "diptongo-monosilabos": {
     "titulo": "Apuntes de detective · Diptongos y monosílabos",
@@ -220,20 +242,20 @@
       {
         "tipo": "tabla",
         "titulo": "Diptongos, triptongos y monosílabos",
-        "columnas": ["Qué es", "Cómo se reconoce", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Qué es", "Cómo se reconoce", "Ejemplos"],
         "filas": [
-          ["Diptongo", "Dos vocales en la misma sílaba: abierta (a, e, o) + cerrada (i, u) que no suena fuerte, o dos cerradas distintas", "CIE-lo, PUER-ta, AI-re, ciu-DAD", ""],
-          ["Triptongo", "Tres vocales en la misma sílaba: cerrada + abierta + cerrada", "buey, a-ve-ri-GUÁIS", ""],
-          ["Monosílabo", "Una sola sílaba. No lleva tilde (salvo él, tú, mí, sí, té, más: los verás en 6.º)", "fue, fui, dio, vio, pie, guion", ""]
+          ["Diptongo", "Dos vocales en la misma sílaba: abierta (a, e, o) + cerrada (i, u) que no suena fuerte, o dos cerradas distintas", "CIE-lo, PUER-ta, AI-re, ciu-DAD"],
+          ["Triptongo", "Tres vocales en la misma sílaba: cerrada + abierta + cerrada", "buey, a-ve-ri-GUÁIS"],
+          ["Monosílabo", "Una sola sílaba. No lleva tilde (salvo él, tú, mí, sí, té, más: los verás en 6.º)", "fue, fui, dio, vio, pie, guion"]
         ]
       },
       {
         "tipo": "tabla",
         "titulo": "¿En qué vocal va la tilde del diptongo?",
-        "columnas": ["Diptongo", "La tilde va en…", "Ejemplos", "Mi ejemplo"],
+        "columnas": ["Diptongo", "La tilde va en…", "Ejemplos"],
         "filas": [
-          ["Abierta + cerrada o cerrada + abierta", "la vocal abierta", "canción, después, huésped", ""],
-          ["Dos cerradas (iu, ui)", "la segunda vocal", "cuídate, construí", ""]
+          ["Abierta + cerrada o cerrada + abierta", "la vocal abierta", "canción, después, huésped"],
+          ["Dos cerradas (iu, ui)", "la segunda vocal", "cuídate, construí"]
         ]
       },
       {
@@ -247,7 +269,11 @@
         ]
       }
     ],
-    "completar": "Completa «Mis ejemplos» con dos palabras tuyas en cada fila y separa sus sílabas con guiones."
+    "cuaderno": [
+      "Explica con tus palabras qué es un diptongo y qué es un monosílabo. Consulta las definiciones de la tabla.",
+      "Escribe una palabra con diptongo y tilde. Sepárala en sílabas y rodea las dos vocales que quedan juntas.",
+      "Escribe un monosílabo sin tilde y explica cómo sabes que tiene una sola sílaba."
+    ]
   },
   "d-z-finales": {
     "titulo": "Apuntes de detective · -d y -z finales",
@@ -256,20 +282,20 @@
       {
         "tipo": "tabla",
         "titulo": "El truco del plural",
-        "columnas": ["Si el plural termina en…", "la palabra acaba en…", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Si el plural termina en…", "la palabra acaba en…", "Ejemplos"],
         "filas": [
-          ["-des", "d", "pared → paredes, red → redes, césped → céspedes", ""],
-          ["-ces", "z", "luz → luces, pez → peces, lápiz → lápices", ""]
+          ["-des", "d", "pared → paredes, red → redes, césped → céspedes"],
+          ["-ces", "z", "luz → luces, pez → peces, lápiz → lápices"]
         ]
       },
       {
         "tipo": "tabla",
         "titulo": "Terminaciones con d segura",
-        "columnas": ["Terminación", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Terminación", "Ejemplos"],
         "filas": [
-          ["-dad", "ciudad, verdad", ""],
-          ["-tad", "amistad, libertad", ""],
-          ["-tud", "juventud, virtud", ""]
+          ["-dad", "ciudad, verdad"],
+          ["-tad", "amistad, libertad"],
+          ["-tud", "juventud, virtud"]
         ]
       },
       {
@@ -282,7 +308,11 @@
         ]
       }
     ],
-    "completar": "Escribe en «Mis ejemplos» dos palabras tuyas en cada fila, con su plural en la primera tabla."
+    "cuaderno": [
+      "Explica con tus palabras cómo te ayuda el plural a elegir entre d y z al final de una palabra.",
+      "Escribe una palabra acabada en d y otra acabada en z. Pon su plural al lado de cada una.",
+      "Rodea -des o -ces en tus plurales y explica cómo uno de ellos te ayuda a escribir el singular."
+    ]
   },
   "mayusculas-puntuacion-1": {
     "titulo": "Apuntes de detective · Mayúsculas y puntuación básica",
@@ -291,12 +321,12 @@
       {
         "tipo": "tabla",
         "titulo": "¿Mayúscula o minúscula?",
-        "columnas": ["Va con…", "Cuándo", "Ejemplos", "Mis ejemplos"],
+        "columnas": ["Va con…", "Cuándo", "Ejemplos"],
         "filas": [
-          ["Mayúscula", "Al empezar un texto, después de punto y después de ? o ! que cierran la oración", "¿Quién ha sido? Nadie lo sabe.", ""],
-          ["Mayúscula", "Nombres propios de personas, lugares y periódicos", "Aurora, Sevilla, El Eco de La Alameda", ""],
-          ["Mayúscula", "En un título de libro, solo la primera palabra y los nombres propios", "El principito, Platero y yo", ""],
-          ["Minúscula", "Días, meses, estaciones, gentilicios, idiomas y cargos", "lunes, junio, verano, andaluz, inglés, el director", ""]
+          ["Mayúscula", "Al empezar un texto, después de punto y después de ? o ! que cierran la oración", "¿Quién ha sido? Nadie lo sabe."],
+          ["Mayúscula", "Nombres propios de personas, lugares y periódicos", "Aurora, Sevilla, El Eco de La Alameda"],
+          ["Mayúscula", "En un título de libro, solo la primera palabra y los nombres propios", "El principito, Platero y yo"],
+          ["Minúscula", "Días, meses, estaciones, gentilicios, idiomas y cargos", "lunes, junio, verano, andaluz, inglés, el director"]
         ]
       },
       {
@@ -307,8 +337,7 @@
           [". (punto)", "Cierra una oración.", "Lola abrió la puerta."],
           [", (coma)", "Separa los elementos de una enumeración. El último se une con y, sin coma.", "tinta, papel y cola"],
           ["¿ ? ¡ !", "Preguntas y exclamaciones: un signo al principio y otro al final.", "¿Qué hora es? ¡Qué susto!"],
-          ["… (puntos suspensivos)", "Son siempre tres y dejan la frase en suspense.", "Y entonces…"],
-          ["Mi signo favorito", "", ""]
+          ["… (puntos suspensivos)", "Son siempre tres y dejan la frase en suspense.", "Y entonces…"]
         ]
       },
       {
@@ -322,6 +351,10 @@
         ]
       }
     ],
-    "completar": "Escribe en «Mis ejemplos» una palabra o frase tuya en cada fila. En la última fila de los signos, elige el que más te guste y explica para qué sirve con un ejemplo."
+    "cuaderno": [
+      "Explica con tus palabras qué signos necesitas para escribir una pregunta.",
+      "Inventa una pregunta y una respuesta corta que acabe en punto. Usa un nombre propio en una de las dos.",
+      "Rodea los signos de interrogación y subraya el nombre propio. Explica por qué ese nombre lleva mayúscula."
+    ]
   }
 }

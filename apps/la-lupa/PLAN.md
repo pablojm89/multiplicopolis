@@ -41,6 +41,8 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] Academia: Sala de Interrogatorios con «el testigo seseante» (seseo, yeísmo y -d final como forma de hablar; se escribe la norma) y banco ampliado a 111 palabras (c/z/s, ll/y, -d/-z)
 - [x] Academia: las 8 salas activas. Terminal (T2, máquina del tiempo verbal), Pizarra (Z1, descubre la regla), Centralita (R1, dictado por radio o relámpago) e Imprenta (E3, pruebas de imprenta), escritas por 4 subagentes en paralelo y revisadas
 - [x] **Preparación antes de cada caso** (Pablo, 4/11): ruta de 5 pasos en la Academia (descubre → apuntes en la libreta → 2 prácticas → dictado), obligatoria por defecto. Apuntes de las 9 reglas (27 esquemas) en pantalla y en `imprimibles/apuntes.html`
+- [x] **Primeros pasos en la Academia** (Pablo, 19/11): «Descubre la regla» y «El sismógrafo de sílabas» tienen una explicación del instructor y un ejemplo resuelto sin puntuación, tanto desde el patio como desde la preparación del caso.
+- [x] **Apuntes para estudiar** (Pablo, 19/11): las nueve fichas de 5.º se pueden repasar desde el patio. En la preparación, cada ficha abre con «Qué escribir en tu cuaderno» y deja los esquemas para consultar. Los imprimibles son opcionales e incluyen espacio para escribir.
 - [x] **Todo puede contar para nota**: el maestro marca casos, encargos o Academia; media por criterio y CSV con el tipo
 - [x] Academia: 6 ejercicios nuevos (rellena el parte, la máquina sin tilde, microscopio de homófonos, centrifugadora de familias, deletreo, la coma que cambia el culpable); salas con menú de ejercicios
 - [ ] Academia: más actividades por sala (T1, T3, T4, Z2, Z4, Z5, R2, R4, E1, E2, E4, E5…) y niveles N2/N3

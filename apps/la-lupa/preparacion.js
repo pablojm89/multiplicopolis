@@ -12,8 +12,8 @@
 const PREP_RAIZ = { apuntes: null };
 async function cargarApuntes() {
   if (PREP_RAIZ.apuntes) return PREP_RAIZ.apuntes;
-  try { PREP_RAIZ.apuntes = await leerJSON("datos/academia/apuntes.json"); } catch { PREP_RAIZ.apuntes = {}; }
-  return PREP_RAIZ.apuntes;
+  try { return PREP_RAIZ.apuntes = await leerJSON("datos/academia/apuntes.json"); }
+  catch { return {}; }
 }
 
 /* Ejercicios de práctica de la Academia y los dos que mejor funcionan con cada regla (comprobado con cada regla) */
@@ -21,7 +21,7 @@ const EJERCICIO = {
   documento: { sala: "pupitre", act: "documento", icono: "📝", nombre: "Corrige el documento", desc: "En el Pupitre: encuentra y corrige las faltas que ha colado el Simulador." },
   parte: { sala: "pupitre", act: "parte", icono: "🗒️", nombre: "Rellena el parte", desc: "En el Pupitre: completa el parte de la agencia con las palabras de las pistas." },
   sintilde: { sala: "pupitre", act: "sintilde", icono: "⌨️", nombre: "La máquina sin tilde", desc: "En el Pupitre: devuelve las tildes que se ha comido la máquina de escribir." },
-  sismografo: { sala: "laboratorio", act: "sismografo", icono: "📈", nombre: "El sismógrafo de sílabas", desc: "En el Laboratorio: separa en sílabas, busca la tónica y decide la tilde." },
+  sismografo: { sala: "laboratorio", act: "sismografo", icono: "📈", nombre: "El sismógrafo de sílabas", desc: "En el Laboratorio: toca la sílaba que suena más fuerte y escribe la palabra con tilde o sin ella." },
   homofonos: { sala: "laboratorio", act: "homofonos", icono: "🔬", nombre: "El microscopio de homófonos", desc: "En el Laboratorio: palabras que suenan igual y se escriben distinto." },
   familias: { sala: "laboratorio", act: "familias", icono: "🌀", nombre: "La centrifugadora de palabras", desc: "En el Laboratorio: las familias de palabras heredan la letra… casi siempre." },
   deletreo: { sala: "centralita", act: "deletreo", icono: "📟", nombre: "El deletreo", desc: "En la Centralita: Lola deletrea por el walkie y tú escribes." },
@@ -56,8 +56,8 @@ function pasosPreparacion(u) {
   const r = u.reglas[0];
   const [a, b] = PRACTICAS[r] || ["parte", "documento"];
   return [
-    { id: "descubre", sala: "pizarra", act: "descubre-regla", regla: r, icono: "🧑‍🏫", nombre: "Descubre la regla", desc: "En la Pizarra, con don Anselmo: observa, formula la hipótesis y busca el contraejemplo." },
-    { id: "apuntes", tipo: "apuntes", regla: r, icono: "📓", nombre: "Apuntes en tu libreta", desc: "Copia y completa el esquema de la regla. Te servirá para estudiar y para el caso." },
+    { id: "descubre", sala: "pizarra", act: "descubre-regla", regla: r, icono: "🧑‍🏫", nombre: "Descubre la regla", desc: "En la Pizarra, con don Anselmo: agrupa las palabras que se parecen y pon a prueba la regla que las une." },
+    { id: "apuntes", tipo: "apuntes", regla: r, icono: "📓", nombre: "Apuntes en tu libreta", desc: "Abre la ficha para ver qué escribir en tu cuaderno. Usa los esquemas para consultar." },
     { id: "practica", regla: r, ...EJERCICIO[a] },
     { id: "practica2", regla: r, ...EJERCICIO[b] },
     { id: "dictado", sala: "centralita", act: "dictado", regla: r, ...pasoDictado() },
@@ -125,31 +125,66 @@ function lanzarPaso(u, paso) {
   else sl.actividad = paso.act;
   ACA.nivel = nivelMaximo(paso.act);   // la ruta usa la lupa más alta que tenga el alumno en ese ejercicio
   ACA.alTerminar = { boton: "Volver a la preparación", ir: () => vistaPreparacion(u), marcar: () => marcarPaso(u, paso.id) };
-  ACTIVIDADES[paso.act](sl, paso.regla, `prep:${u.id}:${paso.id}`);
+  lanzarActividadAca(sl, paso.regla, `prep:${u.id}:${paso.id}`);
 }
 
-/* Los apuntes de la regla, para copiarlos y completarlos en la libreta de papel */
+/* Esquemas de consulta en la preparación y en el repaso libre */
 function htmlEsquema(x) {
   if (x.tipo === "tabla") return `<table class="apunte-tabla"><thead><tr>${x.columnas.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
-    <tbody>${x.filas.map(f => `<tr>${f.map(c => `<td class="${c ? "" : "hueco-apunte"}">${c ? esc(c) : "✎ completa"}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+    <tbody>${x.filas.map(f => `<tr>${f.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
   if (x.tipo === "pasos") return `<ol class="apunte-pasos">${x.pasos.map(p => `<li>${esc(p)}</li>`).join("")}</ol>`;
   return `<ul class="apunte-lista">${(x.puntos || []).map(p => `<li>${esc(p)}</li>`).join("")}</ul>`;
 }
 async function vistaApuntes(u, paso) {
+  const escena = $("#escenario .capa");
   const ap = (await cargarApuntes())[paso.regla];
-  const ficha = D.reglas[paso.regla]?.ficha;
-  const esquemas = ap?.esquemas || (ficha ? [{ tipo: "lista", titulo: ficha.titulo, puntos: ficha.puntos }] : []);
-  const digital = ajustes.libreta === "digital";
+  if (escena.isConnected) pintarFichaApuntes(paso.regla, ap, { u, paso });
+}
+
+async function vistaIndiceApuntes() {
+  const escena = $("#escenario .capa");
+  const apuntes = await cargarApuntes();
+  if (!escena.isConnected) return;
+  const reglas = Object.keys(apuntes);
+  if (!reglas.length) return aviso("No se han podido abrir los apuntes. Inténtalo otra vez.", "mal");
   pintarEscena(`
-    <h1 class="cartel titulo-escena">${esc(ap?.titulo || `Apuntes · ${D.reglas[paso.regla]?.nombre || paso.regla}`)}</h1>
+    <h1 class="cartel titulo-escena">Apuntes para estudiar</h1>
+    <div class="apuntes-hoja opciones">
+      ${reglas.map(id => `<button class="opcion" data-apunte="${esc(id)}">${esc(D.reglas[id]?.nombre || apuntes[id].titulo)}</button>`).join("")}
+    </div>
+    <div class="acciones abajo-centro"><button class="boton-papel" id="apVolver">◂ Patio</button></div>`,
+    { fondo: "sala-archivo", clase: "oscurecido" });
+  $("#apVolver").onclick = vistaPatio;
+  $$("[data-apunte]").forEach(b => b.onclick = () => pintarFichaApuntes(b.dataset.apunte, apuntes[b.dataset.apunte]));
+}
+
+function pintarFichaApuntes(regla, ap, preparacion) {
+  const ficha = D.reglas[regla]?.ficha;
+  const esquemas = ap?.esquemas || (ficha ? [{ tipo: "lista", titulo: ficha.titulo, puntos: ficha.puntos }] : []);
+  const papel = preparacion && ajustes.libreta !== "digital";
+  const cuaderno = papel && ap?.cuaderno;
+  pintarEscena(`
+    <h1 class="cartel titulo-escena">${preparacion ? "Apuntes en tu libreta" : "Apuntes para estudiar"}</h1>
     <div class="apuntes-hoja">
-      <p class="apuntalo">📓 ${digital ? "Lee los apuntes con calma." : "Copia estos apuntes en tu libreta y completa los huecos ✎ con ejemplos tuyos."}</p>
+      <h2>${esc(D.reglas[regla]?.nombre || regla)}</h2>
+      ${cuaderno ? `<section class="apunte-cuaderno">
+        <h3>Qué escribir en tu cuaderno</h3>
+        <ol class="apunte-pasos">${cuaderno.map(tarea => `<li>${esc(tarea)}</li>`).join("")}</ol>
+      </section><p class="apunte-intro">Consulta los esquemas de abajo cuando tengas dudas.</p>`
+        : papel ? '<p class="apuntalo">📓 Escribe la regla con tus palabras y añade un ejemplo en tu cuaderno.</p>' : ""}
       ${ap?.intro ? `<p class="apunte-intro">Mateo: «${esc(ap.intro)}»</p>` : ""}
       ${esquemas.map(x => `<section class="apunte"><h3>${esc(x.titulo || "")}</h3>${htmlEsquema(x)}</section>`).join("")}
-      ${ap?.completar ? `<p class="apunte-completar">✎ ${esc(ap.completar)}</p>` : ""}
     </div>
-    <div class="acciones abajo-centro"><button class="boton-papel" id="apVolver">◂ Preparación</button><button class="boton-sello" id="apHecho">${digital ? "Ya me lo sé" : "Ya lo he copiado en mi libreta"} ▸</button></div>`,
+    <div class="acciones abajo-centro">
+      <button class="boton-papel" id="apVolver">◂ ${preparacion ? "Preparación" : "Todas las reglas"}</button>
+      ${preparacion ? `<button class="boton-sello" id="apHecho">${papel ? "Ya lo he escrito en mi cuaderno" : "Ya me lo sé"} ▸</button>` : ""}
+    </div>`,
     { fondo: "sala-pupitre", clase: "oscurecido" });
+  if (!preparacion) {
+    $("#apVolver").onclick = vistaIndiceApuntes;
+    return;
+  }
+  const { u, paso } = preparacion;
   $("#apVolver").onclick = () => vistaPreparacion(u);
   $("#apHecho").onclick = () => { marcarPaso(u, paso.id); vistaPreparacion(u); };
 }
