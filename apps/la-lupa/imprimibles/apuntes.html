@@ -6,7 +6,7 @@
 <title>Apuntes de detective · Agencia La Lupa</title>
 <link rel="stylesheet" href="../fuentes/fuentes.css">
 <style>
-  /* Apuntes imprimibles (A4): una hoja por regla con los esquemas de la Academia y huecos para completar.
+  /* Apuntes imprimibles (A4): una hoja por regla con los esquemas de consulta y espacio para escribir.
      Datos: ../datos/academia/apuntes.json + ../datos/reglas.json. ?reglas=b-v-1,h-1 · ?reglas=todas (por defecto). */
   :root { --tinta: #1d1a16; --gris: #6b645a; --linea: #b9b1a3; --acento: #a8322d; }
   * { box-sizing: border-box; }
@@ -25,11 +25,6 @@
   th, td { border: 1.2px solid var(--tinta); padding: 1.4mm 2mm; text-align: left; vertical-align: top; }
   th { font: 800 11.5px "Nunito"; letter-spacing: .03em; text-transform: uppercase; border-bottom-width: 2px; }
   td:first-child { font-weight: 800; }
-  td.hueco { min-width: 32mm; height: 10mm; }
-  td.hueco::after { content: ""; display: block; height: 6mm; border-bottom: 1px dotted var(--gris); }
-  th.mio { min-width: 32mm; }
-  .tabla.ancha td.hueco { min-width: 16mm; }
-  .tabla.ancha th.mio { min-width: 16mm; }
   ul.trucos, ol.pasos { margin: 0; padding-left: 5mm; display: grid; gap: .8mm; }
   ul.trucos li::marker { content: "▸ "; }
   ol.pasos { list-style: none; padding-left: 0; }
@@ -37,6 +32,7 @@
   ol.pasos li b { font: 18px/1.1 "Bebas Neue"; }
   .completar { border: 1.5px dashed var(--tinta); border-radius: 2mm; padding: 2mm 3.5mm; font-size: 12.5px; }
   .completar b { font: 16px "Bebas Neue"; letter-spacing: .05em; margin-right: 1.5mm; }
+  .completar ol { margin: 1mm 0 0; padding-left: 5mm; }
   .mios { flex: 1; min-height: 30mm; border: 1.5px solid var(--tinta); border-radius: 2mm; padding: 2mm 3.5mm 0; overflow: hidden; display: flex; flex-direction: column; }
   .mios h2 { margin: 0; }
   .mios .lineas { flex: 1; overflow: hidden; }
@@ -54,7 +50,7 @@
 <body>
 <div id="apuntes"><p class="aviso">Preparando los apuntes…</p></div>
 <aside class="controles">
-  <b>Apuntes de detective.</b> Una hoja por regla: el alumno copia los esquemas en su libreta y los completa con sus ejemplos. Elige las reglas con <code>?reglas=b-v-1,h-1</code> o <code>?reglas=todas</code>.<br>
+  <b>Apuntes de detective.</b> Una hoja por regla. Escribe la tarea en tu cuaderno o en el espacio «Mis apuntes» de la hoja. Elige las reglas con <code>?reglas=b-v-1,h-1</code> o <code>?reglas=todas</code>.<br>
   <button onclick="print()">Imprimir</button>
 </aside>
 <script>
@@ -63,14 +59,10 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 // Texto de los esquemas: las palabras con guion (-n, ca-MIÓN, MÚ-si-ca) no se parten al final de la línea.
 const txt = s => esc(s).replace(/\S*-\S*/g, m => `<span class="nw">${m}</span>`);
 const leer = async ruta => { const r = await fetch(ruta); if (!r.ok) throw new Error(ruta); return r.json(); };
-const MIO = /^mis? (ejemplos?|frase)/i;
-
 function tabla(e) {
-  const mias = e.columnas.map(c => MIO.test(c));
-  const ancha = e.columnas.length >= 6 ? " ancha" : "";
-  const cab = e.columnas.map((c, i) => `<th${mias[i] ? ' class="mio"' : ""}>${esc(c)}</th>`).join("");
-  const filas = e.filas.map(f => `<tr>${f.map(c => c === "" ? '<td class="hueco"></td>' : `<td>${txt(c)}</td>`).join("")}</tr>`).join("");
-  return `<table class="tabla${ancha}"><thead><tr>${cab}</tr></thead><tbody>${filas}</tbody></table>`;
+  const cab = e.columnas.map(c => `<th>${esc(c)}</th>`).join("");
+  const filas = e.filas.map(f => `<tr>${f.map(c => `<td>${txt(c)}</td>`).join("")}</tr>`).join("");
+  return `<table><thead><tr>${cab}</tr></thead><tbody>${filas}</tbody></table>`;
 }
 const lista = e => `<ul class="trucos">${e.puntos.map(p => `<li>${txt(p)}</li>`).join("")}</ul>`;
 function pasos(e) {
@@ -86,10 +78,10 @@ function hoja(id, a, regla, n, total) {
   return `<section class="hoja" data-regla="${esc(id)}">
     <header class="cab"><div><div class="agencia">AGENCIA LA LUPA · APUNTES DE DETECTIVE</div><h1>${esc(regla?.nombre || a.titulo)}</h1></div><div class="exp">Regla ${n}/${total}</div></header>
     <p class="intro"><b>MATEO</b>${esc(a.intro)}</p>
+    <div class="completar"><b>Qué escribir en tu cuaderno</b><ol>${a.cuaderno.map(tarea => `<li>${txt(tarea)}</li>`).join("")}</ol></div>
     ${esquemas}
-    <div class="completar"><b>Para completar</b>${txt(a.completar)}</div>
-    <div class="mios"><h2>Mis ejemplos</h2><div class="lineas">${"<i></i>".repeat(24)}</div></div>
-    <footer class="pie"><span>Cópialo en tu libreta y repásalo antes del caso.</span><span>Nombre: ______________________</span></footer>
+    <div class="mios"><h2>Mis apuntes</h2><div class="lineas">${"<i></i>".repeat(24)}</div></div>
+    <footer class="pie"><span>Escribe en tu cuaderno o en «Mis apuntes».</span><span>Nombre: ______________________</span></footer>
   </section>`;
 }
 

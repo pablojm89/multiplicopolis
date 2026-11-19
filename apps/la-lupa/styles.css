@@ -390,6 +390,7 @@ td.celda-bien { background: #d9f0df; } td.celda-casi { background: #fbecc8; } td
 .aca-cabecera .placa { margin-left: auto; }
 .aca-turno { position: absolute; left: 30px; top: 100px; width: 470px; bottom: 26px; background: var(--ruido), radial-gradient(circle at 30% 20%, #c99868, var(--corcho) 70%); border: 12px solid var(--marco-corcho); border-radius: 8px; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 14px 30px rgba(0, 0, 0, .5); }
 .aca-turno .cartel { font-size: 40px; margin: 0; }
+.aca-turno-cabecera { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .aca-tarea { text-align: left; background: var(--papel-claro); color: var(--tinta); padding: 12px 16px; box-shadow: 0 5px 10px rgba(0, 0, 0, .35); border-radius: 2px; display: grid; gap: 2px; transform: rotate(-.6deg); }
 .aca-tarea:nth-child(odd) { transform: rotate(.6deg); }
 .aca-tarea small { font: 800 13px var(--f-ui); color: var(--gris-tinta); text-transform: uppercase; letter-spacing: .08em; }
@@ -524,13 +525,15 @@ button.silaba:hover { transform: translateY(-3px); }
 .apuntes-hoja { position: absolute; left: 50%; transform: translateX(-50%); top: 100px; width: 1000px; bottom: 96px; overflow: auto; background: var(--ruido), #fbf6e8; color: var(--tinta); border-radius: 6px; padding: 18px 28px; box-shadow: 0 18px 40px rgba(0, 0, 0, .55);
   background-image: repeating-linear-gradient(#fbf6e8 0 31px, #c9d9ee 31px 32px); }
 .apunte-intro { font: italic 18px var(--f-ui); margin: 4px 0 10px; }
+.apuntes-hoja h2 { margin: 0 0 8px; font: 32px/1.05 var(--f-cartel); }
+.apuntes-hoja.opciones { align-content: start; }
+.apunte-cuaderno { background: var(--papel-claro); border-left: 4px solid #a8322d; padding: 10px 16px; margin: 12px 0; }
+.apunte-cuaderno h3 { margin: 0 0 4px; font: 800 21px var(--f-ui); }
 .apunte h3 { margin: 12px 0 6px; font: 24px var(--f-cartel); font-weight: 400; letter-spacing: .03em; color: #2f5fae; }
 .apunte-tabla { width: 100%; border-collapse: collapse; font: 17px/1.35 var(--f-ui); background: rgba(255, 255, 255, .7); }
 .apunte-tabla th, .apunte-tabla td { border: 1.5px solid var(--tinta); padding: 6px 10px; vertical-align: top; }
 .apunte-tabla th { background: #f2e3bd; font-weight: 800; }
-.apunte-tabla td.hueco-apunte { color: #a8322d; font-style: italic; }
 .apunte-pasos, .apunte-lista { font: 18px/1.5 var(--f-ui); margin: 0; padding-left: 26px; }
-.apunte-completar { font: 800 17px var(--f-ui); color: #a8322d; margin-top: 12px; }
 
 /* Modo revisión del maestro: aviso fijo para que no se quede puesto en clase */
 body.modo-revision .marco::after { content: "MODO REVISIÓN"; position: fixed; top: 8px; left: 50%; transform: translateX(-50%); z-index: 50; background: #a8322d; color: #fff; font: 800 13px var(--f-ui); letter-spacing: .12em; padding: 4px 12px; border-radius: 0 0 8px 8px; pointer-events: none; }

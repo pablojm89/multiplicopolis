@@ -3,12 +3,11 @@
 
 Comprueba:
 - que están las 9 reglas de 5.º y que todas existen en reglas.json;
-- campos obligatorios: titulo («Apuntes de detective · <nombre de la regla>»), intro, esquemas, completar;
+- campos obligatorios: titulo («Apuntes de detective · <nombre de la regla>»), intro, esquemas y cuaderno;
 - 2 o 3 esquemas por regla, con al menos una tabla y al menos una lista o unos pasos;
-- tablas: mismo número de celdas en cada fila que columnas; la primera columna (la regla) nunca vacía;
-  al menos una celda vacía por regla para que el alumno la complete;
+- tablas de consulta: mismo número de celdas en cada fila que columnas, sin celdas vacías;
 - pasos numerados «1.º …», «2.º …» en orden;
-- que no hay cadenas vacías fuera de las celdas de las tablas;
+- que no hay cadenas vacías;
 - formas que la Ortografía de 2010 ya no acentúa (sólo, guión, fué, dió…).
 Uso: python3 herramientas/validar_apuntes.py
 """
@@ -60,7 +59,12 @@ def main():
         if a.get("titulo") != esperado:
             err(rid, f"el título debería ser «{esperado}»")
         texto(f"{rid}.intro", a.get("intro"))
-        texto(f"{rid}.completar", a.get("completar"))
+        tareas = a.get("cuaderno")
+        if not isinstance(tareas, list) or not tareas:
+            err(f"{rid}.cuaderno", "hace falta una lista de tareas")
+        else:
+            for j, tarea in enumerate(tareas):
+                texto(f"{rid}.cuaderno[{j}]", tarea)
         esquemas = a.get("esquemas") or []
         if not 2 <= len(esquemas) <= 3:
             err(rid, f"tiene {len(esquemas)} esquemas (deben ser 2 o 3)")
@@ -69,7 +73,6 @@ def main():
             err(rid, "falta al menos una tabla")
         if not {"lista", "pasos"} & set(tipos):
             err(rid, "falta una lista de trucos o unos pasos")
-        vacias = 0
         for i, e in enumerate(esquemas):
             d = f"{rid}.esquemas[{i}]"
             if e.get("tipo") not in TIPOS:
@@ -88,15 +91,8 @@ def main():
                 for j, f in enumerate(filas):
                     if len(f) != len(cols):
                         err(d, f"fila {j}: {len(f)} celdas para {len(cols)} columnas")
-                    if not f or not str(f[0]).strip():
-                        err(d, f"fila {j}: la primera celda (la regla) no puede quedar vacía")
-                    for celda in f:
-                        if not isinstance(celda, str):
-                            err(d, f"fila {j}: celda que no es texto")
-                        elif celda == "":
-                            vacias += 1
-                        else:
-                            revisar(f"{d}.filas[{j}]", celda)
+                    for k, celda in enumerate(f):
+                        texto(f"{d}.filas[{j}][{k}]", celda)
             elif e["tipo"] == "lista":
                 puntos = e.get("puntos") or []
                 if not puntos:
@@ -111,8 +107,6 @@ def main():
                     texto(f"{d}.pasos[{j}]", p)
                     if isinstance(p, str) and not p.startswith(f"{j + 1}.º "):
                         err(d, f"el paso {j + 1} debe empezar por «{j + 1}.º »")
-        if vacias == 0:
-            err(rid, "ninguna celda vacía: el alumno no tiene nada que completar en las tablas")
     if errores:
         print("\n".join(errores))
         print(f"\n✗ {len(errores)} errores")

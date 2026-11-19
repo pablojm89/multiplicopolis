@@ -281,3 +281,11 @@ Guardados para lo que viene (están en `arte/`, pero ninguna pantalla los usa to
 - Temporada 2: los 19 lugares, la viajera (5 expresiones) y los 9 objetos de la trama.
 
 El mapa del barrio ha salido con los quince edificios separados y reconocibles, así que sirve tal cual para el paseo. La descarga completa para jugar sin internet pasa de unos 25 MB a unos 40 MB.
+
+## 19 de noviembre de 2026
+
+**Pablo detecta que falta contexto en algunas tareas de la Academia.** En «Descubre la regla», don Anselmo muestra cómo rodear palabras que comparten una pista, proponer una regla, probarla y escribir un ejemplo propio. En «El sismógrafo de sílabas», Mateo explica que las sílabas ya vienen separadas y muestra cómo elegir la sílaba fuerte, clasificar la palabra y decidir si lleva tilde. Las dos demostraciones aparecen antes de la ronda, desde el patio y desde la preparación del caso. El ejemplo no registra intentos ni completa pasos de la preparación.
+
+**Apuntes del cuaderno y repaso.** Pablo pide concretar qué escribir y poder recuperar los esquemas en cualquier momento. La ficha de tildes abre con una tarea breve sobre las agudas: explicar la regla, escribir dos ejemplos propios, señalar la sílaba fuerte y justificar la tilde. Los esquemas quedan como consulta. La hoja imprimible lleva la misma tarea y «Apuntes para estudiar», en el patio, abre las nueve fichas sin registrar intentos ni avance.
+
+Pablo aprueba la ficha de tildes y pide el mismo formato para las otras ocho. Cada ficha tiene tres instrucciones concretas para el cuaderno y esquemas de consulta. En clase se puede leer la tarea en pantalla y escribir en el cuaderno. Si se reparte la hoja, también se puede escribir en «Mis apuntes» y guardarla en la libreta.

@@ -179,7 +179,10 @@ function vistaPatio() {
       <button class="boton-papel" id="verCarne">🎫 Mi carné</button>
     </div>
     <div class="aca-turno">
-      <h2 class="cartel">Turno de hoy</h2>
+      <div class="aca-turno-cabecera">
+        <h2 class="cartel">Turno de hoy</h2>
+        <button class="boton-papel" id="verApuntes">Apuntes para estudiar</button>
+      </div>
       ${turno.map(t => `<button class="aca-tarea ${s.turno.hechas.includes(t.clave) ? "hecha" : ""}" data-clave="${t.clave}" data-sala="${t.sala}" data-regla="${esc(t.regla || "")}">
         <small>${esc(sala(t.sala).nombre)}</small><b>${esc(t.texto)}</b><span>${s.turno.hechas.includes(t.clave) ? "✔ Hecho" : "Empezar ▸"}</span></button>`).join("")}
       <p class="aca-anselmo">Don Anselmo: «Un buen detective entrena un poco cada día. Empieza por tu turno… o elige una puerta».</p>
@@ -190,6 +193,7 @@ function vistaPatio() {
     { fondo: "patio-academia", clase: "oscurecido" });
   $("#acaVolver").onclick = vistaTablon;
   $("#verCarne").onclick = vistaCarne;
+  $("#verApuntes").onclick = vistaIndiceApuntes;
   $$(".aca-tarea").forEach(b => b.onclick = () => entrarSala(b.dataset.sala, { regla: b.dataset.regla || null, turno: b.dataset.clave }));
   $$(".aca-puerta:not(.cerrada)").forEach(b => b.onclick = () => entrarSala(b.dataset.sala, {}));
 }
@@ -323,10 +327,57 @@ function leccion(sl, regla, turno, texto) {
   });
   $("#empezar").onclick = () => {
     if (regla) { s.leccionVista[regla] = s.sesion; guardarAca(s); }
-    ACTIVIDADES[sl.actividad](sl, regla, turno);
+    lanzarActividadAca(sl, regla, turno);
   };
 }
 const nombreInstructor = sl => arte(sl.instructor).nombre || "Instructor";
+
+const EJEMPLOS_ACA = {
+  "descubre-regla": {
+    titulo: "Descubre la regla",
+    mision: "Fíjate en cómo están escritas las palabras. Toca las que comparten una pista para rodearlas con tiza.",
+    pasos: [
+      "Mira carro, cara y perro. Rodeo carro y perro porque tienen rr.",
+      "Elijo una explicación para el grupo: «Estas palabras llevan rr entre vocales».",
+      "Pruebo la idea con una palabra nueva. Arena tiene una sola r, así que queda fuera.",
+      "Escribo mi propio ejemplo: torre.",
+    ],
+  },
+  sismografo: {
+    titulo: "El sismógrafo de sílabas",
+    mision: "Las sílabas ya están separadas. Busca la que suena más fuerte y usa esa pista para decidir si la palabra lleva tilde.",
+    pasos: [
+      "Veo a-pa-gon. Digo la palabra y toco gon, la sílaba que suena más fuerte.",
+      "Elijo «aguda» porque la sílaba fuerte es la última.",
+      "Como acaba en n, escribo apagón con tilde en la o y pulso «Comprobar».",
+    ],
+  },
+};
+
+function lanzarActividadAca(sl, regla, turno) {
+  const actividad = ACTIVIDADES[sl.actividad];
+  const ejemplo = EJEMPLOS_ACA[sl.actividad];
+  if (!ejemplo) return actividad(sl, regla, turno);
+  const retorno = ACA.alTerminar;
+  pintarEscena(`
+    <h1 class="cartel titulo-escena">${esc(sl.nombre)}</h1>
+    ${htmlPersonaje({ id: sl.instructor, expresion: "neutral", lado: "izq" })}
+    <div class="aca-panel der leccion">
+      <span class="quien">${esc(nombreInstructor(sl))}</span>
+      <h2 class="cartel">${esc(ejemplo.titulo)}</h2>
+      <p class="maquina-fija">${esc(ejemplo.mision)}</p>
+      <p class="etiqueta">Ejemplo resuelto · sin puntuación</p>
+      <ol class="ficha">${ejemplo.pasos.map(paso => `<li>${esc(paso)}</li>`).join("")}</ol>
+      <div class="acciones izquierda"><button class="boton-sello" id="empezarRonda">Ahora tú ▸</button></div>
+    </div>
+    <button class="hud-volver" id="acaVolver">◂ ${retorno ? "Preparación" : "Patio"}</button>`,
+    { fondo: sl.fondo, clase: "oscurecido" });
+  $("#acaVolver").onclick = retorno?.ir || vistaPatio;
+  $("#empezarRonda").onclick = e => {
+    e.currentTarget.disabled = true;
+    actividad(sl, regla, turno);
+  };
+}
 
 /* Partida «ligera» para reutilizar registrar() y los componentes del motor */
 function partidaAca(sl, reglas) {
