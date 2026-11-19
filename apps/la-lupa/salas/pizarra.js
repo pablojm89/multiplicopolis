@@ -50,8 +50,10 @@ const clavePiz = () => `pizarra-${perfil.id}`;
 const estadoPiz = () => ({ vistas: {}, ...cargar(clavePiz(), {}) });
 
 ACTIVIDADES["descubre-regla"] = async function (sl, regla, turno) {
+  const escena = $("#escenario .capa");
   try { PIZ.datos ??= (await leerJSON("datos/academia/pizarra.json")).reglas; }
-  catch { aviso("No se ha podido abrir la pizarra. Prueba otra vez.", "mal"); return vistaPatio(); }
+  catch { return falloCargaAca(escena, "No se ha podido abrir la pizarra. Prueba otra vez."); }
+  if (!escena.isConnected) return;
   if (regla && PIZ.datos[regla]) return pizRonda(sl, regla, turno);
   pizElegir(sl, turno);
 };
@@ -65,7 +67,7 @@ const PIZ_FILTRO = `<svg class="piz-defs" aria-hidden="true" focusable="false"><
     <feDisplacementMap in="tiza" in2="ruido" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
   </filter></defs></svg>`;
 
-function pizEscena(sl, tema, { volver }) {
+function pizEscena(sl, tema, { elegir = false } = {}) {
   const lupa = NIVELES_ACA[nivelAca() - 1];
   pintarEscena(`
     ${PIZ_FILTRO}
@@ -83,8 +85,8 @@ function pizEscena(sl, tema, { volver }) {
     ${htmlPersonaje({ id: "anselmo", expresion: "neutral", lado: "izq" }, "pequeno piz-anselmo")}
     <div class="piz-bocadillo"><span class="quien">${esc(nombreInstructor(sl))}</span><p id="pizDice" aria-live="polite"></p></div>
     <div class="piz-acciones" id="pizAcc"></div>
-    <div class="piz-zona" id="pizZona"></div>`, { fondo: sl.fondo });
-  $("#acaVolver").onclick = volver;
+    <div class="piz-zona" id="pizZona"></div>`, { fondo: sl.fondo, ayuda: elegir ? "temaPizarra" : null });
+  activarSalidaAca({ abandonar: !elegir });
 }
 
 /* Escapa y evita que «-avo», «-bir»… se partan al cambiar de línea */
@@ -165,7 +167,7 @@ function pizDibujar(el, trazo, clase = "", margen = [20, 12]) {
 /* ── Elegir la regla (o una al azar) ─────────────────────────── */
 function pizElegir(sl, turno) {
   const st = estadoPiz();
-  pizEscena(sl, "Elige una regla", { volver: vistaPatio });
+  pizEscena(sl, "Elige una regla", { elegir: true });
   pizPasos(0);
   $("#pizCont").innerHTML = `<div class="piz-portada">
       <p class="piz-grande">¿Qué regla investigamos hoy?</p>
@@ -282,8 +284,7 @@ function pizRonda(sl, regla, turno) {
   partidaAca(sl, [regla]);
   // Aquí las palabras pulsadas por error están bien escritas: no van a la lista de «repasar» (que es de ortografía)
   const anotar9 = (ok, palabra, detalle) => { registrar("9.1", ok, palabra, detalle, regla); if (!ok && palabra) P.repasar.delete(palabra); };
-  const salir = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
-  pizEscena(sl, rivales ? `${D.reglas[regla]?.nombre || regla} · reglas rivales` : D.reglas[regla]?.nombre || regla, { volver: salir });
+  pizEscena(sl, rivales ? `${D.reglas[regla]?.nombre || regla} · reglas rivales` : D.reglas[regla]?.nombre || regla);
 
   const htmlPrueba = (x, i, extra = "") =>
     `<button class="piz-p ${frases ? "frase" : ""} ${extra}" data-i="${i}" style="--g:${pizAzar(-2.5, 2.5).toFixed(1)}deg">${esc(x.p)}</button>`;

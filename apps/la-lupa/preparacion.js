@@ -77,8 +77,6 @@ function marcarPaso(u, id) {
   if (!s.prep[u.id].includes(id)) s.prep[u.id].push(id);
   guardarAca(s);
 }
-/* ¿Hay que pasar por la ruta antes de abrir este caso? */
-const debePrepararse = (u, mios) => modoPreparacion() !== "no" && pasosPreparacion(u).length && !mios.some(r => r.unidad === u.id) && !preparacionLista(u);
 function etiquetaPreparacion(u, mios) {
   const pasos = pasosPreparacion(u);
   if (!pasos.length || modoPreparacion() === "no" || mios.some(r => r.unidad === u.id)) return "";
@@ -92,8 +90,11 @@ function vistaPreparacion(u) {
   const caso = D.casos[u.caso];
   const pasos = pasosPreparacion(u);
   const hechos = pasosHechos(u);
-  const lista = pasos.every(p => hechos.includes(p.id));
-  const puede = lista || modoPreparacion() === "opcional";
+  const siguientePaso = pasos.find(p => !hechos.includes(p.id));
+  const lista = !siguientePaso;
+  const opcional = modoPreparacion() === "opcional";
+  const repaso = u.reglas.length > 3;
+  const tema = repaso ? "Repaso de la temporada" : D.reglas[u.reglas[0]]?.nombre;
   pintarEscena(`
     <div class="tablon-cabecera">
       <h1 class="cartel">Preparación</h1>
@@ -102,19 +103,21 @@ function vistaPreparacion(u) {
     </div>
     ${htmlPersonaje({ id: "mateo", expresion: lista ? "contento" : "neutral", lado: "izq" }, "pequeno")}
     <div class="prep-panel">
-      <p class="maquina-fija">${lista ? "¡Ya estás preparado! Repasa tus apuntes de la libreta si quieres… y abre el expediente." : `Antes de abrir este expediente, prepárate en la Academia: ${esc(u.reglas.length > 3 ? "repaso de toda la temporada" : D.reglas[u.reglas[0]]?.nombre || u.reglas[0])}. Haz los pasos en orden y apunta en tu libreta.`}</p>
+      <p class="maquina-fija">${lista ? "¡Ya estás preparado! Abre el expediente cuando quieras." : `${pasos.filter(p => hechos.includes(p.id)).length} de ${pasos.length} pasos hechos${tema ? ` · ${esc(tema)}` : ""}`}</p>
       <ol class="prep-pasos">${pasos.map((p, k) => {
         const hecho = hechos.includes(p.id);
         const abierto = hecho || k === 0 || hechos.includes(pasos[k - 1].id);
-        return `<li><button class="prep-paso ${hecho ? "hecho" : ""}" data-paso="${esc(p.id)}" ${abierto ? "" : "disabled"}>
-          <span class="prep-icono">${hecho ? "✔" : p.icono}</span><span><b>${esc(p.nombre)}</b><small>${esc(p.desc)}</small></span><span class="prep-estado">${hecho ? "Hecho · repetir" : abierto ? "Empezar ▸" : "🔒"}</span></button></li>`;
+        return `<li><button class="prep-paso ${hecho ? "hecho" : ""}" data-paso="${esc(p.id)}" ${p === siguientePaso ? 'aria-current="step"' : ""} ${abierto ? "" : "disabled"}>
+          <span class="prep-icono">${hecho ? "✔" : p.icono}</span><span><b>${esc(p.nombre)}</b><small>${esc(p.desc)}</small></span><span class="prep-estado">${hecho ? "Hecho · repetir" : p === siguientePaso ? "Ahora ▸" : abierto ? "Empezar ▸" : "🔒 Después"}</span></button></li>`;
       }).join("")}</ol>
       <div class="acciones">
-        <button class="boton-sello" id="prepCaso" ${puede ? "" : "disabled"}>${lista ? "Abrir el expediente ▸" : modoPreparacion() === "opcional" ? "Saltar y abrir el expediente ▸" : "Termina la preparación para abrirlo"}</button>
+        ${!lista && opcional ? '<button class="boton-papel" id="prepCaso">Saltar y abrir el expediente</button>' : ""}
+        ${lista ? '<button class="boton-sello" id="prepCaso">Abrir el expediente ▸</button>' : '<button class="boton-sello" id="prepSiguiente">Seguir con la preparación ▸</button>'}
       </div>
-    </div>`, { fondo: "patio-academia", clase: "oscurecido" });
+    </div>`, { fondo: "patio-academia", clase: "oscurecido", ayuda: repaso ? "repasoCaso" : "preparacion" });
   $("#prepVolver").onclick = vistaTablon;
-  $("#prepCaso").onclick = () => iniciarCaso(u);
+  $("#prepCaso")?.addEventListener("click", () => iniciarCaso(u));
+  $("#prepSiguiente")?.addEventListener("click", () => lanzarPaso(u, siguientePaso));
   $$(".prep-paso:not([disabled])").forEach(b => b.onclick = () => lanzarPaso(u, pasos.find(p => p.id === b.dataset.paso)));
 }
 
@@ -153,7 +156,7 @@ async function vistaIndiceApuntes() {
       ${reglas.map(id => `<button class="opcion" data-apunte="${esc(id)}">${esc(D.reglas[id]?.nombre || apuntes[id].titulo)}</button>`).join("")}
     </div>
     <div class="acciones abajo-centro"><button class="boton-papel" id="apVolver">◂ Patio</button></div>`,
-    { fondo: "sala-archivo", clase: "oscurecido" });
+    { fondo: "sala-archivo", clase: "oscurecido", ayuda: "estudio" });
   $("#apVolver").onclick = vistaPatio;
   $$("[data-apunte]").forEach(b => b.onclick = () => pintarFichaApuntes(b.dataset.apunte, apuntes[b.dataset.apunte]));
 }
@@ -179,7 +182,7 @@ function pintarFichaApuntes(regla, ap, preparacion) {
       <button class="boton-papel" id="apVolver">◂ ${preparacion ? "Preparación" : "Todas las reglas"}</button>
       ${preparacion ? `<button class="boton-sello" id="apHecho">${papel ? "Ya lo he escrito en mi cuaderno" : "Ya me lo sé"} ▸</button>` : ""}
     </div>`,
-    { fondo: "sala-pupitre", clase: "oscurecido" });
+    { fondo: "sala-pupitre", clase: "oscurecido", ayuda: preparacion ? (papel ? "apuntes" : "apuntesDigital") : "estudio" });
   if (!preparacion) {
     $("#apVolver").onclick = vistaIndiceApuntes;
     return;

@@ -139,7 +139,10 @@ function fechaEdicion() {
 
 ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
   let banco;
-  try { banco = await cargarGaleradas(); } catch { aviso("No se ha podido abrir la imprenta. Inténtalo otra vez.", "mal"); return vistaPatio(); }
+  const escena = $("#escenario .capa");
+  try { banco = await cargarGaleradas(); }
+  catch { return falloCargaAca(escena, "No se ha podido abrir la imprenta. Inténtalo otra vez."); }
+  if (!escena.isConnected) return;
   const s = estadoAca();
   const enCola = new Set(Object.keys(s.cola).map(norm));
   const claveVistas = `imprenta-vistas-${perfil.id}`;
@@ -192,7 +195,7 @@ ACTIVIDADES.pruebas = async function (sl, _regla, turno) {
       <p class="imp-nota" id="impNota"></p>
       <div id="impAurora">${htmlPersonaje({ id: "aurora", expresion: "neutral", lado: "der" }, "imp-aurora")}</div>
       <button class="hud-volver imp-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido sala-imp" });
-    $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver");
+    activarSalidaAca();
 
     const gal = $("#impGal");
     const btnDe = new Map();

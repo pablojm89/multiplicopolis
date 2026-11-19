@@ -91,12 +91,14 @@ nuevaActividad("pizarra", {
   reglas: [COMA_REGLA],
   leccionFija: "Una coma mal puesta y acusamos a quien no es. Yo escribo frases sin un solo signo. Tú decides qué quieren decir, pones las comas, los puntos y los signos de pregunta y de exclamación… y después la escribes entera, de memoria. Atención: un signo de más o de menos y el ogro del cuento se come a los niños.",
 }, async function (sl, _regla, turno) {
+  const escena = $("#escenario .capa");
   try { COMA.banco ??= (await leerJSON("datos/academia/comas.json")).frases; }
-  catch { aviso("No se ha podido abrir la pizarra. Prueba otra vez.", "mal"); return vistaPatio(); }
+  catch { return falloCargaAca(escena, "No se ha podido abrir la pizarra. Prueba otra vez."); }
+  if (!escena.isConnected) return;
   const lista = comaElegir();
   const conVoz = comaHayVoz();
   partidaAca(sl, [COMA_REGLA]);
-  pizEscena(sl, "La coma que cambia el culpable", { volver: () => confirmar("¿Volver al patio? Se perderá esta ronda.", vistaPatio, "Volver") });
+  pizEscena(sl, "La coma que cambia el culpable");
   $("#pizTablero").classList.add("coma-tablero");
   let k = 0;
 

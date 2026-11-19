@@ -212,9 +212,11 @@ nuevaActividad("centralita", {
   desc: "Lola deletrea por el walkie: hache, uve, zeta… Apúntalo sin perder ni una letra.",
   reglas: DEL_REGLAS,
 }, async function (sl, regla, turno) {
+  const escena = $("#escenario .capa");
   const banco = await delCargar();
-  if (!banco.length) { aviso("No hay señal: no se han podido cargar las palabras.", "mal"); return vistaPatio(); }
+  if (!banco.length) return falloCargaAca(escena, "No hay palabras para deletrear. Inténtalo otra vez.");
   if (typeof cenEsperarVoces === "function") await cenEsperarVoces();
+  if (!escena.isConnected) return;
   const conVoz = delHayVoz();
   const mezcla = !regla || regla === "mezcla" || !DEL_REGLAS.includes(regla);
   const activas = mezcla ? DEL_REGLAS : [regla];
@@ -253,11 +255,15 @@ nuevaActividad("centralita", {
       </section>
       <button class="hud-volver" id="acaVolver">◂ Patio</button>`, { fondo: sl.fondo, clase: "oscurecido del-sala" });
 
-    $("#acaVolver").onclick = () => confirmar("¿Volver al patio? Se perderá esta ronda.", () => { delParar(); vistaPatio(); }, "Volver");
+    activarSalidaAca({ antesSalir: delParar });
     const dice = (t, cara) => { $("#delDice").innerHTML = `<b>Lola:</b> ${t}`; if (cara) delCara(cara); };
     const casilla = i => $(`.del-casilla[data-i="${i}"]`);
     const msg = t => { $("#msg").textContent = t; };
-    const alAire = on => $("#delWalkie")?.classList.toggle("emitiendo", on);
+    const alAire = on => {
+      $("#delWalkie")?.classList.toggle("emitiendo", on);
+      const ayuda = $("#ayudaJuego");
+      if (ayuda) ayuda.disabled = on;
+    };
     /* Pantalla del walkie: texto fijo o un destello que se borra solo */
     const lcd = (texto, clase = "", ms = 0) => {
       const b = $("#delLetra");
