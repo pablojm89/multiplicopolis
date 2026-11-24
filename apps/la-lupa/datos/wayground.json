@@ -1,0 +1,14 @@
+{
+  "_nota": "Órdenes del director: cuestionarios de Wayground que salen en el tablón. Cada orden: titulo, codigo (el de la asignación, 6-8 cifras; el enlace es https://wayground.com/join?gc=CODIGO), hasta (AAAA-MM-DD: el día que se cierra la asignación, incluido) y, opcionales, curso (\"5\" o \"6\"; sin curso, para todos), reglas (ids de reglas.json) y mensaje (lo que dice Robles). Al pasar la fecha deja de salir: se puede borrar. Nunca nombres ni notas del alumnado. Comprobar con python3 herramientas/validar_wayground.py",
+  "_ejemplo": {
+    "titulo": "Repaso de tildes",
+    "codigo": "12345678",
+    "hasta": "2026-12-05",
+    "curso": "5",
+    "reglas": [
+      "tildes-generales"
+    ],
+    "mensaje": "Detective, antes de abrir el próximo expediente quiero comprobar cómo andas de tildes. Te espero en el archivo de Wayground."
+  },
+  "ordenes": []
+}

@@ -93,6 +93,7 @@ function vistaTablon() {
       <button class="boton-papel" id="salir">Salir</button>
     </div>
     <div class="corcho tablon">
+      ${htmlOrdenesWayground(perfil.curso)}
       ${siguienteCaso ? `<button class="siguiente-caso boton-sello" id="casoPendiente">${esc(etiquetaCasoPendiente(siguienteCaso))} ▸</button>`
         : faltanCasos ? `<p class="siguiente-caso nota-corcho">${avisoCasos}</p>` : ""}
       ${curso.unidades.map(u => tarjetaUnidad(u, mios)).join("")}
@@ -380,6 +381,7 @@ function vistaMaestro() {
         <tbody>${Object.values(ultimoDiag).map(r => `<tr><td>${esc(r.nombre)}</td>${reglasDiag.map(rg => { const d = r.diagnostico.find(x => x.regla === rg); return `<td class="${d ? (d.porcentaje >= 75 ? "celda-bien" : d.porcentaje >= 50 ? "celda-casi" : "celda-mal") : ""}">${d ? `${d.porcentaje} %` : "—"}</td>`; }).join("")}</tr>`).join("")}</tbody>
       </table></div>` : ""}
       ${htmlNotasFinales()}
+      ${htmlWaygroundMaestro()}
       ${htmlSinInternet()}
       ${htmlNubeMaestro()}
       ${htmlCopia()}
@@ -541,7 +543,7 @@ function registrarSinInternet() {
 }
 const BANCOS_ACADEMIA = ["palabras", "textos", "testigos", "verbos", "pizarra", "dictados", "galeradas", "apuntes", "partes", "sintilde", "homofonos", "familias", "comas"];
 function archivosDelJuego() {
-  const u = new Set(["./", "index.html", "manifest.webmanifest", "icono-192.png", "icono-512.png", "datos/reglas.json", "datos/programacion.json", "datos/arte.json", "datos/encargos.json"]);
+  const u = new Set(["./", "index.html", "manifest.webmanifest", "icono-192.png", "icono-512.png", "datos/reglas.json", "datos/programacion.json", "datos/arte.json", "datos/encargos.json", "datos/wayground.json"]);
   $$("script[src], link[rel=stylesheet]").forEach(x => u.add(x.getAttribute("src") || x.getAttribute("href")));
   BANCOS_ACADEMIA.forEach(b => u.add(`datos/academia/${b}.json`));
   Object.keys(D.casos).forEach(id => u.add(`datos/casos/${id}.json`));
@@ -653,6 +655,7 @@ async function init() {
   marcarRevision();
   registrarSinInternet();
   await cargarEncargos();
+  await cargarWayground();
   await Promise.race([cargarPaquete(), new Promise(listo => setTimeout(listo, 2000))]);
   vistaInicio();
 }
