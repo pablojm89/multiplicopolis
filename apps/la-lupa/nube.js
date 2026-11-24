@@ -8,9 +8,9 @@
      en el momento del envío con lo que hay guardado, así que la cola ocupa muy poco y nunca manda algo viejo.
    - El envío se da por hecho SOLO si el servidor contesta { ok: true }. Si no se puede leer la respuesta,
      no se borra nada: se reintenta. Repetir un envío no duplica (el servidor actualiza por id).
-   - «Recuperar mi detective»: en otro dispositivo, el alumno escribe su alias y se baja su progreso,
+   - «Recuperar mi detective»: en otro dispositivo, el alumno escribe su nombre y se baja su progreso,
      que se VALIDA y se FUSIONA con lo que haya aquí (no lo sustituye).
-   Se usa el ALIAS como identificador: nunca el nombre real (datos de menores).
+   Se usa el nombre del detective (normalizado con normAlias) como identificador. En el código se sigue llamando «alias».
    Servidor y pasos: backend/apps-script/la-lupa.gs y apps/la-lupa/NUBE.md
    ============================================================ */
 "use strict";
@@ -358,7 +358,7 @@ function academiaNube(a) {
   };
 }
 function nubeValidar(s, id) {
-  const mala = "La copia de la nube de ese alias está vacía o dañada y no se ha podido usar. Avisa a tu maestro o maestra.";
+  const mala = "La copia de la nube de ese nombre está vacía o dañada y no se ha podido usar. Avisa a tu maestro o maestra.";
   if (!esObjeto(s) || !esObjeto(s.perfil)) throw new ErrorNube(mala);
   const cursos = D.prog?.cursos || {}, p = s.perfil;
   const perfil = { id: String(p.id ?? ""), nombre: textoNube(p.nombre, 40).replace(/^[\s=+\-@]+/, "").trim(), curso: textoNube(p.curso, 10), creado: fechaNube(p.creado) ? p.creado : new Date().toISOString() };
@@ -374,14 +374,14 @@ function nubeValidar(s, id) {
 /* ── Recuperar el progreso en otro dispositivo ──────────────── */
 async function nubeRecuperar(alias) {
   const id = normAlias(alias);
-  if (!id) throw new ErrorNube("Escribe tu alias de detective.");
+  if (!id) throw new ErrorNube("Escribe tu nombre de detective.");
   let j = null;
   try {
     const u = new URL(nubeConf().url);
     Object.entries({ app: "lalupa", classCode: nubeConf().aula, type: "progress", studentId: id }).forEach(([k, v]) => u.searchParams.set(k, v));
     j = await (await fetch(u, { method: "GET" })).json();
   } catch { throw new ErrorNube("No se ha podido conectar con la nube. Prueba más tarde."); }
-  if (!esObjeto(j) || j.ok !== true) throw new ErrorNube(j?.error === "no encontrado" ? "No hay ningún detective con ese alias en esta aula." : "La nube ha contestado con un error. Avisa a tu maestro o maestra.");
+  if (!esObjeto(j) || j.ok !== true) throw new ErrorNube(j?.error === "no encontrado" ? "No hay ningún detective con ese nombre en esta aula." : "La nube ha contestado con un error. Avisa a tu maestro o maestra.");
   const s = nubeValidar(j.progress?.snapshot, id);
   const yaEsta = perfiles.find(p => p.id === s.perfil.id) || perfiles.find(p => idAlumno(p) === id);
   const pf = yaEsta || s.perfil;
@@ -411,8 +411,8 @@ async function nubeRecuperar(alias) {
 function pedirRecuperar() {
   abrirModal(`
     <h3>☁️ Recuperar mi detective</h3>
-    <p>Escribe tu alias de detective tal como lo pusiste en el otro dispositivo.</p>
-    <input id="recAlias" class="entrada" autocomplete="off" maxlength="40" aria-label="Alias">
+    <p>Escribe tu nombre tal como lo pusiste en el otro dispositivo.</p>
+    <input id="recAlias" class="entrada" autocomplete="off" maxlength="40" aria-label="Nombre">
     <p id="recMsg" class="msg"></p>
     <div class="acciones"><button class="boton-sello" id="recOk">Recuperar</button></div>`, "ventana-libreta");
   const inp = $("#recAlias");
@@ -450,7 +450,7 @@ function htmlNubeMaestro() {
   const c = nubeConf();
   return `
       <h2>Guardar en la nube (opcional)</h2>
-      <p class="aviso-maestro">Con un Apps Script de Google (los pasos están en <code>apps/la-lupa/NUBE.md</code>), las notas y el progreso de cada detective se guardan en tu hoja de cálculo y el alumno puede seguir en otro dispositivo. Se envía el <b>alias</b>, nunca el nombre. Sin URL, no se envía nada.</p>
+      <p class="aviso-maestro">Con un Apps Script de Google (los pasos están en <code>apps/la-lupa/NUBE.md</code>), las notas y el progreso de cada detective se guardan en tu hoja de cálculo y el alumno puede seguir en otro dispositivo. Se envía el <b>nombre del detective</b>, el curso y las notas, a tu propia hoja de cálculo. Sin URL, no se envía nada.</p>
       <div class="fila">
         <label>URL del Apps Script: <input id="nubeUrl" value="${esc(c.url || "")}" placeholder="https://script.google.com/macros/s/…/exec" size="44"></label>
         <label>Código de aula: <input id="nubeAula" value="${esc(c.aula || "")}" maxlength="20" placeholder="5A-2027"></label>

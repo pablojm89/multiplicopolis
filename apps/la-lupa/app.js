@@ -38,7 +38,7 @@ function vistaInicio() {
       <p class="etiqueta-clase">¿Eres de la clase? Busca tu ficha de aspirante:</p>
       <div class="fichas-clase">${aliasLibres().map(a => `<button class="ficha-clase" data-alias="${esc(a.alias)}"><img src="${a.avatar}" alt=""><span>${esc(a.alias)}</span></button>`).join("")}</div>` : ""}
       <form id="nuevo" class="nueva-ficha">
-        <input id="nNombre" placeholder="Tu alias de detective" title="Inventa un alias: no hace falta tu nombre real ni tus apellidos" maxlength="30" required autocomplete="off" autocapitalize="words">
+        <input id="nNombre" placeholder="Tu nombre" title="Escribe tu nombre. Si en clase hay otro igual, añade la inicial de tu apellido" maxlength="30" required autocomplete="off" autocapitalize="words">
         <select id="nCurso">${Object.entries(cursos).map(([k, c]) => `<option value="${esc(k)}">${esc(c.nombre)}</option>`).join("")}</select>
         <button class="boton-sello">Crear ficha</button>
       </form>
@@ -51,8 +51,8 @@ function vistaInicio() {
   const crear = (nombre, avatar) => {
     nombre = nombre.replace(/^[\s=+\-@]+/, "").trim();
     const clave = claveAlias(avatar || nombre);
-    const aviso1 = !clave ? "Tu alias tiene que llevar alguna letra o algún número."
-      : perfiles.some(p => idAlumno(p) === clave || claveAlias(p.nombre) === claveAlias(nombre)) ? "Ya hay un detective con ese alias en este dispositivo. Elige otro o entra con tu ficha." : "";
+    const aviso1 = !clave ? "Tu nombre tiene que llevar alguna letra."
+      : perfiles.some(p => idAlumno(p) === clave || claveAlias(p.nombre) === claveAlias(nombre)) ? "Ya hay un detective con ese nombre en este dispositivo. Si eres tú, entra con tu ficha; si no, añade la inicial de tu apellido." : "";
     if (aviso1) { aviso(aviso1, "mal"); return; }
     perfil = { id: uid(), nombre, curso: $("#nCurso").value, creado: new Date().toISOString(), ...(avatar ? { avatar } : {}) };
     perfiles.push(perfil);
@@ -508,7 +508,7 @@ function activarNotasFinales() {
   $("#csvSeneca")?.addEventListener("click", () => {
     const { filas, crits } = notasPorAlumno();
     const letra = letraCurso(perfiles.find(p => p.id === filas[0]?.id)?.curso || "5");
-    const cab = ["n_lista", "alias", ...crits.map(k => `${k}.${letra}`)];
+    const cab = ["n_lista", "nombre", ...crits.map(k => `${k}.${letra}`)];
     const lineas = [cab.join(";"), ...filas.map(p => [`"${celdaSegura(p.lista).replaceAll('"', '""')}"`, `"${celdaSegura(p.nombre).replaceAll('"', '""')}"`, ...crits.map(k => (p.crit[k] ? notaSeneca(p.crit[k]) : ""))].join(";"))];
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob(["\ufeff" + lineas.join("\n")], { type: "text/csv;charset=utf-8" }));
@@ -591,7 +591,7 @@ const clavesDelJuego = () => { try { return Object.keys(localStorage).filter(c =
 function htmlCopia() {
   return `
       <h2>Copia de seguridad</h2>
-      <p class="aviso-maestro">Guarda en un archivo todos los detectives, resultados, progreso de la Academia y ajustes de este dispositivo, para recuperarlos si se borran o para pasarlos a otro. El archivo lleva los alias y las notas: guárdalo donde solo lo veas tú. Los avatares de la clase van aparte, en su paquete.</p>
+      <p class="aviso-maestro">Guarda en un archivo todos los detectives, resultados, progreso de la Academia y ajustes de este dispositivo, para recuperarlos si se borran o para pasarlos a otro. El archivo lleva los nombres y las notas: guárdalo en tus archivos. Los avatares de la clase van aparte, en su paquete.</p>
       <div class="fila">
         <button class="boton-papel" id="copiaBajar">Descargar copia de seguridad</button>
         <label class="boton-papel" for="copiaSubir">Restaurar una copia…</label><input type="file" id="copiaSubir" accept=".json,application/json" hidden>

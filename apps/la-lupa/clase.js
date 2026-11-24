@@ -63,7 +63,7 @@ function htmlPaqueteMaestro() {
   const p = CLASE.paquete;
   return `
     <h2>Paquete de clase (avatares del alumnado)</h2>
-    <p class="aviso-maestro">Los avatares se guardan <strong>solo en este dispositivo</strong>: no se suben a internet ni al repositorio. Impórtalo en cada dispositivo del aula. Al crear su ficha, cada alumno elige su avatar por su alias de detective.</p>
+    <p class="aviso-maestro">Los avatares se guardan <strong>solo en este dispositivo</strong>: no se suben a internet ni al repositorio. Impórtalo en cada dispositivo del aula. Al crear su ficha, cada alumno busca su avatar por el nombre que puso en su ficha de aspirante.</p>
     <div class="fila">
       <label class="boton-papel">Importar paquete… <input type="file" id="pqArchivo" accept=".json,application/json" hidden></label>
       ${p ? `<button class="boton-papel peligro" id="pqQuitar">Quitar paquete de este dispositivo</button>` : ""}

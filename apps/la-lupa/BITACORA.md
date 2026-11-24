@@ -301,3 +301,9 @@ Pablo aprueba la ficha de tildes y pide el mismo formato para las otras ocho. Ca
 - El archivo entra en «Descargar todo»; como el service worker pide los datos primero a la red, un cambio publicado llega en cuanto hay conexión.
 - Ahora mismo no hay ninguna orden: se añade la primera cuando Pablo asigne un cuestionario (con la skill `wayground`), y hay que publicar en `main` para que se vea.
 
+**Nombres y notas del alumnado.** Pablo pide que se quite la restricción de no usar nombres ni registrar notas: «yo soy maestro, tengo que registrar las notas de mis alumnos». Los alumnos juegan con su nombre y sus notas van a los sistemas privados de Pablo: los dispositivos de clase, la nube con sus Hojas de Google, Notion y Wayground. Lo único que no se hace es subirlos al repo, porque es público. Cambiado en las instrucciones (`CLAUDE.md`, `AGENTS.md`, `PLAN.md`) y en el juego:
+- La entrada pide «Tu nombre» en vez de «Tu alias de detective». Si hay dos iguales, se avisa de que se añada la inicial del apellido.
+- La ayuda, «Recuperar mi detective», la explicación de la nube, la copia de seguridad, la libreta imprimible y la columna del CSV para Séneca («nombre») dicen nombre.
+- Por dentro no cambia nada: el identificador de la nube se sigue llamando `alias` (`normAlias`), así que los detectives ya creados y la hoja de cálculo siguen valiendo.
+- Sin tocar, a la espera de que Pablo decida: los avatares. La ficha de aspirante, la autorización para las familias y `arte/AVATARES-ALUMNADO.md` siguen con un alias inventado, porque lo que se manda a la IA de imágenes y lo que se les dice a las familias lo decide él.
+
