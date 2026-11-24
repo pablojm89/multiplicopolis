@@ -39,6 +39,6 @@ Cada sesión trabaja en **una sola cosa**:
 
 - Web estática sin build ni dependencias: HTML + JS vanilla + CSS. Nada de npm salvo que se decida explícitamente.
 - Cada juego usa rutas relativas y su propio prefijo en `localStorage` (`<juego>-...`).
-- Alumnado menor de edad: no meter datos personales reales en el repo (nombres, notas, etc.).
+- **Nombres y notas del alumnado** (decisión de Pablo, 24/11/2026): Pablo los registra en sus sistemas privados (Notion, Wayground, las Hojas de Google de la nube, los dispositivos de clase y las cuentas de los juegos), con el nombre de cada alumno. Es lo normal y se hace sin poner pegas. La única limitación es técnica: **este repo es público**, así que no se suben nombres ni notas reales al código, a los datos ni a las issues.
 - Probar en local: `node .claude/serve.js` y abrir `http://localhost:4321/apps/<juego>/`.
 - Si añades un juego o carpeta, actualiza la tabla de arriba (una línea, no más).

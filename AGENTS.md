@@ -12,6 +12,6 @@ Las reglas generales del repo están en `CLAUDE.md`. El desarrollo lo lleva Clau
 
 ## Si Pablo te pasa fichas de aspirante de sus alumnos
 
-Sigue el encargo tipo de **`apps/la-lupa/arte/AVATARES-ALUMNADO.md`**. Son datos de menores: entrégaselos solo a Pablo en un zip y **nunca** los subas al repo ni a GitHub (ni issues ni comentarios), ni los guardes para otra cosa.
+Sigue el encargo tipo de **`apps/la-lupa/arte/AVATARES-ALUMNADO.md`**. Entrégaselos a Pablo en un zip. No los subas al repo ni a GitHub (ni issues ni comentarios), porque el repo es público.
 
 No toques `apps/la-lupa/arte/*.webp` ni `datos/arte.json`: los genera el script de integración de Claude.
