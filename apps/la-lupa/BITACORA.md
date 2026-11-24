@@ -291,3 +291,7 @@ El mapa del barrio ha salido con los quince edificios separados y reconocibles, 
 Pablo aprueba la ficha de tildes y pide el mismo formato para las otras ocho. Cada ficha tiene tres instrucciones concretas para el cuaderno y esquemas de consulta. En clase se puede leer la tarea en pantalla y escribir en el cuaderno. Si se reparte la hoja, también se puede escribir en «Mis apuntes» y guardarla en la libreta.
 
 **Recorrido desde la perspectiva del alumno.** Se revisaron la creación y recuperación de la ficha, el tablón, el orden de los casos, las tres configuraciones de preparación, la libreta y el candado, las rondas de la Academia, los apuntes, el progreso de 6.º y el buzón. El botón «?» explica el manejo de la pantalla sin consumir pistas. El tablón y el informe ofrecen el siguiente expediente disponible. La preparación marca qué toca hacer ahora, y la salida de una actividad devuelve al patio o a la preparación según cómo se entró. También se distingue volver al punto guardado de empezar de nuevo, se explica cuánto falta para desbloquear encargos y se añaden teclas con tilde, diéresis y eñe donde se escribe la corrección.
+
+## 24 de noviembre de 2026
+
+**Lluvia de fondo.** Pablo pide que suene bajita y que se use la [grabación de referencia a partir de 6:39:48](https://www.youtube.com/watch?v=rvN6LfLIFok&t=23988s). Mientras se consigue ese fragmento, se baja y suaviza la lluvia sintetizada de la agencia y del sabotaje. Se quitan las gotas agudas y se mantiene el reloj de la agencia.
