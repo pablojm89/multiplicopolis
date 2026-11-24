@@ -44,6 +44,7 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 - [x] **Primeros pasos en la Academia** (Pablo, 19/11): «Descubre la regla» y «El sismógrafo de sílabas» tienen una explicación del instructor y un ejemplo resuelto sin puntuación, tanto desde el patio como desde la preparación del caso.
 - [x] **Apuntes para estudiar** (Pablo, 19/11): las nueve fichas de 5.º se pueden repasar desde el patio. En la preparación, cada ficha abre con «Qué escribir en tu cuaderno» y deja los esquemas para consultar. Los imprimibles son opcionales e incluyen espacio para escribir.
 - [x] **Recorrido del alumno** (Pablo, 19/11): ayuda contextual «?» en casos, encargos y Academia, acceso al siguiente caso desde el informe, paso actual destacado en la preparación y regreso al punto de partida al salir de una práctica o un encargo.
+- [x] **Wayground en el tablón** (Pablo, 24/11): orden del director con el enlace del cuestionario, configurada en `datos/wayground.json` y con fecha de cierre
 - [x] **Todo puede contar para nota**: el maestro marca casos, encargos o Academia; media por criterio y CSV con el tipo
 - [x] Academia: 6 ejercicios nuevos (rellena el parte, la máquina sin tilde, microscopio de homófonos, centrifugadora de familias, deletreo, la coma que cambia el culpable); salas con menú de ejercicios
 - [ ] Academia: más actividades por sala (T1, T3, T4, Z2, Z4, Z5, R2, R4, E1, E2, E4, E5…) y niveles N2/N3
@@ -101,6 +102,8 @@ Orquesta: la sesión principal. Cada fase genera documentos en `docs/investigaci
 | 2026-11-04 | **Todo puede contar para nota si el maestro lo decide**, y **antes de cada caso el alumno se prepara en la Academia** tomando apuntes en su libreta (reglas, esquemas, tablas), con muchos ejercicios distintos: el caso sirve como evaluación. |
 | 2026-11-04 | **Avatares del alumnado**: ficha de aspirante en papel después del piloto, con alias, dibujo y descripción. GPT hace el avatar a partir del dibujo, nunca de fotos. Paquete de clase privado, solo en los dispositivos del aula y nunca en el repo, y autorización de las familias. |
 | 2026-11-04 | Trama de temporada: El Tachón es **Bruno, el repartidor del periódico**, un antiguo aspirante a la agencia del que se rieron por sus faltas. Al final se une al equipo (opción C de `TEMPORADA-1.md`). |
+| 2026-11-24 | **Nombres y notas del alumnado**: los alumnos usan su nombre (no hace falta alias) y sus notas se registran donde decida Pablo, siempre en sus sistemas privados (Notion, Wayground, la nube, los dispositivos de clase). Solo quedan fuera del repo, porque es público. Sustituye a «alias en vez de nombre» del 4/11. |
+| 2026-11-24 | **Wayground**: los cuestionarios se mandan desde una orden del director en el **tablón**, configurada en el **archivo del repo** (`datos/wayground.json`), no en cada dispositivo. |
 | 2026-11-03 | **Cambio de estilo:** anime moderno con tono de misterio (noir de detectives, serie juvenil de suspense), sin aire infantil, ambientado en el barrio andaluz de La Alameda. Tensión sí; sangre, violencia y terror no. La interfaz del juego se oscurecerá para encajar cuando llegue el arte. |
 
 ## Ideas para más adelante

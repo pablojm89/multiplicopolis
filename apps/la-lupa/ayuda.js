@@ -2,8 +2,8 @@
 "use strict";
 
 const AYUDA_PANTALLA = {
-  entrada: ["Tu ficha de detective", "Si juegas por primera vez, inventa un alias, elige tu curso y pulsa «Crear ficha». Si ya has jugado, toca tu ficha para recuperar tu avance en este dispositivo."],
-  tablon: ["¿Por dónde empiezo?", "El botón de arriba te lleva al primer caso pendiente. Un candado indica qué expediente tienes que terminar antes.", "Desde aquí también puedes entrenar en la Academia o abrir el buzón de encargos."],
+  entrada: ["Tu ficha de detective", "Si juegas por primera vez, escribe tu nombre, elige tu curso y pulsa «Crear ficha». Si ya has jugado, toca tu ficha para recuperar tu avance en este dispositivo."],
+  tablon: ["¿Por dónde empiezo?", "El botón de arriba te lleva al primer caso pendiente. Un candado indica qué expediente tienes que terminar antes.", "Desde aquí también puedes entrenar en la Academia o abrir el buzón de encargos.", "Si hay una orden del director con un cuestionario de Wayground, su botón lo abre en otra pestaña (hace falta internet). Al terminar, vuelve a esta pestaña."],
   sinCasos: ["¿Qué puedo jugar?", "Los casos de este curso aún se están preparando. Puedes practicar en la Academia o resolver los encargos abiertos del buzón."],
   casosAlDia: ["¿Qué puedo jugar ahora?", "Ya has resuelto los casos disponibles de tu curso. Mientras llegan más, puedes repetir un caso, entrenar en la Academia o jugar un encargo."],
   preparacion: ["Cómo preparar el caso", "Empieza por el paso marcado «Ahora». Al terminarlo, se abre el siguiente. Puedes salir al tablón y volver otro día: los pasos completados se guardan."],

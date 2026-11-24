@@ -651,3 +651,19 @@ html { touch-action: manipulation; }
 .aca-nivel .lupa-ico { height: 36px; vertical-align: middle; }
 .carne-sala li b i .lupa-ico { height: 20px; vertical-align: -4px; }
 .placa-rango { height: 34px; width: auto; vertical-align: middle; margin: -6px 8px -6px 0; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .4)); }
+
+/* ── Orden del director: cuestionario de Wayground en el tablón (wayground.js) ── */
+.orden-wayground { grid-column: 1 / -1; position: relative; display: flex; align-items: center; gap: 18px; background: var(--ruido), linear-gradient(#fffaf0, #f3e6c8); color: var(--tinta); padding: 14px 22px 14px 16px; border-left: 10px solid var(--azulejo); box-shadow: 0 6px 12px rgba(0, 0, 0, .4); transform: rotate(-.5deg); border-radius: 2px; }
+.orden-wayground .chincheta { left: 70px; }
+.wg-cara { flex: none; position: relative; width: 92px; height: 92px; overflow: hidden; border-radius: 50%; border: 4px solid var(--papel); box-shadow: 0 0 0 2px var(--azulejo), 0 3px 6px rgba(0, 0, 0, .35); background: radial-gradient(circle at 50% 35%, #f3e6c8, #c9b48a); }
+.wg-cara img { position: absolute; width: 248px; max-width: none; left: -76px; top: -2px; }
+.wg-texto { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.wg-sello { align-self: flex-start; font: 17px var(--f-cartel); letter-spacing: .08em; color: var(--rojo); border: 2.5px solid currentColor; padding: 1px 8px 0; transform: rotate(-3deg); margin-bottom: 2px; }
+.wg-mensaje { font: 20px/1.2 var(--f-mano); margin: 0; }
+.orden-wayground h3 { font: 30px/1 var(--f-cartel); letter-spacing: .02em; font-weight: 400; margin: 2px 0 0; }
+.wg-datos { font: 15px var(--f-maquina); color: var(--gris-tinta); margin: 0; }
+.wg-datos b { color: var(--tinta); }
+.wg-salida { flex: none; width: 300px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.wg-ir { display: inline-block; text-decoration: none; font-size: 26px; padding: 8px 18px 6px; white-space: nowrap; }
+.wg-nota { font: 700 14px/1.25 var(--f-ui); color: var(--gris-tinta); }
+.wg-sin-red { font: 700 16px/1.3 var(--f-ui); color: var(--tinta); background: #fff8c4; padding: 8px 12px; border-radius: 4px; transform: rotate(1deg); box-shadow: 0 2px 4px rgba(0, 0, 0, .25); }

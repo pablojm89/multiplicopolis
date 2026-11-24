@@ -14,7 +14,7 @@ Con la nube activada:
 ## Qué sale del dispositivo (y qué no)
 - **Sale** (solo si la nube está configurada), hacia la hoja de cálculo: el **alias**, el curso, las notas por criterio de cada partida (con su fecha y hora, el título del caso y el nivel), las palabras que hay que repasar, los minutos, las pistas pedidas, el sello de la libreta y el estado de la Academia (puntos, lupas, cola de repaso).
 - **No sale**: el n.º de lista de Séneca, los avatares, las partidas a medias, lo escrito en la libreta digital, el detalle de cada respuesta, el PIN ni el código de sello.
-- El alias es lo único que identifica al alumno: **no puede ser su nombre real**. Con el paquete de clase, los alias los reparte el maestro.
+- El nombre del detective (en el código, `alias`) es lo que identifica al alumno. Desde el 24/11/2026 los alumnos juegan con su nombre (decisión de Pablo); si hay dos iguales en un aula, se añade la inicial del apellido.
 - La hoja está en la cuenta de Google de quien la crea. Antes de usarla con alumnado real, hay que confirmar con el centro qué cuenta usar; lo prudente es una cuenta educativa del centro, no una personal. Ver `docs/investigacion/seneca-exportacion.md` (privacidad) y `arte/AVATARES-ALUMNADO.md`.
 - «Borrar datos de este dispositivo» **no borra la hoja**: para quitar a un alumno de la nube, se borran sus filas de las tres pestañas.
 
