@@ -3,7 +3,7 @@
 
 Uso:  python3 -I herramientas/paquete_clase.py <carpeta-png> <salida.lalupa-clase.json> --clase "5.º A" [--curso 5]
 
-- Los alias salen de <carpeta>/MANIFIESTO.json (lista de {"archivo": "aspirante-07.png", "alias": "Agente Relámpago"})
+- Los nombres salen de <carpeta>/MANIFIESTO.json (lista de {"archivo": "aspirante-07.png", "nombre": "Lucía G."}; también vale la clave antigua "alias")
   o, si no está, del nombre del archivo (agente-relampago.png → «agente relampago»).
 - Cada avatar se reduce a 768 px de alto, se pasa a WebP y se normaliza la opacidad (como integrar_arte.py).
 
@@ -38,8 +38,8 @@ man = next(iter(carpeta.rglob("MANIFIESTO.json")), None)
 if man:
     datos = json.loads(man.read_text(encoding="utf-8"))
     for x in datos if isinstance(datos, list) else datos.get("archivos", []):
-        if x.get("alias"):
-            alias[Path(x.get("archivo") or x.get("ruta")).name] = x["alias"].strip()
+        if x.get("nombre") or x.get("alias"):
+            alias[Path(x.get("archivo") or x.get("ruta")).name] = (x.get("nombre") or x["alias"]).strip()
 
 alumnos = []
 for f in pngs:
@@ -55,7 +55,7 @@ for f in pngs:
 
 repes = {x["alias"] for x in alumnos if [y["alias"] for y in alumnos].count(x["alias"]) > 1}
 if repes:
-    sys.exit(f"Alias repetidos: {', '.join(sorted(repes))}")
+    sys.exit(f"Nombres repetidos (añade la inicial del apellido en el manifiesto): {', '.join(sorted(repes))}")
 paquete = {"tipo": "lalupa-clase", "version": 1, "clase": args.clase, "curso": args.curso, "alumnos": alumnos}
 Path(args.salida).write_text(json.dumps(paquete, ensure_ascii=False), encoding="utf-8")
 print(f"Paquete creado: {args.salida} · {len(alumnos)} avatares · {Path(args.salida).stat().st_size // 1024} KB")
